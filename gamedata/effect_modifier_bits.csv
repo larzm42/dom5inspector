@@ -1,0 +1,64 @@
+bit_value	bit_name	test
+1	Adds Strength of Wielder {Wpn: not #nostr}
+2	Requires Two Hands {Wpn: #twohanded}
+4	+2 Attack vs Shields {Wpn: #flail}
+8	Affects Demons and Undead {Wpn: #demonundead}
+16	Affects Magic Beings Only {Wpn: #magiconly}
+32	Heat/Fire {Wpn: #fire}
+64	Armor Piercing {Wpn: #armorpiercing}
+128	Armor Negating {Wpn: #armornegating}
+256	Unknown Modifier {Wpn: #256}
+512	Chill/Cold {Wpn: #cold}
+1024	Unknown Modifier {Wpn: #1024}
+2048	Shock {Wpn: #shock}
+4096	Magic Resistance Negates {Wpn: #mrnegates}
+8192	Poison {Wpn: #poison}
+16384	Ignores Shields {Wpn: #ignoreshield}
+32768	Affects Sacreds Only {Wpn: #sacredonly}
+65536	Affects Air Breathers Only {Wpn: #aironly}
+131072	No Effect on Mindless {Wpn: #mind}
+262144	Affects Enemies Only {Wpn: #friendlyimmune}
+524288	No Effect on Undead {Wpn: #undeadimmune}
+1048576	Defense Negate {Wpn: #defnegate}
+2097152	Hard to Hit Ethereal {Wpn: not #magic}
+4194304	Affects Friendlies Only {Wpn: #enemyimmune}
+8388608	May Use Underwater {Wpn: #uwok}
+16777216	Magic Resistance Negates Easily {Wpn: #mrnegateseasily}
+33554432	Use Underwater Only {Wpn: #uwonly}
+67108864	Affects Undead Only {Wpn: #undeadonly}
+134217728	Intrinsic Weapon {Wpn: #bonus}
+268435456	Can be cast to Underwater province {Wpn: #touw}
+536870912	Affects Health (?) {Wpn: #health}
+1073741824	Bloodletting (?) {Wpn: #bloodletting}
+2147483648	Damage Bonus on 1st Attack {Wpn: #charge}
+4294967296	Unknown Modifier {Wpn: #4294967296}
+8589934592	Unknown Modifier {Wpn: #8589934592}
+17179869184	Unknown Modifier {Wpn: #17179869184}
+34359738368	Unknown Modifier {Wpn: #34359738368}
+68719476736	Unknown Modifier {Wpn: #68719476736}
+137438953472	Cannot Repel {Wpn: #norepel}
+274877906944	Piercing Damage {Wpn: #pierce}
+549755813888	Bludgeoning Damage {Wpn: #blunt}
+1099511627776	Slashing Damage {Wpn: #slash}
+2199023255552	Acid Damage {Wpn: #acid}
+4398046511104	Affects according to Target Size {Wpn: #sizeresist}
+8796093022208	Grab and Swallow {Wpn: #trampswallow}
+17592186044416	Unknown Modifier {Wpn: #17592186044416}
+35184372088832	Unknown Modifier {Wpn: #35184372088832}
+70368744177664	No Effect on Fliers/Floaters {Wpn: #flyingimmune}
+140737488355328	No Effect on Constructs {Wpn: #constructimmune}
+281474976710656	Affects Animals Only {Wpn: #animalonly}
+562949953421312	Unknown Modifier {Wpn: #562949953421312}
+1125899906842624	Ritual of Five Gates {Wpn: #fivegates}
+2251799813685248	Unknown Modifier {Wpn: #2251799813685248}
+4503599627370496	Unknown Modifier {Wpn: #4503599627370496}
+9007199254740992	Ranged Special Attack {Wpn: #rangespec}
+18014398509481984	Unknown Modifier {Wpn: #18014398509481984}
+36028797018963968	Unknown Modifier {Wpn: #36028797018963968}
+72057594037927936	Unknown Modifier {Wpn: #72057594037927936}
+144115188075855872	Unknown Modifier {Wpn: #144115188075855872}
+288230376151711744	Unknown Modifier {Wpn: #288230376151711744}
+576460752303423488	Unknown Modifier {Wpn: #576460752303423488}
+1152921504606846976	Unknown Modifier {Wpn: #1152921504606846976}
+2305843009213693952	Unknown Modifier {Wpn: #2305843009213693952}
+4611686018427387904	Unknown Modifier {Wpn: #4611686018427387904}

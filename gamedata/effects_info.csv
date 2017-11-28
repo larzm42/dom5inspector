@@ -1,0 +1,110 @@
+number	name	test
+0	Nothing
+1	Summon
+2	Damage {Wpn: #dt_normal}
+3	Sleep/Stun {Wpn: #dt_stun}
+4	Cause Fear (Type I)
+7	Poison (Mortal) {Wpn: #dt_poison}
+8	Remove Fatigue (?)
+10	Bless/Buff (Type I)
+11	Special Attack
+13	Heal
+15	Return Home
+16	Unknown
+17	Temporary Morale Boost
+19	Teleport
+20	Blink
+21	Summon Commander
+22	Fate of Oedipus
+23	Bless/Buff (Type II)
+24	Damage (x3 vs Undead/Demon) {Wpn: #dt_holy}
+25	Wish
+26	Ritual of Rebirth
+27	Magic Duel
+28	Control/Possess
+29	Charm
+30	Dispel
+31	Call Horror
+32	Damage (x2 vs Large Creatures) {Wpn: #dt_large}
+33	Damage (x2 vs Small Creatures) {Wpn: #dt_small}
+35	Cross Breeding
+37	Remote Summon (Type I)
+38	Remote Summon (Type II)
+39	Gift of Reason
+40	Seeking Arrow
+41	Affect Half of Army in Province
+42	Affect Province with Anonymous Event
+43	Summon Neutral
+44	Transformation (?)
+46	Poison (Stun)
+48	Remote Site Search
+49	Wind Ride
+50	Remote Summon (Type III)
+53	Vengeance of the Dead
+54	Polymorph
+57	Mind Hunt
+62	Manifestation
+63	Remote Fort Construction
+64	Leprosy
+66	Paralyze {Wpn: #dt_paralyze}
+67	Weaken {Wpn: #dt_weakness}
+68	Summon Animals
+70	Crumble
+72	Life Overload Damage (?)
+73	Damage (x2 vs Magic Beings) {Wpn: #dt_magic}
+74	Unlife Damage (?) {Wpn: #dt_raise}
+75	Raven Feast
+76	Tartarian Gate
+77	Astral Travel
+79	Faery Trod
+80	Gateway
+81	Enchant Battlefield | Enchant World
+82	Enchant Province (Type I)
+84	Enchant Province (Type II)
+85	Scry
+86	Affect Province Dominion (?)
+89	Ritual Summon Unique (Type I)
+90	Stygian Paths
+91	Affect Random Enemies in Province (?)
+92	Imprint Souls
+93	Ritual Summon Unique (Type II)
+94	Beckoning
+95	Cloud Trapeze
+96	Shatter {Wpn: #dt_constructonly}
+97	Cause Fear (Type II)
+98	Winged Monkeys
+99	Petrify
+100	Terrain-Specific Ritual Summon
+101	Rejuvenate (?) | Age
+102	Horror Seed
+103	Drain Life {Wpn: #dt_drain}
+104	Drain Life via Weapon (?) {Wpn: #dt_weapondrain}
+105	Disbelieve
+106	Damage Demon (?)
+107	Damage Demon {Wpn: #dt_demon}
+108	Planeshift Other
+109	Capped Damage {Wpn: #dt_cap}
+110	Dreams of R'lyeh
+111	Internal Alchemy
+112	Attack Caster
+113	Astral Harpoon
+114	Awaken Treelord
+115	Acashic Record
+116	Swallow
+117	Alchemize Gems
+118	Blood Feast
+119	Send Lady Midday
+120	Unleash Imprisoned Ones
+121	Grab and Swallow
+122	Unknown
+123	Unknown
+125	Unknown
+500	Dehydrate
+504	Resist Element
+509	Protect against Element
+514	Resist Poison
+524	Resist Poison
+599	Immunity against Element (?)
+600	Horror Mark (Type I)
+601	Horror Mark (Type II)
+609	Freeze Area
