@@ -53,11 +53,11 @@ MItem.prepareData_PostMod = function() {
 			// Parse the restricted nations to a list of IDs
 			var parsedNations = [];
 			for (var ni=0, nid, n; nid= o.restricted[ni]; ni++) {
-//				if (!(n= modctx.nationlookup[nid])) {
-//					console.log('nation "'+nid+ '" not found (item '+o.id+')');
-//					continue;
-//				}
-//				parsedNations.push(n.id);
+				if (!(n= modctx.nationlookup[nid])) {
+					console.log('nation "'+nid+ '" not found (item '+o.id+')');
+					continue;
+				}
+				parsedNations.push(n.id);
 			}
 			o.restricted = parsedNations;
 
