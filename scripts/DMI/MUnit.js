@@ -1171,6 +1171,7 @@ MUnit.prepareForRender = function(o) {
 			if (!is(o.mounted)) {
 				//for enc 0 (undead) armor only affects speed
 				bonus('armor', 'ap', -enc_armor);
+				bonus('armor', 'mapmove', -enc_armor);
 				if (o.enc!='0')
 					bonus('armor', 'enc', enc_armor);
 			}
@@ -1510,6 +1511,7 @@ var formats = {};
 var displayorder = Utils.cutDisplayOrder(aliases, formats,
 [
 	//	dbase key	displayed key		function/dict to format value
+	'goldcost',	'gold',	{'0':'0 '},
 	'hp',	'hit points',	
 	'size', 'size',
 	'prot',	'protection',	{'0':'0 '},
@@ -1521,25 +1523,26 @@ var displayorder = Utils.cutDisplayOrder(aliases, formats,
 var displayorder2 = Utils.cutDisplayOrder(aliases, formats,
 [
 	//	dbase key	displayed key		function/dict to format value
+	'rcost',	'resources',	{'0':'0 '},
 	'str',	'strength',	{'0':'0 '},
 	'att',	'attack skill',	{'0':'0 '},
 	'def',	'defence skill',{'0':'0 '},
 	'prec',	'precision',	{'0':'0 '},
-	'combatspeed', 'combat speed', {'0':'0 '},
+	'ap', 'combat speed', {'0':'0 '},
 	'magicleader', 'magic ldr', {'0':'0 '}
 
 ]);
 var displayorder3 = Utils.cutDisplayOrder(aliases, formats,
 		[
 			//	dbase key	displayed key		function/dict to format value
-//			'ap', 	'move',		function(v,o){ 
-//				if (o.flying != '1' || parseInt(o.mapmove) > 2) { 
-//					return o.mapmove + ' / '+o.ap; 
-//				} else {
-//					return (parseInt(o.mapmove)+1) + ' / '+o.ap; 
-//				} 
-//			},
-			'mapmove',	'map move',
+			'rpcost',	'rec points', function(v,o){ 
+				if (parseInt(o.rpcost) > 1000) {
+					//return (parseInt(o.rpcost)/1000);
+					return '1';
+				}
+				return o.rpcost; 
+			},
+			'mapmove',	'map move',	function(v,o){ return (parseInt(o.mapmove)+2); },
 			'enc',	'encumbrance',	{'0':'0 '},
 			'maxage',	'age',	function(v,o){ return o.startage + ' ('+v+')'; },
 			'undeadleader', 'undead ldr',  {'0':'0 '}
@@ -1560,8 +1563,6 @@ var displayorder_pret = Utils.cutDisplayOrder(aliases, formats,
 ]);
 var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 [
-	'goldcost',	'gold',	{'0':'0 '},
-	'rcost',	'resources',	{'0':'0 '},
 	'gcost', 'basecost',
 	
 	'reclimit',		'recruitment limit',	Format.PerTurn,

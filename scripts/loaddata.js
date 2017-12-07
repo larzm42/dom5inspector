@@ -424,7 +424,7 @@ function downloadData( g_data ) {
 //           'gamedata/restrict_to_nations_by_attribute.csv'+versionCode,
            'gamedata/special_damage_types.csv'+versionCode,
 //           'gamedata/anon_province_events.csv'+versionCode,
-//           'gamedata/monster_tags.csv'+versionCode,
+           'gamedata/monster_tags.csv'+versionCode,
 //           'gamedata/special_unique_summons.csv'+versionCode,
 //           'gamedata/terrain_specific_summons.csv'+versionCode,
            'gamedata/other_planes.csv'+versionCode,
@@ -646,10 +646,10 @@ function parseData( g_data ) {
 //			modctx.anon_province_events = parseTextToTable(data);
 //			modctx.anon_province_events_lookup = createLookup(modctx.anon_province_events, 'number');
 //		
-//			var data = g_data.server_data['gamedata/monster_tags.csv'+versionCode];
-//			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/monster_tags.csv'));
-//			modctx.monster_tags = parseTextToTable(data);
-//			modctx.monster_tags_lookup = createLookup(modctx.monster_tags, 'number');
+			var data = g_data.server_data['gamedata/monster_tags.csv'+versionCode];
+			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/monster_tags.csv'));
+			modctx.monster_tags = parseTextToTable(data);
+			modctx.monster_tags_lookup = createLookup(modctx.monster_tags, 'number');
 //		
 //			var data = g_data.server_data['gamedata/special_unique_summons.csv'+versionCode];
 //			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/special_unique_summons.csv'));

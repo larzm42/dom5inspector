@@ -569,6 +569,8 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'reanimD', 'reanimation bonus (death)',
 
 	'sumauto',		'auto summoned unit',	Utils.unitRef,
+	'retinue', 		'retinue', 		Utils.unitRef,
+
 	
 	'affliction',		'afflicts bearer',	Utils.afflictionRef,
 	'cannotwear',		'restriction',		{2:'cannot be worn by mounted units', 536870912:'can only be worn by coldblooded units', 1073741824:'cannot be worn by inanimate units'},
