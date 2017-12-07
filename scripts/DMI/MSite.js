@@ -66,6 +66,10 @@ MSite.prepareData_PreMod = function() {
 		for (var oj=0, cap; cap = provdef[oj]; oj++) {
 			o.provdef.push(cap);
 		}
+		//set sprite url
+		if (o.sprite) {
+			o.url = 'images/sites/sites_' + Utils.paddedNum(o.sprite,4)+'.png'; 
+		}
 	}
 }
 
@@ -786,7 +790,7 @@ var ignorekeys = {
 	A:1, B:1, D:1, E:1, F:1, N:1, S:1, W:1, H:1,
 	A2:1, B2:1, D2:1, E2:1, F2:1, N2:1, S2:1, W2:1, H2:1,
 	ritrng:1, listed_gempath:1,
-	scale1:1, scale2:1,
+	scale1:1, scale2:1, sprite:1, url:1,
 	
 	//common fields
 	name:1,descr:1,
@@ -805,7 +809,7 @@ MSite.renderOverlay = function(o) {
 	
 	//mid
 	h+='	</div>';
-	h+='	<div class="overlay-main">';
+	h+='	<div class="clearfix overlay-main">';
 	h+=' 		<input class="overlay-pin" type="image" src="images/PinPageTrns.png" title="unpin" />';
 	h+='		<table class="overlay-table"> ';
 	h+= 			Utils.renderDetailsRows(o, hiddenkeys, aliases, formats, 'hidden-row');
@@ -817,8 +821,10 @@ MSite.renderOverlay = function(o) {
 	//modded
 	if (o.modded) {
 		h+='		<tr class="modded hidden-row"><td colspan="2">' + Utils.renderModded(o) +'</td></tr>';
-	}	
+	}		h+='	<img style="float:right; clear:right; vertical-align:top;" src="'+o.url+'"/>';
+
 	h+='		</table> ';
+
 	h+='	</div>';
 	
 	//footer

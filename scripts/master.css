@@ -10,6 +10,9 @@ body {overflow:hidden;}
 	font-weight:bold;
 }
 
+.clearfix {
+  overflow: auto;
+}
 
 /****************************************
 	grid 
