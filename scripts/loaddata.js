@@ -400,7 +400,7 @@ function downloadData( g_data ) {
 	var filestoload = [
            'gamedata/BaseI.csv'+versionCode,
            'gamedata/BaseU.csv'+versionCode,
-//           'gamedata/MagicSites.csv'+versionCode,
+           'gamedata/MagicSites.csv'+versionCode,
 //           'gamedata/Mercenary.csv'+versionCode,
 //           //'gamedata/events.csv'+versionCode,
 //           'gamedata/events.csv'+versionCode,
@@ -549,11 +549,11 @@ function parseData( g_data ) {
 //			modctx.spelldata = parseTextToTable(data);
 //			modctx.spelllookup = createLookup(modctx.spelldata, 'id', 'name');
 //		
-//			var data = g_data.server_data['gamedata/MagicSites.csv'+versionCode];
-//			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/MagicSites.csv'));
-//			modctx.sitedata = parseTextToTable(data);
-//			modctx.sitelookup = createLookup(modctx.sitedata, 'id', 'name');
-//		
+			var data = g_data.server_data['gamedata/MagicSites.csv'+versionCode];
+			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/MagicSites.csv'));
+			modctx.sitedata = parseTextToTable(data);
+			modctx.sitelookup = createLookup(modctx.sitedata, 'id', 'name');
+		
 //			var data = g_data.server_data['gamedata/Mercenary.csv'+versionCode];
 //			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/Mercenary.csv'));
 //			modctx.mercdata = parseTextToTable(data);
@@ -727,7 +727,7 @@ function parseData( g_data ) {
 			DMI.MItem.prepareData_PreMod();
 			DMI.MUnit.prepareData_PreMod();
 //			DMI.MSpell.prepareData_PreMod();
-//			DMI.MSite.prepareData_PreMod();
+			DMI.MSite.prepareData_PreMod();
 			DMI.MNation.prepareData_PreMod();
 //			DMI.MMerc.prepareData_PreMod();
 //			if (location.search.indexOf('loadEvents=1') != -1) {
@@ -773,8 +773,7 @@ function parseData( g_data ) {
 			DMI.MUnit.prepareData_PostMod();
 //			DMI.MSpell.prepareData_PostMod();
 			DMI.MNation.prepareData_PostMod();
-//			DMI.MUnit.prepareData_PostNationData(); //LZM
-//			DMI.MSite.prepareData_PostMod();
+			DMI.MSite.prepareData_PostMod();
 //			DMI.MMerc.prepareData_PostMod();
 //			if (location.search.indexOf('loadEvents=1') != -1) {
 //				DMI.MEvent.prepareData_PostMod();

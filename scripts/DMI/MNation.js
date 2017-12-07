@@ -426,17 +426,17 @@ MNation.prepareData_PostMod = function() {
 		var gemkeys = {F:0,A:0,W:0,E:0,S:0,D:0,N:0,B:0};
 		for (var i=0; i<arr.length; i++) {
 			if (!arr[i]) continue;
-//			var s = modctx.sitelookup[arr[i]];
-//			if (!s) {
-//				console.log(basekey+' '+arr[i]+' not found (nation '+o.id+')');
-//				continue;
-//			}
-//			o.capunits = o.capunits.concat(s.units, s.hmon, s.mon);
-//			o.capcommanders = o.capcommanders.concat(s.commanders, s.hcom);
-//			for (k in gemkeys) {
-//				if (s[k])
-//				gemkeys[k] += parseInt(s[k]);  
-//			}
+			var s = modctx.sitelookup[arr[i]];
+			if (!s) {
+				console.log(basekey+' '+arr[i]+' not found (nation '+o.id+')');
+				continue;
+			}
+			o.capunits = o.capunits.concat(s.units, s.hmon, s.mon);
+			o.capcommanders = o.capcommanders.concat(s.commanders, s.hcom);
+			for (k in gemkeys) {
+				if (s[k])
+				gemkeys[k] += parseInt(s[k]);  
+			}
 		}
 		//remove capunits duplicated in units (etc)
 		Utils.arrayDisect(o.capunits, o.units)
