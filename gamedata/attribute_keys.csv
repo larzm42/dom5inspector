@@ -159,6 +159,8 @@ number	name	test
 495	<Unknown Attribute>
 557	<Unknown Attribute>
 582	<Unknown Attribute>
+603	<Unknown Attribute>
+611	<Unknown Attribute>
 700	Map Range {Spl: #provrange}
 701	<Unknown Attribute>
 702	Source Terrain (?) {Spl: #onlygeosrc}
@@ -176,3 +178,4 @@ number	name	test
 716	<Unknown Attribute>
 717	<Unknown Attribute>
 718	<Unknown Attribute>
+900	<Unknown Attribute>

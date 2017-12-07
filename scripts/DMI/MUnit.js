@@ -781,6 +781,9 @@ MUnit.prepareData_PostNationData = function(o) {
 			if (o.from && o.from != '') {
 				o.sorttype = o.sorttype + ' (' + o.from + ')';
 			}
+			if (!o.sorttype || o.sorttype == '') {
+				o.sorttype = 'zzz';
+			}
 		}
 
 		//show magic paths on grid for commanders only
