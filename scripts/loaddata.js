@@ -402,31 +402,31 @@ function downloadData( g_data ) {
            'gamedata/BaseU.csv'+versionCode,
            'gamedata/MagicSites.csv'+versionCode,
 //           'gamedata/Mercenary.csv'+versionCode,
-//           //'gamedata/events.csv'+versionCode,
 //           'gamedata/events.csv'+versionCode,
            'gamedata/nations.csv'+versionCode,
            'gamedata/armors.csv'+versionCode,
            'gamedata/protections_by_armor.csv'+versionCode,
            'gamedata/weapons.csv'+versionCode,
-//           'gamedata/spells.csv'+versionCode,
-           'gamedata/effects.csv'+versionCode,
+           'gamedata/spells.csv'+versionCode,
+           'gamedata/effects_weapons.csv'+versionCode,
+           'gamedata/effects_spells.csv'+versionCode,
            'gamedata/effect_modifier_bits.csv'+versionCode,
            'gamedata/effects_info.csv'+versionCode,
            'gamedata/attribute_keys.csv'+versionCode,
 //           'gamedata/attributes.csv'+versionCode,
-//           'gamedata/attributes_by_spell.csv'+versionCode,
-//           'gamedata/afflictions.csv'+versionCode,
-//           'gamedata/buffs_1_types.csv'+versionCode,
-//           'gamedata/buffs_2_types.csv'+versionCode,
-//           'gamedata/enchantments.csv'+versionCode,
+           'gamedata/attributes_by_spell.csv'+versionCode,
+           'gamedata/afflictions.csv'+versionCode,
+           'gamedata/buffs_1_types.csv'+versionCode,
+           'gamedata/buffs_2_types.csv'+versionCode,
+           'gamedata/enchantments.csv'+versionCode,
 //           'gamedata/enchantments_by_effect.csv'+versionCode,
-//           'gamedata/magic_paths.csv'+versionCode,
+           'gamedata/magic_paths.csv'+versionCode,
 //           'gamedata/restrict_to_nations_by_attribute.csv'+versionCode,
            'gamedata/special_damage_types.csv'+versionCode,
-//           'gamedata/anon_province_events.csv'+versionCode,
+           'gamedata/anon_province_events.csv'+versionCode,
            'gamedata/monster_tags.csv'+versionCode,
-//           'gamedata/special_unique_summons.csv'+versionCode,
-//           'gamedata/terrain_specific_summons.csv'+versionCode,
+           'gamedata/special_unique_summons.csv'+versionCode,
+           'gamedata/terrain_specific_summons.csv'+versionCode,
            'gamedata/other_planes.csv'+versionCode,
            'gamedata/attributes_by_nation.csv'+versionCode,
            'gamedata/fort_leader_types_by_nation.csv'+versionCode,
@@ -438,8 +438,8 @@ function downloadData( g_data ) {
            'gamedata/pretender_types_by_nation.csv'+versionCode,
            'gamedata/realms.csv'+versionCode,
            'gamedata/unpretender_types_by_nation.csv'+versionCode,
-//           'gamedata/map_terrain_types.csv'+versionCode,
-//           'gamedata/site_terrain_types.csv'+versionCode,
+           'gamedata/map_terrain_types.csv'+versionCode,
+           'gamedata/site_terrain_types.csv'+versionCode,
            'gamedata/attributes_by_weapon.csv'+versionCode,
 			'gamedata/attributes_by_armor.csv'+versionCode,
 //			'gamedata/nametypes.csv'+versionCode
@@ -543,12 +543,12 @@ function parseData( g_data ) {
 			var data = g_data.server_data['gamedata/attributes_by_armor.csv'+versionCode];
 			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/attributes_by_armor.csv'));
 			modctx.attributes_by_armor = parseTextToTable(data);
-//		
-//			var data = g_data.server_data['gamedata/spells.csv'+versionCode];
-//			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/spells.csv'));
-//			modctx.spelldata = parseTextToTable(data);
-//			modctx.spelllookup = createLookup(modctx.spelldata, 'id', 'name');
-//		
+		
+			var data = g_data.server_data['gamedata/spells.csv'+versionCode];
+			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/spells.csv'));
+			modctx.spelldata = parseTextToTable(data);
+			modctx.spelllookup = createLookup(modctx.spelldata, 'id', 'name');
+		
 			var data = g_data.server_data['gamedata/MagicSites.csv'+versionCode];
 			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/MagicSites.csv'));
 			modctx.sitedata = parseTextToTable(data);
@@ -565,8 +565,8 @@ function parseData( g_data ) {
 //				modctx.eventdata = parseTextToTable(data);
 //				modctx.eventlookup = createLookup(modctx.eventdata, 'id', 'name');
 //			} else {
-//				modctx.eventdata = [];
-//				modctx.eventlookup = [];
+				modctx.eventdata = [];
+				modctx.eventlookup = [];
 //			}	
 //
 			var data = g_data.server_data['gamedata/nations.csv'+versionCode];
@@ -574,10 +574,15 @@ function parseData( g_data ) {
 			modctx.nationdata = parseTextToTable(data);
 			modctx.nationlookup = createLookup(modctx.nationdata, 'id', 'nationname');
 		
-			var data = g_data.server_data['gamedata/effects.csv'+versionCode];
-			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/effects.csv'));
-			modctx.effects = parseTextToTable(data);
-			modctx.effects_lookup = createLookup(modctx.effects, 'record_id');
+			var data = g_data.server_data['gamedata/effects_weapons.csv'+versionCode];
+			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/effects_weapons.csv'));
+			modctx.effects_weapons = parseTextToTable(data);
+			modctx.effects_weapons_lookup = createLookup(modctx.effects_weapons, 'record_id');
+		
+			var data = g_data.server_data['gamedata/effects_spells.csv'+versionCode];
+			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/effects_spells.csv'));
+			modctx.effects_spells = parseTextToTable(data);
+			modctx.effects_spells_lookup = createLookup(modctx.effects_spells, 'record_id');
 		
 			var data = g_data.server_data['gamedata/effect_modifier_bits.csv'+versionCode];
 			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/effect_modifier_bits.csv'));
@@ -599,37 +604,37 @@ function parseData( g_data ) {
 //			modctx.attributes = parseTextToTable(data);
 //			modctx.attributes_lookup = createLookup(modctx.attributes, 'record_id');
 //		
-//			var data = g_data.server_data['gamedata/attributes_by_spell.csv'+versionCode];
-//			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/attributes_by_spell.csv'));
-//			modctx.attributes_by_spell = parseTextToTable(data);
-//		
-//			var data = g_data.server_data['gamedata/afflictions.csv'+versionCode];
-//			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/afflictions.csv'));
-//			modctx.afflictions = parseTextToTable(data);
-//			modctx.afflictions_lookup = createLookup(modctx.afflictions, 'bit_value');
-//
-//			var data = g_data.server_data['gamedata/buffs_1_types.csv'+versionCode];
-//			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/buffs_1_types.csv'));
-//			modctx.buffs_1_types = parseTextToTable(data);
-//			modctx.buffs_1_types_lookup = createLookup(modctx.buffs_1_types, 'bit_value');
-//		
-//			var data = g_data.server_data['gamedata/buffs_2_types.csv'+versionCode];
-//			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/buffs_2_types.csv'));
-//			modctx.buffs_2_types = parseTextToTable(data);
-//			modctx.buffs_2_types_lookup = createLookup(modctx.buffs_2_types, 'bit_value');
-//		
-//			var data = g_data.server_data['gamedata/enchantments.csv'+versionCode];
-//			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/enchantments.csv'));
-//			modctx.enchantments = parseTextToTable(data);
-//			modctx.enchantments_lookup = createLookup(modctx.enchantments, 'number');
-//		
+			var data = g_data.server_data['gamedata/attributes_by_spell.csv'+versionCode];
+			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/attributes_by_spell.csv'));
+			modctx.attributes_by_spell = parseTextToTable(data);
+		
+			var data = g_data.server_data['gamedata/afflictions.csv'+versionCode];
+			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/afflictions.csv'));
+			modctx.afflictions = parseTextToTable(data);
+			modctx.afflictions_lookup = createLookup(modctx.afflictions, 'bit_value');
+
+			var data = g_data.server_data['gamedata/buffs_1_types.csv'+versionCode];
+			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/buffs_1_types.csv'));
+			modctx.buffs_1_types = parseTextToTable(data);
+			modctx.buffs_1_types_lookup = createLookup(modctx.buffs_1_types, 'bit_value');
+		
+			var data = g_data.server_data['gamedata/buffs_2_types.csv'+versionCode];
+			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/buffs_2_types.csv'));
+			modctx.buffs_2_types = parseTextToTable(data);
+			modctx.buffs_2_types_lookup = createLookup(modctx.buffs_2_types, 'bit_value');
+		
+			var data = g_data.server_data['gamedata/enchantments.csv'+versionCode];
+			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/enchantments.csv'));
+			modctx.enchantments = parseTextToTable(data);
+			modctx.enchantments_lookup = createLookup(modctx.enchantments, 'number');
+		
 //			var data = g_data.server_data['gamedata/enchantments_by_effect.csv'+versionCode];
 //			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/enchantments_by_effect.csv'));
 //			modctx.enchantments_by_effect = parseTextToTable(data);
 //		
-//			var data = g_data.server_data['gamedata/magic_paths.csv'+versionCode];
-//			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/magic_paths.csv'));
-//			modctx.magic_paths = parseTextToTable(data);
+			var data = g_data.server_data['gamedata/magic_paths.csv'+versionCode];
+			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/magic_paths.csv'));
+			modctx.magic_paths = parseTextToTable(data);
 //		
 //			var data = g_data.server_data['gamedata/restrict_to_nations_by_attribute.csv'+versionCode];
 //			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/restrict_to_nations_by_attribute.csv'));
@@ -640,42 +645,42 @@ function parseData( g_data ) {
 			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/special_damage_types.csv'));
 			modctx.special_damage_types = parseTextToTable(data);
 			modctx.special_damage_types_lookup = createLookup(modctx.special_damage_types, 'bit_value');
-//		
-//			var data = g_data.server_data['gamedata/anon_province_events.csv'+versionCode];
-//			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/anon_province_events.csv'));
-//			modctx.anon_province_events = parseTextToTable(data);
-//			modctx.anon_province_events_lookup = createLookup(modctx.anon_province_events, 'number');
-//		
+		
+			var data = g_data.server_data['gamedata/anon_province_events.csv'+versionCode];
+			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/anon_province_events.csv'));
+			modctx.anon_province_events = parseTextToTable(data);
+			modctx.anon_province_events_lookup = createLookup(modctx.anon_province_events, 'number');
+		
 			var data = g_data.server_data['gamedata/monster_tags.csv'+versionCode];
 			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/monster_tags.csv'));
 			modctx.monster_tags = parseTextToTable(data);
 			modctx.monster_tags_lookup = createLookup(modctx.monster_tags, 'number');
-//		
-//			var data = g_data.server_data['gamedata/special_unique_summons.csv'+versionCode];
-//			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/special_unique_summons.csv'));
-//			modctx.special_unique_summons = parseTextToTable(data);
-//			modctx.special_unique_summons_lookup = createLookup(modctx.special_unique_summons, 'number');
-//		
-//			var data = g_data.server_data['gamedata/terrain_specific_summons.csv'+versionCode];
-//			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/terrain_specific_summons.csv'));
-//			modctx.terrain_specific_summons = parseTextToTable(data);
-//			modctx.terrain_specific_summons_lookup = createLookup(modctx.terrain_specific_summons, 'number');
-//		
+		
+			var data = g_data.server_data['gamedata/special_unique_summons.csv'+versionCode];
+			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/special_unique_summons.csv'));
+			modctx.special_unique_summons = parseTextToTable(data);
+			modctx.special_unique_summons_lookup = createLookup(modctx.special_unique_summons, 'number');
+		
+			var data = g_data.server_data['gamedata/terrain_specific_summons.csv'+versionCode];
+			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/terrain_specific_summons.csv'));
+			modctx.terrain_specific_summons = parseTextToTable(data);
+			modctx.terrain_specific_summons_lookup = createLookup(modctx.terrain_specific_summons, 'number');
+		
 			var data = g_data.server_data['gamedata/other_planes.csv'+versionCode];
 			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/other_planes.csv'));
 			modctx.other_planes = parseTextToTable(data);
 			modctx.other_planes_lookup = createLookup(modctx.other_planes, 'number');
-//		
-//			var data = g_data.server_data['gamedata/map_terrain_types.csv'+versionCode];
-//			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/map_terrain_types.csv'));
-//			modctx.map_terrain_types = parseTextToTable(data);
-//			modctx.map_terrain_types_lookup = createLookup(modctx.map_terrain_types, 'bit_value');
-//		
-//			var data = g_data.server_data['gamedata/site_terrain_types.csv'+versionCode];
-//			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/site_terrain_types.csv'));
-//			modctx.site_terrain_types = parseTextToTable(data);
-//			modctx.site_terrain_types_lookup = createLookup(modctx.site_terrain_types, 'bit_value');
-//		
+		
+			var data = g_data.server_data['gamedata/map_terrain_types.csv'+versionCode];
+			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/map_terrain_types.csv'));
+			modctx.map_terrain_types = parseTextToTable(data);
+			modctx.map_terrain_types_lookup = createLookup(modctx.map_terrain_types, 'bit_value');
+		
+			var data = g_data.server_data['gamedata/site_terrain_types.csv'+versionCode];
+			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/site_terrain_types.csv'));
+			modctx.site_terrain_types = parseTextToTable(data);
+			modctx.site_terrain_types_lookup = createLookup(modctx.site_terrain_types, 'bit_value');
+		
 			var data = g_data.server_data['gamedata/attributes_by_nation.csv'+versionCode];
 			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/attributes_by_nation.csv'));
 			modctx.attributes_by_nation = parseTextToTable(data);
@@ -726,7 +731,7 @@ function parseData( g_data ) {
 			DMI.MArmor.prepareData_PreMod();
 			DMI.MItem.prepareData_PreMod();
 			DMI.MUnit.prepareData_PreMod();
-//			DMI.MSpell.prepareData_PreMod();
+			DMI.MSpell.prepareData_PreMod();
 			DMI.MSite.prepareData_PreMod();
 			DMI.MNation.prepareData_PreMod();
 //			DMI.MMerc.prepareData_PreMod();
@@ -771,7 +776,7 @@ function parseData( g_data ) {
 			DMI.MArmor.prepareData_PostMod();
 			DMI.MItem.prepareData_PostMod();
 			DMI.MUnit.prepareData_PostMod();
-//			DMI.MSpell.prepareData_PostMod();
+			DMI.MSpell.prepareData_PostMod();
 			DMI.MNation.prepareData_PostMod();
 			DMI.MSite.prepareData_PostMod();
 //			DMI.MMerc.prepareData_PostMod();

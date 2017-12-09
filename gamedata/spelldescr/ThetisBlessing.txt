@@ -1,0 +1,1 @@
+Allows all troops in the world to enter the sea. The enchantment lasts until someone dispels it or the caster dies.

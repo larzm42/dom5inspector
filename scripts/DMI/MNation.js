@@ -232,15 +232,16 @@ MNation.prepareData_PostMod = function() {
 					attr.attribute == "186" ||
 					attr.attribute == "187" ||
 					attr.attribute == "188") {
-					if (attr.nation_number == "83" ||
-						attr.nation_number == "84" ||
-						attr.nation_number == "85" ||
-						attr.nation_number == "86" ||
-						attr.nation_number == "87" ||
-						attr.nation_number == "88" ||
-						attr.nation_number == "89" ||
-						attr.nation_number == "90" ||
-						attr.nation_number == "92") {
+					if (attr.nation_number == "36" ||
+						attr.nation_number == "37" ||
+						attr.nation_number == "38" ||
+						attr.nation_number == "39" ||
+						attr.nation_number == "73" ||
+						attr.nation_number == "75" ||
+						attr.nation_number == "76" ||
+						attr.nation_number == "77" ||
+						attr.nation_number == "106" ||
+						attr.nation_number == "108") {
 					} else {
 						o.uwcom.push(parseInt(attr.raw_value));
 					}
@@ -249,14 +250,16 @@ MNation.prepareData_PostMod = function() {
 					attr.attribute == "190" || 
 					attr.attribute == "191" || 
 					attr.attribute == "213") {
-					if (attr.nation_number == "83" ||
-						attr.nation_number == "84" ||
-						attr.nation_number == "85" ||
-						attr.nation_number == "86" ||
-						attr.nation_number == "88" ||
-						attr.nation_number == "89" ||
-						attr.nation_number == "90" ||
-						attr.nation_number == "92") {
+					if (attr.nation_number == "36" ||
+						attr.nation_number == "37" ||
+						attr.nation_number == "38" ||
+						attr.nation_number == "39" ||
+						attr.nation_number == "73" ||
+						attr.nation_number == "75" ||
+						attr.nation_number == "76" ||
+						attr.nation_number == "77" ||
+						attr.nation_number == "106" ||
+						attr.nation_number == "108") {
 					} else {
 						o.uwunit.push(parseInt(attr.raw_value));
 					}

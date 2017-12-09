@@ -25,9 +25,9 @@ MSpell.nationList = function (o) {
 	
 	for (var oi=0, attr; attr = modctx.attributes_by_spell[oi];  oi++) {
 		if (attr.spell_number == o.id) {
-			var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
-			if (attribute.attribute_number == "278") {
-				o.nations.push(parseInt(modctx.restrict_to_nations_by_attribute_lookup[parseInt(attr.attribute_record_id)].nation_number));
+			//var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
+			if (attr.attribute == "278") {
+				o.nations.push(parseInt(attr.raw_value-100));
 			}
 		}
 	}
@@ -53,11 +53,11 @@ MSpell.prepareData_PostMod = function() {
 	for (var oi=0, o;  o= modctx.spelldata[oi];  oi++) {
 		for (var ai=0, attr; attr = modctx.attributes_by_spell[ai];  ai++) {
 			if (attr.spell_number == o.id) {
-				var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
-				if (attribute.attribute_number == "426") {
+				//var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
+				if (attr.attribute == "426") {
 					for (var ni=0, n;  n= modctx.nationdata[ni];  ni++) {
 						var nation = modctx.nationlookup[n.id];
-						if (Utils.inArray(attribute.raw_value, nation.homerealm)) {
+						if (Utils.inArray(attr.raw_value, nation.homerealm)) {
 							o.nations.push(parseInt(n.id));
 						}
 					}
@@ -251,9 +251,9 @@ MSpell.prepareData_PostMod = function() {
 		// Attributes
 		for (var oj=0, attr; attr = modctx.attributes_by_spell[oj];  oj++) {
 			if (attr.spell_number == o.id) {
-				var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
-				if (attribute.attribute_number == "700") {
-					o.provrange = attribute.raw_value;
+				//var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
+				if (attr.attribute == "700") {
+					o.provrange = attr.raw_value;
 				}
 			}
 		}
@@ -806,22 +806,22 @@ MSpell.renderSpellTable = function(o, original_effect) {
 		// Attributes
 		for (var oi=0, attr; attr = modctx.attributes_by_spell[oi];  oi++) {
 			if (attr.spell_number == o.id) {
-				var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
-				if (attribute.attribute_number != "278" &&
-						attribute.attribute_number != "700" &&
-						attribute.attribute_number != "703") {
-					var specflags = modctx.attribute_keys_lookup[attribute.attribute_number].name;
+				//var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
+				if (attr.attribute != "278" &&
+						attr.attribute != "700" &&
+						attr.attribute != "703") {
+					var specflags = modctx.attribute_keys_lookup[attr.attribute].name;
 					
 					var val;
-					if (attribute.attribute_number == '702') {
-						val = Utils.renderFlags(MSpell.bitfieldValues(attribute.raw_value, modctx.map_terrain_types_lookup), 1);
-					} else if (attribute.attribute_number == '711') {
-						val = Utils.siteRef(attribute.raw_value);
+					if (attr.attribute == '702') {
+						val = Utils.renderFlags(MSpell.bitfieldValues(attr.raw_value, modctx.map_terrain_types_lookup), 1);
+					} else if (attr.attribute == '711') {
+						val = Utils.siteRef(attr.raw_value);
 					} else {
-						val = attribute.raw_value;
+						val = attr.raw_value;
 					}
 					
-					h+= '<tr class="'+attribute.attribute_number+'"><th>'+modctx.attribute_keys_lookup[attribute.attribute_number].name.replace(/{(.*?)}|<|>/g, "")+':</th><td>'+val+'</td></tr>'
+					h+= '<tr class="'+attr.attribute+'"><th>'+modctx.attribute_keys_lookup[attr.attribute].name.replace(/{(.*?)}|<|>/g, "")+':</th><td>'+val+'</td></tr>'
 				}
 			}
 		}
@@ -906,12 +906,12 @@ MSpell.getEffect = function(spell) {
 	// I don't like this JSON hack, but it's apparently the accepted JS way of doing it
 
 	if (spell.effect_record_id) {
-		effect = JSON.parse(JSON.stringify(modctx.effects_lookup[spell.effect_record_id]));
+		effect = JSON.parse(JSON.stringify(modctx.effects_spells_lookup[spell.effect_record_id]));
 	}
 	
 	if (spell.copyspell) {
 		var otherspell = DMI.modctx.spelllookup[spell.copyspell];
-		effect = JSON.parse(JSON.stringify(modctx.effects_lookup[otherspell.effect_record_id]));
+		effect = JSON.parse(JSON.stringify(modctx.effects_spells_lookup[otherspell.effect_record_id]));
 	}
 	if (spell.effect) {
 		if (parseInt(spell.effect) > 10000) {

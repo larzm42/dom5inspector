@@ -420,7 +420,7 @@ MWpn.getEffect = function(weapon) {
 	// I don't like this JSON hack, but it's apparently the accepted JS way of doing it
 	
 	if (weapon.effect_record_id) {
-		effect = JSON.parse(JSON.stringify(modctx.effects_lookup[weapon.effect_record_id]));
+		effect = JSON.parse(JSON.stringify(modctx.effects_weapons_lookup[weapon.effect_record_id]));
 	}
 	if (weapon.dt_stun) {
 		effect.effect_number = 3;

@@ -1,0 +1,1 @@
+The caster transforms the stone walls of a castle into iron walls, effectively increasing the Defence by 1000 points. The alteration lasts longer if additional gems are used in the ritual. The enchantment will end if the caster is killed.
