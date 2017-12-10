@@ -401,7 +401,7 @@ function downloadData( g_data ) {
            'gamedata/BaseI.csv'+versionCode,
            'gamedata/BaseU.csv'+versionCode,
            'gamedata/MagicSites.csv'+versionCode,
-//           'gamedata/Mercenary.csv'+versionCode,
+           'gamedata/Mercenary.csv'+versionCode,
            'gamedata/events.csv'+versionCode,
            'gamedata/nations.csv'+versionCode,
            'gamedata/armors.csv'+versionCode,
@@ -554,11 +554,11 @@ function parseData( g_data ) {
 			modctx.sitedata = parseTextToTable(data);
 			modctx.sitelookup = createLookup(modctx.sitedata, 'id', 'name');
 		
-//			var data = g_data.server_data['gamedata/Mercenary.csv'+versionCode];
-//			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/Mercenary.csv'));
-//			modctx.mercdata = parseTextToTable(data);
-//			modctx.merclookup = createLookup(modctx.mercdata, 'id', 'name');
-//
+			var data = g_data.server_data['gamedata/Mercenary.csv'+versionCode];
+			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/Mercenary.csv'));
+			modctx.mercdata = parseTextToTable(data);
+			modctx.merclookup = createLookup(modctx.mercdata, 'id', 'name');
+
 			if (location.search.indexOf('loadEvents=1') != -1) {
 				var data = g_data.server_data['gamedata/events.csv'+versionCode];
 				if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/events.csv'));
@@ -734,42 +734,42 @@ function parseData( g_data ) {
 			DMI.MSpell.prepareData_PreMod();
 			DMI.MSite.prepareData_PreMod();
 			DMI.MNation.prepareData_PreMod();
-//			DMI.MMerc.prepareData_PreMod();
+			DMI.MMerc.prepareData_PreMod();
 			if (location.search.indexOf('loadEvents=1') != -1) {
 				DMI.MEvent.prepareData_PreMod();
 			}
 	
-//			//parse the mods
-//			for (var i=0, modname; modname = g_data.server_mods_to_load[i]; i++) {
-//				var mod = g_data.server_data[modname];
-//				if (mod) {
-//					modctx.parseMod( mod, i+1, modname );
-//					DMI.loaded_mod_files.push(modname.replace(mod_dir,''));
-//				}
-//				else
-//					DMI.Utils.error('ERROR LOADING: '+modname)
-//			}
-//			//parse local mods
-//			for (var i=0, modname; modname =g_data.local_mods_to_load[i]; i++) {
-//				var mod = g_data.local_data[modname];
-//				if (mod) {
-//					modctx.parseMod( mod, i+1,modname );
-//					DMI.loaded_local_mod_files.push(modname);
-//				}
-//				else
-//					DMI.Utils.error('ERROR READING: '+modname)
-//			}
-//			//parse uploaded mods
-//			for (var i=0, modname; modname =g_data.upload_mods_to_load[i]; i++) {
-//				var mod =  g_data.upload_data[modname];
-//				if (mod) {
-//					modctx.parseMod( mod, i+1, modname );
-//					DMI.loaded_local_mod_files.push(modname);
-//				}
-//				else
-//					DMI.Utils.error('ERROR READING: '+modname)
-//			}
-//			g_data.upload_data = null;
+			//parse the mods
+			for (var i=0, modname; modname = g_data.server_mods_to_load[i]; i++) {
+				var mod = g_data.server_data[modname];
+				if (mod) {
+					modctx.parseMod( mod, i+1, modname );
+					DMI.loaded_mod_files.push(modname.replace(mod_dir,''));
+				}
+				else
+					DMI.Utils.error('ERROR LOADING: '+modname)
+			}
+			//parse local mods
+			for (var i=0, modname; modname =g_data.local_mods_to_load[i]; i++) {
+				var mod = g_data.local_data[modname];
+				if (mod) {
+					modctx.parseMod( mod, i+1,modname );
+					DMI.loaded_local_mod_files.push(modname);
+				}
+				else
+					DMI.Utils.error('ERROR READING: '+modname)
+			}
+			//parse uploaded mods
+			for (var i=0, modname; modname =g_data.upload_mods_to_load[i]; i++) {
+				var mod =  g_data.upload_data[modname];
+				if (mod) {
+					modctx.parseMod( mod, i+1, modname );
+					DMI.loaded_local_mod_files.push(modname);
+				}
+				else
+					DMI.Utils.error('ERROR READING: '+modname)
+			}
+			g_data.upload_data = null;
 			
 			//after applying mod (order is important!)
 			DMI.MWpn.prepareData_PostMod();
@@ -779,7 +779,7 @@ function parseData( g_data ) {
 			DMI.MSpell.prepareData_PostMod();
 			DMI.MNation.prepareData_PostMod();
 			DMI.MSite.prepareData_PostMod();
-//			DMI.MMerc.prepareData_PostMod();
+			DMI.MMerc.prepareData_PostMod();
 			if (location.search.indexOf('loadEvents=1') != -1) {
 				DMI.MEvent.prepareData_PostMod();
 			}
