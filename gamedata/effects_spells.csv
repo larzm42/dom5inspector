@@ -29,7 +29,7 @@ record_id	effect_number	duration	ritual	object_type	raw_argument	modifiers_mask	
 27	10		0	Spell	176	16384	0	0	0	0	0							
 28	1		1	Spell	561	0	0	0	0	0	0							
 29	1		1	Spell	562	0	0	0	0	0	0							
-30	3	2	0	Spell	15	160	0	0	0	1	0							
+30	2		0	Spell	15	160	0	0	0	1	0							
 31	2		0	Spell	150	549755813888	0	0	0	1	0							
 32	21		1	Spell	625	0	0	0	0	0	0							
 33	21		1	Spell	490	0	0	0	0	0	0							

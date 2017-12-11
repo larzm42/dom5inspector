@@ -1145,7 +1145,7 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 1144	The Throne of Earth	12	16607	0	Holy				1														2																		E	1																																									345												2						1				72	
 1145	The Throne of Water	12	17407	0	Holy			1															2																		W	1																																									103								3			2											72	
 1146	The Throne of Air	12	16607	0	Holy		1																2																		A	1																																									93										2									40			72	
-1147	The Throne of the Churning Ocean	12	17407	0	Holy		1	3													Turmoil		2																																20%																																																		72	
+1147	The Throne of the Churning Ocean	12	16416	0	Holy		1	3													Turmoil		2																																20%																																																		72	
 1148	The Throne of Splendour	13	17407	0	Holy																		3																																																																													1					72	
 1149	The Throne of the Pantokrator	13	17407	0	Holy																		7																																																																																	2	72	
 1150	The Throne of Abundance	13	17407	0	Holy	1	1	1	1	2	1	1		150									3		2																																																																																72	

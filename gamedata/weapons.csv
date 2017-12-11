@@ -604,7 +604,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 603	Corrosive Bite	603	0	-1	0	1	0	0	604	0	
 604	Corrosion	604	0	0	0	0	0	0	0	0	
 605	Throw Rocks	605	-2	0	-1	1	2	0	0	0	
-606	Frost Bow	606	0	0	30	1	12	607	0	5	
+606	Frost Bow	606	0	0	35	1	12	607	0	5	
 607	Freeze	607	0	0	0	0	0	0	0	0	
 608	Sword of Oaths	608	1	1	0	1	0	0	0	0	
 609	Grab and Swallow	609	0	-2	0	1	0	0	0	0	
@@ -719,3 +719,4 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 718	Apotropaic Mace	718	1	1	0	1	0	468	0	0	
 719	Life Drain	719	0	0	0	1	0	0	0	0	
 720	Ritual Baton	720	0	1	0	1	0	0	0	0	
+721	Short Bow	721									
