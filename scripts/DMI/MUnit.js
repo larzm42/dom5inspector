@@ -795,7 +795,11 @@ MUnit.prepareData_PostNationData = function(o) {
 
 		//add backlinks to units created by other units
 		var sumu;
-		if (o.domsummon && (sumu= modctx.unitlookup[o.domsummon])) {
+		if (o.domsummon1 && (sumu= modctx.unitlookup[o.domsummon1])) {
+			sumu.createdby = sumu.createdby || [];
+			sumu.createdby.push(o)
+		}
+		if (o.domsummon2 && (sumu= modctx.unitlookup[o.domsummon2])) {
 			sumu.createdby = sumu.createdby || [];
 			sumu.createdby.push(o)
 		}
@@ -1760,7 +1764,10 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 		return v + ' (' + Utils.unitRef(o.id+1) + ')';
 	},
 	
-	'domsummon',	'dominion attracts units',	function(v,o){
+	'domsummon1',	'dominion attracts units',	function(v,o){
+		return Utils.unitRef(v);
+	},
+	'domsummon2',	'dominion attracts units',	function(v,o){
 		return Utils.unitRef(v);
 	},
 	'makemonster',	'makes units',	function(v,o){ 
