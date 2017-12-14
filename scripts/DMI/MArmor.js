@@ -26,6 +26,19 @@ MArmor.prepareData_PreMod = function() {
 
 MArmor.prepareData_PostMod = function() {
 	for (var oi=0, o; o= modctx.armordata[oi]; oi++) {
+		
+		o.movepen = o.enc;
+		for (var oi3=0, attr; attr = modctx.attributes_by_armor[oi3];  oi3++) {
+			if (attr.armor_number == o.id) {
+				if (parseInt(attr.attribute) == 582) {
+					o.movepen = attr.raw_value;
+				}
+			}
+		}
+		if (o.type != 5) {
+			delete o.movepen;
+		}
+
 		o.id = parseInt(o.id);
 		o.name = o.name || '(undefined)';
 		
@@ -151,7 +164,8 @@ var displayorder = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'protshield',	'protection, shield',
 	'def',		'defence',		Format.Signed,
 	'parry',	'parry',
-	'enc',		'encumbrance'
+	'enc',		'encumbrance',
+	'movepen', 	'map movement penalty',  {'0':'0 '}
 ]);
 
 var flagorder = DMI.Utils.cutDisplayOrder(aliases, formats,
@@ -206,7 +220,7 @@ MArmor.renderOverlay = function(o, baseAtt) {
 	for (var oi=0, attr; attr = modctx.attributes_by_armor[oi];  oi++) {
 		if (attr.armor_number == o.id) {
 			//var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
-			if (attr.attribute != "302") {
+			if (attr.attribute != "582") {
 				var specflags = modctx.attribute_keys_lookup[attr.attribute].name;
 				h+= '<tr class="'+attr.attribute+'"><th>'+modctx.attribute_keys_lookup[attr.attribute].name.replace(/{(.*?)}|<|>/g, "")+'</th></tr>'
 			}

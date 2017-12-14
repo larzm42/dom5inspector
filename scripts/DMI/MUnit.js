@@ -211,7 +211,9 @@ MUnit.prepareData_PostMod = function() {
 			o.ap = 12;
 		}
 		if (!o.mapmove) {
-			o.mapmove = 2;
+			o.mapmove = 14;
+		} else {
+			o.mapmove = parseInt(o.mapmove) + 2;
 		}
 		
 		if (o.realms && o.realms.length == 0) {
@@ -1108,12 +1110,13 @@ MUnit.prepareForRender = function(o) {
 		var p_nat = parseInt(o.prot || '0');
 		
 		var p_body = 0, p_head = 0, p_general = 0;
-		var def_armor = 0, enc_armor = 0;
+		var def_armor = 0, enc_armor = 0, mm_armor = 0;
 		var def_parry = 0;
 		var rcost_armor = 0;
 		for (var i=0, a; a= o.armor[i]; i++) {
 			enc_armor += parseInt(a.enc || '0');
 			def_armor += parseInt(a.def || '0');
+			mm_armor += parseInt(a.movepen || '0');
 
 			if (a.protbody)
 				p_body = parseInt(a.protbody);
@@ -1178,15 +1181,21 @@ MUnit.prepareForRender = function(o) {
 			if (!is(o.mounted)) {
 				//for enc 0 (undead) armor only affects speed
 				bonus('armor', 'ap', -enc_armor);
-				bonus('armor', 'mapmove', -enc_armor);
 				if (o.enc!='0')
 					bonus('armor', 'enc', enc_armor);
 			}
+
 			//is caster?
 			if (o.mpath) {
 				o.titles.enc = o.titles.enc ? o.titles.enc+',  \n' : ''; 
 				o.titles.enc += 'spellcasting encumbrance: '+o.casting_enc;
 			}
+		}
+		
+		if (mm_armor) {
+			// Map move effected by armor
+			bonus('armor', 'mapmove', -mm_armor);
+			
 		}
 	}
 }
@@ -1549,7 +1558,7 @@ var displayorder3 = Utils.cutDisplayOrder(aliases, formats,
 				}
 				return o.rpcost; 
 			},
-			'mapmove',	'map move',	function(v,o){ return (parseInt(o.mapmove)+2); },
+			'mapmove',	'map move',	function(v,o){ return (parseInt(o.mapmove)); },
 			'enc',	'encumbrance',	{'0':'0 '},
 			'maxage',	'age',	function(v,o){ return o.startage + ' ('+v+')'; },
 			'undeadleader', 'undead ldr',  {'0':'0 '}
