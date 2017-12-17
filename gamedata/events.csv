@@ -262,7 +262,7 @@ id	name	rarity	description	requirements	effects	test
 261	A fire has destroyed the arcan	1	A fire has destroyed the arcane laboratory.	land 1|lab 1|0xD400 -1|turn 10	lab 0	
 262	A very ill omen was seen and r	1	A very ill omen was seen and rumors of it have spread through the entire province.		id 5|unrest 30|incscale3 Misfortune|curse 10	
 263	An omen was seen that spoke of	1	An omen was seen that spoke of the decline of ##godname##. Rumors of this ill omen has spread widely.	mydominion 1|maxdominion 5|turn 8	incdom -3	
-264	Suddenly Bogus and his fellow 	1	Suddenly Bogus and his fellow adventurers decided to aid an old wise man whose daughter was held captive by your blood mages. The young girl and a couple of other blood slaves were liberated in a daring attack on your dungeon.	lab 1|gem 7|chaos 646|chaos 649|land 1	fort 7	
+264	Suddenly Bogus and his fellow 	1	Suddenly Bogus and his fellow adventurers decided to aid an old wise man whose daughter was held captive by your blood mages. The young girl and a couple of other blood slaves were liberated in a daring attack on your dungeon.	lab 1|gem 7|chaos 646|chaos 649|land 1	gemloss B	
 265	Children are disappearing at n	1	Children are disappearing at night. Strange creatures skulk the wilderness.	minpop 20	unrest 20|decscale Drain	
 266	A charismatic preacher has app	1	A charismatic preacher has appeared, carrying the word of a rival pretender who now has dominion of the land.	mydominion 1|maxdominion 3|turn 8	nation -1|newdom 2	
 267	A local sect has flourished. T	1	A local sect has flourished. Their leader preaches that labor is for the wicked.	mydominion 1|turn 8	incdom -2|incscale3 Sloth|landprod -5	
@@ -276,8 +276,8 @@ id	name	rarity	description	requirements	effects	test
 275	A group of knights has unexpec	1	A group of knights has unexpectedly attacked the province in an attempt to take control.	land 1|0xCC00 2|turn 8|era 2	com 23|4d6units 22|com 23|3d6units 18	
 276	A group of tritons has unexpec	1	A group of tritons has unexpectedly attacked the province in an attempt to take control.	land 0|0xCC00 1|turn 5	com 406|6d6units 174|com 406|3d6units 175	
 277	A huge barbarian horde has une	1	A huge barbarian horde has unexpectedly attacked and pillaged the province.	capital 0|land 1|0xCC00 3|turn 10|land 1	com 141|16d6units 140|com 147|4d6units 139|kill 20	
-278	An evil necromancer and his ho	1	An evil necromancer and his host suddenly attacked the province in search of magical resources.	capital 0|pop0ok 1|land 1|0xCB00 1|turn 5|0xD700 2|lab 1	com 310|10d6units 197|10d6units 196|kill 5|fort 5	
-279	Magic is fading.	1	Magic is fading.	pop0ok 1|lab 1|0xCD00 3|0xCC00 1	fort 53	
+278	An evil necromancer and his ho	1	An evil necromancer and his host suddenly attacked the province in search of magical resources.	capital 0|pop0ok 1|land 1|0xCB00 1|turn 5|0xD700 2|lab 1	com 310|10d6units 197|10d6units 196|kill 5|gemloss D	
+279	Magic is fading.	1	Magic is fading.	pop0ok 1|lab 1|0xCD00 3|0xCC00 1	gemloss 53	
 280	A large group of non faithfuls	1	A large group of non faithfuls have decided to emigrate. Part of the population has left their homes in search of a better place to live and faith has increased in the rightful god, ##godname##.	maxdominion 2|mydominion 1|0xC800 0	emigration 10|incdom 1	
 281	People here are very displease	1	People here are very displeased and a substantial part of the population has left their homes in search of a better place to live.	minunrest 20|0xC800 -2	emigration 20	
 282	Woods of the fairy court have 	1	Woods of the fairy court have been burned by a local lord.	0xD500 1|0xD700 1|land 1	incscale2 Drain|incscale Death|incscale3 Misfortune|1d3vis A	
@@ -308,14 +308,14 @@ id	name	rarity	description	requirements	effects	test
 307	A demon has possessed a herd o	2	A demon has possessed a herd of swine and ravaged the province for a week.	land 1	incscale3 Misfortune|unrest 15	
 308	Careless containment of your f	2	Careless containment of your fire gems has caused a conflagration in your laboratory. Fortunately you could harvest a large number of fire gems from the smoldering embers.	lab 1|gem 0|0xC800 1|turn 12	4d6vis F|lab 0	
 309	A magical disaster has destroy	2	A magical disaster has destroyed your lab.	lab 1|turn 8|0xCC00 -1	lab 0	
-310	A thief has stolen some of you	2	A thief has stolen some of your magic gems.	lab 1|gem 0	fort 0	
-311	A thief has stolen some of you	2	A thief has stolen some of your magic gems.	lab 1|gem 1	fort 1	
-312	A thief has stolen some of you	2	A thief has stolen some of your magic gems.	lab 1|gem 2	fort 2	
-313	A thief has stolen some of you	2	A thief has stolen some of your magic gems.	lab 1|gem 3	fort 3	
-314	A thief has stolen some of you	2	A thief has stolen some of your magic pearls.	lab 1|gem 4	fort 4	
-315	Undisciplined jailers have def	2	Undisciplined jailers have defiled your blood slaves.	lab 1|gem 7	fort 7	
-316	A master thief has stolen many	2	A master thief has stolen many of your magic gems.	lab 1|0xCC00 -1	fort 53	
-317	Magic is fading.	2	Magic is fading.	pop0ok 1|lab 1|0xCD00 1	fort 53|incscale Drain	
+310	A thief has stolen some of you	2	A thief has stolen some of your magic gems.	lab 1|gem 0	gemloss F	
+311	A thief has stolen some of you	2	A thief has stolen some of your magic gems.	lab 1|gem 1	gemloss A	
+312	A thief has stolen some of you	2	A thief has stolen some of your magic gems.	lab 1|gem 2	gemloss W	
+313	A thief has stolen some of you	2	A thief has stolen some of your magic gems.	lab 1|gem 3	gemloss E	
+314	A thief has stolen some of you	2	A thief has stolen some of your magic pearls.	lab 1|gem 4	gemloss S	
+315	Undisciplined jailers have def	2	Undisciplined jailers have defiled your blood slaves.	lab 1|gem 7	gemloss B	
+316	A master thief has stolen many	2	A master thief has stolen many of your magic gems.	lab 1|0xCC00 -1	gemloss 53	
+317	Magic is fading.	2	Magic is fading.	pop0ok 1|lab 1|0xCD00 1	gemloss 53|incscale Drain	
 318	Magic is fading.	2	Magic is fading.	pop0ok 1|lab 1|0xCD00 3	0x3000 53	
 319	A disaster while researching r	2	A disaster while researching resulted in a lost eye for one of your mages.	lab 1|humanoidres 1	researchaff 0	
 320	A disaster while researching r	2	A disaster while researching resulted in an explosion that tore off an arm from one of your mages.	pop0ok 1|lab 1|humanoidres 1	researchaff 0	
@@ -366,7 +366,7 @@ id	name	rarity	description	requirements	effects	test
 365	Realizing the power of the bea	2	Realizing the power of the beautiful and ever growing nature, the entire female population of this province has gone into a frenzy of Pangaean worship!	minpop 100|forest 1|nation 58|0xD500 3|turn 8	nation 58|newdom 5|2com 237|10d6units 435	
 366	A group of huge Scorpion Beast	2	A group of huge Scorpion Beasts are terrorizing the province.	pop0ok 1|0x1A00 1|land 1|turn 7	com 524|2d6units 524	
 367	A Gadite rebel has managed to 	2	A Gadite rebel has managed to sneak past your temple guard and set the temple ablaze. An Abysian conspiracy is suspected.	turn 10|land 1|temple 1|monster 1991	temple 0	
-368	A Gadite rebel has managed to 	1	A Gadite rebel has managed to sneak past your temple guard and set some of your blood slaves free.	lab 1|temple 1|gem 7|monster 1991	fort 7	
+368	A Gadite rebel has managed to 	1	A Gadite rebel has managed to sneak past your temple guard and set some of your blood slaves free.	lab 1|temple 1|gem 7|monster 1991	gemloss B	
 369	The people in the province hav	2	The people in the province have been awakened by the holy power of Marignon. They are now in a fanatic state and kill everything undead.	minpop 100|land 1|nation 50|fullowner 44|turn 7	nation 50|newdom 5|4com 148|8d6units 217	
 370	A group of drunken Yamabushi p	1	A group of drunken Yamabushi picked a fight with some of your Sohei. After a vicious brawl, one Sohei and one Yamabushi were dead.	land 1|monster 1247|monster 1248	killmon 1247|killmon 1248	
 371	One of your Revelers was found	1	One of your Revelers was found and slain by a Serpent Assassin.	land 1|monster 1879|monster 1880	killcom 1880	
@@ -436,7 +436,7 @@ id	name	rarity	description	requirements	effects	test
 435	A foreign tribe of apes have a	2	A foreign tribe of apes have attacked the province. They seem to be capturing commoners and transporting them into the jungle for unknown -probably hideous- ends.	fornation 25|turn 25|maxturn 50|land 1	nation 0|2com 1762|4d6units 1763|com 1735|kill 5	
 436	Volunteers have collected virg	2	Volunteers have collected virgin humans for sacrifice.	fornation 25|turn 35|land 1|minpop 100	2d6vis B	
 437	Followers of the local blood c	-1	Followers of the local blood cult have summoned forest demons into your service.	fornation 25|turn 30|land 1|forest 1	nation -2|1d6units 1737	
-438	People of the province are rev	2	People of the province are revolting against the local practice of blood magic and have liberated some blood slaves.	fornation 25|turn 35|gem 7|minpop 100	fort 7	
+438	People of the province are rev	2	People of the province are revolting against the local practice of blood magic and have liberated some blood slaves.	fornation 25|turn 35|gem 7|minpop 100	gemloss B	
 439	A gang of vengeful rakshas has	2	A gang of vengeful rakshas has sought out one of your faithful devatas. Trying to slay him, the have attacked the province in force.	fornation 25|turn 30|commander 1336|land 1	nation 0|2com 1738|4d6units 1737|1d6units 1747	
 440	A wise old mage was rumored to	-2	A wise old mage was rumored to have discovered the secret of transmuting lead into gold. Alas, despite attempts of persuasion, he arrogantly refused to share his discoveries and was at last decapitated. His executors were surprised to find his loosened head still muttering. It has now been preserved and transported to the laboratory. [Skull Mentor]	unique 1|0xD700 0|0xC800 0	magicitem 9	
 441	An ancient guru has transcende	-2	An ancient guru has transcended. His skull continues to provide wisdom and guidance and has been added to your collection of magic wonders. [Skull Mentor]	0xD700 0|fornation 25	magicitem 9	
@@ -1295,9 +1295,9 @@ id	name	rarity	description	requirements	effects	test
 1294	One of the Harpies could not r	1	One of the Harpies could not resist the gleaming pearls in the treasury.	gem 4|monster 239|capital 1	0x3100 4	
 1295	A convict attempts revenge!	1	A convict attempts revenge!	turn 10|monster 1645	assassin 482	
 1296	Some soldiers strayed into The	1	Some soldiers strayed into The Forest of Avalon. They were swiftly turned away by the wardens. [The Forest of Avalon]	site 1|era 3	curse 1	
-1297	The Old Ways are lost. Magic f	1	The Old Ways are lost. Magic fades. Some of the gems have lost their power. [The Forest of Avalon]	site 1|era 3|0xCD00 1|gem 4	fort 4	
-1298	The Old Ways are lost. Magic f	1	The Old Ways are lost. Magic fades. Some of the gems have lost their power. [The Forest of Avalon]	site 1|era 3|0xCD00 1|gem 6	fort 6	
-1299	The Old Ways are lost. Magic f	1	The Old Ways are lost. Magic fades. Some of the gems have lost their power. [The Forest of Avalon]	site 1|era 3|0xCD00 1|gem 3	fort 3	
+1297	The Old Ways are lost. Magic f	1	The Old Ways are lost. Magic fades. Some of the gems have lost their power. [The Forest of Avalon]	site 1|era 3|0xCD00 1|gem 4	gemloss S	
+1298	The Old Ways are lost. Magic f	1	The Old Ways are lost. Magic fades. Some of the gems have lost their power. [The Forest of Avalon]	site 1|era 3|0xCD00 1|gem 6	gemloss N	
+1299	The Old Ways are lost. Magic f	1	The Old Ways are lost. Magic fades. Some of the gems have lost their power. [The Forest of Avalon]	site 1|era 3|0xCD00 1|gem 3	gemloss E	
 1300	The natives are complaining.	2	The natives are complaining.	0x4600 1|turn 15|fort 0|temple 0|minpop 50|code 0|poptype 25|unique 5	code 100|unrest 15|0x7000 2	
 1301	The natives are unruly. There 	0	The natives are unruly. There has been some resistance against your officials and taxes have not been paid in full. Unless dealt with promptly, things may escalate. Your warlords claim that force is the only option, while your priests argue that perhaps a new temple may bring unity.	code 100	0x6B00 1|code 101|unrest 15|taxboost -20	
 1302	People flock to your glorious 	0	People flock to your glorious new temple! The natives have come into the fold and sing hymns at the feet of your image. Rich offerings have been given at the altar.	code 101|temple 1	incdom 4|gold 200|unrest -40|code 0	
@@ -2407,8 +2407,8 @@ id	name	rarity	description	requirements	effects	test
 2406	A mage in your service has tri	0	A mage in your service has tried to trick a demon of its secrets, but when granted his wish to see the truth, the mage was struck blind!	rare 1|0xDE00 7|0xE200 0|0xE400 1|code -49	code 0|gainaff 4096	
 2407	One of your mages have been se	0	One of your mages have been seduced by the power of blood magic and attempted to summon a demon. The summoning seems to have been successful.	rare 1|0xDF00 7|lab 1|unique 6|code -49	code 0|nation -2|com 304	
 2408	One of your mages have been se	0	One of your mages have been seduced by the power of blood magic and attempted to summon a demon. The summoning seems to have been unsuccessful.	rare 1|0xDF00 7|lab 1|unique 6|code -49	code 0|assassin 304	
-2409	One of your mages have been se	0	One of your mages have been seduced by the power of blood magic and attempted to summon a demon. The summoning seems to have been successful.	rare 1|0xDF00 7|lab 1|gem 7|code -49	code 0|nation -2|com 811|fort 7	
-2410	One of your mages have been se	0	One of your mages have been seduced by the power of blood magic and attempted to summon a demon. The summoning was successful, but the spell bonds were too weak to contain the fiend.	rare 1|0xDF00 7|lab 1|gem 7|code -49	code 0|assassin 811|fort 7	
+2409	One of your mages have been se	0	One of your mages have been seduced by the power of blood magic and attempted to summon a demon. The summoning seems to have been successful.	rare 1|0xDF00 7|lab 1|gem 7|code -49	code 0|nation -2|com 811|gemloss B	
+2410	One of your mages have been se	0	One of your mages have been seduced by the power of blood magic and attempted to summon a demon. The summoning was successful, but the spell bonds were too weak to contain the fiend.	rare 1|0xDF00 7|lab 1|gem 7|code -49	code 0|assassin 811|gemloss B	
 2411	A demon jester has come to moc	0	A demon jester has come to mock you.	rare 6|0xE200 1|land 1|code -49	code 0|nation -2|1unit 1000	
 2412	One of your mages has conjured	0	One of your mages has conjured a devil.	rare 1|0xDF00 7|lab 1|0xE200 0|code -49	code 0|com 304	
 2413	A gateway to the lower realms 	0	A gateway to the lower realms has opened, spewing forth inhabitants of that dismal place! [Demon Gate]	rare 1|freesites 1|unique 3|code -49	code 0|4com 88|3d6units 88|newsite -1	
@@ -2744,7 +2744,7 @@ id	name	rarity	description	requirements	effects	test
 2743	There are rumors of a band of 	0	There are rumors of a band of raptorians harassing travelers.[Palace of the Eagle Kings]	rare 15|site 0|unique 2|nation 14|code 202	unrest 10	
 2744	One of the cealians has been a	0	One of the cealians has been attacked unexpectedly!	rare 15|0xDC00 1284|unique 1|code 202	assassin 676	
 2745	One of the cealians has been a	0	One of the cealians has been attacked unexpectedly!	rare 15|0xDC00 202|unique 1|code 202	assassin 676	
-2746	Some magic gems seem to have b	0	Some magic gems seem to have been pilfered away.	rare 5|gem 5|unique 1|code 202	fort 5	
+2746	Some magic gems seem to have b	0	Some magic gems seem to have been pilfered away.	rare 5|gem 5|unique 1|code 202	gemloss D	
 2747	In a show of loyalty leaders o	0	In a show of loyalty leaders of the Harab Seraphs have given some powerful weapons to the realm. [Shadow Brand]	rare 10|unique 1|nation 14|capital 1|code 203	magicitem 9	
 2748	The renegades gain followers.	0	The renegades gain followers.	rare 15|unique 4|code 202|code 203	notext 1|4d6units 1707|2d6units 1278|2com 1278	
 2749	The province has been raided b	0	The province has been raided by a band of renegade raptorians! [Palace of the Eagle Kings]	rare 25|site 0|unique 5|code 203	taxboost -30|unrest 15	
@@ -2974,7 +2974,7 @@ id	name	rarity	description	requirements	effects	test
 2973	Your servant encountered a loc	-1	Your servant encountered a local sect of fanatics. Their doctrine is to abstain from all pleasures of the flesh.	0xDD00 8|0xE200 0	2d6vis B	
 2974	While blood hunting, your serv	-1	While blood hunting, your servant stumbled upon a remote village where inhabitants have shielded innocent virgins from being caught.	0xDD00 8|0xE200 0	2d6vis B	
 2975	When the daughter of one of th	1	When the daughter of one of the locals was claimed for the blood slave dungeons, her mother put a curse upon your servants!	0xDD00 8|0xE200 0	gainaff 2|curse 3	
-2976	One of your blood hunters fool	1	One of your blood hunters foolishly tried to summon a demon for his own gain.	0xDD00 8|0xE200 0|0xE400 1	fort 7|assassin 88	
+2976	One of your blood hunters fool	1	One of your blood hunters foolishly tried to summon a demon for his own gain.	0xDD00 8|0xE200 0|0xE400 1	gemloss B|assassin 88	
 2977	One of your blood hunters has 	-1	One of your blood hunters has attracted the attention of a smallish demon who now follows his new master around. [Imp Familiar]	0xDD00 8|0xE200 0	addequip 9	
 2978	A rich merchant tried to bribe	-1	A rich merchant tried to bribe one of your blood hunters, seeking to save his daughter from paying the blood tax. Your servant proved his loyalty and has delivered both the girl and the gold to the capital. 	0xDD00 8|0xE200 0	gold 100|1d3vis B	
 2979	One of your blood hunters has 	-2	One of your blood hunters has become more attuned to the sanguine magic.	0xDD00 8|0xE200 0	pathboost 7	
