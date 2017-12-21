@@ -281,9 +281,9 @@ MSpell.prepareData_PostMod = function() {
 					arr = MSpell.yazads;
 				} else if (uid == "-17") {
 					arr = MSpell.yatas;
-				} else if (o.id == "320") {
+				} else if (o.id == "380") {
 					arr = MSpell.angelichost;
-				} else if (o.id == "975") {
+				} else if (o.id == "1081") {
 					arr = MSpell.hordefromhell;
 				} else if (parseInt(uid) < 0) {
 					for (var oi2=0, o2; o2 = modctx.unitdata[oi2];  oi2++) {
@@ -306,8 +306,12 @@ MSpell.prepareData_PostMod = function() {
 						//attach spell to unit
 						u.summonedby = u.summonedby || [];
 						u.summonedby.push( o );
-						u.type = 'cmdr (Summon)';
-						u.sorttype = MUnit.unitSortableTypes[u.type];
+						if (_effects.effect_number == "1") {
+							u.typechar = 'unit (Summon)';
+							u.sorttype = MUnit.unitSortableTypes[u.typechar];
+						} else {
+							u.typechar = 'cmdr (Summon)';
+						}
 					}
 				} else {
 					var u = modctx.unitlookup[uid];
@@ -326,7 +330,7 @@ MSpell.prepareData_PostMod = function() {
 					u.summonedby = u.summonedby || [];
 					u.summonedby.push( o );
 					// Marverni gets Iron Boar
-					if (parseInt(o.id) == 579) {
+					if (parseInt(o.id) == 672) {
 						var ironBoar = modctx.unitlookup[1808];
 						o.summonsunits.push(ironBoar);
 						ironBoar.summonedby = ironBoar.summonedby || [];
@@ -337,14 +341,11 @@ MSpell.prepareData_PostMod = function() {
 						ironBoar.eracodes = ironBoar.eracodes || {}; 
 						ironBoar.eracodes[o.eracode] = true;				
 					}
-				}
-				if (!u.type) {
 					if (_effects.effect_number == "1") {
-						u.type = 'unit (Summon)';
-						u.sorttype = MUnit.unitSortableTypes[u.type];
-					} else if (_effects.effect_number == "21") {
-						u.type = 'cmdr (Summon)';
-						u.sorttype = MUnit.unitSortableTypes[u.type];
+						u.typechar = 'unit (Summon)';
+						u.sorttype = MUnit.unitSortableTypes[u.typechar];
+					} else {
+						u.typechar = 'cmdr (Summon)';
 					}
 				}
 				
@@ -380,8 +381,15 @@ MSpell.prepareData_PostMod = function() {
                         //attach spell to unit
                         u.summonedby = u.summonedby || [];
                         u.summonedby.push( o );
+    					if (_effects.effect_number == "1") {
+    						u.typechar = 'unit (Summon)';
+    						u.sorttype = MUnit.unitSortableTypes[u.typechar];
+    					} else  {
+    						u.typechar = 'cmdr (Summon)';
+    					}
                     }
 				}
+
 			}
 			if (_o == _o.nextspell) break;
 			_o = modctx.spelllookup[_o.nextspell];

@@ -66,7 +66,7 @@ MSpell.format = {
 
 function show_summon(unit, count, pathlevel1, spellid) {
 	var ref;
-	if (parseInt(unit) < 0 || (parseInt(spellid) == 320) || (parseInt(spellid) == 975)) {
+	if (parseInt(unit) < 0 || (parseInt(spellid) == 380) || (parseInt(spellid) == 1081)) {
 		var arr;
 		if (unit == "-16") {
 			arr = MSpell.yazads;

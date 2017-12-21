@@ -330,17 +330,17 @@ MNation.prepareData_PostMod = function() {
 			do {
 				var arr = spell.summonsunits || [];
 				for (var i=0, u; u= arr[i]; i++) {
-					var basekey;
-					if (u.typeclass == 'Unit') {
-						basekey = 'unit (Summon)';
-					} else {
-						basekey = 'cmdr (Summon)';
-					}
-					if (u.typechar && u.typechar!=basekey) {
-						//find pretender version of this unit
-						u = modctx.getUnitOfType(u, basekey) || modctx.cloneUnit(u);
-					}
-					u.typechar = basekey;
+//					var basekey;
+//					if (u.typeclass == 'Unit') {
+//						basekey = 'unit (Summon)';
+//					} else {
+//						basekey = 'cmdr (Summon)';
+//					}
+//					if (u.typechar && u.typechar!=basekey) {
+//						//find pretender version of this unit
+//						u = modctx.getUnitOfType(u, basekey) || modctx.cloneUnit(u);
+//					}
+//					u.typechar = basekey;
 
 					u.nations = u.nations || {};
 					u.nations[o.id] = o;
