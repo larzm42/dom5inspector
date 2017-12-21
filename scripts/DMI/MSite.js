@@ -83,12 +83,14 @@ MSite.prepareData_PostMod = function() {
                             if (unit.nations[natid] && !found) {
                                 unit.summonedfrom = unit.summonedfrom || [];
                                 unit.summonedfrom.push( o );
+								unit.typechar = 'unit (Summon)';
                                 found = true;
                             }
                         }
                     } else if (Math.round(unit.id) == uid && !found) {
                         unit.summonedfrom = unit.summonedfrom || [];
                         unit.summonedfrom.push( o );
+						unit.typechar = 'unit (Summon)';
                         found = true;
                     }
                 }
@@ -98,6 +100,7 @@ MSite.prepareData_PostMod = function() {
                             if (Math.round(unit.id) == uid && unit.nations && o.nations) {
                                 unit.summonedfrom = unit.summonedfrom || [];
                                 unit.summonedfrom.push( o );
+								unit.typechar = 'unit (Summon)';
                             }
                         }
                     }
@@ -295,12 +298,14 @@ MSite.prepareData_PostMod = function() {
 							if (unit.nations[natid] && !found) {
 								unit.recruitedby = unit.recruitedby || [];
 								unit.recruitedby.push( o );
+								unit.typechar = 'cmdr (Magic site)';
 								found = true;
 							}
 						}
 					} else if (Math.round(unit.id) == uid && !found) {
 						unit.recruitedby = unit.recruitedby || [];
 						unit.recruitedby.push( o );
+						unit.typechar = 'cmdr (Magic site)';
 						found = true;
 					}
 				}
@@ -310,6 +315,7 @@ MSite.prepareData_PostMod = function() {
 							if (Math.round(unit.id) == uid && unit.nations && o.nations) {
 								unit.recruitedby = unit.recruitedby || [];
 								unit.recruitedby.push( o );
+								unit.typechar = 'cmdr (Magic site)';
 							}
 						}
 					}
@@ -327,12 +333,14 @@ MSite.prepareData_PostMod = function() {
 							if (unit.nations[natid] && !found) {
 								unit.recruitedby = unit.recruitedby || [];
 								unit.recruitedby.push( o );
+								unit.typechar = 'Unit (Magic site)';
 								found = true;
 							}
 						}
 					} else if (Math.round(unit.id) == uid && !found) {
 						unit.recruitedby = unit.recruitedby || [];
 						unit.recruitedby.push( o );
+						unit.typechar = 'Unit (Magic site)';
 						found = true;
 					}
 				}
@@ -342,6 +350,7 @@ MSite.prepareData_PostMod = function() {
 							if (Math.round(unit.id) == uid && unit.nations && o.nations) {
 								unit.recruitedby = unit.recruitedby || [];
 								unit.recruitedby.push( o );
+								unit.typechar = 'Unit (Magic site)';
 							}
 						}
 					}

@@ -777,8 +777,8 @@ function parseData( g_data ) {
 			DMI.MItem.prepareData_PostMod();
 			DMI.MUnit.prepareData_PostMod();
 			DMI.MSpell.prepareData_PostMod();
-			DMI.MNation.prepareData_PostMod();
 			DMI.MSite.prepareData_PostMod();
+			DMI.MNation.prepareData_PostMod();
 			DMI.MMerc.prepareData_PostMod();
 			if (location.search.indexOf('loadEvents=1') != -1) {
 				DMI.MEvent.prepareData_PostMod();

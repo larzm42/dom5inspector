@@ -362,7 +362,7 @@ MNation.prepareData_PostMod = function() {
 							break;
 						}
 						otherList.push(other);
-						other.typechar = basekey;
+						other.typechar = u.typechar;
 
 						other.nations = other.nations || {};
 						other.nations[o.id] = o;

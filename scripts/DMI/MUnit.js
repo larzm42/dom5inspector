@@ -775,18 +775,6 @@ MUnit.prepareData_PostNationData = function(o) {
 			delete o.rcostsort;
 			delete o.goldcost;
 		}
-		//sorttype
-		o.sorttype = MUnit.unitSortableTypes[o.typechar];
-
-		if (!o.sorttype || o.sorttype == '') {
-			o.sorttype = o.typeclass;
-			if (o.from && o.from != '') {
-				o.sorttype = o.sorttype + ' (' + o.from + ')';
-			}
-			if (!o.sorttype || o.sorttype == '') {
-				o.sorttype = 'zzz';
-			}
-		}
 
 		//show magic paths on grid for commanders only
 		if (isCmdr(o) && o.mpath) 
@@ -800,21 +788,54 @@ MUnit.prepareData_PostNationData = function(o) {
 		if (o.domsummon1 && (sumu= modctx.unitlookup[o.domsummon1])) {
 			sumu.createdby = sumu.createdby || [];
 			sumu.createdby.push(o)
+			sumu.typechar = 'unit (Summon)';
 		}
 		if (o.domsummon2 && (sumu= modctx.unitlookup[o.domsummon2])) {
 			sumu.createdby = sumu.createdby || [];
 			sumu.createdby.push(o)
+			sumu.typechar = 'unit (Summon)';
 		}
 		if (o.makemonster && (sumu= modctx.unitlookup[o.makemonster])) {
 			sumu.createdby = sumu.createdby || [];
 			sumu.createdby.push(o)
+			sumu.typechar = 'unit (Summon)';
 		}
 		if (o.summon && (sumu= modctx.unitlookup[o.summon])) {
 			sumu.createdby = sumu.createdby || [];
 			sumu.createdby.push(o)
+			sumu.typechar = 'unit (Summon)';
+		}
+		// Unit types for linked units
+		var other = o;
+		if (other = modctx.unitlookup[o.firstshape || 
+			o.secondshape || 
+			o.shapechange ||
+			o.secondtmpshape ||
+			o.landshape ||
+			o.watershape ||
+			o.forestshape ||
+			o.plainshape ||
+			o.prophetshape]) {
+			if (!o.typechar) {
+				o.typechar = other.typechar;				
+			} else if (!other.typechar) {
+				other.typechar = o.typechar;
+				other.sorttype = o.sorttype;				
+			}
+		}
+		//sorttype
+		o.sorttype = MUnit.unitSortableTypes[o.typechar];
+
+		if (!o.sorttype || o.sorttype == '') {
+			o.sorttype = o.typeclass;
+			if (o.from && o.from != '') {
+				o.sorttype = o.sorttype + ' (' + o.from + ')';
+			}
+			if (!o.sorttype || o.sorttype == '') {
+				o.sorttype = 'zzz';
+			}
 		}
 		o.unprep = true;
-		
 	}
 }
 
