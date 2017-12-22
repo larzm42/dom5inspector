@@ -121,19 +121,12 @@ function initItemsTable() {
     	}
         return true;
     });
+
     var oTable = $('#itemsTable').dataTable();
-    $('.toggle-path').on("click", function(e) {
-        oTable.fnDraw();
-    });
-    $('.inclusive-search').on("click", function(e) {
-        oTable.fnDraw();
-    });
-    $("#itemtype").change(function () {
-        oTable.fnDraw();
-    });
-    $("#itemlvl").change(function () {
-        oTable.fnDraw();
-    });
+    $('.toggle-path').on("click", oTable.fnDraw);
+    $('.inclusive-search').on("click", oTable.fnDraw);
+    $("#itemtype").change(oTable.fnDraw);
+    $("#itemlvl").change(oTable.fnDraw);
 }
 
 function initSpellsTable() {
