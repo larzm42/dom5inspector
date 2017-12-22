@@ -1,6 +1,6 @@
 //namespace scope
 (function( DMI, $, undefined ){
-		
+
 var MSpell = DMI.MSpell = DMI.MSpell || {};
 var MUnit = DMI.MUnit = DMI.MUnit || {};
 
@@ -22,7 +22,7 @@ MSpell.initSpell = function(o) {
 
 MSpell.nationList = function (o) {
 	o.nations = [];
-	
+
 	for (var oi=0, attr; attr = modctx.attributes_by_spell[oi];  oi++) {
 		if (attr.spell_number == o.id) {
 			//var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
@@ -37,15 +37,15 @@ MSpell.nationList = function (o) {
 
 MSpell.prepareData_PreMod = function() {
 	for (var oi=0, o;  o= modctx.spelldata[oi];  oi++) {
-		
+
 		o.path1  = modconstants[16][o.path1];
 		o.path2  = modconstants[16][o.path2];
 
 		o.nations = MSpell.nationList(o);
 		o.notnations = [];
-		
+
 		o.nextspell = o.next_spell;
-		
+
 	}
 }
 
@@ -89,21 +89,21 @@ MSpell.prepareData_PostMod = function() {
 
 		o.renderOverlay = MSpell.renderOverlay;
 		o.matchProperty = MSpell.matchProperty;
-		
+
 		//convert to numbers (for column ordering)
 		//doesn't seem to cause any further problems..
 		o.id = parseInt(o.id);
 		o.name = o.name || '(undefined)';
 
 		o.fatiguecost = parseInt(o.fatiguecost);
-		
+
 		//serachable string
 		o.searchable = o.name.toLowerCase();
-		
+
 		//flip 'works underwater' bit and suchlike
 //		o.spec_updated = o.spec;
-//		o.spec_updated = MSpell.updateSpecialBitfield(o.spec_updated);		
-				
+//		o.spec_updated = MSpell.updateSpecialBitfield(o.spec_updated);
+
 		//lookup effect 2
 		if (o.nextspell == '0') {
 			delete o.nextspell;
@@ -140,7 +140,7 @@ MSpell.prepareData_PostMod = function() {
 			o.research += ' ' + o.researchlevel;
 			o.sortschool += '.' + o.researchlevel;
 		}
-		
+
 		if (o.nreff) {
 			o.effects_count = o.nreff;
 		}
@@ -184,9 +184,9 @@ MSpell.prepareData_PostMod = function() {
 								effects.effect_number == "81" ||
 								effects.effect_number == "93" ||
 								effects.effect_number == "119" ||
-								effects.effect_number == "76" || 
-								effects.effect_number == "89" || 
-								effects.effect_number == "100" || 
+								effects.effect_number == "76" ||
+								effects.effect_number == "89" ||
+								effects.effect_number == "100" ||
 								effects.effect_number == "114") {
 								delete o.aoe_s;
 								delete o.rng_bat;
@@ -227,7 +227,7 @@ MSpell.prepareData_PostMod = function() {
 			o.fatiguecostsort = -1;
 		} else {
 			/*
-			 * Removed the += here, but this was sending fatiguecosts high. Now it only 
+			 * Removed the += here, but this was sending fatiguecosts high. Now it only
 			 * sets the fatiguecost if it doesn't already have a value. This could be an issue
 			 * if it did need to add to another value!
 			 */
@@ -246,8 +246,8 @@ MSpell.prepareData_PostMod = function() {
 		} else {
 			o.gemcostsort = -1;
 			delete o.gemcost;
-		}	
-	
+		}
+
 		// Attributes
 		for (var oj=0, attr; attr = modctx.attributes_by_spell[oj];  oj++) {
 			if (attr.spell_number == o.id) {
@@ -274,9 +274,9 @@ MSpell.prepareData_PostMod = function() {
 				_effects.effect_number == "50" ||
 				_effects.effect_number == "93" ||
 				_effects.effect_number == "119") {
-				
+
 				var uid = _effects.raw_argument;
-				
+
 				if (uid == "-16") {
 					arr = MSpell.yazads;
 				} else if (uid == "-17") {
@@ -338,8 +338,8 @@ MSpell.prepareData_PostMod = function() {
 						var marv = modctx.nationlookup[8];
 						ironBoar.nations = ironBoar.nations || {};
 						ironBoar.nations[8] = marv;
-						ironBoar.eracodes = ironBoar.eracodes || {}; 
-						ironBoar.eracodes[o.eracode] = true;				
+						ironBoar.eracodes = ironBoar.eracodes || {};
+						ironBoar.eracodes[o.eracode] = true;
 					}
 					if (_effects.effect_number == "1") {
 						u.typechar = 'unit (Summon)';
@@ -348,13 +348,13 @@ MSpell.prepareData_PostMod = function() {
 						u.typechar = 'cmdr (Summon)';
 					}
 				}
-				
-			} else if (_effects.effect_number == "76" || 
-				_effects.effect_number == "89" || 
-				_effects.effect_number == "100" || 
+
+			} else if (_effects.effect_number == "76" ||
+				_effects.effect_number == "89" ||
+				_effects.effect_number == "100" ||
 				_effects.effect_number == "114" ||
 				_effects.effect_number == "120") {
-				
+
 				var arr;
 				if (_effects.effect_number == "76") {
 					arr = MSpell.tartarianGate;
@@ -407,14 +407,14 @@ MSpell.prepareData_PostMod = function() {
 	}
 }
 
-	
+
 //////////////////////////////////////////////////////////////////////////
 // DEFINE GRID
 //////////////////////////////////////////////////////////////////////////
 
 function spellNameFormatter(row, cell, value, columnDef, dataContext) {
 	if (dataContext.nations)
-		return '<div class="national-spell">'+value+'</div>';	
+		return '<div class="national-spell">'+value+'</div>';
 	return value;
 }
 
@@ -433,7 +433,7 @@ function spellTypeFormatter(row, cell, value, columnDef, dataContext) {
 	return (value == 'combat spell') ? 'combat' : value
 }
 
-MSpell.CGrid = DMI.Utils.Class( DMI.CGrid, function() {		
+MSpell.CGrid = DMI.Utils.Class( DMI.CGrid, function() {
 	//grid columns
 	var columns = [
 		{ id: "name",     width: 120, name: "Spell Name", field: "name", sortable: true, formatter: spellNameFormatter, sortCmp: 'text' },
@@ -443,55 +443,55 @@ MSpell.CGrid = DMI.Utils.Class( DMI.CGrid, function() {
 		{ id: "gemcost",    width: 30, name: "Cost", field: "gemcostsort", sortable: true, formatter: spellCostFormatter },
 		{ id: "fatiguecost",     width: 30, name: "Fat", field: "fatiguecostsort", sortable: true, formatter: fatigueFormatter }
 	];
-	
+
 	this.superClass.call(this, 'spell', modctx.spelldata, columns); //superconstructor
 
 	$(this.domsel+' .grid-container').css('width', 550);//set table width
-	
+
 	//closure scope
 	var that = this;
-		
+
 	//+ and - keys double/half bitmask search values
 	$(that.domselp+" input.effect-mask, "+ that.domselp+" input.special-mask").keydown( function(e) {
 		if (e.which == 107) {
 			var n = parseInt($(this).val()) || 1;
 			$(this).val((n-1 || 1)*2); //undo the last event which added 1
-			e.preventDefault();	
+			e.preventDefault();
 		}
 		if (e.which == 109) {
 			var n = parseInt($(this).val()) || 1;
 			$(this).val(Math.ceil((n+1 || 1)/2)); //undo the last event which subtracted 1
-			e.preventDefault();	
-		}			
+			e.preventDefault();
+		}
 	});
 
 	//selecting national/generic deselects the other
 	$(that.domselp+" input.national").bind('change click', function(e) {
-		if ($(this).prop('checked')) 
+		if ($(this).prop('checked'))
 			$(that.domselp+" input.generic").prop('checked', false).saveState();
 	});
 	$(that.domselp+" input.generic").bind('change click', function(e) {
-		if ($(this).prop('checked')) 
+		if ($(this).prop('checked'))
 			$(that.domselp+" input.national").prop('checked', false).saveState();
 	});
-	
-	
+
+
 	//reads search boxes
 	this.getSearchArgs = function(domsel) {
 		var args = {properties: this.getPropertyMatchArgs(),
 			str: $(that.domselp+" input.search-box").val().toLowerCase(),
 			nation: $(that.domselp+" select.nation").val(),
-			
+
 			type: $(that.domselp+" select.type").val(),
 			schools: Utils.splitToLookup( $(that.domselp+" select.school").val(), ','),
 			inclusive: $(that.domselp+" input.inclusive-search:checked").val(),
 			generic: $(that.domselp+" input.generic:checked").val(),
 			national: $(that.domselp+" input.national:checked").val(),
-			
+
 			effect: parseInt($(that.domselp+" input.spell-effect-number").val()),
 			effect_mask: parseInt($(that.domselp+" input.effect-mask").val()),
 			special_mask: parseInt($(that.domselp+" input.special-mask").val()),
-			
+
 			aquatic: $(that.domselp+" select.aquatic").val(),
 
 			mpaths: ''
@@ -499,26 +499,26 @@ MSpell.CGrid = DMI.Utils.Class( DMI.CGrid, function() {
 		args.properties = Utils.propertiesWithKeys(args.properties);
 
 		if ($.isEmptyObject(args.schools)) delete args.schools;
-		
+
 		//whole era
 		if (args.nation == 'EA' || args.nation == 'MA' || args.nation == 'LA') {
 			args.eracode = args.nation;
 			delete args.nation;
 		}
 		else args.nation = modctx.nationlookup[ args.nation ];
-				
+
 		//create string of mpaths from checkboxes
 		$(that.domselp+' .toggle-path:checked').each(function() {
 			args.mpaths += this.value;
 		});
 		return args;
 	}
-	
+
 	//apply search
 	this.searchFilter =  function(o, args) {
 		//type in id to ignore filters
 		if (args.str && args.str == String(o.id)) return true;
-		
+
 		//check effect no (and recurring attached effects)
 		skip:
 		if (args.effect) {
@@ -530,13 +530,13 @@ MSpell.CGrid = DMI.Utils.Class( DMI.CGrid, function() {
 					if (!args.effect_mask || parseInt(oo.damage) & args.effect_mask)
 						//return true;
 						break skip;
-				}					
+				}
 				oo = oo.nextspell;
 				if (oo == o) break; //avoid infinite loop
 			}
 			return false;
 		}
-		
+
 		//check special mask (including child effeccts)
 		skip:
 		if (args.special_mask) {
@@ -551,27 +551,27 @@ MSpell.CGrid = DMI.Utils.Class( DMI.CGrid, function() {
 			}
 			return false;
 		}
-		
-		//type		
+
+		//type
 		if (args.type && o.type != args.type)
 			return false;
-		
-		//school		
+
+		//school
 		if (args.schools && !args.schools[o.school])
 			return false;
-		
-		
+
+
 		//national (national spells only)
 		if (args.national && !o.nations)
 			return false;
 		//generic (generic spells only)
 		if (args.generic && o.nations)
 			return false;
-		
+
 		//era
 		if (args.eracode && o.eracodes) {
 			if (!o.eracodes[args.eracode])
-				return false;			
+				return false;
 		}
 		//nation
 		if (args.nation && o.nations) {
@@ -589,12 +589,12 @@ MSpell.CGrid = DMI.Utils.Class( DMI.CGrid, function() {
 				return false;
 			if (args.aquatic == 'land' && !DMI.MSpell.worksOnDryLand(o))
 				return false;
-		}		
-		
+		}
+
 		//search string
 		if (args.str && o.searchable.indexOf(args.str) == -1)
 			return false;
-		
+
 		//magic paths
 		if (args.mpaths) {
 			if(args.inclusive) {
@@ -613,7 +613,7 @@ MSpell.CGrid = DMI.Utils.Class( DMI.CGrid, function() {
 					return false;
 			}
 		}
-		
+
 		//key =~ val
 		if (args.properties) {
 			//need to finalise stats now..
@@ -625,8 +625,8 @@ MSpell.CGrid = DMI.Utils.Class( DMI.CGrid, function() {
 					return false;
 			}
 		}
-		
-		
+
+
 		if (args.customjs) {
 			var res = DMI.customFilter(o, args.customjs);
 			if (res == '#ERROR#')
@@ -636,20 +636,20 @@ MSpell.CGrid = DMI.Utils.Class( DMI.CGrid, function() {
 		}
 		return true;
 	}
-	
+
 	//customise initial search
 	this.initialSortTrigger = this.domsel+" div.slick-header-column[title=School]";
-	
+
 	this.defaultSortCmp = function(r1,r2) {
 		if (r2.mpath < r1.mpath) return 1;
 		if (r2.mpath > r1.mpath) return -1;
 		return 0;
 	}
-	
+
 	//call filters and update  display
-	//asyncronous to make sure all filter inputs are correctly initialised  
-	setTimeout(function() { 
-		that.init(); 
+	//asyncronous to make sure all filter inputs are correctly initialised
+	setTimeout(function() {
+		that.init();
 	},0);
 });
 //MSpell.matchProperty = DMI.matchProperty;
@@ -663,7 +663,7 @@ MSpell.matchProperty = function(o, key, comp, val) {
 }
 
 MSpell.formatAoe = function(v,o) {
-	return o.aoeplus ? v+'+' : v; 
+	return o.aoeplus ? v+'+' : v;
 }
 
 
@@ -707,13 +707,13 @@ var displayorder = Utils.cutDisplayOrder(aliases, formats,
 ]);
 var ignorekeys = {
 	modded:1,
-	path1:1, pathlevel1:1, path2:1, pathlevel2:1, 
+	path1:1, pathlevel1:1, path2:1, pathlevel2:1,
 	school:1,
 	researchlevel:1,research:1,sortschool:1,
 
 	damagemon:1,
 	descr:1,
-	type:1,		
+	type:1,
 	mpath:1,
 	fatiguecost:1,gemcost:1,
 	fatiguecostsort:1,gemcostsort:1,
@@ -724,11 +724,11 @@ var ignorekeys = {
 	aoe:1,
 
 	summonsunits:1,	nations:1, notnations:1, eracodes:1, nationname:1,
-	
+
 	//common fields
 	name:1,description:1,
 	searchable:1, renderOverlay:1, matchProperty:1
-};		
+};
 
 MSpell.renderOverlay = function(o) {
 	var descrpath = 'gamedata/spelldescr/';
@@ -736,7 +736,7 @@ MSpell.renderOverlay = function(o) {
 	//template
 	var h='';
 	h+='<div class="spell overlay-contents"> ';
-	
+
 	//header
 	h+='	<div class="overlay-header" title="spell id:'+o.id+'"> ';
 	h+=' 		<input class="overlay-pin" type="image" src="images/PinPageTrns.png" title="unpin" />';
@@ -746,49 +746,49 @@ MSpell.renderOverlay = function(o) {
 	var nref = DMI.MNation.nationUnitRefs(o.nations);
 	if (nref)
 		h+='	<p>'+nref+'</p> ';
-	
-	
+
+
 	//body
 	h+='	</div>';
 	h+='	<div class="overlay-main" style="position:relative;">';
-	
+
 	//type & path requirements
 	h+='		<div style="float:right; clear:right;">'+o.type+'</div>';
 	h+='		<div style="float:right; clear:right;">'+Format.Paths(o.mpath)+'</div>';
-	
+
 	//spell details & secondary effects
 	h+=		MSpell.renderSpellTable(o);
-	
+
 	//wikilink
 	if (!o.moddedname)
 		h+='	<div class="overlay-wiki-link non-content">' + Utils.wikiLink(o.name) + '</div>';
-	
+
 	//footer
 	h+='	</div>';
 	h+='	<div class="overlay-footer">';
-	
+
 	//descr
 	var uid = 'c'+(Math.random());
 	uid = uid.replace('.','');
 	h+='		<div class="overlay-descr pane-extension '+uid+'"></div>';
-	
+
 	if (o.descr)
 			Utils.insertContent( '<p>'+o.descr+'</p>', 'div.'+uid );
 	else {
 			 var url = descrpath + Utils.descrFilename(o.name);
 			 Utils.loadContent( url, 'div.'+uid );
-	}	
+	}
 
 	h+='	</div> ';
 	h+='</div> ';
-	return h;	
+	return h;
 }
 
 //spell table. +recursive secondary effects
 MSpell.renderSpellTable = function(o, original_effect) {
-	
+
 	var cssclasses = original_effect ? ' modding-row' : '';
-	
+
 	//template
 	var h='';
 	h+='		<table class="overlay-table spell-table"> ';
@@ -799,18 +799,18 @@ MSpell.renderSpellTable = function(o, original_effect) {
 	h+='		</table> ';
 
 	cssclasses = original_effect ? ' nextspell' : '';
-	
+
 	//hide the whole effect if its restore fatigue +0 (it does nothing)
 	// (used as gfx effects placeholder in cbm)
 	if (o.damage == '0' && MSpell.format.effect(o.effect) == 8)
 		cssclasses += 	' modding-block'
-	
+
 	var effects = MSpell.getEffect(o);
 	if (effects) {
 		//effect
 		h+='		<table class="overlay-table spell-effect '+cssclasses+'"> ';
 		h+=			renderEffect(o, effects);
-		
+
 		// Attributes
 		for (var oi=0, attr; attr = modctx.attributes_by_spell[oi];  oi++) {
 			if (attr.spell_number == o.id) {
@@ -819,7 +819,7 @@ MSpell.renderSpellTable = function(o, original_effect) {
 						attr.attribute != "700" &&
 						attr.attribute != "703") {
 					var specflags = modctx.attribute_keys_lookup[attr.attribute].name;
-					
+
 					var val;
 					if (attr.attribute == '702') {
 						val = Utils.renderFlags(MSpell.bitfieldValues(attr.raw_value, modctx.map_terrain_types_lookup), 1);
@@ -828,7 +828,7 @@ MSpell.renderSpellTable = function(o, original_effect) {
 					} else {
 						val = attr.raw_value;
 					}
-					
+
 					h+= '<tr class="'+attr.attribute+'"><th>'+modctx.attribute_keys_lookup[attr.attribute].name.replace(/{(.*?)}|<|>/g, "")+':</th><td>'+val+'</td></tr>'
 				}
 			}
@@ -839,25 +839,25 @@ MSpell.renderSpellTable = function(o, original_effect) {
 		if (specflags)
 			h+=		'<tr><td class="widecell" colspan="2">&nbsp;</td></tr><tr><td class="widecell" colspan="2">'+specflags+'</td></tr></div>';
 	}
-	
+
 	//modded
 	if (o.modded) {
 		h+='		<tr class="modded hidden-row"><td colspan="2">' + Utils.renderModded(o) +'</td></tr>';
-	}	
+	}
 	h+=' 		</table> ';
 
-	
+
 	//attached effect
 	if (o.nextspell) {
 		h+=' <h4 class="hidden-block nextspell">'+o.nextspell.name+'</h4>';
 		//detect recursion
 		if (o.nextspell == o)
-			throw 'Error, spell 2nd effect as itself: '+o.id+': '+o.name; 
+			throw 'Error, spell 2nd effect as itself: '+o.id+': '+o.name;
 		else {
 			h+= MSpell.renderSpellTable(o.nextspell, original_effect || o);
 		}
-	} 	
-	return h;	
+	}
+	return h;
 }
 
 MSpell.bitfieldValues = function(bitfield, masks_dict) {
@@ -893,17 +893,17 @@ MSpell.worksUnderwater = function(spell) {
 			return true;
 		}
 	}
-	return false; 
+	return false;
 }
 
-MSpell.worksOnDryLand = function(spell) { 
+MSpell.worksOnDryLand = function(spell) {
 	var effects = MSpell.getEffect(spell);
 	if (effects) {
 		if (!(effects.modifiers_mask & 33554432)) {
 			return true;
 		}
 	}
-	return false; 
+	return false;
 }
 
 MSpell.getEffect = function(spell) {
@@ -916,7 +916,7 @@ MSpell.getEffect = function(spell) {
 	if (spell.effect_record_id) {
 		effect = JSON.parse(JSON.stringify(modctx.effects_spells_lookup[spell.effect_record_id]));
 	}
-	
+
 	if (spell.copyspell) {
 		var otherspell = DMI.modctx.spelllookup[spell.copyspell];
 		effect = JSON.parse(JSON.stringify(modctx.effects_spells_lookup[otherspell.effect_record_id]));
@@ -970,11 +970,11 @@ MSpell.getEffect = function(spell) {
 	}
 
 	if (spell.spec) {
-		effect.modifiers_mask = spell.spec; 
+		effect.modifiers_mask = spell.spec;
 	} else if (!effect.modifiers_mask) {
-		effect.modifiers_mask = 0; 
+		effect.modifiers_mask = 0;
 	}
-	
+
 	if (spell.range) {
 		effect.range_base = parseInt(spell.range) % 1000;
 		if (parseInt(spell.range) > 999) {
@@ -984,7 +984,7 @@ MSpell.getEffect = function(spell) {
 		effect.range_base = '0';
 		effect.range_per_level = '0';
 	}
-	
+
 	if (spell.aoe) {
 		effect.area_base = parseInt(spell.aoe) % 1000
 		effect.area_per_level = parseInt(spell.aoe) / 1000;
@@ -992,17 +992,17 @@ MSpell.getEffect = function(spell) {
 			effect.area_per_level = Math.round(parseInt(spell.aoe) / 1000);
 		}
 	}
-	
+
 	return effect;
-	
+
 //  effect.duration INTEGER,
-//	effect.range_strength_divisor INTEGER, 
-//	effect.area_battlefield_pct INTEGER, 
-//	effect.sound_number INTEGER, 
-//	effect.flight_sprite_number INTEGER, 
-//	effect.flight_sprite_length INTEGER, 
-//	effect.explosion_sprite_number INTEGER, 
-//	effect.explosion_sprite_length INTEGER, 
+//	effect.range_strength_divisor INTEGER,
+//	effect.area_battlefield_pct INTEGER,
+//	effect.sound_number INTEGER,
+//	effect.flight_sprite_number INTEGER,
+//	effect.flight_sprite_length INTEGER,
+//	effect.explosion_sprite_number INTEGER,
+//	effect.explosion_sprite_length INTEGER,
 }
 
 

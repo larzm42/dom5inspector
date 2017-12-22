@@ -1,6 +1,6 @@
 //namespace scope
 (function( DMI, $, undefined ){
-		
+
 var MSite = DMI.MSite = DMI.MSite || {};
 var MNation = DMI.MNation = DMI.MNation || {};
 var MUnit = DMI.MUnit = DMI.MUnit || {};
@@ -34,7 +34,7 @@ MNation.initNation = function(o) {
 	o.commanders = [];
 	o.foreigncommanders = [];
 	o.units = [];
-	o.heroes = [];	
+	o.heroes = [];
 	o.multiheroes = [];
 	o.uwunit = [];
 	o.uwcom = [];
@@ -46,7 +46,7 @@ MNation.initNation = function(o) {
 }
 MNation.prepareData_PreMod = function() {
 	for (var oi=0, o;  o= modctx.nationdata[oi];  oi++) {
-		
+
 		o.pretenders = [];
 		o.commanders = [];
 		o.foreigncommanders = [];
@@ -69,7 +69,7 @@ MNation.prepareData_PreMod = function() {
 		o.uwunit = [];
 		o.landcom = [];
 		o.landunit = [];
-		o.heroes = [];	
+		o.heroes = [];
 		o.multiheroes = [];
 		o.spells = [];
 		o.addgod = [];
@@ -102,22 +102,22 @@ MNation.prepareData_PostMod = function() {
 	if (disableold) {
 		for (var oi=modctx.nationdata.length-1, o;  o= modctx.nationdata[oi];  oi--) {
 			o.id = parseInt(o.id);
-			
+
 			if (disableold && o.id < 100) {
 				modctx.nationdata.splice(oi, 1);
 			}
 		}
 	}
-	
+
 	for (var oi=0, o;  o= modctx.nationdata[oi];  oi++) {
 		o.id = parseInt(o.id);
-		
+
 		o.renderOverlay = MNation.renderOverlay;
-		
+
 		o.eracode = modconstants.eracodes[o.era];
 		o.shortname = o.eracode+'  '+o.name;
 		o.fullname = o.eracode+'  '+o.name+'  -  '+o.epithet;
-		
+
 		// Get realms of nation
 		var realms = [];
 		for (var oj=0, attr; attr = modctx.attributes_by_nation[oj];  oj++) {
@@ -131,7 +131,7 @@ MNation.prepareData_PostMod = function() {
 		if (o.homerealm) {
 			realms = realms.concat(o.homerealm);
 		}
-		
+
 		// get monsters in realm
 		for (var oj=0, attr; attr = modctx.realms[oj];  oj++) {
 			for (var ok=0, realm; realm = realms[ok]; ok++) {
@@ -141,7 +141,7 @@ MNation.prepareData_PostMod = function() {
 			}
 		}
 		o.homerealm = realms;
-		
+
 		// look for added pretenders
 		if (!o.cleargods) {
 			for (var oj=0, attr; attr = modctx.pretender_types_by_nation[oj];  oj++) {
@@ -153,7 +153,7 @@ MNation.prepareData_PostMod = function() {
 		if (o.addgod) {
 			o.pretenders = o.pretenders.concat(o.addgod);
 		}
-		
+
 		// look for deleted pretenders
 		for (var oj=0, attr; attr = modctx.unpretender_types_by_nation[oj];  oj++) {
 			if (parseInt(attr.nation_number) == o.id) {
@@ -170,49 +170,49 @@ MNation.prepareData_PostMod = function() {
 			    return o.delgod.indexOf(item) === -1;
 			});
 		}
-		
+
 		// look for commanders
 		for (var oj=0, attr; attr = modctx.fort_leader_types_by_nation[oj];  oj++) {
 			if (parseInt(attr.nation_number) == o.id) {
 				o.commanders.push(attr.monster_number);
 			}
 		}
-		
+
 		// look for foreign commanders
 		for (var oj=0, attr; attr = modctx.nonfort_leader_types_by_nation[oj];  oj++) {
 			if (parseInt(attr.nation_number) == o.id) {
 				o.foreigncommanders.push(attr.monster_number);
 			}
 		}
-		
+
 		// look for units
 		for (var oj=0, attr; attr = modctx.fort_troop_types_by_nation[oj];  oj++) {
 			if (parseInt(attr.nation_number) == o.id) {
 				o.units.push(attr.monster_number);
 			}
 		}
-		
+
 		// look for foreign units
 		for (var oj=0, attr; attr = modctx.nonfort_troop_types_by_nation[oj];  oj++) {
 			if (parseInt(attr.nation_number) == o.id) {
 				o.foreignunits.push(attr.monster_number);
 			}
 		}
-		
+
 		// look for coast commanders
 		for (var oj=0, attr; attr = modctx.coast_leader_types_by_nation[oj];  oj++) {
 			if (parseInt(attr.nation_number) == o.id) {
 				o.coastcom.push(attr.monster_number);
 			}
 		}
-		
+
 		// look for coast units
 		for (var oj=0, attr; attr = modctx.coast_troop_types_by_nation[oj];  oj++) {
 			if (parseInt(attr.nation_number) == o.id) {
 				o.coastrec.push(attr.monster_number);
 			}
 		}
-		
+
 		for (var oj=0, attr; attr = modctx.attributes_by_nation[oj];  oj++) {
 			if (parseInt(attr.nation_number) == o.id) {
 				//var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
@@ -246,9 +246,9 @@ MNation.prepareData_PostMod = function() {
 						o.uwcom.push(parseInt(attr.raw_value));
 					}
 				}
-				if (attr.attribute == "189" || 
-					attr.attribute == "190" || 
-					attr.attribute == "191" || 
+				if (attr.attribute == "189" ||
+					attr.attribute == "190" ||
+					attr.attribute == "191" ||
 					attr.attribute == "213") {
 					if (attr.nation_number == "36" ||
 						attr.nation_number == "37" ||
@@ -294,37 +294,37 @@ MNation.prepareData_PostMod = function() {
 				if (attr.attribute == "303") {
 					o.cavecom.push(parseInt(attr.raw_value));
 				}
-				if (attr.attribute == "139" || 
-					attr.attribute == "140" || 
-					attr.attribute == "141" || 
-					attr.attribute == "142" || 
-					attr.attribute == "143" || 
+				if (attr.attribute == "139" ||
+					attr.attribute == "140" ||
+					attr.attribute == "141" ||
+					attr.attribute == "142" ||
+					attr.attribute == "143" ||
 					attr.attribute == "144") {
 					o.heroes.push(parseInt(attr.raw_value));
 				}
-				if (attr.attribute == "145" || 
+				if (attr.attribute == "145" ||
 					attr.attribute == "146") {
 					o.multiheroes.push(parseInt(attr.raw_value));
 				}
 			}
 		}
-		
+
 		//associate spells
 		//national spells already listed themselves in o.spells
 		//now we need to set nation details on the spells
-		for (var si=0, s; s= o.spells[si]; si++) {			
+		for (var si=0, s; s= o.spells[si]; si++) {
 			s.nations = s.nations || {};
 			s.nations[o.id] = o;
-			s.eracodes = s.eracodes || {}; 
+			s.eracodes = s.eracodes || {};
 			s.eracodes[o.eracode] = true;
-			
+
 			//nationname
 			var ncount=0; for (var k in s.nations) ncount++;
 			if (ncount == 1)
 				s.nationname = o.shortname;
 			else
 				s.nationname = 'various ('+ncount+')';
-			
+
 			//set nation value on summoned units
 			var spell = s;
 			do {
@@ -344,8 +344,8 @@ MNation.prepareData_PostMod = function() {
 
 					u.nations = u.nations || {};
 					u.nations[o.id] = o;
-					u.eracodes = u.eracodes || {}; 
-					u.eracodes[o.eracode] = true;				
+					u.eracodes = u.eracodes || {};
+					u.eracodes[o.eracode] = true;
 
 					//nationname
 					var ncount=0; for (var k in u.nations) ncount++;
@@ -353,7 +353,7 @@ MNation.prepareData_PostMod = function() {
 						u.nationname = o.shortname;
 					else
 						u.nationname = 'various ('+ncount+')';
-					
+
 					var otherList = [];
 					var other = u;
 					otherList.push(other);
@@ -366,8 +366,8 @@ MNation.prepareData_PostMod = function() {
 
 						other.nations = other.nations || {};
 						other.nations[o.id] = o;
-						other.eracodes = other.eracodes || {}; 
-						other.eracodes[o.eracode] = true;				
+						other.eracodes = other.eracodes || {};
+						other.eracodes[o.eracode] = true;
 
 						//nationname
 						var ncount=0; for (var k in other.nations) ncount++;
@@ -379,7 +379,7 @@ MNation.prepareData_PostMod = function() {
 				}
 			} while (spell = spell.nextspell);
 		}
-		
+
 		//associate pretenders
  		var basekey = 'Pretender';
 		Utils.arrayUnique(o.pretenders);
@@ -398,9 +398,9 @@ MNation.prepareData_PostMod = function() {
 			u.typechar = basekey;
 			u.nations = u.nations || {};
 			u.nations[o.id] = o;
-			u.eracodes = u.eracodes || {}; 
+			u.eracodes = u.eracodes || {};
 			u.eracodes[o.eracode] = true;
-			
+
 			for (var oj=0, attr; attr = modctx.attributes_by_nation[oj];  oj++) {
 				if (parseInt(attr.nation_number) == o.id) {
 					//var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
@@ -419,11 +419,11 @@ MNation.prepareData_PostMod = function() {
 				}
 			}
 		}
-		
+
 		//units from sites
  		o.capunits = [];
 		o.capcommanders = [];
-		
+
 		var basekey = 'site';
 		var arr = o.sites;
 		var gemkeys = {F:0,A:0,W:0,E:0,S:0,D:0,N:0,B:0};
@@ -438,7 +438,7 @@ MNation.prepareData_PostMod = function() {
 			o.capcommanders = o.capcommanders.concat(s.commanders, s.hcom);
 			for (k in gemkeys) {
 				if (s[k])
-				gemkeys[k] += parseInt(s[k]);  
+				gemkeys[k] += parseInt(s[k]);
 			}
 		}
 		//remove capunits duplicated in units (etc)
@@ -450,11 +450,11 @@ MNation.prepareData_PostMod = function() {
 		Utils.arrayUnique(o.capunits);
 		Utils.arrayUnique(o.capcommanders);
 		//should do it..?
-		
+
 		o.gems = '';
 		for (k in gemkeys) {
 			if (gemkeys[k])
-				o.gems  +=  '+'+ String(gemkeys[k]) + k; 
+				o.gems  +=  '+'+ String(gemkeys[k]) + k;
 		}
 	}
 
@@ -464,7 +464,7 @@ MNation.prepareData_PostMod = function() {
 		//  if unit is already associated with a nation it creates a duplicate (with incremented id: +.01)
 		/////////////////////////////////////////////////
 		var iterations = {
-			'unit': o.units, 
+			'unit': o.units,
 			'commander': o.commanders,
 			'cmdr (foreign)': o.foreigncommanders,
 			'unit (foreign)': o.foreignunits,
@@ -500,7 +500,7 @@ MNation.prepareData_PostMod = function() {
 				//~ }
 				//~ if ((u.nation && u.nation!=o) || (u.type && u.type!=basekey))
 					//~ u = modctx.cloneUnit(u);
-				//~ 
+				//~
 				//~ u.type = basekey;
 				//~ u.nation = o;
 				//~ u.nationname = o.shortname;
@@ -535,18 +535,18 @@ MNation.prepareData_PostMod = function() {
 				}
 				u.nations = u.nations || {};
 				if (u.nations[o.id]) continue;
-				
+
 				u.nations[o.id] = o;
-				u.eracodes = u.eracodes || {}; 
+				u.eracodes = u.eracodes || {};
 				u.eracodes[o.eracode] = true;
-				
+
 				//nationname
 				var ncount=0; for (var k in u.nations) ncount++;
 				if (ncount == 1)
 					u.nationname = o.shortname;
 				else
 					u.nationname = 'various ('+ncount+')';
-				
+
 				// Marverni gets Iron Boars
 				if (parseInt(o.id) == 8) {
 					var ironBoar = modctx.unitlookup[1808];
@@ -558,87 +558,87 @@ MNation.prepareData_PostMod = function() {
 	//fill nation selection box
 	var h='';
 	for (var era=1; era<=3; era++) {
-		h+='<option disabled=disabled>-- '+modconstants.eranames[era]+' --</option>\n';		
+		h+='<option disabled=disabled>-- '+modconstants.eranames[era]+' --</option>\n';
 		for (var oi=0; oi<modctx.nationdata.length; oi++) {
 			var o = modctx.nationdata[oi];
-			if (o.era == era) {				
+			if (o.era == era) {
 				h+='<option value="'+o.id+'" title="nation '+o.id+'">'+o.fullname+'</option>\n';
 			}
 		}
 	}
 	$('select.nation').append($(h));
-	
+
 	DMI.MUnit.prepareData_PostNationData();
 }
 
 MNation.nationSummary = function(hsh) {
 	var names = [];
-	
+
 	for (k in hsh) {
 		names.push( hsh[k].shortname );
 	}
 	if (names.length == 0) return '';
-	
+
 	if (names.length == 1)
 		return names[0];
-	
-	else return '<span title="'+names.join(',  \n')+'">Various ('+names.length+')</span>';		
+
+	else return '<span title="'+names.join(',  \n')+'">Various ('+names.length+')</span>';
 }
 
 MNation.nationUnitRefs = function(hsh) {
 	var refs = [], longRefs = [], eras = [], singlename = null;
-	
+
 	var k;
 	for (k in hsh) {
 		refs.push( Utils.ref('nation '+hsh[k].id, hsh[k].eracode) );
 		longRefs.push( Utils.ref('nation '+hsh[k].id, hsh[k].shortname) );
 
 		var name = hsh[k].name;
-		singlename = (name==singlename || !singlename) ? name : -1; 
+		singlename = (name==singlename || !singlename) ? name : -1;
 	}
 	if (refs.length == 0) return '';
-	
-	if (refs.length == 1) 
+
+	if (refs.length == 1)
 		return Utils.ref('nation '+hsh[k].id, hsh[k].shortname);
-		
+
 	if (refs.length > 1 && singlename != -1) {
 		return refs.join(', ') +' '+ singlename;
 	}
-	
+
 	if (refs.length <= 3)
 		return longRefs.join(',&nbsp; ')
 
-	return MNation.nationSummary(hsh).replace('Various ','Various nations'); 
+	return MNation.nationSummary(hsh).replace('Various ','Various nations');
 }
-	
+
 MNation.renderOverlay = function(o) {
 	//template
 	var h=''
 	h+='<div class="nation overlay-contents"> ';
-	
+
 	//header
 	h+='	<div class="overlay-header" title="nation id: '+o.id+'"> ';
 	h+=' 		<input class="overlay-pin" type="image" src="images/PinPageTrns.png" title="unpin" />';
 	h+='		<div class="h2replace">'+o.fullname+'</div> ';
 	h+='	</div>';
-	
+
 	//mid
 	h+='	<div class="overlay-main">';
-	h+='		<div class="hidden-block">Nation #:'+o.id+'</div>'; 
+	h+='		<div class="hidden-block">Nation #:'+o.id+'</div>';
 	h+='		<div> '+Format.Gems(o.gems)+'</div>';
-	
+
 	//wikilink
 	h+='		<div class="overlay-wiki-link non-content" style="clear:both;">' + Utils.wikiLink(o.epithet) + '</div>';
-	
+
 	//modded
 	if (o.modded) {
 		h+='	<div class="modded hidden-block">' + Utils.renderModded(o) +'</div>';
 	}
 	h+='	</div>';
-	
+
 	h+='</div> ';
-	
-	return h;	
+
+	return h;
 }
 
 //namespace args

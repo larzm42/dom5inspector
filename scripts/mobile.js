@@ -2,7 +2,7 @@ DMI.initMobile = function() {
 	$(document).ready(function() {
 		initItemsTable();
 		initSpellsTable();
-		
+
 	    $('#unitsTable').DataTable( {
 	        data: DMI.modctx.unitdata,
 	        responsive: true,
@@ -19,7 +19,7 @@ DMI.initMobile = function() {
 	            { data: "holy", title: "Sacred", render: formatHoly },
 	            { data: "listed_mpath", title: "Magic", render: function(data, type, row){ return DMI.GridFormat.OrderedPaths(null,null,data,null,row); } },
 	        ]
-	    } );		    
+	    } );
 	    $('#mercsTable').DataTable( {
 	        data: DMI.modctx.mercdata,
 	        responsive: true,
@@ -33,7 +33,7 @@ DMI.initMobile = function() {
 	            { data: "minpay", title: "Min Pay" },
 	            { data: "eramask", title: "Era", render: formatGold },
 	        ]
-	    } );	
+	    } );
 	    $('#sitesTable').DataTable( {
 	        data: DMI.modctx.sitedata,
 	        responsive: true,
@@ -50,10 +50,10 @@ DMI.initMobile = function() {
 	            { data: "scale2", title: "Scale", render: formatScale },
 	            { data: "listed_gempath", title: "Gems", render: function(data, type, row){ return DMI.GridFormat.OrderedPaths(null,null,data,null,row); } }
 	        ]
-	    } );		    
+	    } );
 	} );
-	$('.nav-tabs a:first').tab('show') 
-	return;		
+	$('.nav-tabs a:first').tab('show')
+	return;
 }
 
 function initItemsTable() {
@@ -121,19 +121,12 @@ function initItemsTable() {
     	}
         return true;
     });
+
     var oTable = $('#itemsTable').dataTable();
-    $('.toggle-path').on("click", function(e) {
-        oTable.fnDraw();
-    });
-    $('.inclusive-search').on("click", function(e) {
-        oTable.fnDraw();
-    });
-    $("#itemtype").change(function () {
-        oTable.fnDraw();
-    });
-    $("#itemlvl").change(function () {
-        oTable.fnDraw();
-    });
+    $('.toggle-path').on("click", oTable.fnDraw);
+    $('.inclusive-search').on("click", oTable.fnDraw);
+    $("#itemtype").change(oTable.fnDraw);
+    $("#itemlvl").change(oTable.fnDraw);
 }
 
 function initSpellsTable() {
@@ -152,7 +145,7 @@ function initSpellsTable() {
             { data: "gemcostsort", title: "Cost", render: spellCostFormatter },
             { data: "fatiguecostsort", title: "Fat", render: fatigueFormatter },
         ]
-    } );		 
+    } );
 }
 
 function itemConFormatter(data, type, row) {
@@ -162,20 +155,20 @@ function itemConFormatter(data, type, row) {
 
 function itemNameFormatter(data, type, row) {
 	if (row.restricted)
-		return '<div class="national-spell">'+data+'</div>';	
+		return '<div class="national-spell">'+data+'</div>';
 	return data;
 }
 
 function formatGold(data, type, row){ return data || ''; }
 function formatRes(data, type, row){ return data || ''; }
 function formatType(data, type, row){ return row.typechar; }
-function formatHoly(data, type, row){  
-	return data=='1' ?  DMI.Format.AbilityIcon('holy', 'sacred')  :  ''; 
+function formatHoly(data, type, row){
+	return data=='1' ?  DMI.Format.AbilityIcon('holy', 'sacred')  :  '';
 }
 
 function spellNameFormatter(data, type, row) {
 	if (row.nations)
-		return '<div class="national-spell">'+data+'</div>';	
+		return '<div class="national-spell">'+data+'</div>';
 	return data;
 }
 

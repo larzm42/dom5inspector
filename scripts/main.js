@@ -14,41 +14,61 @@ DMI.Options['Load events'] = location.search.indexOf('loadEvents=1')!=-1;
 //on page load
 $(function() {
 	console.log('D3MI VERSION: '+versionCode);
-	
-	//begin the loading process (loaddata.js).. 
+
+	//begin the loading process (loaddata.js)..
 	DMI.continueLoading();
 });
 
-DMI.isFirefoxBrowser = function() 
+DMI.isFirefoxBrowser = function()
 {
-    return typeof InstallTrigger !== 'undefined';
+	return typeof InstallTrigger !== 'undefined';
 };
-
 
 //called from loaddata.js once all data is loaded
 DMI.initGrids = function() {
 	if (!DMI.Options['Custom js'])
 		$('.customjs').hide();
-	
+
 	//data dump
 	if (location.search.indexOf('dumpunitkeys') != -1) {
 		var keys = null;
 		var res = /dumpunitkeys=([^\&]*)/.exec(location.search);
 		if (res)
 			keys = res[1].split(/[,\t]/);
-		
+
 		$('#modtext').css({width:'100%', height:'100%', position:'absolute', top:0, left:0})
-		.show().val( DMI.MUnit.dumpCSV(keys) ).focus().select();
+			.show().val( DMI.MUnit.dumpCSV(keys) ).focus().select();
 		return;
 	}
+
+	function disableGeneralPageButton() {
+		$(".page-button").prop('disabled', false).removeClass('disabled');
+	};
+
+	function disableSpecificPageButton(pagePrefix) {
+		$(`#${pagePrefix}-page-button`).prop('disabled', false).removeClass('disabled');
+	};
+
+	function hideAllGrids() {
+		//doesn't seem to be a reason not to hide them right before showing a
+		//specific one later
+		if (itemgrid) itemgrid.hide();
+		if (sitegrid) sitegrid.hide();
+		if (spellgrid) spellgrid.hide();
+		if (unitgrid) unitgrid.hide();
+		if (wpngrid) wpngrid.hide();
+		if (armorgrid) armorgrid.hide();
+		if (mercgrid) mercgrid.hide();
+		if (eventgrid) eventgrid.hide();
+	};
+
 
 	//wire up toggle ids button
 	function showOrHideIds() {
 		if ($('#showids').saveState().is(':checked')) {
 			//add style
-			$( "<style>.hidden-block { display:block; } tr.hidden-row { display:table-row; } .hidden-inline {display:inline; }</style>" )
-			.appendTo( "head" );
-		
+			$( "<style>.hidden-block { display:block; } tr.hidden-row { display:table-row; } .hidden-inline {display:inline; }</style>" ).appendTo( "head" );
+
 			if (DMI.isFirefoxBrowser()) {
 				$(".grid-container").css({left:'430px'})
 				$("div.static-overlay-container").css({width:'430px'})
@@ -56,7 +76,7 @@ DMI.initGrids = function() {
 				$(".grid-container").css({left:'375px'})
 				$("div.static-overlay-container").css({width:'375px'})
 			}
-			
+
 			if (itemgrid) itemgrid.showIds(1);
 			if (spellgrid) spellgrid.showIds(1);
 			if (unitgrid) unitgrid.showIds(1);
@@ -68,12 +88,10 @@ DMI.initGrids = function() {
 
 			DMI.Options['Show ids'] = 1;
 			PaneManager.option_drag_anywhere = 0;
-			
-			// DMI.Options['Custom js'])
-			// 	$('.customjs').show();
 		}
 		else {
 			$( "<style>.hidden-block, tr.hidden-row, .hidden-inline { display:none; }</style>" ).appendTo( "head" );
+
 			if (DMI.isFirefoxBrowser()) {
 				$(".grid-container").css({left:'350px'})
 				$("div.static-overlay-container").css({width:'350px'})
@@ -93,50 +111,45 @@ DMI.initGrids = function() {
 
 			DMI.Options['Show ids'] = 0;
 			PaneManager.option_drag_anywhere = 1;
-			
+
 			//clear advanced filters
 			$("div.hidden-block div.panel input.clear-filters-btn").trigger('click');
-			
+
 			//go to valid page
 			if ($("#wpn-page:visible, #armor-page:visible").length)
 				$("#item-page-button").trigger('click');
-			
-			// if (DMI.Options['Custom js'])
-			// 	$('.customjs').hide();
+
 		}
 		showOrHideModdingInfo();
 		showOrHideKeys();
 		showOrHideModCmds();
-	}	
+	}
 	$('#showids').click( function(){setTimeout(showOrHideIds,0);} ); //asynchronous call as its a bit sluggish
-	
+
 	function showOrHideModdingInfo() {
 		if ($('#showmoddinginfo').saveState().is(':checked') && DMI.Options['Show ids']) {
 			//add style
-			$( "<style>.modding-block { display:block; } tr.modding-row { display:table-row; } .modding-inline {display:inline; }</style>" )
-			.appendTo( "head" );
-		
+			$( "<style>.modding-block { display:block; } tr.modding-row { display:table-row; } .modding-inline {display:inline; }</style>" ).appendTo( "head" );
+
 			DMI.Options['Show modding info'] = 1;
 		}
 		else {
 			$( "<style>.modding-block, tr.modding-row, .modding-inline { display:none; }</style>" ).appendTo( "head" );
 
 			DMI.Options['Show modding info'] = 0;
-			
+
 			//clear advanced filters
 			$("div.modding-block div.panel input.clear-filters-btn").trigger('click');
 		}
-		//showOrHideKeys();
-	}	
+	}
 	$('#showmoddinginfo').click( function(){setTimeout(showOrHideModdingInfo,0);} ); //asynchronous call as its a bit sluggish
-	
-	
+
+
 	function showOrHideKeys() {
 		if ($('#showkeys').saveState().is(':checked') && DMI.Options['Show ids']) {
 			//add style
-			$( "<style>.internal-block { display:block; } tr.internal-row { display:table-row; } .internal-inline {display:inline; }</style>" )
-			.appendTo( "head" );
-		
+			$( "<style>.internal-block { display:block; } tr.internal-row { display:table-row; } .internal-inline {display:inline; }</style>" ).appendTo( "head" );
+
 			DMI.Options['Show internal keys'] = 1;
 		}
 		else {
@@ -144,24 +157,10 @@ DMI.initGrids = function() {
 
 			DMI.Options['Show internal keys'] = 0;
 		}
-		// showOrHideKeys();
-	}	
+	}
 	$('#showkeys').click( function(){setTimeout(showOrHideKeys,0);} );  //asynchronous call as its a bit sluggish
-	
-	
-	//fix options loaded from querystring
-	//  if (DMI.Options['Show mod cmds'])
-	//  	$('#showmodcmds').prop('checked', true);
-	//  else
-	//  	$('#showmodcmds').prop('checked', false);
-	
-	// function showOrHideModCmds() {
-	// 	$('#showmodcmds').saveState();			
-	// 	window.location.href = $('#permalink').prop('href');
-	// }
-	// $('#showmodcmds').click(showOrHideModCmds);
-	
-	
+
+
 	function showOrHideModCmds() {
 		if ($('#showmodcmds').saveState().is(':checked') && DMI.Options['Show ids']) {
 			$('a.show-mod-commands').trigger('click');
@@ -171,205 +170,144 @@ DMI.initGrids = function() {
 			$('a.hide-mod-commands').trigger('click');
 			DMI.Options['Show mod cmds'] = 0;
 		}
-		// showOrHideKeys();
-	}	
+	}
 	$('#showmodcmds').click( function(){setTimeout(showOrHideModCmds,0);} );  //asynchronous call as its a bit sluggish
-	
-	
-	
-	
-	// function toggleIgnoreModCmds() {
-	// 	$('#ignoremodcmds').saveState();			
-	// 	window.location.href = $('#permalink').prop('href');
-	// }
-	// $('#ignoremodcmds').click(toggleIgnoreModCmds);
 
-	
+
+
 	//jquery plugin. no shit
 	if (!$.fn.reverse) $.fn.reverse = [].reverse;
-	
+
 	//wire up global-clear-filters-btn
 	$("#global-clear-filters-btn").click(function() {
 		//we do it in reverse so the first input ends up focused
 		$("input.clear-filters-btn:visible").reverse().trigger('click');
-	});		
+	});
 
 	//wire up page selection buttons
 	//grid creation is deferred
-	
+
 	var itemgrid = null;
 	$("#item-page-button").click(function(e){
 
-		//if (itemgrid) itemgrid.hide();
-		if (sitegrid) sitegrid.hide();
-		if (spellgrid) spellgrid.hide();
-		if (unitgrid) unitgrid.hide();
-		if (wpngrid) wpngrid.hide();
-		if (armorgrid) armorgrid.hide();
-		if (mercgrid) mercgrid.hide();
-		if (eventgrid) eventgrid.hide();
-		
-		if (!itemgrid) 
+
+		if (!itemgrid)
 			itemgrid = new DMI.MItem.CGrid();
-		
+
+		hideAllGrids();
+
 		itemgrid.show();
-		$(".page-button").prop('disabled', false).removeClass('disabled');
-		$("#item-page-button").prop('disabled', true).addClass('disabled');
+		disableGeneralPageButton();
+		disableSpecificPageButton("item");
 
 		//focus search box
 		$("div.filters-text.itemview input.search-box").focus();
-		
+
 		DMI.Utils.saveState();
 	});
-	
+
 	var sitegrid = null;
 	$("#site-page-button").click(function(e){
 
-//		if (sitegrid) sitegrid.hide();
-		if (itemgrid) itemgrid.hide();
-		if (spellgrid) spellgrid.hide();
-		if (unitgrid) unitgrid.hide();
-		if (wpngrid) wpngrid.hide();
-		if (armorgrid) armorgrid.hide();
-		if (mercgrid) mercgrid.hide();
-		if (eventgrid) eventgrid.hide();
 
-		if (!sitegrid) 
+		if (!sitegrid)
 			sitegrid = new DMI.MSite.CGrid();
-		
+		hideAllGrids();
+
 		sitegrid.show();
-		$(".page-button").prop('disabled', false).removeClass('disabled');
-		$("#site-page-button").prop('disabled', true).addClass('disabled');
+		disableGeneralPageButton();
+		disableSpecificPageButton("site");
 
 		//focus search box
 		$("div.filters-text.siteview input.search-box").focus();
-		
+
 		DMI.Utils.saveState();
 	});
-	
+
 	var mercgrid = null;
 	$("#merc-page-button").click(function(e){
 
-		if (sitegrid) sitegrid.hide();
-		if (itemgrid) itemgrid.hide();
-		if (spellgrid) spellgrid.hide();
-		if (unitgrid) unitgrid.hide();
-		if (wpngrid) wpngrid.hide();
-		if (armorgrid) armorgrid.hide();
-		if (mercgrid) mercgrid.hide();
-		if (eventgrid) eventgrid.hide();
-
-		if (!mercgrid) 
+		if (!mercgrid)
 			mercgrid = new DMI.MMerc.CGrid();
-		
+		hideAllGrids();
+
 		mercgrid.show();
-		$(".page-button").prop('disabled', false).removeClass('disabled');
-		$("#merc-page-button").prop('disabled', true).addClass('disabled');
+		disableGeneralPageButton();
+		disableSpecificPageButton("merc");
 
 		//focus search box
 		$("div.filters-text.mercview input.search-box").focus();
-		
+
 		DMI.Utils.saveState();
 	});
-	
+
 	var eventgrid = null;
 	$("#event-page-button").click(function(e){
 
-		if (sitegrid) sitegrid.hide();
-		if (itemgrid) itemgrid.hide();
-		if (spellgrid) spellgrid.hide();
-		if (unitgrid) unitgrid.hide();
-		if (wpngrid) wpngrid.hide();
-		if (armorgrid) armorgrid.hide();
-		if (mercgrid) mercgrid.hide();
-		if (eventgrid) eventgrid.hide();
-
-		if (!eventgrid) 
+		if (!eventgrid)
 			eventgrid = new DMI.MEvent.CGrid();
-		
+		hideAllGrids();
+
 		eventgrid.show();
-		$(".page-button").prop('disabled', false).removeClass('disabled');
-		$("#event-page-button").prop('disabled', true).addClass('disabled');
+		disableGeneralPageButton();
+		disableSpecificPageButton("event");
 
 		//focus search box
 		$("div.filters-text.eventview input.search-box").focus();
-		
+
 		DMI.Utils.saveState();
 	});
-	
+
 	var spellgrid = null;
 	$("#spell-page-button").click(function(e){
 
-		if (itemgrid) itemgrid.hide();
-		if (sitegrid) sitegrid.hide();
-		//if (spellgrid) spellgrid.hide();
-		if (unitgrid) unitgrid.hide();
-		if (wpngrid) wpngrid.hide();
-		if (armorgrid) armorgrid.hide();
-		if (mercgrid) mercgrid.hide();
-		if (eventgrid) eventgrid.hide();
-
-		if (!spellgrid) 
+		if (!spellgrid)
 			spellgrid = new DMI.MSpell.CGrid();
-		
+		hideAllGrids();
+
 		spellgrid.show();
-		$(".page-button").prop('disabled', false).removeClass('disabled');
-		$("#spell-page-button").prop('disabled', true).addClass('disabled');
-		
+		disableGeneralPageButton();
+		disableSpecificPageButton("spell");
+
 		//focus search box
 		$("div.filters-text.spellview input.search-box").focus();
-		
+
 		DMI.Utils.saveState();
 	});
-	
+
 	var unitgrid = null;
 	$("#unit-page-button").click(function(e){
 
-		if (spellgrid) spellgrid.hide();
-		if (sitegrid) sitegrid.hide();
-		if (itemgrid) itemgrid.hide();
-		//if (unitgrid) unitgrid.hide();
-		if (wpngrid) wpngrid.hide();
-		if (armorgrid) armorgrid.hide();
-		if (mercgrid) mercgrid.hide();
-		if (eventgrid) eventgrid.hide();
-
-		if (!unitgrid) 
+		if (!unitgrid)
 			unitgrid = new DMI.MUnit.CGrid();
-		
+		hideAllGrids();
+
 		unitgrid.show();
-		$(".page-button").prop('disabled', false).removeClass('disabled');
+		disableGeneralPageButton();
 		$("#unit-page-button").prop('disabled', true).addClass('disabled');
-		
+
 		//focus search box
 		$("div.filters-text.unitview input.search-box").focus();
-		
+
 		DMI.Utils.saveState();
 	});
 
-	
+
 	var wpngrid = null;
 	$("#wpn-page-button").click(function(e){
 
-		if (spellgrid) spellgrid.hide();
-		if (sitegrid) sitegrid.hide();
-		if (itemgrid) itemgrid.hide();
-		if (unitgrid) unitgrid.hide();
-		//if (wpngrid) wpngrid.hide();
-		if (armorgrid) armorgrid.hide();
-		if (mercgrid) mercgrid.hide();
-		if (eventgrid) eventgrid.hide();
-
-		if (!wpngrid) 
+		if (!wpngrid)
 			wpngrid = new DMI.MWpn.CGrid();
-		
+		hideAllGrids();
+
+
 		wpngrid.show();
-		$(".page-button").prop('disabled', false).removeClass('disabled');
-		$("#wpn-page-button").prop('disabled', true).addClass('disabled');
-		
+		disableGeneralPageButton();
+		disableSpecificPageButton("wpn");
+
 		//focus search box
 		$("div.filters-text.wpnview input.search-box").focus();
-		
+
 		DMI.Utils.saveState();
 	});
 
@@ -377,31 +315,23 @@ DMI.initGrids = function() {
 	var armorgrid = null;
 	$("#armor-page-button").click(function(e){
 
-		if (spellgrid) spellgrid.hide();
-		if (sitegrid) sitegrid.hide();
-		if (itemgrid) itemgrid.hide();
-		if (unitgrid) unitgrid.hide();
-		if (wpngrid) wpngrid.hide();
-		//if (armorgrid) armorgrid.hide();
-		if (mercgrid) mercgrid.hide();
-		if (eventgrid) eventgrid.hide();
-
-		if (!armorgrid) 
+		if (!armorgrid)
 			armorgrid = new DMI.MArmor.CGrid();
-		
+		hideAllGrids();
+
 		armorgrid.show();
-		$(".page-button").prop('disabled', false).removeClass('disabled');
-		$("#armor-page-button").prop('disabled', true).addClass('disabled');
-		
+		disableGeneralPageButton();
+		disableSpecificPageButton("armor");
+
 		//focus search box
 		$("div.filters-text.armorview input.search-box").focus();
-		
+
 		DMI.Utils.saveState();
 	});
-	
+
 	DMI.onKeyDown = function(e){
 		//console.log('keyCode: '+e.keyCode);
-		
+
 		//open first result on enter
 		if (e.which == 13) {
 			if (spellgrid) spellgrid.detachShowingDetails();
@@ -422,7 +352,7 @@ DMI.initGrids = function() {
 				if (zIndex > highestZIndex) {
 					highest = this;
 					highestZIndex = zIndex;
-				}					
+				}
 			});
 			if (highest) {
 				$(highest).find('.overlay-pin').trigger('click');
@@ -435,35 +365,35 @@ DMI.initGrids = function() {
 		}
 		//ctrl+left/right changes tab
 		else if (e.ctrlKey) {
-			if (e.which == 37) {	
+			if (e.which == 37) {
 				if ($("#item-page:visible").length) {
 					if ($("#armor-page-button:visible").length)
 						$("#armor-page-button").trigger('click');
-					else 
+					else
 						$("#unit-page-button").trigger('click');
 				}
 				else if ($("#spell-page:visible").length)
 					$("#item-page-button").trigger('click');
-				
+
 				else if ($("#unit-page:visible").length) {
-					$("#spell-page-button").trigger('click');				
+					$("#spell-page-button").trigger('click');
 				}
 				else if ($("#site-page:visible").length) {
-					$("#unit-page-button").trigger('click');				
+					$("#unit-page-button").trigger('click');
 				}
 				else if ($("#wpn-page:visible").length)
 					$("#site-page-button").trigger('click');
-				
+
 				else if ($("#armor-page:visible").length)
 					$("#wpn-page-button").trigger('click');
 			}
 			else if (e.which == 39) {
 				if ($("#item-page:visible").length)
 					$("#spell-page-button").trigger('click');
-				
+
 				else if ($("#spell-page:visible").length)
 					$("#unit-page-button").trigger('click');
-				
+
 				else if ($("#unit-page:visible").length)
 					$("#site-page-button").trigger('click');
 
@@ -471,18 +401,18 @@ DMI.initGrids = function() {
 					if ($("#wpn-page-button:visible").length)
 						$("#wpn-page-button").trigger('click');
 					else
-						$("#item-page-button").trigger('click');				
+						$("#item-page-button").trigger('click');
 				}
 				else if ($("#wpn-page:visible").length)
 					$("#armor-page-button").trigger('click');
-				
+
 				else if ($("#armor-page:visible").length)
 					$("#item-page-button").trigger('click');
 			}
 		}
 	}
 	$('html').on('keydown', DMI.onKeyDown);
-		
+
 	//wire up unpin-all btn
 	$("#global-unpin-all-btn").click(function(e) {
 		//trigger click on every pin
@@ -497,14 +427,14 @@ DMI.initGrids = function() {
 			$('#global-unpin-all-btn').hide();
 	});
 
-	
+
 	//display shared panels (hidden while loading)
 	$("div.primary-panel").show();
-	$("#advanced-options").show();	
+	$("#advanced-options").show();
 
 	//load state from cookie/url
 	DMI.Utils.loadState();
-	
+
 	//process loaded state
 	showOrHideIds();
 

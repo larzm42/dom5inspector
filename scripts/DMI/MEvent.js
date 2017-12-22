@@ -1,6 +1,6 @@
 //namespace scope
 (function( DMI, $, undefined ){
-		
+
 var MEvent = DMI.MEvent = DMI.MEvent || {};
 
 var Format = DMI.Format;
@@ -69,15 +69,15 @@ MEvent.prepareData_PreMod = function() {
 
 MEvent.prepareData_PostMod = function() {
 	for (var oi=0, o;  o= modctx.eventdata[oi];  oi++) {
-		
+
 		o.renderOverlay = MEvent.renderOverlay;
 		o.matchProperty = MEvent.matchProperty;
-		
+
 		//convert to numbers (for column ordering)
 		//doesn't seem to cause any further problems..
 		o.id = parseInt(o.id);
 		o.searchable = o.description.toLowerCase();
-		
+
 		if (o.req_code) {
 			var linkedReqCodes = [];
 			var reqcodes = [];
@@ -129,7 +129,7 @@ MEvent.prepareData_PostMod = function() {
 						}
 					}
 				}
-			}			
+			}
 			o.linkedCodes = linkedCodes;
 		}
 		if (o.resetcode && o.resetcode != 0) {
@@ -143,7 +143,7 @@ MEvent.prepareData_PostMod = function() {
 			}
 			o.linkedResetCodes = linkedResetCodes;
 		}
-		
+
 	}
 }
 
@@ -158,14 +158,14 @@ MEvent.CGrid = Utils.Class( DMI.CGrid, function() {
 	    { id: "description",     width: 200, name: "Description", field: "description", sortable: true },
 		{ id: "rarity",     width: 20, name: "Rarity", field: "rarity", sortable: true },
 	];
-	
+
 	this.superClass.call(this, 'event', modctx.eventdata, columns); //superconstructor
-	
+
 	$(this.domsel+' .grid-container').css('width', 600);//set table width
-	
+
 	//in closure scope
 	var that = this;
-	
+
 	//reads search boxes
 	this.getSearchArgs = function() {
 		var args = Utils.merge(this.getPropertyMatchArgs(), {
@@ -182,7 +182,7 @@ MEvent.CGrid = Utils.Class( DMI.CGrid, function() {
 	this.searchFilter =  function(o, args) {
 		//type in id to ignore filters
 		if (args.str && args.str == String(o.id)) return true;
-		
+
 		//search string
 		if (args.str && o.searchable.indexOf(args.str) == -1)
 			return false;
@@ -203,16 +203,16 @@ MEvent.CGrid = Utils.Class( DMI.CGrid, function() {
 	}
 
 	//call filters and update  display
-	//asyncronous to make sure all filter inputs are correctly initialised  
-	setTimeout(function() { 
-		that.init(); 
+	//asyncronous to make sure all filter inputs are correctly initialised
+	setTimeout(function() {
+		that.init();
 	},0);
 });
 MEvent.matchProperty = function(o, key, comp, val) {
 	if (DMI.matchProperty(o, key, comp, val))
 		return true;
 }
-MEvent.formatEventGems = function(v,o,str) { 
+MEvent.formatEventGems = function(v,o,str) {
 	if (v.indexOf('Elemental') != -1) {
 		v = 'FAWE';
 	} else if (v.indexOf('Sorcery') != -1) {
@@ -234,7 +234,7 @@ MEvent.formatMagicEquip = function(v, o) {
 	case 2: ret = 'const lvl 0-4'; break;
 	case 3: ret = 'const lvl 0-6'; break;
 	case 4: ret = 'const lvl 4-6'; break;
-	case 9: 
+	case 9:
 		var itemname = o.description.match(/\[(.*?)\]/);
 		if (itemname && itemname[0].length > 0) {
 			ret = Utils.itemRef(itemname[1]);
@@ -246,9 +246,9 @@ MEvent.formatMagicEquip = function(v, o) {
 MEvent.formatNewSite = function(v,o) {
 	var ret = 'Unknown';
 	switch(parseInt(v)) {
-	case -1: 
+	case -1:
 		var sitename = o.description.match(/\[(.*?)\]/);
-		ret = Utils.siteRef(sitename[1]); 
+		ret = Utils.siteRef(sitename[1]);
 		break;
 	default:
 		return Utils.siteRef(parseInt(v));
@@ -342,11 +342,11 @@ MEvent.gainaffArr = function(v,o) {
 		var tokens = [];
 		for (var i=0, uid; uid= v[i];  i++)
 			tokens.push( MEvent.formatGainaff( uid, o ) );
-		
+
 		//comma separated & one per line
 		return tokens.join(', <br />');
 	} else {
-		return MEvent.formatGainaff( v, o ); 
+		return MEvent.formatGainaff( v, o );
 	}
 }
 MEvent.monsterArr = function(v,o,str) {
@@ -355,11 +355,11 @@ MEvent.monsterArr = function(v,o,str) {
 		var tokens = [];
 		for (var i=0, uid; uid= v[i];  i++)
 			tokens.push( Utils.unitRef( parseInt(uid) ) + (str ? str : ''));
-		
+
 		//comma separated & one per line
 		return tokens.join(', <br />');
 	} else {
-		return Utils.unitRef(parseInt(v)) + (str ? str : ''); 
+		return Utils.unitRef(parseInt(v)) + (str ? str : '');
 	}
 }
 MEvent.nationArr = function(v,o) {
@@ -368,11 +368,11 @@ MEvent.nationArr = function(v,o) {
 		var tokens = [];
 		for (var i=0, uid; uid= v[i];  i++)
 			tokens.push( Utils.nationRef( parseInt(uid) ) );
-		
+
 		//comma separated & one per line
 		return tokens.join(', <br />');
 	} else {
-		return Utils.nationRef(parseInt(v)); 
+		return Utils.nationRef(parseInt(v));
 	}
 }
 MEvent.magicPathArr = function(v,o) {
@@ -381,11 +381,11 @@ MEvent.magicPathArr = function(v,o) {
 		var tokens = [];
 		for (var i=0, uid; uid= v[i];  i++)
 			tokens.push( MEvent.formatMagicPath( parseInt(uid)) );
-		
+
 		//comma separated & one per line
 		return tokens.join(', <br />');
 	} else {
-		return MEvent.formatMagicPath(parseInt(v)); 
+		return MEvent.formatMagicPath(parseInt(v));
 	}
 }
 MEvent.seasonArr = function(v,o) {
@@ -419,11 +419,11 @@ MEvent.gemArr = function(v, o, str) {
 		var tokens = [];
 		for (var i=0, uid; uid= v[i];  i++)
 			tokens.push( MEvent.formatEventGems(uid, o, str) );
-		
+
 		//comma separated & one per line
 		return tokens.join(', <br />');
 	} else {
-		return MEvent.formatEventGems(v, o, str); 
+		return MEvent.formatEventGems(v, o, str);
 	}
 }
 MEvent.magicEquipArr = function(v, o) {
@@ -432,7 +432,7 @@ MEvent.magicEquipArr = function(v, o) {
 		var tokens = [];
 		for (var i=0, uid; uid= v[i];  i++)
 			tokens.push( MEvent.formatMagicEquip(uid, o) );
-		
+
 		//comma separated & one per line
 		return tokens.join(', <br />');
 	} else {
@@ -458,7 +458,7 @@ function list_events(arr) {
 	var tokens = [];
 	for (var i=0, uid; uid= arr[i];  i++)
 		tokens.push( Utils.eventRef( arr[i] ) );
-	
+
 	//comma separated & one per line
 	return tokens.join(', <br />');
 }
@@ -531,17 +531,17 @@ var displayorder = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'req_lazy',	'sloth scale',
 	'req_magic',	'magic scale',
 	'req_unmagic',	'drain scale',
-	
+
 	'req_pathfire', 'fire mage level',
 	'req_pathair', 'air mage level',
-	'req_pathwater', 'water mage level', 
-	'req_pathearth', 'earth mage level', 
-	'req_pathastral', 'astral mage level', 
-	'req_pathdeath', 'death mage level', 
-	'req_pathnature', 'nature mage level', 
-	'req_pathblood', 'blood mage level', 
+	'req_pathwater', 'water mage level',
+	'req_pathearth', 'earth mage level',
+	'req_pathastral', 'astral mage level',
+	'req_pathdeath', 'death mage level',
+	'req_pathnature', 'nature mage level',
+	'req_pathblood', 'blood mage level',
 	'req_pathholy', 'holy mage level',
-	
+
 	'req_targpath1', 'level 1+ mage', MEvent.magicPathArr,
 	'req_targpath2', 'level 2+ mage', MEvent.magicPathArr,
 	'req_targpath3', 'level 3+ mage', MEvent.magicPathArr,
@@ -551,7 +551,7 @@ var displayorder = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'req_hiddensite', 'hidden site', MEvent.formatReqSite,
 	'req_site', 'site', MEvent.formatReqSite,
 	'req_nearbysite', 'nearby site', MEvent.formatReqSite,
-	
+
 	'req_era',	'era', {'1': 'early', '2': 'mid', '3': 'late'},
 	'req_noera',	'not era', {'1': 'early', '2': 'mid', '3': 'late'},
 	'req_rare',	'rare', Format.Percent,
@@ -559,7 +559,7 @@ var displayorder = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'req_unique', 'max per game',
 	'req_fullowner', 'full province owner',
 	'req_preach', 'preaching', Format.Percent,
-	
+
 	'req_targorder', 'target order', MEvent.formatTargOrder,
 
 	'req_targitem', 'item', MEvent.itemArr,
@@ -609,7 +609,7 @@ var effectkeys = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'worlddarkness',	'world darkness', function(v){ return ' '; },
 	'worldage',	'world ages',
 	'worldincdom',	'world increase dom',
-	'worldritrebate', 'world ritual rebate', {'0': 'Conjuration', 
+	'worldritrebate', 'world ritual rebate', {'0': 'Conjuration',
 		'1': 'Alteration',
 		'2': 'Evocation',
 		'3': 'Construction',
@@ -658,7 +658,7 @@ var effectkeys = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'3d6vis',	'gems',	function(v,o){ return MEvent.gemArr(v, o, ' x 3d6'); },
 	'4d6vis',	'gems',	function(v,o){ return MEvent.gemArr(v, o, ' x 4d6'); },
 	'gemloss',	'lose gems',	function(v,o){ return MEvent.gemArr(v, o, ' x 2d6'); },
-		
+
 	'killmon',	'kill unit', MEvent.monsterArr,
 	'killcom',	'kill commander', MEvent.monsterArr,
 	'fireboost',	'boost fire', function(v,o){ return v == 1 ? '1' : Utils.unitRef(v);  },
@@ -697,7 +697,7 @@ var effectkeys = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'14d6units',	'units', 	function(v,o){ return MEvent.monsterArr(v, o, ' x 14d6'); },
 	'15d6units',	'units', 	function(v,o){ return MEvent.monsterArr(v, o, ' x 15d6'); },
 	'16d6units',	'units', 	function(v,o){ return MEvent.monsterArr(v, o, ' x 16d6'); },
-	
+
 	'linkedCodes', 'triggered events', list_events,
 	'linkedResetCodes', 'reset events', list_events,
 
@@ -736,21 +736,21 @@ var ignorekeys = {
 	code:1,
 	resetcode:1,
 	req_code:1,
-	
+
 	//common fields
 	name:1,descr:1,
 	searchable:1, renderOverlay:1, matchProperty:1
-};		
-	
+};
+
 MEvent.renderOverlay = function(o) {
 	//template
 	var h=''
 	h+='<div class="event overlay-contents"> ';
-	
+
 	//header
 	h+='	<div class="overlay-header" title="event id: '+o.id+'"> ';
 	h+='		<div class="h2replace">'+o.name+'</div> ';
-	
+
 	//mid
 	h+='	</div>';
 	h+='	<div class="overlay-main">';
@@ -767,30 +767,30 @@ MEvent.renderOverlay = function(o) {
 	h+= 			Utils.renderDetailsRows(o, effectkeys, aliases, formats);
 	h+= 			Utils.renderDetailsFlags(o, flagorder, aliases, formats);
 	h+= 			Utils.renderStrangeDetailsRows(o, ignorekeys, aliases, 'strange');
-	
+
 	//modded
 	if (o.modded) {
 		h+='		<tr class="modded hidden-row"><td colspan="2">' + Utils.renderModded(o) +'</td></tr>';
-	}	
+	}
 	h+='		</table> ';
 
-	// descr	
+	// descr
 	h+='		<div>';
 	h+=	'			<p>'+o.description+'</p>'
 	h+='		</div>';
-	
+
 	h+='	</div>';
-	
+
 	//footer
 	//h+='	<div class="overlay-footer">';
-	
+
 	//wikilink
 	//h+='		<div class="overlay-wiki-link non-content">';
 	//h+='			<a href="http://dom3.servegame.com/wiki/'+o.name.replace(/ /g, '_')+'">[wiki]</a>';
 	//h+='		</div>';
 	//h+='	</div> ';
 	h+='</div> ';
-	
+
 	return h;
 }
 

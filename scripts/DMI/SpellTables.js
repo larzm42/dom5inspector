@@ -1,6 +1,6 @@
 //namespace scope
 (function( DMI, $, undefined ){
-		
+
 var MSpell = DMI.MSpell = DMI.MSpell || {};
 
 var Format = DMI.Format;
@@ -23,15 +23,15 @@ var modctx = DMI.modctx;
 function spellBonus(v, baselvl) {
 	v = parseInt(v || '0');
 	baselvl = parseInt(baselvl || '0');
-	
+
 	//strip thousands
 	var vbase = v % 1000;
 	//count thousands
 	var bonus = (v-vbase) / 1000;
-	
-	//baselvl is minimum caster lvl (add compulsory bonus to match ingame display) 
+
+	//baselvl is minimum caster lvl (add compulsory bonus to match ingame display)
 	vbase = vbase + (baselvl * bonus)
-	
+
 	//support negative values
 	var chr = '+',  suf = '';
 	if (bonus < 0) {
@@ -44,14 +44,14 @@ function spellBonus(v, baselvl) {
 	//10+++
 	else if (bonus > 0)
 		suf = (new Array( bonus + 1 ).join( chr ));
-	
+
 	return String(vbase) + suf;
 }
 
 //format functions for spell fields
 // using spellBonus + other field specific stuff
 MSpell.format = {
-	
+
 	damage: function(spell, effect) {
 		return String(spellBonus(effect.raw_argument, spell.pathlevel1));
 	},
@@ -82,7 +82,7 @@ function show_summon(unit, count, pathlevel1, spellid) {
 			var tokens = [];
 			for (var i=0, uid; uid= arr[i];  i++)
 				tokens.push( show_summon(uid, i==0 ? 1 : count) );
-			
+
 			//comma separated & one per line
 			return tokens.join(', <br />');
 		}
@@ -106,7 +106,7 @@ function show_summon(unit, count, pathlevel1, spellid) {
 	if (count && count != "0" && count != "1") {
 		ref = ref + " x " + String(spellBonus(count, pathlevel1));
 	}
-	// Marverni gets Iron Boars	
+	// Marverni gets Iron Boars
 	if (parseInt(unit) == 924) {
 		ref = ref + '<br/>(' + Utils.unitRef(1808) + ' x ' + String(spellBonus(count, pathlevel1)) + ' for ' + Utils.nationRef(8) + ')';
 	}
@@ -126,7 +126,7 @@ function list_summons(spell, effect) {
 	} else if (effect.effect_number == "120") {
 		arr = MSpell.unleashImprisonedOnes;
 	}
-	
+
 	if (!arr) {
 		arr = [spell.damage];
 	}
@@ -134,7 +134,7 @@ function list_summons(spell, effect) {
 	var tokens = [];
 	for (var i=0, uid; uid= arr[i];  i++)
 		tokens.push( show_summon(uid, 1) );
-	
+
 	//comma separated & one per line
 	return tokens.join(', <br />');
 }
@@ -266,7 +266,7 @@ MSpell.effectlookup = {
 		},
 		44:	damage,
 		46:	damage,
-		48:	function(spell, effect) { 
+		48:	function(spell, effect) {
 			return {
 				0: Format.Gems('F')	,
 				1: Format.Gems('A')	,
@@ -278,9 +278,9 @@ MSpell.effectlookup = {
 				7: Format.Gems('B')	,
 				8: Format.Gems('H')	,
 				51: Format.Gems('FAWE')	,
-				55: Format.Gems('FAWESDNBH')	
-				}[effect.raw_argument] || { 
-					'invalid damage value': 		raw_argument 
+				55: Format.Gems('FAWESDNBH')
+				}[effect.raw_argument] || {
+					'invalid damage value': 		raw_argument
 				};
 		},
 		49:	damage_untested,
@@ -384,7 +384,7 @@ MSpell.effectlookup = {
 		599:	damage_untested,
 		600:	damage_untested,
 		601:	damage_untested,
-		609:	damage_untested		
+		609:	damage_untested
 }
 
 

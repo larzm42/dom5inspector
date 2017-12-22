@@ -3,7 +3,7 @@
 
 //namespace children
 var Utils = DMI.Utils = DMI.Utils || {};
-var Render = DMI.Render = DMI.Render || {};  
+var Render = DMI.Render = DMI.Render || {};
 
 
 function idFormatter(_,__, value) {
@@ -13,7 +13,7 @@ function idFormatter(_,__, value) {
 
 //base class for grid page
 DMI.CGrid = Utils.Class(function( domname, data, columns, options) {
-		
+
 	////////////////////////////////////////////////////////////////////////////
 	// constructor arguments
 	////////////////////////////////////////////////////////////////////////////
@@ -28,13 +28,13 @@ DMI.CGrid = Utils.Class(function( domname, data, columns, options) {
 	};
 	if (options)
 		for (k in options) this.options[k] = options[k];
-	
+
 	//full wrapper for this page
 	this.domsel = "#"+domname+"-page";
-	
+
 	//panels visible for this page (including controls that overlap with other pages)
 	this.domselp = "div.panel."+domname+"view";
-	
+
 
 	////////////////////////////////////////////////////////////////////////////
 	// public interface
@@ -43,11 +43,11 @@ DMI.CGrid = Utils.Class(function( domname, data, columns, options) {
 		window.clearTimeout(h_runsearchfilters);
 		h_runsearchfilters = window.setTimeout(filterAndUpdate, 10);
 	}
-	
+
 	this.hide = function() {
 		if (!isVisible) return;
-		isVisible = false; 
-		
+		isVisible = false;
+
 		lastScrollPos = $(this.domsel+' div.slick-viewport').scrollTop();
 
 		$(this.domsel).hide();
@@ -59,27 +59,27 @@ DMI.CGrid = Utils.Class(function( domname, data, columns, options) {
 
 		//show this page
 		$(this.domsel).show();
-		
+
 		//move shared overlay onto this page
 		$(this.domsel+' div.primary-overlay').append($('#primary-details'));
 
 		//show relevant panels on shared overlay
 		$(this.domselp).show();
-		
+
 		//scroll to last position (before being hidden)
 		if (lastScrollPos)
 			$(this.domsel+' div.slick-viewport').scrollTop(lastScrollPos);
-				
+
 		//slap
 		this.grid.resizeCanvas();
-		
+
 		//update views
 		setGridInfo();
-		
+
 		//fix clear filters btn
 		checkGlobalClearFilters();
 	}
-		
+
 	this.showIds = function(on) {
 		var columns = that.grid.getColumns();
 		if (on && columns[0].id != 'id') {
@@ -91,58 +91,58 @@ DMI.CGrid = Utils.Class(function( domname, data, columns, options) {
 			that.grid.setColumns(columns);
 		}
 	}
-	
+
 	////////////////////////////////////////////////////////////////////////////
 	// create grid
 	////////////////////////////////////////////////////////////////////////////
 	this.dataView = new Slick.Data.DataView({ inlineFilters: true });
 	this.grid = new Slick.Grid(this.domsel+' .grid-container', this.dataView, columns, this.options);
-	
-	
+
+
 	////////////////////////////////////////////////////////////////////////////
 	// PRIVATE
 	////////////////////////////////////////////////////////////////////////////
 
 	// closure scope
-	var that = this;	
-	
+	var that = this;
+
 	var h_runsearchfilters = null;
 
 	var lastScrollPos = null;
 	var isVisible = false;
-	
-	
+
+
 	//wire up model events to drive the grid (slickgrid magic)
 	this.dataView.onRowCountChanged.subscribe(function (e, args) {
 		that.grid.updateRowCount();
 		that.grid.render();
-	});	
+	});
 	this.dataView.onRowsChanged.subscribe(function (e, args) {
 		that.grid.invalidateRows(args.rows);
 		that.grid.render();
 	});
-	
-	
+
+
 	////////////////////////////////////////////////////////////////////////////
 	// filter buttons
 	////////////////////////////////////////////////////////////////////////////
 
-	//sets visibility of clear-filter button (call in context of an input)	
+	//sets visibility of clear-filter button (call in context of an input)
 	function checkGlobalClearFilters() {
 		if ($("input.clear-filters-btn:visible").length) {
 			$("#global-clear-filters-btn").show();
 		}
 		else
 			$("#global-clear-filters-btn").hide();
-	}	
+	}
 	function checkClearFilters() {
 		$property = $(this).parents('.property');
 		if($property.length){
 			if ($property.find(" input[type=text]:[value^='']").length
 				|| $property.find(" textarea:[value^='']").length
 				|| $property.find(" input[type=checkbox]:checked").length
-				|| $property.find(" option:not(.default):selected").length 
-			)  
+				|| $property.find(" option:not(.default):selected").length
+			)
 				$property.find("input.clear-filters-btn").show();
 			else
 				$property.find("input.clear-filters-btn").hide();
@@ -151,8 +151,8 @@ DMI.CGrid = Utils.Class(function( domname, data, columns, options) {
 			if ($panel.find(" input[type=text]:[value^='']").length
 				|| $panel.find(" textarea:[value^='']").length
 				|| $panel.find(" input[type=checkbox]:checked").length
-				|| $panel.find(" option:not(.default):selected").length 
-			)  
+				|| $panel.find(" option:not(.default):selected").length
+			)
 				$panel.find("input.clear-filters-btn").show();
 			else
 				$panel.find("input.clear-filters-btn").hide();
@@ -160,22 +160,22 @@ DMI.CGrid = Utils.Class(function( domname, data, columns, options) {
 
 		checkGlobalClearFilters();
 	}
-	
+
 	//call on each panel now
 	$(that.domselp+" .clear-filters-btn").each( checkClearFilters );
-	
+
 	//wire up filter controls
 	$(that.domselp+" input[type=text], "+that.domselp+" textarea").bind('change keyup', 	function(e) {
 		//skip if unchanged (to support other key commands)
-		if ($(this).val() == $(this).prop("lastval")) 
+		if ($(this).val() == $(this).prop("lastval"))
 			return;
-		
+
 		$(this).prop("lastval", $(this).val());
-		
+
 		//normal stuff..
-		that.doSearch(); 
-		$(this).saveState(); 
-		checkClearFilters.call(this); 
+		that.doSearch();
+		$(this).saveState();
+		checkClearFilters.call(this);
 	});
 	$(that.domselp+" input[type=checkbox]").bind('change click', 	function(e) { that.doSearch(); $(this).saveState(); checkClearFilters.call(this); });
 	$(that.domselp+" select").bind('change', 			function(e) { that.doSearch(); $(this).saveState(); checkClearFilters.call(this); });
@@ -191,7 +191,7 @@ DMI.CGrid = Utils.Class(function( domname, data, columns, options) {
 		$panel.find(" input[type=checkbox]:checked").prop("checked", false).saveState();
 		$panel.find(" option.default").attr('selected', true).parent().saveState();
 		$(this).hide();
-		
+
 		checkGlobalClearFilters();
 		that.doSearch();
 
@@ -205,14 +205,14 @@ DMI.CGrid = Utils.Class(function( domname, data, columns, options) {
 	$(that.domselp+' input[type=text],'+that.domselp+' textarea').keydown(function(e){
 		if (e.ctrlKey && e.which == 38) { //up
 			if (rowShowing === null) return;
-			
+
 			staticOverlayDetails(rowShowing - 1);
 			that.grid.scrollRowIntoView(rowShowing);
 			e.preventDefault();
 		}
 		else if (e.ctrlKey && e.which == 40) { //down
 			if (rowShowing === null) return;
-			
+
 			staticOverlayDetails(rowShowing + 1);
 			that.grid.scrollRowIntoView(rowShowing);
 			e.preventDefault();
@@ -223,48 +223,48 @@ DMI.CGrid = Utils.Class(function( domname, data, columns, options) {
 		if (e.which == 107) { //keypad +
 			var n = parseInt($(this).val()) || 0;
 			$(this).val(n+1);
-			e.preventDefault();	
+			e.preventDefault();
 		}
 		// else if (e.which == 45) {
 		else if (e.which == 109) { //keypad -
 			var n = parseInt($(this).val()) || 0;
 			$(this).val(n-1);
-			e.preventDefault();	
+			e.preventDefault();
 		}
-	});  
+	});
 
 	////////////////////////////////////////////////////////////////////////////
 	// overlays
 	////////////////////////////////////////////////////////////////////////////
-	
+
 	var $canvas = $(that.grid.getCanvasNode());
 	var $highlightedRow = $(undefined);
 	var detailsShowing = null;
 	var rowShowing = null;
-	
-	
+
+
 	var c_handle = null;
 	//mouseover event on grid changes static overlay
 	this.grid.onMouseEnter.subscribe( function (e) {
-		PaneManager.closePopups();//clear any fucked up overlays hanging a	
-			
+		PaneManager.closePopups();//clear any fucked up overlays hanging a
+
 		e.currentTarget.style.cursor = 'pointer';
 
 		window.clearTimeout(h_runsearchfilters);
 		var rc = that.grid.getCellFromEvent(e);
 
 		window.clearTimeout(c_handle);
-		c_handle = window.setTimeout(function(){staticOverlayDetails(rc.row);}, 30);	
+		c_handle = window.setTimeout(function(){staticOverlayDetails(rc.row);}, 30);
 	});
-				
+
 	this.grid.onActiveCellChanged.subscribe( function (e) {
 		var activeCell = that.grid.getActiveCell();
 		staticOverlayDetails(activeCell.row);
 	});
-	
+
 	function hideStaticOverlayDetails(rown) {
 		rowShowing = detailsShowing = null;
-		$(that.domsel+' .fixed-overlay').hide();	
+		$(that.domsel+' .fixed-overlay').hide();
 	}
 	function staticOverlayDetails(rown) {
 		var o = that.grid.getData().getItem(rown);
@@ -273,7 +273,7 @@ DMI.CGrid = Utils.Class(function( domname, data, columns, options) {
 		//highlight grid row
 		$highlightedRow.removeClass("active");
 		$highlightedRow = $(that.domsel+" div.slick-row").filter("[row="+rown+"]").addClass("active");
-		
+
 		if (detailsShowing != o) {
 			$(that.domsel+' .fixed-overlay').empty().append( o.renderOverlay(o) );
 		}
@@ -281,24 +281,24 @@ DMI.CGrid = Utils.Class(function( domname, data, columns, options) {
 		detailsShowing = o;
 		$(that.domsel+' .fixed-overlay').show();
 	}
-	
+
 	//click event on grid opens new overlay
 	this.grid.onClick.subscribe( function (e) {
 		var rc = that.grid.getCellFromEvent(e);
 		var o = that.grid.getData().getItem(rc.row);
-		
+
 		if (PaneManager.getOpenPanes(domname+' '+o.id).focusAndHighlight().length)
 			return;
-			
+
 		PaneManager.openPane( domname+' '+o.id );
 	});
 
-	//open fixed overlay contents in a floating overlay	
+	//open fixed overlay contents in a floating overlay
 	this.detachShowingDetails = function() {
 		if (isVisible && detailsShowing) {
 			if (PaneManager.getOpenPanes(domname+' '+detailsShowing.id).focusAndHighlight().length)
 				return;
-			
+
 			PaneManager.openPane( domname+' '+detailsShowing.id );
 		}
 	}
@@ -308,47 +308,47 @@ DMI.CGrid = Utils.Class(function( domname, data, columns, options) {
 	.dblclick(function() {
 		that.detachShowingDetails();
 	});
-	
+
 	this.grid.onKeyDown.subscribe(DMI.onKeyDown);
 
 	////////////////////////////////////////////////////////////////////////////
 	// grid sort
 	////////////////////////////////////////////////////////////////////////////
-	
+
 	var currentSortCmp = null;
 	this.grid.onSort.subscribe(function (e, args) {
 		if (that.preSort)
 			that.preSort(e, args);
-		
+
 		// declarations for closure
 		var field = args.sortCol.field;
 		var defaultVal = args.sortCol.sortCmp == 'text'?'':0;
 		var sign = args.sortAsc ? 1 : -1;
 		var prevSortCmp = currentSortCmp || that.defaultSortCmp;
-		
+
 		// store closure in global
 		currentSortCmp = function (dataRow1, dataRow2) {
-			
+
 			var value1 = (dataRow1[field] || defaultVal), value2 = (dataRow2[field] || defaultVal);
-			
+
 			//if equal then sort in previous scope (recurring)
 			if (value1 == value2 && prevSortCmp)
 				return prevSortCmp(dataRow1, dataRow2);
-				
+
 			return (value1 == value2 ? 0 : (value1 > value2 ? 1 : -1)) * sign;
 		};
 		that.dataView.sort(currentSortCmp);
-		
+
 		that.grid.invalidate();
 		that.grid.render();
-			
+
 	});
-	
-	
+
+
 	////////////////////////////////////////////////////////////////////////////
 	// grid filters
 	////////////////////////////////////////////////////////////////////////////
-	
+
 	this.getPropertyMatchArgs = function() {
 		var args = [];
 		$(that.domselp).filter(".property").each(function(){
@@ -394,10 +394,10 @@ DMI.CGrid = Utils.Class(function( domname, data, columns, options) {
 		});
 		return args;
 	}
-	
+
 	function filterAndUpdate() {
-		var args = that.getSearchArgs(that.domsel);		
-		var renderedRange = that.grid.getRenderedRange();		
+		var args = that.getSearchArgs(that.domsel);
+		var renderedRange = that.grid.getRenderedRange();
 		that.dataView.setFilterArgs(args);
 		that.dataView.setRefreshHints({
 			ignoreDiffsBefore: renderedRange.top,
@@ -409,21 +409,21 @@ DMI.CGrid = Utils.Class(function( domname, data, columns, options) {
 
 		//display first result
 		var result0 = that.grid.getData().getItem(0);
-		if (result0) 
+		if (result0)
 			staticOverlayDetails(0);
-		else 
+		else
 			hideStaticOverlayDetails();
 
 		//display count
 		setGridInfo();
 	}
-	
+
 	function setGridInfo() {
 		var n = that.dataView.getLength();
 		$('#count-results').html( n + (n==1 ? ' result' : ' results'));
 	}
-	
-		
+
+
 	$(window).resize(function() {
 		that.grid.resizeCanvas();
 	});
@@ -434,13 +434,13 @@ DMI.CGrid = Utils.Class(function( domname, data, columns, options) {
 	//required in subclass:
 	//  this.getSearchArgs
 	//  this.searchFilter
-	
+
 	//optional in subclass:
 	//  this.preSort
 	//  this.onDisplay
-	
+
 	this.init = function() {
-		
+
 		//populate grid
 		this.dataView.beginUpdate();
 		this.dataView.setItems(this.data);
@@ -448,17 +448,17 @@ DMI.CGrid = Utils.Class(function( domname, data, columns, options) {
 		this.dataView.setFilterArgs(this.getSearchArgs(this.domsel));
 		this.dataView.endUpdate();
 		setGridInfo();
-		
+
 		//simulate click to order by first column
 		$(this.initialSortTrigger || this.domsel+" div.slick-header-column:first").trigger('click');
-		
+
 		//display first item
 		setTimeout( function(){staticOverlayDetails(0)}, 0);
-		
+
 		//show items
 		if (DMI.Options['Show ids'])
 			this.showIds(1);
-		
+
 		//set textinput lastval properties
 		$(that.domselp+" input[type=text], "+that.domselp+" textarea").each(function() {
 			$(this).prop("lastval", $(this).val());
@@ -472,7 +472,7 @@ DMI.matchProperty = function(o, key, comparitor, match) {
 	if (!val) {
 		key = DMI.propertyAliases[key];
 		val = o[key];
-		
+
 		if (!val)
 			return;
 	}
@@ -511,7 +511,7 @@ DMI.customFilter = function(o, customjs) {
 		result = eval(customjs);
 		$('#custom-js-error').empty();
 		return result;
-	} 
+	}
 	catch(e) {
 		$('#custom-js-error').html(String(e));
 		return '#ERROR#';
@@ -523,4 +523,4 @@ DMI.customFilter = function(o, customjs) {
 //namespace args
 }( window.DMI = window.DMI || {}, jQuery ));
 
-	
+

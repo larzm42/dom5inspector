@@ -1,6 +1,6 @@
 //namespace scope
 (function( DMI, $, undefined ){
-		
+
 var MItem = DMI.MItem = DMI.MItem || {};
 
 var Format = DMI.Format;
@@ -36,19 +36,19 @@ MItem.prepareData_PostMod = function() {
 	var mult = Utils.mult;
 
 	for (var oi=0, o;  o= modctx.itemdata[oi];  oi++) {
-		
+
 		o.renderOverlay = MItem.renderOverlay;
 		o.matchProperty = MItem.matchProperty;
-		
+
 		//convert to numbers (for column ordering)
 		//doesn't seem to cause any further problems..
 		o.id = parseInt(o.id);
 		o.name = o.name || '(undefined)';
 		o.constlevel = parseInt(o.constlevel);
-		
+
 		if (o.descr)
-			o.descr = '<p>' + o.descr.replace('\n','</p><p>') + '</p>';	
-		
+			o.descr = '<p>' + o.descr.replace('\n','</p><p>') + '</p>';
+
 		if (o.restricted) {
 			// Parse the restricted nations to a list of IDs
 			var parsedNations = [];
@@ -65,10 +65,10 @@ MItem.prepareData_PostMod = function() {
 				delete o.restricted;
 			}
 		}
-		
+
 		//serachable string
 		o.searchable = o.name.toLowerCase();
-		
+
 		//sprite
 		if (o.copyspr) {
 			o.sprite = 'images/items/item'+o.copyspr.id+'.png';
@@ -77,7 +77,7 @@ MItem.prepareData_PostMod = function() {
 		} else {
 			o.sprite = 'images/items/item'+o.id+'.png';
 		}
-			
+
 		//combine linked armor stats
 		if (o.armor) {
 			var a = modctx.armorlookup[o.armor];
@@ -88,56 +88,56 @@ MItem.prepareData_PostMod = function() {
 			//backlink on armor
 			a.used_by.push( Utils.itemRef(o.id) + '(item)' );
 			o.armor = a;
-			
+
 			o.prot = a.prot
 			o.protbody = a.protbody;
 			o.protshield = a.protshield;
 			o.prothead = a.prothead;
 			o.enc = a.enc;
 			o.parry = a.parry;
-			
+
 			o.def = sum(o.def, a.def);
 		}
-		
+
 		//clear secondarylevel if secondarypath was removed
 		if (o.secondarypath=='') o.secondarylevel = '';
-		
+
 		//path: E1D1
 		if (o.mainpath) {
 			o.mpath = o.mainpath + o.mainlevel + (o.secondarypath || "") + (o.secondarylevel || "");
 		}
-		
+
 		//gemcost: 5E5D
-		o.gemcost = forgeCost[o.mainlevel] + o.mainpath + (forgeCost[o.secondarylevel] || "") + (o.secondarypath || ""); 
-		
+		o.gemcost = forgeCost[o.mainlevel] + o.mainpath + (forgeCost[o.secondarylevel] || "") + (o.secondarypath || "");
+
 		//booster +DDD
 		o.boosters = "";
 		for (var i=0; i<modconstants.pathkeys.length; i++) {
 			var p = modconstants.pathkeys[i];
-			for (var j=0; j<parseInt(o[p]); j++) 
+			for (var j=0; j<parseInt(o[p]); j++)
 				o.boosters += p;
 		}
-		
+
 		//lookup weapon
 		if (o.weapon) {
 			w = modctx.wpnlookup[o.weapon];
 			if (!w) console.log( 'weapon "'+o.weapon+'" not found (item '+o.id+')');
 			//backlink on wpn
-			else w.used_by.push( Utils.itemRef(o.id) + ' (item)' ); 
+			else w.used_by.push( Utils.itemRef(o.id) + ' (item)' );
 			o.weapon = w;
-		}			
+		}
 		//set weapon class (ranged or melee)
 		if (o.type == '1-h wpn' || o.type == '2-h wpn') {
 			var w = o.weapon;
 			if (w && w.ammo && w.ammo != '0')
 				o.wpnclass = 'missile';
-			else 
+			else
 				o.wpnclass = 'melee';
 		}
-			
+
 		if (o.boosters && o.boosters != "")
 			o.boosters = '+'+o.boosters;
-		
+
 //		if (o.spell) {
 //			var spell = DMI.modctx.spelllookup[o.spell];
 //			if (o.type=='Ritual') {
@@ -153,7 +153,7 @@ MItem.prepareData_PostMod = function() {
 				o.startbattlespell = o.autospell;
 			}
 		}
-		
+
 	}
 }
 
@@ -170,7 +170,7 @@ function itemConFormatter(row, cell, value, columnDef, dataContext) {
 
 function itemNameFormatter(row, cell, value, columnDef, dataContext) {
 	if (dataContext.restricted)
-		return '<div class="national-spell">'+value+'</div>';	
+		return '<div class="national-spell">'+value+'</div>';
 	return value;
 }
 
@@ -183,12 +183,12 @@ MItem.CGrid = Utils.Class( DMI.CGrid, function() {
 		{ id: "mpath",    width: 70, name: "Path req", field: "mpath", sortable: true, formatter: DMI.GridFormat.Paths, sortCmp: 'text' },
 		{ id: "boosters", width: 165, name: "Boosters", field: "boosters", sortable: true, formatter: DMI.GridFormat.Booster }
 	];
-	
+
 	this.superClass.call(this, 'item', modctx.itemdata, columns); //superconstructor
-	
+
 	$(this.domsel+' .grid-container').css('width', 530);//set table width
 
-	
+
 	//in closure scope
 	var that = this;
 
@@ -215,7 +215,7 @@ MItem.CGrid = Utils.Class( DMI.CGrid, function() {
 		if ($(this).prop('checked'))
 			$(that.domselp+" input.national").prop('checked', false).saveState();
 	});
-	
+
 	//reads search boxes
 	this.getSearchArgs = function() {
 		var args = {properties: this.getPropertyMatchArgs(),
@@ -243,7 +243,7 @@ MItem.CGrid = Utils.Class( DMI.CGrid, function() {
 	this.searchFilter =  function(o, args) {
 		//type in id to ignore filters
 		if (args.str && args.str == String(o.id)) return true;
-		
+
 		//check construction level
 		if (args.constlevel==12 && o.constlevel!=12)
 			return false;
@@ -253,7 +253,7 @@ MItem.CGrid = Utils.Class( DMI.CGrid, function() {
 		//search string
 		if (args.str && o.searchable.indexOf(args.str) == -1)
 			return false;
-		
+
 		//magic paths
 		if (args.mpaths) {
 			if(args.inclusive) {
@@ -272,7 +272,7 @@ MItem.CGrid = Utils.Class( DMI.CGrid, function() {
 					return false;
 			}
 		}
-		
+
 		//item type
 		if (args.type && !(args.type[o.type] || args.type[o.wpnclass]))
 				return false;
@@ -303,7 +303,7 @@ MItem.CGrid = Utils.Class( DMI.CGrid, function() {
 			}
 		}
 
-				
+
 		if (args.customjs) {
 			var res = DMI.customFilter(o, args.customjs);
 			if (res == '#ERROR#')
@@ -314,22 +314,22 @@ MItem.CGrid = Utils.Class( DMI.CGrid, function() {
 		return true;
 	}
 
-	//customise sort	
+	//customise sort
 	this.preSort = function(){
 		//bound scope
 		var boosterSortPriority = ['F', 'A', 'W', 'E', 'S', 'D', 'N', 'B', 'H'];
 		var isSortedOnBoosters = false;
 		var data = modctx.itemdata;
-			
+
 		//the actual callback
 		return function(e, args) {
 			if (args.sortCol.field == 'boosters') {
-				//rotate booster priority 
+				//rotate booster priority
 				// if (isSortedOnBoosters)
 				// 	boosterSortPriority.unshift(boosterSortPriority.pop());
-				
+
 				// var L = boosterSortPriority[0];
-				
+
 				// //pull priority to front of booster strings
 				// var regex = new RegExp('^.([^'+L+']*)('+L+'+)([^'+L+']*)$');
 				// for (var i=0; i<data.length; i++) {
@@ -340,10 +340,10 @@ MItem.CGrid = Utils.Class( DMI.CGrid, function() {
 				// 		data[i].boosters = b.replace('_','+');
 				// }
 				if (isSortedOnBoosters) {
-					//rotate priority 
+					//rotate priority
 					var pL = boosterSortPriority[0];
 					boosterSortPriority.push(boosterSortPriority.shift());
-					
+
 					//push last priority to end
 					var regex = new RegExp('^.('+pL+'+)(.*)$');
 					for (var i=0; i<data.length; i++) {
@@ -353,7 +353,7 @@ MItem.CGrid = Utils.Class( DMI.CGrid, function() {
 					}
 				}
 				var L = boosterSortPriority[0];
-				
+
 				//set first character to number of instances of L
 				for (var i=0; i<data.length; i++) {
 					var b = data[i].boosters;
@@ -367,7 +367,7 @@ MItem.CGrid = Utils.Class( DMI.CGrid, function() {
 				if ( $('#itemboosterordericon')
 				     .attr({alt:L, src:'images/magicicons/Path_'+L+'.png', 'class':'pathicon Path_'+L})
 				     .css('visibility','visible')
-				     .length==0 ) 
+				     .length==0 )
 				{
 					//add icon if not exists yet
 					$(".slick-header-column[id*=boosters]")
@@ -377,7 +377,7 @@ MItem.CGrid = Utils.Class( DMI.CGrid, function() {
 				//fix sort direction
 				args.sortAsc = false;
 				isSortedOnBoosters = true;
-			} 
+			}
 			else  {
 				//hide sort column header icon if sorting another column
 				$('#itemboosterordericon').css('visibility','hidden');
@@ -388,9 +388,9 @@ MItem.CGrid = Utils.Class( DMI.CGrid, function() {
 	}();
 
 	//call filters and update  display
-	//asyncronous to make sure all filter inputs are correctly initialised  
-	setTimeout(function() { 
-		that.init(); 
+	//asyncronous to make sure all filter inputs are correctly initialised
+	setTimeout(function() {
+		that.init();
 	},0);
 });
 MItem.matchProperty = function(o, key, comp, val) {
@@ -419,18 +419,18 @@ var displayorder_armor = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'def',		'defence',		Format.Signed,
 	'parry',	'parry',
 	'enc',		'encumbrance'
-]);			
+]);
 var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 [
 	'boosters',	'magic bonus',		Format.Booster,
 	'restricted', 'restricted', function(v,o)
-	{ 
+	{
 		var restrictedString = '';
 		for (var i=0, k; k=o.restricted[i]; i++) {
 			restrictedString = restrictedString + Utils.nationRef(k) + '<br/>';
 		}
-		return restrictedString; 
-		
+		return restrictedString;
+
 	},
 	'pen',		'magic penetration',
 
@@ -443,7 +443,7 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'gs',		'generates astral gems',	function(v){ return Format.PerTurn(Format.Gems(v+'S')); },
 	'gn',		'generates nature gems',	function(v){ return Format.PerTurn(Format.Gems(v+'N')); },
 	'gw',		'generates water gems',		function(v){ return Format.PerTurn(Format.Gems(v+'W')); },
-	
+
 	'tmpairgems',		'temporary air gems',		function(v){ return Format.Gems(v+'A'); },
 	'tmpbloodslaves',		'temporary blood slaves',	function(v){ return Format.Gems(v+'B'); },
 	'tmpdeathgems',		'temporary death gems',		 function(v){ return Format.Gems(v+'D'); },
@@ -464,11 +464,11 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'mr',		'magic resistance',	Format.Signed,
 	'limitedregeneration',	'limited regeneration',		Format.Percent,
 	'regeneration',	'regeneration',		Format.Percent,
-	
+
 	'spelleffect',	'bearer affected by spell',	Utils.spellRef,
-	
-	'prot',		'basic protection', 
-	'protf',	'protective force', 
+
+	'prot',		'basic protection',
+	'protf',	'protective force',
 	'poisonres',	'resist poison',	Format.Signed,
 
 	'barkskin',	'barkskin',		{1: '10 protection (+1 if already over 10)'},
@@ -476,13 +476,13 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 
 	'stoneskin',	'stoneskin',		{1: '15 protection (+2 if already over 15)'},
 	'coldres',	'resist cold', 		Format.Signed,
-	'iceprot',	'ice protection', 
-	
+	'iceprot',	'ice protection',
+
 	'shockres',	'resist shock',		Format.Signed,
 	'woundfend',	'affliction protection',		Format.Percent,
 	'taint',	'horrormark chance', Format.Percent,
-	'aging',	'advanced aging', 
-	
+	'aging',	'advanced aging',
+
 	'dragonmastery', 'Dragon mastery',
 	'patience', 'patience',
 
@@ -498,9 +498,9 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'deathrange',	'death ritual range bonus',	Format.Signed,
 	'naturerange',	'nature ritual range bonus',	Format.Signed,
 	'bloodrange',	'blood ritual range bonus',	Format.Signed,
-	
-	'batstartsum',	'summons in battle',	function(v,o){ 
-		return Utils.is(o.n_batstartsum) ?  Utils.unitRef(v)+' x '+o.n_batstartsum  :  Utils.unitRef(v); 
+
+	'batstartsum',	'summons in battle',	function(v,o){
+		return Utils.is(o.n_batstartsum) ?  Utils.unitRef(v)+' x '+o.n_batstartsum  :  Utils.unitRef(v);
 	},
 
 	'fireshield',	'fire shield',
@@ -519,7 +519,7 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'ivylord',		'ivy lord',
 	'corpselord',		'corpse lord',		function(v){ return '+'+v+' '+Utils.unitRef(534)+' construction'; },
 	'lictorlord',		'lictor lord',		function(v){ return '+'+v+' '+Utils.unitRef(259)+' summoning'; },
-	
+
 	'startbattlespell',	'start battle spell',	Utils.spellRef,
 	'autocombatspell',	'auto spell',	Utils.spellRef,
 	'itemspell',		'spell',		Utils.spellRef,
@@ -528,19 +528,19 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'ldr-m',		'leadership (magic)',	Format.Signed,
 	'ldr-u',		'leadership (undead)',	Format.Signed,
 	'inspirational',		'inspirational leadership',	Format.Signed,
-	
+
 	'airtransport',		'map flight',		function(v){ if (v==1) return '(self only)'; else return 'self + total size '+v; },
 	'waterbreathing',	'water breathing',
 	'giftofwater',	'water breathing',	function(v){ if (v==1) return '(self only)'; else return 'self + total size '+v; },
 	'mapspeed',		'map move bonus',
-	
+
 	'insa',		'bearer grows insane',	function(v){ return '+'+v+'% chance per turn'; },
 	'horrormarks',		'horror marks bearer',	function(v){ return v+'% chance per turn'; },
 	'berserk',		'berserk when wounded',	Format.SignedZero,
 	'awe',			'awe',			Format.SignedZero,
 	'animalawe',			'animal awe',		Format.SignedZero,
 	'fear',			'fear',			Format.SignedZero,
-	
+
 	'standard',		'battle standard (morale)',
 
 	'heretic',		'heretic',
@@ -548,20 +548,20 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'sailingshipsize',		'sailing ship size',
 	'sailingmaxunitsize',		'sailing max unit size',
 	'flytr',		'flying transport',
-	
+
 	'patrolbonus',			'patrol bonus',		Format.Signed,
 	'douse',		'blood hunt bonus',	Format.Signed,
 	'supplybonus',	'supply bonus',		Format.Signed,
 	'siegebonus',		'siege bonus',		Format.Signed,
 	'castledef',	'castle defence',
 	'forge',		'forge bonus',		Format.Percent,
-	'fixforge',		'fixed forge bonus',	
+	'fixforge',		'fixed forge bonus',
 	'pillagebonus',			'pillage bonus',	Format.Signed,
 	'stealth',		'stealth',	Format.Signed,
 	'stealthb',		'stealth bonus',	Format.Signed,
-	'gold', 		'gold generation',	Format.PerTurn, 
+	'gold', 		'gold generation',	Format.PerTurn,
 	'bloodsac',		'blood sacrifice',	Format.Signed,
-	'mastersmith',	'master smith',	
+	'mastersmith',	'master smith',
 	'armysize',		'army size report',	Format.Signed,
 	'defender',		'may be attacked by',	Utils.unitRef,
 	'guardspiritbonus', 'guardian spirit',
@@ -571,10 +571,10 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'sumauto',		'auto summoned unit',	Utils.unitRef,
 	'retinue', 		'retinue', 		Utils.unitRef,
 
-	
+
 	'affliction',		'afflicts bearer',	Utils.afflictionRef,
 	'cannotwear',		'restriction',		{2:'cannot be worn by mounted units', 536870912:'can only be worn by coldblooded units', 1073741824:'cannot be worn by inanimate units'},
-	'restrictions',		'restrictions',		
+	'restrictions',		'restrictions',
 	'special',		'special',		Utils.parseObjectRefs,
 	'restricteditem', 'unit restriction',
 	'sneakunit','grant stealth', Format.SignedZero,
@@ -631,7 +631,7 @@ var flagorder = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'onlyfemale', 'can only be used by female beings',
 	'reqeyes', 'can only be used by a being with eyes',
 	'haste',	'haste',
-	'nodiscount',	'no forge discounts'	
+	'nodiscount',	'no forge discounts'
 ]);
 var hiddenkeys = DMI.Utils.cutDisplayOrder(aliases, formats,
 [
@@ -645,14 +645,14 @@ var modderkeys = Utils.cutDisplayOrder(aliases, formats,
 ]);
 var ignorekeys = {
 	modded:1,
-	mpath:1, 
-	type:1, 
-	weapon:1, 
-	armor:1, 
-	constlevel:1, 
-	mainpath:1, mainlevel:1, secondarypath:1, secondarylevel:1, 
+	mpath:1,
+	type:1,
+	weapon:1,
+	armor:1,
+	constlevel:1,
+	mainpath:1, mainlevel:1, secondarypath:1, secondarylevel:1,
 	A:1, B:1, D:1, E:1, F:1, N:1, S:1, W:1, H:1,
-	
+
 	gemcost:1,
 	wpnclass:1,
 	alch:1,
@@ -665,14 +665,14 @@ var ignorekeys = {
 	autospellrepeat:1,
 	n_batstartsum:1,
 	ritual:1,
-	
+
 	//common fields
 	name:1,descr:1,
 	searchable:1, renderOverlay:1, matchProperty:1
-};		
-	
-var formatItemType = {	'2-h wpn':'two handed weapon', 
-			'1-h wpn':'one handed weapon', 
+};
+
+var formatItemType = {	'2-h wpn':'two handed weapon',
+			'1-h wpn':'one handed weapon',
 			'misc':'miscellaneous',
 			'helm':'helmet',
 			'shield':'shield',
@@ -689,17 +689,17 @@ var formatItemCon = {	0:'(lvl 0)',
 
 MItem.renderOverlay = function(o) {
 	var descrpath = 'gamedata/itemdescr/';
-	
+
 	//template
 	var h=''
 	h+='<div class="item overlay-contents"> ';
-	
+
 	//header
 	h+='	<div class="overlay-header" title="item id:'+o.id+'"> ';
 	h+='		<div class="item-image" style="background-image:url(\''+o.sprite+'\');">&nbsp;</div> ';
 	h+='		<div class="h2replace">'+o.name+'</div> ';
 	h+='		<p>'+formatItemType[o.type]+' '+formatItemCon[o.constlevel]+'</p>';
-	
+
 	//mid
 	h+='	</div>';
 	h+='	<div class="overlay-main">';
@@ -724,17 +724,17 @@ MItem.renderOverlay = function(o) {
 		h+='		<tr class="modded hidden-row"><td colspan="2">' + Utils.renderModded(o) +'</td></tr>';
 	}
 	h+='		</table> ';
-	
+
 	//weapon
 	if (o.weapon ){//&& modctx.wpnlookup[o.weapon]) {
-		var isImplicitWpn = (o.type == '1-h wpn' || o.type == '2-h wpn'); 
+		var isImplicitWpn = (o.type == '1-h wpn' || o.type == '2-h wpn');
 		h+= DMI.MWpn.renderWpnTable(o.weapon, isImplicitWpn, true);
-	} 
+	}
 	h+='	</div>';
-	
+
 	//footer
 	h+='	<div class="overlay-footer">';
-	
+
 	//wikilink
 	if (!o.moddedname)
 		h+='	<div class="overlay-wiki-link non-content">' + Utils.wikiLink(o.name) + '</div>';
@@ -744,12 +744,12 @@ MItem.renderOverlay = function(o) {
 		h+='	<p class="firstline">Item cannot be forged.</p>';
 	else
 		h+='	<p class="firstline">Requires '+Format.Gems(o.gemcost) +' to forge ('+Format.Paths(o.mpath)+')</p>';
-	
+
 	//descr
 	var uid = 'c'+(Math.random());
 	uid = uid.replace('.','');
 	h+='		<div class="overlay-descr pane-extension '+uid+'"></div>';
-	
+
 	if (o.descr)
 			Utils.insertContent( '<p>'+o.descr+'</p>', 'div.'+uid );
 	else {
@@ -757,9 +757,9 @@ MItem.renderOverlay = function(o) {
 			Utils.loadContent( url, 'div.'+uid );
 	}
 	h+='	</div> ';
-	
+
 	h+='</div> ';
-	
+
 	return h;
 }
 

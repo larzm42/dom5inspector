@@ -1,6 +1,6 @@
 //namespace scope
 (function( DMI, $, undefined ){
-		
+
 var MSite = DMI.MSite = DMI.MSite || {};
 
 var Format = DMI.Format;
@@ -15,7 +15,7 @@ var modconstants = DMI.modconstants;
 
 MSite.initSite = function(o) {
 	o.hmon = [];
-	o.hcom = [];	
+	o.hcom = [];
 	o.mon = [];
 	o.com = [];
 	o.sum = [];
@@ -29,9 +29,9 @@ MSite.initSite = function(o) {
 MSite.prepareData_PreMod = function() {
 	for (var oi=0, o;  o= modctx.sitedata[oi];  oi++) {
 		o.hmon = [];
-		o.hcom = [];	
+		o.hcom = [];
 		o.mon = [];
-		o.com = [];	
+		o.com = [];
 		o.sum = [];
 		o.suml2 = [];
 		o.suml3 = [];
@@ -68,7 +68,7 @@ MSite.prepareData_PreMod = function() {
 		}
 		//set sprite url
 		if (o.sprite) {
-			o.url = 'images/sites/sites_' + Utils.paddedNum(o.sprite,4)+'.png'; 
+			o.url = 'images/sites/sites_' + Utils.paddedNum(o.sprite,4)+'.png';
 		}
 	}
 }
@@ -109,26 +109,26 @@ MSite.prepareData_PostMod = function() {
         }
 
 	for (var oi=0, o;  o= modctx.sitedata[oi];  oi++) {
-		
+
 		o.renderOverlay = MSite.renderOverlay;
 		o.matchProperty = MSite.matchProperty;
-		
+
 		//convert to numbers (for column ordering)
 		//doesn't seem to cause any further problems..
 		o.id = parseInt(o.id);
-		
+
 		if (o.loc == 0) {
 			delete o.loc;
 		}
-		
+
 		if (o.lab) {
 			o.lab = 1;
 		}
-		
+
 		if (o.rarity) {
 			o.rarity = parseInt(o.rarity);
 		}
-		
+
 		//searchable string
 		o.searchable = o.name.toLowerCase();
 
@@ -148,14 +148,14 @@ MSite.prepareData_PostMod = function() {
 		for (var i=0; i<modconstants.pathkeys.length; i++) {
 			var k = modconstants.pathkeys[i];
 			var plevel  = o[k];
-			
+
 			//append to pathcost code
 			if (Utils.is(plevel)) {
 				o.mpath +=  k + plevel + ' '; //string
 			}
-		}		
-		
-		if (o.mpath) 
+		}
+
+		if (o.mpath)
 			o.listed_gempath = '0'+o.mpath;
 		else o.listed_gempath = '';
 
@@ -164,13 +164,13 @@ MSite.prepareData_PostMod = function() {
 		for (var i=0; i<modconstants.pathkeys.length; i++) {
 			var k = modconstants.pathkeys[i];
 			var plevel  = o[k + '2'];
-			
+
 			//append to pathcost code
 			if (Utils.is(plevel)) {
 				o.mpath2 +=  k + plevel + ' '; //string
 			}
-		}		
-		
+		}
+
 		o.events = [];
 		for (var evti=0, evt;  evt= modctx.eventdata[evti];  evti++) {
 			if (evt.req_site || evt.req_foundsite || evt.req_hiddensite || evt.req_nearbysite) {
@@ -193,7 +193,7 @@ MSite.prepareData_PostMod = function() {
 		if (o.events.length == 0) {
 			delete o.events;
 		}
-		
+
 		o.newsiteevents = [];
 		for (var evti=0, evt;  evt= modctx.eventdata[evti];  evti++) {
 			if (evt.newsite) {
@@ -210,7 +210,7 @@ MSite.prepareData_PostMod = function() {
 		if (o.newsiteevents.length == 0) {
 			delete o.newsiteevents;
 		}
-		
+
 		o.nations = [];
 		for (var nati=0, nat;  nat= modctx.nationdata[nati];  nati++) {
 			if (nat.sites.indexOf(o.id) != -1) {
@@ -383,7 +383,7 @@ MSite.prepareData_PostMod = function() {
 			delete o.rit;
 		}
 	}
-	
+
 }
 
 
@@ -404,16 +404,16 @@ MSite.CGrid = Utils.Class( DMI.CGrid, function() {
 		//{ id: "scale2",      width: 50, name: "Scale", field: "scale2sort", sortable: true, formatter: formatScale },
 		{ id: "listed_gempath",    width: 120, name: "Gems", field: "listed_gempath", sortable: true, formatter: DMI.GridFormat.OrderedGems },
 	];
-	
+
 	this.superClass.call(this, 'site', modctx.sitedata, columns); //superconstructor
-	
+
 	$(this.domsel+' .grid-container').css('width', 600);//set table width
 
-	
+
 	//in closure scope
 	var that = this;
-	
-	
+
+
 	//reads search boxes
 	this.getSearchArgs = function() {
 		var args = {properties: this.getPropertyMatchArgs(),
@@ -437,11 +437,11 @@ MSite.CGrid = Utils.Class( DMI.CGrid, function() {
 	this.searchFilter =  function(o, args) {
 		//type in id to ignore filters
 		if (args.str && args.str == String(o.id)) return true;
-		
+
 		//search string
 		if (args.str && o.searchable.indexOf(args.str) == -1)
 			return false;
-		
+
 		//magic paths
 		if (args.mpaths) {
 			var found = false;
@@ -452,7 +452,7 @@ MSite.CGrid = Utils.Class( DMI.CGrid, function() {
 			}
 			if (!found) return false;
 		}
-		
+
 		//site path
 		if (args.sitepath && !( args.sitepath == o.path ))
 			return false;
@@ -490,21 +490,21 @@ MSite.CGrid = Utils.Class( DMI.CGrid, function() {
 		return true;
 	}
 
-	//customise sort	
+	//customise sort
 	this.preSort = function(){
 		//bound scope
 		var boosterSortPriority = ['F', 'A', 'W', 'E', 'S', 'D', 'N', 'B'];
 		var isSortedOnBoosters = false;
 		var data = modctx.sitedata;
-			
+
 		//the actual callback
 		return function(e, args) {
-			if (args.sortCol.field == 'listed_gempath') { 
+			if (args.sortCol.field == 'listed_gempath') {
 				if (isSortedOnBoosters) {
-					//rotate priority 
+					//rotate priority
 					var pL = boosterSortPriority[0];
 					boosterSortPriority.push(boosterSortPriority.shift());
-					
+
 					//push last priority to end
 					var regex = new RegExp('^.('+pL+'\\d+ )(.*)$');
 					//console.log(regex);
@@ -515,7 +515,7 @@ MSite.CGrid = Utils.Class( DMI.CGrid, function() {
 					}
 				}
 				var L = boosterSortPriority[0];
-				
+
 				//set first character to number
 				for (var i=0; i<data.length; i++) {
 					var b = data[i].listed_gempath;
@@ -529,7 +529,7 @@ MSite.CGrid = Utils.Class( DMI.CGrid, function() {
 				if ( $('#siteboosterordericon')
 				     .attr({alt:L, src:'images/magicicons/Gem_'+L+'.png', 'class':'gemicon Gem_'+L})
 				     .css('visibility','visible')
-				     .length==0 ) 
+				     .length==0 )
 				{
 					//add icon if not exists yet
 					$(".slick-header-column[id*=listed_gempath]")
@@ -539,7 +539,7 @@ MSite.CGrid = Utils.Class( DMI.CGrid, function() {
 				//fix sort direction
 				args.sortAsc = false;
 				isSortedOnBoosters = true;
-			} 
+			}
 			else  {
 				//hide sort column header icon if sorting another column
 				$('#siteboosterordericon').css('visibility','hidden');
@@ -550,9 +550,9 @@ MSite.CGrid = Utils.Class( DMI.CGrid, function() {
 	}();
 
 	//call filters and update  display
-	//asyncronous to make sure all filter inputs are correctly initialised  
-	setTimeout(function() { 
-		that.init(); 
+	//asyncronous to make sure all filter inputs are correctly initialised
+	setTimeout(function() {
+		that.init();
 	},0);
 });
 MSite.matchProperty = function(o, key, comp, val) {
@@ -579,7 +579,7 @@ function list_nations(arr) {
 	var tokens = [];
 	for (var i=0, uid; uid= arr[i];  i++)
 		tokens.push( Utils.nationRef( arr[i] ) );
-	
+
 	//comma separated & one per line
 	return tokens.join(', <br />');
 }
@@ -604,7 +604,7 @@ function list_units(arr, o) {
 		}
 
 	}
-	
+
 	//comma separated & one per line
 	return tokens.join(', <br />');
 }
@@ -613,17 +613,17 @@ function list_events(arr) {
 	var tokens = [];
 	for (var i=0, uid; uid= arr[i];  i++)
 		tokens.push( Utils.eventRef( arr[i] ) );
-	
+
 	var h = '';
 	if (tokens.length > 4) {
 		//hide uberlong list
 		h+='<div><div>'+tokens.length+' events ';
-		
+
 		//button to reveal
 		var codereveal = "$(this).parent('div').hide().parent('div').find('.full-list').show()"
 		h+='<input class="inline-button" style="padding:none" type="button" value="show" onclick="'+codereveal+'"/>';
 		h+='</div>';
-	
+
 		//the actual list
 		h+='<div class="full-list"style="display:none">';
 		h+='	'+ tokens.join(', <br />');
@@ -745,17 +745,17 @@ var displayorder = DMI.Utils.cutDisplayOrder(aliases, formats,
 		return Format.Booster(v) + ' +' + o.ritrng;
 	},
 	'loc', 'location', function(v,o){ return Utils.renderFlags(MSite.bitfieldValues(o.loc, modctx.site_terrain_types_lookup), 1) },
-	'hcom',	'home commanders',	function(v,o){ 
-		return list_units(v, o); 
+	'hcom',	'home commanders',	function(v,o){
+		return list_units(v, o);
 	},
-	'hmon',	'home units',	function(v,o){ 
-		return list_units(v, o); 
+	'hmon',	'home units',	function(v,o){
+		return list_units(v, o);
 	},
-	'com',	'commanders',	function(v,o){ 
-		return list_units(v, o); 
+	'com',	'commanders',	function(v,o){
+		return list_units(v, o);
 	},
-	'mon',	'units',	function(v,o){ 
-		return list_units(v, o); 
+	'mon',	'units',	function(v,o){
+		return list_units(v, o);
 	},
 	'sum',	'summon',	function(v,o){
 		return list_units(v, o);
@@ -770,8 +770,8 @@ var displayorder = DMI.Utils.cutDisplayOrder(aliases, formats,
 		return list_units(v, o);
 	},
 	'provdefcom',	'extra PD (commander)',	Utils.unitRef,
-	'provdef',	'extra PD (unit)',	function(v,o){ 
-		return list_units(v, o); 
+	'provdef',	'extra PD (unit)',	function(v,o){
+		return list_units(v, o);
 	},
 	'nations', 'start site', list_nations,
 	'events', 'triggered events', list_events,
@@ -800,22 +800,22 @@ var ignorekeys = {
 	A2:1, B2:1, D2:1, E2:1, F2:1, N2:1, S2:1, W2:1, H2:1,
 	ritrng:1, listed_gempath:1,
 	scale1:1, scale2:1, sprite:1, url:1,
-	
+
 	//common fields
 	name:1,descr:1,
 	searchable:1, renderOverlay:1, matchProperty:1
-};		
-	
+};
+
 MSite.renderOverlay = function(o) {
 	//template
 	var h=''
 	h+='<div class="site overlay-contents"> ';
-	
+
 	//header
 	h+='	<div class="overlay-header" title="site id: '+o.id+'"> ';
 	h+='		<p style="float:right; height:0px;">'+o.path+' (lvl '+o.level+')</p>';
 	h+='		<div class="h2replace">'+o.name+'</div> ';
-	
+
 	//mid
 	h+='	</div>';
 	h+='	<div class="clearfix overlay-main">';
@@ -826,7 +826,7 @@ MSite.renderOverlay = function(o) {
 	h+= 			Utils.renderDetailsRows(o, displayorder, aliases, formats);
 	h+= 			Utils.renderDetailsFlags(o, flagorder, aliases, formats);
 	h+= 			Utils.renderStrangeDetailsRows(o, ignorekeys, aliases, 'strange');
-	
+
 	//modded
 	if (o.modded) {
 		h+='		<tr class="modded hidden-row"><td colspan="2">' + Utils.renderModded(o) +'</td></tr>';
@@ -835,17 +835,17 @@ MSite.renderOverlay = function(o) {
 	h+='		</table> ';
 
 	h+='	</div>';
-	
+
 	//footer
 	h+='	<div class="overlay-footer">';
-	
+
 	//wikilink
 	h+='		<div class="overlay-wiki-link non-content">';
 	h+='			<a href="http://dom3.servegame.com/wiki/'+o.name.replace(/ /g, '_')+'">[wiki]</a>';
 	h+='		</div>';
 	h+='	</div> ';
 	h+='</div> ';
-	
+
 	return h;
 }
 
