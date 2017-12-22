@@ -1,4 +1,4 @@
-zone_number	protection	armor_number	test
+zone_number	protection	armor_number	end
 5	14	1	
 5	16	2	
 5	19	3	
@@ -144,7 +144,7 @@ zone_number	protection	armor_number	test
 5	16	61	
 5	21	62	
 5	13	63	
-5	17	64	
+5	25	64	
 5	16	65	
 5	21	66	
 5	19	67	
@@ -363,13 +363,13 @@ zone_number	protection	armor_number	test
 2	17	177	
 3	9	177	
 4	9	177	
-5	30	178	
+5	35	178	
 2	23	179	
 3	17	179	
 4	20	179	
 1	23	180	
 5	23	181	
-5	26	182	
+5	30	182	
 2	10	183	
 3	6	183	
 4	6	183	
@@ -482,3 +482,11 @@ zone_number	protection	armor_number	test
 4	17	233	
 1	8	234	
 5	13	235	
+2	15	236	
+3	6	236	
+4	6	236	
+2	21	237	
+3	15	237	
+4	15	237	
+5	22	238	
+1	23	239	

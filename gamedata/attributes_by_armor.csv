@@ -1,4 +1,4 @@
-armor_number	attribute	raw_value	test
+armor_number	attribute	raw_value	end
 2	269	1	
 3	267	1	
 4	269	1	
@@ -89,6 +89,7 @@ armor_number	attribute	raw_value	test
 99	267	1	
 99	582	2	
 100	582	2	
+101	582	4	
 104	269	1	
 107	557	1	
 108	557	1	
@@ -200,3 +201,7 @@ armor_number	attribute	raw_value	test
 233	557	1	
 234	557	1	
 235	557	1	
+236	557	1	
+237	557	1	
+238	557	1	
+239	557	1	

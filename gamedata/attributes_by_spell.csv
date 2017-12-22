@@ -1,4 +1,4 @@
-spell_number	attribute	raw_value	test
+spell_number	attribute	raw_value	end
 6	720	1	
 31	720	1	
 31	721	89	
@@ -155,6 +155,8 @@ spell_number	attribute	raw_value	test
 250	702	128	
 251	278	116	
 251	278	159	
+251	278	139	
+251	278	176	
 251	702	132	
 251	703	2048	
 252	278	158	
@@ -649,7 +651,6 @@ spell_number	attribute	raw_value	test
 470	711	110	
 471	704	1	
 471	700	10	
-471	706	1	
 471	278	117	
 471	711	167	
 471	701	4096	
@@ -880,3 +881,9 @@ spell_number	attribute	raw_value	test
 1112	700	6	
 1123	700	6	
 1123	262	40	
+1124	495	1	
+1124	718	616	
+1124	278	147	
+1125	495	1	
+1125	718	616	
+1125	278	147	

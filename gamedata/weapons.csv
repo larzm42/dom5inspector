@@ -37,7 +37,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 36	Ice Lance	36	1	0	3	1	0	0	0	2	
 37	Ice Blade	37	1	1	1	1	0	0	0	4	
 38	Snake Hair	38	-2	0	0	5	0	50	0	0	
-39	Free	39	0	0	0	0	0	0	0	0	
+39	Free	39	0	0	0	1	0	0	0	0	
 40	Whip	40	-1	0	4	1	0	0	0	1	
 41	Bane Blade	41	2	3	2	1	0	64	0	8	
 42	Bane Blade	42	1	2	1	1	0	64	0	5	
@@ -162,7 +162,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 161	Just Man's Cross	161	4	0	0	-2	12	0	0	0	
 162	The Summit	162	12	6	1	1	0	0	0	0	
 163	Thistle Mace	163	-1	-1	1	1	0	51	0	0	
-164	unused	164	0	0	0	0	0	0	0	0	
+164	unused	164	0	0	0	1	0	0	0	0	
 165	Great Club	165	0	1	2	1	0	0	0	0	
 166	Golden Claw	166	0	0	-1	1	0	0	0	0	
 167	Poison Sling	167	-4	0	0	1	12	0	0	5	
@@ -479,7 +479,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 478	Unholy Spear	478	3	0	3	1	0	480	0	0	
 479	Unholy Axe	479	3	-1	1	1	0	480	0	0	
 480	Halt Sacred	480	0	0	0	1	0	0	0	0	
-481	Touch of Madness	481	-3	0	0	0	0	156	0	0	
+481	Touch of Madness	481	-3	0	0	1	0	156	0	0	
 482	Spectral Club	482	0	0	1	1	0	0	0	0	
 483	Gae Bulga	483	2	0	0	1	1	453	0	1	
 484	Wail of Doom	484	100	0	0	1	1	0	0	0	
@@ -526,7 +526,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 525	Gileadite Bow - replaced	525	0	0	0	1	12	0	0	5	
 526	Soul Catcher	526	1	0	3	1	0	528	0	0	
 527	Enchanted Katana	527	4	3	1	1	0	0	0	7	
-528	Trap Soul	528	0	0	0	0	0	0	0	0	
+528	Trap Soul	528	0	0	0	1	0	0	0	0	
 529	Ghost Rending Claw	529	0	0	-1	1	0	460	0	0	
 530	Enchanted Net	530	0	0	3	1	1	0	0	1	
 531	Mighty Yari	531	1	0	4	1	0	0	0	1	
@@ -602,10 +602,10 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 601	Cave Fire Bottle	601	-1	0	0	1	1	0	0	0	
 602	Fossilized Hatchet	602	1	0	1	1	0	0	0	2	
 603	Corrosive Bite	603	0	-1	0	1	0	0	604	0	
-604	Corrosion	604	0	0	0	0	0	0	0	0	
+604	Corrosion	604	0	0	0	1	0	0	0	0	
 605	Throw Rocks	605	-2	0	0	1	2	0	0	0	
-606	Frost Bow	606	0	0	0	1	12	607	0	5	
-607	Freeze	607	0	0	0	0	0	0	0	0	
+606	Frost Bow	606	0	0	0	1	12	0	607	5	
+607	Freeze	607	0	0	0	1	0	0	0	0	
 608	Sword of Oaths	608	1	1	1	1	0	0	0	0	
 609	Grab and Swallow	609	0	-2	0	1	0	0	0	0	
 610	Sacred Circlet	610	0	0	1	1	0	0	0	0	

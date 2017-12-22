@@ -1,4 +1,4 @@
-id	name	type	def	enc	rcost	test
+id	name	type	def	enc	rcost	end
 1	Buckler	4	2	0	1	
 2	Shield	4	3	1	2	
 3	Kite Shield	4	4	2	4	
@@ -234,3 +234,7 @@ id	name	type	def	enc	rcost	test
 233	Armor of the Five Elements	5	-1	2	0	
 234	Magic Headdress	6	0	0	0	
 235	Magic Leather Shield	4	4	0	0	
+236	Gleaming Cuirass	5	-1	1	7	
+237	Gleaming Hauberk	5	-2	4	21	
+238	Gleaming Hoplon	4	4	1	5	
+239	Gleaming Helmet	6	-1	0	6	

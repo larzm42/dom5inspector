@@ -1,4 +1,4 @@
-monster_number	nation_number	test
+monster_number	nation_number	end
 50	5	
 201	5	
 199	5	
@@ -199,6 +199,14 @@ monster_number	nation_number	test
 2687	31	
 2688	31	
 2689	31	
+3100	32	
+3101	32	
+3102	32	
+3103	32	
+3104	32	
+3105	32	
+3108	32	
+3109	32	
 1682	36	
 1681	36	
 1683	36	

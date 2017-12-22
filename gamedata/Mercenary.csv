@@ -1,4 +1,4 @@
-id	name	bossname	com	unit	nrunits	level	minmen	minpay	xp	randequip	recrate	item1	item2	eramask	test
+id	name	bossname	com	unit	nrunits	level	minmen	minpay	xp	randequip	recrate	item1	item2	eramask	end
 1	Dante's Stingers	Dante	291	285	30	0	15	150	20	1	100			7	
 2	Quickspears	Aimery	291	285	20	0	15	150	50	1	100			7	
 3	Günter Blukraft's Sonnenkinder	Günter Blukraft	291	286	30	0	15	150	15	1	100			7	
@@ -7,7 +7,7 @@ id	name	bossname	com	unit	nrunits	level	minmen	minpay	xp	randequip	recrate	item1
 6	Guifre's Swordsmen	'Sir' Guifre	291	287	30	0	15	180	15	1	100			7	
 7	Arnaud's Archers	Arnaud	291	33	30	0	15	150	15	1	100			3	
 8	The Bowmen	Lothar	291	17	20	0	10	100	10	1	100			3	
-9	Arnaud's Archers	Arnaud	291	17	20	0	10	100	10	1	100			3	
+9	Fritjof's Archers	Fritjof	291	17	20	0	10	100	10	1	100			3	
 10	Magnus's Crossbows	Rolf Magnus	291	290	20	0	10	120	12	1	100			6	
 11	William's Boys	William	293	288	30	0	15	200	50	1	100			4	
 12	Brave Breakers	Grom Brave Breaker	293	288	30	0	15	150	20	1	100			4	

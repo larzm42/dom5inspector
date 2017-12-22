@@ -1,4 +1,4 @@
-monster_number	nation_number	test
+monster_number	nation_number	end
 250	5	
 606	5	
 1231	5	
@@ -195,6 +195,7 @@ monster_number	nation_number	test
 653	31	
 657	31	
 857	31	
+2881	32	
 109	36	
 179	36	
 180	36	

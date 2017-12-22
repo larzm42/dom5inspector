@@ -1,4 +1,4 @@
-monster_number	nation_number	test
+monster_number	nation_number	end
 431	5	
 1076	5	
 1081	5	
@@ -164,6 +164,11 @@ monster_number	nation_number	test
 2677	31	
 2680	31	
 2681	31	
+3106	32	
+3107	32	
+3110	32	
+3111	32	
+3112	32	
 1680	36	
 1694	36	
 1700	36	
@@ -521,7 +526,7 @@ monster_number	nation_number	test
 274	96	
 275	96	
 553	96	
-426	97	
+3099	97	
 1918	97	
 1917	97	
 1916	97	
