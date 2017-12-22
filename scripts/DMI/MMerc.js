@@ -1,6 +1,6 @@
 //namespace scope
 (function( DMI, $, undefined ){
-		
+
 var MMerc = DMI.MMerc = DMI.MMerc || {};
 
 var Format = DMI.Format;
@@ -24,15 +24,15 @@ MMerc.prepareData_PreMod = function() {
 
 MMerc.prepareData_PostMod = function() {
 	for (var oi=0, o;  o= modctx.mercdata[oi];  oi++) {
-		
+
 		o.renderOverlay = MMerc.renderOverlay;
 		o.matchProperty = MMerc.matchProperty;
-		
+
 		//convert to numbers (for column ordering)
 		//doesn't seem to cause any further problems..
 		o.id = parseInt(o.id);
 		o.searchable = o.name.toLowerCase();
-		
+
 		o.minpaysort = parseInt(o.minpay);
 	}
 }
@@ -50,14 +50,14 @@ MMerc.CGrid = Utils.Class( DMI.CGrid, function() {
 		{ id: "minpaysort",     width: 40, name: "Min Pay", field: "minpaysort", sortable: true, cssClass: "numeric" },
 		{ id: "eramask",      width: 50, name: "Era", field: "eramask", sortable: true },
 	];
-	
+
 	this.superClass.call(this, 'merc', modctx.mercdata, columns); //superconstructor
-	
+
 	$(this.domsel+' .grid-container').css('width', 600);//set table width
-	
+
 	//in closure scope
 	var that = this;
-	
+
 	//reads search boxes
 	this.getSearchArgs = function() {
 		var args = {properties: this.getPropertyMatchArgs(),
@@ -71,7 +71,7 @@ MMerc.CGrid = Utils.Class( DMI.CGrid, function() {
 	this.searchFilter =  function(o, args) {
 		//type in id to ignore filters
 		if (args.str && args.str == String(o.id)) return true;
-		
+
 		//search string
 		if (args.str && o.searchable.indexOf(args.str) == -1)
 			return false;
@@ -92,9 +92,9 @@ MMerc.CGrid = Utils.Class( DMI.CGrid, function() {
 	}
 
 	//call filters and update  display
-	//asyncronous to make sure all filter inputs are correctly initialised  
-	setTimeout(function() { 
-		that.init(); 
+	//asyncronous to make sure all filter inputs are correctly initialised
+	setTimeout(function() {
+		that.init();
 	},0);
 });
 MMerc.matchProperty = function(o, key, comp, val) {
@@ -139,21 +139,21 @@ var modderkeys = Utils.cutDisplayOrder(aliases, formats,
 var ignorekeys = {
 	modded:1,
 	minpaysort:1,
-	
+
 	//common fields
 	name:1,descr:1,
 	searchable:1, renderOverlay:1, matchProperty:1
-};		
-	
+};
+
 MMerc.renderOverlay = function(o) {
 	//template
 	var h=''
 	h+='<div class="merc overlay-contents"> ';
-	
+
 	//header
 	h+='	<div class="overlay-header" title="merc id: '+o.id+'"> ';
 	h+='		<div class="h2replace">'+o.name+'</div> ';
-	
+
 	//mid
 	h+='	</div>';
 	h+='	<div class="overlay-main">';
@@ -164,24 +164,24 @@ MMerc.renderOverlay = function(o) {
 	h+= 			Utils.renderDetailsRows(o, displayorder, aliases, formats);
 	h+= 			Utils.renderDetailsFlags(o, flagorder, aliases, formats);
 	h+= 			Utils.renderStrangeDetailsRows(o, ignorekeys, aliases, 'strange');
-	
+
 	//modded
 	if (o.modded) {
 		h+='		<tr class="modded hidden-row"><td colspan="2">' + Utils.renderModded(o) +'</td></tr>';
-	}	
+	}
 	h+='		</table> ';
 	h+='	</div>';
-	
+
 	//footer
 	h+='	<div class="overlay-footer">';
-	
+
 	//wikilink
 	h+='		<div class="overlay-wiki-link non-content">';
 	h+='			<a href="http://dom3.servegame.com/wiki/'+o.name.replace(/ /g, '_')+'">[wiki]</a>';
 	h+='		</div>';
 	h+='	</div> ';
 	h+='</div> ';
-	
+
 	return h;
 }
 

@@ -1,6 +1,6 @@
 //namespace scope
 (function( DMI, $, undefined ){
-		
+
 var Utils = DMI.Utils = DMI.Utils || {};
 var Options = DMI.Options = DMI.Options || {};
 
@@ -10,9 +10,9 @@ Options['Show popup refs'] = 1;
 Options['Show internal keys'] = 1;
 
 //loaded from query string
-Options['Show mod cmds'] = null;            
+Options['Show mod cmds'] = null;
 //loaded from query string
-Options['Load events'] = null;            
+Options['Load events'] = null;
 
 Options['Select mod columns'] = 4;
 
@@ -20,15 +20,15 @@ Options['Select mod columns'] = 4;
 Utils.wikiLink = function(name, subname, cssclass) {
 	if (subname)
 		name += '_(' + subname + ')'
-	
+
 	name = (name || '').replace(/ /g, '_');
 
 	var url = "http://dom3.servegame.com/wiki/"+name
 	var linktext = '[wiki]';
 	var cssclass = cssclass ? ' class="'+cssclass+'"' : '';
 	var title = "..wiki/"+name;
-	
-	return '<a href="'+url+'" title="'+title+'"'+cssclass+'>'+linktext+'</a>';	
+
+	return '<a href="'+url+'" title="'+title+'"'+cssclass+'>'+linktext+'</a>';
 }
 //strips non basic-alphanumeric chars (including spaces)
 Utils.descrFilename = function(name) {
@@ -49,7 +49,7 @@ Utils.clearErrors = function() {
 //array utils
 Utils.inArray = function(val, arr) {
 	for (var i=0; i<arr.length; i++) {
-		if (arr[i] == val) return true;	
+		if (arr[i] == val) return true;
 	}
 	return false;
 }
@@ -95,7 +95,7 @@ Utils.arrayUnique = function(arr) {
 }
 Utils.objectKeys = function(obj) {
 	var t = [];
-	for (var k in obj)	t.push(k);	
+	for (var k in obj)	t.push(k);
 	return t;
 }
 
@@ -132,10 +132,10 @@ Utils.keyListToTable = function(parent, basekey, maxnum) {
 
 //merges values from one object onto another
 Utils.merge = function(o, vals) {
-	for (k in vals) o[k] = vals[k]; 
-	return o;	
+	for (k in vals) o[k] = vals[k];
+	return o;
 }
-		
+
 // Utils.sum = function() {
 // 	var nt=0;
 // 	for (var i=0; i<arguments.length; i++)
@@ -165,11 +165,11 @@ Utils.roundup = function(v) {
 Utils.is = function(v) { return v && v!='0'; }
 
 //derives a class from a baseclass. declare constructor inline. supports prototype chaining. eg:
-//  var Mybase = Class(function(myargs){ 
-//      this.id = myarg; 
+//  var Mybase = Class(function(myargs){
+//      this.id = myarg;
 //  })
-//  var MyDerived = Class(MyBase, function(myargs){ 
-//      this.superClass.apply(this, arguments); //apply superclass constructor 
+//  var MyDerived = Class(MyBase, function(myargs){
+//      this.superClass.apply(this, arguments); //apply superclass constructor
 //  })
 //  alert(   (new MyDerived('hello')).id   );
 //heavy
@@ -207,7 +207,7 @@ Utils.renderFlag = function(f){
 //list of flags enclosed in parenthesis
 Utils.renderFlags = function(arr, noparen){
 	var _arr = (typeof(arr) == 'string')  ?  arguments  :  arr;
-	
+
 	for (var i=0, f, h; f= _arr[i]; i++) {
 		h = (h ? h+', ' : noparen ? ' ' : ' (') + f[0].trim();
 		if (f[1] != "none") {
@@ -237,23 +237,23 @@ Utils.cutDisplayOrder = function(aliases, formats, arr) {
 		var k = arr[i], dk = arr[i+1];
 		if ((!dk) || typeof(k) != 'string' || typeof(dk) != 'string')
 			throw 'Cockup: misformed displayorder near key: '+arr[i];
-		
+
 		keyorder.push(k);
-		
+
 		if (aliases[k])
 			throw 'Cockup: duplicate displayorder key: '+arr[i];
 		aliases[k] = dk;
-		
+
 		var fm = arr[i+2];
 		if (fm && typeof(fm) != 'string') {
 			formats[k] = fm;
 			i++;
-		}		
+		}
 	}
 	return keyorder;
 }
 
-Utils.renderDetailsRows = function(o, displayorder, aliases, formats, cssClass) {	
+Utils.renderDetailsRows = function(o, displayorder, aliases, formats, cssClass) {
 	if (!cssClass) cssClass = '';
 	var h='';
 	for (var i=0; i<displayorder.length; i++) {
@@ -261,16 +261,16 @@ Utils.renderDetailsRows = function(o, displayorder, aliases, formats, cssClass) 
 		var v = o[k];
 		//if ((!v) || ignorekeys[k]) continue;
 		if (!v) continue;
-		
+
 		if (formats[k] && typeof(formats[k])=='function')
 			v = formats[k](v,o);
 		else if ((k in formats) && formats[k][v])
 			v = formats[k][v];
-		
+
 		var ak = aliases[k] || k;
 		//if (DMI.Options['Show database keys'])
 		ak+= '<span class="internal-inline"> ['+displayorder[i]+']</span>';
-		
+
 		if (v!='0') {
 			var t = (o.titles && o.titles[k]) ?  (' title="'+o.titles[k]+'"') : '';
 			h+=' <tr class="'+k+' '+cssClass+'" '+t+'> <th>'+ak+': </th> <td>'+v+'</td> </tr> ';
@@ -278,7 +278,7 @@ Utils.renderDetailsRows = function(o, displayorder, aliases, formats, cssClass) 
 	}
 	return h;
 }
-Utils.renderDetailsRows2 = function(o, displayorder, aliases, formats, cssClass) {	
+Utils.renderDetailsRows2 = function(o, displayorder, aliases, formats, cssClass) {
 	if (!cssClass) cssClass = '';
 	var h='';
 	for (var i=0; i<displayorder.length; i++) {
@@ -286,16 +286,16 @@ Utils.renderDetailsRows2 = function(o, displayorder, aliases, formats, cssClass)
 		var v = o[k];
 		//if ((!v) || ignorekeys[k]) continue;
 		if (!v) continue;
-		
+
 		if (formats[k] && typeof(formats[k])=='function')
 			v = formats[k](v,o);
 		else if ((k in formats) && formats[k][v])
 			v = formats[k][v];
-		
+
 		var ak = aliases[k] || k;
 		//if (DMI.Options['Show database keys'])
 		//ak+= '<span class="internal-inline"> ['+displayorder[i]+']</span>';
-		
+
 		if (v!='0') {
 			var t = (o.titles && o.titles[k]) ?  (' title="'+o.titles[k]+'"') : '';
 			h+=' <tr class="'+k+' '+cssClass+'" '+t+'> <th>'+ak+': </th> <td>'+v+'</td> </tr> ';
@@ -306,7 +306,7 @@ Utils.renderDetailsRows2 = function(o, displayorder, aliases, formats, cssClass)
 }
 
 
-Utils.renderDetailsFlags = function(o, flagorder, aliases, formats, cssClass) {	
+Utils.renderDetailsFlags = function(o, flagorder, aliases, formats, cssClass) {
 	if (!cssClass) cssClass = '';
 	var h='';
 	var terms = [];
@@ -317,18 +317,18 @@ Utils.renderDetailsFlags = function(o, flagorder, aliases, formats, cssClass) {
 			var ak = (aliases[k] || k).replace(/ /g,'-');
 			//if (DMI.Options['Show database keys'])
 			ak += '<span class="internal-inline"> ['+flagorder[i]+']</span>';
-			
-			terms.push('<span class="flag '+cssClass+'" title="'+flagorder[i]+'">'+ak+'</span>');    
+
+			terms.push('<span class="flag '+cssClass+'" title="'+flagorder[i]+'">'+ak+'</span>');
 		}
 	}
 	if (terms.length)
 		h+= ' <tr><td colspan="2"> (' + terms.join(', ') + ') </td><tr> ';
-	
+
 	return h;
 }
 
 Utils.renderStrangeDetailsRows = function(o, ignorekeys, aliases, cssClass) {
-	var displayorder = [];	
+	var displayorder = [];
 	//populate lineorder (ensures no property is missed)
 	for (var k in o) {
 		if (!ignorekeys[k] && !aliases[k])
@@ -342,19 +342,19 @@ Utils.renderModded = function(o) {
 	var show = DMI.Options['Show mod cmds'];
 	var modlines = o.modded.replace('ERROR:', '<span style="color:red;font-weight:bold;">ERROR:</span>');
 	var counttxt = '';//'<span class="tiny">('+(modlines.split('<br />').length -1)+' lines)</span>';
-	
+
 	var codereveal 	= "$(this).hide().siblings('a.hide-mod-commands').css('display','block').parent('div,td').find('p.mod-cmds').show()";
 	var codehide 	= "$(this).hide().siblings('a.show-mod-commands').css('display','block').parent('div,td').find('p.mod-cmds').hide()";
-		
-	
+
+
 	h+='		<a class="show-mod-commands"title="show mod commands"			';
-	h+='			style="display:'+(!show ? 'block' : 'none')+';"			'; 
+	h+='			style="display:'+(!show ? 'block' : 'none')+';"			';
 	h+='			onclick="'+codereveal+'">';
 	h+='				Modded<span class="internal-inline"> [modded]</span> ▷';//►';
 	h+=		counttxt+'</a>';
 
 	h+='		<a class="hide-mod-commands" title="show mod commands"			';
-	h+='			style="display:'+(show ? 'block' : 'none')+';"			'; 
+	h+='			style="display:'+(show ? 'block' : 'none')+';"			';
 	h+='			onclick="'+codehide+'">';
 	h+='				Modded<span class="internal-inline"> [modded]</span> ▼';//▽';
 	h+=		'</a>';
@@ -420,13 +420,13 @@ Utils.ref = PaneManager.refLink;
 //make ref from object of type?
 function objectRef(type, id, text, suffix) {
 	var lookup = DMI.modctx[type+'lookup'] || {};
-	
+
 	if (typeof(id) == 'string') id = id.toLowerCase();
 	var o = lookup[id]; if (!o) return id;
-	
+
 	if (typeof(text) != 'string') text = o.fullname || o.name;
 	if (suffix) text += suffix;
-	
+
 	var suffix = parseInt(o.id) ? '<span class="modding-inline refid">#'+o.id+'&nbsp;</span>' : '';
 	return suffix + Utils.ref(type+' '+o.id, text);//+'<span class="modding-inline refid">&nbsp;'+o.id+'</span>';
 }
@@ -436,7 +436,7 @@ Utils.parseObjectRefs = function(html) {
 
 //type specific functions
 Utils.itemRef  = function(id, text) { return objectRef('item',  id, text); }
-Utils.unitRef  = function(id, text) { 
+Utils.unitRef  = function(id, text) {
 	var ref;
 	if (parseInt(id) < 0) {
 		ref = DMI.modctx.monster_tags_lookup[parseInt(id)];
@@ -457,7 +457,7 @@ Utils.unitRef  = function(id, text) {
 	} else {
 		ref = objectRef('unit', id, text);
 	}
-	return ref; 
+	return ref;
 }
 Utils.spellRef = function(id, text) { return objectRef('spell', id, text); }
 Utils.wpnRef   = function(id, text) { return objectRef('wpn',   id, text); }
@@ -468,7 +468,7 @@ Utils.eventRef = function(id, text) { return objectRef('event', id, text); }
 Utils.afflictionRef = function(name) { return Utils.ref('affliction '+name, name); }
 
 Utils.unitOfTypeRef = function(id, utype) {
-	var o = DMI.modctx.unitlookup[id]; 
+	var o = DMI.modctx.unitlookup[id];
 	if (!o) return v;
 	var suffix = '<span class="modding-inline refid">#'+o.id+'&nbsp;</span>';
 	return suffix + Utils.ref(utype+' '+o.id, o.linkname);
@@ -493,12 +493,12 @@ PaneManager.renderPane = function(ref, isPopup) {
 		case 'merc': 	o = DMI.modctx.merclookup[args[1]]; break;
 		case 'event': 	o = DMI.modctx.eventlookup[args[1]]; break;
 		case 'affliction': o = DMI.MAffliction.lookup[args[1]]; break;
-		
-		case 'rndmagic': 
-			o = DMI.modctx.unitlookup[args[1]]; 
+
+		case 'rndmagic':
+			o = DMI.modctx.unitlookup[args[1]];
 			if (!o) { console.log(ref + ' not found'); return; }
 			return DMI.MUnit.renderRandomMagic(o);
-		
+
 		//unit types
 		// case 'unit':
 		// case 'cmdr':
@@ -508,9 +508,9 @@ PaneManager.renderPane = function(ref, isPopup) {
 		// case 'combat':
 		// case 'assassin':
 		// case 'infiltrator':
-		
+
 		//assume type unit
-		default: 
+		default:
 			//match "[unit type] [id]"
 			var args2 = /^(.+?) (\d+)$/.exec(ref);
 			if (args2) {
@@ -531,7 +531,7 @@ PaneManager.renderPane = function(ref, isPopup) {
 
 
 ////////////////////////////////////////////////////////////
-// functions to save app state in a query string 
+// functions to save app state in a query string
 ////////////////////////////////////////////////////////////
 
 var _pqs = new ParsedQueryString();
@@ -540,23 +540,23 @@ var _sessionId = String(_pqs.params('session')) || 'default';// || (_pqs.params(
 
 Utils.loadState = function() {
 	var qs = location.search;
-	
+
 	if (!_pqs.param('page')) //not permalink.. load from cookie
 		 qs = $.cookie('state_for_session_'+_sessionId);
-	
+
 	//console.log('loadState..'+qs);
 	deSerializeState( qs || '' );
 }
 Utils.saveState = function() {
 	var qs = serializeState();
 	$.cookie('state_for_session_'+_sessionId, qs);
-	
+
 	var stateurl = location.href.split('?')[0] + qs;
-	$('#permalink').attr('href', stateurl);	
+	$('#permalink').attr('href', stateurl);
 	$('#select-mods-link').attr('href', stateurl+'&selectmods=1');
-	
+
 	qs = serializeState(true);
-	
+
 	//link to page state without mods
 	var ignoremodurl = location.href.split('?')[0] + qs;
 	$('#ignoremodurl').attr('href', ignoremodurl);
@@ -564,45 +564,45 @@ Utils.saveState = function() {
 
 function serializeState(ignoreMods) {
 	var args = [], s;
-	
+
 	if (!ignoreMods) {
 		// for (var i=0, m; m=_pqs.params('mod')[i]; i++)
 		// 	args.push( 'mod='+m );
 		for (var i=0, m; m=DMI.loaded_mod_files[i]; i++)
 			args.push( 'mod='+m );
-		
+
 		for (var i=0, m; m=DMI.loaded_local_mod_files[i]; i++)
 			args.push( 'localmod='+m );
 	}
-	
+
 	if (s= $('div.page').filter(':visible').attr('id'))
 		args.push( 'page='+ (s.replace('-page','')) );
-	
+
 	if (s= PaneManager.serializePanes())
 		args.push( 'panes='+s );
-	
+
 	for (var k in g_controlState)
 		args.push( k+'='+g_controlState[k] );
-	
+
 	return '?'+args.join('&');
 }
 
 var g_controlState = {};
 function deSerializeState(qs) {
 	var pqs = new ParsedQueryString(qs);
-	
+
 	//set input values
 	g_controlState = {};
 	for (var k in pqs._parameters) {
 		if (k!='mod' && k!='page' && k!='panes') {
-			
+
 			var v = pqs._parameters[k];
 			//set input value
 			try {
 				//get element
 				var $el = $('#'+k);
 				var tag = $el.prop('tagName');
-				
+
 				//exists?
 				if ($el.length) {
 					//set element value
@@ -612,21 +612,21 @@ function deSerializeState(qs) {
 						$el.prop('selectedIndex', v );
 					else
 						$el.val(v);
-					
+
 					g_controlState[k] = encodeURIComponent(v);
 				}
 			}
 			catch(e) {console.log(e);}
 		}
 	}
-	
+
 	//open page
 	var page = pqs.param('page') || 'item';
 	var $btn = $('#'+page+'-page-button');
 	if ($btn.length != 1)
 		$btn = $('#item-page-button');
 	$btn.trigger('click');
-	
+
 	//open panes
 	var panes = pqs.param('panes');
 	if (panes) PaneManager.deSerializePanes(panes);
@@ -638,29 +638,29 @@ $.fn.saveState = function() {
 		var $el = $(this);
 		var tag = $el.prop('tagName');
 		var type = $el.attr('type');
-		
+
 		if ($el.attr('id') && (tag == 'INPUT' || tag =='SELECT' || tag == 'TEXTAREA')) {
 			//read state
 			var key = $el.attr('id'), val = $el.val();
-			
+
 			//read checkbox value
 			if (tag == 'INPUT' && type == 'checkbox')
 				val = $el.prop('checked') ? 1 : null;
-			
+
 			//ignore default option
 			if (tag =='SELECT' && $el.find('option.default').val() == val)
 				val = null;
-			
+
 			else if (tag =='SELECT')
 				val = $el.prop('selectedIndex');
-			
+
 			//ignore blank text
 			if (tag =='INPUT' && type == 'text' && val == '')
 				val = null;
 			//ignore blank text
 			if (tag =='TEXTAREA' && val == '')
 				val = null;
-						
+
 			//update local state
 			if (val == null)
 				delete g_controlState[key];
@@ -668,34 +668,34 @@ $.fn.saveState = function() {
 				g_controlState[key] = encodeURIComponent(val);
 		}
 	});
-	
+
 	//trigger full save
 	Utils.saveState();
-	
+
 	return this;
 }
 
 ////////////////////////////////////////////////////////////
-// load dynamic content 
+// load dynamic content
 //   arguments; url, jQuery selector
 //   loaded html will replace contents
 //   content is cached (not suitable for dynamic content)
 //   asyncronous (even for cached content) so works for a container that does not quite extst yet.
 ////////////////////////////////////////////////////////////
 
-var g_contentCache = {}; 
+var g_contentCache = {};
 Utils.loadContent = function(url, domsel) {
 	//enclosed declarations
 	var url = url;
 	var domsel = domsel;
 	var h_interval = null;
-	
+
 	//called on success
 	function onLoadContent(txt) {
 		g_contentCache[url] = txt;
 		$(domsel).html(txt).hide().slideDown();
 	}
-	
+
 	//check cache
 	if (g_contentCache[url])
 		setTimeout(function(){ onLoadContent(g_contentCache[url]) }, 10); //target may not exist yet

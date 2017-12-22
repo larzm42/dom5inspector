@@ -1,6 +1,6 @@
 //namespace scope
 (function( DMI, $, undefined ){
-		
+
 var MAffliction = DMI.MAffliction = DMI.MAffliction || {};
 
 var Utils = DMI.Utils
@@ -127,12 +127,12 @@ MAffliction.renderOverlay = function(o) {
 	//template
 	var h=''
 	h+='<div class="affliction overlay-contents"> ';
-	
+
 	//header
 	h+='	<div class="overlay-header"> ';
 	h+='		<p style="float:right;">Affliction</p>';
 	h+='		<h2>'+o.name+'</h2> ';
-	
+
 	//body
 	h+='	</div>';
 	h+='	<div class="overlay-main">';
@@ -140,17 +140,17 @@ MAffliction.renderOverlay = function(o) {
 	h+='		<p>'+o.descr+'</p>';
 	h+='	</div>';
 	h+='</div>';
-	return h;		
+	return h;
 }
 
 //attach some shitz to data objects to make them work
 for (var k in MAffliction.data)  {
 	var o = MAffliction.data[k];
-	
+
 	o.id = k.toLowerCase();
 	MAffliction.data[o.id] = o;
-	
-	
+
+
 	o.name = k;
 	o.renderOverlay = MAffliction.renderOverlay;
 }

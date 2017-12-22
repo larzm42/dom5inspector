@@ -1,6 +1,6 @@
 //namespace scope
 (function( DMI, $, undefined ){
-		
+
 var MWpn = DMI.MWpn = DMI.MWpn || {};
 
 var Format = DMI.Format;
@@ -33,7 +33,7 @@ MWpn.prepareData_PostMod = function() {
 
 		//serachable string
 		o.searchable = o.name.toLowerCase();
-		
+
 		var effects = MWpn.getEffect(o);
 		if (effects) {
 			if (effects.effect_number == "2") {
@@ -64,17 +64,17 @@ MWpn.prepareData_PostMod = function() {
 				o.aoe = effects.area_base;
 			}
 		}
-		
+
 		if (o.dt_aff) {
 			var masks_dict = modctx.afflictions_lookup;
 			var values = bitfields.bitfieldValues(o.dmg, masks_dict);
 			o.dmg = values[0];
 		}
-		
+
 		//may want to display 0 damage (alongside flags)
-		if (!o.dmg) 
+		if (!o.dmg)
 			o.dmg = '0';
-		
+
 		//missile / melee
 		if (o.range && o.range != '0') {
 			if (o.att) {
@@ -90,18 +90,18 @@ MWpn.prepareData_PostMod = function() {
 			}
 			delete o.ammo;
 		}
-		
+
 		if (effects) {
 			Utils.addFlags( o, MWpn.bitfieldValues(effects.modifiers_mask, modctx.effect_modifier_bits_lookup), ignorekeys )
 		}
-		
+
 		//backlinks on secondary effects
 		var secondaryeffect = modctx.wpnlookup[o.secondaryeffect] || modctx.wpnlookup[o.secondaryeffectalways];
 		if (secondaryeffect)
 			Utils.joinArray( Utils.wpnRef(o.id)+'(wpn)', secondaryeffect.used_by )
 	}
 }
-		
+
 //////////////////////////////////////////////////////////////////////////
 // DEFINE GRID
 //////////////////////////////////////////////////////////////////////////
@@ -112,12 +112,12 @@ MWpn.CGrid = Utils.Class( DMI.CGrid, function() {
 		{ id: "name",     width: 145, name: "Weapon Name", field: "name", sortable: true },
 		{ id: "wpnclass",     width: 60, name: "Type", field: "wpnclass", sortable: true }
 	];
-	
+
 	this.superClass.call(this, 'wpn', modctx.wpndata, columns); //superconstructor
-	
+
 	$(this.domsel+' .grid-container').css('width', 530);//set table width
 
-	
+
 	//in closure scope
 	var that = this;
 
@@ -134,7 +134,7 @@ MWpn.CGrid = Utils.Class( DMI.CGrid, function() {
 	this.searchFilter =  function(o, args) {
 		//type in id to ignore filters
 		if (args.str && args.str == String(o.id)) return true;
-		
+
 		//search string
 		if (args.str && o.searchable.indexOf(args.str) == -1)
 			return false;
@@ -156,9 +156,9 @@ MWpn.CGrid = Utils.Class( DMI.CGrid, function() {
 	}
 
 	//call filters and update  display
-	//asyncronous to make sure all filter inputs are correctly initialised  
-	setTimeout(function() { 
-		that.init(); 
+	//asyncronous to make sure all filter inputs are correctly initialised
+	setTimeout(function() {
+		that.init();
 	},0);
 });
 MWpn.matchProperty = function(o, key, comp, val) {
@@ -173,7 +173,7 @@ MWpn.matchProperty = function(o, key, comp, val) {
 		return MWpn.matchProperty(o.secondaryeffectalways, key, comp, val);
 }
 
-		
+
 //////////////////////////////////////////////////////////////////////////
 // OVERLAY RENDERING
 //////////////////////////////////////////////////////////////////////////
@@ -197,7 +197,7 @@ var displayorder = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'melee50',		'50% chance of being used',
 	'range050',		'50% chance of being used in melee',
 	'range0',		'can be used in melee',
-	'special',	'special',	function(v,o){ 
+	'special',	'special',	function(v,o){
 		return v.replace(/affliction:\s*(.*)/i, 'affliction: '+Utils.ref('affliction $1','$1'));
 	}
 ]);
@@ -267,28 +267,28 @@ var ignorekeys = {
 	showName:1,
 	searchable:1, renderOverlay:1, matchProperty:1
 };
-	
+
 
 MWpn.renderOverlay = function(o, baseAtt) {
 	//template
 	var h=''
 	h+='<div class="wpn overlay-contents"> ';
-	
+
 	var slotusage = (o.bonus=='1')  ?  'no slot'  :  (o['twohanded']=='1')  ?  '2 hands'  :  '1 hand';
-	
+
 	//header
 	h+='	<div class="overlay-header" title="weap id: '+o.id+'"> ';
 	h+='		<p style="float:right; height:0px;">'+slotusage+'</p>';
 	h+='		<div class="h2replace">'+o.name+'</div> ';
 	h+='	</div>';
-	
+
 	//mid
 	h+='	<div class="overlay-main">';
 	h+=' 		<input class="overlay-pin" type="image" src="images/PinPageTrns.png" title="unpin" />';
-	
+
 	h+=		MWpn.renderWpnTable(o, true);
 	h+='	</div>';
-	
+
 	//footer
 	if (o.used_by.length) {
 		h+='<div class="overlay-footer modding-block">';
@@ -296,12 +296,12 @@ MWpn.renderOverlay = function(o, baseAtt) {
 			//hide uberlong list
 			h+='	<p class="firstline">';
 			h+='		Used by: '+o.used_by.length+' things ';
-			
+
 			//button to reveal
 			var codereveal = "$(this).parent('p').hide().parent('div').find('.full-list').show()"
 			h+='<input class="inline-button" style="padding:none" type="button" value="show" onclick="'+codereveal+'"/>';
 			h+='	</p>';
-		
+
 			//the actual list
 			h+='	<p class="firstline full-list" style="display:none">';
 			h+='		Used by: '+ o.used_by.join(', ');
@@ -314,14 +314,14 @@ MWpn.renderOverlay = function(o, baseAtt) {
 		h+='</div> ';
 	}
 	h+='</div> ';
-	return h;	
+	return h;
 }
 
 //weapon tables are also rendered inline in items
 MWpn.renderWpnTable = function(o, isImplicitWpn, showName) {
 	o.isImplicitWpn = isImplicitWpn; //affects display of nratt
 	o.showName = showName; //affects display of id
-	
+
 	//template
 	var h=''
 	h+='		<table class="overlay-table wpn-table"> ';
@@ -330,8 +330,8 @@ MWpn.renderWpnTable = function(o, isImplicitWpn, showName) {
 	h+= 			Utils.renderDetailsRows(o, displayorder, aliases, formats);
 	h+= 			Utils.renderDetailsFlags(o, flagorder, aliases, formats);
 	h+= 			Utils.renderStrangeDetailsRows(o, ignorekeys, aliases, 'strange');
-	h+= '<tr><td class="widecell" colspan="2">&nbsp;</td></tr>';	
-	
+	h+= '<tr><td class="widecell" colspan="2">&nbsp;</td></tr>';
+
 	// Attributes
 	for (var oi=0, attr; attr = modctx.attributes_by_weapon[oi];  oi++) {
 		if (attr.weapon_number == o.id) {
@@ -349,33 +349,33 @@ MWpn.renderWpnTable = function(o, isImplicitWpn, showName) {
 		if (specflags)
 			h+=		'<tr><td class="widecell" colspan="2">'+specflags+'</td></tr></div>';
 	}
-	
+
 	//modded
 	if (o.modded) {
 		h+='		<tr class="modded hidden-row"><td colspan="2">' + Utils.renderModded(o) +'</td></tr>';
 	}
-	h+='		</table> ';		
+	h+='		</table> ';
 
 	//effects are implemented as further weapons
 	var secondaryeffect = modctx.wpnlookup[o.secondaryeffect];
 	var secondaryeffectalways = modctx.wpnlookup[o.secondaryeffectalways];
-	
+
 	if (o.secondaryeffectalways && secondaryeffectalways && secondaryeffectalways.id != 0) {
 		h+=' <h4>Auto effect: '+secondaryeffectalways.name+'</h4>';
 		//detect recursion
 		if (secondaryeffectalways == o) {
-			//throw 'Error, weapon 2nd effect as itself: '+o.id+': '+o.name; 
-		} 
+			//throw 'Error, weapon 2nd effect as itself: '+o.id+': '+o.name;
+		}
 		else {
 			h+= MWpn.renderWpnTable(secondaryeffectalways, true, false);
 		}
-	} 
+	}
 	else if (o.secondaryeffect && secondaryeffect && secondaryeffect.id != 0) {
 		h+=' <h4>On-hit effect: '+secondaryeffect.name+'</h4>';
 		//detect recursion
 		if (secondaryeffect == o){
-			//throw 'Error, weapon 2nd effect as itself: '+o.id+': '+o.name; 
-		} 
+			//throw 'Error, weapon 2nd effect as itself: '+o.id+': '+o.name;
+		}
 		else {
 			h+= MWpn.renderWpnTable(secondaryeffect, true, false);
 		}
@@ -418,7 +418,7 @@ MWpn.getEffect = function(weapon) {
 	// When modifying effects, we need to be careful to use a copy, not a reference,
 	// otherwise modifications will be shared between all spells/weapons with the same effect.
 	// I don't like this JSON hack, but it's apparently the accepted JS way of doing it
-	
+
 	if (weapon.effect_record_id) {
 		effect = JSON.parse(JSON.stringify(modctx.effects_weapons_lookup[weapon.effect_record_id]));
 	}
@@ -453,7 +453,7 @@ MWpn.getEffect = function(weapon) {
 	} else if (!effect.effect_number) {
 		effect.effect_number = 2;
 	}
-	
+
 	if (!effect.modifiers_mask) {
 		effect.modifiers_mask = "0";
 		if (!weapon.nostr) {
@@ -538,7 +538,7 @@ MWpn.getEffect = function(weapon) {
 	if (weapon.sizeresist) {
 		effect.modifiers_mask = bitfields.longOr(effect.modifiers_mask, "4398046511104");
 	}
-	
+
 	if (weapon.dmg) {
 		effect.raw_argument = weapon.dmg;
 	}
@@ -550,11 +550,11 @@ MWpn.getEffect = function(weapon) {
 			effect.range_base = weapon.range;
 		}
 	}
-	
+
 	if (weapon.aoe) {
 		effect.area_base = weapon.aoe;
 	}
-	
+
 	return effect;
 
 }

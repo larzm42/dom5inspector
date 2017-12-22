@@ -1,6 +1,6 @@
 //namespace scope
 (function( DMI, $, undefined ){
-		
+
 var MArmor = DMI.MArmor = DMI.MArmor || {};
 
 var Format = DMI.Format;
@@ -26,7 +26,7 @@ MArmor.prepareData_PreMod = function() {
 
 MArmor.prepareData_PostMod = function() {
 	for (var oi=0, o; o= modctx.armordata[oi]; oi++) {
-		
+
 		o.movepen = o.enc;
 		for (var oi3=0, attr; attr = modctx.attributes_by_armor[oi3];  oi3++) {
 			if (attr.armor_number == o.id) {
@@ -41,7 +41,7 @@ MArmor.prepareData_PostMod = function() {
 
 		o.id = parseInt(o.id);
 		o.name = o.name || '(undefined)';
-		
+
 		for (var oi2=0, o2; o2 = modctx.protections_by_armor[oi2]; oi2++) {
 			var o2id = parseInt(o2.armor_number);
 			if (o2id == o.id) {
@@ -63,31 +63,31 @@ MArmor.prepareData_PostMod = function() {
 		if (o.torso) {
 			o.protbody = Math.floor((parseInt(o.torso) + (parseInt(o.upper) + parseInt(o.lower)) / 2) / 2);
 		}
-		
+
 		if (o.prot) {
 			o.protbody = o.prot;
 		}
-		
+
 		if (o.general) {
 			o.protbody = parseInt(o.protbody || '0') + parseInt(o.general);
 			o.prothead = parseInt(o.prothead || '0') + parseInt(o.general);
 		}
-		
+
 		o.renderOverlay = MArmor.renderOverlay;
 		o.matchProperty = MArmor.matchProperty;
 
 		//serachable string
 		o.searchable = o.name.toLowerCase();
-		
+
 		o.type = {4:'shield', 5:'armor', 6:'helm', 8:'misc'}[o.type];
-		
+
 		if (o.type=="shield") {
 			o.parry = parseInt(o.def) + parseInt(o.enc);
 			o.def = Utils.negative(o.enc);
 		}
 	}
 }
-		
+
 //////////////////////////////////////////////////////////////////////////
 // DEFINE GRID
 //////////////////////////////////////////////////////////////////////////
@@ -99,10 +99,10 @@ MArmor.CGrid = Utils.Class( DMI.CGrid, function() {
 		{ id: "type",     width: 60, name: "Type", field: "type", sortable: true }
 	];
 	this.superClass.call(this, 'armor', modctx.armordata, columns); //superconstructor
-	
+
 	$(this.domsel+' .grid-container').css('width', 530);//set table width
 
-	
+
 	//in closure scope
 	var that = this;
 
@@ -121,7 +121,7 @@ MArmor.CGrid = Utils.Class( DMI.CGrid, function() {
 	this.searchFilter =  function(o, args) {
 		//type in id to ignore filters
 		if (args.str && args.str == String(o.id)) return true;
-		
+
 		//search string
 		if (args.str && o.searchable.indexOf(args.str) == -1)
 			return false;
@@ -142,14 +142,14 @@ MArmor.CGrid = Utils.Class( DMI.CGrid, function() {
 	}
 
 	//call filters and update  display
-	//asyncronous to make sure all filter inputs are correctly initialised  
-	setTimeout(function() { 
-		that.init(); 
+	//asyncronous to make sure all filter inputs are correctly initialised
+	setTimeout(function() {
+		that.init();
 	},0);
 });
 MArmor.matchProperty = DMI.matchProperty;
 
-		
+
 //////////////////////////////////////////////////////////////////////////
 // OVERLAY RENDERING
 //////////////////////////////////////////////////////////////////////////
@@ -190,32 +190,32 @@ var ignorekeys = {
 	torso:1,upper:1,lower:1,general:1,
 	searchable:1,renderOverlay:1, matchProperty:1
 };
-	
+
 
 MArmor.renderOverlay = function(o, baseAtt) {
 	//template
 	var h=''
 	h+='<div class="armor overlay-contents"> ';
-	
+
 	var slot = { shield:'1 hand', armor:'body', helm:'head', misc:'misc' }[o.type];
-	
+
 	//header
 	h+='	<div class="overlay-header" title="armor id:'+o.id+'"> ';
 	h+='		<p style="float:right; height:0px;">'+slot+'</p>';
 	h+='		<div class="h2replace">'+o.name+'</div> ';
 	h+='	</div>';
-	
+
 	//mid
 	h+='	<div class="overlay-main">';
 	h+=' 		<input class="overlay-pin" type="image" src="images/PinPageTrns.png" title="unpin" />';
-	
+
 	h+='		<table class="overlay-table armor-table"> ';
 	h+= 			Utils.renderDetailsRows(o, hiddenkeys, aliases, formats, 'hidden-row');
 	h+= 			Utils.renderDetailsRows(o, modderkeys, aliases, formats, 'modding-row');
 	h+= 			Utils.renderDetailsRows(o, displayorder, aliases, formats);
 	h+= 			Utils.renderDetailsFlags(o, flagorder, aliases, formats);
 	h+= 			Utils.renderStrangeDetailsRows(o, ignorekeys, aliases, 'strange');
-	
+
 	// Attributes
 	for (var oi=0, attr; attr = modctx.attributes_by_armor[oi];  oi++) {
 		if (attr.armor_number == o.id) {
@@ -231,9 +231,9 @@ MArmor.renderOverlay = function(o, baseAtt) {
 	if (o.modded) {
 		h+='		<tr class="modded hidden-row"><td colspan="2">' + Utils.renderModded(o) +'</td></tr>';
 	}
-	h+='		</table> ';		
+	h+='		</table> ';
 	h+='	</div>';
-	
+
 	//footer
 	if (o.used_by.length) {
 		h+='<div class="overlay-footer modding-block">';
@@ -241,12 +241,12 @@ MArmor.renderOverlay = function(o, baseAtt) {
 			//hide uberlong list
 			h+='	<p class="firstline">';
 			h+='		Used by: '+o.used_by.length+' things ';
-			
+
 			//button to reveal
 			var codereveal = "$(this).parent('p').hide().parent('div').find('.full-list').show()"
 			h+='<input class="inline-button" style="padding:none" type="button" value="show" onclick="'+codereveal+'"/>';
 			h+='	</p>';
-		
+
 			//the actual list
 			h+='	<p class="firstline full-list" style="display:none">';
 			h+='		Used by: '+ o.used_by.join(', ');
@@ -258,9 +258,9 @@ MArmor.renderOverlay = function(o, baseAtt) {
 		}
 		h+='</div> ';
 	}
-	
+
 	h+='</div> ';
-	return h;	
+	return h;
 }
 
 

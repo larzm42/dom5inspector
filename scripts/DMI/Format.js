@@ -8,7 +8,7 @@ var GridFormat = DMI.GridFormat = DMI.GridFormat || {};
 
 //preload icons
 var _preloaded = [];
-function preload(src) { var img = new Image(); _preloaded.push(img); img.src = src; } 
+function preload(src) { var img = new Image(); _preloaded.push(img); img.src = src; }
 preload( "images/abilityicons/holy.png" );
 
 preload( "images/magicicons/Path_A.png" );
@@ -61,7 +61,7 @@ GridFormat.Booster = function(row, cell, value, columnDef, dataContext) {
 GridFormat.OrderedPaths = function(row, cell, value, columnDef, dataContext) {
 	if (!value) return '';
 	value = value.replace(/U\d*/, function(s){return DMI.Utils.rndMagicRef(Math.floor(dataContext.id), s);})
-	// return value.replace(/([A-W])/g, '<img alt="$1" class="pathicon Path_$1" src="images/magicicons/Path_$1.png" />').slice(1);	
+	// return value.replace(/([A-W])/g, '<img alt="$1" class="pathicon Path_$1" src="images/magicicons/Path_$1.png" />').slice(1);
 	return value.replace(/([A-W])/g, '<span class="pathicon Path_$1">$1</span>').slice(1);
 }
 
@@ -96,39 +96,39 @@ Format.Percent = function(v) {
 		return v+ '%';
 	}
 	return v;
-}; 
+};
 Format.Signed = function(v) {
 	v = String(v);
-	if (v=='0') return v; 
-	if (v.charAt(0)=='-') return v; 
-	return '+'+v; 
-}; 
+	if (v=='0') return v;
+	if (v.charAt(0)=='-') return v;
+	return '+'+v;
+};
 Format.SignedZero = function(v) {
 	v = String(v);
-	if (v.charAt(0)=='-') return v; 
-	return '+'+v; 
-}; 
+	if (v.charAt(0)=='-') return v;
+	return '+'+v;
+};
 Format.SignedPercent = function(v) {
 	v = String(v);
-	if (v=='0') return v; 
-	if (v.charAt(0)=='-') return v+ '%'; 
-	return '+' +v+ '%'; 
+	if (v=='0') return v;
+	if (v.charAt(0)=='-') return v+ '%';
+	return '+' +v+ '%';
 };
 Format.PerTurn = function(v) {
 	v = String(v);
-	if (v=='0') return v; 
-	return v+ ' per month'; 
+	if (v=='0') return v;
+	return v+ ' per month';
 };
 Format.SignedPerTurn = function(v) {
 	v = String(v);
-	if (v=='0') return v; 
-	if (v.charAt(0)=='-') return v+ ' per month'; 
-	return '+' +v+ ' per month'; 
+	if (v=='0') return v;
+	if (v.charAt(0)=='-') return v+ ' per month';
+	return '+' +v+ ' per month';
 };
 Format.PerBattle = function(v) {
 	v = String(v);
-	if (v=='0') return v; 
-	return v+ ' per battle'; 
+	if (v=='0') return v;
+	return v+ ' per battle';
 };
 
 //namespace args
