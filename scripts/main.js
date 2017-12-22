@@ -21,9 +21,8 @@ $(function() {
 
 DMI.isFirefoxBrowser = function()
 {
-    return typeof InstallTrigger !== 'undefined';
+	return typeof InstallTrigger !== 'undefined';
 };
-
 
 //called from loaddata.js once all data is loaded
 DMI.initGrids = function() {
@@ -38,9 +37,31 @@ DMI.initGrids = function() {
 			keys = res[1].split(/[,\t]/);
 
 		$('#modtext').css({width:'100%', height:'100%', position:'absolute', top:0, left:0})
-		.show().val( DMI.MUnit.dumpCSV(keys) ).focus().select();
+			.show().val( DMI.MUnit.dumpCSV(keys) ).focus().select();
 		return;
 	}
+
+	function disableGeneralPageButton() {
+		$(".page-button").prop('disabled', false).removeClass('disabled');
+	};
+
+	function disableSpecificPageButton(pagePrefix) {
+		$(`#${pagePrefix}-page-button`).prop('disabled', false).removeClass('disabled');
+	};
+
+	function hideAllGrids() {
+		//doesn't seem to be a reason not to hide them right before showing a
+		//specific one later
+		if (itemgrid) itemgrid.hide();
+		if (sitegrid) sitegrid.hide();
+		if (spellgrid) spellgrid.hide();
+		if (unitgrid) unitgrid.hide();
+		if (wpngrid) wpngrid.hide();
+		if (armorgrid) armorgrid.hide();
+		if (mercgrid) mercgrid.hide();
+		if (eventgrid) eventgrid.hide();
+	};
+
 
 	//wire up toggle ids button
 	function showOrHideIds() {
@@ -169,21 +190,15 @@ DMI.initGrids = function() {
 	var itemgrid = null;
 	$("#item-page-button").click(function(e){
 
-		//if (itemgrid) itemgrid.hide();
-		if (sitegrid) sitegrid.hide();
-		if (spellgrid) spellgrid.hide();
-		if (unitgrid) unitgrid.hide();
-		if (wpngrid) wpngrid.hide();
-		if (armorgrid) armorgrid.hide();
-		if (mercgrid) mercgrid.hide();
-		if (eventgrid) eventgrid.hide();
 
 		if (!itemgrid)
 			itemgrid = new DMI.MItem.CGrid();
 
+		hideAllGrids();
+
 		itemgrid.show();
-		$(".page-button").prop('disabled', false).removeClass('disabled');
-		$("#item-page-button").prop('disabled', true).addClass('disabled');
+		disableGeneralPageButton();
+		disableSpecificPageButton("item");
 
 		//focus search box
 		$("div.filters-text.itemview input.search-box").focus();
@@ -194,21 +209,14 @@ DMI.initGrids = function() {
 	var sitegrid = null;
 	$("#site-page-button").click(function(e){
 
-//		if (sitegrid) sitegrid.hide();
-		if (itemgrid) itemgrid.hide();
-		if (spellgrid) spellgrid.hide();
-		if (unitgrid) unitgrid.hide();
-		if (wpngrid) wpngrid.hide();
-		if (armorgrid) armorgrid.hide();
-		if (mercgrid) mercgrid.hide();
-		if (eventgrid) eventgrid.hide();
 
 		if (!sitegrid)
 			sitegrid = new DMI.MSite.CGrid();
+		hideAllGrids();
 
 		sitegrid.show();
-		$(".page-button").prop('disabled', false).removeClass('disabled');
-		$("#site-page-button").prop('disabled', true).addClass('disabled');
+		disableGeneralPageButton();
+		disableSpecificPageButton("site");
 
 		//focus search box
 		$("div.filters-text.siteview input.search-box").focus();
@@ -219,21 +227,13 @@ DMI.initGrids = function() {
 	var mercgrid = null;
 	$("#merc-page-button").click(function(e){
 
-		if (sitegrid) sitegrid.hide();
-		if (itemgrid) itemgrid.hide();
-		if (spellgrid) spellgrid.hide();
-		if (unitgrid) unitgrid.hide();
-		if (wpngrid) wpngrid.hide();
-		if (armorgrid) armorgrid.hide();
-		if (mercgrid) mercgrid.hide();
-		if (eventgrid) eventgrid.hide();
-
 		if (!mercgrid)
 			mercgrid = new DMI.MMerc.CGrid();
+		hideAllGrids();
 
 		mercgrid.show();
-		$(".page-button").prop('disabled', false).removeClass('disabled');
-		$("#merc-page-button").prop('disabled', true).addClass('disabled');
+		disableGeneralPageButton();
+		disableSpecificPageButton("merc");
 
 		//focus search box
 		$("div.filters-text.mercview input.search-box").focus();
@@ -244,21 +244,13 @@ DMI.initGrids = function() {
 	var eventgrid = null;
 	$("#event-page-button").click(function(e){
 
-		if (sitegrid) sitegrid.hide();
-		if (itemgrid) itemgrid.hide();
-		if (spellgrid) spellgrid.hide();
-		if (unitgrid) unitgrid.hide();
-		if (wpngrid) wpngrid.hide();
-		if (armorgrid) armorgrid.hide();
-		if (mercgrid) mercgrid.hide();
-		if (eventgrid) eventgrid.hide();
-
 		if (!eventgrid)
 			eventgrid = new DMI.MEvent.CGrid();
+		hideAllGrids();
 
 		eventgrid.show();
-		$(".page-button").prop('disabled', false).removeClass('disabled');
-		$("#event-page-button").prop('disabled', true).addClass('disabled');
+		disableGeneralPageButton();
+		disableSpecificPageButton("event");
 
 		//focus search box
 		$("div.filters-text.eventview input.search-box").focus();
@@ -269,21 +261,13 @@ DMI.initGrids = function() {
 	var spellgrid = null;
 	$("#spell-page-button").click(function(e){
 
-		if (itemgrid) itemgrid.hide();
-		if (sitegrid) sitegrid.hide();
-		//if (spellgrid) spellgrid.hide();
-		if (unitgrid) unitgrid.hide();
-		if (wpngrid) wpngrid.hide();
-		if (armorgrid) armorgrid.hide();
-		if (mercgrid) mercgrid.hide();
-		if (eventgrid) eventgrid.hide();
-
 		if (!spellgrid)
 			spellgrid = new DMI.MSpell.CGrid();
+		hideAllGrids();
 
 		spellgrid.show();
-		$(".page-button").prop('disabled', false).removeClass('disabled');
-		$("#spell-page-button").prop('disabled', true).addClass('disabled');
+		disableGeneralPageButton();
+		disableSpecificPageButton("spell");
 
 		//focus search box
 		$("div.filters-text.spellview input.search-box").focus();
@@ -294,20 +278,12 @@ DMI.initGrids = function() {
 	var unitgrid = null;
 	$("#unit-page-button").click(function(e){
 
-		if (spellgrid) spellgrid.hide();
-		if (sitegrid) sitegrid.hide();
-		if (itemgrid) itemgrid.hide();
-		//if (unitgrid) unitgrid.hide();
-		if (wpngrid) wpngrid.hide();
-		if (armorgrid) armorgrid.hide();
-		if (mercgrid) mercgrid.hide();
-		if (eventgrid) eventgrid.hide();
-
 		if (!unitgrid)
 			unitgrid = new DMI.MUnit.CGrid();
+		hideAllGrids();
 
 		unitgrid.show();
-		$(".page-button").prop('disabled', false).removeClass('disabled');
+		disableGeneralPageButton();
 		$("#unit-page-button").prop('disabled', true).addClass('disabled');
 
 		//focus search box
@@ -320,21 +296,14 @@ DMI.initGrids = function() {
 	var wpngrid = null;
 	$("#wpn-page-button").click(function(e){
 
-		if (spellgrid) spellgrid.hide();
-		if (sitegrid) sitegrid.hide();
-		if (itemgrid) itemgrid.hide();
-		if (unitgrid) unitgrid.hide();
-		//if (wpngrid) wpngrid.hide();
-		if (armorgrid) armorgrid.hide();
-		if (mercgrid) mercgrid.hide();
-		if (eventgrid) eventgrid.hide();
-
 		if (!wpngrid)
 			wpngrid = new DMI.MWpn.CGrid();
+		hideAllGrids();
+
 
 		wpngrid.show();
-		$(".page-button").prop('disabled', false).removeClass('disabled');
-		$("#wpn-page-button").prop('disabled', true).addClass('disabled');
+		disableGeneralPageButton();
+		disableSpecificPageButton("wpn");
 
 		//focus search box
 		$("div.filters-text.wpnview input.search-box").focus();
@@ -346,21 +315,13 @@ DMI.initGrids = function() {
 	var armorgrid = null;
 	$("#armor-page-button").click(function(e){
 
-		if (spellgrid) spellgrid.hide();
-		if (sitegrid) sitegrid.hide();
-		if (itemgrid) itemgrid.hide();
-		if (unitgrid) unitgrid.hide();
-		if (wpngrid) wpngrid.hide();
-		//if (armorgrid) armorgrid.hide();
-		if (mercgrid) mercgrid.hide();
-		if (eventgrid) eventgrid.hide();
-
 		if (!armorgrid)
 			armorgrid = new DMI.MArmor.CGrid();
+		hideAllGrids();
 
 		armorgrid.show();
-		$(".page-button").prop('disabled', false).removeClass('disabled');
-		$("#armor-page-button").prop('disabled', true).addClass('disabled');
+		disableGeneralPageButton();
+		disableSpecificPageButton("armor");
 
 		//focus search box
 		$("div.filters-text.armorview input.search-box").focus();
