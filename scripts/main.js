@@ -46,8 +46,7 @@ DMI.initGrids = function() {
 	function showOrHideIds() {
 		if ($('#showids').saveState().is(':checked')) {
 			//add style
-			$( "<style>.hidden-block { display:block; } tr.hidden-row { display:table-row; } .hidden-inline {display:inline; }</style>" )
-			.appendTo( "head" );
+			$( "<style>.hidden-block { display:block; } tr.hidden-row { display:table-row; } .hidden-inline {display:inline; }</style>" ).appendTo( "head" );
 
 			if (DMI.isFirefoxBrowser()) {
 				$(".grid-container").css({left:'430px'})
@@ -68,12 +67,10 @@ DMI.initGrids = function() {
 
 			DMI.Options['Show ids'] = 1;
 			PaneManager.option_drag_anywhere = 0;
-
-			// DMI.Options['Custom js'])
-			// 	$('.customjs').show();
 		}
 		else {
 			$( "<style>.hidden-block, tr.hidden-row, .hidden-inline { display:none; }</style>" ).appendTo( "head" );
+
 			if (DMI.isFirefoxBrowser()) {
 				$(".grid-container").css({left:'350px'})
 				$("div.static-overlay-container").css({width:'350px'})
@@ -101,8 +98,6 @@ DMI.initGrids = function() {
 			if ($("#wpn-page:visible, #armor-page:visible").length)
 				$("#item-page-button").trigger('click');
 
-			// if (DMI.Options['Custom js'])
-			// 	$('.customjs').hide();
 		}
 		showOrHideModdingInfo();
 		showOrHideKeys();
@@ -113,8 +108,7 @@ DMI.initGrids = function() {
 	function showOrHideModdingInfo() {
 		if ($('#showmoddinginfo').saveState().is(':checked') && DMI.Options['Show ids']) {
 			//add style
-			$( "<style>.modding-block { display:block; } tr.modding-row { display:table-row; } .modding-inline {display:inline; }</style>" )
-			.appendTo( "head" );
+			$( "<style>.modding-block { display:block; } tr.modding-row { display:table-row; } .modding-inline {display:inline; }</style>" ).appendTo( "head" );
 
 			DMI.Options['Show modding info'] = 1;
 		}
@@ -126,7 +120,6 @@ DMI.initGrids = function() {
 			//clear advanced filters
 			$("div.modding-block div.panel input.clear-filters-btn").trigger('click');
 		}
-		//showOrHideKeys();
 	}
 	$('#showmoddinginfo').click( function(){setTimeout(showOrHideModdingInfo,0);} ); //asynchronous call as its a bit sluggish
 
@@ -134,8 +127,7 @@ DMI.initGrids = function() {
 	function showOrHideKeys() {
 		if ($('#showkeys').saveState().is(':checked') && DMI.Options['Show ids']) {
 			//add style
-			$( "<style>.internal-block { display:block; } tr.internal-row { display:table-row; } .internal-inline {display:inline; }</style>" )
-			.appendTo( "head" );
+			$( "<style>.internal-block { display:block; } tr.internal-row { display:table-row; } .internal-inline {display:inline; }</style>" ).appendTo( "head" );
 
 			DMI.Options['Show internal keys'] = 1;
 		}
@@ -144,22 +136,8 @@ DMI.initGrids = function() {
 
 			DMI.Options['Show internal keys'] = 0;
 		}
-		// showOrHideKeys();
 	}
 	$('#showkeys').click( function(){setTimeout(showOrHideKeys,0);} );  //asynchronous call as its a bit sluggish
-
-
-	//fix options loaded from querystring
-	//  if (DMI.Options['Show mod cmds'])
-	//  	$('#showmodcmds').prop('checked', true);
-	//  else
-	//  	$('#showmodcmds').prop('checked', false);
-
-	// function showOrHideModCmds() {
-	// 	$('#showmodcmds').saveState();
-	// 	window.location.href = $('#permalink').prop('href');
-	// }
-	// $('#showmodcmds').click(showOrHideModCmds);
 
 
 	function showOrHideModCmds() {
@@ -171,18 +149,9 @@ DMI.initGrids = function() {
 			$('a.hide-mod-commands').trigger('click');
 			DMI.Options['Show mod cmds'] = 0;
 		}
-		// showOrHideKeys();
 	}
 	$('#showmodcmds').click( function(){setTimeout(showOrHideModCmds,0);} );  //asynchronous call as its a bit sluggish
 
-
-
-
-	// function toggleIgnoreModCmds() {
-	// 	$('#ignoremodcmds').saveState();
-	// 	window.location.href = $('#permalink').prop('href');
-	// }
-	// $('#ignoremodcmds').click(toggleIgnoreModCmds);
 
 
 	//jquery plugin. no shit
