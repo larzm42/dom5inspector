@@ -28,18 +28,18 @@ number	name	test
 32	Damage (x2 vs Large Creatures) {Wpn: #dt_large}
 33	Damage (x2 vs Small Creatures) {Wpn: #dt_small}
 35	Cross Breeding
-37	Remote Summon (Type I)
-38	Remote Summon (Type II)
+37	Remote Summon (Permanent Units)
+38	Remote Summon (Temporary units)
 39	Gift of Reason
 40	Seeking Arrow
 41	Affect Half of Army in Province
 42	Affect Province with Anonymous Event
-43	Summon Neutral
+43	Edge of Battlefield Summon
 44	Transformation (?)
 46	Poison (Stun)
 48	Remote Site Search
 49	Wind Ride
-50	Remote Summon (Type III)
+50	Remote Summon - Assassination
 53	Vengeance of the Dead
 54	Polymorph
 57	Mind Hunt
@@ -53,21 +53,21 @@ number	name	test
 72	Life Overload Damage (?)
 73	Damage (x2 vs Magic Beings) {Wpn: #dt_magic}
 74	Unlife Damage (?) {Wpn: #dt_raise}
-75	Raven Feast
+75	Unknown
 76	Tartarian Gate
 77	Astral Travel
 79	Faery Trod
 80	Gateway
 81	Enchant Battlefield | Enchant World
-82	Enchant Province (Type I)
-84	Enchant Province (Type II)
-85	Scry
-86	Affect Province Dominion (?)
-89	Ritual Summon Unique (Type I)
+82	Local Enchant Province - Gem Duration
+84	Local Enchant Province - Permanent Duration
+85	Remote Enchant Province - Gem Duration
+86	Remote Enchant Province - Single turn
+89	Ritual Summon Unique Commander
 90	Stygian Paths
 91	Affect Random Enemies in Province (?)
 92	Imprint Souls
-93	Ritual Summon Unique (Type II)
+93	Ritual Summon Unique Unit
 94	Beckoning
 95	Cloud Trapeze
 96	Shatter {Wpn: #dt_constructonly}
@@ -75,7 +75,7 @@ number	name	test
 98	Winged Monkeys
 99	Petrify
 100	Terrain-Specific Ritual Summon
-101	Rejuvenate (?) | Age
+101	Age Caster
 102	Horror Seed
 103	Drain Life {Wpn: #dt_drain}
 104	Drain Life via Weapon (?) {Wpn: #dt_weapondrain}
@@ -93,17 +93,22 @@ number	name	test
 116	Swallow
 117	Alchemize Gems
 118	Blood Feast
-119	Send Lady Midday
+119	Remote Summon Stealthy Commander
 120	Unleash Imprisoned Ones
 121	Grab and Swallow
 122	Unknown
 123	Unknown
-125	Unknown
-126	Unknown
-127	Unknown
-128	Unknown
+125	Mind Vessel
+126	Call Horror
+127	Infernal Breeding
+128	Stun/Fascinate
 129	Unknown
-130	Unknown
+130	Polymorph Caster
+131	Cure Disease
+132	Pyre of Catharsis
+133	Time Stop
+134	Chaining Damage
+135	Raven Feast
 500	Dehydrate
 504	Resist Element
 509	Protect against Element

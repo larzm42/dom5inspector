@@ -466,6 +466,9 @@ Utils.nationRef = function(id, text) { return objectRef('nation', id, text); }
 Utils.siteRef = function(id, text) { return objectRef('site', id, text); }
 Utils.eventRef = function(id, text) { return objectRef('event', id, text); }
 Utils.afflictionRef = function(name) { return Utils.ref('affliction '+name, name); }
+Utils.planesRef = function(name) { 
+	return DMI.modctx.other_planes_lookup[parseInt(name)].name
+}
 
 Utils.unitOfTypeRef = function(id, utype) {
 	var o = DMI.modctx.unitlookup[id];

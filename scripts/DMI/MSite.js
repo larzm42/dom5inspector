@@ -776,7 +776,16 @@ var displayorder = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'nations', 'start site', list_nations,
 	'events', 'triggered events', list_events,
 	'newsiteevents', 'new site events', list_events,
-	'other', 'other'
+	'other', 'other',
+	
+	'nationalrecruits', 'national recruits', Utils.nationRef,
+	'natmon', 'unit', Utils.unitRef,
+	'natcom', 'commander', Utils.unitRef,
+	'throneclustering', 'throne clustering',
+	'wilddefenders', 'wild defenders',
+	'rituallevelmodifier', 'ritual level modifier',
+	'callgodbonus', 'call god bonus',
+	'magicresistancebonus', 'magic resistance bonus',
 
 ]);
 var flagorder = DMI.Utils.cutDisplayOrder(aliases, formats,

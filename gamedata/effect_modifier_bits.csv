@@ -28,7 +28,7 @@ bit_value	bit_name	test
 67108864	Affects Undead Only {Wpn: #undeadonly}
 134217728	Intrinsic Weapon {Wpn: #bonus}
 268435456	Can be cast to Underwater province {Wpn: #touw}
-536870912	Affects Health (?) {Wpn: #health}
+536870912	No effect on Lifeless {Wpn: #inanimateimmune}
 1073741824	Bloodletting (?) {Wpn: #bloodletting}
 2147483648	Damage Bonus on 1st Attack {Wpn: #charge}
 4294967296	Unknown Modifier {Wpn: #4294967296}
@@ -43,7 +43,7 @@ bit_value	bit_name	test
 2199023255552	Acid Damage {Wpn: #acid}
 4398046511104	Affects according to Target Size {Wpn: #sizeresist}
 8796093022208	Grab and Swallow {Wpn: #trampswallow}
-17592186044416	Unknown Modifier {Wpn: #17592186044416}
+17592186044416	Magic Resistance Hard to Negate {Wpn: #hardmrneg}
 35184372088832	Unknown Modifier {Wpn: #35184372088832}
 70368744177664	No Effect on Fliers/Floaters {Wpn: #flyingimmune}
 140737488355328	No Effect on Constructs {Wpn: #constructimmune}
@@ -54,7 +54,7 @@ bit_value	bit_name	test
 4503599627370496	Unknown Modifier {Wpn: #4503599627370496}
 9007199254740992	Ranged Special Attack {Wpn: #rangespec}
 18014398509481984	Unknown Modifier {Wpn: #18014398509481984}
-36028797018963968	Unknown Modifier {Wpn: #36028797018963968}
+36028797018963968	Internal Damage {Wpn: #internal}
 72057594037927936	Unknown Modifier {Wpn: #72057594037927936}
 144115188075855872	Unknown Modifier {Wpn: #144115188075855872}
 288230376151711744	Unknown Modifier {Wpn: #288230376151711744}

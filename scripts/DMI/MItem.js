@@ -108,7 +108,12 @@ MItem.prepareData_PostMod = function() {
 		}
 
 		//gemcost: 5E5D
-		o.gemcost = forgeCost[o.mainlevel] + o.mainpath + (forgeCost[o.secondarylevel] || "") + (o.secondarypath || "");
+		var mult = 1;
+		if (o.itemcost1) {
+			mult += o.itemcost1/100;
+		}
+		
+		o.gemcost = forgeCost[o.mainlevel]*mult + o.mainpath + (forgeCost[o.secondarylevel] || "") + (o.secondarypath || "");
 
 		//booster +DDD
 		o.boosters = "";
@@ -457,7 +462,6 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'reinvigoration',		'reinvigoration',
 	'att',		'attack',		Format.Signed,
 
-	'invul',	'invulnerable',
 	'darkvision',	'darkvision',
 
 	'airshield',	'air shield',		Format.Percent,
@@ -571,7 +575,6 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'sumauto',		'auto summoned unit',	Utils.unitRef,
 	'retinue', 		'retinue', 		Utils.unitRef,
 
-
 	'affliction',		'afflicts bearer',	Utils.afflictionRef,
 	'cannotwear',		'restriction',		{2:'cannot be worn by mounted units', 536870912:'can only be worn by coldblooded units', 1073741824:'cannot be worn by inanimate units'},
 	'restrictions',		'restrictions',
@@ -581,7 +584,7 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'command', 'grant leadership',
 	'magiccommand', 'grant magic leadership',
 	'undcommand', 'grant undead leadership',
-	'raiseonkill', 'raise victims as soulless',	Format.Percent,
+	'raiseonkill', 'raise victims as soulless',
 	'incscale',	'increase scale', function(v,o){ return Utils.getScale(v); },
 	'decscale',	'increase scale', function(v,o){ return Utils.getScaleInverted(v); },
 	'reform',	'chance to reform when killed',	Format.Percent,
@@ -591,6 +594,68 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'digest', 'digest',
 	'aciddigest', 'acid digest',
 	'incorporate', 'incorporate',
+	
+	'noforgebonus', 'noforgebonus',
+	'hpbonus', 'hp bonus',
+	'nationaldiscount', 'national discount', Utils.nationRef,
+	'itemcost1', 'itemcost1',
+	'itemcost2', 'itemcost2',
+	'warning', 'warning',
+	'mapmovebonus', 'map move bonus',
+	'slowaging', 'slow aging', Format.Percent,
+	'transformwearer', 'transform wearer', Utils.unitRef,
+	'feeblemindprovince', 'feeblemind province',
+	'supayasummonbonus', 'supaya summon bonus',
+	'bearergainsinsanity', 'bearer gains insanity',
+	'bearergainsinsanitypermonth', 'bearer gains insanity per month',
+	'infernoret', 'inferno return', Format.Percent,
+	'kokytosret', 'kokytos return', Format.Percent,
+	'heataura', 'heataura',
+	'costdiscountamount', 'cost discount',
+	'agingreductiontoallunits', 'slows down aging in province', Format.Percent,
+	'fastcasting', 'fastcasting',
+	'xpgainpermonth', 'xp gain per month',
+	'extralife', 'extra life',
+	'bloodsearcher', 'blood searcher',
+	'stormpower', 'stormpower',
+	'batstartsum2', 'batstartsum2', function(v,o){
+		return Utils.unitRef(v)+' x 2';
+	},
+	'batstartsum3', 'batstartsum3', function(v,o){
+		return Utils.unitRef(v)+' x 3';
+	},
+	'batstartsum5d6', 'batstartsum5d6', function(v,o){
+		return Utils.unitRef(v)+' x 5d6';
+	},
+	'goldgen', 'gold production',
+
+	'damagereversal', 'damagereversal',
+	'mustfightinarena', 'mustfightinarena',
+	'inquisitor', 'inquisitor',
+	'assassin', 'assassin',
+	'spreaddeathormisfortune', 'spreaddeathormisfortune',
+	'coldaura', 'coldaura',
+	'flyingmaxtotalsize', 'flyingmaxtotalsize',
+	'flyingmapmove', 'flyingmapmove',
+	'arenareward', 'arenareward',
+	
+	'swiftness', 'swiftness',
+	'leper', 'reaper',
+	'invulnerable', 'invulnerability',
+	'horrormarkattacker', 'horror mark attacker',
+	'minsizetoequip', 'minimum size',
+	'maxsizetoequip', 'maximum size',
+	'minstrtoequip', 'minimum str',
+	'minhandstoequip', 'minimum hands',
+	'deathgemonkill', 'death gem on kill',
+	'deathexplosion', 'explosion on death',
+	'chanceofattackbyknights', 'attack by knights',
+	'domspreader', 'dom spreader',
+	'monstermustbepresent', 'monster must be present', Utils.unitRef,
+	'banishkiller', 'banish killer', Utils.planesRef,
+	'masterritualist', 'master ritualist',
+	'stunattackers', 'overcharged',
+
 
 ]);
 var flagorder = DMI.Utils.cutDisplayOrder(aliases, formats,
@@ -631,7 +696,28 @@ var flagorder = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'onlyfemale', 'can only be used by female beings',
 	'reqeyes', 'can only be used by a being with eyes',
 	'haste',	'haste',
-	'nodiscount',	'no forge discounts'
+	'nodiscount',	'no forge discounts',
+	
+	'crown', 'crown',
+	'twistfate', 'twist fate',
+	'mason', 'mason',
+	'blesssacredonly', 'bless sacred only',
+	'returning', 'returning',
+	'curseattacker', 'curses attacker',
+	'seduction', 'seduction ability',
+	'wintermove', 'winter move',
+	'floating', 'floating',
+	'spiritsight', 'spirit sight',
+	'unhindered', 'unhindered',
+	'invisibility', 'invisibility',
+	'diseasegrinder', 'diseasegrinder',
+	'petrification', 'petrification',
+	'magiceye', 'magiceye',
+	'entangle', 'entangles attacker',
+	'singleuse', 'single use',
+	'allunitslooklikebearertoscouts', 'false army',
+	'onlyuseablebyfliersormounted', 'can onlybe useed by fliers or mounted',
+
 ]);
 var hiddenkeys = DMI.Utils.cutDisplayOrder(aliases, formats,
 [
@@ -652,6 +738,7 @@ var ignorekeys = {
 	constlevel:1,
 	mainpath:1, mainlevel:1, secondarypath:1, secondarylevel:1,
 	A:1, B:1, D:1, E:1, F:1, N:1, S:1, W:1, H:1,
+	animalawe2:1,iceprot2:1,
 
 	gemcost:1,
 	wpnclass:1,
