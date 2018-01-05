@@ -229,9 +229,7 @@ MNation.prepareData_PostMod = function() {
 					o.landcom.push(parseInt(attr.raw_value));
 				}
 				if (//attribute.attribute_number == "172" ||
-					attr.attribute == "186" ||
-					attr.attribute == "187" ||
-					attr.attribute == "188") {
+					attr.attribute == "186") {
 					if (attr.nation_number == "36" ||
 						attr.nation_number == "37" ||
 						attr.nation_number == "38" ||
@@ -246,7 +244,8 @@ MNation.prepareData_PostMod = function() {
 						o.uwcom.push(parseInt(attr.raw_value));
 					}
 				}
-				if (attr.attribute == "189" ||
+				if (attr.attribute == "187" ||
+					attr.attribute == "189" ||
 					attr.attribute == "190" ||
 					attr.attribute == "191" ||
 					attr.attribute == "213") {

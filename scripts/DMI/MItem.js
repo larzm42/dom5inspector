@@ -30,7 +30,7 @@ MItem.prepareData_PreMod = function() {
 }
 
 MItem.prepareData_PostMod = function() {
-	var forgeCost = { 1:5, 2:10, 3:15, 4:20, 5:30, 6:40, 7:55, 8:70, 9:90 };
+	var forgeCost = { 1:5, 2:10, 3:15, 4:20, 5:40, 6:60, 7:80, 8:100, 9:120 };
 	var sum = Utils.sum;
 	var negative = Utils.negative;
 	var mult = Utils.mult;
