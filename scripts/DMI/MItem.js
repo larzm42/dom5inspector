@@ -16,6 +16,7 @@ var modconstants = DMI.modconstants;
 
 MItem.initItem = function(o) {
 	o.restricted = [];
+	o.nationaldiscount = [];
 }
 
 MItem.prepareData_PreMod = function() {
@@ -24,6 +25,11 @@ MItem.prepareData_PreMod = function() {
 		var nations = Utils.keyListToTable(o, 'restricted');
 		for (var oj=0, nation; nation = nations[oj]; oj++) {
 			o.restricted.push(nation);
+		}
+		o.nationaldiscount = [];
+		var nations2 = Utils.keyListToTable(o, 'nationaldiscount');
+		for (var oj=0, nation; nation = nations2[oj]; oj++) {
+			o.nationaldiscount.push(nation);
 		}
 
 	}
@@ -63,6 +69,23 @@ MItem.prepareData_PostMod = function() {
 
 			if (o.restricted.length == 0) {
 				delete o.restricted;
+			}
+		}
+
+		if (o.nationaldiscount) {
+			// Parse the national discounts to a list of IDs
+			var parsedNations = [];
+			for (var ni=0, nid, n; nid= o.nationaldiscount[ni]; ni++) {
+				if (!(n= modctx.nationlookup[nid])) {
+					console.log('nation "'+nid+ '" not found (item '+o.id+')');
+					continue;
+				}
+				parsedNations.push(n.id);
+			}
+			o.nationaldiscount = parsedNations;
+
+			if (o.nationaldiscount.length == 0) {
+				delete o.nationaldiscount;
 			}
 		}
 
@@ -597,7 +620,15 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 	
 	'noforgebonus', 'noforgebonus',
 	'hpbonus', 'hp bonus',
-	'nationaldiscount', 'national discount', Utils.nationRef,
+	'nationaldiscount', 'national discount', function(v,o)
+	{
+		var nationalString = '';
+		for (var i=0, k; k=o.nationaldiscount[i]; i++) {
+			nationalString = nationalString + Utils.nationRef(k) + '<br/>';
+		}
+		return nationalString;
+
+	},
 	'itemcost1', 'itemcost1',
 	'itemcost2', 'itemcost2',
 	'warning', 'warning',
