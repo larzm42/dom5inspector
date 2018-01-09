@@ -218,6 +218,7 @@ MSpell.prepareData_PostMod = function() {
 		if(o.modded && o.fatiguecost) {
 			o.gemcost = parseInt(o.fatiguecost) / 100;
 		}
+		
 		//combat fatiguecost
 		if (o.type == 'Ritual'){
 			if (!o.gemcost) {
@@ -247,6 +248,69 @@ MSpell.prepareData_PostMod = function() {
 			o.gemcostsort = -1;
 			delete o.gemcost;
 		}
+		
+		// casting time
+		if (o.type != 'Ritual') {
+			o.casttime = 100;
+			if (o.gemcost) {
+				if (parseInt(o.gemcost) == 1) {
+					if (effects.effect_number == "81") {
+						o.casttime = 200;
+					} else if (effects.area_battlefield_pct == "100") {
+						o.casttime = 150;
+					} else {
+						o.casttime = 125;
+					}
+				} else if (parseInt(o.gemcost) == 2) {
+					if (effects.effect_number == "81") {
+						o.casttime = 225;
+					} else if (effects.area_battlefield_pct == "100") {
+						o.casttime = 175;
+					} else {
+						o.casttime = 150;
+					}
+				} else if (parseInt(o.gemcost) == 3) {
+					if (effects.effect_number == "81") {
+						o.casttime = 250;
+					} else {
+						o.casttime = 200;
+					}
+				} else if (parseInt(o.gemcost) == 4) {
+					if (effects.effect_number == "81") {
+						o.casttime = 275;
+					} else {
+						o.casttime = 225;
+					}
+				} else if (parseInt(o.gemcost) == 5) {
+					if (effects.effect_number == "81") {
+						o.casttime = 300;
+					} else {
+						o.casttime = 250;
+					}
+				} else if (parseInt(o.gemcost) == 6) {
+					if (effects.effect_number == "81") {
+						o.casttime = 325;
+					} else {
+						o.casttime = 275;
+					}
+				} else if (parseInt(o.gemcost) == 7) {
+					if (effects.effect_number == "81") {
+						o.casttime = 350;
+					} else {
+						o.casttime = 300;
+					}
+				} else if (parseInt(o.gemcost) == 8) {
+					if (effects.effect_number == "81") {
+						o.casttime = 375;
+					} else {
+						o.casttime = 325;
+					}
+				}
+			}
+			if (o.school == 6) {
+				o.casttime = o.casttime+25;
+			}
+		}
 
 		// Attributes
 		for (var oj=0, attr; attr = modctx.attributes_by_spell[oj];  oj++) {
@@ -254,6 +318,9 @@ MSpell.prepareData_PostMod = function() {
 				//var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
 				if (attr.attribute == "700") {
 					o.provrange = attr.raw_value;
+				}
+				if (attr.attribute == "723") {
+					o.casttime = attr.raw_value;
 				}
 			}
 		}
@@ -690,6 +757,7 @@ var displayorder = Utils.cutDisplayOrder(aliases, formats,
 [
 	'rng_bat',	'range', 		function(v,o){ return o.rngplus ? v+'+' : v; },
 	'provrange',	'range', 		function(v,o){ return o.provrange == 1 ? v+' province' : v+' provinces' },
+	'casttime', 'casting time', Format.Percent,
 	'aoe_s',	'area of effect', 	MSpell.formatAoe,
 	'nreff', 	'number of effects',	function(v,o){ return o.effplus ? v+'+' : v; },
 	'precision',	'precision',
@@ -817,7 +885,8 @@ MSpell.renderSpellTable = function(o, original_effect) {
 				//var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
 				if (attr.attribute != "278" &&
 						attr.attribute != "700" &&
-						attr.attribute != "703") {
+						attr.attribute != "703" &&
+						attr.attribute != "723") {
 					var specflags = modctx.attribute_keys_lookup[attr.attribute].name;
 
 					var val;
