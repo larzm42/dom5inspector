@@ -506,7 +506,7 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'iceprot',	'ice protection',
 
 	'shockres',	'resist shock',		Format.Signed,
-	'woundfend',	'affliction protection',		Format.Percent,
+	'woundfend',	'affliction resistence',
 	'taint',	'horrormark chance', Format.Percent,
 	'aging',	'advanced aging',
 
