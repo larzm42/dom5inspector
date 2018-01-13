@@ -85,6 +85,14 @@ MArmor.prepareData_PostMod = function() {
 			o.parry = parseInt(o.def) + parseInt(o.enc);
 			o.def = Utils.negative(o.enc);
 		}
+		
+		for (var oi3=0, attr; attr = modctx.attributes_by_armor[oi3];  oi3++) {
+			if (attr.armor_number == o.id) {
+				if (attr.attribute == "557") {
+					o.magic = 1;
+				}
+			}
+		}
 	}
 }
 
@@ -187,6 +195,7 @@ var ignorekeys = {
 	id:1,
 	name:1,
 	type:1,
+	magic:1,
 	torso:1,upper:1,lower:1,general:1,
 	searchable:1,renderOverlay:1, matchProperty:1
 };
@@ -221,8 +230,12 @@ MArmor.renderOverlay = function(o, baseAtt) {
 		if (attr.armor_number == o.id) {
 			//var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
 			if (attr.attribute != "582") {
+				var ak = '';
+				if (attr.attribute == "557") {
+					ak = '<span class="internal-inline"> [magic]</span>';
+				}
 				var specflags = modctx.attribute_keys_lookup[attr.attribute].name;
-				h+= '<tr class="'+attr.attribute+'"><th>'+modctx.attribute_keys_lookup[attr.attribute].name.replace(/{(.*?)}|<|>/g, "")+'</th></tr>'
+				h+= '<tr class="'+attr.attribute+'"><th>'+modctx.attribute_keys_lookup[attr.attribute].name.replace(/{(.*?)}|<|>/g, "")+ak+'</th></tr>'
 			}
 		}
 	}
