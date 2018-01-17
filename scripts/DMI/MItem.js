@@ -131,12 +131,16 @@ MItem.prepareData_PostMod = function() {
 		}
 
 		//gemcost: 5E5D
-		var mult = 1;
+		var mult1 = 1;
 		if (o.itemcost1) {
-			mult += o.itemcost1/100;
+			mult1 += o.itemcost1/100;
+		}
+		var mult2 = 1;
+		if (o.itemcost2) {
+			mult2 += o.itemcost2/100;
 		}
 		
-		o.gemcost = forgeCost[o.mainlevel]*mult + o.mainpath + (forgeCost[o.secondarylevel] || "") + (o.secondarypath || "");
+		o.gemcost = forgeCost[o.mainlevel]*mult1 + o.mainpath + (forgeCost[o.secondarylevel]*mult2 || "") + (o.secondarypath || "");
 
 		//booster +DDD
 		o.boosters = "";
