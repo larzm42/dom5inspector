@@ -1078,3 +1078,5 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 1123	Send Horror	6	9	7	4	4	5	1123	1	0	0	20	0	
 1124	Chorus Master	5	1	6	1	-1	0	1124	1	0	20	0	0	
 1125	Chorus Slave	5	1	6	1	-1	0	1125	1	0	20	0	0	
+1126	Sow Dragon Teeth	4	6	3	2	-1	0	1126	5	0	0	1	0	
+1127	Gigantomachia	5	8	3	5	0	4	1127	1	0	0	60	0	

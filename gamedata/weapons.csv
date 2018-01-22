@@ -150,7 +150,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 149	Flesh Eater	149	4	-1	1	1	0	150	0	0	
 150	Chest Wound	150	0	0	0	1	0	0	0	0	
 151	Wand	151	-2	0	0	1	0	0	0	0	
-152	Longbow of Accuracy	152	30	0	0	1	12	0	0	0	
+152	Trueshot Longbow	152	30	0	0	1	12	0	0	0	
 153	Stick	153	0	1	1	1	0	0	0	0	
 154	Bow of War	154	0	0	0	13	7	0	0	0	
 155	Black Bow	155	5	0	0	1	12	156	0	0	
@@ -720,3 +720,5 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 719	Life Drain	719	0	0	0	1	0	0	0	0	
 720	Ritual Baton	720	0	1	1	1	0	0	0	0	
 721	Short Bow	721	0	0	0	1	12	0	0	2	
+722	God-Slayer Spear	722	1	0	3	1	0	0	509	7	
+723	Bronze Discus	723	-3	0	0	1	4	0	0	3	
