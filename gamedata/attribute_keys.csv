@@ -153,7 +153,7 @@ number	name	test
 322	<Unknown Attribute>
 324	<Unknown Attribute>
 325	<Unknown Attribute>
-404	<Unknown Attribute>
+404	Cannot be cast by mindless
 426	Restricted to Realm
 477	<Unknown Attribute>
 482	Not Effected by Fire Bless
@@ -186,7 +186,7 @@ number	name	test
 718	<Unknown Attribute>
 720	<Unknown Attribute>
 721	<Unknown Attribute>
-722	<Unknown Attribute>
+722	God Path Restriction {Spl: #godpathspell}
 723	Casting Time {Spl: #casttime}
 724	<Unknown Attribute>
 725	<Unknown Attribute>

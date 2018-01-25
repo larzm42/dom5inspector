@@ -1577,10 +1577,10 @@ var displayorder3 = Utils.cutDisplayOrder(aliases, formats,
 		[
 			//	dbase key	displayed key		function/dict to format value
 			'rpcost',	'rec points', function(v,o){
-				if (parseInt(o.rpcost) > 1000) {
+				//if (parseInt(o.rpcost) > 1000) {
 					//return (parseInt(o.rpcost)/1000);
-					return '1';
-				}
+				//	return '1';
+				//}
 				return o.rpcost;
 			},
 			'mapmove',	'map move',	function(v,o){ return (parseInt(o.mapmove)); },

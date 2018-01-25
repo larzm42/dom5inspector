@@ -289,7 +289,7 @@ MSpell.effectlookup = {
 		},
 		53:	damage_untested,
 		54:	damage_untested,
-		57:	damage_untested,
+		57:	'Mind Hunt',
 		62:	function(spell, effect) {
 			return show_summon(effect.raw_argument, spell.effects_count, spell.pathlevel1);
 		},
@@ -346,7 +346,7 @@ MSpell.effectlookup = {
 		96:	damage,
 		97:	damage,
 		98:	damage_untested,
-		99:	damage_untested,
+		99:	'Petrify',
 		100:	function (spell, effect) {
 			return list_summons(spell, effect);
 		},
@@ -366,7 +366,7 @@ MSpell.effectlookup = {
 		114:	function (spell, effect) {
 			return list_summons(spell, effect);
 		},
-		115:	damage_untested,
+		115:	'Acashic Record',
 		116:	damage_untested,
 		117:	damage_untested,
 		118:	damage_untested,

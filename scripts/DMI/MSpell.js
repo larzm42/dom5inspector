@@ -104,6 +104,11 @@ MSpell.prepareData_PostMod = function() {
 //		o.spec_updated = o.spec;
 //		o.spec_updated = MSpell.updateSpecialBitfield(o.spec_updated);
 
+		// Extra Effects
+		if (MSpell.extraEffect(o)) {
+			o.nextspell = parseInt(o.id)+1;
+		}
+
 		//lookup effect 2
 		if (o.nextspell == '0') {
 			delete o.nextspell;
@@ -311,7 +316,7 @@ MSpell.prepareData_PostMod = function() {
 				o.casttime = o.casttime+25;
 			}
 		}
-
+		
 		// Attributes
 		for (var oj=0, attr; attr = modctx.attributes_by_spell[oj];  oj++) {
 			if (attr.spell_number == o.id) {
@@ -894,6 +899,9 @@ MSpell.renderSpellTable = function(o, original_effect) {
 						val = Utils.renderFlags(MSpell.bitfieldValues(attr.raw_value, modctx.map_terrain_types_lookup), 1);
 					} else if (attr.attribute == '711') {
 						val = Utils.siteRef(attr.raw_value);
+					} else if (attr.attribute == '722') {
+						var special = {'-1': 'Non-specialized', 0: 'Fire', 1: 'Air', 2:'Water', 3:'Earth', 4:'Astral', 5:'Death', 6:'Nature', 7:'Blood'};
+						val = special[attr.raw_value];
 					} else {
 						val = attr.raw_value;
 					}
@@ -973,6 +981,33 @@ MSpell.worksOnDryLand = function(spell) {
 		}
 	}
 	return false;
+}
+
+MSpell.extraEffect = function(spell) {
+	var effects = MSpell.getEffect(spell);
+	if (effects) {
+		if ((MSpell.BitwiseAndLarge(effects.modifiers_mask,576460752303423488)) ||
+			(MSpell.BitwiseAndLarge(effects.modifiers_mask, 1152921504606846976))) {
+			return true;
+		}
+	}
+	return false;
+}
+
+MSpell.BitwiseAndLarge = function(val1, val2) {
+    var shift = 0, result = 0;
+    var mask = ~((~0) << 30); // Gives us a bit mask like 01111..1 (30 ones)
+    var divisor = 1 << 30; // To work with the bit mask, we need to clear bits at a time
+    while( (val1 != 0) && (val2 != 0) ) {
+        var rs = (mask & val1) & (mask & val2);
+        val1 = Math.floor(val1 / divisor); // val1 >>> 30
+        val2 = Math.floor(val2 / divisor); // val2 >>> 30
+        for(var i = shift++; i--;) {
+            rs *= divisor; // rs << 30
+        }
+        result += rs;
+    }
+    return result;
 }
 
 MSpell.getEffect = function(spell) {

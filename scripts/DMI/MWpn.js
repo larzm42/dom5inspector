@@ -183,7 +183,12 @@ var formats = {};
 var displayorder = DMI.Utils.cutDisplayOrder(aliases, formats,
 [
 //	dbase key	displayed key		function/dict to format value
-	'dmg',		'damage',
+	'dmg',		'damage',	function(v,o){
+		if (v == '999') {
+			return 'Special';
+		}
+		return v;
+	},
 	'range',	'range',	{ 1:'0', '-1':'strength', '-2':'strength/2', '-3':'strength/3', '-4':'strength/4', '-5':'strength/5' },
 	'att',		'attack',	Format.Signed,
 	'prec',		'precision',	Format.Signed,
