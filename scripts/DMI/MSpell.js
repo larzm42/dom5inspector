@@ -25,7 +25,6 @@ MSpell.nationList = function (o) {
 
 	for (var oi=0, attr; attr = modctx.attributes_by_spell[oi];  oi++) {
 		if (attr.spell_number == o.id) {
-			//var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
 			if (attr.attribute == "278") {
 				o.nations.push(parseInt(attr.raw_value-100));
 			}
@@ -53,14 +52,17 @@ MSpell.prepareData_PostMod = function() {
 	for (var oi=0, o;  o= modctx.spelldata[oi];  oi++) {
 		for (var ai=0, attr; attr = modctx.attributes_by_spell[ai];  ai++) {
 			if (attr.spell_number == o.id) {
-				//var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
-				if (attr.attribute == "426") {
+				if (attr.attribute == "602") {
 					for (var ni=0, n;  n= modctx.nationdata[ni];  ni++) {
 						var nation = modctx.nationlookup[n.id];
 						if (Utils.inArray(attr.raw_value, nation.homerealm)) {
 							o.nations.push(parseInt(n.id));
 						}
 					}
+				}
+				// Geo extra effect
+				if (attr.attribute == "724") {
+					o.nextspell = parseInt(o.id)+1;
 				}
 			}
 		}
@@ -108,7 +110,7 @@ MSpell.prepareData_PostMod = function() {
 		if (MSpell.extraEffect(o)) {
 			o.nextspell = parseInt(o.id)+1;
 		}
-
+		
 		//lookup effect 2
 		if (o.nextspell == '0') {
 			delete o.nextspell;
@@ -901,7 +903,9 @@ MSpell.renderSpellTable = function(o, original_effect) {
 						val = Utils.siteRef(attr.raw_value);
 					} else if (attr.attribute == '722') {
 						var special = {'-1': 'Non-specialized', 0: 'Fire', 1: 'Air', 2:'Water', 3:'Earth', 4:'Astral', 5:'Death', 6:'Nature', 7:'Blood'};
-						val = special[attr.raw_value];
+						val = special[attr.raw_value];				
+					} else if (attr.attribute == "724") {
+						val = Utils.renderFlags(MSpell.bitfieldValues(attr.raw_value, modctx.map_terrain_types_lookup));
 					} else {
 						val = attr.raw_value;
 					}

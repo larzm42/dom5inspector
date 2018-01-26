@@ -154,7 +154,7 @@ number	name	test
 324	<Unknown Attribute>
 325	<Unknown Attribute>
 404	Cannot be cast by mindless
-426	Restricted to Realm
+426	<Unknown Attribute>
 477	<Unknown Attribute>
 482	Not Effected by Fire Bless
 495	<Unknown Attribute>
@@ -162,7 +162,7 @@ number	name	test
 579	<Unknown Attribute>
 582	Map Move Penalty
 599	<Unknown Attribute>
-602	<Unknown Attribute>
+602	Restricted to Realm
 603	<Unknown Attribute>
 611	<Unknown Attribute>
 617	<Unknown Attribute>
@@ -188,7 +188,7 @@ number	name	test
 721	<Unknown Attribute>
 722	God Path Restriction {Spl: #godpathspell}
 723	Casting Time {Spl: #casttime}
-724	<Unknown Attribute>
+724	Extra effect in geo {Spl: #extraeffectgeo}
 725	<Unknown Attribute>
 726	<Unknown Attribute>
 727	<Unknown Attribute>
@@ -197,4 +197,5 @@ number	name	test
 730	<Unknown Attribute>
 731	<Unknown Attribute>
 732	<Unknown Attribute>
+733	<Unknown Attribute>
 900	<Unknown Attribute>

@@ -469,8 +469,12 @@ MSite.CGrid = Utils.Class( DMI.CGrid, function() {
 		if (args.sitetype) {
 			if (args.sitetype == "Normal" && o.rarity > 4)
 				return false;
-			if (args.sitetype == "Special" && o.rarity !== 5)
+			if (args.sitetype == "Capitals") {
+				if (o.nations && o.nations.length > 0) {
+					return true;
+				}
 				return false;
+			}
 			if (args.sitetype == "Thrones" && o.rarity < 11)
 				return false;
 		}

@@ -122,7 +122,6 @@ MNation.prepareData_PostMod = function() {
 		var realms = [];
 		for (var oj=0, attr; attr = modctx.attributes_by_nation[oj];  oj++) {
 			if (parseInt(attr.nation_number) == o.id) {
-				//var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
 				if (attr.attribute == "289") {
 					realms.push(attr.raw_value);
 				}
@@ -215,7 +214,6 @@ MNation.prepareData_PostMod = function() {
 
 		for (var oj=0, attr; attr = modctx.attributes_by_nation[oj];  oj++) {
 			if (parseInt(attr.nation_number) == o.id) {
-				//var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
 				if (attr.attribute == "52" || attr.attribute == "100") {
 					o.sites.push(parseInt(attr.raw_value));
 				}
@@ -228,7 +226,7 @@ MNation.prepareData_PostMod = function() {
 				if (attr.attribute == "163") {
 					o.landcom.push(parseInt(attr.raw_value));
 				}
-				if (//attribute.attribute_number == "172" ||
+				if (
 					attr.attribute == "186") {
 					if (attr.nation_number == "36" ||
 						attr.nation_number == "37" ||
