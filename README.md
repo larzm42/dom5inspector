@@ -4,7 +4,7 @@ An online reference for Illwinter's strategy game [Dominions 5](http://www.illwi
 ### Documentation
 
 #### Can I download the mod inspector?
-Yes. There is a link [here](http://steamcommunity.com/app/259060/discussions/0/392184342869643127/) to a standalone version that can be run on Windows. Or, you can run a local web server using python and update the code yourself and not have to wait for the standalone app to be updated:
+Yes. There is a link [here](http://steamcommunity.com/app/722060/discussions/0/1500126447384353349/) to a standalone version that can be run on Windows. Or, you can run a local web server using python and update the code yourself and not have to wait for the standalone app to be updated:
 
     git clone https://github.com/larzm42/dom5inspector.git
     cd dom5inspector
