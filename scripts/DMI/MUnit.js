@@ -480,7 +480,7 @@ MUnit.autocalc = function (o) {
 				0:	10,
 				10:	15,
 				40: 30,
-				60: 45,
+				60: 30,
 				80: 60,
 				120: 100,
 				160: 150
@@ -488,8 +488,8 @@ MUnit.autocalc = function (o) {
 
 		//Leader cost
 		var ldr_cost = 0;
-		if (o.baseleadership) {
-			ldr_cost = parseInt(leadership[o.baseleadership]);
+		if (o.leader) {
+			ldr_cost = parseInt(leadership[o.leader]);
 		}
 		if (o.inspirational) {
 			ldr_cost = ldr_cost + 10*parseInt(o.inspirational);
@@ -497,7 +497,7 @@ MUnit.autocalc = function (o) {
 		if (o.sailingshipsize && parseInt(o.sailingshipsize) > 0) {
 			ldr_cost = ldr_cost + .5 * ldr_cost;
 		}
-
+		
 		var path1 = {
 				1: 30,
 				2: 90,
@@ -620,7 +620,7 @@ MUnit.autocalc = function (o) {
 			special_cost = special_cost + 20;
 		}
 		if (o.mounted && parseInt(o.mounted) > 0) {
-			special_cost = special_cost + 15;
+			special_cost = special_cost + 10;
 		}
 
 		o.goldcost = parseInt(cost + special_cost);
@@ -631,7 +631,7 @@ MUnit.autocalc = function (o) {
 		if (o.holy && parseInt(o.holy) > 0) {
 			o.goldcost = o.goldcost * 1.3;
 		}
-		o.goldcost = MUnit.roundIfNeeded(o.goldcost);
+		o.goldcost = MUnit.round(o.goldcost);
 	} else {
 		o.goldcost = MUnit.roundIfNeeded(o.basecost);
 	}
@@ -639,9 +639,13 @@ MUnit.autocalc = function (o) {
 
 MUnit.roundIfNeeded = function (num) {
 	if (parseInt(num) > 30) {
-		return 5*(Math.floor(num/5));
+		return MUnit.round(num);
 	}
 	return Math.floor(num);
+}
+
+MUnit.round = function (num) {
+	return 5*(Math.floor(num/5));
 }
 
 MUnit.hasRandom = function (o) {
@@ -885,12 +889,7 @@ MUnit.prepareForRender = function(o) {
 		if (o.maxage == '0') delete o.maxage;
 
 		//default age
-		if (is(o.inanimate)) {
-			if (!o.startage) o.startage = mult( 180, o.size );
-			if (!o.maxage) o.maxage = mult( 400, o.size );
-			//if (o.E) bonus('earth magic', 'maxage', mult(o.maxage, parseInt(o.E) * 0.5));
-		}
-		else if (is(o.undead)) {
+		if (is(o.undead)) {
 			if (!o.startage) {
 				if (o.maxage) {
 					o.startage = parseInt(mult(o.maxage, 0.4));
@@ -900,6 +899,11 @@ MUnit.prepareForRender = function(o) {
 			}
 			if (!o.maxage) o.maxage = '500';
 			if (o.D) bonus('death magic', 'maxage', mult(o.maxage, parseInt(o.D) * 0.5));
+		} 
+		else if (is(o.inanimate)) {
+			if (!o.startage) o.startage = mult( 180, o.size );
+			if (!o.maxage) o.maxage = mult( 400, o.size );
+			if (o.E) bonus('earth magic', 'maxage', mult(o.maxage, parseInt(o.E) * 0.5));
 		}
 		else if (is(o.demon)) {
 			if (!o.startage) {
@@ -931,10 +935,13 @@ MUnit.prepareForRender = function(o) {
 					bonus('fire magic', 'maxage', mult(o.F, -1));
 			}
 		}
-		//older
-		if (is(o.older)) o.startage = sum(o.startage, o.older);
 
-		//if (o.maxage) o.maxage = parseInt(o.maxage) + parseInt(o.maxage);
+		// Old leaders get bonus?
+		if (parseInt(o.startage) > parseInt(o.maxage)) {
+			if (parseInt(o.leader) == 80 && parseInt(o.goldcost) > 30) {
+				o.goldcost -=30;
+			}
+		}
 
 		//magic boost
 		if (is(o.magicboost_all)) {
@@ -2098,14 +2105,10 @@ var ignorekeys = {
 	titles:1, fullname:1,
 	size:1, fixedname:1,
 
-	//leader:1,
-	//undeadleader:1,
-	//magicleader:1,
 	ldr_str:1,
 	ap:1,
 
-	//mapmove:1,
-	startage:1, older:1,
+	startage:1,
 	casting_enc:1,
 
 	searchable:1,
@@ -2121,7 +2124,6 @@ var ignorekeys = {
 	slowrec:1,
 	sprite:1,
 	ressize:1,
-	baseleadership:1,
 	command:1,
 	undcommand:1,
 	magiccommand:1,
