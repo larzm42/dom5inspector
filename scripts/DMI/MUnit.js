@@ -479,9 +479,12 @@ MUnit.autocalc = function (o) {
 		var leadership = {
 				0:	10,
 				10:	15,
+				20: 20,
+				30: 55,
 				40: 30,
 				60: 30,
 				80: 60,
+				100: 80,
 				120: 100,
 				160: 150
 		}
@@ -631,7 +634,11 @@ MUnit.autocalc = function (o) {
 		if (o.holy && parseInt(o.holy) > 0) {
 			o.goldcost = o.goldcost * 1.3;
 		}
-		o.goldcost = MUnit.round(o.goldcost);
+		if (o.type == 'u') {
+			o.goldcost = MUnit.roundIfNeeded(o.goldcost);
+		} else {
+			o.goldcost = MUnit.round(o.goldcost);
+		}
 	} else {
 		o.goldcost = MUnit.roundIfNeeded(o.basecost);
 	}
