@@ -625,8 +625,8 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 738	Grove of Evergreens	0	223	3	Nature							1																																																																																													50										
 739	Wild Forest	0	2	0	Nature							1																																																																																													50										
 740	Bile Marsh	0	128	1	Nature																																																																									1840																											52	81	1859								
-741	Hidden Forest	0	2	1	Nature							1																																																																							154																						51										
-742	Stone Circle	1	223	1	Nature							1																																																																							105																						51										
+741	Hidden Forest	1	2	1	Nature							1																																																																							154																						51										
+742	Stone Circle	0	223	1	Nature							1																																																																							105																						51										
 743	Woodhenge	1	223	1	Nature							1																																																																							105																						51										
 744	Animist's Hut	1	2	1	Nature							1																																																																							552																						58										
 745	Fields of the Fire Flies	1	223	1	Nature	1						1																																																																																													51										

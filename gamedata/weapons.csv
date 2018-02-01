@@ -90,7 +90,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 89	Snake Staff	89	3	5	4	1	0	51	0	0	
 90	Crush	90	0	0	0	1	0	0	0	0	
 91	Fatigue	91	0	0	0	1	0	0	0	0	
-92	Fist	92	-1	-1	0	1	0	0	0	0	
+92	Fist	92	-1	-1	-1	1	0	0	0	0	
 93	Cold Breath	93	0	0	0	1	5	0	0	0	
 94	Spear	94	0	0	3	1	0	0	0	1	
 95	Flambeau	95	4	2	2	1	0	0	221	0	
@@ -229,7 +229,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 228	Elf Shot	228	0	0	0	1	20	0	0	0	
 229	Flame Strike	229	0	0	2	1	0	0	0	0	
 230	Owl	230	0	0	5	1	0	0	0	0	
-231	Thunder Fist	231	0	0	0	1	0	0	232	0	
+231	Thunder Fist	231	0	0	-1	1	0	0	232	0	
 232	Shock	232	0	0	0	1	0	0	0	0	
 233	Rune Smasher	233	2	1	1	1	0	0	0	0	
 234	Jotun Spear	234	0	0	3	1	0	0	0	1	
@@ -318,7 +318,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 317	Rake	317	-1	-1	4	1	0	0	0	1	
 318	Snake Staff	318	1	3	3	1	0	51	0	1	
 319	Bite	319	0	-1	0	1	0	0	0	0	
-320	Flaming Fist	320	0	0	0	1	0	0	221	0	
+320	Flaming Fist	320	0	0	-1	1	0	0	221	0	
 321	Flaming Wheel	321	0	0	0	1	10	0	0	0	
 322	Bite	322	0	-1	0	1	0	0	0	0	
 323	Venomous Bite	323	0	-1	0	1	0	50	0	0	
@@ -541,9 +541,9 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 540	The Staff from the Sun	540	3	3	3	1	0	0	541	0	
 541	Area Fire	541	0	0	0	1	0	0	0	0	
 542	Acid	542	0	0	0	1	0	0	0	0	
-543	Slap	543	0	0	0	1	0	544	0	0	
+543	Slap	543	0	0	-1	1	0	544	0	0	
 544	Shrink	544	0	0	0	1	0	0	0	0	
-545	Slap	545	0	0	0	1	0	544	0	0	
+545	Slap	545	0	0	-1	1	0	544	0	0	
 546	Boulder	546	0	0	0	1	15	0	0	0	
 547	Buff	547	0	0	0	1	0	0	0	0	
 548	Eyecatcher	548	-2	0	0	1	0	333	0	0	
@@ -560,7 +560,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 559	Brass Claw	559	0	0	-1	1	0	0	232	0	
 560	Venomous Bite	560	0	-1	0	1	0	51	0	0	
 561	Gore Tide	561	0	0	0	1	0	0	0	0	
-562	Stone Fist	562	-1	-1	0	1	0	0	0	0	
+562	Stone Fist	562	-1	-1	-1	1	0	0	0	0	
 563	Spirit Club	563	1	0	2	1	0	564	0	7	
 564	Spirit Strike	564	0	0	0	1	0	0	0	0	
 565	Golden Arbalest	565	10	0	0	2	12	0	0	0	
@@ -572,7 +572,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 571	Burn Flesh	571	0	0	0	1	0	0	0	0	
 572	Spectral Long Spear	572	0	-1	4	1	0	0	0	0	
 573	Poisonous Gore	573	-1	-1	0	1	0	51	0	0	
-574	Shatterfist	574	0	0	0	1	0	0	328	0	
+574	Shatterfist	574	0	0	-1	1	0	0	328	0	
 575	Tiny Slap	575	0	0	0	1	0	0	0	0	
 576	Weak Bite	576	0	0	0	1	0	0	0	0	
 577	Coral Lance	577	0	0	3	1	0	50	0	1	
