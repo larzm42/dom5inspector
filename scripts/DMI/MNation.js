@@ -565,7 +565,6 @@ MNation.prepareData_PostMod = function() {
 	}
 	$('select.nation').append($(h));
 
-	DMI.MUnit.prepareData_PostNationData();
 }
 
 MNation.nationSummary = function(hsh) {

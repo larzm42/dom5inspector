@@ -37,7 +37,6 @@ MUnit.unitSortableTypes = {
 
 	'commander': 			'aba.cmdr',
 	'Commander': 			'abb.cmdr',
-	'cmdr (summon)': 		'abc.cmdr',
 	'cmdr (Battle Summon)': 'abd.cmdr',
 	'cmdr (Event)': 		'abe.cmdr',
 	'cmdr (item)': 			'abf.cmdr',
@@ -771,7 +770,7 @@ MUnit.buildRandomArrays = function (o, i, arr, baseM) {
 }
 
 //stuff that depends on unit type must come after parsing nation data
-MUnit.prepareData_PostNationData = function(o) {
+MUnit.prepareData_PostSiteData = function(o) {
 	for (var oi=0, o;  o= modctx.unitdata[oi];  oi++) {
 
 		if (!o.typechar || o.typechar == '') {
@@ -790,11 +789,6 @@ MUnit.prepareData_PostNationData = function(o) {
 			delete o.rcostsort;
 			delete o.goldcost;
 		}
-
-		//show magic paths on grid for commanders only
-		if (isCmdr(o) && o.mpath)
-			o.listed_mpath = '0'+o.mpath;
-		else o.listed_mpath = '';
 
 		o.holy = o.holy || '';
 
@@ -835,21 +829,28 @@ MUnit.prepareData_PostNationData = function(o) {
 				o.typechar = other.typechar;
 			} else if (!other.typechar) {
 				other.typechar = o.typechar;
-				other.sorttype = o.sorttype;
+				other.sorttype = MUnit.unitSortableTypes[o.typechar];
 			}
 		}
 		//sorttype
 		o.sorttype = MUnit.unitSortableTypes[o.typechar];
 
 		if (!o.sorttype || o.sorttype == '') {
-			o.sorttype = o.typeclass;
-			if (o.from && o.from != '') {
-				o.sorttype = o.sorttype + ' (' + o.from + ')';
-			}
 			if (!o.sorttype || o.sorttype == '') {
-				o.sorttype = 'zzz';
+				if (isCmdr(o) && o.mpath) {
+					o.typechar = "Commander";
+					o.sorttype = MUnit.unitSortableTypes[o.typechar];
+				} else {
+					o.sorttype = 'zzz';
+				}
 			}
 		}
+		
+		//show magic paths on grid for commanders only
+		if (isCmdr(o) && o.mpath)
+			o.listed_mpath = '0'+o.mpath;
+		else o.listed_mpath = '';
+
 		o.unprep = true;
 	}
 }
@@ -2108,6 +2109,8 @@ var ignorekeys = {
 	modded:1,
 	dupes:1,
 	sorttype:1,
+	typechar:1,
+	type:1,
 
 	titles:1, fullname:1,
 	size:1, fixedname:1,
@@ -2121,9 +2124,6 @@ var ignorekeys = {
 	searchable:1,
 	notes:1,
 	rt:1,
-	typeclass:1,
-	typechar:1,
-	from:1,
 	basecost:1,
 	gmon:1,
 	gcom:1,
@@ -2149,7 +2149,7 @@ var ignorekeys = {
 
 	weapons:1, armor:1, helmet:1, shield:1, wpn1:1, wpn2:1, wpn3:1, wpn4:1, wpn5:1, wpn6:1,
 
-	eracodes:1, nations:1, nation:1, nationname:1, type:1,
+	eracodes:1, nations:1, nation:1, nationname:1,
 	summonedby:1, createdby:1,
 
 	horrorsonly:1,

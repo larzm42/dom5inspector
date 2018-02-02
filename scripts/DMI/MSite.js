@@ -383,6 +383,8 @@ MSite.prepareData_PostMod = function() {
 			delete o.rit;
 		}
 	}
+	
+	DMI.MUnit.prepareData_PostSiteData();
 
 }
 
