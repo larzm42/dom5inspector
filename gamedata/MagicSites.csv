@@ -523,7 +523,7 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 636	Brook of Glimmering Pearls	1	215	1	Astral			1		1																																																																																															37										
 637	Seer's Grave	2	767	2	Astral					1																																																																														3																	36										
 638	Dreaming Stone	2	767	2	Astral																																				S	2																																														3																	36										
-639	Sorcerer's Circle	2	223	2	Astral																																																							20%																																													38										
+639	Sorcerer's Circle	2	223	2	Astral																																				SDNB	2																		20%																																													38										
 640	Archaic Diagram	2	255	2	Astral																																																				20%																																																36										
 641	Chamber of Enchantment	2	223	2	Astral														lab																																								20%																																														39										
 642	Unsettling Pattern	2	255	2	Astral																																																							20%					5%																																								36										
@@ -532,7 +532,7 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 645	The Gnomon	2	16607	2	Astral					1																															S	3																																																															36										
 646	Seventh House on the Left	2	16607	3	Astral						1																																																		20%																																												36										
 647	The Halfway Inn	1	16607	0	Astral									10																																																																																											43										
-648	Citadel of the Mage King	2	16398	6	Astral					1									lab	1																																																																																					40										
+648	Citadel of the Mage King	2	16398	6	Astral					1									lab	1																					SDNB	2																																																															40										
 649	Horror Cult	5	223	5	Astral																																																												3%																																								39										
 650	Ancient Scriptorium	5	16607	2	Astral														lab																																																																																						38										
 651	Secluded Village	5	223	1	Astral																																												971	1	970	2	968	1																	969	1																																	35										
@@ -1037,8 +1037,8 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 1150	The Throne of Abundance	13	214015	0	Holy	1	1	1	1	2	1	1		150									3		2																																																																																72										
 1151	The Throne of Eternal Suffering	13	214015	0	Holy																		3	-1	-1			1																																																																													72										
 1152	The Throne of the Sun	13	214015	0	Holy	3																	5	-1		-1	-1			5																																																																											72				4						
-1153	The Throne of Sorcery	13	214015	0	Holy					2	1	1									Magic		3																																					30%																																													72										
-1154	The Throne of Elements	13	214015	0	Holy	1	1	1	1														3																																		30%																																																72										
+1153	The Throne of Sorcery	13	214015	0	Holy					2	1	1									Magic		3																		SDNB	2																		30%																																													72										
+1154	The Throne of Elements	13	214015	0	Holy	1	1	1	1														3																		FAWE	2															30%																																																72										
 1155	The Shattered Throne	13	214015	0	Holy					2			4				10				Magic	Misfortune	3					1																																	30%			1%	5%																																								72										
 1156	The Throne of Creation	13	214015	0	Holy										100						Turmoil		3	3																															30%			20%																																															72							1			
 1157	The Throne of Destiny	13	214015	0	Holy																		3	-1				-2																																																																													72										
