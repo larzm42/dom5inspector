@@ -48,7 +48,7 @@ bit_value	bit_name	test
 70368744177664	No Effect on Fliers/Floaters {Wpn: #flyingimmune}
 140737488355328	No Effect on Constructs {Wpn: #constructimmune}
 281474976710656	Affects Animals Only {Wpn: #animalonly}
-562949953421312	Unknown Modifier {Wpn: #562949953421312}
+562949953421312	More likely to hit head {#hithead}
 1125899906842624	Ritual of Five Gates {Wpn: #fivegates}
 2251799813685248	Unknown Modifier {Wpn: #2251799813685248}
 4503599627370496	Unknown Modifier {Wpn: #4503599627370496}
