@@ -83,7 +83,7 @@ number	name	test
 106	Damage Demon (?)
 107	Damage Demon {Wpn: #dt_demon}
 108	Planeshift Other
-109	uCapped Damage {Wpn: #dt_cap}
+109	Capped Damage {Wpn: #dt_cap}
 110	Dreams of R'lyeh
 111	Internal Alchemy
 112	Attack Caster
