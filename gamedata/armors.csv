@@ -234,7 +234,8 @@ id	name	type	def	enc	rcost	end
 233	Armor of the Five Elements	5	-1	2	0	
 234	Magic Headdress	6	0	0	0	
 235	Magic Leather Shield	4	4	0	0	
-236	Gleaming Cuirass	5	-1	1	7	
+236	Gleaming Cuirass	5	-1	1	9	
 237	Gleaming Hauberk	5	-2	4	21	
 238	Gleaming Hoplon	4	4	1	5	
 239	Gleaming Helmet	6	-1	0	6	
+240	Champion's Crown	6	0	0	0	

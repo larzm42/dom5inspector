@@ -1080,3 +1080,6 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 1125	Chorus Slave	5	1	6	1	-1	0	1125	1	0	20	0	0	35433480192	
 1126	Sow Dragon Teeth	4	6	3	2	-1	0	1126	5	0	0	1	0	3119	
 1127	Gigantomachia	5	8	3	5	0	4	1127	1	0	0	60	0	107	
+1128	Bind Keres	0	6	5	2	-1	0	1128	3	0	0	9	0	3127	
+1129	Curse Tablet	0	3	5	1	-1	0	1129	1	0	0	3	0	2	
+1130	Seith Curse	5	5	5	1	4	1	1130	1	0	0	3	0	2	

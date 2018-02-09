@@ -34,8 +34,8 @@ bit_value	bit_name	test
 4294967296	Unknown Modifier {Wpn: #4294967296}
 8589934592	Unknown Modifier {Wpn: #8589934592}
 17179869184	Unknown Modifier {Wpn: #17179869184}
-34359738368	Unknown Modifier {Wpn: #34359738368}
-68719476736	Unknown Modifier {Wpn: #68719476736}
+34359738368	Unknown Modifier {Wpn: #heavyweapon}
+68719476736	Heavy Weapon {Wpn: #68719476736}
 137438953472	Cannot Repel {Wpn: #norepel}
 274877906944	Piercing Damage {Wpn: #pierce}
 549755813888	Bludgeoning Damage {Wpn: #blunt}
@@ -51,13 +51,13 @@ bit_value	bit_name	test
 562949953421312	More likely to hit head {#hithead}
 1125899906842624	Ritual of Five Gates {Wpn: #fivegates}
 2251799813685248	Unknown Modifier {Wpn: #2251799813685248}
-4503599627370496	Unknown Modifier {Wpn: #4503599627370496}
+4503599627370496	Creatures with Void Sanity immune {Wpn: #voidsanityimmune}
 9007199254740992	Ranged Special Attack {Wpn: #rangespec}
 18014398509481984	Unknown Modifier {Wpn: #18014398509481984}
 36028797018963968	Internal Damage {Wpn: #internal}
 72057594037927936	Unknown Modifier {Wpn: #72057594037927936}
 144115188075855872	Unknown Modifier {Wpn: #144115188075855872}
-288230376151711744	Unknown Modifier {Wpn: #288230376151711744}
+288230376151711744	Half Strength added {Wpn: #halfstradded}
 576460752303423488	Extra Effect {Wpn: #extraeffect}
 1152921504606846976	Extra Effect on Damage {Wpn: #extraeffectondmg}
 2305843009213693952	MR check Half Damage {Wpn: #mrcheckhalfdmg}
