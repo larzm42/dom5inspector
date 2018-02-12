@@ -189,10 +189,10 @@ number	name	test
 722	God Path Restriction {Spl: #godpathspell}
 723	Casting Time {Spl: #casttime}
 724	Extra effect in geo {Spl: #extraeffectgeo}
-725	<Unknown Attribute>
+725	Can't target same province more than once/turn {Spl: #uniquetarget}
 726	<Unknown Attribute>
 727	<Unknown Attribute>
-728	<Unknown Attribute>
+728	adds AN lingering heat {Spl: #anlingeringheat}
 729	<Unknown Attribute>
 730	<Unknown Attribute>
 731	<Unknown Attribute>

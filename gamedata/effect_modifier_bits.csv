@@ -35,7 +35,7 @@ bit_value	bit_name	test
 8589934592	Unknown Modifier {Wpn: #8589934592}
 17179869184	Unknown Modifier {Wpn: #17179869184}
 34359738368	Unknown Modifier {Wpn: #heavyweapon}
-68719476736	Heavy Weapon {Wpn: #68719476736}
+68719476736	Higher charge bonus cap {Wpn: #68719476736}
 137438953472	Cannot Repel {Wpn: #norepel}
 274877906944	Piercing Damage {Wpn: #pierce}
 549755813888	Bludgeoning Damage {Wpn: #blunt}
