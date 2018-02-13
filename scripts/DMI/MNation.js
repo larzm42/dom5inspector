@@ -201,14 +201,24 @@ MNation.prepareData_PostMod = function() {
 		// look for coast commanders
 		for (var oj=0, attr; attr = modctx.coast_leader_types_by_nation[oj];  oj++) {
 			if (parseInt(attr.nation_number) == o.id) {
-				o.coastcom.push(attr.monster_number);
+				var unit = modctx.unitlookup[attr.monster_number];
+				if (unit.landshape) {
+					o.coastcom.push(parseInt(unit.landshape));
+				} else {
+					o.coastcom.push(attr.monster_number);
+				}
 			}
 		}
 
 		// look for coast units
 		for (var oj=0, attr; attr = modctx.coast_troop_types_by_nation[oj];  oj++) {
 			if (parseInt(attr.nation_number) == o.id) {
-				o.coastrec.push(attr.monster_number);
+				var unit = modctx.unitlookup[attr.monster_number];
+				if (unit.landshape) {
+					o.coastrec.push(parseInt(unit.landshape));
+				} else {
+					o.coastrec.push(attr.monster_number);
+				}
 			}
 		}
 
@@ -218,26 +228,29 @@ MNation.prepareData_PostMod = function() {
 					o.sites.push(parseInt(attr.raw_value));
 				}
 				if (attr.attribute == "158" || attr.attribute == "159") {
-					o.coastcom.push(parseInt(attr.raw_value));
+					var unit = modctx.unitlookup[attr.raw_value];
+					if (unit.landshape) {
+						o.coastcom.push(parseInt(unit.landshape));
+					} else {
+						o.coastcom.push(parseInt(attr.raw_value));
+					}
 				}
 				if (attr.attribute == "160" || attr.attribute == "161" || attr.attribute == "162") {
-					o.coastrec.push(parseInt(attr.raw_value));
+					var unit = modctx.unitlookup[attr.raw_value];
+					if (unit.landshape) {
+						o.coastrec.push(parseInt(unit.landshape));
+					} else {
+						o.coastrec.push(parseInt(attr.raw_value));
+					}
 				}
 				if (attr.attribute == "163") {
 					o.landcom.push(parseInt(attr.raw_value));
 				}
 				if (
 					attr.attribute == "186") {
-					if (attr.nation_number == "36" ||
-						attr.nation_number == "37" ||
-						attr.nation_number == "38" ||
-						attr.nation_number == "39" ||
-						attr.nation_number == "73" ||
-						attr.nation_number == "75" ||
-						attr.nation_number == "76" ||
-						attr.nation_number == "77" ||
-						attr.nation_number == "106" ||
-						attr.nation_number == "108") {
+					var unit = modctx.unitlookup[attr.raw_value];
+					if (unit.watershape) {
+						o.uwcom.push(parseInt(unit.watershape));
 					} else {
 						o.uwcom.push(parseInt(attr.raw_value));
 					}
@@ -247,16 +260,9 @@ MNation.prepareData_PostMod = function() {
 					attr.attribute == "190" ||
 					attr.attribute == "191" ||
 					attr.attribute == "213") {
-					if (attr.nation_number == "36" ||
-						attr.nation_number == "37" ||
-						attr.nation_number == "38" ||
-						attr.nation_number == "39" ||
-						attr.nation_number == "73" ||
-						attr.nation_number == "75" ||
-						attr.nation_number == "76" ||
-						attr.nation_number == "77" ||
-						attr.nation_number == "106" ||
-						attr.nation_number == "108") {
+					var unit = modctx.unitlookup[attr.raw_value];
+					if (unit.watershape) {
+						o.uwunit.push(parseInt(unit.watershape));
 					} else {
 						o.uwunit.push(parseInt(attr.raw_value));
 					}
