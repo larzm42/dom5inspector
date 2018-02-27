@@ -277,7 +277,7 @@ id	name	rarity	description	requirements	effects	end
 276	A group of tritons has unexpec	1	A group of tritons has unexpectedly attacked the province in an attempt to take control.	land 0|unluck 1|turn 5	com 406|6d6units 174|com 406|3d6units 175	
 277	A huge barbarian horde has une	1	A huge barbarian horde has unexpectedly attacked and pillaged the province.	capital 0|land 1|unluck 3|turn 10|land 1	com 141|16d6units 140|com 147|4d6units 139|kill 20	
 278	An evil necromancer and his ho	1	An evil necromancer and his host suddenly attacked the province in search of magical resources.	capital 0|pop0ok 1|land 1|death 1|turn 5|magic 2|lab 1	com 310|10d6units 197|10d6units 196|kill 5|gemloss D	
-279	Magic is fading.	1	Magic is fading.	pop0ok 1|lab 1|unmagic 3|unluck 1	gemloss 53	
+279	Magic is fading.	1	Magic is fading.	pop0ok 1|lab 1|unmagic 3|unluck 1	gemloss All	
 280	A large group of non faithfuls	1	A large group of non faithfuls have decided to emigrate. Part of the population has left their homes in search of a better place to live and faith has increased in the rightful god, ##godname##.	maxdominion 2|mydominion 1|chaos 0	emigration 10|incdom 1	
 281	People here are very displease	1	People here are very displeased and a substantial part of the population has left their homes in search of a better place to live.	minunrest 20|chaos -2	emigration 20	
 282	Woods of the fairy court have 	1	Woods of the fairy court have been burned by a local lord.	growth 1|magic 1|land 1	incscale2 Drain|incscale Death|incscale3 Misfortune|1d3vis A	
@@ -314,9 +314,9 @@ id	name	rarity	description	requirements	effects	end
 313	A thief has stolen some of you	2	A thief has stolen some of your magic gems.	lab 1|gem 3	gemloss E	
 314	A thief has stolen some of you	2	A thief has stolen some of your magic pearls.	lab 1|gem 4	gemloss S	
 315	Undisciplined jailers have def	2	Undisciplined jailers have defiled your blood slaves.	lab 1|gem 7	gemloss B	
-316	A master thief has stolen many	2	A master thief has stolen many of your magic gems.	lab 1|unluck -1	gemloss 53	
-317	Magic is fading.	2	Magic is fading.	pop0ok 1|lab 1|unmagic 1	gemloss 53|incscale Drain	
-318	Magic is fading.	2	Magic is fading.	pop0ok 1|lab 1|unmagic 3	gemloss 53	
+316	A master thief has stolen many	2	A master thief has stolen many of your magic gems.	lab 1|unluck -1	gemloss All	
+317	Magic is fading.	2	Magic is fading.	pop0ok 1|lab 1|unmagic 1	gemloss All|incscale Drain	
+318	Magic is fading.	2	Magic is fading.	pop0ok 1|lab 1|unmagic 3	gemloss All	
 319	A disaster while researching r	2	A disaster while researching resulted in a lost eye for one of your mages.	lab 1|humanoidres 1	researchaff 0	
 320	A disaster while researching r	2	A disaster while researching resulted in an explosion that tore off an arm from one of your mages.	pop0ok 1|lab 1|humanoidres 1	researchaff 0	
 321	A disaster while researching r	2	A disaster while researching resulted in one of your mages getting a severe chest wound.	pop0ok 1|lab 1|humanoidres 1	researchaff 0	
@@ -695,7 +695,7 @@ id	name	rarity	description	requirements	effects	end
 694	A monster of the deep has been	2	A monster of the deep has been stirred!	land 0|coast 0	com 438	
 695	One of your mages has managed 	-2	One of your mages has managed to tame a monster of the deep.	land 0|coast 0|pathwater 2	nation -2|com 438	
 696	One of your mages has managed 	-2	One of your mages has managed to tame a monster of the deep.	land 0|coast 0|pathwater 2	nation -2|com 565	
-697	While traveling the woods, one	2	While traveling the woods, one of your commanders was attacked by a giant spider!	forest 1|commander 1	assassin 898	
+697	While traveling the woods, one	2	While traveling the woods, one of your commanders was attacked by a giant spider!	forest 1|commander 1	assassin 884	
 698	Spiders from the woods have at	2	Spiders from the woods have attacked in numbers. They are led by a gibbering troll.	forest 1|turn 13	2com 884|com 2220|addequip 1|2d6units 884|4d6units 782|4d6units 2223	
 699	The Forest Trolls are making t	2	The Forest Trolls are making trouble.	forest 1|chaos 1	com 2219|2d6units 2219|2com 2219	
 700	A poisonous spider may have bi	2	A poisonous spider may have bitten one of your commanders!	land 1|commander 1	assassin 2223	
@@ -910,8 +910,8 @@ id	name	rarity	description	requirements	effects	end
 909	A criminal leader has been cau	-1	A criminal leader has been caught and hanged.	minunrest 20|minpop 20|order 1	unrest -15	
 910	Local trouble-makers have been	-1	Local trouble-makers have been rooted out.	minunrest 20|minpop 20|order 1	unrest -15	
 911	Recent turmoil has been subdue	-1	Recent turmoil has been subdued by the competent garrison commander.	minunrest 20|minpop 20|mindef 12|order -1|land 1	unrest -30|decscale2 Turmoil|defence 10|nation -2|com 35	
-912	A subterranean mage has appear	-2	A subterranean mage has appeared, having sensed an Earth Blood seepage. He was persuaded to join the army. [Earth Blood Seepage]	era 1|nearbysite 1|land 1	nation -2|com 1473	
-913	A subterranean mage has appear	-2	A subterranean mage has appeared, having sensed an Earth Blood seepage. He was persuaded to join the army. [Earth Blood Seepage]	era 2|nearbysite 1|land 1	nation -2|com 1460	
+912	A subterranean mage has appear	-2	A subterranean mage has appeared, having sensed an Earth Blood seepage. He was persuaded to join the army. [Earth Blood Seepage]	era 1|nearbysite 1|land 1	nation -2|com 1460	
+913	A subterranean mage has appear	-2	A subterranean mage has appeared, having sensed an Earth Blood seepage. He was persuaded to join the army. [Earth Blood Seepage]	era 2|nearbysite 1|land 1	nation -2|com 1473	
 914	Your commander has befriended 	-2	Your commander has befriended a stray dog.	land 1|unluck 1	nation -2|1unit 1560	
 915	Foreign agents have infiltrate	2	Foreign agents have infiltrated the local garrison. They are now trying to take control of the province!	land 1|capital 0|mindef 10|maxtroops 20	defence -8|2com 1591|gainaff 549755813888|2d6units 28|1d6units 38	
 916	Men have been lost in the swam	1	Men have been lost in the swamp.	swamp 1|monster 28	killmon 28|killmon 28|killmon 28|killmon 28|killmon 28	
@@ -1818,10 +1818,10 @@ id	name	rarity	description	requirements	effects	end
 1817	In the droppings of some fabul	-2	In the droppings of some fabulous beast, magical gems have been found!	magic 1|land 1	1d3vis S|1d3vis N	
 1818	In the droppings of some fabul	-2	In the droppings of some fabulous beast, magical gems have been found!	magic 2|land 1	1d3vis S|1d3vis N|1d3vis D	
 1819	In the droppings of some fabul	-2	In the droppings of some fabulous beast, magical gems have been found!	magic 3|land 1	1d3vis S|1d3vis N|1d3vis D|1d3vis F	
-1820	A fabulous beast has been slai	-2	A fabulous beast has been slain. In its belly were found a wealth of magical gems!	magic 3|land 1	2d6vis Elemental|1d6vis Sorcery	
-1821	The Lair of a hideous troll ha	-1	The Lair of a hideous troll has been found. Within were the bones of unfortunate travelers. Among the dreadful remnants, gold and magical gems were found. The troll itself escaped.	magic 1|land 1	gold 50|1d3vis Elemental|1d3vis Sorcery	
-1822	The Lair of a hideous troll ha	-1	The Lair of a hideous troll has been found. Within were the bones of unfortunate travelers. Among the dreadful remnants, gold and magical gems were found. The troll itself escaped.	magic 2|land 1	gold 50|1d6vis Elemental|1d6vis Sorcery	
-1823	The Lair of a hideous troll ha	-1	The Lair of a hideous troll has been found. Within were the bones of unfortunate travelers. Among the dreadful remnants, gold and magical gems were found. The troll itself escaped.	magic 3|land 1	gold 50|1d6vis Elemental|1d6vis Sorcery|magicitem 2	
+1820	A fabulous beast has been slai	-2	A fabulous beast has been slain. In its belly were found a wealth of magical gems!	magic 3|land 1	1d6vis All	
+1821	The Lair of a hideous troll ha	-1	The Lair of a hideous troll has been found. Within were the bones of unfortunate travelers. Among the dreadful remnants, gold and magical gems were found. The troll itself escaped.	magic 1|land 1	gold 50|1d3vis All	
+1822	The Lair of a hideous troll ha	-1	The Lair of a hideous troll has been found. Within were the bones of unfortunate travelers. Among the dreadful remnants, gold and magical gems were found. The troll itself escaped.	magic 2|land 1	gold 50|1d6vis All	
+1823	The Lair of a hideous troll ha	-1	The Lair of a hideous troll has been found. Within were the bones of unfortunate travelers. Among the dreadful remnants, gold and magical gems were found. The troll itself escaped.	magic 3|land 1	gold 50|1d6vis All|magicitem 2	
 1824	Strange plants have sprouted i	-2	Strange plants have sprouted in the rye fields this summer. Among their roots magical gems have been found!	magic 1|season 1|farm 1	1d6vis N	
 1825	Strange plants have sprouted i	-2	Strange plants have sprouted in the rye fields this summer. Among their roots magical gems have been found!	magic 2|season 1|farm 1	2d6vis N	
 1826	Strange plants have sprouted i	-2	Strange plants have sprouted in the rye fields this summer. Among their roots magical gems have been found!	magic 3|season 1|farm 1	3d6vis N	
@@ -3243,3 +3243,7 @@ id	name	rarity	description	requirements	effects	end
 3242	The death match competition is	13	The death match competition is taking place. May the strongest man win!		resetcode -199|0x8600 1	
 3243	The people's death match is sc	11	The people's death match is scheduled in the arena. Spellcasting is not allowed and all participants will get to borrow a slave collar to ensure they do not perform magic or run away. As this is the game for the common people, Pretender God and Disciples are not allowed to compete. Any Pretender breaking the rules will get to keep the slave collar. The event will take place on the astral plane and the participants must leave now to get there in time. In addition to all the fame, the winner of the game will receive a powerful magic artifact. Each Pretender God may send one champion and all old arena champions must try to defend their title, defying the rules if necessary. May the people's champion win!	code 0|0x6800 -199	code -199|0x8500 1|0x6E00 1	
 3244	The people's death match is ta	13	The people's death match is taking place. May the people's champion win!		resetcode -199|0x8700 1	
+3245	Ladon, the Hesperian Dragon, h	0	Ladon, the Hesperian Dragon, has guarded the golden apples of immortality since the dawn of time, coiled around the tree to prevent mortal men from gaining access to the sustenance of gods. Rumor has it that the beast has been lured from its eternal vigil. No longer are the golden apples guarded by the great serpent and expeditions set sail on the distant island where the golden apples reputedly grow.	capital 1|fornation 108|fornation 70|0x6900 3167		
+3246	With the Hesperian Dragon boun	-1	With the Hesperian Dragon bound by the mages of the empire, an expedition to the fabled gardens of the Hesperides is being organized.	capital 1|fornation 108|fornation 70|0x6900 3167	0x7000 2	
+3247	The expedition to the fabled g	0	The expedition to the fabled gardens of the Hesperides was successful. The golden apples of immortality, the food of gods, was displayed for the cheering populace. One apple was given to the queen and transported to the laboratory.[Golden Apple]	capital 1	magicitem 9|unrest -10	
+3248	Upholding the ancient bargain 	0	Upholding the ancient bargain the Gigantes of Black Korkyra have mustered their forces. A Lochos and his retinue has arrived to the Orichalcum Palace to pledge allegiance to the Queen.	fornation 70|capital 1|0x6500 1|turn 5|nomnr 0	nation -2|com 3149|0x7E00 3150	

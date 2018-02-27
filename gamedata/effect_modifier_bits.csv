@@ -32,7 +32,7 @@ bit_value	bit_name	test
 1073741824	Bloodletting (?) {Wpn: #bloodletting}
 2147483648	Damage Bonus on 1st Attack {Wpn: #charge}
 4294967296	Unknown Modifier {Wpn: #4294967296}
-8589934592	Unknown Modifier {Wpn: #8589934592}
+8589934592	Used in melee too {#usedinmelee}
 17179869184	Unknown Modifier {Wpn: #17179869184}
 34359738368	Unknown Modifier {Wpn: #heavyweapon}
 68719476736	Higher charge bonus cap {Wpn: #68719476736}

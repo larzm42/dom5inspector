@@ -113,6 +113,7 @@ number	name	test
 500	Dehydrate
 504	Resist Element
 509	Protect against Element
+511	Unknown
 514	Resist Poison
 524	Resist Poison
 599	Immunity against Element (?)

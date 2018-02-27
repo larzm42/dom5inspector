@@ -720,5 +720,9 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 719	Life Drain	719	0	0	0	1	0	0	0	0	
 720	Ritual Baton	720	0	1	1	1	0	0	0	0	
 721	Short Bow	721	0	0	0	1	12	0	0	2	
-722	God-Slayer Spear	722	1	0	3	1	0	0	509	7	
+722	God-Slayer Spear	722	2	0	3	1	0	0	509	7	
 723	Bronze Discus	723	-3	0	0	1	4	0	0	3	
+724	Orichalcum Sword	724	1	2	1	1	0	0	0	2	
+725	Brass Hoof	725	0	0	0	1	0	0	0	0	
+726	Brass Horns	726	-1	-1	1	1	0	0	0	0	
+727	Fiery Breath	727	0	0	0	1	4	0	0	0	

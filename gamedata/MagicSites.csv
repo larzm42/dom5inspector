@@ -64,9 +64,9 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 63	The City of Tombs	5	0	0	Death	1					3																																1166																														1095																																47										
 64	Temple of the Spheres	5	0	0	Astral					1																																																															670																																40										
 65	The Desert Eye	5	0	0	Astral					3																																																	40%																																														35										
-66	Gold Mine	5	0	0	Earth									60																																																																																											26										
-67	Silver Mine	5	0	0	Earth									40																																																																																											26										
-68	Copper Mine	5	0	0	Earth									20																																																																																											26										
+66	Gold Mine	5	0	0	Earth																																																																																																				26										
+67	Silver Mine	5	0	0	Earth																																																																																																				26										
+68	Copper Mine	5	0	0	Earth																																																																																																				26										
 69	Iron Mine	5	0	0	Earth										40																																																																																										26										
 70	The Royal Academy	5	0	0	Earth		1			2																																																															3011	1030	1032																														29										
 71	House of Justice	5	0	0	Holy	1																																					2114																								25%						2199	745																															76										
@@ -121,7 +121,7 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 120	Temple of the All-Consuming Flame	5	0	0	Fire	1																																					1543																														1536																																6										
 121	Temple of the All-Consuming Flame	5	0	0	Fire	1																																					90																																																														6										
 122	The Sibylline Caves	5	0	0	Astral					3		1																																																								1					1557																																41										
-123	The Cerulean Tower	5	0	0	Water																																						1556																																																														21										
+123	The Cerulean Tower	5	0	0	Water																																						1556																														3172																																21										
 124	Gymnasium	5	0	0	Water																																						747																																																														21										
 125	The Enchanted Isle	5	0	0	Nature							1																																																																																													57										
 126	The Coast of Ice and Bones	5	0	0	Water			3			1																																1630																														1618																																18										
@@ -195,10 +195,14 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 194	City of Gold and Marble	5	0	0	Holy		1		1																																																																3112	3116	3117																														68										
 195	Forge of the Cyclopes	5	0	0	Fire	2			2						100																																																										3118																																1										
 196	The Burning Fields	5	0	0	Fire	1			1		1																																																														3139																																2										
-197	Fortress of the Cyclopes	5	0	0	Earth	1			1																																																																3118																																29										
+197	Fortress of the Cyclopes	5	0	0	Earth	1			1																																																																3138																																29										
+198	The Orichalcum Palace	5	0	0	Holy		1			1																																	3159																														3158	3157																															68										
+199	Black Korkyra	5	0	0	Water			1	1																																																																																																25										
+200	Gold Apple Tree	5	0	0	Fire	1											-5																																																																																								10										
+201	Orichalcum Mine	5	516	0	Fire										100																																																																																										1										
 310	Tar Pits	0	219	1	Fire	1																																																																																																			5										
 311	Sun Ridge	0	223	1	Fire	2																																																																																																			3										
-312	Gold Apple Tree	1	223	2	Fire	2																																																																																																			3										
+312	Gold-Leafed Tree	1	223	2	Fire	2																																																																																																			10										
 313	Bronze Pillar	0	735	3	Fire	1																																																																																																			3										
 314	Plain of Perpetual Drought	0	8	0	Fire	1															Heat																																																																																				2										
 315	Magus Temple	1	223	1	Fire	1				1									lab																																																																480																						4										
@@ -210,7 +214,7 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 321	Stargazers Cliff	1	223	1	Fire	1				1																																																																																															0										
 322	Desert of Bones	0	8	1	Fire	1					1										Heat																																																														2245																						2										
 323	Lantern Forest	1	2	1	Fire	1						1																																																																																													3										
-324	Orichalcum Mine	1	516	2	Fire									150																																																																																											1										
+324	Orichalcum Mine	1	516	2	Fire										100																																																																																										1	70	3159								
 325	Volcano	2	223	0	Fire	3															Heat																																																																																				1										
 326	Solar Lens	2	223	1	Fire	1																																			F	3																																																															5										
 327	Solar Circle	2	223	2	Fire	1																																																			20%																																																5										
@@ -394,9 +398,9 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 505	Canyon of Sand	1	197631	0	Earth				1																																																																																																30										
 506	Mine of Superior Iron	0	4	0	Earth										60																																																																																										26										
 507	Great Iron Mine	0	516	0	Earth										100																																																																																										26										
-508	Great Gold Mine	0	516	0	Earth									100																																																																																											26										
-509	Great Silver Mine	0	516	0	Earth									60																																																																																											26										
-510	Hidden Gold Mine	0	516	1	Earth									100																																																																																											26										
+508	Great Gold Mine	0	516	0	Earth																																																																																																				26										
+509	Great Silver Mine	0	516	0	Earth																																																																																																				26										
+510	Hidden Gold Mine	0	516	1	Earth																																																																																																				26										
 511	Gem Deposits	0	735	1	Earth									75																																																																																											26										
 512	Gorge	0	516	1	Earth				1																																																																																																30										
 513	Magma Cave	0	516	1	Earth	1			1																																																																																																32										
@@ -466,7 +470,7 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 577	Heart of the Mountain	2	16388	3	Earth				2																																E	3																																																															32										
 578	Basilisk Cave	2	223	2	Earth				1																																															20%																																																	32										
 579	Rune of Earth	1	255	2	Earth																																				E	2																																																															31										
-580	Halls of the Mountain King	5	16388	5	Earth				1					50																																																																																											32										
+580	Halls of the Mountain King	5	16388	5	Earth				1																																																																																																32										
 581	Ruined Halls of the Mountain King	5	16388	5	Earth																																																																																																				32										
 582	City of the Ancients	5	16607	2	Earth																																																																10																																				29										
 583	The World Pillar	2	16388	0	Earth		1		4																																																																																																31										
@@ -945,7 +949,7 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 1056	Spiral Shaft	0	512	1	Astral					1																																																																																															41										
 1057	Cavern Tomb	0	512	1	Death						1																																																																																														48										
 1058	Moss Covered Cavern	0	512	1	Nature							1																																																																																													56										
-1059	Cavern of Rubies	2	512	1	Fire	1			1					100																																																																																											7										
+1059	Cavern of Rubies	2	512	1	Fire	1			1																																																																																																7										
 1060	Cavern of Magma	1	512	1	Fire	1			1												Heat																																																																																				7										
 1061	Magma Halls	2	512	2	Fire	2			1																																																																																																7										
 1062	Dripping Caverns	1	512	1	Water			1																																																																																																	24										
@@ -953,18 +957,18 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 1064	Ice Caverns	2	512	0	Water			1													Cold																																																																																				24										
 1065	Stalagmite Cavern	1	512	1	Water			1	1																																																																																																24										
 1066	Mist Caverns	1	512	1	Water		1	1																																																																																																	24										
-1067	Gold Deposit	0	512	0	Earth									60																																																																																											32										
-1068	Silver Deposit	0	512	0	Earth									40																																																																																											32										
-1069	Copper Deposit	0	512	0	Earth									20	20																																																																																										32										
+1067	Gold Deposit	0	512	0	Earth																																																																																																				32										
+1068	Silver Deposit	0	512	0	Earth																																																																																																				32										
+1069	Copper Deposit	0	512	0	Earth										20																																																																																										32										
 1070	Iron Deposit	0	512	0	Earth										40																																																																																										32										
-1071	Hidden Gold Deposit	0	512	1	Earth									100																																																																																											32										
-1072	Hidden Gem Deposits	0	512	1	Earth									75																																																																																											32										
+1071	Hidden Gold Deposit	0	512	1	Earth																																																																																																				32										
+1072	Hidden Gem Deposits	0	512	1	Earth																																																																																																				32										
 1073	Mammoth Cave	2	512	0	Earth				2																																																																																																32										
 1074	Earth Blood Vein	1	512	2	Earth				2																																																																																																32										
-1075	Crystal Cavern	0	512	1	Earth				1	1				25																																																																																											32										
-1076	Glittering Cavern	1	512	2	Earth				1					75																																																																																											32										
+1075	Crystal Cavern	0	512	1	Earth				1	1																																																																																															32										
+1076	Glittering Cavern	1	512	2	Earth				1																																																																																																32										
 1077	Buried Temple	2	512	2	Earth					1																																																																																															32										
-1078	Gemwall Cavern	2	512	3	Earth				2					100																																																																																											32										
+1078	Gemwall Cavern	2	512	3	Earth				2																																																																																																32										
 1079	Troglodyte Cave	2	512	3	Earth				1																																																																					447																											32										
 1080	The Storm Underneath	2	16896	3	Air		3																																																																																																		15										
 1081	Ancient Tomb	1	512	1	Death						1																																																																																														47										
