@@ -689,7 +689,9 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'banishkiller', 'banish killer', Utils.planesRef,
 	'masterritualist', 'master ritualist',
 	'stunattackers', 'overcharged',
-
+	'eatforyouth', 'eat for youth', function(v,o){
+		return '-' + v +' years';
+	}
 
 ]);
 var flagorder = DMI.Utils.cutDisplayOrder(aliases, formats,
