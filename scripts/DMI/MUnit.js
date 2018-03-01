@@ -2095,6 +2095,8 @@ var flagorder = Utils.cutDisplayOrder(aliases, formats,
 	'horrormarked', 'horror marked',
 	'corpseconstruct', 'corpse construct',
 	'flieswhenblessed', 'flies when blessed',
+	'commaster', 'communion master',
+	'comslave', 'communion slave',
 
 	]);
 var hiddenkeys = Utils.cutDisplayOrder(aliases, formats,
