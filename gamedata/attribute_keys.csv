@@ -168,8 +168,8 @@ number	name	test
 617	<Unknown Attribute>
 619	<Unknown Attribute>
 700	Map Range {Spl: #provrange}
-701	<Unknown Attribute>
-702	Source Terrain (?) {Spl: #onlygeosrc}
+701	Destination Terrain {Spl: #onlygeodst}
+702	Source Terrain {Spl: #onlygeosrc}
 703	Only Target Own Provinces (?) {Spl: #onlyowndst}
 704	<Unknown Attribute>
 705	<Unknown Attribute>
@@ -203,4 +203,5 @@ number	name	test
 735	<Unknown Attribute>
 736	<Unknown Attribute>
 737	<Unknown Attribute>
+738	<Unknown Attribute>
 900	<Unknown Attribute>

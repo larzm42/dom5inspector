@@ -278,9 +278,10 @@ MSpell.effectlookup = {
 				7: Format.Gems('B')	,
 				8: Format.Gems('H')	,
 				51: Format.Gems('FAWE')	,
-				55: Format.Gems('FAWESDNBH')
+				55: Format.Gems('FAWESDNBH'),
+				5760: Format.Gems('EFWD')
 				}[effect.raw_argument] || {
-					'invalid damage value': 		raw_argument
+					'invalid damage value': 		effect.raw_argument
 				};
 		},
 		49:	damage_untested,

@@ -889,7 +889,6 @@ MSpell.renderSpellTable = function(o, original_effect) {
 		// Attributes
 		for (var oi=0, attr; attr = modctx.attributes_by_spell[oi];  oi++) {
 			if (attr.spell_number == o.id) {
-				//var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
 				if (attr.attribute != "278" &&
 						attr.attribute != "700" &&
 						attr.attribute != "703" &&
@@ -897,7 +896,9 @@ MSpell.renderSpellTable = function(o, original_effect) {
 					var specflags = modctx.attribute_keys_lookup[attr.attribute].name;
 
 					var val;
-					if (attr.attribute == '702') {
+					if (attr.attribute == '701') {
+						val = Utils.renderFlags(MSpell.bitfieldValues(attr.raw_value, modctx.map_terrain_types_lookup), 1);
+					} else if (attr.attribute == '702') {
 						val = Utils.renderFlags(MSpell.bitfieldValues(attr.raw_value, modctx.map_terrain_types_lookup), 1);
 					} else if (attr.attribute == '711') {
 						val = Utils.siteRef(attr.raw_value);
