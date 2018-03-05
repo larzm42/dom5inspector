@@ -162,15 +162,15 @@
 			<div class="filters-text properties">
 				<div class = "property panel itemview">
 					<input type="button" value="X" class="clear-filters-btn" title="clear filters" />
-					property (key):<input size="5" type="text" class="search-key" title="search for any named key" />
+					property (key):<input size="5" type="text" class="search-key" title="search for any named key" id="propkeyitem"/>
 					!<input tabindex="-1" type="checkbox" class="search-not" title="not (opposite results)">
-					<select tabindex="-1" class="search-comp">
+					<select tabindex="-1" class="search-comp" id="propcompitem">
 						<option title="regular expression match" class="default" selected="selected" value="=~">=~</option>
 						<option title="equals" value="==">==</option>
 						<option title="greater than or equal (int)" value=">=">&gt;=</option>
 						<option title="less than or equal (int)" value="<=">&lt;=</option>
 					</select>
-					<input size="5" type="text" class="search-val" title="search for any named key=~value"  />
+					<input size="5" type="text" class="search-val" title="search for any named key=~value" id="propvalitem"/>
 					<textarea class="customjs" style="width:95%; height:100;" ></textarea>
 				</div>
 				<div class = "panel itemview">
@@ -189,15 +189,15 @@
 			<div class="filters-text properties">
 				<div class = "property panel spellview">
 					<input type="button" value="X" class="clear-filters-btn" title="clear filters" />
-					property (key):<input size="5" type="text" class="search-key" title="search for any named key" />
+					property (key):<input size="5" type="text" class="search-key" title="search for any named key" id="propkeyspell"/>
 					!<input tabindex="-1" type="checkbox" class="search-not" title="not (opposite results)">
-					<select tabindex="-1" class="search-comp">
+					<select tabindex="-1" class="search-comp" id="propcompspell">
 						<option title="regular expression match" class="default" selected="selected" value="=~">=~</option>
 						<option title="equals" value="==">==</option>
 						<option title="greater than or equal (int)" value=">=">&gt;=</option>
 						<option title="less than or equal (int)" value="<=">&lt;=</option>
 					</select>
-					<input size="5" type="text" class="search-val" title="search for any named key=~value"  />
+					<input size="5" type="text" class="search-val" title="search for any named key=~value" id="propvalspell"/>
 					<textarea class="customjs" style="width:95%; height:100;" ></textarea>
 				</div>
 				<div class = "panel spellview">
@@ -225,15 +225,15 @@
 			<div class="filters-text properties">
 				<div class = "property panel unitview">
 					<input type="button" value="X" class="clear-filters-btn" title="clear filters" />
-					property (key):<input size="5" type="text" class="search-key" title="search for any named key"/>
+					property (key):<input size="5" type="text" class="search-key" title="search for any named key" id="propkeyunit"/>
 					!<input tabindex="-1" type="checkbox" class="search-not" title="not (opposite results)">
-					<select tabindex="-1" class="search-comp">
+					<select tabindex="-1" class="search-comp" id="propcompunit">
 						<option title="regular expression match" class="default" selected="selected" value="=~">=~</option>
 						<option title="equals" value="==">==</option>
 						<option title="greater than or equal (int)" value=">=">&gt;=</option>
 						<option title="less than or equal (int)" value="<=">&lt;=</option>
 					</select>
-					<input size="5" type="text" class="search-val" title="search for any named key=~value" />
+					<input size="5" type="text" class="search-val" title="search for any named key=~value" id="propvalunit"/>
 					<textarea class="customjs" style="width:95%; height:100;" ></textarea>
 				</div>
 				<div class="panel unitview">
@@ -252,15 +252,15 @@
 			<div class="filters-text properties">
 				<div class = "property panel siteview">
 					<input type="button" value="X" class="clear-filters-btn" title="clear filters" />
-					property (key):<input size="5" type="text" class="search-key" title="search for any named key"/>
+					property (key):<input size="5" type="text" class="search-key" title="search for any named key" id="propkeysite"/>
 					!<input tabindex="-1" type="checkbox" class="search-not" title="not (opposite results)">
-					<select tabindex="-1" class="search-comp">
+					<select tabindex="-1" class="search-comp" id="propcompsite">
 						<option title="regular expression match" class="default" selected="selected" value="=~">=~</option>
 						<option title="equals" value="==">==</option>
 						<option title="greater than or equal (int)" value=">=">&gt;=</option>
 						<option title="less than or equal (int)" value="<=">&lt;=</option>
 					</select>
-					<input size="5" type="text" class="search-val" title="search for any named key=~value" />
+					<input size="5" type="text" class="search-val" title="search for any named key=~value" id="propvalsite"/>
 					<textarea class="customjs" style="width:95%; height:100;" ></textarea>
 				</div>
 				<div class = "property panel siteview">
@@ -278,15 +278,15 @@
 			<div class="filters-text properties">
 				<div class = "property panel mercview">
 					<input type="button" value="X" class="clear-filters-btn" title="clear filters" />
-					property (key):<input size="5" type="text" class="search-key" title="search for any named key"/>
+					property (key):<input size="5" type="text" class="search-key" title="search for any named key" id="propkeymerc"/>
 					!<input tabindex="-1" type="checkbox" class="search-not" title="not (opposite results)">
-					<select tabindex="-1" class="search-comp">
+					<select tabindex="-1" class="search-comp" id="propcompmerc">
 						<option title="regular expression match" class="default" selected="selected" value="=~">=~</option>
 						<option title="equals" value="==">==</option>
 						<option title="greater than or equal (int)" value=">=">&gt;=</option>
 						<option title="less than or equal (int)" value="<=">&lt;=</option>
 					</select>
-					<input size="5" type="text" class="search-val" title="search for any named key=~value" />
+					<input size="5" type="text" class="search-val" title="search for any named key=~value" id="propvalmerc"/>
 					<textarea class="customjs" style="width:95%; height:100;" ></textarea>
 				</div>
 				<div class = "panel mercview">
@@ -316,15 +316,15 @@
 			<div class="filters-text properties">
 				<div class = "property panel eventview">
 					<input type="button" value="X" class="clear-filters-btn" title="clear filters" />
-					property (key):<input size="5" type="text" class="search-key" title="search for any named key"/>
+					property (key):<input size="5" type="text" class="search-key" title="search for any named key" id="propkeyevent"/>
 					!<input tabindex="-1" type="checkbox" class="search-not" title="not (opposite results)">
-					<select tabindex="-1" class="search-comp">
+					<select tabindex="-1" class="search-comp" id="propcompevent">
 						<option title="regular expression match" class="default" selected="selected" value="=~">=~</option>
 						<option title="equals" value="==">==</option>
 						<option title="greater than or equal (int)" value=">=">&gt;=</option>
 						<option title="less than or equal (int)" value="<=">&lt;=</option>
 					</select>
-					<input size="5" type="text" class="search-val" title="search for any named key=~value" />
+					<input size="5" type="text" class="search-val" title="search for any named key=~value" id="propvalevent"/>
 					<textarea class="customjs" style="width:95%; height:100;" ></textarea>
 				</div>
 				<div class = "panel eventview">
@@ -342,15 +342,15 @@
 			<div class="filters-text properties">
 				<div class = "property panel wpnview">
 					<input type="button" value="X" class="clear-filters-btn" title="clear filters" />
-					property (key):<input size="5" type="text" class="search-key" title="search for any named key"/>
+					property (key):<input size="5" type="text" class="search-key" title="search for any named key" id="propkeywpn"/>
 					!<input tabindex="-1" type="checkbox" class="search-not" title="not (opposite results)">
-					<select tabindex="-1" class="search-comp">
+					<select tabindex="-1" class="search-comp" id="propcompwpn">
 						<option title="regular expression match" class="default" selected="selected" value="=~">=~</option>
 						<option title="equals" value="==">==</option>
 						<option title="greater than or equal (int)" value=">=">&gt;=</option>
 						<option title="less than or equal (int)" value="<=">&lt;=</option>
 					</select>
-					<input size="5" type="text" class="search-val" title="search for any named key=~value" />
+					<input size="5" type="text" class="search-val" title="search for any named key=~value" id="propvalwpn"/>
 					<textarea class="customjs" style="width:95%; height:100;" ></textarea>
 				</div>
 				<div class = "property panel wpnview">
@@ -369,15 +369,15 @@
 			<div class="filters-text panel armorview properties">
 				<div class = "property panel armorview">
 					<input type="button" value="X" class="clear-filters-btn" title="clear filters" />
-					property (key):<input size="5" type="text" class="search-key" title="search for any named key"/>
+					property (key):<input size="5" type="text" class="search-key" title="search for any named key" id="propkeyarmor"/>
 					!<input tabindex="-1" type="checkbox" class="search-not" title="not (opposite results)">
-					<select tabindex="-1" class="search-comp">
+					<select tabindex="-1" class="search-comp" id="propcomparmor">
 						<option title="regular expression match" class="default" selected="selected" value="=~">=~</option>
 						<option title="equals" value="==">==</option>
 						<option title="greater than or equal (int)" value=">=">&gt;=</option>
 						<option title="less than or equal (int)" value="<=">&lt;=</option>
 					</select>
-					<input size="5" type="text" class="search-val" title="search for any named key=~value" />
+					<input size="5" type="text" class="search-val" title="search for any named key=~value" id="propvalarmor"/>
 					<textarea class="customjs" style="width:95%; height:100;" ></textarea>
 				</div>
 				<div class = "property panel armorview">
