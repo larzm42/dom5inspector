@@ -281,7 +281,7 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 388	Tower of the Silver Order	2	223	1	Air		2			3									lab																																																																100																						12											
 389	Tower of the Silver Order	2	223	1	Air		2			2									lab																																																																100																						12											
 390	Academy of High Magics	2	223	1	Air		1				1								lab																																																																312	302																					12											
-391	Cloud Spire	2	223	2	Air		2												lab																																																																93	92																					11											
+391	Cloud Abode	2	223	2	Air		2												lab																																																																93	92																					11											
 392	Ivory Tower	2	223	2	Air		3			1									lab																																																																343																						12											
 393	Twin Spire Tower	2	223	1	Air		1			1																																																																									343																						12											
 394	Stone Spires	2	8	1	Air		2																																		A	2																																																															12											
@@ -1048,3 +1048,5 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 1155	The Shattered Throne	13	214015	0	Holy					2			4				10				Magic	Misfortune	3					1																																	30%			1%	5%																																								72											
 1156	The Throne of Creation	13	214015	0	Holy										100						Turmoil		3	3																															30%			20%																																															72							1				
 1157	The Throne of Destiny	13	214015	0	Holy																		3	-1				-2																																																																													72											
+1158	Wind Spire	0	223	0	Air		1																																																																																																		12											
+1159	Lava Lake	0	735	0	Fire	1		1																																																																																																	5											
