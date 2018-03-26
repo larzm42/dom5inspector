@@ -1,6 +1,6 @@
 {
-  "name": "Dominions 5 Inspector",
-  "version": "5.15",
+  "name": "dominions5inspector",
+  "version": "5.15.0",
   "description": "A data inspector for Dominions 5.",
   "main": "main.js",
   "scripts": {
