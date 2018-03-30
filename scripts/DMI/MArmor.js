@@ -15,6 +15,7 @@ var modconstants = DMI.modconstants;
 
 MArmor.initArmor = function(o) {
 	o.type = 5;
+	o.def = 10;
 	o.used_by = [];
 }
 

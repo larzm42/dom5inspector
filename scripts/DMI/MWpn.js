@@ -15,6 +15,7 @@ var modconstants = DMI.modconstants;
 
 MWpn.initWpn = function(o) {
 	o.used_by = [];
+	o.att = 10;
 }
 
 MWpn.prepareData_PreMod = function() {

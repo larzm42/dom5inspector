@@ -726,3 +726,4 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 725	Brass Hoof	725	0	0	0	1	0	0	0	0	
 726	Brass Horns	726	-1	-1	1	1	0	0	0	0	
 727	Fiery Breath	727	0	0	0	1	4	0	0	0	
+728	Double Axe	728	1	0	2	1	0	0	0	4	

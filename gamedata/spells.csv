@@ -1092,3 +1092,4 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 1137	Forge Brass Bull	3	7	0	3	3	3	1137	1	0	0	30	0	3171	
 1138	Taurobolium	5	3	6	1	0	1	1138	1	0	0	6	0	651	
 1139	Blessing of the God-slayer	4	0	2	1	8	1	1139	1	0	0	5	0	654	
+1140	Awaken Jotun Draugar	0	4	5	2	-1	0	1140	3	0	0	15	0	3193	

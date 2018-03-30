@@ -218,8 +218,8 @@ id	name	type	def	enc	rcost	end
 217	Plate Cuirass of Ulm	5	-1	2	17	
 218	Full Helmet of Ulm	6	-1	0	6	
 219	Half Helmet of Ulm	6	0	0	4	
-220	Tower Shield of Ulm	4	5	2	0	
-221	Kite Shield of Ulm	4	4	2	0	
+220	Tower Shield of Ulm	4	5	2	4	
+221	Kite Shield of Ulm	4	4	2	5	
 222	Fish Cloak	5	0	0	0	
 223	Enchanted Helmet	6	0	0	0	
 224	Shell Cap	6	0	0	1	

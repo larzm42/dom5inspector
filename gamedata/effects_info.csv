@@ -2,7 +2,7 @@ number	name	test
 0	Nothing
 1	Summon
 2	Damage {Wpn: #dt_normal}
-3	Sleep/Stun {Wpn: #dt_stun}
+3	Fatigue  {Wpn: #dt_stun}
 4	Cause Fear (Type I)
 7	Poison (Mortal) {Wpn: #dt_poison}
 8	Remove Fatigue (?)
