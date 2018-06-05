@@ -1,1 +1,1 @@
-Totally destroys the target's armor. This spell does not affect magical armor.
+Almost totally destroys the target's armor and shield. Magical armor is likely to resist the effect of this spell.

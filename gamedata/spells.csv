@@ -314,6 +314,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 355	Iron Blizzard	2	6	3	1	8	1	355	5025	3	50	0	0	10	
 356	Contact Iron Angel	0	8	3	5	4	2	356	1	0	0	25	0	1975	
 357	Tempering the Will	5	5	3	3	-1	0	357	1	100	20	0	0	67108864	
+358	Gift of the Moon	4	4	4	1	-1	0	358	1	100	20	0	0	1099511627776	
 359	Sanguine Heritage	6	0	7	3	5	3	359	1	0	0	44	0	1019	
 360	Summon Monster Toads	0	5	6	2	-1	0	360	3	0	0	8	0	1358	
 362	Contact Couatl	0	7	6	1	4	1	362	1	0	0	40	0	525	
@@ -567,7 +568,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 612	Resist Lightning	1	2	3	1	-1	0	612	1	0	10	0	0	199	
 613	Alchemical Transmutation	1	2	3	1	-1	0	613	1	0	0	1	0	1009	
 614	Stoneskin	1	2	3	1	-1	0	614	1	0	10	0	0	65536	
-615	Armor of Achilles	1	2	3	1	-1	0	615	1	3	40	0	0	17592186044416	
+615	Armor of Achilles	1	2	3	1	-1	0	615	1	3	40	0	0	10	
 616	Earth Meld	1	2	3	2	-1	0	616	1	3	60	0	0	16384	
 617	Cheat Fate	1	2	4	1	-1	0	617	1	0	20	0	0	1	
 618	Weakness	1	2	5	1	-1	0	618	1	3	20	0	0	3	
@@ -588,7 +589,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 633	Encase in Ice	1	4	2	2	-1	0	633	1	100	20	0	0	299	
 634	Wolven Winter	1	4	2	3	-1	0	634	1	0	0	5	0	3	
 635	Temper Flesh	1	4	3	1	-1	0	635	1	0	20	0	0	481036338176	
-636	Destruction	1	4	3	3	-1	0	636	1	3	40	0	0	17592186044416	
+636	Destruction	1	4	3	3	-1	0	636	1	3	40	0	0	5	
 637	Curse of Stones	1	4	3	3	-1	0	637	1	0	0	3	0	32	
 638	Blight	1	4	3	2	5	1	638	1	0	0	5	0	9	
 639	Arouse Hunger	1	4	5	3	-1	0	639	3010	0	0	8	0	198	
@@ -611,7 +612,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 656	Baleful Star	1	5	4	3	-1	0	656	1	0	0	7	0	5	
 657	Enfeeble	1	5	5	2	-1	0	657	1	3	0	1	0	2	
 658	Invulnerability	1	5	5	3	-1	0	658	1	0	20	0	0	2	
-659	Drain Life	1	5	5	4	-1	0	659	1	100	10	0	0	1010	
+659	Drain Life	1	5	5	4	-1	0	659	1	25	10	0	0	1010	
 660	Wooden Warriors	1	5	6	2	-1	0	660	1	0	50	0	0	16	
 661	Mother Oak	1	5	6	5	-1	0	661	1	0	0	50	0	46	
 662	Blindness	1	6	0	1	-1	0	662	1	100	20	0	0	4096	
@@ -1047,7 +1048,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 1092	Ritual of Five Gates	6	6	7	5	-1	0	1092	1	0	0	28	73	88	
 1093	Bind Ice Devil	6	6	7	3	2	3	1093	1	-2	0	88	0	1	
 1094	Call Horror	6	6	7	3	4	3	1094	1	-2	0	3	0	-7	
-1095	Leech	6	7	7	1	-1	0	1095	1	100	0	1	0	1024	
+1095	Leech	6	7	7	1	-1	0	1095	1	25	0	1	0	1024	
 1096	Blood Rain	6	7	7	3	-1	0	1096	1	0	0	3	0	68	
 1097	Plague of Locusts	6	7	7	5	-1	0	1097	9	0	0	88	0	2794	
 1098	Bind Arch Devil	6	7	7	4	0	2	1098	1	0	0	99	0	2	
@@ -1093,3 +1094,9 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 1138	Taurobolium	5	3	6	1	0	1	1138	1	0	0	6	0	651	
 1139	Blessing of the God-slayer	4	0	2	1	8	1	1139	1	0	0	5	0	654	
 1140	Awaken Jotun Draugar	0	4	5	2	-1	0	1140	3	0	0	15	0	3193	
+1141	From Death Comes Life	1	3	5	1	6	1	1141	1	0	0	3	0	94	
+1142	Rhapsody of the Dead	5	3	5	1	-1	0	1142	1	0	20	0	0	1003	
+1143	Scare Spirits	-1	1	-1	0	-1	0	1143	1	0	0	0	0	3	
+1144	Rhapsody of Life	5	3	6	1	-1	0	1144	1	5	20	0	0	1009	
+1145	Relief	-1	1	-1	0	-1	0	1145	1	0	0	0	0	10	
+1146	Procession of the Underworld	0	5	5	3	-1	0	1146	12	0	0	15	0	3210	

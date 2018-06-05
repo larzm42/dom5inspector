@@ -2,9 +2,9 @@ monster_number	nation_number	end
 431	5	
 1076	5	
 1081	5	
+3197	5	
 1083	5	
 1071	5	
-242	5	
 311	5	
 1072	5	
 426	6	
@@ -202,6 +202,7 @@ monster_number	nation_number	end
 15	43	
 746	43	
 242	43	
+3198	43	
 311	43	
 426	45	
 428	45	
@@ -432,7 +433,8 @@ monster_number	nation_number	end
 15	80	
 1554	80	
 746	80	
-242	80	
+3199	80	
+3200	80	
 311	80	
 3128	80	
 426	81	
