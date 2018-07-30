@@ -200,6 +200,9 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 199	Black Korkyra	5	0	0	Water			1	1																																																																																																25											
 200	Gold Apple Tree	5	0	0	Fire	1											-5																																																																																								10											
 201	Orichalcum Mine	5	516	0	Fire										100																																																																																										1										150	
+202	Shattered Volcano	5	0	0	Fire	1					1																																3227																														3226																																2											
+203	Telepylos	5	0	0	Earth				1																																		3216																														3225	3228																															29											
+204	The Burning Mountain	2	223	0	Fire	3															Heat																																																																																				1											
 310	Tar Pits	0	219	1	Fire	1																																																																																																			5											
 311	Sun Ridge	0	223	1	Fire	2																																																																																																			3											
 312	Gold-Leafed Tree	1	223	2	Fire	2																																																																																																			10											

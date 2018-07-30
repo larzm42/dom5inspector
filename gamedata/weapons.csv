@@ -730,3 +730,8 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 729	Banefire Torch	729	1	0	1	1	0	0	730	2	
 730	Banefire	730	0	0	0	1	0	0	64	0	
 731	Key to Every Entrance	731	1	0	1	1	0	0	0	0	
+732	Head Butt	732	0	0	0	1	0	0	0	0	
+733	Cyclope Spear	733	1	0	3	1	0	0	0	4	
+734	Cyclope Sword	734	1	1	1	1	0	0	0	6	
+735	Serpent Leg	735	-1	0	0	1	0	51	0	0	
+736	Snake Trusses	736	-2	0	0	5	0	50	0	0	
