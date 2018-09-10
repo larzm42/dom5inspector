@@ -60,6 +60,7 @@ number	name	test
 80	Gateway
 81	Enchant Battlefield | Enchant World
 82	Local Enchant Province - Gem Duration
+83	Local Enchant Province - Single Turn
 84	Local Enchant Province - Permanent Duration
 85	Remote Enchant Province - Gem Duration
 86	Remote Enchant Province - Single turn
@@ -113,7 +114,14 @@ number	name	test
 137	Summon if not dead
 138	Unknown
 500	Dehydrate
+501	Set Bonus Stat (2)
+502	Set Bonus Stat (3)
+503	Set Bonus Stat (4)
 504	Resist Element
+505	Set Bonus Stat (6)
+506	Set Bonus Stat (7)
+507	Set Bonus Stat (8)
+508	Set Bonus Stat (9)
 509	Protect against Element
 511	Unknown
 514	Resist Poison
