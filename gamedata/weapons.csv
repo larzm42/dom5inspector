@@ -46,7 +46,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 45	Coral Club	45	0	0	1	1	0	50	0	1	
 46	Coral Glaive	46	-1	1	3	1	0	50	0	4	
 47	Lobster Claw	47	-4	0	0	1	0	0	0	0	
-48	Fire Flare	48	0	0	2	1	0	0	0	0	
+48	Fire Flare	48	0	0	5	1	0	0	0	0	
 49	Iron Prod	49	-2	-1	2	1	0	0	0	4	
 50	Weak Poison	50	0	0	0	1	0	0	0	0	
 51	Strong Poison	51	0	0	0	1	0	0	0	0	
@@ -593,7 +593,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 592	Stinger	592	2	0	0	1	0	51	0	0	
 593	Spiked Club	593	0	0	1	1	0	0	0	0	
 594	Poison Bow	594	1	0	0	1	12	50	0	3	
-595	Hypnotize	595	100	0	0	1	0	0	0	0	
+595	Hypnotize	595	100	0	5	1	0	0	0	0	
 596	Light Lance	596	1	0	3	1	1	0	0	2	
 597	Life Drain	597	2	0	0	1	0	0	0	0	
 598	Shard Glaive	598	1	0	3	1	0	118	0	8	

@@ -200,7 +200,7 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 199	Black Korkyra	5	0	0	Water			1	1																																																																																																25											
 200	Gold Apple Tree	5	0	0	Fire	1											-5																																																																																								10											
 201	Orichalcum Mine	5	516	0	Fire										100																																																																																										1										150	
-202	Shattered Volcano	5	0	0	Fire	1					1																																3227																														3226																																2											
+202	Shattered Volcano	5	0	0	Fire	1					1																																																																																														2	102	3227	3226								
 203	Telepylos	5	0	0	Earth				1																																		3216																														3225	3228																															29											
 204	The Burning Mountain	2	223	0	Fire	3															Heat																																																																																				1											
 310	Tar Pits	0	219	1	Fire	1																																																																																																			5											
@@ -320,7 +320,7 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 424	Nest of Obsidian Snakes	1	223	3	Air		2																																																																																																		15											
 425	Black Hawk Nest	1	6	2	Air		1																																										517	2																																																							13											
 426	Ziggurat of Thunder	2	223	1	Air		2																																																																																																		12											
-427	The Highest Peak	1	16388	2	Air		1																																		A	2																																																															9	56	1286									
+427	The Highest Peak	1	16388	2	Air		1																																		A	2																																																															9	56		1286								
 428	Pinnacle of Power	2	16607	3	Air		1																																		A	3																																														0																	12											
 429	Rune of Air	1	255	2	Air																																				A	2																																																															11											
 430	Mirage	0	8	1	Air		1																																																																																																		10											

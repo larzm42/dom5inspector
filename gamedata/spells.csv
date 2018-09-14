@@ -749,7 +749,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 793	Spirits of the Wood	0	5	6	3	-1	0	793	2004	0	0	8	0	932	
 794	Contact Forest Trolls	0	5	6	3	-1	0	794	1002	0	0	10	0	2219	
 795	Awaken Sleeper	0	5	6	4	-1	0	795	1	0	0	10	0	559	
-796	Winged Monkeys	0	5	6	3	4	2	796	1	0	0	10	0	0	
+796	Winged Monkeys	0	5	6	3	4	2	796	1	0	0	10	0	1	
 797	Summon Manticore	0	5	6	2	3	2	797	1	0	0	5	0	2130	
 798	Vermin Feast	0	5	6	4	-1	0	798	1	0	0	6	0	99	
 799	Summon Fire Snakes	0	6	0	2	-1	0	799	1003	0	0	9	0	814	

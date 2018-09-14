@@ -434,7 +434,7 @@ id	name	rarity	description	requirements	effects	end
 433	Humans have been killed or dri	1	Humans have been killed or driven from the province in large numbers. 	fornation 25|turn 25|land 1|minpop 50	kill 10	
 434	A demon summoned by local bloo	2	A demon summoned by local blood-cultists has run amok.	fornation 25|turn 25|land 1	nation 0|com 1714	
 435	A foreign tribe of apes have a	2	A foreign tribe of apes have attacked the province. They seem to be capturing commoners and transporting them into the jungle for unknown -probably hideous- ends.	fornation 25|turn 25|maxturn 50|land 1	nation 0|2com 1762|4d6units 1763|com 1735|kill 5	
-436	Volunteers have collected virg	2	Volunteers have collected virgin humans for sacrifice.	fornation 25|turn 35|land 1|minpop 100	2d6vis B	
+436	Volunteers have collected virg	-2	Volunteers have collected virgin humans for sacrifice.	fornation 25|turn 35|land 1|minpop 100	2d6vis B	
 437	Followers of the local blood c	-1	Followers of the local blood cult have summoned forest demons into your service.	fornation 25|turn 30|land 1|forest 1	nation -2|1d6units 1737	
 438	People of the province are rev	2	People of the province are revolting against the local practice of blood magic and have liberated some blood slaves.	fornation 25|turn 35|gem 7|minpop 100	gemloss B	
 439	A gang of vengeful rakshas has	2	A gang of vengeful rakshas has sought out one of your faithful devatas. Trying to slay him, the have attacked the province in force.	fornation 25|turn 30|commander 1336|land 1	nation 0|2com 1738|4d6units 1737|1d6units 1747	
@@ -458,7 +458,7 @@ id	name	rarity	description	requirements	effects	end
 457	The ruler of the province has 	-2	The ruler of the province has been able to enforce an existing law, giving the government monopoly on gambling.	order 2|minpop 10	landgold 15|unrest 10	
 458	A successful traders guild has	-2	A successful traders guild has moved their headquarters here.	luck 2|minpop 150	landgold 15	
 459	A tribe of subterranean goblin	-2	A tribe of subterranean goblins have emerged. They are wealthy and spendthrift with their silver, but cause trouble wherever they go.	chaos 1|minpop 150|mountain 1|magic 0	landgold 15|unrest 10|incscale Turmoil	
-460	People have been investing in 	-2	People have been investing in a pyramid game, that has now deflated.	turn 4|chaos 1|minpop 150|unluck 1	taxboost -100|unrest 30	
+460	People have been investing in 	2	People have been investing in a pyramid game, that has now deflated.	turn 4|chaos 1|minpop 150|unluck 1	taxboost -100|unrest 30	
 461	One of your researchers stumbl	1	One of your researchers stumbled upon an ancient skin-bound tome and read a passage aloud. Unfortunately all those who happened to listen have been cursed for the rest of their miserable lives.	researcher 1	curse 5	
 462	Some of your followers were se	-1	Some of your followers were sent to retrieve the rumored riches of an ancient tomb situated in the eastern parts of this realm. They returned, carrying a meager sum of gold, cursed by its undead wardens.	pop0ok 1|mintroops 10|unluck 1	curse 10|gold 34	
 463	Miasmatic fumes have risen fro	1	Miasmatic fumes have risen from the swamp, bringing pestilence to those living or traveling in the surrounding area.	swamp 1|unluck 1|turn 10	disease 10|kill 10	
@@ -531,7 +531,7 @@ id	name	rarity	description	requirements	effects	end
 530	Some unnecessary laws have bee	1	Some unnecessary laws have been abolished.	chaos 2|minpop 20	incscale3 Turmoil|unrest 10	
 531	The governor of the province h	2	The governor of the province has died from a wasting disease. His incompetent brother-in-law has now taken over the administrative duties.	order 0|minpop 20|capital 0	incscale3 Turmoil|landgold -5|landprod -5	
 532	Corruption flourishes, diminis	2	Corruption flourishes, diminishing tax returns.	chaos 2|minpop 20	landgold -10	
-533	The effective government of th	2	The effective government of this province is giving increased tax returns.	order 2|minpop 100	landgold 5	
+533	The effective government of th	-2	The effective government of this province is giving increased tax returns.	order 2|minpop 100	landgold 10	
 534	An atheistic movement has gain	2	An atheistic movement has gained followers. They claim that the current efficiency of production only enrichens those in power and demands that the produce of society be returned to the people.	prod 2|dominion 2|minpop 20|turn 8	unrest 10|incdom -2	
 535	Foreign priests have infiltrat	1	Foreign priests have infiltrated the local church of ##godname## and corrupted central tenets of faith!	dominion 1|maxdominion 4|turn 8	nation -1|newdom 5	
 536	A huge copper bull was excavat	2	A huge copper bull was excavated from an ancient buried settlement. The proud locals put it in the shrine, somewhat covering your effigy. A visiting leper was cured and now a cult has formed around the foreign idol.	dominion 1|maxdominion 3|minpop 20|turn 8	nation -1|newdom 3	
@@ -645,7 +645,7 @@ id	name	rarity	description	requirements	effects	end
 644	People pay offerings to the Gr	1	People pay offerings to the Great Bull. [Temple of the Solar Bull]	foundsite 1	incdom -2|unrest 10	
 645	It is said the desert wind whi	1	It is said the desert wind whispers, carrying sighs of lost travelers. [Desert of Sighs]	site 1	incscale2 Death|decscale2 Cold	
 646	Some say the desert speaks, it	1	Some say the desert speaks, its voice dry and dreadful. [Desert of Sighs]	site 1	incscale2 Death|decscale2 Cold	
-647	A merchant has donated his ric	1	A merchant has donated his riches. He was lost while crossing the Desert of Sighs and found his way only after having prostrated himself in prayer to you. [Desert of Sighs]	site 1	gold 200	
+647	A merchant has donated his ric	-1	A merchant has donated his riches. He was lost while crossing the Desert of Sighs and found his way only after having prostrated himself in prayer to ##godname##. [Desert of Sighs]	site 1	gold 200	
 648	The Cypress Forest has given a	-1	The Cypress Forest has given a plentiful yield this autumn. [Cypress Forest]	foundsite 1|season 2	2d6vis N|2d6vis A	
 649	A magic item was found in the 	-1	A magic item was found in the rubble of a cracked and broken tower. [Cracked Tower]	site 1|luck 1|turn 15|pop0ok 1	magicitem 3	
 650	A wizard once lived here in a 	-1	A wizard once lived here in a great tower. Its location has been lost, but it is said he was a practitioner of air magic, so perhaps one skilled in the same arts could find it. [Cracked Tower]	hiddensite 1		
@@ -702,7 +702,7 @@ id	name	rarity	description	requirements	effects	end
 701	A flock of aggressive goats ha	-2	A flock of aggressive goats have been donated to the temple.	land 1|temple 1|fort 3	nation -2|4d6units 2227	
 702	A warrior has appeared. Her mi	-2	A warrior has appeared. Her mistress was lost when searching for The Sacred Glen and she now seeks to find her. [The Sacred Glen]	nearbysite 1|land 1|rare 30	nation -2|com 354	
 703	Madness has spread like an epi	1	Madness has spread like an epidemic! A mob chanting unnatural names is attacking the garrison.	coast 1|minpop 10|0x6A00 107|nation 107|rare 20|turn 8	com 963|3d6units 962|nation 107|newdom 3|0x8A00 107	
-704	The clam fields have been thri	1	The clam fields have been thriving! [Clam Field]	foundsite 1	1d6vis S|gold 50	
+704	The clam fields have been thri	-1	The clam fields have been thriving! [Clam Field]	foundsite 1	1d6vis S|gold 50	
 705	A band of thieving outlaws hav	1	A band of thieving outlaws have attacked the clam fields, eager for its riches. [Clam Field]	foundsite 1	2com 2472|3d6units 2472|1d6units 210	
 706	A False Prophet is spreading h	2	A False Prophet is spreading his lies. Unless found and dealt with, his following will continue to grow.	land 1|turn 8	stealthcom 2275|incdom -2	
 707	An illithid lord and his retin	2	An illithid lord and his retinue have appeared from the Strange Opening. [Strange Opening]	pop0ok 1|foundsite 1	com 445|addequip 1|2d6units 424|1d6units 425|2com 443	
@@ -901,7 +901,7 @@ id	name	rarity	description	requirements	effects	end
 900	A priest of ##godname## has pr	-2	A priest of ##godname## has prayed for days at the Temple of the Anointed. At last he fell asleep during his prayer. When he awoke, a Sceptre of Authority had materialized on the altar stone. [Sceptre of Authority]	rare 50|magic 1|capital 1|fornation 13	magicitem 9	
 901	The natives adhere to heathen 	-1	The natives adhere to heathen customs, gathering in the woods at midsummer. They are led by priests of the old Faith. If these holy men can be found, they might be swayed to serve your cause instead. [Woodhenge]	hiddensite 1|growth 1|season 1	decscale2 Death|incdom -1	
 902	Magic seems to be at work here	-1	Magic seems to be at work here. Chanting has been heard from the woods at full moon.[Woodhenge]	rare 50|hiddensite 1	decscale2 Death|decscale Drain	
-903	An evil enchantress has cursed	2	An evil enchantress has cursed the forest. Leaves fall, branches wither and rot is spreading. [Dying Forest]	forest 1|freesites 1|magic 1|luck 0	newsite -1	
+903	An evil enchantress has cursed	-2	An evil enchantress has cursed the forest. Leaves fall, branches wither and rot is spreading. [Dying Forest]	forest 1|freesites 1|magic 1|luck 0	newsite -1	
 904	A short fellow has come to stu	-1	A short fellow has come to study the magnificent flowers in the forest. [The Flowering Forest]	site 1|growth 1	nation -2|com 1198	
 905	Strangely, apes have been spot	-2	Strangely, apes have been spotted in the forest. [Forest of the Ape King]	hiddensite 1	unrest 1	
 906	A band of apes has attacked, t	2	A band of apes has attacked, trying to steal food. They seem to have come from the forest [Forest of the Ape King]	hiddensite 1|turn 15	4com 1705|6d6units 1705	
@@ -933,10 +933,10 @@ id	name	rarity	description	requirements	effects	end
 932	A herd of Iron Pigs has run am	1	A herd of Iron Pigs has run amok after a failed experiment at the Tower of the Iron Order. [Tower of the Iron Order]	foundsite 1|magic 0|rare 50	2com 924|3d6units 924	
 933	A wizard has appeared. He clai	-2	A wizard has appeared. He claims to be returning to his fellows at the Academy of High Magics. Unfortunately he seems to have suffered from some kind of mind-addling magic and he cannot remember where it is located. Probably in this or adjoining provinces. In the meantime, he has agreed to serve. [Academy of High Magics]	nearbysite 1|land 1	nation -2|com 312	
 934	A wizard has appeared. He clai	-2	A wizard has appeared. He claims to be returning to his fellows at the Academy of High Magics. Unfortunately he seems to have suffered from some kind of mind-addling magic and he cannot remember exactly where it is located. Probably in this or adjoining provinces. In the meantime, he has agreed to serve.	rare 1|land 1|unluck 1	nation -2|com 312	
-935	Magic seems to be at work here	-1	Magic seems to be at work here. Flowers have been sprouting in spite of the season. [Lost Vale of the Elders]	hiddensite 1|season 3	decscale2 Death|decscale Drain	
-936	Magic seems to be at work here	-1	Magic seems to be at work here. Animals have been behaving strangely. [Animist's Tower]	hiddensite 1	decscale2 Death|decscale Drain	
-937	Magic seems to be at work here	2	Magic seems to be at work here. Flowers have been sprouting in spite of the season.	rare 20|season 3|rare 3	decscale2 Death|decscale Drain	
-938	Magic seems to be at work here	2	Magic seems to be at work here. Animals have been behaving strangely.	rare 1	decscale2 Death|decscale Drain	
+935	Magic seems to be at work here	-1	Magic seems to be at work here. Flowers have been sprouting in spite of the season. [Lost Vale of the Elders]	hiddensite 1|season 3	decscale Death|decscale Drain	
+936	Magic seems to be at work here	-1	Magic seems to be at work here. Animals have been behaving strangely. [Animist's Tower]	hiddensite 1	decscale Death|decscale Drain	
+937	Magic seems to be at work here	2	Magic seems to be at work here. Flowers have been sprouting in spite of the season.	rare 20|season 3|rare 3	decscale Death|decscale Drain	
+938	Magic seems to be at work here	2	Magic seems to be at work here. Animals have been behaving strangely.	rare 1	decscale Death|decscale Drain	
 939	A large group of trolls have a	1	A large group of trolls have appeared and are wreaking havoc in the province. [Troll Pit]	hiddensite 1|turn 10	com 518|3d6units 518	
 940	A large group of trolls have a	2	A large group of trolls have appeared and are wreaking havoc in the province.	land 1|rare 50|turn 15	com 518|3d6units 518	
 941	A tribe of agitated Troglodyte	1	A tribe of agitated Troglodytes have attacked the settlements. [Troglodyte Den]	hiddensite 1|turn 10	com 447|3d6units 447	
@@ -1196,12 +1196,12 @@ id	name	rarity	description	requirements	effects	end
 1195	A group of oath-bound have ret	-1	A group of oath-bound have returned from distant lands. They bring treasures and tales of adventure.	turn 15|capital 1|fornation 62	nation 62|2d6units 2349|magicitem 2|gold 100	
 1196	Nomad tribes have attacked! [N	1	Nomad tribes have attacked! [NovgÃ¥rd]	fornation 62|turn 18|nearbysite 1|capital 0|land 1	4com 136|8d6units 137	
 1197	Nomad tribes have frightened t	1	Nomad tribes have frightened the peasants. Many have left their homes. [NovgÃ¥rd]	fornation 62|turn 5|nearbysite 1|capital 0|land 1	kill 2|emigration 10|unrest 15	
-1198	A troubadour at court has spun	1	A troubadour at court has spun a magical tale. It is spreading like fire among the people, influencing the realm with its wonders.	fornation 62|capital 1	unrest -10|decscale2 Drain	
+1198	A troubadour at court has spun	-1	A troubadour at court has spun a magical tale. It is spreading like fire among the people, influencing the realm with its wonders.	fornation 62|capital 1	unrest -10|decscale2 Drain	
 1199	Nomad tribes have come, plunde	1	Nomad tribes have come, plundered and left! [NovgÃ¥rd]	fornation 62|turn 5|nearbysite 1|capital 0|land 1	kill 3|gold -100|unrest 10	
 1200	The temple has been pillaged a	1	The temple has been pillaged and burnt by nomad raiders!	fornation 62|temple 1|capital 0|land 1	kill 1|unrest 5|temple 0|gold -50	
 1201	One of your commanders has bee	2	One of your commanders has been lured to the river by a woman of the water.	fornation 62|freshwater 1|magic 1|commander 1	assassin 1954	
 1202	Some of the chud hirdmen are g	1	Some of the chud hirdmen are grumbling. They resent being led by vanir.	monster 2350|monster 2342	unrest 10	
-1203	One of the skinshifters has in	1	One of the skinshifters has inherited a talisman. [Bear Claw Talisman]	monster 2352|luck 1	magicitem 9	
+1203	One of the skinshifters has in	-1	One of the skinshifters has inherited a talisman. [Bear Claw Talisman]	monster 2352|luck 1	magicitem 9	
 1204	A leader has stepped forward a	-1	A leader has stepped forward among the skinshifters.	monster 2352|capital 1|fornation 62	nation -2|com 2352	
 1205	Winter is harsh in the lands o	1	Winter is harsh in the lands of the Vanarus. [NovgÃ¥rd]	season 3|nearbysite 1	kill 2|incscale3 Cold	
 1206	A mysterious plowman is workin	-1	A mysterious plowman is working the fields at night. In the morning, farmers find acres of well-plown earth. Harvest will be good this year! [NovgÃ¥rd]	fornation 62|season 0|nearbysite 1|farm 1|magic 2	decscale3 Death|landprod 5|landgold 5	
@@ -1781,7 +1781,7 @@ id	name	rarity	description	requirements	effects	end
 1780	A flock of Gryphons have been 	1	A flock of Gryphons have been attracted by the horses. They attack ferociously!	monster 25|turn 15|land 1	2com 2131|6d6units 2131	
 1781	A flock of Gryphons have been 	1	A flock of Gryphons have been attracted by the horses. They attack ferociously!	monster 57|turn 15|land 1	2com 2131|6d6units 2131	
 1782	A flock of Gryphons have been 	1	A flock of Gryphons have been attracted by the horses. They attack ferociously!	monster 24|turn 15|land 1	2com 2131|6d6units 2131	
-1783	A Black Knight and his men hav	-2	A Black Knight and his men have attacked the province!	growth 2|land 1|unluck 2|turn 25|fort 1	2com 489|com 489|addequip 2|4d6units 489	
+1783	A Black Knight and his men hav	2	A Black Knight and his men have attacked the province!	growth 2|land 1|unluck 2|turn 25|fort 1	2com 489|com 489|addequip 2|4d6units 489	
 1784	The younger brother of a local	-2	The younger brother of a local noble has hired a band of mercenaries and is now trying to take control of the province!	unluck 2|land 1|turn 15|fort 2|poptype 30	com 20|2com 36|addequip 2|8d6units 40|6d6units 417	
 1785	An unnatural plague has swept 	1	An unnatural plague has swept the province, killing thousands. Magical gems were found in the decaying corpses. Rumors of the mythical Crown of Darkness have circulated in the province ever since. [Crown of Darkness]	hiddensite 1	kill 50|unrest 10	
 1786	Local legends speak of a great	-1	Local legends speak of a great Mage King that once ruled these lands. There came a time of decline, when magic and wonder drained from the realm. The wise King used his craft to preserve his citadel and his magical servants from harm, sealing it in the hidden realm with strong spells. Mayhap one greatly skilled in Astral Magic could find out more. [Citadel of the Mage King]	0x4600 1|hiddensite 1|luck 0|magic 0|fort 1|code 0	0x6B00 1|code 135	
@@ -2063,7 +2063,7 @@ id	name	rarity	description	requirements	effects	end
 2062	Warring tribes cause unrest. P	1	Warring tribes cause unrest. Part of the population has been killed in the raids.	chaos 1|minpop 100|capital 0|code -20	unrest 20|kill 5	
 2063	War has broken out among the l	1	War has broken out among the lords of the land. The land is in turmoil and a large part of the population has been killed or fled the land.	chaos 2|minpop 200|land 1|code -20	unrest 25|kill 10|emigration 10	
 2064	Barbarian clans have gathered.	0	Barbarian clans have gathered. They are preparing for war! [Barbarian Warcamp]	fort 2|rare 4|poptype 25|freesites 1|minpop 10|code -20	newsite -1|unrest 20|defence 10	
-2065	Your governor has prepared the	1	Your governor has prepared the land for war.	order 0|code -20	defence 10	
+2065	Your governor has prepared the	-1	Your governor has prepared the land for war.	order 0|code -20	defence 10	
 2066	Your governor has hired some m	0	Your governor has hired some men to serve in the upcoming war.	rare 1|land 1|code -20	nation -2|com 35|4d6units 40|6d6units 33|gold -100	
 2067	Some barbarian scouts have bee	1	Some barbarian scouts have been caught and interrogated. They seem to have been preparing for a large-scale attack!	land 1|turn 5|code 0|code -20	code 90	
 2068	Your governor has hired some m	0	Your governor has hired some men to serve in the upcoming war.	rare 1|land 0|code -20	nation -2|com 406|4d6units 174|6d6units 33|gold -100	
@@ -2135,8 +2135,8 @@ id	name	rarity	description	requirements	effects	end
 2134	Servants of Gaia are trying to	1	Servants of Gaia are trying to reclaim this land!	forest 1|code -25	4com 27|2d6units 27|4d6units 228	
 2135	A being of vines and moss has 	1	A being of vines and moss has attacked one of your commanders!	commander 1|forest 1|code -25	assassin 362	
 2136	The forces that sleep deep in 	0	The forces that sleep deep in the earth have awakened to the call of The Throne of Gaia. They come to rid the land of the influence of civilization!	mountain 1|rare 5|code -25	2com 561|0x7C00 495	
-2137	The Throne of Gaia has infused	1	The Throne of Gaia has infused one of your mages with power! [The Throne of Gaia]	site 1|fort 1|pathnature 1|claimedthrone 1	pathboost 6	
-2138	An animist has come with an of	1	An animist has come with an offering of magical gems to pledge his service. [The Throne of Gaia]	site 1|fort 1|pathnature 1|claimedthrone 1	nation -2|com 552|2d6vis N	
+2137	The Throne of Gaia has infused	-1	The Throne of Gaia has infused one of your mages with power! [The Throne of Gaia]	site 1|fort 1|pathnature 1|claimedthrone 1	pathboost 6	
+2138	An animist has come with an of	-1	An animist has come with an offering of magical gems to pledge his service. [The Throne of Gaia]	site 1|fort 1|pathnature 1|claimedthrone 1	nation -2|com 552|2d6vis N	
 2139	A Cult of Gaia has gained foot	0	A Cult of Gaia has gained foothold among the people.	forest 1|rare 3|freesites 1|code 0|code -25	code 172|incdom -3|decscale2 Death	
 2140	The forest has grown wild. Tho	0	The forest has grown wild. Thorns and bramble make the footpaths impassable, wild beast prey upon cattle and travelers alike. This has hampered trade and hindered access to the forest.	forest 1|rare 2|noseason 3|code -25	landgold -8|landprod -5	
 2141	 A great fertility festival wa	0	 A great fertility festival was celebrated in the province.	rare 3|code 0|code -25	code -26|decscale2 Death|landgold 2	
@@ -2931,7 +2931,7 @@ id	name	rarity	description	requirements	effects	end
 2966	The Tainted one has attracted 	1	The Tainted one has attracted attention from otherworldly powers.	0xE500 0	gainaff 2	
 2967	The Taint corrupts the body an	1	The Taint corrupts the body and mind! One of your commanders has developed strange cravings.	0xE500 0	gainaff 8589934592	
 2968	The Tainted one has attracted 	2	The Tainted one has attracted attention from otherworldly powers.	0xE500 0	com -7|com -6	
-2969	The practice of blood hunting 	1	The practice of blood hunting has brought the Taint upon one of your servants.	0xDD00 8|0xE200 0	gainaff 549755813888	
+2969	The practice of blood hunting 	1	The practice of blood hunting has brought the Taint upon one of your servants.	0xDD00 8|0xE200 0	0x7500 1	
 2970	A mob has formed to oppose you	1	A mob has formed to oppose your blood hunters!	land 1|0xDD00 8|0xE200 0	com 34|4d6units 18|3d6units 17|8d6units 1565|com 240	
 2971	Opposition towards the ongoing	1	Opposition towards the ongoing blood hunting has provoked an attack on your servant!	0xDD00 8|0xE200 0	assassin 1565	
 2972	There is opposition towards th	1	There is opposition towards the ongoing blood hunting. Someone has hired an assassin to get rid of your servant.	0xDD00 8|0xE200 0	assassin 428	
@@ -3182,7 +3182,7 @@ id	name	rarity	description	requirements	effects	end
 3217	Attracted to the death gems, a	2	Attracted to the death gems, a wandering spirit suddenly attacked the commander!	death 1|pop0ok 1|land 1|0xE800 5	assassin 566	
 3218	The moon has turned red and ma	13	The moon has turned red and magic is permeating the world. Astrologers and other Wise Men are most worried about these bad omens. 	0x6300 -2|fort 1	worlddecscale2 Drain|worldunrest 5|worldmark 2	
 3219	The entire sky has turned red 	13	The entire sky has turned red and the barrier that separates the horrors of the void from this world is growing thinner. Mages are advising utmost caution to avoid drawing the attention of any horrors. Performing rituals powered by gems or pearls at this time would be very foolish.	0x6300 -1|fort 1	worlddecscale2 Drain|worldunrest 20|worldmark 5	
-3220	The barrier that seperates the	13	The barrier that seperates the horrors of the void from this world is now gone and horrors are appearing frequently. The sky is still red, but that is not the greatest problem now. Mages are advicing utmost caution to avoid any highly populated area that horrors might enjoy. Performing rituals powered by gems or pearls at this time would be suicidal.	0x6300 0|0x5600 1	worlddecscale Drain|worldunrest 10|worldmark 5	
+3220	The barrier that seperates the	13	The barrier that seperates the horrors of the void from this world is now gone and horrors are appearing frequently. The sky is still red, but that is not the greatest problem now. Mages are advising utmost caution and to avoid any highly populated area that horrors might enjoy. Performing rituals powered by gems or pearls at this time would be suicidal.	0x6300 0|0x5600 1	worlddecscale Drain|worldunrest 10|worldmark 5	
 3221	Powerful memories of the Almig	13	Powerful memories of the Almighty have escaped from the Throne of the Pantokrator. People are terrified and faith in the Pretender Gods has decreased. [The Throne of the Pantokrator]	claimedthrone 1|rare 10|site 1|fort 1	worldincdom -1	
 3222	A dormant decree of the Pantok	13	A dormant decree of the Pantokrator was activated when His Throne was disturbed. The decree has broght order to the world, but people are terrified and faith in the Pretender Gods has decreased. [The Throne of the Pantokrator]	claimedthrone 1|rare 25|site 1|fort 1	worlddecscale2 Turmoil|worldincdom -1	
 3223	A dormant decree of the Pantok	13	A dormant decree of the Pantokrator was activated when His Throne was disturbed. The decree has broght incresed productivity to the world, but people are terrified and faith in the Pretender Gods has decreased. [The Throne of the Pantokrator]	claimedthrone 1|rare 25|site 1|unique 1	worlddecscale Sloth|worldincdom -1	
@@ -3217,3 +3217,8 @@ id	name	rarity	description	requirements	effects	end
 3253	The Hydrophoros of the East wa	0	The Hydrophoros of the East was not present and the Hydrophoria could not be celebrated. People are concerned and there has been some unrest.	fornation 80|temple 1|capital 1|nomonster 3201|monster 3202|0x6500 3	unrest 15	
 3254	The Hydrophoros of the West wa	0	The Hydrophoros of the West was not present and the Hydrophoria could not be celebrated. People are concerned and there has been some unrest.	fornation 80|temple 1|capital 1|monster 3201|nomonster 3202|0x6500 3	unrest 15	
 3255	The Hydrophoroi were not prese	0	The Hydrophoroi were not present and the Hydrophoria could not be celebrated. People are concerned and there has been some unrest.	fornation 80|temple 1|capital 1|nomonster 3201|nomonster 3202|0x6500 3	unrest 15	
+3256	The Burning Mountain has erupt	0	The Burning Mountain has erupted sending shockwaves throughout the kingdom. Thousands have perished in ash and flames. In the wake of the devastation the Laestrygonians have awoken and broken free. Enkelados the Laestrygonian monstrosity imprisoned underneath the volcano has returned to punish the gods for his imprisonment. [The Burning Mountain]	site 1|fornation 102|turn 18|0x7000 5|capital 1|fort 1	nation -2|0x7900 -1|unrest 40|kill 20|com 3229|newsite 202	
+3257	The Burning Mountain has erupt	0	The Burning Mountain has erupted sending shockwaves throughout the kingdom. Thousands have perished in ash and flames. In the wake of the devastation the Laestrygonians have awoken and broken free. Enkelados the Laestrygonian monstrosity imprisoned underneath the volcano has returned to punish the gods for his imprisonment. [The Burning Mountain]	site 1|turn 18|0x7000 5|capital 0|fort 1	0x7900 -1|unrest 40|kill 20|com 3229|newsite 202	
+3258	The Volcano has erupted sendin	1	The Volcano has erupted sending shockwaves throughout the lands. Thousands have perished in ash and flames. Polybotes, the Laestrygonian monstrosity imprisoned underneath the burning mountain has returned to punish the gods for his imprisonment. [Volcano]	site 1|fornation 102|turn 20|fort 1	nation -2|0x7900 -1|unrest 40|kill 20|com 3230|newsite 202	
+3259	The Burning Mountain is rumbli	0	The Burning Mountain is rumbling. Throughout the land fearful tales are told of the giant monstrosities that wage war upon Gods. [The Burning Mountain]	site 1|fornation 102|turn 5|0x6F00 10	unrest 30	
+3260	The Burning Mountain is rumbli	0	The Burning Mountain is rumbling and lava has spilled forth. There has been widespread panic and people are fleeing the land while they still can. [The Burning Mountain]	site 1|fornation 102|turn 15|rare 25|fort 1	unrest 40|2d6vis F|emigration 10	
