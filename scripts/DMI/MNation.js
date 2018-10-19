@@ -145,7 +145,9 @@ MNation.prepareData_PostMod = function() {
 		if (!o.cleargods) {
 			for (var oj=0, attr; attr = modctx.pretender_types_by_nation[oj];  oj++) {
 				if (parseInt(attr.nation_number) == o.id) {
-					o.pretenders.push(attr.monster_number);
+					if (attr.monster_number != 134) { // Why is royal guard marked as pretender?
+						o.pretenders.push(attr.monster_number);
+					}
 				}
 			}
 		}

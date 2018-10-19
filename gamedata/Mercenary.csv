@@ -71,7 +71,7 @@ id	name	bossname	com	unit	nrunits	level	minmen	minpay	xp	randequip	recrate	item1
 70	Agyraspides	Seleucus	13	14	40	2	20	200	30	2	100			7	
 71	The Feathered Serpent	Omecoatl	525	423	50	2	25	350	0	2	100			7	
 72	The Dragon Tamer	Choznar	214	523	4	2	0	80	0	2	20			7	
-73	The Wind Lord	Tempestus	93	562	30	2	15	240	0	3	100			7	
+73	The Wind Lord	Tempestus	93	562	30	2	15	240	0	3	100	Crown of Command		7	
 74	The Whispering Legion	Saladaar	329	566	15	2	5	400	0	2	200			7	
 75	Celestial Apostates	Bajie	903	902	10	2	2	350	0	2	100			7	
 76	The Whisperer	Urvikel	2220	541	50	1	15	300	0	2	50	Skull Staff	Lodestone Amulet	7	

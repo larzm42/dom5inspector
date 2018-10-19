@@ -726,14 +726,14 @@ MSpell.CGrid = DMI.Utils.Class( DMI.CGrid, function() {
 		that.init();
 	},0);
 });
-//MSpell.matchProperty = DMI.matchProperty;
+
 MSpell.matchProperty = function(o, key, comp, val) {
 	if (DMI.matchProperty(o, key, comp, val))
 		return true;
 
 	//nextspell..
-	if (o.nextspell)
-		return DMI.MSpell.matchProperty(o.nextspell, key, comp, val);
+	//if (o.nextspell)
+	//	return DMI.MSpell.matchProperty(o.nextspell, key, comp, val);
 }
 
 MSpell.formatAoe = function(v,o) {
@@ -891,7 +891,6 @@ MSpell.renderSpellTable = function(o, original_effect) {
 			if (attr.spell_number == o.id) {
 				if (attr.attribute != "278" &&
 						attr.attribute != "700" &&
-						attr.attribute != "703" &&
 						attr.attribute != "723") {
 					var specflags = modctx.attribute_keys_lookup[attr.attribute].name;
 
@@ -902,10 +901,12 @@ MSpell.renderSpellTable = function(o, original_effect) {
 						val = Utils.renderFlags(MSpell.bitfieldValues(attr.raw_value, modctx.map_terrain_types_lookup), 1);
 					} else if (attr.attribute == '711') {
 						val = Utils.siteRef(attr.raw_value);
+					} else if (attr.attribute == '716') {
+						val = Utils.unitRef(attr.raw_value);
 					} else if (attr.attribute == '722') {
 						var special = {'-1': 'Non-specialized', 0: 'Fire', 1: 'Air', 2:'Water', 3:'Earth', 4:'Astral', 5:'Death', 6:'Nature', 7:'Blood'};
 						val = special[attr.raw_value];				
-					} else if (attr.attribute == "724") {
+					} else if (attr.attribute == "703" || attr.attribute == "724") {
 						val = Utils.renderFlags(MSpell.bitfieldValues(attr.raw_value, modctx.map_terrain_types_lookup));
 					} else {
 						val = attr.raw_value;
