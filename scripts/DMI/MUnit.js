@@ -1745,7 +1745,7 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'infernoret', 'inferno returning', Format.Percent,
 	'lamiabonus', 'lamia bonus',
 	'formationfighter',	'formation fighter',
-
+    'minsizeleader', 'Min commander size',
 	'seduce',	'seduction',	function(v){ if (v=='0') return '0'; return 'morale vs '+v; },
 	'succubus',	'dream seduction',	function(v){ if (v=='0') return '0'; return 'morale vs '+v; },
 	'corrupt',	'capture cmdr (corruption)',	function(v){ if (v=='0') return '0'; return 'morale vs '+v; },
