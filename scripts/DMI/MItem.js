@@ -798,6 +798,7 @@ var formatItemType = {	'2-h wpn':'two handed weapon',
 			'1-h wpn':'one handed weapon',
 			'misc':'miscellaneous',
 			'helm':'helmet',
+			'crown':'crown',
 			'shield':'shield',
 			'armor':'armor',
 			'boots':'boots'

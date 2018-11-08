@@ -171,7 +171,8 @@ DMI.modconstants = {
 		5: "armor",
 		6: "helm",
 		7: "boots",
-		8: "misc"
+		8: "misc",
+		9: "crown"
 	},
 	
 	//spell effects
