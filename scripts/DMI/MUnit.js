@@ -1017,7 +1017,7 @@ MUnit.prepareForRender = function(o) {
 		}
 		if (n= parseInt(o.E)) {
 			if (isldr) bonus('earth magic', 'magicleader', n*5);
-			bonus('earth magic', 'prot', n);
+			if (n > 2) bonus('earth magic', 'prot', n);
 		}
 		if (n= parseInt(o.F)) {
 			if (isldr) bonus('fire magic', 'leader', n*5);
