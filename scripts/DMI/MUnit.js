@@ -1974,7 +1974,7 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'forgebonus', 'forge bonus', Format.Percent,
 	'indepmove', 'independant move',
 	'vineshield', 'vine shield',
-	'alchemyBonus', 'alchemyBonus',
+	'alchemy', 'alchemy',
 	'afflictionresistance', 'affliction resistance',
 	'makesarmylooksmallerorlarger', 'army size',
 	'summon5',	'summon allies',	function(v,o){
