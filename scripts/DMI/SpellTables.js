@@ -16,6 +16,7 @@ var modctx = DMI.modctx;
 // each 1000 adds 1 per caster path (above base casting level)
 //examples:
 //  10     ->   10
+//  510    ->   10+ [1/2 lvl]
 //  1010   ->   10+
 //  3010   ->   10+++
 //  10010  ->   10+ [10/lvl]
@@ -24,13 +25,23 @@ function spellBonus(v, baselvl) {
 	v = parseInt(v || '0');
 	baselvl = parseInt(baselvl || '0');
 
+	var mod;
+	if (v > 99 && v < 1000) {
+		mod = 500;
+	} else {
+		mod = 1000;
+	}
+	
 	//strip thousands
-	var vbase = v % 1000;
+	var vbase = v % mod;
+
 	//count thousands
-	var bonus = (v-vbase) / 1000;
+	var bonus = (v-vbase) / mod;
 
 	//baselvl is minimum caster lvl (add compulsory bonus to match ingame display)
-	vbase = vbase + (baselvl * bonus)
+	if (mod == 1000) {
+		vbase = vbase + (baselvl * bonus)
+	}
 
 	//support negative values
 	var chr = '+',  suf = '';
@@ -44,6 +55,10 @@ function spellBonus(v, baselvl) {
 	//10+++
 	else if (bonus > 0)
 		suf = (new Array( bonus + 1 ).join( chr ));
+	
+	if (mod == 500) {
+		suf = suf + "[1/2 lvl]";
+	}
 
 	return String(vbase) + suf;
 }
