@@ -516,7 +516,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 515	Corrosion	515	0	0	0	1	0	0	0	0	
 516	Censer	516	-1	-1	1	1	0	0	517	2	
 517	Incense	517	0	0	0	1	0	0	0	0	
-518	Anakite Sword	518	1	2	1	1	0	0	0	6	
+518	Anakite Sword	518	1	2	1	1	0	0	0	8	
 519	Poison Tipped Spear	519	0	0	3	1	0	51	0	4	
 520	Dawn Blade	520	2	2	1	1	0	0	0	8	
 521	The First Sword	521	7	7	2	1	0	0	0	0	
@@ -576,7 +576,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 575	Tiny Slap	575	0	0	0	1	0	0	0	0	
 576	Weak Bite	576	0	0	0	1	0	0	0	0	
 577	Coral Lance	577	0	0	3	1	0	50	0	1	
-578	Tiny Sting	578	0	0	0	1	0	50	0	0	
+578	Sting	578	0	0	0	1	0	50	0	0	
 579	Skull Club	579	1	0	1	1	0	0	0	0	
 580	Coral Long Spear	580	0	-1	4	1	0	50	0	2	
 581	Bident	581	0	1	3	1	0	0	0	2	
@@ -735,3 +735,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 734	Cyclope Sword	734	1	1	1	1	0	0	0	6	
 735	Serpent Leg	735	-1	0	0	1	0	51	0	0	
 736	Snake Tresses	736	-2	0	0	5	0	50	0	0	
+737	Spark Bite	737	0	0	-1	1	0	0	738	0	
+738	Shock	738	0	0	0	1	0	0	0	0	
+739	Tiny Sting	739	0	0	0	1	0	0	0	0	
+740	Tiny Bite	740	0	0	0	1	0	0	0	0	

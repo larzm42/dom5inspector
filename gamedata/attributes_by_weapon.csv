@@ -64,7 +64,7 @@ weapon_number	attribute	raw_value	end
 267	266	1	
 268	266	1	
 269	611	1	
-270	599	2	
+270	599	1	
 270	611	1	
 282	611	1	
 283	611	1	
@@ -98,7 +98,7 @@ weapon_number	attribute	raw_value	end
 381	266	1	
 382	266	1	
 383	302	1	
-401	599	2	
+401	599	1	
 405	268	1	
 406	266	1	
 407	266	1	

@@ -29,6 +29,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 27	Strength, Barkskin and Regeneration	-1	1	-1	0	-1	0	27	1	0	0	0	0	176	
 28	Court of Gnomes	-1	1	-1	0	-1	0	28	15	0	0	0	0	561	
 29	Court of Sylphs	-1	1	-1	0	-1	0	29	15	0	0	0	0	562	
+30	Phantasmal Archers	-1	1	-1	0	-1	0	30	20	0	0	0	0	3233	
 31	Meteor Shower	-1	1	-1	0	-1	0	31	1	0	0	0	0	150	
 32	Mummification	-1	1	-1	0	-1	0	32	1	0	0	0	0	625	
 33	Summon Jinn	-1	1	-1	0	-1	0	33	1	0	0	0	0	490	
@@ -186,12 +187,12 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 227	Summon Gozu Mezu	0	6	5	3	-1	0	227	1	0	0	7	92	2091	
 228	Contact Yama-no-kami	0	7	3	4	-1	0	228	1	0	0	28	0	2097	
 229	Summon Abysian Ancestors	0	2	5	1	0	1	229	5	0	0	5	0	1971	
-230	Reawaken Fossil	4	5	3	2	5	1	230	1003	0	0	10	0	1977	
+230	Reawaken Fossil	4	5	3	2	5	1	230	505	0	0	10	0	1977	
 231	Summon Spectral Infantry	0	2	5	1	0	1	231	5	0	0	5	0	1656	
 232	Contact Scorpion Man	0	8	3	1	0	1	232	1	0	0	12	0	1649	
 233	Inner Furnace	4	5	0	3	-1	0	233	1	0	0	1	0	16384	
 234	Infernal Breeding	6	3	7	2	-1	0	234	1009	0	0	25	0	1	
-235	Summon Bears	0	3	6	1	8	1	235	7	0	0	10	0	3003	
+235	Summon Bears	0	3	6	1	8	1	235	7	0	0	8	0	3003	
 236	Summon Simargl	0	2	1	1	-1	0	236	1	0	0	1	0	1947	
 237	Summon Firebird	0	3	0	1	4	1	237	1	0	0	2	0	1946	
 238	Send Lady Midday	0	5	1	1	5	1	238	1	0	0	10	0	1956	
@@ -200,7 +201,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 241	Summon Rusalka	0	4	2	1	5	1	241	1	0	0	16	0	1954	
 242	Summon Likho	0	4	5	1	-1	0	242	1	0	0	10	0	1952	
 243	Contact Alkonost	0	4	4	2	-1	0	243	1	0	0	15	0	1943	
-244	Summon Zmey	0	5	0	2	-1	0	244	1	0	0	8	0	1940	
+244	Summon Zmey	0	5	0	2	-1	0	244	1	0	0	5	0	1940	
 245	Send Bukavac	0	5	2	4	-1	0	245	1	0	0	5	0	1948	
 246	Contact Gamayun	0	5	4	3	-1	0	246	1	0	0	25	0	1944	
 247	Contact Beregina	0	6	2	3	3	1	247	1	0	0	35	0	1955	
@@ -209,16 +210,16 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 250	Contact Leshiy	0	8	6	6	-1	0	250	1	0	0	60	0	1949	
 251	Grow Fortress	1	0	6	4	-1	0	251	1	0	0	35	0	10	
 252	Fort of the Ancients	1	5	6	4	-1	0	252	1	0	0	35	0	10	
-253	Sacred Crocodile	0	4	6	2	2	2	253	1	0	0	8	0	2186	
-254	Herd of Elephants	0	3	6	2	-1	0	254	1003	0	0	25	0	2398	
+253	Sacred Crocodile	0	4	6	2	2	2	253	1	0	0	3	0	2186	
+254	Herd of Elephants	0	3	6	2	-1	0	254	505	0	0	25	0	2398	
 255	Call Melqart	6	6	7	3	0	2	255	1	0	0	99	0	2267	
 256	Strange Fire	2	4	4	2	0	1	256	1	1	20	0	0	1006	
-257	Memories of Stone	4	5	5	2	3	1	257	1003	0	0	10	0	1998	
+257	Memories of Stone	4	5	5	2	3	1	257	505	0	0	10	0	1998	
 258	Dirge for the Dead	0	6	5	3	8	1	258	1	0	0	25	0	2045	
 259	Banquet for the Dead	0	8	5	4	8	1	259	1	0	0	55	90	2039	
 260	Scapegoats	6	3	7	1	-1	0	260	2	0	0	8	0	2074	
 261	Summon Se'irim	6	3	7	2	-1	0	261	5	0	0	23	0	2074	
-262	Summon Shedim	6	4	7	3	1	1	262	3	0	0	23	0	2073	
+262	Summon Shedim	6	4	7	3	1	1	262	3	0	0	28	0	2073	
 263	Call Malakh	0	4	4	2	-1	0	263	1	0	0	9	0	2056	
 264	Call Hashmal	0	6	4	3	0	1	264	1	0	0	21	0	2057	
 265	Call Arel	0	7	4	4	6	1	265	1	0	0	39	0	2058	
@@ -229,14 +230,14 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 270	Summon Lilot	0	5	6	4	-1	0	270	1	0	0	25	0	2071	
 271	Summon Kusarikkus	0	4	3	1	-1	0	271	2	0	0	6	0	3068	
 272	Summon Ugallu	0	5	1	3	-1	0	272	1	0	0	24	0	3095	
-273	Call Anzu	0	7	1	4	-1	0	273	1	0	0	6	0	3064	
+273	Call Anzu	0	7	1	4	-1	0	273	1	0	0	4	0	3064	
 274	Call Apkallu	0	8	4	5	-1	0	274	1	0	0	60	0	2966	
 275	Call Ephor	0	0	5	1	-1	0	275	1	0	0	7	0	2845	
 276	Call Spectral Philosopher	0	0	5	1	-1	0	276	1	0	0	11	0	2846	
 277	Summon Telkhine	0	8	2	5	1	2	277	1	0	0	69	0	2874	
 278	Summon Hekateride	0	5	6	3	2	1	278	1	0	0	30	0	2834	
 279	Summon Daktyl	0	6	3	3	1	1	279	1	0	0	30	0	2836	
-280	Summon Monster Fish	0	6	2	3	-1	0	280	1	0	0	10	0	1664	
+280	Summon Monster Fish	0	6	2	3	-1	0	280	1	0	0	6	0	1664	
 281	Send Tupilak	4	5	5	3	2	1	281	1	0	0	5	0	1624	
 282	Unholy Command	7	0	8	1	-1	0	282	1	0	0	0	0	999	
 283	Unholy Protection	7	0	8	1	-1	0	283	1	100	0	0	0	67108864	
@@ -256,10 +257,10 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 297	Revive Arch Bishop	0	0	5	3	-1	0	297	1	0	0	23	0	258	
 298	Revive Spectator	0	0	5	2	-1	0	298	1	0	0	12	0	254	
 299	Revive Dusk Elder	0	0	5	3	-1	0	299	1	0	0	20	0	253	
-300	Revive Wailing Lady	0	2	5	2	-1	0	300	1	0	0	15	0	255	
+300	Revive Wailing Lady	0	2	5	2	-1	0	300	1	0	0	8	0	255	
 301	Lictorian Guard	0	3	5	2	-1	0	301	5	0	0	10	0	259	
-302	Lamentation	0	5	5	3	-1	0	302	5	0	0	50	0	255	
-303	Great Lamentation	0	7	5	5	-1	0	303	14	0	0	66	0	255	
+302	Lamentation	0	5	5	3	-1	0	302	5	0	0	25	0	255	
+303	Great Lamentation	0	7	5	5	-1	0	303	14	0	0	33	0	255	
 304	Lictorian Legion	0	8	5	4	-1	0	304	25	0	0	35	0	259	
 305	Ermorian Legion	4	6	5	4	-1	0	305	50	0	0	15	0	187	
 306	Revive Shadow Tribune	0	0	5	1	-1	0	306	1	0	0	8	0	681	
@@ -304,11 +305,11 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 345	Carrion Growth	4	0	8	4	-1	0	345	1	100	0	0	0	536870912	
 346	Dark Slumber	4	4	6	4	5	2	346	1	0	0	15	0	17	
 347	Summon Black Dogs	0	2	5	2	-1	0	347	20	0	0	8	0	1769	
-348	Summon Cu Sidhe	0	3	6	2	-1	0	348	7	0	0	8	0	1770	
-349	Contact Cu Sidhe	0	3	6	2	-1	0	349	7	0	0	8	0	1770	
-350	Summon Barghests	0	4	5	2	-1	0	350	9	0	0	10	0	1768	
+348	Summon Cu Sidhe	0	3	6	2	-1	0	348	7	0	0	6	0	1770	
+349	Contact Cu Sidhe	0	3	6	2	-1	0	349	7	0	0	6	0	1770	
+350	Summon Barghests	0	4	5	2	-1	0	350	9	0	0	7	0	1768	
 351	Summon Bean Sidhe	0	5	5	1	-1	0	351	1	0	0	25	0	1776	
-352	Summon Morrigan	0	6	5	2	1	1	352	1	0	0	4	0	1821	
+352	Summon Morrigan	0	6	5	2	1	1	352	1	0	0	5	0	1821	
 353	Dance of the Morrigans	0	8	5	5	1	2	353	1	0	0	4	0	86	
 354	Iron Darts	2	3	3	1	8	1	354	2001	5	10	0	0	13	
 355	Iron Blizzard	2	6	3	1	8	1	355	5025	3	50	0	0	10	
@@ -324,14 +325,14 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 366	Call Fravashi	0	7	4	3	-1	0	366	1	0	0	30	0	2563	
 367	Call Amesha Spenta	0	8	4	5	-1	0	367	1	0	0	60	0	12	
 368	Summon Yazatas	0	5	4	2	-1	0	368	6	0	0	15	0	1607	
-369	Call Daevas	0	5	5	2	0	1	369	3	0	0	15	0	2630	
+369	Call Daevas	0	5	5	2	0	1	369	6	0	0	15	0	2630	
 370	Call Jahi	0	5	5	3	0	1	370	1	-2	0	15	0	2631	
 371	Call Yata	0	6	5	3	0	2	371	1	0	0	40	0	-17	
 372	Call of the Drugvant	5	7	5	4	0	1	372	1	0	0	15	0	15	
 373	Call Greater Daeva	0	8	5	4	0	2	373	1	0	0	60	0	16	
 374	Geoglyphs	4	5	4	3	3	2	374	1	0	0	18	0	100	
 375	Eyes of the Condors	4	2	1	2	-1	0	375	1	0	0	1	0	36	
-376	Summon Condors	0	3	1	2	-1	0	376	2006	0	0	9	0	2694	
+376	Summon Condors	0	3	1	2	-1	0	376	1008	0	0	9	0	2694	
 377	Summon Huacas	0	5	4	2	-1	0	377	5	0	0	15	0	2697	
 378	Summon Supayas	0	5	5	2	-1	0	378	5	0	0	10	0	2700	
 379	Contact Harbinger	0	6	4	4	-1	0	379	1	0	0	25	0	464	
@@ -345,14 +346,14 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 387	Summon Glosos	0	3	5	2	-1	0	387	9	0	0	13	0	2363	
 388	Brood of Garm	0	4	6	2	-1	0	388	5	0	0	10	0	1309	
 389	Illwinter	6	6	7	5	2	3	389	1	0	0	120	0	44	
-390	Summon Jaguar Toad	0	1	6	1	8	1	390	1	0	0	1	0	1359	
+390	Summon Jaguar Toads	0	1	6	1	8	1	390	2	0	0	2	0	1359	
 391	Summon Jaguars	0	3	6	2	8	1	391	17	0	0	25	0	859	
-392	Summon Jade Serpent	0	4	2	2	-1	0	392	1	0	0	5	0	1889	
+392	Summon Jade Serpent	0	4	2	2	-1	0	392	1	0	0	3	0	1889	
 393	Summon Monster Toad	0	5	6	2	-1	0	393	1	0	0	2	0	1358	
 394	Contact Couatl	0	6	6	1	4	1	394	1	0	0	40	0	525	
 395	Summon Tlaloque	0	7	2	4	-1	0	395	1	0	0	60	0	13	
 396	Bind Beast Bats	6	2	7	1	-1	0	396	3	0	0	8	0	1357	
-397	Bind Jaguar Fiends	6	4	7	1	0	1	397	3	0	0	13	0	1356	
+397	Bind Jaguar Fiends	6	4	7	1	0	1	397	3	0	0	16	0	1356	
 398	Contact Civateteo	6	5	7	2	5	2	398	1	0	0	36	0	1422	
 399	Bind Tzitzimitl	6	6	7	2	4	2	399	1	0	0	10	0	1483	
 400	Contact Tlahuelpuchi	6	6	7	3	-1	0	400	1	0	0	42	0	1558	
@@ -370,15 +371,15 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 412	Gift of the Fourth Soul	5	3	5	1	-1	0	412	1	2	20	0	0	2	
 413	Summon Balam	0	7	6	4	-1	0	413	1	0	0	60	0	17	
 414	Summon Chaac	0	8	1	4	-1	0	414	1	0	0	75	0	18	
-415	Celestial Servant	0	1	3	1	4	1	415	1	0	0	3	0	903	
+415	Celestial Servant	0	1	3	1	4	1	415	1	0	0	1	0	903	
 416	Heavenly Rivers	0	3	2	1	4	1	416	3	0	0	12	0	904	
-417	Celestial Hounds	0	4	1	1	4	1	417	2	0	0	5	0	1338	
-418	Heavenly Fires	0	5	0	1	4	1	418	3	0	0	10	0	926	
+417	Celestial Hounds	0	4	1	1	4	1	417	2	0	0	4	0	1338	
+418	Heavenly Fires	0	5	0	1	4	1	418	3	0	0	6	0	926	
 419	Call Celestial Soldiers	0	6	1	2	4	1	419	5	0	0	15	0	902	
 420	Call Ancestor	0	1	5	1	-1	0	420	1	0	20	0	0	1363	
 421	Wrath of the Ancestors	0	7	5	1	-1	0	421	2018	0	0	1	0	1363	
-422	Summon Nagas	0	3	2	2	3	1	422	6	0	0	20	0	1319	
-423	Summon Apsaras	0	3	4	2	-1	0	423	3	0	0	3	0	1332	
+422	Summon Nagas	0	3	2	2	3	1	422	6	0	0	15	0	1319	
+423	Summon Apsaras	0	3	4	2	-1	0	423	3	0	0	2	0	1332	
 424	Contact Yaksha	0	4	6	2	3	1	424	1	0	0	25	0	1329	
 425	Contact Yakshini	0	4	6	2	2	1	425	1	0	0	25	0	1330	
 426	Contact Nagini	0	4	2	2	3	1	426	1	0	0	25	0	1322	
@@ -402,14 +403,14 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 444	Summon Danavas	6	8	7	5	-1	0	444	3	0	0	75	0	1767	
 445	Host of Ganas	0	2	5	1	-1	0	445	20	0	0	12	0	1764	
 446	Summon Vetalas	0	5	5	2	-1	0	446	10	0	0	10	0	1765	
-447	Summon Ko-Oni	0	1	5	1	-1	0	447	1004	0	0	7	0	1260	
+447	Summon Ko-Oni	0	1	5	1	-1	0	447	505	0	0	7	0	1260	
 448	Summon Kappa	0	1	2	1	6	1	448	3	0	0	3	0	1482	
-449	Summon Ao-Oni	0	2	2	1	5	1	449	1004	0	0	10	0	1264	
+449	Summon Ao-Oni	0	2	2	1	5	1	449	505	0	0	10	0	1264	
 450	Summon Karasu Tengus	0	2	6	1	1	1	450	3	0	0	3	0	1478	
-451	Summon Aka-Oni	0	3	0	1	5	1	451	1003	0	0	10	0	1266	
-452	Summon Konoha Tengus	0	3	1	1	3	1	452	1004	0	0	5	0	1479	
+451	Summon Aka-Oni	0	3	0	1	5	1	451	505	0	0	10	0	1266	
+452	Summon Konoha Tengus	0	3	1	1	3	1	452	505	0	0	5	0	1479	
 453	Ghost General	0	4	5	3	-1	0	453	1	0	0	10	0	1256	
-454	Summon Oni	0	4	3	1	5	1	454	1004	0	0	12	0	1272	
+454	Summon Oni	0	4	3	1	5	1	454	505	0	0	12	0	1272	
 455	Contact Dai Tengu	0	5	1	2	3	1	455	1	0	0	55	77	1480	
 456	Contact Nushi	0	5	2	2	6	1	456	1	0	0	25	0	1431	
 457	Summon Kuro-Oni	0	5	5	2	0	1	457	4	0	0	10	0	1274	
@@ -432,20 +433,20 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 474	Enliven Granite Guard	4	5	3	3	-1	0	474	1	0	0	12	0	1498	
 475	Enliven Marble Oracle	4	6	3	3	5	1	475	1	0	0	35	0	1499	
 476	Animate Mercury	-1	1	-1	0	-1	0	476	1	0	0	0	0	2515	
-477	Living Mercury	4	5	2	1	3	1	477	1	0	0	5	0	2515	
+477	Living Mercury	4	5	2	1	3	1	477	1	0	0	7	0	2515	
 478	Nightmare Construction	4	5	0	1	5	1	478	1	0	0	2	0	2520	
-479	Iron Corpse Reanimation	4	2	3	1	5	1	479	1004	0	0	2	0	1439	
+479	Iron Corpse Reanimation	4	2	3	1	5	1	479	505	0	0	2	0	1439	
 480	Reanimate Ancestor	4	2	3	2	5	2	480	1	0	0	3	0	1440	
 481	Flame Corpse Construction	4	4	0	1	5	1	481	1	0	0	1	0	1441	
 482	Ktonian Legion	4	6	3	2	5	2	482	5020	0	0	15	0	1439	
-483	Awaken Shard Wights	0	3	5	1	3	1	483	1004	0	0	15	0	2509	
+483	Awaken Shard Wights	0	3	5	1	3	1	483	505	0	0	15	0	2509	
 484	Awaken Sepulchral	0	5	5	2	3	1	484	1	0	0	4	0	1500	
 485	Awaken Tomb Oracle	0	6	5	3	3	2	485	1	0	0	30	0	1476	
 486	Hall of the Dead	0	8	5	5	3	1	486	4000	0	0	25	0	2509	
 487	Iron Marionettes	1	5	3	3	-1	0	487	1	100	0	1	0	33554432	
 488	Contact Void Spectre	0	6	4	3	-1	0	488	1	0	0	25	0	1562	
 489	Mind Vessel	5	3	4	3	-1	0	489	1	0	0	15	0	100	
-490	Enslave Sea Trolls	5	5	4	3	2	2	490	1002	0	0	15	0	1529	
+490	Enslave Sea Trolls	5	5	4	3	2	2	490	505	0	0	15	0	1529	
 491	Dreams of R'lyeh	5	6	4	4	-1	0	491	1	-1	0	4	0	2052	
 494	Burning Hands	2	1	0	1	-1	0	494	1	0	5	0	0	1012	
 495	Fire Darts	2	1	0	1	-1	0	495	1002	4	20	0	0	10	
@@ -518,9 +519,9 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 562	The Wrath of God	2	6	4	5	1	3	562	1	0	0	70	0	14	
 563	Blast of Unlife	2	6	5	3	-1	0	563	1	0	20	0	0	1012	
 564	Bane Fire	2	6	5	3	0	1	564	1	1	30	0	20	1052	
-565	Wailing Winds	2	6	5	4	1	1	565	1	0	0	1	0	12	
+565	Wailing Winds	2	6	5	4	1	1	565	1	0	0	2	0	12	
 566	Stream of Life	2	6	6	3	-1	0	566	1	2	20	0	0	5025	
-567	Fire Storm	2	7	0	5	-1	0	567	1	0	0	5	0	25	
+567	Fire Storm	2	7	0	5	-1	0	567	1	0	0	3	0	25	
 568	Ice Strike	2	7	2	2	-1	0	568	1	1	20	0	0	18	
 569	Murdering Winter	2	7	2	5	-1	0	569	1	0	0	40	0	8	
 570	Acid Storm	2	7	2	4	0	1	570	1	0	0	3	0	11	
@@ -592,7 +593,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 636	Destruction	1	4	3	3	-1	0	636	1	3	40	0	0	5	
 637	Curse of Stones	1	4	3	3	-1	0	637	1	0	0	3	0	32	
 638	Blight	1	4	3	2	5	1	638	1	0	0	5	0	9	
-639	Arouse Hunger	1	4	5	3	-1	0	639	3010	0	0	8	0	198	
+639	Arouse Hunger	1	4	5	3	-1	0	639	3021	0	0	8	0	-4	
 640	Elemental Fortitude	1	4	6	1	-1	0	640	1	0	10	0	0	7168	
 641	Swarm	1	4	6	1	-1	0	641	2018	0	0	1	0	-9	
 642	Body Ethereal	1	4	4	1	-1	0	642	1	0	30	0	0	134217728	
@@ -621,11 +622,11 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 665	False Horror	1	6	1	3	-1	0	665	1	0	10	0	0	448	
 666	Frozen Heart	1	6	2	1	-1	0	666	1	100	20	0	0	2008	
 667	Wave Warriors	1	6	2	3	-1	0	667	1	0	0	1	0	2680059592704	
-668	Manifest Vitriol	1	6	2	2	0	1	668	1	0	0	2	0	1983	
+668	Manifest Vitriol	1	6	2	2	0	1	668	1	0	0	3	0	1983	
 669	Earth Gem Alchemy	1	6	3	2	-1	0	669	1	0	0	1	0	2011	
 670	Iron Bane	1	6	3	3	-1	0	670	1	0	0	1	0	2199023255552	
 671	Petrify	1	6	3	5	-1	0	671	1	100	40	0	0	999	
-672	Iron Pigs	1	6	3	3	6	1	672	7	0	0	10	0	924	
+672	Iron Pigs	1	6	3	3	6	1	672	7	0	0	9	0	924	
 673	Control	1	6	4	3	-1	0	673	1	100	0	1	0	999	
 674	Battle Fortune	1	6	4	3	-1	0	674	1	5	0	1	0	2	
 675	Skeletal Legion	1	6	5	4	-1	0	675	1	0	0	1	102	274877906944	
@@ -633,7 +634,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 677	Darkness	1	6	5	4	-1	0	677	1	0	0	4	0	77	
 678	Army of Giants	1	6	6	3	-1	0	678	1	0	0	1	0	2147483648	
 679	Phoenix Pyre	1	7	0	2	-1	0	679	1	0	20	0	0	134217728	
-680	Phantasmal Attack	1	7	1	4	-1	0	680	5005	0	0	8	0	297	
+680	Phantasmal Attack	1	7	1	4	-1	0	680	5005	0	0	8	30	297	
 681	Fog Warriors	1	7	1	5	-1	0	681	1	0	0	3	0	65536	
 682	Liquify	1	8	2	4	-1	0	682	1	100	20	0	103	999	
 683	Prison of Sedna	1	7	2	3	-1	0	683	1	100	0	1	0	299	
@@ -664,21 +665,21 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 708	Wish	1	9	4	9	-1	0	708	1	0	0	100	0	0	
 709	Utterdark	1	9	5	9	-1	0	709	1	0	0	100	0	56	
 710	Army of Rats	1	9	6	7	-1	0	710	1	0	0	5	0	4297064448	
-711	Summon Cave Grubs	0	1	3	1	-1	0	711	1004	0	0	8	0	2526	
+711	Summon Cave Grubs	0	1	3	1	-1	0	711	505	0	0	6	0	2526	
 712	Tangle Vines	0	1	6	1	-1	0	712	1	2	20	0	0	64	
 713	Summon Animals	0	1	6	2	-1	0	713	2011	0	0	10	0	403	
-714	Summon Sea Dogs	0	1	6	1	2	1	714	1004	0	0	3	0	1064	
-715	Summon Crocodiles	0	1	6	1	2	1	715	1004	0	0	4	0	2185	
+714	Summon Sea Dogs	0	1	6	1	2	1	714	505	0	0	2	0	1064	
+715	Summon Crocodiles	0	1	6	1	2	1	715	505	0	0	4	0	2185	
 716	Spirit Curse	0	1	5	1	-1	0	716	1	100	0	1	0	2	
 717	Black Servant	0	1	5	2	-1	0	717	1	0	0	5	0	434	
-718	Summon Fire Ants	0	2	0	2	6	1	718	2006	0	0	10	0	2225	
+718	Summon Fire Ants	0	2	0	2	6	1	718	1008	0	0	10	0	2225	
 719	Summon Storm Power	0	2	1	1	-1	0	719	1	0	10	0	0	8192	
 720	Summon Water Power	0	2	2	1	-1	0	720	1	0	20	0	0	524288	
-721	Summon Ogres	0	2	3	1	-1	0	721	1004	0	0	10	0	2135	
-722	Summon Shades	0	2	5	2	-1	0	722	1003	0	0	8	0	676	
-723	Summon Killer Mantis	0	2	6	2	-1	0	723	1003	0	0	8	0	2226	
-724	Pack of Wolves	0	2	6	1	-1	0	724	2008	0	0	2	0	284	
-725	Summon Horned Serpents	0	2	6	1	-1	0	725	1004	0	0	4	0	403	
+721	Summon Ogres	0	2	3	1	-1	0	721	505	0	0	10	0	2135	
+722	Summon Shades	0	2	5	2	-1	0	722	505	0	0	8	0	676	
+723	Summon Killer Mantis	0	2	6	2	-1	0	723	505	0	0	8	0	2226	
+724	Pack of Wolves	0	2	6	1	-1	0	724	1009	0	0	2	0	284	
+725	Summon Horned Serpents	0	2	6	1	-1	0	725	505	0	0	4	0	403	
 726	Phoenix Power	0	3	0	2	-1	0	726	1	0	20	0	19	262144	
 727	Summon Lesser Fire Elemental	0	3	0	1	-1	0	727	1	0	0	1	0	597	
 728	Bind Scorpion Beast	0	3	0	1	3	1	728	1	0	0	2	0	524	
@@ -686,75 +687,75 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 730	Call of the Winds	0	3	1	2	-1	0	730	41	0	0	10	0	517	
 731	Summon Amphiptere	0	3	1	2	6	1	731	1	0	0	3	0	1412	
 732	Summon Lesser Water Elemental	0	3	2	1	-1	0	732	1	0	0	1	0	411	
-733	Call Kraken	0	3	2	3	-1	0	733	1	0	0	3	0	438	
-734	Summon Yetis	0	3	2	2	1	1	734	1003	0	0	15	0	2231	
-735	Summon Cave Cows	0	3	2	2	3	2	735	1003	0	0	4	0	2512	
+733	Call Kraken	0	3	2	3	-1	0	733	1	0	0	1	0	438	
+734	Summon Yetis	0	3	2	2	1	1	734	505	0	0	13	0	2231	
+735	Summon Cave Cows	0	3	2	2	3	2	735	505	0	0	3	0	2512	
 736	Summon Earthpower	0	3	3	2	-1	0	736	1	0	20	0	0	4096	
 737	Summon Lesser Earth Elemental	0	3	3	1	-1	0	737	1	0	0	1	0	496	
-738	Summon Cave Crab	0	3	3	1	2	1	738	1	0	0	2	0	2514	
+738	Summon Cave Crab	0	3	3	1	2	1	738	1	0	0	4	0	2514	
 739	Power of the Spheres	0	3	4	1	-1	0	739	1	0	0	1	0	128	
 740	Dark Knowledge	0	3	5	1	-1	0	740	1	0	0	4	0	5	
 741	Revive Wights	0	3	5	2	-1	0	741	5	0	0	20	0	533	
 742	Revive Bane	0	3	5	2	-1	0	742	1	0	0	7	0	185	
-743	Sloth of Bears	0	3	6	2	-1	0	743	2006	0	0	10	0	694	
-744	Pride of Lions	0	3	6	2	-1	0	744	2006	0	0	10	0	628	
-745	Ambush of Tigers	0	3	6	2	-1	0	745	2006	0	0	10	0	1140	
+743	Sloth of Bears	0	3	6	2	-1	0	743	1008	0	0	8	0	694	
+744	Pride of Lions	0	3	6	2	-1	0	744	1008	0	0	10	0	628	
+745	Ambush of Tigers	0	3	6	2	-1	0	745	1008	0	0	10	0	1140	
 746	Awaken Vine Men	0	3	6	1	-1	0	746	3	0	0	1	0	361	
 747	Awaken Algae Men	0	3	6	1	-1	0	747	3	0	0	1	0	2976	
-748	Herd of Buffaloes	0	3	6	2	-1	0	748	1003	0	0	10	0	3009	
-749	Call of the Wild	0	3	6	4	-1	0	749	30	0	0	15	0	284	
-750	Summon Sea Lions	0	3	6	2	2	1	750	2006	0	0	10	0	1063	
-751	Summon Bog Beasts	0	3	6	2	2	2	751	1003	0	0	8	0	578	
-752	Summon Fire Drake	0	4	0	2	-1	0	752	1	0	0	7	0	523	
-753	Summon Flame Jelly	0	4	0	2	-1	0	753	2006	0	0	6	0	2854	
-754	Summon Wyverns	0	4	1	2	-1	0	754	2	0	0	4	0	520	
-755	Summon Gryphons	0	4	1	2	-1	0	755	1003	0	0	10	0	2131	
+748	Herd of Buffaloes	0	3	6	2	-1	0	748	505	0	0	10	0	3009	
+749	Call of the Wild	0	3	6	4	-1	0	749	30	0	0	12	0	284	
+750	Summon Sea Lions	0	3	6	2	2	1	750	1008	0	0	10	0	1063	
+751	Summon Bog Beasts	0	3	6	2	2	2	751	505	0	0	7	0	578	
+752	Summon Fire Drake	0	4	0	2	-1	0	752	1	0	0	6	0	523	
+753	Summon Flame Jelly	0	4	0	2	-1	0	753	1008	0	0	6	0	2854	
+754	Summon Wyverns	0	4	1	2	-1	0	754	2	0	0	3	0	520	
+755	Summon Gryphons	0	4	1	2	-1	0	755	505	0	0	9	0	2131	
 756	School of Sharks	0	4	2	2	-1	0	756	2006	0	0	1	0	815	
 757	Voice of Apsu	0	4	2	2	-1	0	757	1	0	0	2	0	2	
 758	Summon Ice Drake	0	4	2	2	-1	0	758	1	0	0	7	0	579	
-759	Summon Sea Serpent	0	4	2	2	-1	0	759	1	0	0	5	0	565	
-760	Summon Cave Drake	0	4	3	2	-1	0	760	1	0	0	5	0	522	
+759	Summon Sea Serpent	0	4	2	2	-1	0	759	1	0	0	4	0	565	
+760	Summon Cave Drake	0	4	3	2	-1	0	760	1	0	0	4	0	522	
 761	Light of the Northern Star	0	4	4	3	-1	0	761	1	0	0	2	0	40	
-762	Summon Shade Beasts	0	4	5	3	-1	0	762	3006	0	0	15	0	442	
+762	Summon Shade Beasts	0	4	5	3	-1	0	762	2009	0	0	15	0	442	
 763	Summon Lammashtas	0	4	5	2	-1	0	763	2	0	0	1	0	393	
 764	Maggots	0	4	6	1	-1	0	764	1	100	0	1	0	50	
 765	Awaken Vine Ogres	0	4	6	3	-1	0	765	2	0	0	3	0	362	
-766	Summon Leogryphs	0	4	6	2	-1	0	766	2006	0	0	12	0	2132	
-767	Summon Swamp Drake	0	4	6	2	2	1	767	1	0	0	8	0	2196	
+766	Summon Leogryphs	0	4	6	2	-1	0	766	1008	0	0	12	0	2132	
+767	Summon Swamp Drake	0	4	6	2	2	1	767	1	0	0	7	0	2196	
 768	Summon Kithaironic Lion	0	4	6	3	3	1	768	1	0	0	5	0	514	
 769	Strength of Gaia	0	4	6	3	3	1	769	1	0	20	0	27	1048576	
 770	Will o' the Wisp	0	5	0	1	-1	0	770	2	0	0	1	0	527	
 771	Summon Fire Elemental	0	5	0	3	-1	0	771	1	0	0	1	0	594	
-772	Summon Summer Lions	0	5	0	3	-1	0	772	1002	0	0	20	0	515	
+772	Summon Summer Lions	0	5	0	3	-1	0	772	505	0	0	20	0	515	
 773	Summon Air Elemental	0	5	1	3	-1	0	773	1	0	0	1	0	567	
-774	Summon Spring Hawks	0	5	1	3	-1	0	774	1002	0	0	20	0	513	
+774	Summon Spring Hawks	0	5	1	3	-1	0	774	505	0	0	20	0	513	
 775	Wind Ride	0	5	1	5	-1	0	775	1	0	0	10	0	100	
 776	Raven Feast	0	5	1	4	-1	0	776	1	0	0	3	0	100	
-777	Contact Draconians	0	5	1	3	-1	0	777	1	0	0	45	37	620	
+777	Contact Draconians	0	5	1	3	-1	0	777	1	0	0	30	37	620	
 778	Voice of Tiamat	0	5	2	2	-1	0	778	1	0	0	8	0	51	
 779	Summon Water Elemental	0	5	2	3	-1	0	779	1	0	0	1	0	408	
-780	Contact Sea Trolls	0	5	2	3	-1	0	780	1002	0	0	15	0	564	
-781	Summon Winter Wolves	0	5	2	3	-1	0	781	1002	0	0	10	0	511	
+780	Contact Sea Trolls	0	5	2	3	-1	0	780	505	0	0	15	0	564	
+781	Summon Winter Wolves	0	5	2	3	-1	0	781	505	0	0	8	0	511	
 782	Contact Naiad	0	5	2	3	6	1	782	1	0	0	35	0	1226	
-783	Naiad Warriors	0	5	2	3	6	1	783	15	0	0	30	0	1227	
+783	Naiad Warriors	0	5	2	3	6	1	783	15	0	0	18	0	1227	
 784	Summon Earth Elemental	0	5	3	3	-1	0	784	1	0	0	1	0	493	
-785	Summon Fall Bears	0	5	3	3	-1	0	785	1002	0	0	15	0	512	
-786	Contact Trolls	0	5	3	3	-1	0	786	1002	0	0	15	0	518	
+785	Summon Fall Bears	0	5	3	3	-1	0	785	505	0	0	12	0	512	
+786	Contact Trolls	0	5	3	3	-1	0	786	505	0	0	15	0	518	
 787	Spirit Mastery	0	5	5	1	-1	0	787	1014	0	0	4	0	674	
 788	Ghost Grip	0	5	5	1	-1	0	788	5	3	10	0	0	2023	
 789	Corpse Candle	0	5	5	1	0	1	789	3	0	0	1	0	528	
 790	Revive Bane Lord	0	5	5	4	-1	0	790	1	0	0	12	0	998	
 791	Acashic Record	0	5	4	2	-1	0	791	1	0	0	10	0	999	
 792	Howl	0	5	6	3	-1	0	792	1	0	0	3	0	88	
-793	Spirits of the Wood	0	5	6	3	-1	0	793	2004	0	0	8	0	932	
-794	Contact Forest Trolls	0	5	6	3	-1	0	794	1002	0	0	10	0	2219	
+793	Spirits of the Wood	0	5	6	3	-1	0	793	1007	0	0	8	0	932	
+794	Contact Forest Trolls	0	5	6	3	-1	0	794	505	0	0	10	0	2219	
 795	Awaken Sleeper	0	5	6	4	-1	0	795	1	0	0	10	0	559	
 796	Winged Monkeys	0	5	6	3	4	2	796	1	0	0	10	0	1	
 797	Summon Manticore	0	5	6	2	3	2	797	1	0	0	5	0	2130	
 798	Vermin Feast	0	5	6	4	-1	0	798	1	0	0	6	0	99	
-799	Summon Fire Snakes	0	6	0	2	-1	0	799	1003	0	0	9	0	814	
+799	Summon Fire Snakes	0	6	0	2	-1	0	799	505	0	0	7	0	814	
 800	Summon Flame Spirit	0	6	0	3	-1	0	800	1	0	0	30	0	2626	
-801	Summon Great Eagles	0	6	1	3	-1	0	801	1002	0	0	10	0	1381	
+801	Summon Great Eagles	0	6	1	3	-1	0	801	505	0	0	8	0	1381	
 802	Summon Bishop Fish	0	6	2	3	-1	0	802	1	0	0	15	0	1040	
 803	Shark Attack	0	6	2	3	-1	0	803	1	0	0	3	0	78	
 804	Sea King's Court	0	6	2	3	-1	0	804	1	0	0	55	36	580	
@@ -764,11 +765,11 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 808	Acashic Knowledge	0	6	4	3	-1	0	808	1	0	0	25	0	55	
 809	Ether Gate	0	6	4	4	5	1	809	1	0	0	90	45	737	
 810	Summon Spectre	0	6	5	3	-1	0	810	1	0	0	22	0	329	
-811	Summon Ghosts	0	6	5	2	-1	0	811	1003	0	0	14	0	566	
+811	Summon Ghosts	0	6	5	2	-1	0	811	505	0	0	14	0	566	
 812	Forest Troll Tribe	0	6	6	3	-1	0	812	1	0	0	37	99	2220	
 813	Contact Forest Giant	0	6	6	3	-1	0	813	1	0	0	2	0	2229	
 814	Summon Sprites	0	6	6	1	1	1	814	6	0	0	1	0	592	
-815	Contact Lamias	0	6	6	3	-1	0	815	1002	0	0	5	0	394	
+815	Contact Lamias	0	6	6	3	-1	0	815	505	0	0	5	0	394	
 816	Locust Swarms	0	6	6	3	-1	0	816	1	0	0	8	0	8	
 817	Contact Lamia Queen	0	6	6	5	5	2	817	1	0	0	25	0	609	
 818	Living Fire	0	7	0	4	-1	0	818	1000	0	0	2	0	596	
@@ -780,7 +781,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 824	Summon Mound Fiend	0	7	5	3	-1	0	824	1	0	0	28	0	439	
 825	Harvester of Sorrows	0	7	5	4	-1	0	825	1	0	0	20	0	491	
 826	Call Wraith Lord	0	7	5	5	-1	0	826	1	0	0	40	0	181	
-827	Animal Horde	0	7	6	4	-1	0	827	100	0	0	25	0	403	
+827	Animal Horde	0	7	6	4	-1	0	827	100	0	0	15	0	403	
 828	Awaken Ivy King	0	7	6	4	-1	0	828	1	0	0	30	0	931	
 829	Living Castle	0	7	6	4	2	1	829	1	0	0	40	0	9	
 830	King of Elemental Fire	0	8	0	5	-1	0	830	1	0	0	50	0	8	
@@ -807,16 +808,16 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 851	Wild Hunt	0	7	6	6	-1	0	851	1	0	0	50	0	75	
 852	Enchanted Forests	0	9	6	7	-1	0	852	1	0	0	90	0	24	
 853	Corpse Man Construction	3	1	1	1	5	1	853	1	0	0	1	0	534	
-854	Clockwork Soldiers	3	3	3	2	-1	0	854	1003	0	0	8	0	2321	
+854	Clockwork Soldiers	3	3	3	2	-1	0	854	505	0	0	5	0	2321	
 855	Legions of Steel	3	3	3	3	-1	0	855	1	0	40	0	0	64	
-856	Construct Manikin	3	3	6	1	5	1	856	2008	0	0	12	0	313	
-857	Clockwork Horrors	3	5	3	2	-1	0	857	2006	0	0	10	0	982	
+856	Construct Manikin	3	3	6	1	5	1	856	2008	0	0	9	0	313	
+857	Clockwork Horrors	3	5	3	2	-1	0	857	1008	0	0	9	0	982	
 858	Crusher Construction	3	5	3	3	-1	0	858	1	0	0	15	0	475	
-859	Wooden Construction	3	5	6	3	-1	0	859	1	0	0	5	0	476	
+859	Wooden Construction	3	5	6	3	-1	0	859	1	0	0	3	0	476	
 860	Construct Mandragora	3	5	6	2	5	1	860	2001	0	0	10	0	314	
 861	Weapons of Sharpness	3	7	3	5	-1	0	861	1	0	20	0	0	524288	
 862	Forge of the Ancients	3	7	3	5	-1	0	862	1	0	0	80	0	20	
-863	Mechanical Men	3	7	3	2	-1	0	863	2006	0	0	15	0	532	
+863	Mechanical Men	3	7	3	2	-1	0	863	1008	0	0	15	0	532	
 864	Golem Construction	3	7	4	3	3	2	864	1	0	0	30	0	471	
 865	Siege Golem	3	9	3	3	-1	0	865	1	0	0	20	0	760	
 866	Iron Dragon	3	9	3	4	0	2	866	1	0	0	30	0	531	
@@ -843,7 +844,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 887	Fire Shield	4	3	0	1	-1	0	887	1	0	20	0	0	32768	
 888	Gift of Flight	4	3	1	2	-1	0	888	1	0	20	0	0	131072	
 889	Seeking Arrow	4	3	1	3	-1	0	889	1	0	0	4	0	8	
-890	Claymen	4	3	2	1	3	1	890	1004	0	0	5	0	817	
+890	Claymen	4	3	2	1	3	1	890	505	0	0	5	0	817	
 891	Strength of Giants	4	3	3	3	-1	0	891	1	0	40	0	0	128	
 892	Astral Shield	4	3	4	1	-1	0	892	1	0	20	0	0	268435456	
 893	Raise Skeletons	4	3	5	2	-1	0	893	3	-2	40	0	0	-2	
@@ -851,14 +852,14 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 895	Regeneration	4	3	6	3	-1	0	895	1	0	40	0	0	32	
 896	Heal	4	3	6	1	-1	0	896	1	5	20	0	0	10020	
 897	Flaming Arrows	4	4	0	4	-1	0	897	1	0	0	1	0	8388608	
-898	Terracotta Army	4	4	0	1	3	1	898	2008	0	0	10	0	2134	
+898	Terracotta Army	4	4	0	1	3	1	898	1009	0	0	10	0	2134	
 899	Cloud Trapeze	4	4	1	2	-1	0	899	1	0	0	3	0	1	
-900	Vile Water	4	4	2	2	-1	0	900	1	0	0	4	0	2159	
+900	Vile Water	4	4	2	2	-1	0	900	1	0	0	2	0	2159	
 901	Astral Healing	4	4	4	3	-1	0	901	1	0	0	1	0	2	
 902	Antimagic	4	4	4	3	-1	0	902	1	0	0	1	0	67108864	
 903	Raise Dead	4	4	5	2	-1	0	903	2006	-2	40	0	0	-3	
 904	Twiceborn	4	4	5	2	-1	0	904	1	0	0	10	0	4194304	
-905	Behemoth	4	4	5	3	-1	0	905	1	0	0	10	0	452	
+905	Behemoth	4	4	5	3	-1	0	905	1	0	0	7	0	452	
 906	Haste	4	4	6	3	-1	0	906	1	0	0	1	0	4	
 907	Poison Ward	4	4	6	2	-1	0	907	1	0	0	1	0	16777216	
 908	Flame Ward	4	5	0	2	-1	0	908	1	0	0	1	0	1024	
@@ -868,12 +869,12 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 912	Winter Ward	4	5	2	2	-1	0	912	1	0	0	1	0	4096	
 913	Friendly Currents	4	5	2	3	-1	0	913	1	0	0	1	0	2	
 914	Quagmire	4	5	2	4	-1	0	914	1	0	0	1	0	85	
-915	Enliven Gargoyles	4	5	3	3	1	1	915	1002	0	0	10	0	2368	
+915	Enliven Gargoyles	4	5	3	3	1	1	915	505	0	0	10	0	2368	
 916	Ritual of Returning	4	5	4	2	-1	0	916	1	0	0	3	0	8388608	
 917	Dispel	4	5	4	3	-1	0	917	1	0	0	30	0	1	
 918	The Eyes of God	4	5	4	5	-1	0	918	1	0	0	50	0	15	
-919	Pale Riders	4	5	5	3	-1	0	919	3011	-2	0	10	0	189	
-920	Horde of Skeletons	4	5	5	2	-1	0	920	1004	-2	40	0	0	-2	
+919	Pale Riders	4	5	5	3	-1	0	919	2014	-2	0	10	0	189	
+920	Horde of Skeletons	4	5	5	2	-1	0	920	505	-2	40	0	0	-2	
 921	Faery Trod	4	5	6	5	-1	0	921	1	0	0	20	0	1	
 922	Gift of Health	4	7	6	6	-1	0	922	1	0	0	50	0	30	
 923	Foul Vapors	4	5	6	3	2	1	923	1	0	0	1	0	45	
@@ -887,21 +888,21 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 931	Frost Dome	4	6	2	5	-1	0	931	1	0	0	15	0	62	
 932	Hidden in Snow	4	6	2	3	5	1	932	1	0	0	75	0	1	
 933	Riches from Beneath	4	6	3	5	-1	0	933	1	0	0	70	0	35	
-934	Enliven Statues	4	6	3	3	-1	0	934	2004	0	0	20	0	474	
+934	Enliven Statues	4	6	3	3	-1	0	934	1007	0	0	20	0	474	
 935	Hidden in Sand	4	6	3	3	5	1	935	1	0	0	75	0	2	
 936	Hidden Underneath	4	6	3	3	5	1	936	1	0	0	75	0	3	
 937	Opposition	4	6	4	3	-1	0	937	1	100	20	0	0	999	
 938	Dome of Arcane Warding	4	6	4	4	-1	0	938	1	0	0	10	0	64	
-939	Rigor Mortis	4	6	5	4	-1	0	939	1	0	0	1	0	4	
+939	Rigor Mortis	4	6	5	4	-1	0	939	1	0	0	3	0	4	
 940	Reanimate Archers	4	6	5	2	0	1	940	10	0	0	5	0	535	
-941	Ziz	4	6	5	3	1	2	941	1	0	0	5	0	1388	
+941	Ziz	4	6	5	3	1	2	941	1	0	0	4	0	1388	
 942	Relief	4	6	6	5	-1	0	942	1	0	0	1	0	84	
 943	Dome of Flaming Death	4	7	0	4	-1	0	943	1	0	0	8	0	60	
 944	Mass Flight	4	7	1	4	-1	0	944	1	0	0	2	0	131072	
 945	Ghost Ship Armada	4	7	2	4	5	3	945	1	0	0	60	0	43	
 946	Lion Sentinels	4	7	3	5	-1	0	946	1	0	0	30	0	105	
 947	Earth Blood Deep Well	4	7	3	6	-1	0	947	1	0	0	80	0	48	
-948	Solar Brilliance	4	7	4	5	-1	0	948	1	0	0	5	0	21	
+948	Solar Brilliance	4	7	4	5	-1	0	948	1	0	0	3	0	21	
 949	Stellar Focus	4	7	4	5	-1	0	949	1	0	0	30	0	54	
 950	Carrion Reanimation	4	7	5	3	-1	0	950	100	0	0	10	0	-3	
 951	Life after Death	4	7	5	4	-1	0	951	1	0	0	4	0	2097152	
@@ -1010,26 +1011,26 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 1054	Reinvigoration	6	1	7	1	-1	0	1054	1	0	0	1	0	200	
 1055	Bind Shadow Imp	6	1	7	1	-1	0	1055	1	0	0	4	0	2287	
 1056	Summon Imps	6	1	7	1	-1	0	1056	5	0	0	1	0	303	
-1057	Bind Fiery Imps	6	1	7	1	0	1	1057	1004	0	0	2	0	2286	
+1057	Bind Fiery Imps	6	1	7	1	0	1	1057	505	0	0	6	0	2286	
 1058	Blood Boil	6	1	7	1	0	1	1058	1	3	50	0	0	1010	
 1059	Bowl of Blood	6	2	7	1	-1	0	1059	1	0	0	5	0	7	
 1060	Agony	6	2	7	2	-1	0	1060	1	2	0	1	21	1	
 1061	Banish Demon	6	2	7	1	-1	0	1061	1	100	0	1	0	999	
 1062	Bind Spine Devil	6	2	7	2	-1	0	1062	1	0	0	3	0	638	
 1063	Bind Fiend	6	2	7	2	-1	0	1063	1	-2	0	5	0	88	
-1064	Bind Bone Fiends	6	2	7	1	5	1	1064	1004	0	0	3	0	433	
+1064	Bind Bone Fiends	6	2	7	1	5	1	1064	505	0	0	5	0	433	
 1065	Hell Power	6	2	7	3	-1	0	1065	1	0	0	3	4	131072	
 1066	Leeching Touch	6	3	7	1	-1	0	1066	1	0	20	0	0	1014	
 1067	Pain Transfer	6	3	7	2	-1	0	1067	1	0	20	0	0	512	
 1068	Infernal Circle	6	3	7	5	-1	0	1068	1	0	0	5	0	89	
 1069	Bind Devil	6	3	7	2	0	2	1069	1	0	0	7	0	304	
-1070	Bind Frost Fiend	6	3	7	2	2	2	1070	1	0	0	6	0	449	
+1070	Bind Frost Fiend	6	3	7	2	2	2	1070	1	0	0	8	0	449	
 1071	Cross Breeding	6	3	7	1	6	1	1071	1019	0	0	15	0	1	
 1072	Blood Feast	6	3	7	2	-1	0	1072	1	0	0	5	0	50	
 1073	Bind Serpent Fiend	6	4	7	1	-1	0	1073	1	0	0	2	0	526	
 1074	Blood Lust	6	4	7	2	-1	0	1074	1	0	0	1	0	128	
 1075	Hellfire	6	4	7	1	0	2	1075	2	0	0	1	0	1008	
-1076	Bind Storm Demon	6	4	7	2	1	2	1076	1	0	0	7	0	632	
+1076	Bind Storm Demon	6	4	7	2	1	2	1076	1	0	0	10	0	632	
 1077	Call Lesser Horror	6	4	7	2	4	2	1077	1	-2	0	2	0	-6	
 1078	Rain of Toads	6	5	7	3	6	1	1078	1	0	0	20	0	6	
 1079	Blood Fecundity	6	4	7	2	6	2	1079	1	0	0	10	0	94	
@@ -1038,21 +1039,21 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 1082	Bloodletting	6	5	7	4	-1	0	1082	1	0	0	4	0	1	
 1083	Bind Succubus	6	5	7	4	-1	0	1083	1	-2	0	66	0	811	
 1084	Wrath of Pazuzu	6	5	7	1	1	3	1084	1	0	0	15	0	14	
-1085	Bind Demon Knight	6	5	7	2	3	2	1085	1	-2	0	8	0	489	
+1085	Bind Demon Knight	6	5	7	2	3	2	1085	1	-2	0	15	0	489	
 1086	Awaken Dark Vines	6	5	7	1	6	3	1086	2	0	0	12	0	330	
 1087	Send Lesser Horror	6	5	7	2	4	3	1087	1	0	0	9	0	-6	
 1088	Summon Illearth	6	5	7	2	3	2	1088	1	0	0	2	0	2280	
 1089	Harm	6	6	7	2	-1	0	1089	1	5	0	1	35	1000	
 1090	Rejuvenate	6	6	7	1	-1	0	1090	1	0	0	10	0	-10	
 1091	Infernal Disease	6	6	7	5	-1	0	1091	1	0	0	5	0	1662	
-1092	Ritual of Five Gates	6	6	7	5	-1	0	1092	1	0	0	28	73	88	
+1092	Ritual of Five Gates	6	6	7	5	-1	0	1092	1	0	0	39	73	88	
 1093	Bind Ice Devil	6	6	7	3	2	3	1093	1	-2	0	88	0	1	
 1094	Call Horror	6	6	7	3	4	3	1094	1	-2	0	3	0	-7	
 1095	Leech	6	7	7	1	-1	0	1095	1	25	0	1	0	1024	
 1096	Blood Rain	6	7	7	3	-1	0	1096	1	0	0	3	0	68	
 1097	Plague of Locusts	6	7	7	5	-1	0	1097	9	0	0	88	0	2794	
 1098	Bind Arch Devil	6	7	7	4	0	2	1098	1	0	0	99	0	2	
-1099	Father Illearth	6	7	7	3	3	4	1099	1	0	0	85	0	5	
+1099	Father Illearth	6	7	7	3	3	4	1099	1	0	0	105	0	5	
 1100	Send Dream Horror	6	7	7	3	4	4	1100	1	0	0	15	0	12	
 1101	Dome of Corruption	6	7	7	4	4	4	1101	1	0	0	20	0	67	
 1102	Astral Corruption	6	7	7	6	4	6	1102	1	0	0	166	0	57	
@@ -1076,12 +1077,12 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 1120	Claws of Kokytos	6	9	7	3	2	1	1120	1	100	0	2	0	-13	
 1121	Forces of Ice	6	9	7	5	2	2	1121	1003	0	0	50	0	449	
 1122	Infernal Crusade	6	9	7	5	3	2	1122	1005	0	0	50	0	489	
-1123	Send Horror	6	9	7	4	4	5	1123	1	0	0	20	0	-7	
+1123	Send Horror	6	9	7	4	4	5	1123	1	0	0	30	0	-7	
 1124	Chorus Master	5	1	6	1	-1	0	1124	1	0	20	0	0	536870912	
 1125	Chorus Slave	5	1	6	1	-1	0	1125	1	0	20	0	0	35433480192	
 1126	Sow Dragon Teeth	4	6	3	2	-1	0	1126	10	0	0	1	0	3119	
 1127	Gigantomachia	5	7	3	5	0	4	1127	1	0	0	60	0	107	
-1128	Bind Keres	0	6	5	2	-1	0	1128	3	0	0	9	0	3127	
+1128	Bind Keres	0	6	5	2	-1	0	1128	3	0	0	12	0	3127	
 1129	Curse Tablet	0	3	5	1	-1	0	1129	1	0	0	3	0	2	
 1130	Seith Curse	5	5	5	1	4	1	1130	1	0	0	3	0	2	
 1131	Contact Hesperide	0	6	0	3	4	1	1131	1	0	0	35	0	3160	
@@ -1098,5 +1099,5 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 1142	Rhapsody of the Dead	5	3	5	1	-1	0	1142	1	0	20	0	0	1003	
 1143	Scare Spirits	-1	1	-1	0	-1	0	1143	1	0	0	0	0	3	
 1144	Rhapsody of Life	5	3	6	1	-1	0	1144	1	5	20	0	0	1009	
-1145	Relief	-1	1	-1	0	-1	0	1145	1	0	0	0	0	10	
-1146	Procession of the Underworld	0	5	5	3	-1	0	1146	12	0	0	15	0	3210	
+1145	Minor Reinvigoration	-1	1	-1	0	-1	0	1145	1	0	0	0	0	10	
+1146	Procession of the Underworld	0	5	5	3	-1	0	1146	12	0	0	13	0	3210	
