@@ -26,7 +26,7 @@ function spellBonus(v, baselvl) {
 	baselvl = parseInt(baselvl || '0');
 
 	var mod;
-	if (v > 99 && v < 1000) {
+	if (v > 99 && v < 999) {
 		mod = 500;
 	} else {
 		mod = 1000;
