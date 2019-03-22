@@ -167,6 +167,7 @@ number	name	test
 611	Weapon affected by penetration bonus
 617	<Unknown Attribute>
 619	<Unknown Attribute>
+657	<Unknown Attribute>
 700	Map Range {Spl: #provrange}
 701	Destination Terrain {Spl: #onlygeodst}
 702	Source Terrain {Spl: #onlygeosrc}
