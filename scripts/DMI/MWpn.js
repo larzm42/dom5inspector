@@ -93,7 +93,7 @@ MWpn.prepareData_PostMod = function() {
 		}
 
 		if (effects) {
-			Utils.addFlags( o, MWpn.bitfieldValues(effects.modifiers_mask, modctx.effect_modifier_bits_lookup), ignorekeys )
+			Utils.addFlags( o, MWpn.bitfieldValues(effects.modifiers_mask, modctx.effect_modifier_bits_lookup, o), ignorekeys )
 		}
 
 		//backlinks on secondary effects
@@ -341,7 +341,6 @@ MWpn.renderWpnTable = function(o, isImplicitWpn, showName) {
 	// Attributes
 	for (var oi=0, attr; attr = modctx.attributes_by_weapon[oi];  oi++) {
 		if (attr.weapon_number == o.id) {
-			//var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
 			if (attr.attribute != "302") {
 				var specflags = modctx.attribute_keys_lookup[attr.attribute].name;
 				h+= '<tr class="'+attr.attribute+'"><th>'+modctx.attribute_keys_lookup[attr.attribute].name.replace(/{(.*?)}|<|>/g, "")+'</th></tr>'
@@ -351,7 +350,7 @@ MWpn.renderWpnTable = function(o, isImplicitWpn, showName) {
 
 	var effects = MWpn.getEffect(o);
 	if (effects) {
-		var specflags = Utils.renderFlags(MWpn.bitfieldValues(effects.modifiers_mask, modctx.effect_modifier_bits_lookup) );
+		var specflags = Utils.renderFlags(MWpn.bitfieldValues(effects.modifiers_mask, modctx.effect_modifier_bits_lookup, o) );
 		if (specflags)
 			h+=		'<tr><td class="widecell" colspan="2">'+specflags+'</td></tr></div>';
 	}
@@ -389,7 +388,7 @@ MWpn.renderWpnTable = function(o, isImplicitWpn, showName) {
 	return h;
 }
 
-MWpn.bitfieldValues = function(bitfield, masks_dict) {
+MWpn.bitfieldValues = function(bitfield, masks_dict, o) {
 	var magic = true;
 	var nostr = true;
 	var newValues=[];
@@ -413,7 +412,11 @@ MWpn.bitfieldValues = function(bitfield, masks_dict) {
 		newValues.push(["Magic weapon", "magic"]);
 	}
 	if (nostr == true) {
-		newValues.push(["Strength not added to damage", "nostr"]);
+		if ((o.ammo && !o.aoe) || o.bowstr) {
+			newValues.push(["1/3 strength added to damage", "bowstr"]);
+		} else {
+			newValues.push(["Strength not added to damage", "nostr"]);
+		}
 	}
 	return newValues;
 }

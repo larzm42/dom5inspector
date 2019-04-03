@@ -16,7 +16,7 @@ var modconstants = DMI.modconstants;
 
 MItem.initItem = function(o) {
 	o.restricted = [];
-	o.nationaldiscount = [];
+	o.nationrebate = [];
 }
 
 MItem.prepareData_PreMod = function() {
@@ -26,10 +26,10 @@ MItem.prepareData_PreMod = function() {
 		for (var oj=0, nation; nation = nations[oj]; oj++) {
 			o.restricted.push(nation);
 		}
-		o.nationaldiscount = [];
-		var nations2 = Utils.keyListToTable(o, 'nationaldiscount');
+		o.nationrebate = [];
+		var nations2 = Utils.keyListToTable(o, 'nationrebate');
 		for (var oj=0, nation; nation = nations2[oj]; oj++) {
-			o.nationaldiscount.push(nation);
+			o.nationrebate.push(nation);
 		}
 
 	}
@@ -72,20 +72,20 @@ MItem.prepareData_PostMod = function() {
 			}
 		}
 
-		if (o.nationaldiscount) {
+		if (o.nationrebate) {
 			// Parse the national discounts to a list of IDs
 			var parsedNations = [];
-			for (var ni=0, nid, n; nid= o.nationaldiscount[ni]; ni++) {
+			for (var ni=0, nid, n; nid= o.nationrebate[ni]; ni++) {
 				if (!(n= modctx.nationlookup[nid])) {
 					console.log('nation "'+nid+ '" not found (item '+o.id+')');
 					continue;
 				}
 				parsedNations.push(n.id);
 			}
-			o.nationaldiscount = parsedNations;
+			o.nationrebate = parsedNations;
 
-			if (o.nationaldiscount.length == 0) {
-				delete o.nationaldiscount;
+			if (o.nationrebate.length == 0) {
+				delete o.nationrebate;
 			}
 		}
 
@@ -140,7 +140,7 @@ MItem.prepareData_PostMod = function() {
 			mult2 += o.itemcost2/100;
 		}
 		
-		o.gemcost = forgeCost[o.mainlevel]*mult1 + o.mainpath + (forgeCost[o.secondarylevel]*mult2 || "") + (o.secondarypath || "");
+		o.gemcost = Math.round(forgeCost[o.mainlevel]*mult1) + o.mainpath + (Math.round(forgeCost[o.secondarylevel]*mult2) || "") + (o.secondarypath || "");
 
 		//booster +DDD
 		o.boosters = "";
@@ -624,10 +624,10 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 	
 	'noforgebonus', 'noforgebonus',
 	'hpbonus', 'hp bonus',
-	'nationaldiscount', 'national discount', function(v,o)
+	'nationrebate', 'national discount', function(v,o)
 	{
 		var nationalString = '';
-		for (var i=0, k; k=o.nationaldiscount[i]; i++) {
+		for (var i=0, k; k=o.nationrebate[i]; i++) {
 			nationalString = nationalString + Utils.nationRef(k) + '<br/>';
 		}
 		return nationalString;
@@ -753,7 +753,7 @@ var flagorder = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'singleuse', 'single use',
 	'allunitslooklikebearertoscouts', 'false army',
 	'onlyuseablebyfliersormounted', 'can onlybe useed by fliers or mounted',
-
+	'champprize', 'Arena championship prize'
 ]);
 var hiddenkeys = DMI.Utils.cutDisplayOrder(aliases, formats,
 [
