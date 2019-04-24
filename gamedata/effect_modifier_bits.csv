@@ -36,15 +36,15 @@ bit_value	bit_name	test
 17179869184	Unknown Modifier {Wpn: #17179869184}
 34359738368	Unknown Modifier {Wpn: #heavyweapon}
 68719476736	Higher charge bonus cap {Wpn: #68719476736}
-137438953472	Cannot Repel {Wpn: #norepel}
+137438953472	Cannot be used for repelling {Wpn: #norepel}
 274877906944	Piercing Damage {Wpn: #pierce}
 549755813888	Bludgeoning Damage {Wpn: #blunt}
 1099511627776	Slashing Damage {Wpn: #slash}
 2199023255552	Acid Damage {Wpn: #acid}
 4398046511104	Affects according to Target Size {Wpn: #sizeresist}
-8796093022208	Grab and Swallow {Wpn: #trampswallow}
+8796093022208	Only a chance of this being used {Wpn: #melee50}
 17592186044416	Magic Resistance Hard to Negate {Wpn: #hardmrneg}
-35184372088832	Unknown Modifier {Wpn: #35184372088832}
+35184372088832	Attacks cannot be repelled {Wpn: #unrepel}
 70368744177664	No Effect on Fliers/Floaters {Wpn: #flyingimmune}
 140737488355328	No Effect on Constructs {Wpn: #constructimmune}
 281474976710656	Affects Animals Only {Wpn: #animalonly}
