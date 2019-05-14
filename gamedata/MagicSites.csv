@@ -202,7 +202,7 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 201	Orichalcum Mine	5	516	0	Fire										100																																																																																										1										150	
 202	Shattered Volcano	5	0	0	Fire	1					1																																																																																														2	102	3227	3226								
 203	Telepylos	5	0	0	Earth				1																																		3216																														3225	3228																															29											
-204	The Burning Mountain	2	223	0	Fire	3															Heat																																																																																				1											
+204	The Burning Mountain	5	223	0	Fire	3															Heat																																																																																				1											
 310	Tar Pits	0	219	1	Fire	1																																																																																																			5											
 311	Sun Ridge	0	223	1	Fire	2																																																																																																			3											
 312	Gold-Leafed Tree	1	223	2	Fire	2																																																																																																			10											
@@ -261,8 +261,8 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 365	Rune of Fire	1	223	2	Fire																																				F	2																																																															5											
 366	Maze of Frozen Flames	2	16591	2	Fire																																				FW	2																																																															5											
 367	Devil's Furnace	1	16607	3	Fire	1																																											2286	2																																																							1											
-368	Isle of Rebirth	2	16416	6	Fire	1					1																																																			10%																																											0											
-369	Dragon Lair	2	16388	6	Fire	2																																																																																																			7											
+368	Isle of Rebirth	2	16416	3	Fire	1					1																																																			10%																																											0											
+369	Dragon Lair	2	16388	3	Fire	2																																																																																																			7											
 370	Altar of Catharsis	5	16607	4	Fire																																												594	1																																																							6											
 371	Thunder Oak	0	223	1	Air		1																																																																																																		13	24		2988								
 372	Canyon of Wild Winds	0	95	1	Air		2																																																																																																		9											
@@ -376,7 +376,7 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 480	Double Bottom Lake	1	2	2	Water			1				1																																																																																													18											
 481	Merman Village	0	64	0	Water																																																																									1065					1067																						18											
 482	Temple of the Sacred River	2	223	2	Water			1			1																																																																								1877	1878																					23											
-483	Garden of Frozen Flowers	0	223	1	Water			1																																																																																																	20	56	204									
+483	Garden of Frozen Flowers	0	223	1	Water			1																																																																																																	20	56		204								
 484	Wellspring of Secrets	0	223	3	Water			1																																																																																																	19											
 485	Lake of Living Water	0	223	3	Water			1																																																																																																	18											
 486	Subterranean Lake	1	512	1	Water			1																																																																																																	24											
@@ -390,7 +390,7 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 494	Sign of Nodens	2	16450	3	Water			2																																																						3%																																											22											
 495	Rune of Water	1	255	2	Water																																				W	2																																																															22											
 496	Pharos	2	16448	1	Water																																				FAWESDNB	2																										2																																					21											
-497	Tower of Ice	2	16396	6	Water			2											lab																						W	2																																																															21											
+497	Tower of Ice	2	16396	3	Water			2											lab																						W	2																																																															24											
 498	Tomb of Ice	5	16607	3	Water			1													Cold																																																																																				24											
 499	Wellspring of Abundance	5	16607	5	Water			2						20	20						Growth																																																																																				19											
 500	The Golden City	2	17440	0	Water									50	10																																																															1056																											23											
@@ -473,8 +473,8 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 577	Heart of the Mountain	2	16388	3	Earth				2																																E	3																																																															32											
 578	Basilisk Cave	2	223	2	Earth				1																																															20%																																																	32											
 579	Rune of Earth	1	255	2	Earth																																				E	2																																																															31											
-580	Halls of the Mountain King	5	16388	5	Earth				1																																																																																																32										50	
-581	Ruined Halls of the Mountain King	5	16388	5	Earth																																																																																																				32											
+580	Halls of the Mountain King	5	16388	4	Earth				1																																																																																																32										50	
+581	Ruined Halls of the Mountain King	5	16388	4	Earth																																																																																																				32											
 582	City of the Ancients	5	16607	2	Earth																																																																10																																				29											
 583	The World Pillar	2	16388	0	Earth		1		4																																																																																																31											
 584	Library	1	223	0	Astral																																																																														478																						38											
@@ -575,7 +575,7 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 679	Flesh Garden of Mortal Remains	1	16607	3	Death						2	1																																																																																													43											
 680	The Bowl of the Lost	1	16607	3	Death						1																																						185	1																																																							47											
 681	Skull Temple	2	16607	0	Death						1																																						535	1	189	1																																																					47											
-682	Tomb of the Ancients	2	16388	3	Death						4																																																																																														46											
+682	Tomb of the Ancients	2	16388	3	Death						4																																																																																														48											
 683	The Shaded Lands	2	16607	0	Death						3						10																																676	1																																																							46											
 684	The City of a Thousand Wonders	2	16607	1	Death	1					2									4	Death																																																10																																				47											
 685	The Mausoleum of the Great Sarlah	2	16607	2	Death						3																																						433	2																																																							47											
@@ -614,8 +614,8 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 718	Imperial Tomb	5	1247	2	Death						1																																																																																														47											
 719	Blackrose Tower	1	16386	1	Death						1	1																																																																							2362																						45											
 720	Dusk Spiral	1	16386	1	Death						1	1																																																																							2361																						45											
-721	Necromancer's Lair	2	16398	6	Death						2								lab																						D	2																																																															45											
-722	Oath Stone	1	16607	6	Death																																																																																				2190																41											
+721	Necromancer's Lair	2	16398	3	Death						2								lab																						D	2																																																															45											
+722	Oath Stone	2	16607	2	Death																																																																																				2190																48											
 723	Withered Land	5	16607	1	Death						1										Death																																																																																				44											
 724	Hall of the Draugadrott	5	223	2	Death																																																																																																				47											
 725	Cult of Death	5	16607	5	Death																Death																																																																																				42											
@@ -718,7 +718,7 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 822	Ancient Ruin	1	223	0	Nature																																												2223	2																																																							58											
 823	The Wormwood Tower	1	16386	3	Nature		1				1	1																																																																							2358																						53											
 824	Dusk Spiral	1	16386	1	Nature						1	1																																																																							2361																						53											
-825	Tower of Thorns	2	16386	6	Nature							2							lab																						N	2																																																															58											
+825	Tower of Thorns	2	16386	3	Nature							2							lab																						N	2																																																															58											
 826	Toad Tribe Settlement	5	128	0	Nature																																																																									1613					1614						1613																55											
 827	The Primal Forest	5	16386	0	Nature							3																																					932	1																																																							51											
 828	Grove Unpleasant	2	223	2	Nature						1	1																																					716	1	715	1	313	1																																																			51											

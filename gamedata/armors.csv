@@ -12,7 +12,7 @@ id	name	type	def	enc	rcost	end
 11	Ring Mail Hauberk	5	-1	1	5	
 12	Scale Mail Hauberk	5	-1	2	9	
 13	Chain Mail Hauberk	5	-2	2	13	
-14	Plate Hauberk	5	-3	4	20	
+14	Plate Hauberk	5	-2	4	20	
 15	Full Leather Armor	5	-1	1	3	
 16	Full Ring Mail	5	-2	2	7	
 17	Full Scale Mail	5	-2	3	12	

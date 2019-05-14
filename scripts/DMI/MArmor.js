@@ -197,6 +197,7 @@ var ignorekeys = {
 	name:1,
 	type:1,
 	magic:1,
+	magicarmor:1,
 	torso:1,upper:1,lower:1,general:1,
 	searchable:1,renderOverlay:1, matchProperty:1
 };
@@ -232,7 +233,7 @@ MArmor.renderOverlay = function(o, baseAtt) {
 			//var attribute = modctx.attributes_lookup[parseInt(attr.attribute_record_id)];
 			if (attr.attribute != "582") {
 				var ak = '';
-				if (attr.attribute == "557") {
+				if (attr.attribute == "557" || o.magicarmor) {
 					ak = '<span class="internal-inline"> [magic]</span>';
 				}
 				var specflags = modctx.attribute_keys_lookup[attr.attribute].name;

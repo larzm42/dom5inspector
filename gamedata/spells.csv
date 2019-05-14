@@ -316,7 +316,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 356	Contact Iron Angel	0	8	3	5	4	2	356	1	0	0	25	0	1975	
 357	Tempering the Will	5	5	3	3	-1	0	357	1	100	20	0	0	67108864	
 358	Gift of the Moon	4	4	4	1	-1	0	358	1	100	20	0	0	1099511627776	
-359	Sanguine Heritage	6	0	7	3	5	3	359	1	0	0	44	0	1019	
+359	Sanguine Heritage	6	0	7	3	5	3	359	1	0	0	44	0	19	
 360	Summon Monster Toads	0	5	6	2	-1	0	360	3	0	0	8	0	1358	
 362	Contact Couatl	0	7	6	1	4	1	362	1	0	0	40	0	525	
 363	Parting of the Soul	5	6	5	1	1	1	363	1	100	40	0	111	5010	
@@ -677,7 +677,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 720	Summon Water Power	0	2	2	1	-1	0	720	1	0	20	0	0	524288	
 721	Summon Ogres	0	2	3	1	-1	0	721	505	0	0	10	0	2135	
 722	Summon Shades	0	2	5	2	-1	0	722	505	0	0	8	0	676	
-723	Summon Killer Mantis	0	2	6	2	-1	0	723	505	0	0	8	0	2226	
+723	Summon Killer Mantis	0	2	6	2	-1	0	723	505	0	0	4	0	2226	
 724	Pack of Wolves	0	2	6	1	-1	0	724	1009	0	0	2	0	284	
 725	Summon Horned Serpents	0	2	6	1	-1	0	725	505	0	0	4	0	403	
 726	Phoenix Power	0	3	0	2	-1	0	726	1	0	20	0	19	262144	
@@ -1101,3 +1101,10 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 1144	Rhapsody of Life	5	3	6	1	-1	0	1144	1	5	20	0	0	1009	
 1145	Minor Reinvigoration	-1	1	-1	0	-1	0	1145	1	0	0	0	0	10	
 1146	Procession of the Underworld	0	5	5	3	-1	0	1146	12	0	0	13	0	3210	
+1147	Summon Okami	0	3	6	1	-1	0	1147	1009	0	0	6	0	3264	
+1148	Contact Bakeneko	0	3	6	2	-1	0	1148	1	0	0	8	0	3268	
+1149	Summon Omukade	0	4	3	2	5	1	1149	1	0	0	6	0	3269	
+1150	Contact Mujina	0	5	6	2	-1	0	1150	1	0	0	21	0	3273	
+1151	Contact Tanuki	0	5	6	2	-1	0	1151	1	0	0	26	0	3266	
+1152	Contact Jorogumo	0	6	6	2	5	1	1152	1	0	0	32	0	3263	
+1153	Summon Araburu-kami	0	7	5	1	0	1	1153	1	0	0	5	0	3270	

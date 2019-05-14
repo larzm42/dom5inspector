@@ -817,8 +817,8 @@ var modctx = DMI.modctx = {
 		natural: _bool,
 		internal: _bool,
 		ferrous: _bool,
-		flammable: _bool
-
+		flammable: _bool,
+		dt_realstun: _bool
 
 	},
 
@@ -871,7 +871,10 @@ var modctx = DMI.modctx = {
 		def:	_num,
 		rcost: 	_num,
 		prot: 	_num,
-		enc: 	_num
+		enc: 	_num,
+		magicarmor: _bool,
+		ironarmor: _bool,
+		woodenarmor: _bool,
 	},
 
 	//unit selected

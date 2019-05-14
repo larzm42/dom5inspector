@@ -739,3 +739,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 738	Shock	738	0	0	0	1	0	0	0	0	
 739	Tiny Sting	739	0	0	0	1	0	0	0	0	
 740	Tiny Bite	740	0	0	0	1	0	0	0	0	
+741	Poisoned Bronze Spear	741	0	0	3	1	0	51	0	1	
+742	Mantis Claw	742	0	0	-1	1	0	0	0	0	
+743	Spider Claw	743	0	0	-1	1	0	0	0	0	
+744	Enchanted No-Dachi	744	3	3	2	1	0	0	0	7	
