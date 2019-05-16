@@ -848,14 +848,23 @@ MSpell.renderOverlay = function(o) {
 	h+='		<div class="overlay-descr pane-extension '+uid+'"></div>';
 
 	if (o.descr)
-			Utils.insertContent( '<p>'+o.descr+'</p>', 'div.'+uid );
+		Utils.insertContent( '<p>'+o.descr+'</p>', 'div.'+uid );
 	else {
-			 var url = descrpath + Utils.descrFilename(o.name);
-			 Utils.loadContent( url, 'div.'+uid );
+		var url = descrpath + Utils.descrFilename(o.name);
+		Utils.loadContent( url, 'div.'+uid );
 	}
+
+	//details
+	var uid = 'c'+(Math.random());
+	uid = uid.replace('.','');
+	h+='		<div class="overlay-details pane-extension '+uid+'"></div>';
+
+	var url = descrpath + Utils.descrFilename('details'+o.name);
+	Utils.loadContent( url, 'div.'+uid );
 
 	h+='	</div> ';
 	h+='</div> ';
+	
 	return h;
 }
 

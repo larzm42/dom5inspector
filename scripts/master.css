@@ -448,6 +448,15 @@ div.overlay-footer {
 		margin-bottom:0.2em;
 	}
 
+	div.overlay-details {
+		margin: 0em;	padding: 0em;
+		background: #faffa8;
+		/*margin-top: 0.4em;*/
+	}
+	div.overlay-details p {
+		margin-bottom:0.2em;
+	}
+	
 	.overlay-wiki-link {
 		float:right;
 		clear:right;
