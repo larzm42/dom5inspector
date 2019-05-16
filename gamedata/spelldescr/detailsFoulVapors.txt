@@ -1,0 +1,1 @@
+Targets a portion of the battle field every turn with 5 AN poison dmg
