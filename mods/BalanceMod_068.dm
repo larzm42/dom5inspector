@@ -1,10 +1,9 @@
-#modname "BalanceMod 0.62"
+#modname "BalanceMod 0.68"
 #description "The balance mod to end all balance mods!"
-#version 0.62
-#icon "./balance/banner.png"
+#version 0.68
+#icon "./balance/banner.tga"
 
--- SCALES
-#deathincome 2
+-- SCALES  
 #turmoilincome 4
 #misfortune 15
 
@@ -49,8 +48,33 @@
 #def 0
 #end
 
+#selectweapon 141 -- poison spit used mainly by nagas
+#range0
+#end
+
+#selectweapon 224 -- poison spit, unused
+#range0
+#end
+
+#selectweapon 288 -- obsidian club sword 2h
+#att 1
+#end
+
 #selectweapon 308 -- glaive
 #att 0
+#end
+
+#selectweapon 324 -- poison spit used by bog beasts, kuro-oni, jaguar toads
+#range0
+#end
+
+#selectweapon 330 -- alicorn
+#charge
+#end
+
+#selectweapon 451 -- obsidian club sword 1h
+#att 1
+#dmg 5
 #end
 
 #selectweapon 572 -- spectral long spear
@@ -85,38 +109,71 @@
 #def 0
 #end
 
-#newweapon 1000
+#newweapon
+#name "Boulder Impact"
 #dmg 4
 #halfstr
 #twohanded
 #blunt
-#name "Tremendous force"
 #end
 
-#newweapon 1001
+#selectweapon 471 -- boulder, unused
+#secondaryeffectalways "Boulder Impact"
+#end
+
+#newweapon
+#copyweapon "Boulder Impact"
+#name "Magical Boulder Impact"
+#magic
+#end
+
+#newweapon
 #copyweapon 31 -- coral spear
+#name "Coral Poleaxe"
 #rcost 3
 #dmg 7
 #len 2
 #slash
-#name "Coral Poleaxe"
 #end
 
-#newweapon 1002
-#copyweapon 1001
-#dmg 7
-#secondaryeffect 0
+#newweapon
 #name "Metal Poleaxe"
+#copyweapon "Coral Poleaxe"
+#dmg 8
+#secondaryeffect 0
 #end
 
 -- ARMOR
+#selectarmor 1 -- buckler
+#def 3
+#end
+
+#selectarmor 9 -- plate cuirass
+#rcost 12
+#end
+
+#selectarmor 12 -- scale mail hauberk
+#rcost 10
+#end
+
+#selectarmor 13 -- chain mail hauberk
+#rcost 11
+#end
+
 #selectarmor 14 -- plate hauberk
 #enc 3
-#def -2
 #end
 
 #selectarmor 19 -- full plate mail
 #enc 4
+#end
+
+#selectarmor 99 -- lorica segmentata
+#rcost 10
+#end
+
+#selectarmor 100 -- bronze cuirass
+#rcost 12
 #end
 
 #selectarmor 101 -- bronze hauberk
@@ -133,16 +190,32 @@
 #def 6
 #end
 
-#selectarmor 237 -- gleaming hauberk
-#enc 3
+#selectarmor 136 -- bronze scale hauberk
+#rcost 9
 #end
 
+#selectarmor 167 -- rotten buckler
+#def 3
+#end
+
+#selectarmor 207 -- wicker shield
+#prot 14
+#enc 0
+#def 4
+#end
+
+
 -- SPELLS AND SUMMONS
-#selectspell 3 -- large area heat shock
+#newspell
+#name "Large Area Heat Shock Damage"
+#aoe 6
 #damage 1001
 #effect 2 -- real damage
 #spec 96 -- fire AP
-#explspr 10175
+#end
+
+#selectspell 3 -- large area heat shock
+#nextspell "Large Area Heat Shock Damage"
 #end
 
 #selectspell 150 -- blessing
@@ -155,6 +228,10 @@
 
 #selectspell 165 -- sermon of courage
 #precision 100
+#end
+
+#selectspell 166 -- smite demon
+#spec 17592194973832 -- as vanilla except MR negates->MR negates hard
 #end
 
 #selectspell 496 -- flame bolt
@@ -172,19 +249,25 @@
 #descr "The caster hurls a large ball of sticky goo at his enemies. Enemies stuck in the slime will move more slowly and have trouble defending themselves. The goo is stronger than that created by the basic Slime spell and will be able to entrap enemies for a few turns after the initial explosion."
 #pathlevel 0 2
 #effect 2011
-#researchlevel 4
+#researchlevel 3
 #aoe 3
 #explspr 10184
 #end
 
-
 #selectspell 499 -- cold bolt
 #pathlevel 0 1
+#spec 576 -- cold ap
+#damage 1014
 #end
 
 #selectspell 507 -- flare
 #fatiguecost 20
 #precision 4
+#end
+
+#selectspell 509 -- cold blast
+#spec 576
+#damage 1014
 #end
 
 #selectspell 510 -- rain
@@ -193,12 +276,19 @@
 #fatiguecost 200
 #end
 
+#selectspell 513 -- rust mist
+#effect 5011
+#path 0 2
+#path 1 3
+#descr "Highly corrosive mists appear on the battlefield and rust the ferrous equipment of trooops passing through them. Both weapons and armor will potentially be damaged when used." 
+#end
+
 #selectspell 516 -- fireball
 #precision 4
 #end
 
 #selectspell 523 -- magic duel
-#aoe 0
+#school -1
 #end
 
 #selectspell 530 -- breath of the desert
@@ -209,6 +299,11 @@
 #precision 4
 #end
 
+#selectspell 543 -- falling frost
+#spec 576
+#damage 15
+#end
+
 #selectspell 565 -- wailing winds
 #fatiguecost 300
 #casttime 300
@@ -217,10 +312,6 @@
 #selectspell 566 -- stream of life
 #damage 5035
 #precision 5
-#end
-
-#selectspell 567 -- fire storm
-#fatiguecost 300
 #end
 
 #selectspell 576 -- wind of death
@@ -240,8 +331,11 @@
 #precision 100
 #end
 
-#selectspell 597 -- earth of might
+#selectspell 597 -- earth might
 #precision 100
+#pathlevel 0 1
+#fatiguecost 40
+#school 4
 #end
 
 #selectspell 617 -- cheat fate
@@ -254,6 +348,15 @@
 
 #selectspell 623 -- ghost wolves
 #school -1
+#end
+
+#newspell
+#copyspell 624
+#name "Freeze"
+#aoe 0
+#researchlevel 2
+#pathlevel 0 1
+#descr "The caster freezes an enemy. Frozen units are slowed and suffer from fatigue each turn."
 #end
 
 #selectspell 626 -- protection
@@ -272,38 +375,49 @@
 #precision 100
 #end
 
+#selectspell 635 -- temper flesh
+#damage 343597384704 -- slash pierce fire res, no blunt
+#descr "The flesh of the caster is tempered with earth magic and made highly resistant to piercing and slashing weapons as well as fire."
+#end
+
+
 #selectspell 641 -- swarm
 #nreff 2013
 #end
 
-#selectweapon 450 -- tiny bite
-#clear
-#dmg 1
-#len -1
-#dt_cap
-#bonus
-#armorpiercing
-#slash
-#unrepel
-#nostr
-#sound 38
+#selectspell 651 -- bone melter
+#nextspell 103 -- area cripple
 #end
 
 #selectspell 643 -- stygian skin
 #researchlevel 2
+#fatiguecost 10
+#descr "The caster drenches his skin in stygian water, making him almost impervious to physical damage. Only living beings are affected by this spell. The spell provides invulnerability 15."
 #end
 
 #newspell
 #copyspell 643
+#name "Stygian Protection"
+#descr "This spell works just like the Stygian Skin spell, except that it affects all units in an area and can be cast from along distance."
+#spec 549470208 -- as skin plus enemies immune
+#range 20
+#precision 100
+#researchlevel 3
+#aoe 1
+#fatiguecost 20
+#end
+
+#newspell
+#copyspell  643
 #name "Stygian Warriors"
 #descr "The caster drenches the skin of a group of soldiers with stygian water, making them almost imprevious to physical damage. Only living beings are affected by this spell."
-#spec 549470208 -- as skin plus enemies immune
+#spec 549470208 
 #range 10
 #precision 100
-#pathlevel 0 2
+#pathlevel 0 1
 #researchlevel 5
 #aoe 5
-#fatiguecost 50
+#fatiguecost 80
 #end
 
 #selectspell 646 -- cold resistance
@@ -338,6 +452,7 @@
 
 #selectspell 667 -- wave warriors
 #precision 100
+#aoe 10
 #end
 
 #selectspell 674 -- battle fortune
@@ -366,6 +481,14 @@
 #damage 199
 #end
 
+#selectmonster 2226 -- killer mantis
+#hp 21
+#prot 12
+#att 14
+#def 12
+#ap 18
+#end
+
 #selectspell 740 -- dark knowledge
 #fatiguecost 300
 #end
@@ -374,17 +497,67 @@
 #researchlevel 3
 #end
 
+#selectmonster 567 -- air elemental size 6
+#def 13
+#end
+
+#selectmonster 568 -- air elemental size 5
+#def 13
+#end
+
+#selectmonster 569 -- air elemental size 4
+#def 13
+#end
+
+#selectmonster 570 -- air elemental size 3
+#def 13
+#end
+
+#selectmonster 571 -- air elemental size 2
+#def 13
+#end
+
+#selectmonster 572 -- air elemental size 1
+#def 13
+#end
+
 #selectspell 779 -- summon water elemental
 #descr "The caster summons a Water Elemental to aid him in battle. Water Elementals are quick and crush enemies regardless of armor. Elementals shrink when they are hit by powerful strikes. Water Elementals summoned in cold climates will be composed of ice. Ice Elementals are stronger but slower than Water Elementals. If summoned underwater the Elemental will lose some of itself in the churning waters. Due to this it will be smaller, but can heal itself at a tremendous rate."
 #end
 
 #selectmonster 408 -- water elemental size 6
 #watershape 410
+#def 11
 #end
 
 #selectmonster 409 -- water elemental size 5
 #watershape 410
+#def 11
 #end
+
+#selectmonster 408 -- water elemental size 4
+#def 11
+#end
+
+#selectmonster 407 -- water elemental size 3
+#def 11
+#end
+
+#selectmonster 405 -- water elemental size 2
+#def 11
+#end
+
+#selectmonster 405 -- water elemental size 1
+#def 11
+#end
+
+#selectspell 788 -- ghost grip
+#spec 545275968 -- gains ap & lifeless immunity
+#damage 2018
+#descr "The caster summons energies from beyond the grave to target some troops on the battlefield. The targeted troops lose some of their life energy and become exhausted. The effect of the Ghost Grip is somewhat reduced by heavy armor."
+#range 30
+#end
+
 
 #selectspell 808 -- acashic knowledge
 #fatiguecost 2000
@@ -439,6 +612,17 @@
 
 #selectspell 855 -- legions of steel
 #precision 100
+#fatiguecost 60
+#end
+
+#newspell
+#copyspell 855
+#name "Fortify Armor"
+#descr "The armor of a small number of soldiers is tempered with magic, making it more durable."
+#pathlevel 0 1
+#researchlevel 1
+#aoe 1
+#fatiguecost 40
 #end
 
 #selectspell 861 -- weapons of sharpness
@@ -497,6 +681,7 @@
 
 #selectspell 891 -- strength of giants
 #precision 100
+#fatiguecost 60
 #end
 
 #selectspell 893 -- raise skeletons
@@ -506,6 +691,10 @@
 
 #selectspell 895 -- regeneration
 #precision 100
+#end
+
+#selectmonster 2134 -- terracotta soldier
+#formationfighter 2
 #end
 
 #selectspell 906 -- haste
@@ -545,18 +734,9 @@
 #pathlevel 0 2
 #end
 
-#selectspell 939 -- rigor mortis
-#fatiguecost 300
-#end
-
 #selectspell 946 -- lion sentinels
 #fatiguecost 2500
 #end
-
-#selectspell 948 -- solar brilliance
-#fatiguecost 300
-#end
-
 
 #selectspell 959 -- thunder fend
 #effect 509
@@ -565,6 +745,14 @@
 
 #selectspell 975 -- blink
 #school -1
+#end
+
+#selectspell 983 -- seven year fever
+#prec 100
+#end
+
+#selectspell 990 -- sleep
+#pathlevel 0 1
 #end
 
 #selectspell 993 -- sailors' death
@@ -584,12 +772,60 @@
 #researchlevel 3
 #end
 
-#selectspell 1039 -- hydrophobia
-#spec 545927168
-#end
-
 #selectspell 1056 -- summon imp
 #nreff 3
+#end
+
+#selectspell 1088 -- summon illearth
+#fatiguecost 300
+#end
+
+#selectmonster 2280 -- illarth size 6
+#str 27
+#att 15
+#prot 13
+#clearweapons
+#weapon 562 -- stone fist
+#weapon 562
+#end
+
+#selectmonster 2281 -- illearth size 5
+#str 24
+#att 14
+#prot 12
+#clearweapons
+#weapon 562
+#end
+
+#selectmonster 2282 -- illearth size 4
+#str 21
+#att 13
+#prot 11
+#clearweapons
+#weapon 562
+#end
+
+#selectmonster 2283 -- illearth size 3
+#str 18
+#att 12
+#prot 10
+#clearweapons
+#weapon 562
+#end
+
+#selectmonster 2284 -- illearth size 2
+#str 15
+#att 11
+#prot 9
+#clearweapons
+#weapon 562
+#end
+
+#selectmonster 2284 -- illearth size 1
+#str 12
+#prot 8
+#clearweapons
+#weapon 562
 #end
 
 #selectspell 1099 -- father illearth
@@ -612,8 +848,8 @@
 #end
 
 #selectmonster 405 -- vampire
-#spr1 "./balance/vampire1.png"
-#spr2 "./balance/vampire2.png"
+#spr1 "./balance/vampire1.tga"
+#spr2 "./balance/vampire2.tga"
 #att 12
 #def 12
 #clearweapons
@@ -624,6 +860,14 @@
 #armor 8 -- chain mail cuirass
 #end
 
+#selectspell 1137 -- forge brass bull
+#fatiguecost 25000
+#end
+
+#selectmonster 3171 -- khalkotauros
+#heat 7
+#end
+
 #selectmonster 178 -- lich
 #fear 5
 #end
@@ -632,11 +876,33 @@
 #darkvision 50
 #end
 
+#selectmonster 197 -- soulless
+#pierceres
+#mr 7
+#end
+
+#selectmonster 914 -- soulless warrior, human
+#pierceres
+#mr 7
+#end
+
+#selectmonster 915 -- soulless warrior, human
+#pierceres
+#mr 7
+#end
+
+#selectmonster 2119 -- soulless warrior
+#pierceres
+#mr 7
+#end
+
 #selectmonster 433 -- bone fiend
 #pooramphibian
 #end
 
 #selectmonster 493 -- earth elemental size 6
+#str 27
+#att 15
 #prot 13
 #clearweapons
 #weapon 562 -- stone fist
@@ -644,30 +910,39 @@
 #end
 
 #selectmonster 494 -- earth elemental size 5
+#str 24
+#att 14
 #prot 12
 #clearweapons
 #weapon 562
 #end
 
 #selectmonster 495 -- earth elemental size 4
+#str 21
+#att 13
 #prot 11
 #clearweapons
 #weapon 562
 #end
 
 #selectmonster 496 -- earth elemental size 3
+#str 18
+#att 12
 #prot 10
 #clearweapons
 #weapon 562
 #end
 
 #selectmonster 497 -- earth elemental size 2
+#str 15
+#att 11
 #prot 9
 #clearweapons
 #weapon 562
 #end
 
 #selectmonster 498 -- earth elemental size 1
+#str 12
 #prot 8
 #clearweapons
 #weapon 562
@@ -691,37 +966,32 @@
 #aoe 1007
 #end
 
+#newspell
+#copyspell "Fire Darts"
+#path 0 2
+#name "Cold Darts"
+#spec 576
+#descr "With this spell, a mage can fire many freezing missiles towards his enemies. A powerful Cold mage can fire the darts in rapid succession over long range. The spell is quite useless against heavily armored men and is best used to eliminate or scare away more poorly armored troops."
+#flightspr 10068
+#sound 21
+#end
+
+#newspell
+#copyspell "Breath of Winter"
+#name "Heat of the Furnace"
+#path 0 0
+#damage 16384
+#spec 16384 -- only ignore shield
+#descr "The caster is surrounded by extreme heat. Anyone close to the caster will suffer severe stun damage from the heat. The caster becomes resistant to all heat effects when casting this spell. The Heat of the Furnace works best in hot provinces."
+#nextspell 609 -- resist fire, make a note
+#end
+
 #selectmonster 181 -- wraith lord, infantry
-#clearspec
-#coldres 25
-#poisonres 25
-#cold 3
-#fear 5
-#makemonsters1 566 -- ghost
-#immortal
-#undead
-#ethereal
-#amphibian
-#neednoteat
-#deathcurse
-#spiritsight
+#reformtime 0
 #end
 
 #selectmonster 182 -- wraith lord, mounted
-#clearspec
-#coldres 25
-#poisonres 25
-#cold 3
-#fear 5
-#makemonsters1 566
-#immortal
-#mounted
-#undead
-#ethereal
-#amphibian
-#neednoteat
-#deathcurse
-#spiritsight
+#reformtime 0
 #end
 
 #selectmonster 297 -- phantasmal warrior
@@ -731,7 +1001,7 @@
 
 #selectmonster 298 -- wolf
 #hp 8
-#desc "The phantasmal wolf is an illusion of a wolf. The phantasm is elusive and difficult to hit but easy to destroy with magic The weapons of a phantasm are unreal and will only harm those who believe them to be real."
+#descr "The phantasmal wolf is an illusion of a wolf. The phantasm is elusive and difficult to hit but easy to destroy with magic The weapons of a phantasm are unreal and will only harm those who believe them to be real."
 #end
 
 #selectmonster 448 -- false horror
@@ -739,8 +1009,29 @@
 #descr "The False Horror is a frightening, illusionary Horror. Ordinary men will surely falter at the sight of a Horror, but those brave enough to fight the apparition will find it quite vulnerable."
 #end
 
+#selectmonster 3233 -- phantasmal archer
+#hp 10
+#descr "The phantasmal archer is an illusion of an archer. The phantasm is elusive and difficult to hit but easy to destroy with magic The weapons of a phantasm are unreal and will only harm those who believe them to be real."
+#end
+
+#selectmonster 512 -- fall bear
+#clearweapons
+#weapon 20
+#weapon 29
+#end
+
+#selectmonster 515 -- summer lion
+#heat 7
+#end
+
 #selectmonster 528 -- corpse candle
 #fireres 10
+#end
+
+#selectmonster 694 -- great bear
+#clearweapons
+#weapon 20
+#weapon 29
 #end
 
 #selectmonster 695 -- phantasmal beast
@@ -760,27 +1051,57 @@
 
 #selectmonster 1200 -- unfrozen mage
 #pooramphibian
-#end
-
-#selectmonster 1200 -- unfrozen mage
-#pooramphibian
+#mountainsurvival
+#clearmagic
+#magicskill 2 1
+#magicskill 3 1
+#magicskill 5 1
+#custommagic 5632 100
+#custommagic 5632 100
 #end
 
 #selectmonster 1201 -- unfrozen lord
 #pooramphibian
+#mountainsurvival
 #end
 
-#selectmonster 1202 -- unfrozen warrior
+#selectmonster 1202 -- unfrozen warrior w/flint Sword
 #pooramphibian
+#mountainsurvival
 #end
 
-#selectmonster 1203 -- unfrozen
+#selectmonster 1203 -- unfrozen w/spear
 #pooramphibian
+#mountainsurvival
+#end
+
+#selectmonster 2522 -- released sage
+#clearmagic
+#magicskill 3 1
+#magicskill 5 2
+#custommagic 7168 100
+#custommagic 3072 100
 #end
 
 #selectmonster 2251 -- ancient presence
 #pooramphibian
 #end
+
+
+
+#selectmonster 2225 -- fire ant
+#clearspec -- for undisciplined
+#fireres 5
+#stealthy 0
+#animal
+#magicbeing
+#neednoteat
+#mor 50
+#wastesurvival
+#darkvision 50
+#end
+
+
 
 -- ITEMS
 #selectitem 1 -- fire sword
@@ -812,7 +1133,7 @@
 #hp 4
 #end
 
-#selectweapon 685 -- ice mist
+#selectweapon 686 -- ice mist
 #dmg 15
 #end
 
@@ -832,7 +1153,10 @@
 #itemcost1 -20
 #end
 
-#selectitem 31 -- eyecatcher
+#selectweapon 108 -- greatsword of sharpnes
+#dmg 12
+#att 3
+#def 3
 #end
 
 #selectitem 36 -- enchanted sword
@@ -841,9 +1165,6 @@
 
 #selectitem 37 -- enchanted spear
 #itemcost1 -20
-#end
-
-#selectitem 38 -- enchanted pike
 #end
 
 #selectitem 43 -- hardwood club
@@ -929,6 +1250,14 @@
 #nationrebate 96
 #end
 
+#selectweapon 133 -- midget masher
+#att 5
+#end
+
+#selectitem 59 -- summer sword
+#pathlevel 0 1
+#end
+
 #selectitem 134 -- sword of injustice
 #nationrebate 44
 #end
@@ -941,6 +1270,7 @@
 
 #selectitem 147 -- enchanted shield
 #itemcost1 -20
+#mr 1
 #end
 
 #selectitem 148 -- raw hide shield
@@ -949,6 +1279,19 @@
 
 #selectitem 155 -- golden hoplon
 #mainlevel 1
+#end
+
+#selectitem 157 -- lucky coin
+#copyitem 266 -- for twist fate
+#spr "./balance/luckycoin.tga"
+#type 4
+#mainpath 4
+#mainlevel 2
+#constlevel 4
+#name "Lucky Coin"
+#descr "A buckler of polished silver, it has inscribed on its surface the face of an unknown statesman grinning at some private joke. The figure on the surface of the shield is reputedly the lover of Lady Luck and his face makes the bearer pleasant in the eyes of the Lady."
+#armor 67
+#luck
 #end
 
 #selectitem 164 -- immaculate shield
@@ -962,10 +1305,16 @@
 #end
 
 #selectitem 168 -- blacksteel helmet
+#itemcost1 -40
 #end
 
 #selectitem 169 -- enchanted helmet
-#itemcost1 -20
+#itemcost1 -40
+#mr 1
+#end
+
+#selectarmor 223
+#prot 17
 #end
 
 #selectitem 177 -- flame helmet
@@ -977,6 +1326,7 @@
 #end
 
 #selectitem 186 -- iron face
+#itemcost1 -35
 #end
 
 #selectitem 193 -- amon hotep
@@ -993,18 +1343,48 @@
 
 #selectitem 201 -- berserker pelt
 #itemcost1 -20
+#berserk 2
 #end
 
 #selectitem 204 -- lightweight scale mail
 #itemcost1 -20
+#constlevel 0
+#end
+
+#selectarmor 49
+#prot 13
 #end
 
 #selectitem 206 -- weightless scale mail
 #itemcost1 -50
 #end
 
+#selectarmor 50
+#prot 13
+#end
+
 #selectitem 209 -- enchanted ring mail armor
 #itemcost1 -20
+#mr 1
+#end
+
+#selectarmor 176 -- dire wolf pelt
+#prot 9
+#enc 0
+#end
+
+#selectitem 211 -- kitharonic lion pelt
+#constlevel 4
+#end
+
+#selectitem 217 -- silver hauberk
+#pathlevel 0 1
+#end
+
+#selectitem 228 -- marble armor
+#slashres
+#pierceres
+#stonebeing
 #end
 
 #selectitem 232 -- robe of invulnerability
@@ -1012,9 +1392,11 @@
 #end
 
 #selectitem 237 -- aseftik's armor
+#enc 3
 #end
 
 #selectitem 238 -- monolith armor
+#enc 7
 #end
 
 #selectitem 239 -- armor of the dawn
@@ -1028,7 +1410,8 @@
 #nationrebate 96
 #end
 
-#selectitem 245 -- boots of long strides
+#selectitem 247 -- behemoth boots
+#mor 3
 #end
 
 #selectitem 260 -- boots of the planes
@@ -1059,9 +1442,6 @@
 #itemcost1 -20
 #end
 
-#selectitem 268 -- snake ring
-#end
-
 #selectitem 269 -- slave collar
 #itemcost1 -20
 #end
@@ -1076,6 +1456,18 @@
 
 #selectitem 285 -- pebble pouch
 #itemcost1 -40
+#end
+
+#selectweapon 546 -- boulder, peeble pouch
+#secondaryeffectalways "Magical Boulder Impact"
+#end
+
+#selectitem 289 -- champion's skull
+#xp 5
+#att 1
+#def 1
+#unsur 3
+#descr "Every night, this skull whispers battle wisdom into the ears of its pupil. By owning this skull, one will become a seasoned warrior in no time. In battle the spirit will also help the bearer defend against multiple attacks by providing."
 #end
 
 #selectitem 294 -- enormous cauldron of broth
@@ -1114,7 +1506,6 @@
 #end
 
 #selectitem 320 -- bane venom charm
-#leper 5
 #constlevel 6
 #end
 
@@ -1211,7 +1602,6 @@
 
 #selectitem 432 -- boots of water walking
 #itemcost1 -20
--- TODO: snow walking
 #end
 
 #selectitem 433 -- champion's medal
@@ -1304,7 +1694,7 @@
 #altcost 10
 #end
 
-#selectsite 545 -- circleof standing stones
+#selectsite 545 -- circle of standing stones
 #enchcost 10
 #end
 
@@ -1545,6 +1935,11 @@
 #altcost 10
 #end
 
+#selectsite 1034 -- shambler reef
+#com 207 -- shambler chief
+#end
+
+
 #selectsite 1021 -- the last void
 #thaucost 20
 #end
@@ -1557,12 +1952,13 @@
 #conjcost 10
 #end
 
-
-
-#selectsite 1034 -- shambler reef
-#com 207 -- shambler chief
+#selectsite 1124 -- throne of spring
+#goddomdeath 0
 #end
 
+#selectsite 1124 -- throne of autumn
+#goddomdeath 0
+#end
 
 
 
@@ -1576,35 +1972,6 @@
 #end
 
 -- ERMOR
-#selectmonster 1115 -- augur elder
-#nobadevents 15
-#end
-
-#selectmonster 1104 -- principe
-#gcost 10012
-#end
-
-#selectmonster 1105 -- triarius
-#gcost 10013
-#end
-
-#selectmonster 874 -- pretender: divine emperor
-#commaster
-#end
-
-#newmonster 8000
-#copystats 1106
-#name "Lizard Optio"
-#descr "During the subjugation of C'tis, lizard soldiers were recruited into the Ermorian ranks. Lizard Optios have been granted a leadership role as a reward for loyalty. They are given slightly gilded equipment to make them stand out from the other Auxiliaries." 
-#spr1 "./balance/optio1.png"
-#spr2 "./balance/optio2.png"
-#gcost 10020
-#clearweapons
-#mor 11
-#weapon 6
-#command 20
-#end
-
 #selectnation 6
 #syncretism 1
 #descr "Ermor is an empire centered around a great city. For centuries it has grown and become more and more influential. Traders and travelers from near and far come to the city. By military campaigns, diplomacy and trade, Ermor has become a power to be reckoned with. By adopting local traditions and beliefs, the Ermorians posed little threat to neighbors and conquered peoples, but this has changed. A new God is rising. Old faiths and spirit worship were banned by a Prophet dressed in white shrouds. The remnants of his body and shrouds are buried in the Holy City of Eldregate where the adherents of the New Faith are awaiting the arrival of the Reawakening God foreseen by the Prophet. The all-encompassing old state cult of the Numinas still survives, but the Pontifices and Flamen are slowly adopting the New Faith."
@@ -1617,6 +1984,55 @@ Syncretism: Enemy temples are not razed, but converted if a priest is in the arm
 #swamprec 1106 -- swamp auxiliarie
 #end
 
+#selectmonster 1658 -- longdead principe
+#str 10
+#end
+
+#selectmonster 1657 -- longdead triarus
+#str 11
+#end
+
+#selectmonster 186 -- longdead velite
+#str 10							  
+#end
+
+#selectmonster 187 -- longdead principe
+#str 10
+#end
+
+#selectmonster 874 -- pretender: divine emperor
+#commaster
+#end
+
+#selectmonster 1115 -- augur elder
+#nobadevents 15
+#end
+
+#selectmonster 1104 -- principe
+#gcost 10012
+#end
+
+#selectmonster 1105 -- triarius
+#gcost 10013
+#end
+#selectmonster 1106
+#enc 3
+#end
+#newmonster 8000
+#copystats 1106
+#name "Lizard Optio"
+#descr "During the subjugation of C'tis, lizard soldiers were recruited into the Ermorian ranks. Lizard Optios have been granted a leadership role as a reward for loyalty. They are given slightly gilded equipment to make them stand out from the other Auxiliaries." 
+#spr1 "./balance/optio1.tga"
+#spr2 "./balance/optio2.tga"
+#gcost 10020
+#clearweapons
+#mor 11
+#weapon 6
+#command 20
+#end
+
+
+
 -- ULM
 #selectnation 7
 #startunittype2 1155 -- mountain warrior
@@ -1627,7 +2043,7 @@ Syncretism: Enemy temples are not razed, but converted if a priest is in the arm
 #selectmonster 1208 -- eponi knight
 #clearweapons
 #weapon 8 -- broad sword
-#weapon 56 -- hood
+#weapon 56 -- hoof
 #weapon 21 -- javelin
 #end
 
@@ -1637,10 +2053,15 @@ Syncretism: Enemy temples are not razed, but converted if a priest is in the arm
 #restricted 77 -- ys
 #end
 
+#selectmonster 1807 -- great boar
+#mr 8
+#end
+
+#selectmonster 1808 -- iron boar
+#mr 8
+#end
 
 -- SAUROMATIA
--- Benefits from the Awaken Tattoos buff
--- TODO: 1)Proper description 2)Proper sprite
 #newmonster 8001
 #copyspr 1589 -- skagu
 #copystats 1178
@@ -1660,6 +2081,11 @@ Syncretism: Enemy temples are not razed, but converted if a priest is in the arm
 #mor 18
 #cold 3
 #enc 0
+#end
+
+#selectmonster 1176 -- androphag
+#swampsurvival
+#rpcost 15
 #end
 
 #selectmonster 1178 -- witch king
@@ -1722,11 +2148,19 @@ Syncretism: Enemy temples are not razed, but converted if a priest is in the arm
 #att 0
 #end
 
+#selectweapon 563 -- spirit club 2h
+#def 1
+#end
+
+#selectmonster 2296 -- lion king
+#hp 25
+#end
+
 #selectmonster 2298 -- militia
 #gcost 10006
 #end
 
-#selectmonster 2303 -- hyena clan warrior
+#selectmonster 2299 -- bird clan archer
 #gcost 10009
 #end
 
@@ -1740,6 +2174,10 @@ Syncretism: Enemy temples are not razed, but converted if a priest is in the arm
 
 #selectmonster 2302 -- spider clan warrior
 #gcost 10010
+#end
+
+#selectmonster 2303 -- hyena clan warrior
+#gcost 10009
 #end
 
 #selectmonster 2304 -- rhino clan warrior
@@ -1756,6 +2194,10 @@ Syncretism: Enemy temples are not razed, but converted if a priest is in the arm
 
 #selectmonster 2307 -- elephant
 #mr 7
+#end
+
+#selectmonster 2309 -- lion warrior
+#hp 25
 #end
 
 #selectmonster 2403 -- spider clan witch doctor
@@ -1775,9 +2217,18 @@ Syncretism: Enemy temples are not razed, but converted if a priest is in the arm
 #startunitnbrs2 15
 #end
 
+
 -- MICTLAN
 #selectmonster 725 -- sun warrior
 #sunawe 1
+#end
+
+#selectmonster 726 -- eagle warrior
+#rpcost 18
+#end
+
+#selectmonster 727 -- jaguar warrior
+#rpcost 25
 #end
 
 #selectmonster 735 -- high priest of the sun
@@ -1889,18 +2340,37 @@ Syncretism: Enemy temples are not razed, but converted if a priest is in the arm
 #end
 
 -- CAELUM
+#selectmonster 317 -- soulless, caelite
+#pierceres
+#mr 8
+#end
+
+#selectmonster 918 -- soulless warrior, caelite
+#pierceres
+#mr 8
+#end
+
 #selectmonster 1285 -- iceclad
 #gcost 10012
 #end
 
 #selectmonster 1287 -- tempest warrior
 #gcost 10012
-#hp 11
 #str 11
 #end
 
 #selectmonster 1289 -- airya temple guard
 #snow
+#end
+
+#selectmonster 2242 -- soulless warrior, caelite
+#pierceres
+#mr 8
+#end
+
+#selectmonster 2243 -- soulless warrior, caelite
+#pierceres
+#mr 8
 #end
 
 #selectmonster 2558 -- kavi archer
@@ -1926,19 +2396,89 @@ Syncretism: Enemy temples are not razed, but converted if a priest is in the arm
 #selectmonster 2630 -- daevas
 #str 13
 #fireres 10
-#spr1 "./balance/daeva1.png"
-#spr2 "./balance/daeva2.png"
+#spr1 "./balance/daeva1.tga"
+#spr2 "./balance/daeva2.tga"
 #armor 135
 #end
 
+#selectspell 370 -- call jahi
+#fatiguecost 1000
+#end
+
+#selectmonster 2631 -- jahi
+#incunrest 50
+#end
+
 -- C'TIS
+#selectmonster 160 -- high priest of c'tis
+#enc 3
+#end
+
 #selectmonster 161 -- sauromancer
 #invulnerable 15
 #prot 5
+#enc 3
+#end
+
+#selectmonster 162 -- lizard lord
+#enc 3
+#end
+
+#selectmonster 163 -- commander of c'tis
+#enc 3
+#end
+
+#selectmonster 164 -- swamp guard
+#enc 3
+#end
+
+#selectmonster 165 -- heavy infantry
+#enc 3
+#end
+
+#selectmonster 166 -- city guard
+#enc 3
+#end
+
+#selectmonster 167 -- light infantry
+#enc 3
+#end
+
+#selectmonster 168 -- militia
+#enc 3
+#end
+
+#selectmonster 169 -- taskmaster
+#enc 3
+#end
+
+#selectmonster 170 -- lizard shaman
+#enc 3
+#end
+
+#selectmonster 171 -- slave warrior
+#enc 3
+#end
+
+#selectmonster 172 -- elite warrior
+#enc 3
+#end
+
+#selectmonster 504 -- falchioneer
+#enc 4
+#end
+
+#selectmonster 510 -- hierodule
+#enc 3
+#end
+
+#selectmonster 783 -- serpent dancer
+#enc 3
 #end
 
 #selectmonster 177 -- lizard king
 #rpcost 3
+#enc 3
 #end
 
 #selectmonster 320 -- saurolich
@@ -1949,14 +2489,30 @@ Syncretism: Enemy temples are not razed, but converted if a priest is in the arm
 #selectmonster 783 -- serpent dancer
 #att 12
 #ap 13
+#enc 3
+#unsurr 1
+#end
+
+#selectmonster 921 -- soulless warrior, c'tissian
+#pierceres
+#mr 8
+#end
+
+#selectmonster 922 -- soulless warrior, c'tissian
+#pierceres
+#mr 8
 #end
 
 #selectmonster 1349 -- pretender: devourer of souls
 #gcost 180
+#masterrit -4
+#mastersmith -4
+#researchbonus -20
 #end
 
-#selectmonster 2186 -- sacred crocodile
+#selectmonster 1358 -- monster toad
 #mr 8
+#prot 10
 #end
 
 #newmonster 8009
@@ -2000,13 +2556,13 @@ Priests: Average, can perform blood sacrifices"
 #end
 
 #selectmonster 227 -- satyr sneak
-#gcost 12
-#rpcost 12000
+#gcost 11
+#rpcost 11000
 #end
 
 #selectmonster 228 -- satyr
-#gcost 12
-#rpcost 12000
+#gcost 11
+#rpcost 11000
 #end
 
 #selectmonster 231 -- centaur hierophant
@@ -2020,8 +2576,8 @@ Priests: Average, can perform blood sacrifices"
 #end
 
 #selectmonster 708 -- reveler
-#gcost 18
-#rpcost 12000
+#gcost 17
+#rpcost 11000
 #end
 
 #selectmonster 769 -- white centaur
@@ -2030,8 +2586,8 @@ Priests: Average, can perform blood sacrifices"
 #end
 
 #selectmonster 1532 -- satyr warrior
-#gcost 15
-#rpcost 12000
+#gcost 14
+#rpcost 11000
 #end
 
 #selectmonster 1704 -- centaur warrior
@@ -2063,16 +2619,41 @@ Priests: Average, can perform blood sacrifices"
 #end
 
 #selectmonster 2485 -- satyr commander
-#gcost 10012
+#gcost 10011
 #end
 
 -- AGARTHA
+#selectnation 17
+#startcom 1470 -- ancient lord
+#startunittype1 1464 -- pale one warrior w/scale cuirass
+#startunitnbrs1 15
+#startunittype2 1453 -- pale one warrior w/scale hauberk
+#startunitnbrs2 10
+#end
+
+#selectmonster 1439 -- iron corpse
+#pierceres
+#mr 9
+#end
+
+#selectmonster 1441 -- flame corpse
+#pierceres
+#mr 7
+#end
+
 #selectmonster 1452 -- pale one militia
 #rpcost 9
 #end
 
 #selectmonster 1453 -- pale one warrior
 #rpcost 15
+#att 9
+#def 9
+#end
+
+#selectmonster 1455 -- ancient wet one landshape
+#att 10
+#def 10
 #end
 
 #selectmonster 1456 -- seal guard
@@ -2083,58 +2664,113 @@ Priests: Average, can perform blood sacrifices"
 
 #selectmonster 1462 -- cavern guard
 #rpcost 19
+#att 10
+#def 10
 #end
 
 #selectmonster 1464 -- pale one warrior w/cuirass & buckler
 #rpcost 15
+#att 9
+#def 9
 #end
 
 #selectmonster 1465 -- pale one
 #rpcost 15
+#att 9
+#def 9
 #end
 
 #selectmonster 1469 -- ancient one
 #rpcost 25
+#att 10
+#def 10
 #end
 
-#selectweapon 424 -- agarthan boulder
-#secondaryeffectalways 1000 -- tremendous force
+#selectweapon 424 -- boulder, used by ancient ones
+#secondaryeffectalways "Boulder Impact"
 #end
 
 #selectmonster 1488 -- ancient stone hurler without armor
 #rpcost 25
+#att 10
+#def 10
 #end
 
-#selectmonster 1489 -- wet one
+#selectmonster 1489 -- wet one landshape
 #rpcost 15
+#att 9
+#def 9
 #end
 
-#selectmonster 1491 -- wet one
+#selectmonster 1491 -- wet one watershape
 #rpcost 15
+#att 10
+#def 10
 #end
 
 #selectmonster 1495 -- ancient stone hurler w/armor
 #rpcost 25
+#att 10
+#def 10
 #end
 
-#selectmonster 1636 -- wet one
+#selectmonster 1635 -- wet one landshape
 #rpcost 15
+#att 9
+#def 9
 #end
 
-#selectmonster 2490 -- ancient wet one
+#selectmonster 1636 -- wet one watershape
+#rpcost 15
+#att 10
+#def 10
+#end
+
+#selectmonster 2489 -- ancient wet one landshape
 #rpcost 25
+#att 10
+#def 10
+#end
+
+#selectmonster 2490 -- ancient wet one watershape
+#rpcost 25
+#att 11
+#def 11
 #end
 
 #selectmonster 2502 -- pretender: earth made flesh
-#gcost 240
+#gcost 230
 #end
 
-#selectnation 17
-#startcom 1470 -- ancient lord
-#startunittype1 1464 -- pale one warrior w/scale cuirass
-#startunitnbrs1 15
-#startunittype2 1453 -- pale one warrior w/scale hauberk
-#startunitnbrs2 10
+#selectmonster 1590 -- pretender: ageless olm
+#magicskill 2 2
+#gcost 140
+#pathcost 40
+#end
+
+#selectmonster 1581 -- pretender: risen oracle
+#gcost 240
+#pathcost 40
+#end
+
+#selectmonster 2515 -- living mercury size 5
+#def 11
+#end
+
+#selectmonster 2516 -- living mercury size 4
+#def 11
+#end
+
+#selectmonster 2517 -- living mercury size 3
+#def 11
+#end
+
+#selectmonster 2518 -- living mercury size 2
+#def 11
+#end
+
+#selectmonster 2519 -- living mercury size 1
+#def 11
 #end
 
 -- TIR NA N'OG
@@ -2178,10 +2814,81 @@ Priests: Average, can perform blood sacrifices"
 #end
 
 -- VANHEIM
+#selectmonster 263 -- vanherse
+#custommagic 21504 100 -- EDB
+#gcost 155 -- from 140
+#end
+
+#selectmonster 264 -- vanjarl
+#custommagic 21504 100
+#gcost 320 -- from 275
+#end
+
+#selectmonster 463 -- fay boar
+#hp 20
+#prot 6
+#str 15
+#att 12
+#def 9
+#ap 16
+#addupkeep -50
+#descr "The fay boar is a breed of magical swine known to exist only in Vanheim. The creatures are sometimes used in warfare, but it is their immortality, not their physical power, that makes them invaluable. The swine are slain each evening to feed the soldiers, but at dawn they are again alive and well, ready to march with the armies of Vanheim. Fay boar require half regular upkeep."
+#end
+
+#selectmonster 1504 -- mounted hirdman
+#gcost 45 -- from 50
+#rpcost 43 -- from 48
+#end
+
+#selectmonster 1508 -- huskarl w/spear
+#gcost 20 -- from 25
+#rpcost 18 -- from 21
+#end
+
+#selectmonster 1509 -- huskarl w/axe
+#gcost 20
+#rpcost 18
+#end
+
+#selectmonster 1510 -- hirdman
+#gcost 25 -- from 30
+#rpcost 20 -- from 25
+#end
+
+#selectmonster 1513 -- vanhere
+#gcost 55 -- from 40
+#rpcost 35 -- from 28
+#end
+
+-- HELHEIM
+#selectmonster 1502 -- helkarl
+#custommagic 17664 100
+#gcost 175 -- from 160
+#end
+
+#selectmonster 1505 -- vanherse
+#custommagic 21504 100
+#gcost 145 -- from 120
+#end
+
+#selectmonster 1506 -- vanjarl
+#custommagic 21504 100
+#gcost 305 -- from 260
+#end
+
+#selectmonster 1503 -- helhirding
+#gcost 75 -- from 65
+#rpcost 48 -- unchanged
+#end
 
 -- NIEFELHEIM
 #selectnation 22
 #cheapgod20 500
+#end
+
+#selectmonster 315 -- soulless giant
+#pierceres
+#mr 8
 #end
 
 #selectmonster 500 -- pretender: skratti
@@ -2190,7 +2897,6 @@ Priests: Average, can perform blood sacrifices"
 
 #selectmonster 605 -- pretender: son of niefel
 #gcost 220
--- TODO: resprite
 #cleararmor
 #armor 26
 #armor 29
@@ -2199,6 +2905,16 @@ Priests: Average, can perform blood sacrifices"
 
 #selectmonster 644 -- pretender: dracolich
 #prot 15
+#end
+
+#selectmonster 916 -- soulless warrior, jotun
+#pierceres
+#mr 8
+#end
+
+#selectmonster 917 -- soulless warrior, jotun
+#pierceres
+#mr 8
 #end
 
 #selectmonster 1302 -- jotun militia
@@ -2216,8 +2932,8 @@ Priests: Average, can perform blood sacrifices"
 #rpcost 27000
 #end
 
-#selectweapon 27 -- jotun boulder
-#secondaryeffectalways 1000 -- tremendous force
+#selectweapon 27 -- boulder, used by jotun & laestrygonians
+#secondaryeffectalways "Boulder Impact"
 #end
 
 #selectmonster 1305 -- jotun jurler
@@ -2248,6 +2964,13 @@ Priests: Average, can perform blood sacrifices"
 #darkvision 50
 #end
 
+#selectmonster 1310 -- jotun skinshifter
+#copyspr 784
+#armor 120
+#clearweapons
+#weapon 18
+#end
+
 #selectmonster 1651 -- jotun werewolf, jotun skinshifter
 #darkvision 50
 #end
@@ -2265,6 +2988,11 @@ Priests: Average, can perform blood sacrifices"
 #end
 
 -- RUS
+#selectnation 24
+#startunittype1 2993 -- chud warrior
+#startunitnbrs2 20
+#end
+
 #selectmonster 1940 -- zmey
 #clearspec
 #animal
@@ -2285,11 +3013,21 @@ Priests: Average, can perform blood sacrifices"
 #custommagic 2048 25
 #end
 
-#selectnation 24 -- sons of heaven
-#startunittype1 2993 -- chud warrior
-#startunitnbrs2 20
+#selectmonster 2997 -- chud skinshifter
+#att 12
+#def 11
 #end
 
+#selectmonster 3000 -- son of heaven
+#incprovdef 1
+#end
+
+
+#selectmonster 3003 -- sacred great bear
+#clearweapons
+#weapon 20
+#weapon 29
+#end
 
 -- KAILASA
 #selectnation 25
@@ -2315,12 +3053,52 @@ Priests: Average, can perform blood sacrifices"
 #rpcost 15000
 #end
 
-#selectmonster 1330 -- yakshini
-#pooramphibian
+#selectmonster 1716 -- soulless bandar
+#pierceres
+#mr 7
+#end
+
+#selectmonster 1717 -- soulless bandar warrior
+#pierceres
+#mr 7
+#end
+
+#selectmonster 1718 -- soulless bandar warrior w/armor
+#pierceres
+#mr 7
+#end
+
+#selectmonster 1724 -- soulless vanara
+#pierceres
+#mr 7
+#end
+
+#selectmonster 1725 -- soulless vanara warrior
+#pierceres
+#mr 7
+#end
+
+#selectmonster 1726 -- soulless vanara warrior w/armor
+#pierceres
+#mr 7
+#end
+
+#selectmonster 1731 -- soulless markata
+#pierceres
+#mr 7
+#end
+
+#selectmonster 2274 -- soulless bandar warrior
+#pierceres
+#mr 7
 #end
 
 -- LANKA
-
+#selectnation 26
+#startunittype1 1121 -- atavi archers
+#startunittype2 1762 -- bandar warriors
+#startunitnbrs2 12
+#end
 
 #selectmonster 1762 -- bandar warrior
 #gcost 10015
@@ -2361,37 +3139,29 @@ Dominion: Spreads Turmoil"
 #fatiguecost 4000
 #end
 
-#selectmonster 1256 -- shura
-#float
+#selectmonster 1311 -- bandit
+#cleararmor
+#armor 10 -- leather hauberk
+#armor 131 -- jingasa
+#hp 10
+#end
+
+#selectmonster 1312 -- bandit archer
+#cleararmor
+#armor 10
+#armor 131
+#hp 10
+#end
+
+#selectmonster 1313 -- bandit leader
+#cleararmor
+#armor 10
+#armor 131
+#hp 10
 #end
 
 #selectmonster 1315 -- sorcerer
 #researchbonus 2
-#end
-
-#selectmonster 1393 -- bakemono-sho
-#def 11
-#end
-
-#selectmonster 1394 -- bakemono-sho
-#def 11
-#end
-
-#selectmonster 1395 -- bakemono archer
-#def 11
-#end
-
-#selectmonster 1671 -- masatora, ghost general hero
-#amphibian
-#end
-
-#selectmonster 2467 -- bakemono chief
-#spr1 "./balance/bakemonowar1.png"
-#spr2 "./balance/bakemonowar2.png"
-#clearweapons
-#weapon "Wakizashi"
-#weapon 9
-#ambidextrous 1
 #end
 
 #selectmonster 2978 -- pretender: master sorcerer
@@ -2517,7 +3287,6 @@ Dominion: Spreads Turmoil"
 #rcost 10
 #end
 
--- TODO: add non-heavy version
 #selectmonster 2059 -- avvite heavy archer
 #prec 12
 #rpcost 25005
@@ -2526,7 +3295,6 @@ Dominion: Spreads Turmoil"
 #selectmonster 2033 -- kohen
 #gcost 10045
 #end
-
 
 #selectmonster 2082 -- pretender: son of the fallen
 #magicskill 7 2
@@ -2539,13 +3307,22 @@ Dominion: Spreads Turmoil"
 
 #newmonster 8002
 #copystats 2030
-#spr1 "./balance/warriordawn1.png"
-#spr2 "./balance/warriordawn2.png"
+#spr1 "./balance/warriordawn1.tga"
+#spr2 "./balance/warriordawn2.tga"
 #name "Warrior of the Dawn"
+#gcost 115
 #descr "There are several races of giants in the land of Hinnom. The Rephaim are the sons of the Nephilim and the undisputed rulers of the land. They are huge of stature and deathly pale. Horns grow from their foreheads and their hands have six fingers. They have been taught the secrets of war by their fathers and are formidable warriors. The Rephaim have gruesome appetites and many of them feast on the flesh of their smaller kin. They will devour food, beasts, men and kin and as long as there is population in a province, they do not starve, although the populace will suffer. They are much feared by the Avvim and Horim and are considered sacred."
 #armor 165 -- dawn armor
 #armor 135 -- bronze cap
 #armor 166 -- dawn shield
+#end
+
+#selectmonster 2030 -- rephaite warrior
+#gcost 115
+#end
+
+#selectspell 270 -- summon lilot
+#fatiguecost 1500
 #end
 
 -- UR
@@ -2562,13 +3339,29 @@ Dominion: Spreads Turmoil"
 #homemon 2183 -- hunter
 #end
 
-#selectmonster 3064 -- anzu
-#holy
+#selectmonster 2981 -- soulless enkidu
+#pierceres
+#mr 8
+#end
+
+#selectmonster 2982 -- soulless enkidu
+#pierceres
+#mr 8
+#end
+
+#selectmonster 2983 -- soulless enkidu
+#pierceres
+#mr 8
 #end
 
 #selectmonster 2960 -- apkallu
 #gcost 260
 #end
+
+#selectmonster 3064 -- anzu
+#holy
+#end
+
 
 -- BERYTOS
 #selectmonster 2315 -- melqart
@@ -2588,8 +3381,8 @@ Dominion: Spreads Turmoil"
 
 #newmonster 8003
 #copystats 2260 -- berytian lancer
-#spr1 "./balance/lancercap1.png"
-#spr2 "./balance/lancercap2.png"
+#spr1 "./balance/lancercap1.tga"
+#spr2 "./balance/lancercap2.tga"
 #name "Berytian Lancer Captain"
 #cleararmor
 #armor 12
@@ -2658,7 +3451,6 @@ Dominion: Spreads Turmoil"
 #fortunrest 10
 #end
 
-
 #selectsite 194 -- city of gold and marble
 #gems 2 1
 #gems 3 0
@@ -2673,8 +3465,8 @@ Dominion: Spreads Turmoil"
 
 #selectmonster 3100 -- perioeci peltast
 #copystats 50 -- indie slinger
-#spr1 "./balance/perioecisling1.png"
-#spr2 "./balance/perioecisling2.png"
+#spr1 "./balance/perioecisling1.tga"
+#spr2 "./balance/perioecisling2.tga"
 #name "Perioeci Slinger"
 #descr "The Perioecis are subjugated settlements that are given limited self-governance. The Perioeci are free, unlike the helotes, but have limited status and influence. Since the Gigantes are forbidden to engage in ignoble activities, such as trade, the Perioeci have found themselves increasingly important to Mekone. They have even been allowed to join the Mekonean armies. The Perioeci are not the property of the state and can rarely afford heavy armor and as Gigantes consider long-range weapons both too dishonourable to use themselves and too dangerous to give to Helots most Perioeci are trained as slingers or serve as scouts of the Mekonean armies."
 #clearweapons
@@ -2694,12 +3486,12 @@ Dominion: Spreads Turmoil"
 
 #selectmonster 3104 -- neodamode ekdromos
 #standard 1
-#descr "A large part of the human population of Mekone are slaves, but a few prominent men are given freedom for their loyalty, bravery or combat prowess. These freed slaves are called neodamodes. They are not trusted with important tasks, but their lot is far better than that of most humans. Neodamode Ekdromoi are Helote Ekdromoi that have show remarkable bravery and skill. The Gigantes mostly use them to bolster the morale of Helots, reminding them that they too might someday earn their freedom if they fight well enough. More rarely, a squad of Gigantes might keep a Neodamode around as a mascot of sorts. Neodamode Ekdromoi are given gleaming armor forged by the cyclopes both as a sign of distinction and to and keep them alive for longer."
+#descr "A large part of the human population of Mekone are slaves, but a few prominent men are given freedom for their loyalty, bravery or combat prowess. These freed slaves are called neodamodes. They are not trusted with important tasks, but their lot is far better than that of most humans. Neodamode Ekdromoi are Helote Ekdromoi that have show remarkable bravery and skill. The Gigantes mostly use them to bolster the morale of Helots, reminding them that they too might someday earn their freedom if they fight well enough. More rarely, a squad of Gigantes might keep a Neodamode around as a mascot of sorts."
 #end
 
 #selectmonster 3106 -- neodamode hoplite
 #standard 1
-#descr "A large part of the human population of Mekone are slaves, but a few prominent men are given freedom for their loyalty, bravery or combat prowess. These freed slaves are called neodamodes. They are not trusted with important tasks, but their lot is far better than that of most humans. Neodamode hoplites are Helote hoplites that have show remarkable bravery and skill. The Gigantes mostly use them to bolster the morale of Helots, reminding them that they too might someday earn their freedom if they fight well enough. More rarely, a squad of Gigantes might keep a Neodamode around as a mascot of sorts. Neodamode Hoplites are given gleaming armor forged by the cyclopes both as a sign of distinction and to and keep them alive for longer."
+#descr "A large part of the human population of Mekone are slaves, but a few prominent men are given freedom for their loyalty, bravery or combat prowess. These freed slaves are called neodamodes. They are not trusted with important tasks, but their lot is far better than that of most humans. Neodamode hoplites are Helote hoplites that have show remarkable bravery and skill. The Gigantes mostly use them to bolster the morale of Helots, reminding them that they too might someday earn their freedom if they fight well enough. More rarely, a squad of Gigantes might keep a Neodamode around as a mascot of sorts. "
 #end
 
 #selectmonster 3109 -- gigante ekdromos
@@ -2716,15 +3508,16 @@ Dominion: Spreads Turmoil"
 #descr "The Gigantes of Mekone consider themselves superior to all. Their Hoplites are of incomparable might and they have challenged the gods themselves. Mekone is a martial society, where combat prowess and strength are the primary virtues. Trade and lesser crafts are condemned as unworthy to the Gigantes and human slaves and servants make up most of the menial work force. The Gigantes are trained from a young age to become formidable warriors armed with gleaming weapons forged by the Elder Cyclopes. The hoplites don heavy armors of gleaming bronze and fight in dense formations. Because of their rigorous discipline and rejection of luxuries all Gigante soldiers require only half regular upkeep."
 #end
 
+#selectarmor 237 -- gleaming hauberk
+#enc 3
+#end
+
 #selectmonster 3111 -- lochos
 #addupkeep -45
 #descr "The Lochoi are Gigante commanders of the Mekonean armies. They are taken from the ranks of the hoplites and are skilled warriors and tacticians. They command the Gigantes as well as helotes and free humans. Lochos of exceptional skills are often elected into the gerousia when they retire. The Lochoi subject themselves to the same rigorous discipline as their soldiers, and so require only half upkeep."
 #end
 
 #selectmonster 3114 -- geronte
-#clearmagic
-#magicskill 0 1
-#magicskill 8 1
 #researchbonus 2
 #end
 
@@ -2743,10 +3536,34 @@ Dominion: Spreads Turmoil"
 #descr "Strength and athletic prowess are highly valued among the Gigantes of Mekone and sports are popular among men and women. While most Gigantes are trained from birth to become skilled soldiers, there are those who give up their martial training to become professional athletes, but now, when the war against gods has begun, many athletes join the armies once more. Discoboloi are athletes that are skilled at discus throwing. Like all athletes they are also trained in pankration, unarmed combat, but their main use is to bring ranged weapons into battle. Discoboloi live very frugal, disciplined lives just like the professional soldiers of the nation, and so require only half regular upkeep."
 #end
 
-
 -- ATLANTIS
+#selectnation 36
+#startunittype1 1682 -- reef dweller
+#startunittype2 1687 -- deep one spearmen
+#end
+
 #selectweapon 464 -- basalt spear
 #def 0
+#end
+
+#selectmonster 318 -- soulless of atlantis
+#pierceres
+#mr 7
+#end
+
+#selectmonster 319 -- soulless of atlantis
+#pierceres
+#mr 7
+#end
+
+#selectmonster 919 -- soulless warrior, atlantian
+#pierceres
+#mr 7
+#end
+
+#selectmonster 920 -- soulless warrior, atlantian
+#pierceres
+#mr 7
 #end
 
 #selectmonster 1683 -- shambler
@@ -2774,7 +3591,6 @@ Dominion: Spreads Turmoil"
 #rpcost 25
 #end
 
--- TODO: Add helmet?
 #selectmonster 1690 -- living pillar
 #rpcost 30
 #enc 2
@@ -2785,10 +3601,26 @@ Dominion: Spreads Turmoil"
 #gcost 240
 #end
 
-#selectnation 36
-#startunittype1 1682 -- reef dweller
-#startunittype2 1687 -- deep one spearmen
+#selectmonster 2364 -- soulless shambler
+#pierceres
+#mr 7
 #end
+
+#selectmonster 2365 -- soulless war shambler
+#pierceres
+#mr 7
+#end
+
+#selectmonster 2366 -- soulless war shambler
+#pierceres
+#mr 7
+#end
+
+#selectmonster 2367 -- soulless war shambler
+#pierceres
+#mr 7
+#end
+
 
 -- R'LYEH
 #selectmonster 1402 -- pretender: polypal queen
@@ -2855,18 +3687,28 @@ Dominion: Spreads Turmoil"
 #end
 
 -- PELAGIA
+#selectnation 38
+#startunitnbrs1 15
+#startunittype2 2386
+#end
+
+#selectmonster 2382 -- turtle tribe triton
+#str 11
+#hp 15
+#end
+
 #selectmonster 2387 -- pearl guard
 #enc 2
+#end
+
+#selectmonster 2395 -- pearl clan priest, EA
+#inquisitor
 #end
 
 #selectmonster 2805 -- ichtyd pearl mage
 #gcost 10010
 #end
 
-#selectnation 38
-#startunitnbrs1 15
-#startunittype2 2386
-#end
 
 -- OCEANIA
 #selectmonster 1038 -- capricorn, water
@@ -2886,11 +3728,15 @@ Dominion: Spreads Turmoil"
 #spellsinger
 #sailing 3 3
 #mapmove 20
+#enchrebate50 0
+#enchrebate50p 50
 #end
 
 #selectmonster 1055 -- siren, landshape
 #spellsinger
 #sailing 3 3
+#enchrebate50 0
+#enchrebate50p 50
 #end
 
 #selectmonster 1408 -- ichtycentaur, watershape
@@ -2921,7 +3767,6 @@ Dominion: Spreads Turmoil"
 #weapon 589
 #end
 
--- TODO: make sprite different from troop aphroi
 #selectmonster 2400 -- aphroi lord, landshape
 #gcost 145
 #magicskill 8 1
@@ -3048,22 +3893,8 @@ Dominion: Spreads Turmoil"
 #end
 
 #selectmonster 183 -- etimmu
-#clearspec
-#coldres 25
-#poisonres 25
-#cold 3
+#reformtime 0
 #fear 5
-#unique
-#immortal
-#holy
-#mounted
-#undead
-#ethereal
-#amphibian
-#neednoteat
-#deathcurse
-#spiritsight
-#latehero 10
 #end
 
 -- SCELERIA
@@ -3099,11 +3930,18 @@ Dominion: Spreads Turmoil"
 #precision 100
 #end
 
+#selectmonster 669 -- scelerian thaumaturg
+#gcost 130
+#end
+
+#selectmonster 2244 -- scelerian cultist
+#rpcost 2
+#end
 
 #newmonster 8004
 #copystats 809 -- Shadow Vestal
-#spr1 "./balance/umbra1.png" 
-#spr2 "./balance/umbra2.png"
+#spr1 "./balance/umbra1.tga" 
+#spr2 "./balance/umbra2.tga"
 #name "Umbra"
 #hp 11
 #mr 16
@@ -3115,7 +3953,7 @@ Dominion: Spreads Turmoil"
 #magicskill 5 1
 #magicskill 8 1
 #combatcaster
-#descr "During preparation for the Shadow Merging some girls show exceptional promise and talent. As a result they are given special training by the Thaumaturgs and upon their merging gain some become warrior-sorceresses tasked with leading lesser Shadow Vestals"
+#descr "During preparation for the Shadow Merging some girls show exceptional promise and talent. As a result they are given special training by the Thaumaturgs and upon their merging gain some become warrior-sorceresses tasked with leading lesser Shadow Vestals."
 #older 10
 #end
 
@@ -3143,6 +3981,7 @@ Priests: Powerful"
 
 #selectsite 3 -- cathedral of the spheres
 #clear
+#level 0
 #rarity 5
 #homecom 41
 #homemon 51
@@ -3151,8 +3990,8 @@ Priests: Powerful"
 #end
 
 #selectmonster 51 -- battle vestal
-#spr1 "./balance/battlevestal1.png"
-#spr2 "./balance/battlevestal2.png"
+#spr1 "./balance/battlevestal1.tga"
+#spr2 "./balance/battlevestal2.tga"
 #hp 11
 #str 10
 #mr 13
@@ -3181,8 +4020,8 @@ Priests: Powerful"
 -- MAN
 #newmonster 8005
 #copystats 2129 -- Logrian Cavalry
-#spr1 "./balance/logriancom1.png"
-#spr2 "./balance/logriancom2.png"
+#spr1 "./balance/logriancom1.tga"
+#spr2 "./balance/logriancom2.tga"
 #name "Logrian Chief"
 #okleader
 #command 20
@@ -3252,6 +4091,9 @@ Most Crones are incredibly old and few of them would travel far from their sacre
 #formationfighter 2
 #end
 
+#selectarmor 217 -- plate cuirass of ulm
+#rcost 15
+#end
 
 -- MARIGNON
 #selectnation 50
@@ -3297,7 +4139,17 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #sunawe 1
 #end
 
+#selectmonster 1359 -- jaguar toad
+#mr 8
+#def 10
+#end
+
 -- T'IEN C'HI
+#selectnation 52 
+#startunittype1 1903 -- ministry footman w/spear
+#startunitnbrs2 20
+#end
+
 #selectmonster 791 -- red guard
 #springpower 25
 #end
@@ -3308,6 +4160,10 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #magicskill 8 1
 #end
 
+#selectmonster 1900 -- imperial city guard
+#unsurr 1
+#end
+
 #selectspell 209 -- thousand year ginseng
 #fatiguecost 500
 #end
@@ -3316,10 +4172,8 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #fatiguecost 300
 #end
 
-#selectnation 52 
-#startunittype1 1903 -- ministry footman w/spear
-#startunitnbrs2 20
-#end
+
+
 
 -- MACHAKA
 #selectnation 53
@@ -3377,6 +4231,7 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #selectmonster 888 -- riderless hunter spider
 #mr 8
 #str 18
+#enc 3
 #end
 
 #selectmonster 899 -- black sorcerer hunter spider
@@ -3386,6 +4241,11 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #selectmonster 889 -- black hunter
 #gcost 10060
 #rpcost 9995
+#clearweapons
+#weapon 314 -- spider fangs 
+#weapon 261 -- web
+#weapon 357 -- light lance
+#enc 5
 #end
 
 #selectmonster 892 -- witch doctor
@@ -3403,20 +4263,14 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #end
 
 #selectmonster 3097 -- spider archer
-#rpcost 16 -- from 20
+#rpcost 15
 #end
 
 -- AGARTHA
 #selectmonster 1472 -- pale one soldier
 #rpcost 15
-#end
-
-#selectmonster 1489 -- wet one
-#rpcost 15
-#end
-
-#selectmonster 1491 -- wet one
-#rpcost 15
+#att 9
+#def 9
 #end
 
 #selectmonster 1636 -- wet one
@@ -3425,14 +4279,24 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 
 #selectmonster 2188 -- ancient one
 #rpcost 25
+#att 10
+#def 10
 #end
 
 #selectmonster 2189 -- ancient stone hurler
 #rpcost 25
+#att 10
+#def 10
 #end
 
 #selectmonster 2507 -- defender of the halls
 #rpcost 21
+#att 10
+#def 10
+#end
+
+#selectspell 483 -- awaken shard wights
+#researchlevel 4
 #end
 
 #selectmonster 2509 -- shard wight
@@ -3508,10 +4372,27 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 
 #selectmonster 502 -- empoisoner
 #patience 1
+#enc 3
+#end
+
+#selectmonster 503 -- poison slinger
+#enc 3
 #end
 
 #selectmonster 937 -- marshmaster
-#rpcost 3
+#enc 3
+#end
+
+#selectmonster 2236 -- sobek warrior
+#enc 3
+#end
+
+#selectmonster 2237 -- sobek sacred guard
+#enc 3
+#end
+
+#selectmonster 2238 -- sobek warrior
+#enc 3
 #end
 
 #selectmonster 2237 -- sobek sacred guard
@@ -3520,14 +4401,20 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 
 #selectmonster 2552 -- ahura of wisdom
 #gcost 250
+#inspiringres 1
+#researchbonus 10
 #end
 
 #selectmonster 2553 -- ahura of the oath
 #gcost 220
+#superiorleader
+#batstartsum1d6 598 -- size 2 fire elemental
+#descr "The Ahuras were three celestial beings given might and splendor by a previous Pantokrator. The Ahura of the Oath was given the Flame of Truth and was tasked with upholding any oath sworn in the name of the Pantokrator. Now with the Pantokrator gone, he will make the whole world swear him fealty. The Ahura of the Oath still wields the Sword of Oaths and the cleansing flame of the Everburning Fire. He is always guarded by living fire."
 #end
 
 #selectmonster 2554 -- ahura of the water
 #gcost 220
+#amphibian
 #end
 
 #selectmonster 2555 -- spenta manyu
@@ -3568,13 +4455,13 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #end
 
 #selectmonster 229 -- satyr 
-#gcost 10012
-#rpcost 12000
+#gcost 10011
+#rpcost 11000
 #end
 
 #selectmonster 230 -- satyr hoplite
-#gcost 10015
-#rpcost 12000
+#gcost 10014
+#rpcost 11000
 #end
 
 #selectmonster 232 -- centaur commander
@@ -3603,17 +4490,17 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #end
 
 #selectmonster 697 -- satyr hoplite
-#gcost 10015
-#rpcost 12000
+#gcost 10014
+#rpcost 11000
 #end
 
 #selectmonster 707 -- centaur warrior
-#gcost 4
+#gcost 45
 #rpcost 25000
 #end
 
 #selectmonster 2118 -- satyr commander
-#gcost 10012
+#gcost 10011
 #end
 
 #selectmonster 2956 -- centauridae cataphract
@@ -3700,7 +4587,6 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #custommagic 5632 20
 #carcasscollector 3
 #end
-
 
 -- VANHEIM
 #selectnation 60
@@ -3821,91 +4707,40 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #addgod 2784 -- thrice horned boar
 #end
 
-#selectmonster 1390 -- bakemono-sho
-#def 11
-#end
-
-#selectmonster 1391
-#def 11
-#end
-
-#selectmonster 1392
-#spr1 "./balance/bakemonowar1.png"
-#spr2 "./balance/bakemonowar2.png"
-#clearweapons
-#weapon "Wakizashi"
-#weapon 9
-#ambidextrous 1
-#end
-
 #selectmonster 1608 -- bakemono shaman
-#def 10
-#custommagic 5760 100 -- FWED
+#gcost 9998
 #end
 
-#selectmonster 1845 -- bakemono chief
-#spr1 "./balance/bakemonowar1.png"
-#spr2 "./balance/bakemonowar2.png"
-#clearweapons
-#weapon "Wakizashi"
-#weapon 9
-#ambidextrous 1
-#end
-
-#selectmonster 1963 -- bakemono scout
-#def 11
-#end
-
-
--- TODO: also change summoned kappa, maybe mage
-#selectmonster 1531 -- kappa chief
-#descr "The Kappa is a scaled humanoid with a turtle shell on its back. It is a water-being and haunts rivers and wild coasts. The Kappa has a water filled depression on the top of its head. If this water is spilled, it loses its strength. In battles on dry land, the Kappa will spill water when it fights in melee and gain extra fatigue. It is also a master of koppo, the bone-breaking technique. The Kappa is also able to mend broken bones, should it suffer injury."
-#clearspec
-#amphibian
-#heal
-#enc 6
-#mr 12
-#watershape 8006
-#clearweapons
-#weapon 420 -- koppo
-#weapon 29 -- claw
-#end
-
-#newmonster 8006
-#copystats 1531
-#descr "The Kappa is a scaled humanoid with a turtle shell on its back. It is a water-being and haunts rivers and wild coasts. The Kappa has a water filled depression on the top of its head. If this water is spilled, it loses its strength. In battles on dry land, the Kappa will spill water when it fights in melee and gain extra fatigue. It is also a master of koppo, the bone-breaking technique. The Kappa is also able to mend broken bones, should it suffer injury."
-#copyspr 1531
-#enc 3
-#watershape 0
-#landshape 1531
-#end
-
-#selectmonster 1550 -- kappa
-#descr "The Kappa is a scaled humanoid with a turtle shell on its back. It is a water-being and haunts rivers and wild coasts. The Kappa has a water filled depression on the top of its head. If this water is spilled, it loses its strength. In battles on dry land, the Kappa will spill water when it fights in melee and gain extra fatigue. It is also a master of koppo, the bone-breaking technique. The Kappa is also able to mend broken bones, should it suffer injury."
-#clearspec
-#amphibian
-#heal
-#enc 6
-#watershape 8007
+#selectmonster 1482 -- kappa, summoned
+#mr 10
 #clearweapons
 #weapon 420
 #weapon 29
 #end
 
-#newmonster 8007
-#copystats 1550
-#descr "The Kappa is a scaled humanoid with a turtle shell on its back. It is a water-being and haunts rivers and wild coasts. The Kappa has a water filled depression on the top of its head. If this water is spilled, it loses its strength. In battles on dry land, the Kappa will spill water when it fights in melee and gain extra fatigue. It is also a master of koppo, the bone-breaking technique. The Kappa is also able to mend broken bones, should it suffer injury."
-#copyspr 1550
-#enc 3
-#mr 11
-#watershape 0
-#landshape 1550
+#selectmonster 1530 -- kappa mage
+#mr 15 -- from 9
+#clearweapons
+#weapon 420 -- koppo
+#weapon 29 -- claw
+#end
+
+#selectmonster 1531 -- kappa chief
+#mr 12
+#clearweapons
+#weapon 420 -- koppo
+#weapon 29 -- claw
+#end
+
+#selectmonster 1550 -- kappa, recruited
+#copystats 1482 -- summoned, to fix the enc issues
+#rpcost 8
+#gcost 20
 #end
 
 #selectweapon 420
 #att 0
 #end
-
 
 -- ASHDOD
 #selectmonster 2025 -- sheshai anakite
@@ -3946,8 +4781,9 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #end
 
 #selectspell 376 -- summon condors
-#fatiguecost 1800
+#fatiguecost 1500
 #researchlevel 5
+#nreff 510
 #end
 
 #selectmonster 2685 -- viracocha
@@ -3976,8 +4812,33 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 
 #selectmonster 2699 -- ayar
 #gcost 200
+#invulnerable 20
 #end
 
+#selectmonster 2707 -- soulless nazcan
+#pierceres
+#mr 8
+#end
+
+#selectmonster 2708 -- soulless nazcan warrior
+#pierceres
+#mr 8
+#end
+
+#selectmonster 2709 -- soulless nazcan warrior
+#pierceres
+#mr 8
+#end
+
+#selectmonster 2710 -- soulless nazcan warrior
+#pierceres
+#mr 8
+#end
+
+#selectmonster 2711 -- soulless nazcan warrior
+#pierceres
+#mr 8
+#end
 
 -- XIBALBA
 #selectnation 68
@@ -4008,8 +4869,8 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #end
 
 #selectmonster 2722 -- muuch dart thrower
-#spr1 "./balance/muuchdart1.png"
-#spr2 "./balance/muuchdart2.png"
+#spr1 "./balance/muuchdart1.tga"
+#spr2 "./balance/muuchdart2.tga"
 #gcost 10009
 #rpcost 9000
 #prec 10
@@ -4042,12 +4903,15 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #end
 
 #selectmonster 2730 -- chak muuch dart thrower
-#spr1 "./balance/chakmuuchdart1.png"
-#spr2 "./balance/chakmuuchdart2.png"
+#spr1 "./balance/chakmuuchdart1.tga"
+#spr2 "./balance/chakmuuchdart2.tga"
 #gcost 10014
 #rpcost 14000
 #poisonres 10
 #prec 11
+#clearweapons
+#weapon 643 -- bronze spear
+#weapon 620 -- poison darts
 #armor 105
 #end
 
@@ -4081,6 +4945,10 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #def 1
 #end
 
+#selectarmor 206 -- obsidian cuirass 
+#rcost 16
+#end
+
 -- PHLEGRA
 #selectnation 69
 #addforeignunit 3132 -- helote archer
@@ -4098,7 +4966,7 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #end
 
 #selectweapon 27 -- phlegran boulder
-#secondaryeffectalways 1000
+#secondaryeffectalways "Boulder Impact"
 #end
 
 #selectmonster 3137 -- cyclops hurler
@@ -4108,16 +4976,16 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #end
 
 #selectmonster 3139 -- phlegran tyrant
-#spr1 "./balance/tyranthoplon1.png"
-#spr2 "./balance/tyranthoplon2.png"
+#spr1 "./balance/tyranthoplon1.tga"
+#spr2 "./balance/tyranthoplon2.tga"
 #cleararmor
 #armor 236 -- gleaming cuirass
 #armor 238 -- gleaming hoplon
 #end
 
 #selectmonster 3140 -- gigante warrior
-#spr1 "./balance/gigantehoplon1.png"
-#spr2 "./balance/gigantehoplon2.png"
+#spr1 "./balance/gigantehoplon1.tga"
+#spr2 "./balance/gigantehoplon2.tga"
 #cleararmor
 #armor 7 -- scale mail cuirass
 #armor 209 -- hoplon
@@ -4170,9 +5038,13 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #gcost 10025
 #end
 
-#selectmonster 3159 -- oricalchum guard
+#selectmonster 3159 -- orichalcum guard
 #gcost 10037
 #rpcost 25000
+#end
+
+#selectarmor 241 -- orichalcum cuirass 
+#rcost 17
 #end
 
 #selectmonster 3165 -- colossi light infantry
@@ -4231,8 +5103,8 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #end
 
 #selectmonster 2860 -- soldier of the deep
-#spr1 "./balance/soldierdeep1.png"
-#spr2 "./balance/soldierdeep2.png"
+#spr1 "./balance/soldierdeep1.tga"
+#spr2 "./balance/soldierdeep2.tga"
 #descr "Soldiers of the Deep are martial initiates of a cult of the deep. They serve and protect the temples and the Witnesses of the Deep, preparing for the Atlantian conquest of the world. Soldiers of the Deep are taught the secrets of waterbreathing and are given coral spears as a sign of their devotion. They are devoted to the Atlantian cause and are often regarded as fanatics."
 #armor 25 -- turtle shell shield
 #end
@@ -4344,8 +5216,12 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #weapon 330 -- alicorn
 #end
 
-#selectweapon 330 -- alicorn
-#charge
+#selectmonster 1418 -- amber clan priest, MA
+#gcost 9990
+#end
+
+#selectmonster 2422 -- pearl clan priest, MA
+#inquisitor
 #end
 
 #selectmonster 2870 -- apostate
@@ -4394,6 +5270,10 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #startunitnbrs2 15
 #end
 
+#selectspell 349 -- contact cu sidhe
+#restricted 77
+#end
+
 #selectmonster 2848 -- pretender: father of the sea
 #gcost 180
 #end
@@ -4414,7 +5294,6 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #beartattoo 2
 #end
 
--- TODO: Add cavalry commander
 #selectmonster 2912 -- ysian scout
 #gcost 10010
 #end
@@ -4508,8 +5387,12 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #pathlevel 1 2
 #end
 
-#selectitem 268 -- snake ring
+#selectitem 236 -- hydra skin armor
 #nationrebate 81
+#end
+
+#selectitem 268 -- snake ring
+#nationrebate 81 -- LA pythium
 #end
 
 #selectmonster 763 -- LA Serpent Cataphract
@@ -4519,6 +5402,7 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 
 #selectmonster 764 -- LA Serpent
 #swampsurvival
+#mr 8
 #end
 
 #selectmonster 830 -- serpent acolyte
@@ -4528,6 +5412,7 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 
 #selectmonster 761 -- serpent priest
 #swampsurvival
+#gcost 240
 #end
 
 #selectmonster 765 -- serpent lord
@@ -4636,6 +5521,10 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #precision 100
 #end
 
+#selectspell 320 -- apostasy
+#fatiguecost 40
+#end
+
 #selectspell 321 -- unholy power
 #precision 100
 #end
@@ -4661,6 +5550,13 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #amphibian
 #end
 
+#selectmonster 1645 -- judge
+#rpcost 2
+#clearmagic
+#custommagic 128 50
+#custommagic 4096 50
+#end
+
 -- ULM
 #selectnation 84
 #startunittype1 1017 -- ranger of ulm 
@@ -4682,9 +5578,19 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #gcost 10012
 #end
 
-#selectspell 359 -- sanguine heritage
-#fatiguecost 5500
-#researchlevel 4
+#selectmonster 1035 -- blood marshak/burkhard nachtzehrer, vampire unique
+#cleararmor
+#armor 215 -- full plate of ulm
+#end
+
+#selectmonster 3252 -- vivisectionist/lothar blumenreuter, vampire unique
+#autodishealer 3
+#end
+
+#selectmonster 3255 -- blood graf/hellenbracht, vampire unique
+#clearmagic
+#magicskill 3 2
+#magicskill 7 2
 #end
  
 #selectmonster 1019 -- vampire count
@@ -4728,12 +5634,16 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #gcost 10016
 #end
 
+
 -- MICTLAN
 #selectnation 86
 #startunittype1 1546
 #startunittype2 1547
 #end
 
+#selectmonster 1423 -- rain warrior
+#mapmove 14
+#end
 
 #selectmonster 2894 -- lord of the deep
 #gcost 10030
@@ -4784,7 +5694,7 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #newevent
 #rarity 5
 #req_unique 1
-#req_turn 5
+#req_turn 7
 #req_fornation 89
 #req_capital 1
 #req_fullowner 89
@@ -4832,11 +5742,14 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #selectmonster 1246 -- samurai cavalry
 #gcost 10015
 #hp 12
-
 #end
 
 #selectmonster 1247 -- sohei
 #hp 12
+#prec 12
+#clearweapons
+#weapon 24 -- long bow
+#weapon 380 -- naginata
 #end
 
 #selectmonster 1248 -- yamabushi
@@ -4861,10 +5774,21 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 
 #selectmonster 1254 -- shugenja
 #hp 10
+#clearmagic
+#magicskill 3 1
+#custommagic 9216 100
+#custommagic 896 100
 #end
 
 #selectmonster 1255 -- master shugenja
 #hp 10
+#clearmagic
+#magicskill 3 1
+#magicskill 6 1
+#custommagic 9216 100
+#custommagic 896 100
+#custommagic 10112 100
+#custommagic 10112 10
 #end
 
 #selectmonster 1257 -- ninja
@@ -4885,8 +5809,27 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #hp 10
 #end
 
+#selectmonster 2104 -- ryujin, humanoid
+#gcost 10120
+#end
+
+#selectmonster 2105 -- ryujin, dragon
+#gcost 10120
+#end
+
 #selectspell 216 -- fear-not-sign
 #precision 100
+#aoe 3000
+#end
+
+#selectspell 217 -- welcome sign
+#range 10
+#end
+
+#selectspell 218 -- earth-touching sign
+#damage 5015
+#aoe 3000
+#spec 8933512 -- gains MR negates normal
 #end
 
 #selectarmor 129 -- samurai armor
@@ -4916,6 +5859,10 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 
 #selectmonster 1444 -- blindlord
 #gcost 10020
+#end
+
+#selectspell 477 -- living mercury
+#restricted 90
 #end
 
 -- ABYSIA
@@ -4972,6 +5919,30 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #homemon 1094 -- desert ranger
 #end
 
+#selectmonster 1036 -- sauromancer
+#enc 3
+#end
+
+#selectmonster 1094 -- desert ranger
+#enc 3
+#end
+
+#selectmonster 1095 -- keeper of tombs
+#enc 3
+#end
+
+#selectmonster 2314 -- reborn
+#enc 3
+#end
+
+#selectmonster 1166 -- tomb guard
+#enc 3
+#end
+
+#selectmonster 177 -- lizard king
+#enc 3
+#end
+
 -- PANGAEA
 #selectnation 94
 #startunittype1 697 -- hoplite
@@ -5022,7 +5993,7 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #end
 
 #selectmonster 2154 -- satyr commander
-#gcost 10012
+#gcost 10011
 #end
 
 #selectmonster 2155 -- stymphalian bird
@@ -5030,7 +6001,7 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #end
 
 #selectmonster 2478 -- satyr sniper
-#rpcost 12000
+#rpcost 11000
 #end
 
 #selectmonster 2479 -- centaur sage
@@ -5069,24 +6040,25 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #end
 
 -- PATALA
+#selectnation 98
+#startunittype1 1123 -- vanara archer
+#startunittype2 1133 -- bandar warrior w/mace & buckler
+#end
+
 #selectmonster 1318 -- naga
-#spr1 "./balance/naga1.png" 
-#spr2 "./balance/naga2.png"
+#spr1 "./balance/naga1.tga" 
+#spr2 "./balance/naga2.tga"
 #cleararmor
 #armor 142 -- bronze scale cuirass
 #armor 1 -- buckler
 #end
 
 #selectmonster 2476 -- naga chief
-#spr1 "./balance/nagachief1.png" 
-#spr2 "./balance/nagachief2.png"
+#spr1 "./balance/nagachief1.tga" 
+#spr2 "./balance/nagachief2.tga"
 #cleararmor
 #armor 100 -- bronze cuirass
 #armor 1
-#end
-
-#selectweapon 141 -- poison spit
-#range0
 #end
 
 #selectweapon 595 -- hypnotize
@@ -5102,14 +6074,18 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #gcost 10013
 #end
 
+#selectspell 257 -- memories of stone
+#fatiguecost 1500
+#end
+
 -- RAGHA
 #selectnation 100
 #startunitnbrs1 15
 #end
 
--- TODO: update descriptions
 #selectmonster 2587 -- zhayedan
 #addupkeep 125
+#descr "The Zhayedan, Immortals, is a Turan sacred elite force of limited numbers, replaced only when one of their numbers is slain. Once they were an infantry unit, but with the increasing interest in mounted warfare and the acquisition of gryphons from a tribe of Amazons, the Immortals became an airborne cavalry unit of unequaled power. If the Zhayedan is killed, his gryphon will fight on, and if the gryphon is returned to Ragha another Zhayedan will mount the riderless Gryphon. Because of the costs associated with keeping replacement riders available in the capital the Zhayedan require double regular upkeep." 
 #end
 
 #selectmonster 2592 -- iceclad zhayedan
@@ -5118,6 +6094,7 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #att 12
 #def 11
 #hp 11
+#mor 13
 #end
 
 #selectmonster 2599 -- karapan
@@ -5178,8 +6155,8 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #end
 
 #selectmonster 2744 -- sak muuch dart thrower
-#spr1 "./balance/sakmuuchdart1.png"
-#spr2 "./balance/sakmuuchdart2.png"
+#spr1 "./balance/sakmuuchdart1.tga"
+#spr2 "./balance/sakmuuchdart2.tga"
 #gcost 10009
 #rpcost 9000
 #prec 10
@@ -5254,7 +6231,6 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #weapon 1001
 #end
 
-
 -- R'LYEH
 #selectnation 107
 #startunitnbrs1 25
@@ -5323,7 +6299,7 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 
 -- NORTH
 #selectmonster 250 -- frost father
-#pathcost 10
+#pathcost 20
 #gcost 140
 #end
 
@@ -5512,7 +6488,9 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 
 #selectmonster 602 -- titan of heaven
 #startdom 4
-#gcost 200
+#gcost 220
+#flying
+#stormimmune
 #end
 
 #selectmonster 812 -- lord of the wild
@@ -5631,7 +6609,6 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #end
 
 -- FAR EAST
-
 #selectmonster 905 -- jade emperor
 #startdom 4
 #gcost 180
@@ -5694,12 +6671,19 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 
 -- MIDDLE EAST
 #selectmonster 120 -- moloch
+#clearweapons
 #weapon 522 -- golden horns
+#weapon 166 -- golden claw
+#weapon 166 
 #gcost 240
+#att 14
+#def 14
+#fear 10
+#infernoret 10
 #end
 
 #selectmonster 655 -- scorpion king
-#gcost 180
+#gcost 200
 #end
 
 #selectmonster 661 -- shedu
@@ -5718,6 +6702,7 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 
 #selectmonster 1372 -- annunaki of the sky
 #gcost 240
+#stormimmune
 #end
 
 #selectmonster 1373 -- annunaki of sweet waters
@@ -5744,6 +6729,7 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #nobadevents 25
 #onebattlespell "Antimagic"
 #descr "The Sphinx is a guardian spirit given divine might by a previous Pantokrator. It has realized the aspirations of the other Pretenders and will protect its subjects by donning the mantle of God itself. It has the appearance of a great winged lion with the head of a woman. The Sphinx is attuned to the powers of the stars and the Underworld and will increase the magic resistance of everyone on her side in battle."
+#invulnerable 18
 #end
 
 #selectmonster 2435 -- annunaki of love and war
@@ -5770,11 +6756,13 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #selectmonster 2786 -- celestial gryphon
 #mastersmith -4
 #gcost 140
+#invulnerable 18
 #end
 
 #selectmonster 2787 -- celestial lion
 #mastersmith -4
 #gcost 140
+#invulnerable 18
 #end
 
 #selectmonster 2788 -- man-eater
@@ -5838,13 +6826,9 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #selectmonster 159 -- monument
 #end
 
-#selectmonster 215
-#magicskill 4 1
-#gcost 240
-#end
-
 #selectmonster 384 -- neter of crafts
 #gcost 190
+#mason
 #end
 
 #selectmonster 385 -- neteret of joy
@@ -5915,32 +6899,40 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #masterrit -4
 #mastersmith -4
 #researchbonus -20
-#gcost 180
+#gcost 160
 #end
 
 #selectmonster 2792 -- solar serpent
 #mastersmith -4
 #gcost 180
+#prot 18
+#weapon 141 -- poison spit
 #end
 
 #selectmonster 2793 -- serpent of chaos
 #mastersmith -4
 #gcost 180
+#prot 18
+#weapon 141 -- poison spit
 #end
 
 #selectmonster 2797 -- hieracosphinx
 #mastersmith -4
 #gcost 140
+#invulnerable 18
 #end
 
 #selectmonster 2798 -- criosphinx
 #mastersmith -4
 #gcost 140
+#invulnerable 18
 #end
 
 #selectmonster 2799 -- wadjet
 #mastersmith -4
 #gcost 180
+#prot 18
+#weapon 141 -- poison spit
 #end
 
 #selectmonster 2958 -- golden lion
@@ -5975,6 +6967,7 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #selectmonster 2466 -- kamadhenu
 #mastersmith -4
 #gcost 140
+#invulnerable 18
 #end
 
 #selectmonster 2549 -- maharishi
@@ -6052,27 +7045,41 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #gcost 150
 #end
 
+#selectmonster 215 -- virtue
+#magicskill 4 1
+#gcost 240
+#end
+
 #selectmonster 216 -- fire dragon
+#prot 20
+#gcost 200
 #dragonlord 3
 #end
 
 #selectmonster 226 -- fire dragon humanshape
+#gcost 200
 #dragonlord 2
 #end
 
-#selectmonster 256 -- frost dragon
+#selectmonster 266 -- frost dragon
+#prot 20
+#gcost 200
 #dragonlord 3
 #end
 
 #selectmonster 267 -- frost dragon humanshape
+#gcost 200
 #dragonlord 2
 #end
 
 #selectmonster 266 -- nature dragon
+#gcost 200
+#prot 20
 #dragonlord 3
 #end
 
 #selectmonster 268 -- nature dragon humanshape
+#gcost 200
 #dragonlord 2
 #end
 
@@ -6095,6 +7102,10 @@ selectmonster 872 -- ghost king, human
 #mastersmith -4
 #researchbonus -20
 #gcost 120
+#clearweapons
+#weapon 408 -- talons
+#weapon 408
+#weapon 404 -- beak
 #end
 
 #newspell
@@ -6114,6 +7125,9 @@ selectmonster 872 -- ghost king, human
 #gcost 120
 #onebattlespell 656
 #descr "The Raven of the Underworld is a monstrous raven of an earlier era. When the previous Pantokrator rose to power he made the Raven a herald of death and slaughter and gave it powers of farsight and foresight. The raven was tasked with guiding the dead to the underworld and it became wise in the ways of death. But the Raven grew too close to death and the Pantokrator was afraid that it served the Lord of the Underworld rather than himself. The Pantokrator banished the great bird for eternity. Now, with the Pantokrator gone, the Herald of Death and Slaughter can return to the world of men and bring whispers of death to come. The Raven of the Underworld feeds on the dead and regains hit points if enough corpses are present, and all those who stand against him risk being cursed for life."
+#weapon 408 -- talons
+#weapon 408
+#weapon 404 -- beak
 #end
 
 #selectmonster 2791 -- earth serpent
@@ -6130,7 +7144,6 @@ selectmonster 872 -- ghost king, human
 #selectmonster 2882 -- telkhine god-king monstrous form
 #gcost 240
 #end
-
 
 --  POPTYPES & INDIES
 #selectpoptype 84 -- cavemen
@@ -6149,6 +7162,10 @@ selectmonster 872 -- ghost king, human
 #addreccom 8010
 #end
 
+#selectmonster 576 -- amber clan priest, site
+#gcost 9990
+#end
+
 #selectmonster 1514 -- lizard shaman
 #researchbonus -2
 #gcost 10050
@@ -6157,19 +7174,19 @@ selectmonster 872 -- ghost king, human
 #newmonster 8008
 #copystats 1542 -- warlock apprentice
 #clearmagic
-#spr1 "./balance/lavapyro1.png"
-#spr2 "./balance/lavapyro2.png"
+#spr1 "./balance/lavapyro1.tga"
+#spr2 "./balance/lavapyro2.tga"
 #name "Lavaborn Pyromancer"
 #magicskill 0 1
 #custommagic 1152 20
 #descr "The Lava-born are a race of hellish humanoids with magma bodies. They radiate a furnace-like heat and are impervious to all forms of fire, but are vulnerable to cold. Most Lava-born live in Abysia, but there are rumors of Lava-born kingdoms deep in the under-earth. Their mages have some skill in Fire and occasionally Earth magic."
-#gcost 10050
+#gcost 85
 #end
 
 #newmonster 8010
 #copystats 3091 -- sage
-#spr1 "./balance/kulullushaman1.png"
-#spr2 "./balance/kulullushaman2.png"
+#spr1 "./balance/kulullushaman1.tga"
+#spr2 "./balance/kulullushaman2.tga"
 #name "Kulullu Shaman"
 #descr "The Kulullus are an ancient race of strange beings whose bodies resemble a combination of Enkidu and fish. The Kulullus have lived in the seas near Ur since before the First City was founded and they claim to have founded the first kingdom underneath the waves. Sages believe that when U'an the Apkallu emerged from the sea to bring civilization to Ur he had already brought his gifts to the Kulullus. But war and strife brought by less peaceful beings almost destroyed the Kulullu kingdom. Kulullu myths claim that an apostle of U'an will one day arrive from dry land to rebuild the old Kulullu kingdom."
 #gcost 10050
@@ -6218,9 +7235,15 @@ selectmonster 872 -- ghost king, human
 #end
 
 #selectmonster 175 -- triton guard
+#spr1 "./balance/tritonguard1.tga"
+#spr2 "./balance/tritonguard2.tga"
 #prot 1
 #str 11
 #hp 12
+#cleararmor
+#armor 25 -- turtle shell shield
+#armor 114 -- turtle shell hauberk
+#armor 134 -- turtle cap
 #end
 
 #selectmonster 176 -- triton w/coral knife
@@ -6263,6 +7286,11 @@ selectmonster 872 -- ghost king, human
 #hp 12
 #str 11
 #prot 1
+#end
+
+#selectmonster 3075 -- little soulless
+#pierceres
+#mr 7
 #end
 
 
