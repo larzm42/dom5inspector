@@ -137,8 +137,8 @@
 #end
 
 #newweapon
-#name "Metal Poleaxe"
 #copyweapon "Coral Poleaxe"
+#name "Metal Poleaxe"
 #dmg 8
 #secondaryeffect 0
 #end
@@ -3579,7 +3579,7 @@ Dominion: Spreads Turmoil"
 #rpcost 33
 #str 16
 #clearweapons
-#weapon 1001 -- coral poleaxe
+#weapon "Coral Poleaxe"
 #end
 
 #selectmonster 1688 -- shambler of the deep
@@ -5082,7 +5082,7 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #rpcost 25
 #str 16
 #clearweapons
-#weapon 1001
+#weapon "Coral Poleaxe"
 #end
 
 #selectmonster 209 -- mother guard
@@ -5090,7 +5090,7 @@ Dominion: Dominion Conflict Bonus +1 (good at suppressing enemy dominion)"
 #str 16
 #def 11
 #clearweapons
-#weapon 1001
+#weapon "Coral Poleaxe"
 #end
 
 #selectmonster 1622 -- coral guard w/glaive
@@ -6217,7 +6217,7 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #rpcost 25
 #str 15
 #clearweapons
-#weapon 1002 -- metal poleaxe
+#weapon "Metal Poleaxe"
 #end
 
 #selectmonster 2086 -- sleeping pillar
@@ -6228,7 +6228,7 @@ Priests: Weak, one available priest of average level. Heretical mystics who lowe
 #rpcost 35
 #str 16
 #clearweapons
-#weapon 1001
+#weapon "Coral Poleaxe"
 #end
 
 -- R'LYEH
