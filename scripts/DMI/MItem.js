@@ -820,7 +820,7 @@ MItem.renderOverlay = function(o) {
 
 	//header
 	h+='	<div class="overlay-header" title="item id:'+o.id+'"> ';
-	h+='		<div class="item-image" style="background-image:url(\''+o.sprite+'\');">&nbsp;</div> ';
+	h+='		<div class="item-image"><img style="float:right; clear:right; vertical-align:top; margin-right:25px" src="'+o.sprite+'";}"/>&nbsp;</div>';
 	h+='		<div class="h2replace">'+o.name+'</div> ';
 	h+='		<p>'+formatItemType[o.type]+' '+formatItemCon[o.constlevel]+'</p>';
 

@@ -268,7 +268,7 @@ id	name	rarity	description	requirements	effects	end
 267	A local sect has flourished. T	1	A local sect has flourished. Their leader preaches that labor is for the wicked.	mydominion 1|turn 8	incdom -2|incscale3 Sloth|landprod -5	
 268	A vengeful crone has cursed th	1	A vengeful crone has cursed the land	growth -2|land 1|rare 66	incscale3 Misfortune|curse 10	
 269	Strange events are occurring a	1	Strange events are occurring and superstition among the commoners is increasing.	magic 1|turn 5|mydominion 1	unrest 30|incdom -3	
-270	People here are suddenly very 	1	People here are suddenly very restless and a substantial part of the population has left their homes in search of adventure and a better place to live.	chaos 2	emigration 20|unrest 20	
+270	People here are suddenly very 	1	People here are suddenly very restless and a substantial part of the population has left their homes in search of adventure and a better place to live.	chaos 2|0x7200 9	emigration 20|unrest 20	
 271	Famine has struck the land. Pe	1	Famine has struck the land. People are starving and begging in the streets, blaming their cruel masters.	death 2|turn 10	unrest 100|kill 20|gold -100	
 272	A plague has struck the land. 	1	A plague has struck the land. Empty cabins and rotting corpses litter the landscape.	death 3|turn 15	kill 50|unrest 10|disease 10|id 1	
 273	A vengeful witch has cursed so	1	A vengeful witch has cursed some of your troops after they destroyed her home and took her magical gems.	land 1|magic 1|mintroops 5	curse 5|1d3vis N	
@@ -279,7 +279,7 @@ id	name	rarity	description	requirements	effects	end
 278	An evil necromancer and his ho	1	An evil necromancer and his host suddenly attacked the province in search of magical resources.	capital 0|pop0ok 1|land 1|death 1|turn 5|magic 2|lab 1	com 310|10d6units 197|10d6units 196|kill 5|gemloss D	
 279	Magic is fading.	1	Magic is fading.	pop0ok 1|lab 1|unmagic 3|unluck 1	gemloss All	
 280	A large group of non faithfuls	1	A large group of non faithfuls have decided to emigrate. Part of the population has left their homes in search of a better place to live and faith has increased in the rightful god, ##godname##.	maxdominion 2|mydominion 1|chaos 0	emigration 10|incdom 1	
-281	People here are very displease	1	People here are very displeased and a substantial part of the population has left their homes in search of a better place to live.	minunrest 20|chaos -2	emigration 20|unrest 20	
+281	People here are very displease	1	People here are very displeased and a substantial part of the population has left their homes in search of a better place to live.	0x7200 9|minunrest 20|chaos -2	emigration 20|unrest 20	
 282	Woods of the fairy court have 	1	Woods of the fairy court have been burned by a local lord.	growth 1|magic 1|land 1	incscale2 Drain|incscale Death|incscale3 Misfortune|1d3vis A	
 283	Local lords are feuding.	1	Local lords are feuding.	turn 5|chaos 1	unrest 45|taxboost -100	
 284	Diarrhea has spread among the 	1	Diarrhea has spread among the militia.	mindef 7|death 0	defence -5	
@@ -332,7 +332,7 @@ id	name	rarity	description	requirements	effects	end
 331	A grotesque idol has been unea	2	A grotesque idol has been unearthed. The locals are rumored to pay it offerings when the moon is dark. ##godname## no longer has dominion of the land.	mydominion 1|turn 8|capital 0	nation -1|newdom 3|decscale Drain	
 332	For a few days the animals see	2	For a few days the animals seemed determined to cause bad luck. Snakes and rabbits were crossing peoples paths all the time.	growth -2|land 1	incscale3 Misfortune	
 333	Locust swarms are eating the c	2	Locust swarms are eating the crops and causing widespread panic.	growth 0|land 1	id 8|unrest 20|taxboost -50	
-334	Hordes of peasants have left t	2	Hordes of peasants have left their homes in search of a better place to live.	chaos 0	emigration 30	
+334	Hordes of peasants have left t	2	Hordes of peasants have left their homes in search of a better place to live.	0x7200 12|chaos 0	emigration 30	
 335	A hurricane has struck the lan	2	A hurricane has struck the land, devastating the countryside.	land 1|chaos 1|turn 10	id 7|unrest 25|kill 3	
 336	A horrible tempest has struck 	2	A horrible tempest has struck the land. The servants of Pazuzu could be heard bellowing in the storm. Unrest has increased	land 1|chaos 3|unluck 2	id 14|unrest 35|kill 4	
 337	A plague has struck the land. 	2	A plague has struck the land. Empty cabins and rotting corpses litter the landscape.	death 1|turn 15|unluck -1	kill 50|unrest 10	
@@ -342,7 +342,7 @@ id	name	rarity	description	requirements	effects	end
 341	Toads have fallen from the ski	2	Toads have fallen from the skies. The omen has upset the populace.	land 1|magic 2	id 6|unrest 30|incscale3 Misfortune|disease 4	
 342	Trolls living under bridges ha	2	Trolls living under bridges have killed and eaten travelers.	magic 0|land 1|noera 3	unrest 10|gold -50	
 343	One of your researchers discov	2	One of your researchers discovered something so unspeakable that he turned mute.	lab 1|magic 1|researcher 1	researchaff 0	
-344	A well known count has reveale	2	A well known count has revealed himself as a vampire. He and his minions have tried to take control over the province.	magic 0|land 1|turn 15	com 1019|addequip 2|4d6units 405|6d6units 30|5d6units 1022	
+344	A well known count has reveale	2	A well known count has revealed himself as a vampire. He and his minions have tried to take control over the province.	magic 0|land 1|turn 15	com 3274|addequip 2|4d6units 405|6d6units 30|5d6units 1022	
 345	A scorching desert wind has sw	2	A scorching desert wind has swept over the land. Many have died from drought and wildfires.	cold -2|land 1|turn 10	id 13|decscale3 Cold|kill 5	
 346	Temperatures are rising and th	2	Temperatures are rising and the very ground seems to burn with unnatural heat. Many have died from the scorching heat and widespread wildfires. 	land 1|turn 10	id 16|decscale3 Cold|incscale Death|kill 10|unrest 20	
 347	The temperature has dropped dr	2	The temperature has dropped dramatically and blizzards have devastated the land. Many have died from starvation.	cold 1|land 1|turn 10	id 3|incscale3 Cold|kill 5	
@@ -526,7 +526,7 @@ id	name	rarity	description	requirements	effects	end
 525	Something went horribly wrong 	2	Something went horribly wrong when one of your unfortunate mages attempted a spell gleaned from a most forbidden tome. 	researcher 1|unluck 2|turn 20	assassin 757	
 526	Something went horribly wrong 	2	Something went horribly wrong when one of your unfortunate mages attempted a spell gleaned from a forbidden tome. 	researcher 1|unluck 2|turn 20	assassin 758	
 527	Tired of the strict laws and m	2	Tired of the strict laws and multitude of regulations governing their lives, the people of this province has embraced a foreign faith, hoping for liberty.	order 3|minpop 20|turn 8	nation -1|newdom 3	
-528	Sick of harsh laws and repress	2	Sick of harsh laws and repressive taxation, a large part of of the inhabitants have migrated elsewhere.	order 3|minpop 20	emigration 20	
+528	Sick of harsh laws and repress	2	Sick of harsh laws and repressive taxation, a large part of of the inhabitants have migrated elsewhere.	0x7200 9|order 3|minpop 20	emigration 20	
 529	The over-zealous governor has 	-1	The over-zealous governor has struck down hard on unruly elements in the society.	order 1|minunrest 15|minpop 20	kill 2|decscale2 Turmoil|unrest -20	
 530	Some unnecessary laws have bee	1	Some unnecessary laws have been abolished.	chaos 2|minpop 20	incscale3 Turmoil|unrest 10	
 531	The governor of the province h	2	The governor of the province has died from a wasting disease. His incompetent brother-in-law has now taken over the administrative duties.	order 0|minpop 20|capital 0	incscale3 Turmoil|landgold -5|landprod -5	
@@ -1457,7 +1457,7 @@ id	name	rarity	description	requirements	effects	end
 1456	Dark tendrils of pure shadow s	0	Dark tendrils of pure shadow slowly seeps from The Crown of Darkness into the sky. [Crown of Darkness]	foundsite 1|0x3900 1	incscale Death|disease 3	
 1457	The power of The Throne of Nig	10	The power of The Throne of Night has been invoked! Ever since, the day has grown dimmer. Now Night has overtaken Day and all is darkness!	0x3900 1|code -6	0x5E00 0|worlddarkness 1|linger 2	
 1458	The power of The Throne of Nig	0	The power of The Throne of Night has been invoked! The days will grow dimmer until, in eight months time, the night overtakes the day! [The Throne of Night]	rare 70|site 1|claimedthrone 1|0x3900 3|code 0	code -6	
-1459	A local gravedigger has heard 	-1	A local gravedigger has heard scratching and howling from beneath the stone slab covering an old grave. He refuses to open it unless a Black Priest is present. [Black Forest]	fornation 84|0x3900 1|nearbysite 1|code 29	code -10	
+1459	A local gravedigger has heard 	-1	A local gravedigger has heard scratching and howling from beneath the stone slab covering an old grave. He refuses to open it unless a Black Priest is present. [Black Forest]	land 1|fornation 84|0x3900 1|nearbysite 1|code 29	code -10	
 1460	The grave has been opened unde	0	The grave has been opened under the supervision of a Black Priest. Underneath the heavy stone slab a vampire was trapped! It has now joined your cause.	monster 740|code -10|land 1	code 0|nation -2|1unit 405	
 1461	A gang of ghouls have been rou	-1	A gang of ghouls have been rounded up and forced into service. [Cave of Ghouls]	fornation 84|nearbysite 1|land 1	nation -2|2d6units 198	
 1462	Lord save us from the wrath of	1	Lord save us from the wrath of the Northmen! Your people cry your name in anguish while raiders from the sea bear down upon the land. 	maxdef 15|maxtroops 20|rare 25|noera 3|unluck 2|coast 1	com 1603|10d6units 1603|6d6units 1604|2com 1604	
@@ -1866,7 +1866,7 @@ id	name	rarity	description	requirements	effects	end
 1865	Recent turmoil has been subdue	-1	Recent turmoil has been subdued by the competent garrison commander.	minunrest 20|poptype 65|mindef 12|order -1	unrest -30|decscale Turmoil|nation -2|com 976	
 1866	Those are pearls that were his	-1	Those are pearls that were his eyes! In the eye sockets of some drowned sailors astral pearls were found.	land 0|rare 25	1d6vis S	
 1867	A local gravedigger has heard 	-1	A local gravedigger has heard scratching and howling from beneath the stone slab covering an old grave. He refuses to open it unless a Black Priest is present. [Black Forest]	fornation 84|turn 20|0x3900 1|nearbysite 1|code 0	code -11	
-1868	The grave has been opened unde	0	The grave has been opened under the supervision of a Black Priest. Underneath the heavy stone slab a vampire was trapped! It has now joined your cause.	monster 740|code -11	code 0|nation -2|com 1019	
+1868	The grave has been opened unde	0	The grave has been opened under the supervision of a Black Priest. Underneath the heavy stone slab a vampire was trapped! It has now joined your cause.	monster 740|code -11	code 0|nation -2|com 3274	
 1869	The Time of the Northmen is at	11	The Time of the Northmen is at hand! They worship a heathen Idol, paying him tribute in blood and plunder! If it is destroyed, their resolve may weaken.	capital 0|0x4600 1|0x3900 1|turn 23|coast 1|season 1|code 0|noera 3|fort 0|maxtroops 20|0x5400 28	code -19|0x5E00 -14|com 2449|bloodboost 1|bloodboost 1|addequip 1|4com 2532|15d6units 2531|10d6units 2533|2d6units 544	
 1870	The Northmen settlers have bee	0	The Northmen settlers have been driven from the land, their war leaders killed. No more will their fleets bring havoc to troubled shores across the world! Some of the spoils of their plunder has been recovered.	story 1|nomonster 2449|nomonster 1605|nomonster 1604|nomonster 2194|code -14|code -73|code -85|code -84	code -18|incdom 4|gold 1500|magicitem 3|magicitem 2|resetcode -72|resetcode -73|resetcode -74|resetcode -85|resetcode -84	
 1871	Storms have destroyed many of 	13	Storms have destroyed many of the raiding fleets that have been harrying coasts all across the world. The scourge of the Northmen has ended!	season 0|code 0|code -14	resetcode -14|resetcode -15|resetcode -72	
@@ -2585,7 +2585,7 @@ id	name	rarity	description	requirements	effects	end
 2584	A pious servant of the suspect	0	A pious servant of the suspected nobleman has confessed that unholy rites are indeed taking place at his manor. The man is willing to lead your men there and suggests to bring a good number of them, for his lord is unnaturally strong and has loyal men about him.	preach 25|code 183	code 184	
 2585	A corpse has been found, drain	0	A corpse has been found, drained of blood.	rare 15|code 183		
 2586	Your blood mage has found sign	0	Your blood mage has found signs of a demonic presence in the nobleman's manor. The place is well guarded, so a fair number of men will be needed to make an arrest.	rare 80|0xDE00 7|code 183	code 184	
-2587	Your men have staged an attack	0	Your men have staged an attack on the manor of the demon-worshiping nobleman. They were confronted by the lord himself and his demonic servants!	rare 30|mintroops 35|code 184	code 0|com 1019|addequip 1|3d6units 198|2d6units 303	
+2587	Your men have staged an attack	0	Your men have staged an attack on the manor of the demon-worshiping nobleman. They were confronted by the lord himself and his demonic servants!	rare 30|mintroops 35|code 184	code 0|com 3274|addequip 1|3d6units 198|2d6units 303	
 2588	Your men have staged an attack	0	Your men have staged an attack on the manor of the demon-worshiping nobleman. They were confronted by the lord himself and the demon that has trapped his soul. [Hell Sword]	rare 20|mintroops 35|code 184	code 0|com 2538|addequip 9|com 811|addequip 1	
 2589	One of your servants has disap	0	One of your servants has disappeared.	rare 2|commander 1|0xE200 0|unluck 2|code 180	banished -12|fireboost 1	
 2590	One of your servants has disap	0	One of your servants has disappeared.	rare 1|commander 1|0xE200 0|code 181|code 180	banished -12|fireboost 1	

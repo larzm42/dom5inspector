@@ -1108,3 +1108,5 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 1151	Contact Tanuki	0	5	6	2	-1	0	1151	1	0	0	26	0	3266	
 1152	Contact Jorogumo	0	6	6	2	5	1	1152	1	0	0	32	0	3263	
 1153	Summon Araburu-kami	0	7	5	1	0	1	1153	1	0	0	5	0	3270	
+1154	Katabasis	4	3	5	1	2	1	1154	1	0	0	8	0	2199023255552	
+1155	Epopteia	4	3	6	1	-1	0	1155	1	0	0	12	0	94	

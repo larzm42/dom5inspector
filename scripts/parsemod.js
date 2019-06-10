@@ -187,7 +187,17 @@ var modctx = DMI.modctx = {
 	},
 	_new: function(cmd, args, tname, fnwarn) {
 		modctx._checkContextClosed(fnwarn);
-		if (!args.n1) throw 'missing argument (id expected)';
+		if (!args.n1) {
+			if (tname == 'wpn' || tname == 'armor') {
+				var newid = 2000;
+				while ((modctx[tname+'lookup'][newid])) {
+					newid++;
+				}
+				args.n1 = newid;
+			} else {
+				throw 'missing argument (id expected)';
+			}
+		}
 		if (modctx[tname+'lookup'][args.n1]) throw 'id already in use';
 
 		var o = modctx[tname] = { id: args.n1 };
@@ -266,7 +276,7 @@ var modctx = DMI.modctx = {
 			modctx._new(c,a ,'armor',fnw);
 			DMI.MArmor.initArmor(modctx.armor);
 
-			if (a.n1<250 || a.n1>999) throw 'invalid id';
+			//if (a.n1<250 || a.n1>999) throw 'invalid id';
 		},
 		selectarmor: function(c,a,t,fnw){
 			try {
@@ -285,7 +295,7 @@ var modctx = DMI.modctx = {
 			modctx._new(c,a ,'wpn',fnw);
 			DMI.MWpn.initWpn(modctx.wpn);
 
-			if (a.n1<700 || a.n1>1999) throw 'invalid id';
+			//if (a.n1<700 || a.n1>1999) throw 'invalid id';
 		},
 		selectweapon: function(c,a,t,fnw){
 			try {
