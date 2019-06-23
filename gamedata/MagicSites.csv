@@ -203,6 +203,10 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 202	Shattered Volcano	5	0	0	Fire	1					1																																																																																														2	102	3227	3226								
 203	Telepylos	5	0	0	Earth				1																																		3216																														3225	3228																															29											
 204	The Burning Mountain	5	223	0	Fire	3															Heat																																																																																				1											
+205	Sublime Palace	5	0	0	Holy	1				1																																	3281																														3289																																68											
+206	The Great Mirror	5	0	0	Astral					1																																	3280																									1					3286	3285																															40											
+207	The Onyx Court	5	0	0	Holy													4																									3282	3283																													3288	3287																															69											
+208	Fountain of Youth	5	0	0	Water			1									-5																																																																																								22											
 310	Tar Pits	0	219	1	Fire	1																																																																																																			5											
 311	Sun Ridge	0	223	1	Fire	2																																																																																																			3											
 312	Gold-Leafed Tree	1	223	2	Fire	2																																																																																																			10											
