@@ -743,4 +743,4 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 742	Mantis Claw	742	0	0	-1	1	0	0	0	0	
 743	Spider Claw	743	0	0	-1	1	0	0	0	0	
 744	Enchanted No-Dachi	744	3	3	2	1	0	0	0	7	
-745	Baculus	745	2	3	3	1	0	480	0	0	
+745	Baculus	745	2	3	3	1	0	0	509	7	

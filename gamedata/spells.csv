@@ -78,7 +78,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 78	15 Karasu Tengus	-1	1	-1	0	-1	0	78	15	0	0	0	0	1478	
 79	Natural Rain	-1	1	2	0	-1	0	79	1	0	0	0	0	7	
 80	Open Soul Trap	-1	1	-1	0	-1	0	80	4	0	0	0	0	-18	
-81	Area10 cold dmg3	-1	1	-1	0	-1	0	81	1	0	0	0	0	3	
+81	area10 cold dmg3	-1	1	-1	0	-1	0	81	1	0	0	0	0	3	
 82	Cleansing Chime	-1	1	-1	0	-1	0	82	1	100	0	0	0	20	
 83	Astral Geyser Blast	-1	1	-1	0	-1	0	83	1	0	0	0	0	2	
 84	Chastisement	-1	1	-1	0	-1	0	84	1	0	0	0	0	999	
