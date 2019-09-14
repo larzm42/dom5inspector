@@ -154,6 +154,7 @@ number	name	test
 324	<Unknown Attribute>
 325	<Unknown Attribute>
 404	Cannot be cast by mindless
+405	<Unknown Attribute>
 426	<Unknown Attribute>
 477	<Unknown Attribute>
 482	Not Effected by Fire Bless
@@ -207,4 +208,6 @@ number	name	test
 738	Only target friendly provinces {Spl: #onlyowndst}
 739	<Unknown Attribute>
 740	<Unknown Attribute>
+741	Requires sun presence
+742	AInocast
 900	<Unknown Attribute>
