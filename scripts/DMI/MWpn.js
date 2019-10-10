@@ -168,10 +168,9 @@ MWpn.matchProperty = function(o, key, comp, val) {
 		return true;
 
 	//check attached weapons
-	if (o.secondaryeffect)
-		return MWpn.matchProperty(o.secondaryeffect, key, comp, val);
-	else if (o.secondaryeffectalways)
-		return MWpn.matchProperty(o.secondaryeffectalways, key, comp, val);
+	var secondaryeffect = modctx.wpnlookup[o.secondaryeffect] || modctx.wpnlookup[o.secondaryeffectalways];
+	if(secondaryeffect)
+		return MWpn.matchProperty(secondaryeffect, key, comp, val);
 }
 
 
