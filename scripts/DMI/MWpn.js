@@ -324,14 +324,14 @@ MWpn.renderOverlay = function(o, baseAtt) {
 }
 
 //weapon tables are also rendered inline in items
-MWpn.renderWpnTable = function(o, isImplicitWpn, showName) {
+MWpn.renderWpnTable = function(o, isImplicitWpn, hideName) {
 	o.isImplicitWpn = isImplicitWpn; //affects display of nratt
-	o.showName = showName; //affects display of id
+	o.showName = !hideName; //affects display of id
 
 	//template
 	var h=''
 	h+='		<table class="overlay-table wpn-table"> ';
-	h+= 			Utils.renderDetailsRows(o, hiddenkeys, aliases, formats, 'hidden-row');
+	if(o.showName)h+= 			Utils.renderDetailsRows(o, hiddenkeys, aliases, formats, 'hidden-row');
 	h+= 			Utils.renderDetailsRows(o, modderkeys, aliases, formats, 'modding-row');
 	h+= 			Utils.renderDetailsRows(o, displayorder, aliases, formats);
 	h+= 			Utils.renderDetailsFlags(o, flagorder, aliases, formats);
