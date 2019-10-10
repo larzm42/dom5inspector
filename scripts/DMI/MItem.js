@@ -431,7 +431,7 @@ MItem.matchProperty = function(o, key, comp, val) {
 		return true;
 
 	//check attached weapon
-	if (o.weapon)
+	if (o.weapon && key.lower()!='id')
 		return DMI.MWpn.matchProperty(o.weapon, key, comp, val);
 }
 
@@ -758,6 +758,7 @@ var flagorder = DMI.Utils.cutDisplayOrder(aliases, formats,
 var hiddenkeys = DMI.Utils.cutDisplayOrder(aliases, formats,
 [
 	'id', 		'item id',
+	'weapon',	'weap id', 	function(v,o){ return v.id + ' ('+v.name+')'; },
 	'armor',	'armor id',	function(v,o){ return v.id+' ('+v.name+')'; }
 ]);
 var modderkeys = Utils.cutDisplayOrder(aliases, formats,
