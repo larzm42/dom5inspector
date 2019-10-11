@@ -857,7 +857,7 @@ MItem.renderOverlay = function(o) {
 	//weapon
 	if (o.weapon ){//&& modctx.wpnlookup[o.weapon]) {
 		var isImplicitWpn = (o.type == '1-h wpn' || o.type == '2-h wpn');
-		h+= DMI.MWpn.renderWpnTable(o.weapon, isImplicitWpn, true);
+		h+= DMI.MWpn.renderWpnTable(o.weapon, isImplicitWpn, 0);
 	}
 	h+='	</div>';
 
