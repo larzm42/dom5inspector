@@ -432,10 +432,7 @@ MItem.matchProperty = function(o, key, comp, val) {
 
 	//check attached weapon
 	if (o.weapon && key.toLowerCase()!='id'){
-		if(key.toLowerCase()=='effect')
-			return DMI.MWpn.matchProperty(o.weapon, 'secondaryeffect', comp, val)||DMI.MWpn.matchProperty(o.weapon, 'secondaryeffectalways', comp, val);
-		else
-			return DMI.MWpn.matchProperty(o.weapon, key, comp, val);
+		return DMI.MWpn.matchProperty(o.weapon, key, comp, val);
 	}
 }
 

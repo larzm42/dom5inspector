@@ -211,13 +211,9 @@ var hiddenkeys = DMI.Utils.cutDisplayOrder(aliases, formats,
 [
 	'id', 		'weap id',	function(v,o){ return v + ' ('+o.name+')'; },
 ]);
-var effectalwayskeys = DMI.Utils.cutDisplayOrder(aliases, formats,
-[
-	'secondaryeffectalways', 		'weap id',	function(v,o){ return o.id + ' ('+o.name+')'; },
-]);
 var effectkeys = DMI.Utils.cutDisplayOrder(aliases, formats,
 [
-	'secondaryeffect', 		'weap id',	function(v,o){ return o.id + ' ('+o.name+')'; },
+	'weapon', 		'weap id',	function(v,o){ return o.id + ' ('+o.name+')'; },
 ]);
 var modderkeys = DMI.Utils.cutDisplayOrder(aliases, formats,
 [
@@ -243,6 +239,7 @@ var ignorekeys = {
 	modded:1,
 	id:1,
 	name:1,
+	weapon:1,
 	secondaryeffect:1,
 	secondaryeffectalways:1,
 	isImplicitWpn:1,
@@ -342,8 +339,8 @@ MWpn.renderWpnTable = function(o, isImplicitWpn, showName) {
 		h+= 		Utils.renderDetailsRows(o, hiddenkeys, aliases, formats, 'hidden-row');
 	if(showName==2)
 		h+= 		Utils.renderDetailsRows(o, effectkeys, aliases, formats, 'hidden-row');
-	if(showName==3)
-		h+= 		Utils.renderDetailsRows(o, effectalwayskeys, aliases, formats, 'hidden-row');
+	//if(showName==3)
+	//	h+= 		Utils.renderDetailsRows(o, effectkeys, aliases, formats, 'hidden-row');
 	h+= 			Utils.renderDetailsRows(o, modderkeys, aliases, formats, 'modding-row');
 	h+= 			Utils.renderDetailsRows(o, displayorder, aliases, formats);
 	h+= 			Utils.renderDetailsFlags(o, flagorder, aliases, formats);
@@ -384,7 +381,7 @@ MWpn.renderWpnTable = function(o, isImplicitWpn, showName) {
 			//throw 'Error, weapon 2nd effect as itself: '+o.id+': '+o.name;
 		}
 		else {
-			h+= MWpn.renderWpnTable(secondaryeffectalways, true, showName != 1 ? 3 : 1);
+			h+= MWpn.renderWpnTable(secondaryeffectalways, true, showName == 1 ? 1 : 2);
 		}
 	}
 	else if (o.secondaryeffect && secondaryeffect && secondaryeffect.id != 0) {
@@ -394,7 +391,7 @@ MWpn.renderWpnTable = function(o, isImplicitWpn, showName) {
 			//throw 'Error, weapon 2nd effect as itself: '+o.id+': '+o.name;
 		}
 		else {
-			h+= MWpn.renderWpnTable(secondaryeffect, true, showName != 1 ? 2 : 1);
+			h+= MWpn.renderWpnTable(secondaryeffect, true, showName == 1 ? 1 : 2);
 		}
 	}
 	return h;
