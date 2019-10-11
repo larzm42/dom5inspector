@@ -213,11 +213,11 @@ var hiddenkeys = DMI.Utils.cutDisplayOrder(aliases, formats,
 ]);
 var effectalwayskeys = DMI.Utils.cutDisplayOrder(aliases, formats,
 [
-	'secondaryeffectalways', 		'weap id',	function(v,o){ return v + ' ('+o.name+')'; },
+	'secondaryeffectalways', 		'weap id',	function(v,o){ return o.id + ' ('+o.name+')'; },
 ]);
 var effectkeys = DMI.Utils.cutDisplayOrder(aliases, formats,
 [
-	'secondaryeffect', 		'weap id',	function(v,o){ return v + ' ('+o.name+')'; },
+	'secondaryeffect', 		'weap id',	function(v,o){ return o.id + ' ('+o.name+')'; },
 ]);
 var modderkeys = DMI.Utils.cutDisplayOrder(aliases, formats,
 [
