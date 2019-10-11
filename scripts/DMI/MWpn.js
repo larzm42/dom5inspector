@@ -211,6 +211,14 @@ var hiddenkeys = DMI.Utils.cutDisplayOrder(aliases, formats,
 [
 	'id', 		'weap id',	function(v,o){ return v + ' ('+o.name+')'; },
 ]);
+var effectalwayskeys = DMI.Utils.cutDisplayOrder(aliases, formats,
+[
+	'secondaryeffectalways', 		'weap id',	function(v,o){ return v + ' ('+o.name+')'; },
+]);
+var effectkeys = DMI.Utils.cutDisplayOrder(aliases, formats,
+[
+	'secondaryeffect', 		'weap id',	function(v,o){ return v + ' ('+o.name+')'; },
+]);
 var modderkeys = DMI.Utils.cutDisplayOrder(aliases, formats,
 [
 	'rcost',	'resource cost'
@@ -291,7 +299,7 @@ MWpn.renderOverlay = function(o, baseAtt) {
 	h+='	<div class="overlay-main">';
 	h+=' 		<input class="overlay-pin" type="image" src="images/PinPageTrns.png" title="unpin" />';
 
-	h+=		MWpn.renderWpnTable(o, true);
+	h+=		MWpn.renderWpnTable(o, true, 1);
 	h+='	</div>';
 
 	//footer
@@ -323,14 +331,19 @@ MWpn.renderOverlay = function(o, baseAtt) {
 }
 
 //weapon tables are also rendered inline in items
-MWpn.renderWpnTable = function(o, isImplicitWpn, hideName) {
+MWpn.renderWpnTable = function(o, isImplicitWpn, showName) {
 	o.isImplicitWpn = isImplicitWpn; //affects display of nratt
-	o.showName = !hideName; //affects display of id
+	o.showName = showName; //affects display of id
 
 	//template
 	var h=''
 	h+='		<table class="overlay-table wpn-table"> ';
-	if(o.showName)h+= 			Utils.renderDetailsRows(o, hiddenkeys, aliases, formats, 'hidden-row');
+	if(showName==1)
+		h+= 		Utils.renderDetailsRows(o, hiddenkeys, aliases, formats, 'hidden-row');
+	if(showName==2)
+		h+= 		Utils.renderDetailsRows(o, effectkeys, aliases, formats, 'hidden-row');
+	if(showName==3)
+		h+= 		Utils.renderDetailsRows(o, effectalwayskeys, aliases, formats, 'hidden-row');
 	h+= 			Utils.renderDetailsRows(o, modderkeys, aliases, formats, 'modding-row');
 	h+= 			Utils.renderDetailsRows(o, displayorder, aliases, formats);
 	h+= 			Utils.renderDetailsFlags(o, flagorder, aliases, formats);
@@ -371,7 +384,7 @@ MWpn.renderWpnTable = function(o, isImplicitWpn, hideName) {
 			//throw 'Error, weapon 2nd effect as itself: '+o.id+': '+o.name;
 		}
 		else {
-			h+= MWpn.renderWpnTable(secondaryeffectalways, true, false);
+			h+= MWpn.renderWpnTable(secondaryeffectalways, true, showName != 1 ? 3 : 1);
 		}
 	}
 	else if (o.secondaryeffect && secondaryeffect && secondaryeffect.id != 0) {
@@ -381,7 +394,7 @@ MWpn.renderWpnTable = function(o, isImplicitWpn, hideName) {
 			//throw 'Error, weapon 2nd effect as itself: '+o.id+': '+o.name;
 		}
 		else {
-			h+= MWpn.renderWpnTable(secondaryeffect, true, false);
+			h+= MWpn.renderWpnTable(secondaryeffect, true, showName != 1 ? 2 : 1);
 		}
 	}
 	return h;
