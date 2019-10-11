@@ -759,7 +759,6 @@ var flagorder = DMI.Utils.cutDisplayOrder(aliases, formats,
 var hiddenkeys = DMI.Utils.cutDisplayOrder(aliases, formats,
 [
 	'id', 		'item id',
-	'weapon',	'weap id', 	function(v,o){ return v.id + ' ('+v.name+')'; },
 	'armor',	'armor id',	function(v,o){ return v.id+' ('+v.name+')'; }
 ]);
 var modderkeys = Utils.cutDisplayOrder(aliases, formats,
@@ -854,7 +853,7 @@ MItem.renderOverlay = function(o) {
 	//weapon
 	if (o.weapon ){//&& modctx.wpnlookup[o.weapon]) {
 		var isImplicitWpn = (o.type == '1-h wpn' || o.type == '2-h wpn');
-		h+= DMI.MWpn.renderWpnTable(o.weapon, isImplicitWpn, 0);
+		h+= DMI.MWpn.renderWpnTable(o.weapon, isImplicitWpn, true);
 	}
 	h+='	</div>';
 
