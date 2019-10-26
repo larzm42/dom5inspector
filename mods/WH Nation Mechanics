@@ -1,0 +1,70 @@
+Mechanics Summaries
+This is intended to fully explain ALL non-obvious mechanics found in the Warhammer nations.
+This means anything that isn't in the unit stats or easily found in the inspector.
+If something isn't clear, please message me and I'll fix it.
+
+SLAANESH:
+Events: Cultist event. When you have a cultist and 40+ unrest in an enemy province,
+25% chance per turn of triggering. Cannot be 100 or more troops in the province,
+or 20+ PD, and cannot be a capital. Cannot be done to other Chaos nats, can to indies.
+Spawns 1 cultist commander, 1 Spawn, 2d6 Daemonettes, 1d6 cultist units and 1d6 Forsaken.
+Increases unrest by 30, Turmoil by 2, and changes Dom to Slaanesh's, 4 candles.
+Daemonhood event. When you have a Chosen Chaos Lord, there's a 5% chance per turn of triggering.
+Kills the Lord and replaces him with: 2/3 chance of Spawn, 1/3 chance of Daemon Princess.
+Units: Most units' weapons have multiple attacks. The Chaos Lord will turn into a Chosen Chaos Lord if propheted. You can also receive the Chosen Lords as multiheroes.
+Spells: Bliss in Torment quickens friendly sacred demons, basically Celestial Music for Slaanesh. 
+Phantasmagoria is basically Panic, and Acquiescence does fatigue damage which scales particularly well with higher levels.
+
+TZEENTCH:
+Events: Cultist event. When you have a cultist and 60+ unrest in an enemy province,
+15% chance per turn of triggering. Cannot be 100 or more troops in the province,
+or 20+ PD, and cannot be a capital. Cannot be done to other Chaos nats, can to indies.
+Spawns 1 cultist commander, 1 Spawn, 1d6 Pink Horrors, 1d6 Blue Horrors, 1d6 cultist units and 1d6 Forsaken.
+Increases unrest by 30, Turmoil by 2, and changes Dom to Tzeentch's, 3 candles.
+Daemonhood event. When you have a Chosen Chaos Lord, there's a 5% chance per turn of triggering.
+Kills the Lord and replaces him with: 2/3 chance of Spawn, 1/3 chance of Daemon Prince.
+Units: Most units' weapons have multiple attacks. The Chaos Lord will turn into a Chosen Chaos Lord if propheted. You can also receive the Chosen Lords as multiheroes.
+The Daemon Prince spell can summon 2 possible units: a prince with a Daemonic Trident or one with a Daemonic halberd.
+Vague plans to differentiate them more in the future but that's the only difference for now.
+
+NURGLE:
+Events: Cultist event. When you have a cultist, Magic 1 and 80+ unrest in an enemy province,
+15% chance per turn of triggering. Cannot be 150 or more troops in the province,
+or 25+ PD, and cannot be a capital. Cannot be done to other Chaos nats, can to indies.
+Spawns 1 Herald of Nurgle commander and 5d6 Plaguebearers.
+Kills 20% of population, increases unrest by 40, Turmoil by 2, and changes Dom to Nurgle's, 3 candles.
+Daemonhood event. When you have a Chosen Chaos Lord, there's a 5% chance per turn of triggering.
+Kills the Lord and replaces him with: 2/3 chance of Spawn, 1/3 chance of Daemon Prince.
+Units: Most units' weapons have multiple attacks. The Chaos Lord will turn into a Chosen Chaos Lord if propheted. You can also receive the Chosen Lords as multiheroes.
+
+OGRE KINGDOMS:
+Events: Discover Maw Pit. When you have a fort in a province (not your cap), there's a 10% chance of it triggering per turn.
+Creates the Maw Pit, which gives 3 blood slaves/turn and lets you recruit Pitfighters. Gives 5d6 blood slaves and kills 500 pop.
+If you lose the fort, the site will change to an abandoned maw pit that does nothing.
+If you reconquer the fort, the abandoned pit has a 30% chance per turn of becoming a useful Maw Pit again, with the reopening  giving 2d6 slaves.
+Creates at most 1 pit, will not continue to trigger.
+
+SKAVEN:
+Events: Discover Warpstone Seam. 6% chance per turn on land, not in cap. Creates a seam that produces 1 of FED per turn.
+15% chance/turn of seam exhaustion, 12% if you have a lab there.
+Once exhausted, 12% chance of reopening if you have a lab there, else 0.
+Reopen chance divided evenly between reopening normally, destroying the lab and repoening, and destroying the lab and not reopening.
+
+LIZARDMEN:
+Units: all Slann autocast Communion Master before the battle starts - you don't need to script it.
+The Saurus and Wardscale of Xhotl have a 1 hp "shield shape", once this gets hurt they shift into their normal form (15 and 17 hp) for the rest of the battle.
+Zlatlan, the One Who Fathomed the Depths appears to have 2 shield shapes before you get to the real him, 100 hp when you do.
+
+TOMB KINGS:
+Units: Tomb Priests, High Priests, Tomb Kings, and 1 or 2 heroes can summon units. 
+They're a 1/4 chance each of a less armored or more armored spearman, an archer and a cavalryman.
+Tomb Priests can summon 2 per turn, everyone else summons 4.
+Priest spells: Resilience adds 10 natural prot, Strength of the Tomb adds 4 strength
+
+CHAOS DWARFS:
+Units: can recruit slaves - these will be one of the creatures below, frequency listed:
+1 unarmored human, 1 unarmored Gnoblar, 2 unarmored Orcs, 3 unarmored Goblins, 1 armored Goblin, 1 armored Orc, 1 armored Ogre
+
+EMPIRE NATIONS:
+Various statues produce a set of 15 cavalry and a single commander, abilities in the inspector.
+Later recriutments of the same statue just produce the cavalry.

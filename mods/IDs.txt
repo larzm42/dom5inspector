@@ -1,0 +1,147 @@
+ID Numbers : 
+Nations are sorted as in the code
+
+Montags: Chaos: 7777, 8888, 6666, 5555, 60006
+
+Nametypes: 109 (Pan m), 115 (Jotun m), 123 (Mictlan m), 187, 191, 192, 193, 257
+
+Enchantments: 50, 51 (find with #damage 50)
+Restricted item tags: 80, 81 (find with item 80)
+
+Nations:
+Tzeentch: 120
+Nurgle: 142
+Ogre Kingdoms: 121
+Skaven: 116
+Chaos Dwarfs: 141
+Lizards: 145
+Slaanesh: 159
+
+Monsters :
+Bretonnia : 3162-3225 / 3227
+Naggarond : 5100-5131 / 5133-5151
+Khazad : 3100-3131 / 3133-3141 / 3143-3145
+Empire :  3396-3431 / 3433-3477 / 3483 / 3484-3501
+HE : 6001-6021 / 6023 / 6024-6042 / 6044-6046
+Khorne : 4600-4607 / 4610-4613 / 4615-4618 / 4620-4623 / 4625-4627 / 4629-4638 / 4640-4643 / 4645-4651 / 4655-4657 / 4660-4662
+Orc : 3800-3823 / 3826-3841 / 3844-3856 / 3860-3866 / 3868-3874 / 3876-3884 / 3886 / 3891, 3892
+Tomb Kings : 3241-75
+VC : 3000-69
+WE : 4400-4408 / 4415-4421 / 4425-4431 / 4440-4442 / 6041
+--INCLUDED:
+Slaanesh : 4150-96
+Tzeentch : 4330-4350 / 4796-4836
+Nurgle : 5000-5050
+Ogre Kingdoms: 5500-5540 (5506,7,12,13,14,19,28-31,33,36-8 unused)
+Skaven : 5540-86
+Lizardmen : 7310-65
+Chaos Dwarfs: 81(00-10,18,22-38)
+
+Weapons : 
+Bretonnia: 1022-33 / 1040
+Dark Elves: 1170-88
+Empire: 776-802
+High Elves: 1001-24 (except 1012)
+Khorne: 1301-10
+Orcs: 1041-60
+Tomb Kings: 1700-6
+Vampire Counts: 741-7
+Wood Elves: 1350-63
+Dwarfs: 842-60 / 916-26
+--INCLUDED:
+Lizardmen:
+Skaven: 883,4,5
+Chaos Dwarfs: 913
+Ogre Kingdoms: 
+Nurgle: 1765,66,68,69, 
+Slaanesh:
+Tzeentch:
+
+Armors : 
+Bretonnia : 336-339
+Naggarond : 259 / 261-264
+Dwarfs : 340-351
+Empire : 281-284
+HE : 356 / 357 / 359-366
+Khorne : 700 / (701?) / 702 
+Orc : 380 / 381
+Tomb Kings : 552-562
+VC : None
+WE : 710 / 714 / 715
+--INCLUDED:
+Ogre Kingdoms: 
+Chaos Dwarfs: 
+Skaven : 
+Lizardmen :
+Tzeentch :
+Nurgle : 
+Slaanesh :
+
+Sites : 
+Bretonnia : 1551 and 1552
+Naggarond : 1900 and 1901
+Khazad : 1550
+Empire : 1512-1516
+HE : 1601-1604
+Khorne : 1701-1703
+Orc : 1910-1912
+VC : 1520-2
+WE : 1705 and 1706
+Tomb Kings : 1930 and 31
+--INCLUDED:
+Lizardmen : 1510 and 1511
+Chaos Dwarfs: 1523-6
+Nurgle : 1925 and 1926
+Slaanesh : 1950 and 1951
+Tzeentch : 1952 / 1953
+Ogre Kingdoms: 1987-90
+Skaven : 1991-5
+
+HUMAKTY CHANGELOG
+DONE : 
+Shared weapons :
+Warhorse Hoof (1220) : dam 14 att 1 (HE, Naggarond, VC and Empire), replaces 710 for Empire (Mmh, choosing 710 would have been smarter, on afterthoughts)
+Chaos steed hoof dmg 15 att 1 (1300) to replace (732/1454/1850)(compacts all CSH into one)
+
+Bretonnia :
+Warhorse hoof (1220) instead of Choppa / Destrier Hoof to all destrier hoof units and commanders
+Breton Heavy Lance (ID : 1041 > 1030) instead of Virtue of the Joust to (most knights) 
+Deleted destrier hoof
+
+Naggarond :
+Given Dark riders 1220 (Warhorse Hoof)
+
+Empire :
+Deleted weapon 710
+All heavy cavalry units and commanders switch to Warhorse Hoof (1220)
+
+HE :
+Deleted 1012 (WH) to be replaced with 1220 (WH)
+Ellyrian Reavers replaced "Hoof" by 56 (hoof)
+Silver Helms replaced "Hoof" by 56 (hoof)
+Dragon Princes replaced "Hoof" by 1220 (WH)
+Tiranoc Chariot replaced "Hoof" by 56 (hoof)
+Prince replaced "Hoof" by 1220 (WH)
+Prince of Tyranoc replaced "Hoof" by 56 (hoof)
+Noble replaced "Hoof" by 1220 (WH)
+Harbinger replaced "Hoof" by 56 (hoof)
+
+Gorka :
+Goblin Wolf Rider (3829) : looses short sword
+
+TK :
+Given School 0 to Awaken Tomb Kings
+Changed Tomb King ID : 4556 > 4571
+
+VC :
+weapon ID changed from 834-839 to 1221-1226
+
+WE :
+Stave of Avelorn ID : 1044 > 1363
+Replaced "Hoof" (55) by hoof 56 for Glade Rider and Unicorn,standard hoof attack for Dom 4 cavalry (4402)
+Replaced "Antler" by weapon 1362 for Wild Rider, just a typo but better name by number items present under different iterations with the same name but always different numbers (4405)
+
+
+NOT DONE : 
+
+HE and Naggarond cavalry hooves inconsistent, to be replaced with hoof 56 for light and Warhorse Hoof 1220 for Heavy
