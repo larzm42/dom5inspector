@@ -359,7 +359,6 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 358	Snake Hair	358	-2	0	0	3	0	50	0	0	358	
 359	Venomous Bites	359	0	-1	0	2	0	51	0	0	359	
 360	Sticks and Stones	360	-2	0	0	2	30	0	0	0	360	
-361	Small Bow - replaced	361	0	0	0	1	8	0	0	1	361	
 362	Chakram	362	0	0	0	1	2	0	0	2	362	
 363	Iron Cudgel	363	0	0	2	1	0	0	0	2	363	
 364	Curse Luck	364	0	0	0	1	0	0	0	0	364	
@@ -402,11 +401,10 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 401	Soul Death	401	0	0	0	1	0	0	0	0	401	
 402	Holy Scourge	402	5	-2	2	2	0	0	0	3	402	
 403	Mesmerize	403	100	0	0	1	5	0	0	0	403	
-404	Beak	404	0	-1	0	1	0	0	0	0	404	
-405	Fire Small Bow - replaced	405	0	0	0	1	8	0	216	1	405	
+404	Beak	404	0	-1	-1	1	0	0	0	0	404	
 406	Fire Chakram	406	0	0	0	1	2	0	216	2	406	
 407	Fire Shuriken	407	0	0	0	2	4	0	216	1	407	
-408	Talons	408	0	0	0	1	0	0	0	0	408	
+408	Talons	408	0	0	-1	1	0	0	0	0	408	
 409	Small Area Cold	409	0	0	0	1	0	0	0	0	409	
 410	O'al Kan's Sceptre	410	0	0	1	1	0	0	411	0	410	
 411	Small Area Fatigue	411	0	0	0	1	0	0	0	0	411	
@@ -523,7 +521,6 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 522	Golden Horns	522	-1	-1	1	1	0	0	0	0	522	
 523	Golden Sickle	523	2	2	1	1	0	0	0	2	523	
 524	Pillar of Laws	524	-3	-5	2	1	0	0	411	0	524	
-525	Gileadite Bow - replaced	525	0	0	0	1	12	0	0	5	525	
 526	Soul Catcher	526	1	0	3	1	0	528	0	0	526	
 527	Enchanted Katana	527	4	3	1	1	0	0	0	7	527	
 528	Trap Soul	528	0	0	0	1	0	0	0	0	528	
@@ -744,3 +741,16 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 743	Spider Claw	743	0	0	-1	1	0	0	0	0	743	
 744	Enchanted No-Dachi	744	3	3	2	1	0	0	0	7	744	
 745	Baculus	745	2	3	3	1	0	0	509	7	745	
+746	Scimitar	746	1	0	1	1	0	0	0	3	746	
+747	Golden Fist	747	0	0	-1	1	0	0	748	0	747	
+748	Petrify	748	0	0	0	1	0	0	0	0	748	
+749	Enchanted Scimitar	749	3	1	1	1	0	0	0	0	749	
+750	Bronze Falchion	750	0	0	1	1	0	0	0	6	750	
+751	Bronze Sword	751	1	1	1	1	0	0	0	3	751	
+752	Frost Breath	752	0	0	0	1	0	0	0	0	752	
+753	Dive attack	753	4	0	0	1	1	0	0	0	753	
+754	Razor Wings	754	0	0	0	1	0	0	0	0	754	
+755	Burning Beak	755	0	0	-1	1	0	0	221	0	755	
+756	Burning Claw	756	0	0	-1	1	0	0	221	0	756	
+757	Bronze Scimitar	757	1	0	1	1	0	0	0	5	757	
+758	Silver Horns	758	-1	-1	1	1	0	0	0	0	758	

@@ -1783,6 +1783,7 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'explodeondeath',	'explode on death',
 	'transformation', 'transformation', {'-1': 'bad result', '0': 'disabled', '1': 'good result' },
 	'guardspiritbonus', 'guardian spirit',
+	'ironvul', 'iron vulnerabilty',
 	'startitem',	'starts with',	function(v,o){
 		return Utils.itemRef(v);
 	},

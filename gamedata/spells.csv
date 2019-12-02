@@ -227,7 +227,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 267	Call Merkavah	0	9	4	7	0	3	267	1	0	0	222	89	2052	
 268	Release Lord of Civilization	6	9	7	8	-1	0	268	1	0	0	177	85	14	
 269	Summon Mazzikim	0	3	6	1	-1	0	269	8	0	0	3	0	2072	
-270	Summon Lilot	0	5	6	4	-1	0	270	1	0	0	25	0	2071	
+270	Summon Lilot	0	5	6	4	-1	0	270	1	0	0	15	0	2071	
 271	Summon Kusarikkus	0	4	3	1	-1	0	271	2	0	0	6	0	3068	
 272	Summon Ugallu	0	5	1	3	-1	0	272	1	0	0	24	0	3095	
 273	Call Anzu	0	7	1	4	-1	0	273	1	0	0	4	0	3064	
@@ -1110,3 +1110,17 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 1153	Summon Araburu-kami	0	7	5	1	0	1	1153	1	0	0	5	0	3270	
 1154	Katabasis	4	3	5	1	2	1	1154	1	0	0	8	0	2199023255552	
 1155	Epopteia	4	3	6	1	-1	0	1155	1	0	0	12	0	94	
+1156	Contact Jinn	0	4	0	2	1	1	1156	1	0	0	15	0	3353	
+1157	Summon Jinn Warriors	0	5	0	2	1	1	1157	3	0	0	15	0	3354	
+1158	Contact Houri	0	6	1	2	6	1	1158	1	0	0	26	0	3375	
+1159	Summon Hinn	0	6	1	1	0	1	1159	505	0	0	6	0	3367	
+1160	Summon Ifrit	6	5	7	1	0	3	1160	1	0	0	58	0	3372	
+1161	Summon Shaytan	6	6	7	1	0	3	1161	1	0	0	73	0	3373	
+1162	Summon Marid	0	8	0	4	1	2	1162	1	0	0	66	0	3374	
+1163	Contact Marid	0	8	2	2	0	4	1163	1	0	0	60	0	3374	
+1164	Smokeless Flame	2	6	0	3	1	1	1164	1	1	30	0	0	1042	
+1165	Large Area Combustion	-1	1	-1	0	-1	0	1165	1	0	0	0	0	512	
+1166	Scorching Wind	2	4	1	2	0	1	1166	1	0	30	0	0	250	
+1167	Call Cyclops Tribe	0	3	3	2	-1	0	1167	505	0	0	12	0	3381	
+1168	Call the Birds of Splendour	0	6	0	2	6	1	1168	1	0	0	9	0	3382	
+1169	Awaken Jinn Block	5	5	3	1	8	1	1169	1	0	0	5	0	3389	
