@@ -1981,6 +1981,8 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'summon5',	'summon allies',	function(v,o){
 		return Utils.unitRef(v)+' x 5';
 	},
+	
+	'heathensummon', 'lord over heathens',
 
 //	'researchwithoutmagic', 'researchwithoutmagic',
 	'captureslaves', 'capture slaves', Utils.unitRef,
@@ -2104,6 +2106,7 @@ var flagorder = Utils.cutDisplayOrder(aliases, formats,
 	'flieswhenblessed', 'flies when blessed',
 	'commaster', 'communion master',
 	'comslave', 'communion slave',
+	'unseen', 'unseen'
 	]);
 var hiddenkeys = Utils.cutDisplayOrder(aliases, formats,
 [

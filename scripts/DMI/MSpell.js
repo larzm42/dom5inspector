@@ -347,7 +347,8 @@ MSpell.prepareData_PostMod = function() {
 				_effects.effect_number == "43" ||
 				_effects.effect_number == "50" ||
 				_effects.effect_number == "93" ||
-				_effects.effect_number == "119") {
+				_effects.effect_number == "119" ||
+				_effects.effect_number == "141") {
 
 				var uid = _effects.raw_argument;
 

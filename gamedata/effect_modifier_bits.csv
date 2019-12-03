@@ -25,7 +25,7 @@ bit_value	bit_name	test
 8388608	May Use Underwater {Wpn: #uwok}
 16777216	Magic Resistance Negates Easily {Wpn: #mrnegateseasily}
 33554432	Use Underwater Only {Wpn: #uwonly}
-67108864	Unknown Modifier {Wpn: #67108864}
+67108864	Iron Attack {Wpn: #ironweapon}
 134217728	Intrinsic Weapon {Wpn: #bonus}
 268435456	No effect on Demons {Wpn: #demonimmune}
 536870912	No effect on Lifeless {Wpn: #inanimateimmune}

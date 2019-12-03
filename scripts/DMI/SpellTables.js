@@ -397,6 +397,9 @@ MSpell.effectlookup = {
 		137:	function(spell, effect) {
 			return show_summon(effect.raw_argument, spell.effects_count, spell.pathlevel1);
 		},
+		141:	function(spell, effect) {
+			return show_summon(effect.raw_argument, 2, spell.pathlevel1);
+		},
 		500:	damage_untested,
 		504:	damage_untested,
 		509:	damage_untested,
