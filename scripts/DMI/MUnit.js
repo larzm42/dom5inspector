@@ -250,7 +250,6 @@ MUnit.prepareData_PostMod = function() {
 		o.linkname = o.fullname = (o.name || '(undefined)');
 		if (o.fixedname) {
 			o.fullname = '“'+(o.fixedname) + '“ - '+o.name;
-			o.unique='1';
 		}
 
 		// horror
@@ -604,10 +603,10 @@ MUnit.autocalc = function (o) {
 		cost_array.sort(function(a,b){return b-a});
 
 		var cost;
-		if (o.type == 'u') {
-			cost = 0;
-		} else {
+		if (o.type == 'c') {
 			cost = cost_array[0] + cost_array[1]/2 + cost_array[2]/2 + cost_array[3]/2;
+		} else {
+			cost = 0;
 		}
 
 		// Special costs
@@ -1725,7 +1724,7 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'sorceryrange',	'sorcery ritual range',
 	'allrange',	'ritual range',
 	'masterrit',	'ritual pathboost',
-	'disbel',	'disbelieve illusions',
+	'disbelieve',	'disbelieve illusions',
 
 	'supplybonus',	'supply bonus',		Format.Signed,
 	'siegebonus',	'siege bonus',		Format.Signed,
@@ -1942,7 +1941,6 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 //	'horrorsonly', 'horrors only',
 	'mindvessel', 'mindvessel',
 	'startagemodifier', 'startagemodifier',
-	'disbelieveillusions', 'disbelieve',
 	'landreinvigoration', 'land reinvigoration',
 	'beartattoo', 'magic bear tattoo',
 	'horsetattoo', 'magic horse tattoo',
@@ -2037,6 +2035,7 @@ var flagorder = Utils.cutDisplayOrder(aliases, formats,
 	'lesserhorror', 'lesser horror',
 	'greaterhorror', 'greater horror',
 	'doomhorror', 'doom horror',
+	'illusionary',	'illusion',
 
 	'trample',	'trample',
 	'trampswallow',	'swallow',

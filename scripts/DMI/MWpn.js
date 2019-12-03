@@ -372,7 +372,7 @@ MWpn.renderWpnTable = function(o, isImplicitWpn, changeKey) {
 	var secondaryeffectalways = modctx.wpnlookup[o.secondaryeffectalways];
 
 	if (o.secondaryeffectalways && secondaryeffectalways && secondaryeffectalways.id != 0) {
-		h+=' <h4>Auto effect: '+secondaryeffectalways.name+'</h4>';
+		h+=' <h4>Extra effect on hit: '+secondaryeffectalways.name+'</h4>';
 		//detect recursion
 		if (secondaryeffectalways == o) {
 			//throw 'Error, weapon 2nd effect as itself: '+o.id+': '+o.name;
@@ -382,7 +382,7 @@ MWpn.renderWpnTable = function(o, isImplicitWpn, changeKey) {
 		}
 	}
 	else if (o.secondaryeffect && secondaryeffect && secondaryeffect.id != 0) {
-		h+=' <h4>On-hit effect: '+secondaryeffect.name+'</h4>';
+		h+=' <h4>Extra effect on damage: '+secondaryeffect.name+'</h4>';
 		//detect recursion
 		if (secondaryeffect == o){
 			//throw 'Error, weapon 2nd effect as itself: '+o.id+': '+o.name;
