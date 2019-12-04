@@ -34,6 +34,7 @@ MUnit.unitSortableTypes = {
 	'cmdr (swamp)': 		'aah.cmdr',
 	'cmdr (u-water)': 		'aai.cmdr-uw',
 	'cmdr (waste)': 		'aaj.cmdr',
+	'cmdr (plains)': 		'aak.cmdr',
 
 	'commander': 			'aba.cmdr',
 	'Commander': 			'abb.cmdr',
@@ -95,6 +96,7 @@ MUnit.unitSortableTypes = {
 	'unit (coast)': 		'afv.unit',
 	'unit (land)': 			'afw.unit',
 	'unit (u-water)': 		'afx.unit-uw',
+	'unit (plains)': 		'afy.unit',
 
 	'hero (multi)': 		'aga.hero-cmdr',
 	'hero (unique)': 		'agb.hero-cmdr',

@@ -26,6 +26,8 @@ MNation.initNation = function(o) {
 	o.cavecom = [];
 	o.coastrec = [];
 	o.coastcom = [];
+	o.plainsrec = [];
+	o.plainscom = [];
 	o.landunit = [];
 	o.landcom = [];
 	o.capunits = [];
@@ -65,6 +67,8 @@ MNation.prepareData_PreMod = function() {
 		o.cavecom = [];
 		o.coastcom = [];
 		o.coastrec = [];
+		o.plainsrec = [];
+		o.plainscom = [];
 		o.uwcom = [];
 		o.uwunit = [];
 		o.landcom = [];
@@ -269,10 +273,10 @@ MNation.prepareData_PostMod = function() {
 						o.uwunit.push(parseInt(attr.raw_value));
 					}
 				}
-				if (attr.attribute == "294") {
+				if (attr.attribute == "294" || attr.attribute == "412") {
 					o.forestrec.push(parseInt(attr.raw_value));
 				}
-				if (attr.attribute == "295") {
+				if (attr.attribute == "295" || attr.attribute == "413") {
 					o.forestcom.push(parseInt(attr.raw_value));
 				}
 				if (attr.attribute == "296") {
@@ -281,16 +285,16 @@ MNation.prepareData_PostMod = function() {
 				if (attr.attribute == "297") {
 					o.swampcom.push(parseInt(attr.raw_value));
 				}
-				if (attr.attribute == "298") {
+				if (attr.attribute == "298" || attr.attribute == "408") {
 					o.mountainrec.push(parseInt(attr.raw_value));
 				}
-				if (attr.attribute == "299") {
+				if (attr.attribute == "299" || attr.attribute == "409") {
 					o.mountaincom.push(parseInt(attr.raw_value));
 				}
-				if (attr.attribute == "300") {
+				if (attr.attribute == "300" || attr.attribute == "416") {
 					o.wasterec.push(parseInt(attr.raw_value));
 				}
-				if (attr.attribute == "301") {
+				if (attr.attribute == "301" || attr.attribute == "417") {
 					o.wastecom.push(parseInt(attr.raw_value));
 				}
 				if (attr.attribute == "302") {
@@ -298,6 +302,12 @@ MNation.prepareData_PostMod = function() {
 				}
 				if (attr.attribute == "303") {
 					o.cavecom.push(parseInt(attr.raw_value));
+				}
+				if (attr.attribute == "404" || attr.attribute == "406") {
+					o.plainsrec.push(parseInt(attr.raw_value));
+				}
+				if (attr.attribute == "405" || attr.attribute == "407") {
+					o.plainscom.push(parseInt(attr.raw_value));
 				}
 				if (attr.attribute == "139" ||
 					attr.attribute == "140" ||
@@ -485,6 +495,8 @@ MNation.prepareData_PostMod = function() {
 			'cmdr (cave)': o.cavecom,
 			'unit (coast)': o.coastrec,
 			'cmdr (coast)': o.coastcom,
+			'unit (plains)': o.plainsrec,
+			'cmdr (plains)': o.plainscom,
 			'unit (land)': o.landunit,
 			'cmdr (land)': o.landcom,
 			'hero (unique)': o.heroes,
