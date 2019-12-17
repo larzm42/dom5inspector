@@ -425,6 +425,7 @@ MSpell.prepareData_PostMod = function() {
 				}
 
 			} else if (_effects.effect_number == "76" ||
+				_effects.effect_number == "81" ||
 				_effects.effect_number == "89" ||
 				_effects.effect_number == "100" ||
 				_effects.effect_number == "114" ||
@@ -433,6 +434,8 @@ MSpell.prepareData_PostMod = function() {
 				var arr;
 				if (_effects.effect_number == "76") {
 					arr = MSpell.tartarianGate;
+				} else if (_effects.effect_number == "81" && o.damage == "43") {
+					arr = MSpell.ghostShipArmada;
 				} else if (_effects.effect_number == "89") {
 					arr = MSpell.uniqueSummon[_effects.raw_argument];
 				} else if (_effects.effect_number == "100") {

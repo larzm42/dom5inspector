@@ -132,6 +132,8 @@ function list_summons(spell, effect) {
 	var arr;
 	if (effect.effect_number == "76") {
 		arr = MSpell.tartarianGate;
+	} else if (effect.effect_number == "81" && spell.damage == "43") {
+		arr = arr = MSpell.ghostShipArmada;
 	} else if (effect.effect_number == "89") {
 		arr = MSpell.uniqueSummon[effect.raw_argument];
 	} else if (effect.effect_number == "100") {
@@ -160,6 +162,7 @@ MSpell.yatas = [2632, 2633, 2634, 2636];
 MSpell.unleashImprisonedOnes = [2498, 2499, 2500];
 MSpell.angelichost = [465, 543];
 MSpell.hordefromhell = [304, 303];
+MSpell.ghostShipArmada = [3348, 3349, 3350, 3351, 3352];
 
 MSpell.uniqueSummon = {
 		1:	/* Bind Ice Devil */ [
@@ -328,6 +331,9 @@ MSpell.effectlookup = {
 		79:	damage_untested,
 		80:	damage_untested,
 		81:	function (spell, effect) {
+			if (effect.effect_number == "81" && spell.damage == "43") {
+				return list_summons(spell, effect);
+			}
 			if (modctx.enchantments_lookup[effect.raw_argument]) {
 				return modctx.enchantments_lookup[effect.raw_argument].name;
 			} else {
