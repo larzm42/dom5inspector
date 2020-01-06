@@ -309,7 +309,9 @@ MSpell.effectlookup = {
 			return show_summon(effect.raw_argument, spell.effects_count, spell.pathlevel1);
 		},
 		53:	damage_untested,
-		54:	damage_untested,
+		54:	function(spell, effect) {
+			return show_summon(effect.raw_argument, spell.effects_count, spell.pathlevel1);
+		},
 		57:	'Mind Hunt',
 		62:	function(spell, effect) {
 			return show_summon(effect.raw_argument, spell.effects_count, spell.pathlevel1);
@@ -399,6 +401,9 @@ MSpell.effectlookup = {
 		},
 		120:	function (spell, effect) {
 			return list_summons(spell, effect);
+		},
+		130:	function(spell, effect) {
+			return show_summon(effect.raw_argument);
 		},
 		137:	function(spell, effect) {
 			return show_summon(effect.raw_argument, spell.effects_count, spell.pathlevel1);

@@ -789,6 +789,7 @@ var ignorekeys = {
 	autospellrepeat:1,
 	n_batstartsum:1,
 	ritual:1,
+	startitem:1,
 
 	//common fields
 	name:1,descr:1,

@@ -153,6 +153,15 @@ MUnit.prepareData_PreMod = function() {
 
 		if (!o.startitem) {
 			o.startitem = [];
+		} else {
+			// Link to startitem
+			for (var oi2=0, o2;  o2 = modctx.itemdata[oi2];  oi2++) {
+				if (o2.startitem && parseInt(o2.startitem) == parseInt(o.startitem)) {
+					o.startitem = [];
+					o.startitem.push(o2.id);
+				}
+			}
+
 		}
 
 		o.realms = [];

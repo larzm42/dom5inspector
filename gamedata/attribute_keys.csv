@@ -198,8 +198,8 @@ number	name	test
 728	Adds AN lingering heat {Spl: #anlingeringheat}
 729	Dispelled if province changes owners {Spl: #friendlyench}
 730	Only castable in forted province
-731	<Unknown Attribute>
-732	<Unknown Attribute>
+731	Can only be cast by {Spl: #onlymnr}
+732	Unit gets magic of target {Spl: #polygetmagic}
 733	<Unknown Attribute>
 734	<Unknown Attribute>
 735	<Unknown Attribute>

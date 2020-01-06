@@ -921,6 +921,8 @@ MSpell.renderSpellTable = function(o, original_effect) {
 						val = special[attr.raw_value];				
 					} else if (attr.attribute == "703" || attr.attribute == "724") {
 						val = Utils.renderFlags(MSpell.bitfieldValues(attr.raw_value, modctx.map_terrain_types_lookup));
+					} else if (attr.attribute == '731') {
+						val = Utils.unitRef(attr.raw_value);
 					} else {
 						val = attr.raw_value;
 					}
