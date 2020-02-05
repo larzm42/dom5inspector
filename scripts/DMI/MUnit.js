@@ -804,12 +804,22 @@ MUnit.prepareData_PostSiteData = function(o) {
 
 		//add backlinks to units created by other units
 		var sumu;
-		if (o.domsummon1 && (sumu= modctx.unitlookup[o.domsummon1])) {
+		if (o.domsummon && (sumu= modctx.unitlookup[o.domsummon])) {
 			sumu.createdby = sumu.createdby || [];
 			sumu.createdby.push(o)
 			sumu.typechar = 'unit (Summon)';
 		}
 		if (o.domsummon2 && (sumu= modctx.unitlookup[o.domsummon2])) {
+			sumu.createdby = sumu.createdby || [];
+			sumu.createdby.push(o)
+			sumu.typechar = 'unit (Summon)';
+		}
+		if (o.domsummon20 && (sumu= modctx.unitlookup[o.domsummon20])) {
+			sumu.createdby = sumu.createdby || [];
+			sumu.createdby.push(o)
+			sumu.typechar = 'unit (Summon)';
+		}
+		if (o.raredomsummon && (sumu= modctx.unitlookup[o.raredomsummon])) {
 			sumu.createdby = sumu.createdby || [];
 			sumu.createdby.push(o)
 			sumu.typechar = 'unit (Summon)';
@@ -1666,6 +1676,7 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'poisoncloud',	'poison cloud',
 	'poisonskin',	'poison skin',
 	'fireshield',	'fire shield',
+	'uwfireshield',	'underwater fire shield',
 	'banefireshield','banefire shield',
 	'bloodvengeance','blood vengeance', Format.SignedZero,
 	'sacr',		'adept blood sacrificer',
@@ -1775,6 +1786,8 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'blind',	'blind fighter',
 	'eyes',		'eyes',
 	'slimer',	'slimer', function(v,o){ return parseInt(v)-1; },
+	'immortaltimer',	'immortality return', function(v,o){ return parseInt(v)+3 + ' months'; },
+	'immortalrespawn',	'immortality respawn distance', function(v,o){ return parseInt(v)/2 + ' provinces'; },
 	'mindslime',	'mind slimer',
 	'crossbreeder',	'crossbreeder',
 	'patience', 'patience',
@@ -1811,6 +1824,7 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'cheapgod40', 'cheap god (40)', function(v,o){
 		return DMI.MNation.nationUnitRefs( v );
 	},
+	'minprison', 'minimum imprison', {'0': 'awake', '1': 'dormant', '2': 'imprisoned' },
 
 	'shrinkhp',		'shapechange below hp',
 	'growhp',		'shapechange above hp',
@@ -1826,11 +1840,20 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'xpshape',		'experienced shape',function(v,o){
 		return v + ' (' + Utils.unitRef(o.id+1) + ')';
 	},
-
-	'domsummon1',	'dominion attracts units',	function(v,o){
+	'twiceborn',	'twiceborn',	function(v,o){
 		return Utils.unitRef(v);
 	},
-	'domsummon2',	'dominion attracts units',	function(v,o){
+
+	'domsummon',	'dominion attracts units',	function(v,o){
+		return Utils.unitRef(v);
+	},
+	'domsummon2',	'dominion attracts units/2',	function(v,o){
+		return Utils.unitRef(v);
+	},
+	'domsummon20',	'dominion attracts units/20',	function(v,o){
+		return Utils.unitRef(v);
+	},
+	'raredomsummon',	'dominion attracts units(8%)',	function(v,o){
 		return Utils.unitRef(v);
 	},
 	'makemonster',	'makes units',	function(v,o){
@@ -1895,9 +1918,6 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	},
 	'batstartsum6d6',	'summons in battle',	function(v,o){
 		return Utils.unitRef(v)+' x 6d6';
-	},
-	'raredomsummon',	'dominion rarely attracts units',	function(v,o){
-		return Utils.unitRef(v);
 	},
 	'ownsmonrec',	'recruit when player owns',	function(v,o){ //TODO: reverse lookup
 		return Utils.unitRef(v);
@@ -1972,6 +1992,8 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'sunawe', 'sun awe',
 	'defenceorganiser', 'defence organiser',
 	'startaffliction', 'start affliction',
+	'startheroab', 'start with heroic ability', Format.Percent,
+
 	
 //	'triplegod', 'triplegod',
 //	'triplegodmag', 'triplegodmag',
@@ -2005,6 +2027,7 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'curseluckshield', 'fateweaving',
 	'skirmisher', 'skirmisher',
 	'carcasscollector', 'carcass collector',
+	'graphicsize','graphic size alteration %',
 
 ]);
 var flagorder = Utils.cutDisplayOrder(aliases, formats,
@@ -2047,7 +2070,15 @@ var flagorder = Utils.cutDisplayOrder(aliases, formats,
 	'greaterhorror', 'greater horror',
 	'doomhorror', 'doom horror',
 	'illusionary',	'illusion',
-
+	'nomovepen',	'no move penalty for armor',
+	'wolf',	'wolf',
+	'dungeon',	'dungeon monster',
+	'aboleth', 	'aboleth',
+	'sun', 'sun',
+	'defiler', 'defiler',
+	'mountedbeserk', 'mounted beserk',
+	'lanceok', 'lance ok',
+	
 	'trample',	'trample',
 	'trampswallow',	'swallow',
 	'spy',		'spy',
