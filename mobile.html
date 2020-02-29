@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dom5 Mod Inspector</title>
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="scripts/mobile.css?v=30"  />
+	<link rel="stylesheet" type="text/css" href="scripts/override.css?v=30"  />
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4-4.1.1/dt-1.10.20/b-1.6.1/fh-3.1.6/r-2.2.3/sp-1.0.1/sl-1.3.1/datatables.min.css"/>
+ 
+<body>
+	<script type="text/javascript">var versionCode='?v=30';</script>
+	<script type="text/javascript" src="scripts/jQuery-1.12.0/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.1.1/dt-1.10.20/b-1.6.1/fh-3.1.6/r-2.2.3/sp-1.0.1/sl-1.3.1/datatables.min.js"></script>
+	   
+	<script type="text/javascript" src="scripts/ParsedQueryString.js"></script>
+	<script type="text/javascript" src="scripts/PaneManager.js?v=30"></script>
+	<script type="text/javascript" src="scripts/DMI/Utils.js?v=30"></script>
+	<script type="text/javascript" src="scripts/DMI/Format.js?v=30"></script>
+	<script type="text/javascript" src="scripts/modconstants.js?v=30"></script>
+	<script type="text/javascript" src="scripts/parsemod.js?v=30"></script>
+	<script type="text/javascript" src="scripts/loaddata.js?v=30"></script>
+	<script type="text/javascript" src="scripts/mobile.js?v=30"></script>
+	   
+	<script type="text/javascript" src="scripts/DMI/MWpn.js?v=30"></script>
+	<script type="text/javascript" src="scripts/DMI/MArmor.js?v=30"></script>
+	<script type="text/javascript" src="scripts/DMI/MItem.js?v=30"></script>
+	<script type="text/javascript" src="scripts/DMI/SpellTables.js?v=30"></script>
+	<script type="text/javascript" src="scripts/DMI/MSpell.js?v=30"></script>
+	<script type="text/javascript" src="scripts/DMI/MUnit.js?v=30"></script>
+	<script type="text/javascript" src="scripts/DMI/MNation.js?v=30"></script>
+	<script type="text/javascript" src="scripts/DMI/MSite.js?v=30"></script>
+	<script type="text/javascript" src="scripts/DMI/MMerc.js?v=30"></script>
+	<script type="text/javascript" src="scripts/DMI/bitfields.js?v=30"></script>
+	   
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<p>Loading data...</p>
+				</div>
+			</div>
+		</div>
+	</div>
+  
+	<div>
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+		<li class="nav-item"><a class="nav-link active" id="home-tab"
+			data-toggle="tab" href="#items" role="tab" aria-controls="items"
+			aria-selected="true">Items</a></li>
+		<li class="nav-item"><a class="nav-link" id="profile-tab"
+			data-toggle="tab" href="#spells" role="tab" aria-controls="spells"
+			aria-selected="false">Spells</a></li>
+		<li class="nav-item"><a class="nav-link" id="contact-tab"
+			data-toggle="tab" href="#units" role="tab" aria-controls="units"
+			aria-selected="false">Units</a></li>
+		<li class="nav-item"><a class="nav-link" id="contact-tab"
+			data-toggle="tab" href="#sites" role="tab" aria-controls="sites"
+			aria-selected="false">Sites</a></li>
+		<li class="nav-item"><a class="nav-link" id="contact-tab"
+			data-toggle="tab" href="#mercs" role="tab" aria-controls="mercs"
+			aria-selected="false">Mercs</a></li>
+	</ul>
+
+	<div class="tab-content">
+			<div id="items" class="tab-pane ">
+				<br>
+				<div class="filters-paths  panel itemview siteview">
+					<label for="pathF">
+						<input class="toggle-path" type='checkbox' value='F' id="pathF"/>
+						<img alt="F" class="Path_F pathicon" src="images/magicicons/Path_F.png" />
+					</label>
+					<label for="pathA">
+						<input class="toggle-path" type='checkbox' value='A' id="pathA"/>
+						<img alt="A" class="Path_A pathicon" src="images/magicicons/Path_A.png" />
+					</label>
+					<label for="pathW">
+						<input class="toggle-path" type='checkbox' value='W' id="pathW"/>
+						<img alt="W" class="Path_W pathicon" src="images/magicicons/Path_W.png" />
+					</label>
+					<label for="pathE">
+						<input class="toggle-path" type='checkbox' value='E' id="pathE"/>
+						<img alt="E" class="Path_E pathicon" src="images/magicicons/Path_E.png" />
+					</label>
+					<label for="pathS">
+						<input class="toggle-path" type='checkbox' value='S' id="pathS"/>
+						<img alt="S" class="Path_S pathicon" src="images/magicicons/Path_S.png" />
+					</label>
+					<label for="pathD">
+						<input class="toggle-path" type='checkbox' value='D' id="pathD"/>
+						<img alt="D" class="Path_D pathicon" src="images/magicicons/Path_D.png" />
+					</label>
+					<label for="pathN">
+						<input class="toggle-path" type='checkbox' value='N' id="pathN"/>
+						<img alt="N" class="Path_N pathicon" src="images/magicicons/Path_N.png" />
+					</label>
+					<label for="pathB">
+						<input class="toggle-path" type='checkbox' value='B' id="pathB"/>
+						<img alt="B" class="Path_B pathicon" src="images/magicicons/Path_B.png" />
+					</label>
+					<br>
+        			<input class="inclusive-search" type='checkbox' value='inclusion' id='pathInclusion'/>inclusive search
+				</div>
+				<div class="filters-items panel itemview">
+					<select class="type input-sm" id="itemtype">
+						<option class="default" value="misc,1-h wpn,2-h wpn,helm,armor,shield,boots"> all item types </option>
+						<option disabled="disabled"> -------------- </option>
+						<option value="misc"> Miscellaneous </option>
+						<option value="helm"> Helmets </option>
+						<option value="armor"> Armor </option>
+						<option value="shield"> Shields </option>
+						<option value="boots"> Boots </option>
+						<option value="1-h wpn"> 1-h weapons </option>
+						<option value="2-h wpn"> 2-h weapons </option>
+						<option disabled="disabled"> -------------- </option>
+						<option value="melee"> All melee weaps </option>
+						<option value="missile"> All missile weaps </option>
+					</select>
+					<select class="constlevel input-sm" id="itemlvl">
+						<option class="default" value="8"> Construction 8 </option>
+						<option value="6"> Construction 6 </option>
+						<option value="4"> Construction 4 </option>
+						<option value="2"> Construction 2 </option>
+						<option value="0"> Construction 0 </option>
+						<option disabled="disabled"> -------------- </option>
+						<option value="12"> Unforgeable items</option>
+					</select>
+				</div>
+				
+				<table id="itemsTable" class="table-responsive display table table-striped table-bordered" style="width:100%""></table>
+			</div>
+			<div id="spells" class="tab-pane ">
+				<br>
+				<div class="filters-nation  panel unitview spellview">
+					<select class="nation input-sm" id="nation">
+						<option class="default" selected="selected" value="">any nation</option>
+						<option disabled=disabled>------------------</option>
+						<option value="EA">Early era</option>
+						<option value="MA">Middle era</option>
+						<option value="LA">Late era</option>
+						<!-- list of nations filled dynamically -->
+					</select>
+				</div>
+				<div class="filters-paths  panel spellview">
+					<label for="pathF">
+						<input class="toggle-path-spell" type='checkbox' value='F' id="pathF"/>
+						<img alt="F" class="Path_F pathicon" src="images/magicicons/Path_F.png" />
+					</label>
+					<label for="pathA">
+						<input class="toggle-path-spell" type='checkbox' value='A' id="pathA"/>
+						<img alt="A" class="Path_A pathicon" src="images/magicicons/Path_A.png" />
+					</label>
+					<label for="pathW">
+						<input class="toggle-path-spell" type='checkbox' value='W' id="pathW"/>
+						<img alt="W" class="Path_W pathicon" src="images/magicicons/Path_W.png" />
+					</label>
+					<label for="pathE">
+						<input class="toggle-path-spell" type='checkbox' value='E' id="pathE"/>
+						<img alt="E" class="Path_E pathicon" src="images/magicicons/Path_E.png" />
+					</label>
+					<label for="pathS">
+						<input class="toggle-path-spell" type='checkbox' value='S' id="pathS"/>
+						<img alt="S" class="Path_S pathicon" src="images/magicicons/Path_S.png" />
+					</label>
+					<label for="pathD">
+						<input class="toggle-path-spell" type='checkbox' value='D' id="pathD"/>
+						<img alt="D" class="Path_D pathicon" src="images/magicicons/Path_D.png" />
+					</label>
+					<label for="pathN">
+						<input class="toggle-path-spell" type='checkbox' value='N' id="pathN"/>
+						<img alt="N" class="Path_N pathicon" src="images/magicicons/Path_N.png" />
+					</label>
+					<label for="pathB">
+						<input class="toggle-path-spell" type='checkbox' value='B' id="pathB"/>
+						<img alt="B" class="Path_B pathicon" src="images/magicicons/Path_B.png" />
+					</label>
+					<label for="pathH">
+						<input class="toggle-path-spell" type='checkbox' value='H' id="pathH"/>
+						<img alt="H" class="Path_H pathicon" src="images/magicicons/Path_H.png" />
+					</label>
+					<br>
+        			<input class="inclusive-search-spell" type='checkbox' value='inclusion' id='pathInclusionSpell'/>inclusive search
+				</div>
+				<div class="filters-spells  panel spellview">
+					<select class="school input-sm" id="spellschool">
+						<option class="default" value="0,1,2,3,4,5,6,7">all schools</option>
+						<option disabled=disabled>-------------</option>
+						<option value="0">Conjuration</option>
+						<option value="1">Alteration</option>
+						<option value="2">Evocation</option>
+						<option value="3">Construction</option>
+						<option value="4">Enchantment</option>
+						<option value="5">Thaumaturgy</option>
+						<option value="6">Blood</option>
+						<option value="7">Divine</option>
+						<option disabled=disabled>-------------</option>
+						<option value="-1">unresearchable</option>
+						<option value="-1,0,1,2,3,4,5,6,7">any</option>
+					</select>
+					<input class="national" id="spellnat" type="checkbox"/>national only
+					<input class="generic" id="spellgen" type="checkbox"/>generic only
+				</div>
+				<div class="filters-spells  panel spellview">
+					<select class="type input-sm" id="spelltype">
+						<option class="default" value="">ritual / combat</option>
+						<option disabled=disabled>-------------</option>
+						<option value="Ritual">Rituals</option>
+						<option value="Combat">Combat spells</option>
+					</select>
+		
+					<select class="aquatic input-sm" id="spellaqua">
+						<option class="default" value="">uw / land</option>
+						<option disabled=disabled>-----------</option>
+						<option value="uw">Underwater</option>
+						<option value="land">Dry land</option>
+					</select>
+				</div>
+				
+				<table id="spellsTable" class="display table table-striped table-bordered" style="width:100%"></table>
+			</div>
+			<div id="units" class="tab-pane ">
+				<br>
+				<table id="unitsTable" class="display table table-striped table-bordered" style="width:100%"></table>
+			</div>
+			<div id="sites" class="tab-pane ">
+				<br>
+				<table id="sitesTable" class="display table table-striped table-bordered" style="width:100%"></table>
+			</div>
+			<div id="mercs" class="tab-pane ">
+				<br>
+				<table id="mercsTable" class="display table table-striped table-bordered" style="width:100%"></table>
+			</div>
+			
+		</div>
+	</div>
+   
+   <script type="text/javascript">
+		$(function() {
+			$("#myModal").modal("show");
+			DMI.mobileLoading();
+			$("#myModal").modal("hide");
+		});
+   </script>
+
+</body>
+</html>
