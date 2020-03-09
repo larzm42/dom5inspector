@@ -97,7 +97,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 97	Pack of Wolves	-1	1	-1	0	-1	0	97	5	0	0	0	0	1224	
 98	Grow Monster	-1	1	-1	0	-1	0	98	1	0	0	0	0	-5	
 99	15 Forest Trolls	-1	1	-1	0	-1	0	99	15	0	0	0	0	2219	
-100	earth grip	-1	1	-1	0	-1	0	100	1	0	0	0	0	70368744194048	
+100	earth grip	-1	1	-1	0	-1	0	100	1	0	0	0	0	16384	
 101	Disease	-1	1	-1	0	-1	0	101	1	0	0	0	0	1	
 102	Disease All Friendly	-1	1	-1	0	-1	0	102	1	0	0	0	0	1	
 103	Area Cripple	-1	1	-1	0	-1	0	103	1	0	0	0	0	16777216	
@@ -858,7 +858,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 901	Astral Healing	4	4	4	3	-1	0	901	1	0	0	1	0	2	
 902	Antimagic	4	4	4	3	-1	0	902	1	0	0	1	0	67108864	
 903	Raise Dead	4	4	5	2	-1	0	903	2006	-2	40	0	0	-3	
-904	Twiceborn	4	4	5	2	-1	0	904	1	0	0	10	0	4194304	
+904	Twiceborn	4	4	5	2	-1	0	904	1	0	0	5	0	4194304	
 905	Behemoth	4	4	5	3	-1	0	905	1	0	0	7	0	452	
 906	Haste	4	4	6	3	-1	0	906	1	0	0	1	0	4	
 907	Poison Ward	4	4	6	2	-1	0	907	1	0	0	1	0	16777216	
@@ -1110,8 +1110,8 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 1153	Summon Araburu-kami	0	7	5	1	0	1	1153	1	0	0	5	0	3270	
 1154	Katabasis	4	3	5	1	2	1	1154	1	0	0	8	0	2199023255552	
 1155	Epopteia	4	3	6	1	-1	0	1155	1	0	0	12	0	94	
-1156	Contact Jinn	0	4	0	2	1	1	1156	1	0	0	15	0	3353	
-1157	Summon Jinn Warriors	0	5	0	2	1	1	1157	3	0	0	15	0	3354	
+1156	Contact Jinn	0	4	0	2	1	1	1156	1	0	0	18	0	3353	
+1157	Summon Jinn Warriors	0	5	0	2	1	1	1157	3	0	0	18	0	3354	
 1158	Contact Houri	0	6	1	2	6	1	1158	1	0	0	26	0	3375	
 1159	Summon Hinn	0	6	1	1	0	1	1159	505	0	0	6	0	3367	
 1160	Summon Ifrit	6	5	7	1	0	3	1160	1	0	0	58	0	3372	
@@ -1124,3 +1124,6 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 1167	Call Cyclops Tribe	0	3	3	2	-1	0	1167	505	0	0	12	0	3381	
 1168	Call the Birds of Splendour	0	6	0	2	6	1	1168	1	0	0	9	0	3382	
 1169	Awaken Jinn Block	5	5	3	1	8	1	1169	1	0	0	5	0	3389	
+1170	Winter's Call	6	6	7	3	2	2	1170	1	0	0	86	0	844	
+1171	Summon Rimvaettir	0	5	2	2	-1	0	1171	1003	0	0	5	0	3420	
+1172	Summon Dwarf of the Four Directions	0	8	1	4	3	3	1172	1	0	0	62	0	-21	

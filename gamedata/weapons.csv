@@ -127,7 +127,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 126	Poison Dagger	126	1	0	0	1	0	51	0	0	126	
 127	Venomous Bite	127	0	-1	0	1	0	50	0	0	127	
 128	Gloves of the Gladiator	128	2	1	0	4	0	0	0	0	128	
-129	Duskdagger	129	3	1	0	1	0	690	0	0	129	
+129	Duskdagger	129	3	1	0	1	0	690	0	10	129	
 130	Hammer of the Mountains	130	-1	-3	3	1	0	0	699	0	130	
 131	Frost Blast	131	0	0	0	1	6	0	0	0	131	
 132	Shortsword	132	3	4	1	1	0	0	0	0	132	
@@ -359,6 +359,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 358	Snake Hair	358	-2	0	0	3	0	50	0	0	358	
 359	Venomous Bites	359	0	-1	0	2	0	51	0	0	359	
 360	Sticks and Stones	360	-2	0	0	2	30	0	0	0	360	
+361	...	361	0	0	0	1	8	0	0	1	361	
 362	Chakram	362	0	0	0	1	2	0	0	2	362	
 363	Iron Cudgel	363	0	0	2	1	0	0	0	2	363	
 364	Curse Luck	364	0	0	0	1	0	0	0	0	364	
@@ -402,6 +403,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 402	Holy Scourge	402	5	-2	2	2	0	0	0	3	402	
 403	Mesmerize	403	100	0	0	1	5	0	0	0	403	
 404	Beak	404	0	-1	-1	1	0	0	0	0	404	
+405	...	405	0	0	0	1	8	0	216	1	405	
 406	Fire Chakram	406	0	0	0	1	2	0	216	2	406	
 407	Fire Shuriken	407	0	0	0	2	4	0	216	1	407	
 408	Talons	408	0	0	-1	1	0	0	0	0	408	
@@ -521,6 +523,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 522	Golden Horns	522	-1	-1	1	1	0	0	0	0	522	
 523	Golden Sickle	523	2	2	1	1	0	0	0	2	523	
 524	Pillar of Laws	524	-3	-5	2	1	0	0	411	0	524	
+525	...	525	0	0	0	1	12	0	0	5	525	
 526	Soul Catcher	526	1	0	3	1	0	528	0	0	526	
 527	Enchanted Katana	527	4	3	1	1	0	0	0	7	527	
 528	Trap Soul	528	0	0	0	1	0	0	0	0	528	
@@ -754,3 +757,5 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 756	Burning Claw	756	0	0	-1	1	0	0	221	0	756	
 757	Bronze Scimitar	757	1	0	1	1	0	0	0	5	757	
 758	Silver Horns	758	-1	-1	1	1	0	0	0	0	758	
+759	Crossbow	759	2	0	0	-2	12	0	0	3	759	
+760	Scourge of Power	760	2	0	1	2	0	0	0	2	760	
