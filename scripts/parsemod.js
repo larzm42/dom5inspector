@@ -1015,7 +1015,12 @@ var modctx = DMI.modctx = {
 
 		weapon:	function(c,a,t){ modctx[t]['weapons'].push(argref(a)); }, //deferr lookups
 		armor:	function(c,a,t){ modctx[t]['armor'].push(argref(a)); }, //deferr lookups
-		startitem:	function(c,a,t){ modctx[t]['startitem'].push(argref(a)); }, //deferr lookups
+		startitem:	function(c,a,t){ 
+				if (!modctx[t]['startitem']) {
+					modctx[t]['startitem'] = [];
+				}
+				modctx[t]['startitem'].push(argref(a)); 
+			}, //deferr lookups
 
 		eyes:	_num,
 
