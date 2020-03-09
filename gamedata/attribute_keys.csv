@@ -200,7 +200,7 @@ number	name	test
 730	Only castable in forted province
 731	Can only be cast by {Spl: #onlymnr}
 732	Unit gets magic of target {Spl: #polygetmagic}
-733	<Unknown Attribute>
+733	Sets current province as home {Spl: #sethome}
 734	<Unknown Attribute>
 735	<Unknown Attribute>
 736	<Unknown Attribute>
