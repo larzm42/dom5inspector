@@ -1090,6 +1090,9 @@ MUnit.prepareForRender = function(o) {
 				t = String(n) + ' '+ slotorder[j+1];
 			if (t == 'foot')
 				t = 'feet';
+			if (j==2 && o.crownonly) {
+				t=t+'(crown only)';
+			}
 			slotwords.push(t);
 		}
 		if (slotwords.length)
@@ -2192,7 +2195,7 @@ var ignorekeys = {
 	researchbonus:1, listed_mpath:1, fixedresearch:1,
 	n_domsummon:1, n_makemonster:1, n_autosum:1, n_summon:1,
 
-	hand:1, head:1, body:1, foot:1, misc:1,
+	hand:1, head:1, body:1, foot:1, misc:1, crownonly:1,
 
 	A:1, B:1, D:1, E:1, F:1, N:1, S:1, W:1, H:1, randompaths:1,
 	magicboost_A:1, magicboost_B:1, magicboost_D:1, magicboost_E:1, magicboost_F:1, magicboost_N:1, magicboost_S:1, magicboost_W:1, magicboost_H:1,

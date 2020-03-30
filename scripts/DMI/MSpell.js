@@ -924,6 +924,8 @@ MSpell.renderSpellTable = function(o, original_effect) {
 						val = Utils.renderFlags(MSpell.bitfieldValues(attr.raw_value, modctx.map_terrain_types_lookup));
 					} else if (attr.attribute == '731') {
 						val = Utils.unitRef(attr.raw_value);
+					} else if (attr.attribute == '746') {
+						val = modctx.enchantments_lookup[attr.raw_value].name;
 					} else {
 						val = attr.raw_value;
 					}
