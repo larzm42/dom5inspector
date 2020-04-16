@@ -2012,6 +2012,8 @@ var modctx = DMI.modctx = {
 		req_nation : _num, //nation
 		req_fornation : _num, //nation
 		req_notnation : _num, //nation
+		req_notfornation : _num, //nation
+		req_domowner : _num, //nation
 		req_capital : _num,
 		req_owncapital : _num,
 		req_poptype : _num,
