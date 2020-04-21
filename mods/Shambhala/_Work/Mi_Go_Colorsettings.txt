@@ -1,0 +1,16 @@
+For body (not face, hands or feet):
+H/S/V: Saturation -90, Lightness +70
+Brt/Cnt: Brightness -30, Contrast 70
+Curves: On smooth setting, put three points:
+   57,  89
+  120, 164
+  162, 213
+  182, 255
+
+
+Possible Additional Curves for Brighter Mi Go:
+
+100,  86
+117, 145
+158, 197
+221, 231

@@ -214,6 +214,38 @@ MUnit.prepareData_PostMod = function() {
 		o.renderOverlay = MUnit.renderOverlay;
 		o.matchProperty = MUnit.matchProperty;
 
+		if (!o.hp) {
+			o.hp = 10;
+		}
+
+		if (!o.str) {
+			o.str = 10;
+		}
+
+		if (!o.att) {
+			o.att = 10;
+		}
+
+		if (!o.def) {
+			o.def = 10;
+		}
+
+		if (!o.mr) {
+			o.mr = 10;
+		}
+
+		if (!o.enc) {
+			o.enc = 10;
+		}
+
+		if (!o.mor) {
+			o.mor = 10;
+		}
+
+		if (!o.prec) {
+			o.prec = 10;
+		}
+
 		if (!o.size) {
 			o.size = 2;
 		}
@@ -1233,6 +1265,12 @@ MUnit.prepareForRender = function(o) {
 			o.prot = String(Math.round(p_total));
 			o.titles.prot = 'basic '+(o.titles.prot || String(p_nat));
 			o.titles.prot += ',  head '+Math.round(p_head)+',  body '+Math.round(p_body);
+		} else {
+			if (o.prot) {
+				o.prot = String(o.prot);
+			} else {
+				o.prot = '0';
+			}
 		}
 
 		//armor encumbrance

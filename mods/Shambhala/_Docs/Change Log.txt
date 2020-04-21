@@ -1,0 +1,450 @@
+------------------------------------------------------------------------------
+  MA SHAMBHALA: THE HIDDEN CITY
+------------------------------------------------------------------------------
+  VERSION HISTORY
+------------------------------------------------------------------------------
+
+The change log for versions before the most recent versions for Dominions 4
+have been summarized.
+
+
+
+POTENTIAL THINGS TO DO
+----------------------
+
+* Change Rta Dmag Go's sprite to add a bow.
+
+* Lha hero (thug? multihero? Great Glacier Lady of the Turquoise Mists? --
+  possibly latter one as alternate new pretender).
+
+* Possibly make Rje into a multihero?
+
+* Totally missing pretender: Yarlhashampo (yar-lha-sham-po)
+  http://journal.oraltradition.org/files/articles/16ii/Xie_Jisheng.pdf
+  The highest of the nine creator mountain-gods of the Bon-po religion. (Based
+  on the ascendance of the Yar-lung tribe, whose patron god it was.) Often
+  "portrayed as white yak, from whose mouth and nose snowstorms continuously
+  blow. He is endowed with extraordinary magical powers: he can destroy rocks,
+  cause floods, and even transform himself into a white man in order to have
+  sexual intercourse with women and father babies." Awesome. Might be good as
+  an EA god if that ever happens. MA form would be dictated by: "As the myths
+  about the mountain developed, images of yar-lha-shampo also changed; a white
+  yak was replaced by a man-god clothed in white with a body as white as a
+  conch, holding a short spear with colorful silk flags and a crystal sword in
+  his hands. This human image of yar-lha-shampo is typically accompanied by a
+  wife and children. His wife is gnam-smanthog-gi-bu-yug, the primary
+  goddess. She is clothed in light red attire, holds lightning in her right
+  hand and hailstones in her left, and flies on bolts of lightning."
+
+* Find a way to make Yeh-teh balanced *and* stealthy per lore?
+
+Version 4.00
+-----------------------------
+
+Yeh-Teh gained Fear 5
+Frozen Llama W2S1 > W1
+Pretenders with Immortal switched to DomImmortal
+Debt of Karma Rage > Confusion, changed description
+
+
+Version 3.99E (Jul 31, 2014)
+-----------------------------
+
+Many more significant balancing changes this version as we slowly progress 
+toward bringing this well-heeled nation into line.
+
+A big change is that I've removed all inherent access to Fire magic for this 
+nation, and made Water more accessible, though Water still remains minor 
+access. Thanks to Ohlmann for pointing out that no nation in the game has 
+access to all 8 paths (aside from heroes or unreliable randoms), and to 
+Indract for suggesting the switch to Water.  Which, really, is far more 
+thematic than Fire for these guys.  I don't know why it never occurred to me.
+
+Special thanks to Indract, Ohlmann and Zonk for extensive feedback, help and 
+bug reporting for this version. The majority of changes in this version are 
+adoptions of their suggestions or changes consequent to their advice.
+
+*  Fixed several bugs: Mi Dred Mtho Po's awe now works properly. Snow Lions'
+   fear now works properly (Indract).
+*  Many units have had morale adjusted.
+*  Fixed mountain-only ritual spells so they can be cast in border-mountain 
+   provinces as well.
+*  Temples now more expensive: 400 -> 500 gold (Indract).
+*  Nation cannot start in caves anymore.
+*  Dörje weapon is no longer ranged.
+*  Nation only gets 10 of each of its starting units instead of 12 (Indract).
+
+*  Unit Changes:
+
+   *  Most units have had morale decreased, as they were all unjustifiably 
+      high. The only direct exception was the Bhodpa Sde Pa (tribal chief), 
+      who got 10 -> 11.
+   *  All mages/pretenders that had Dörje weapon have had their Fist weapon 
+      removed now that Dörje is no longer ranged (if it is ranged, it doesn't 
+      count as a hand weapon, even if it's usable in melee, and therefore 
+      would cause them all to get useless kick; fist was a clunky workaround 
+      for this).
+   *  Mi Go units: Now requires a temple to recruit.
+   *  Bhodpa Horseman: Gcost 22 -> 26 (Indract).
+   *  Yak Rider: Gcost 27 -> 30 (Indract, Ohlmann).
+   *  Dmag Dar: Gcost 14 -> 20 and mapmove 1 -> 2 (Indract).
+   *  Rta Pa: Gcost 35 -> 45 and map move 2 -> 3 (Indract).
+   *  Guardian of the Hidden Valley: Incorrect def 14 fixed -> 13.
+
+   *  Mi Go Guide: Now requires a temple to recruit. 
+   *  Dmag Dpon: Gcost 70 -> 80 (Indract).
+   *  Rta Dmag Go: Gcost 85 -> 100; now has composite bow and map move 3 
+     (Indract).
+   *  Rje: Gcost 140 -> 180. Inspirational 2 -> 1.
+
+   *  Ragyapa: Gcost 85 -> 105.
+   *  Ngagspa: Now is heretic 1 and incurs 1.0 unrest per turn (Indract).
+   *  Demon Hunter: Changed F magic to W magic. Morale 15 -> 13. HP 10 -> 11. 
+      Gcost 85 -> 95. Now has patrol bonus 10, research malus -2, and incurs 1 
+      unrest per turn. Thanks to Indract for suggestions on this.
+   *  Nyingmapa: Fire randoms switched to water (Indract). Stealth 40 -> 55.
+   *  Hidden Master: Removed Useless Kick.
+
+   *  Demon Slayer: Magic paths changed to H2-W2-S2-D1 + 100% chance of AWED + 
+      100% chance of AWED + 30% chance of DB. Now has patrol bonus 20, 
+      research malus -4, and incurs 3 unrest per turn. Thanks likewise to 
+      Indract for suggestions on this.
+   *  Mi Dred Mtho Po: Awe works properly (Indract).
+
+   *  Snow Lion: Fear works properly now (Indract).
+   *  Srungma Lha: Forgebonus 15 -> fixforgebonus 1 (Indract).
+   *  Theurang: Forgebonus 1 -> Fixforgebonus 1 (Indract).
+   
+   *  Mother of Mountains: Pretender cost 125 -> 50 (Indract).
+
+*  Spell changes:
+
+   *  Contact the Lords of the Cemetary: Fixed and will now show up (Indract).
+   *  Call Yeh-Teh: Second path Earth 1 -> Nature 1 (Indract).
+   *  White Fury of the Mountain: Gem cost 35 -> 30 and second path Earth 1 -> 
+      Nature 1 (Indract).
+   *  Restore the Dharma: No longer works against mindless; fixed (Indract).
+
+*  Item changes:
+
+   *  Terma: Changed autospell "Restore the Dharma" to autospellrepeat, which
+      should make it now cast repeatedly properly (Indract).
+   *  Shambhalan Mirror Armor (magic item): Renamed "Enchanted Mirror 
+      Lamellar". MR bonus 2 -> 3; linked with new armor of the same name that 
+      has better stats than the regular regular mirror lamellar worn by most 
+      elite units; def bonus removed and incorporated into the associated 
+      #newarmor item itself.
+   *  New armor item "Enchanted Mirror Lamellar": Associated with magic item.
+      Has higher prot (16 -> 17), higher def (-2 -> 1) and lower enc (2 -> 1)
+      (Indract).
+
+
+
+Version 3.99B2 (May 14, 2014)
+-----------------------------
+
+Now that I have become more familiar with Dom4 and its fairly sweeping and 
+fundamental changes, this version again will begin some equally sweeping 
+changes to bring it into line with the new balance. As of this version, 
+Shambhala is being balanced against straight vanilla Dom4, which only makes 
+sense since CBM has not been updated yet and is likely in a high degree of 
+flux.
+
+Many, if not most, gold costs have been adjusted, sometimes drastically 
+(usually in line with the autocalc's recommendation).
+
+Some pretty significant changes to Mi Gö that amount to a bit of a nerf, but I 
+think their high speed (AP 14!) was unwarranted both technically and 
+thematically. They're basically snow ape men, and our closest equivalent, 
+bandar, have AP 10. So, I thought 11 is a good compromise; they're still 
+faster, but not by much. And with cold power, they're still very strong units.
+
+[*] As always, text emendations to improve flow and cut down on verbiage (this 
+    time correcting my own problems, more often).
+
+[*] Terrain-limited spellcasting disabled until I am positive the bug that 
+    makes this not work correctly has been fixed by Illwinter.
+
+[*] New Weapons:
+
+    [*] Gore -- for Yak Riders (see changes for Yak Riders below).
+    [*] Gore -- for riderless Yaks (see changes for Yak Riders below).
+    [*] Dmu Great Kukri -- magical large sword for Srin Po Swordsmen.
+    [*] Dörje -- ritual sacred object held by Hidden Masters.
+    [*] Sword of Truth -- magical/symbolic sword held by Bodhisattva 
+        pretender.
+
+[*] New Armor:
+
+    [*] Leather Lamellar Armor -- replaces Full Leather Armor for Mda Pa.
+
+[*] New Magic Items:
+
+    [*] Thokcha
+    [*] Namchak Thokcha
+    [*] Shambhalan Mirror Armor
+    [*] Sacred Phurba
+    [*] Empowered Dörje
+    [*] Terma (artifact)
+    
+[*] Major changes to Hidden Masters and Ascended Ones: Ability to fly has been 
+    removed. They float, which better represents the levitation in their 
+    description. Generic weapon Lightning has been replaced with the more 
+    thematic Dörje, which doesn't fire as far or do as much damage, but which 
+    mesmerizes those hit.  Ascended One H4 -> H3.
+
+[*] Added "Robes" armor to all robed mages and pretenders.
+
+[*] Yeh-teh have been reconciled with Dom4's yeti. HP 36 -> 42 (slightly less 
+    than yetis' 46). Enc 3 -> 2. Def 12 -> 10 (1 higher than yeti). MR 11 -> 
+    13. ColdRes 18 -> 25. ColdPower 2 -> 1. Fear removed -- it was too much.
+
+[*] Pricing adjustments:
+
+    [*] Bhödpa Warrior: 10 -> 11.
+    [*] Yak Rider: 24 -> 27.
+    [*] Shangrilan Heavy Infantry (Sword/Shield): 12 -> 13.
+    [*] Dmag Dar (Banner-bearer): 13 -> 14.
+    [*] Rta Pa: 32 -> 35 (it rounds all numbers above 30).
+    [*] Mi Gö: unchanged at 20.
+    [*] Mi Gö Rngon Pa: unchanged at 24.
+    [*] Mi Dred: 55 -> 50.
+
+    [*] Bhödpa Scout: 10 -> 15.
+    [*] Bhödpa Sde Pa: unchanged at 30.
+    [*] Mi Gö Guide: unchanged at 35 (autocalc suggested 20).
+    [*] Dmag Dpon: 50 -> 70.
+    [*] Rta Dmag Go: 65 -> 85.
+    [*] Rje: 90 -> 140 (autocalc suggested 155, and 165 if he has H1!).
+
+    [*] Drapa: 90 -> 70 (autocalc suggested 60).
+    [*] Ragyapa: 135 -> 70.
+    [*] Demon Hunter: 170 -> 85.
+    [*] Ngagspa: 180 -> 125 (autocalc suggested 100).
+    [*] Wise One: unchanged at 220 (autocalc agreed).
+    [*] Nyingmapa: 240 -> 275.
+    [*] Gelug: 180 -> 200 (autocalc suggested 190).
+    [*] Karmapa: 210 -> 240 (autocalc suggested 180-300 depending).
+    [*] Hidden Master: 320 -> 360 (autocalc suggested 385 if H3).
+    [*] Bodhisattva: 80 -> 90.
+    
+
+[*] Individual Unit Tweaks
+
+    [*] Bhödpa Warrior: HP 10 -> 11.
+    [*] Yak Rider: Precision 9 -> 8 to bring it into line with other mounted 
+        archers. #supplybonus removed, because these are bulls they're riding, 
+        not cows, and you shouldn't try to milk the bull. Original weapon, 
+        standard "Gore," replaced with custom "Gore" weapon that does 17 
+        nostrength damage, is a charge attack, and attacks every other round.
+    [*] Bhödpa Horseman: HP 12 -> 11. Precision 10 -> 8.
+    [*] Mi Gö and Mi Gö Rngon Pa: HP 20 -> 21. AP 14 -> 11.
+    [*] Mi Dred: HP 25 -> 24. Scale Mail Cuirass -> Scale Mail Hauberk --
+        because the sprite. At a cost of 55 gold for one, I'm fine with them 
+        having a nice 16/18 prot. But this does knock them out of the role of
+        fast-movers. Get yeh-tehs for that.
+    [*] Rta Pa: Prec 10 -> 9.
+    [*] Shambhalan Bowmen (Mda Pa): Full Leather Armor -> Lamellar Leather 
+        Armor.
+    [*] Dmag Dar (banner-bearers): Scale Mail Hauberk -> Full Scale Mail, to
+        put them on par with the other heavy infantry they've supposedly 
+        distinguished themselves from.
+    [*] Rje: H1 removed. He's just a sacred thug now.
+    [*] Srin Po: Att 15 -> 14.
+    [*] Srin Po Swordsman: Now uses Dmu Great Kukri instead of Falchion. Bite 
+        attack removed. Att 15 -> 14.
+    [*] Drapa: Att 10 -> 9, because description really doesn't suggest these
+        are serious fighting monks.
+    [*] Nyingmapa: Research bonus 1 -> 5.
+    [*] Tülku: Weapon Lightning -> Dörje. Now decreases unrest by 3 each turn.
+        Added Inspirational 2.
+    [*] Mi Dred Mtho Po: Bronze Scale Cuirass -> Hauberk. Inspirational 2 -> 
+        1. Leadership 40 -> 80.
+    [*] Btsan: Claw attacks -> Poisoned Claw attacks. 
+    [*] Bdud: Berserk 1 -> 3. Att 13 -> 12.
+    [*] Bdud Warrior: Berserk 1 -> 3. Att 14 -> 13.
+    [*] Dgra Lha: HP 22 -> 25. AP 12 -> 14. Bodyguard 1 -> 2. Formation 
+        Fighter -> removed. Stealth 10 -> 0 (it's still 65 with glamour). Att 
+        15 - > 14. Def 13 -> 14. MR 16 -> 15. Stealth 10 -> 0.
+    [*] Srungma Lha: AP 12 -> 14. MR 17 -> 16. Morale 15 -> 16. CastleDef 2 -> 
+        5. Stealth 10 -> 0. 
+    [*] Theurang: 20% chance of EAD -> 100% chance of EAD. AP 10 -> 9.
+    [*] Klu: Poor Amphibian -> Amphibian. They're spirits of the water. 
+        Leadership 40 -> Leadership 0. Cold Resistance 3 -> 5 in serpent form, 
+        6 in humanoid form. Enc in humanoid form 4 -> 2 (as Yaksha).
+    [*] Ascended Master pretender: Start Dominion 1 -> 2. Leadership 40 -> 
+        160.
+    [*] Bodhisattva: Renamed to Bodhisattva of Keen Awareness. Default name 
+        set to Jampelyang. Floating and Flying added. Cold Resistance 8 -> 10. 
+        Fixed unrest reduction to proper decimal place (was reducing 0.5 
+        unrest instead of 5). Added ResearchBonus 8 (to represent his holding 
+        the Prajnaparamita, the Perfection of Wisdom). Added Disbelieve 25. 
+        Added glamour (not desired, but I can't add disbelieve without copy-
+        statting the Bodhisattva of Mercy; she has glamour, and glamour can't 
+        be removed without losing disbelieve. Added Sword of Truth weapon. 
+        Leadership 80 -> 160.
+
+[*] Other Minor Tweaks:
+
+    [*] Phurba: Damage type changed from anti-demon damage to holy damage.
+    [*] Cane Shield: Changed from Enc 1 and Parry 3 to Enc 0 and Parry 4. Cane 
+        and rattan shields were surprisingly effective and light, so they're 
+        now modeled after the stats for Leather Shield, but with 12 prot 
+        instead of 11.
+    [*] Mirror Lamellar Armor: Prot 15 -> 16. This is supposed to be some 
+        damned good armor, historically, so with -2/2, this is some of the
+        best nonmagical armor in the game.
+    [*] Crude Breastplate: Enc 1 -> 2. It's crude, after all.
+    [*] Removed 4113 dummy summon for Propitiate Srungma Lha spell, and added
+        a new 'nextspell' spell to replace it.
+    [*] Contact Klu, Debt of Karma, and Restore the Dharma made castable 
+        underwater.
+    [*] All ranged rituals had #provrange added so they should work now.
+    [*] Removed #formationfighter from all commander units that had it, since
+        it is irrelevant for commanders.
+    [*] Fixed many summons (Bduds, Btsan, etc.) having Skull Necklaces (prot 
+        11 full-body) instead of the Bone Necklaces (prot 3) added in this 
+        mod.
+
+
+
+
+
+Version 3.99B1 (Sep. 16, 2013)
+------------------------------
+
+[*] Began major overhaul to bring in line with Dom4. ID ranges moved. Fear, 
+    standard, and resistances brought into line with current implementation.
+    Rebalancing adjustments to cost and stats.
+
+[*] Special recruitment implemented:
+
+    [*] Mi Gö units, except for Mi Dred, made mountain-only recruitment.
+
+    [*] Ngagspa can only be recruited outside forts.
+
+    [*] Hidden Masters, Wise Ones and all Lamas are slow to recruit.
+
+
+Versions 2.90 - 3.03 (Apr. 24, 2013 - May 10, 2013)
+----------------------------------------------------
+
+[*] Major revision: many deep balancing adjustments, particularly, again,  to 
+    national spells and summons. One major change is that the flagship mages
+    of the nation, the Hidden Masters, are no longer H3; they're only H2 now. 
+    Most troops' att/def nerfed a bit for historical reasons; Tibetans were 
+    not known for super elite troops so much as they were known for having a 
+    *very* easily defended home. They were good during the Tibetan empires,
+    but not the best.
+
+[*] More significant alterations to descriptive text, with the goal of 
+    bringing it all together into a coherent whole that will make it easier to 
+    implement an EA nation in which Buddhism hasn't come, and the shamanic Bon 
+    religion and its Lha and Dmu are not syncretized or driven into hiding or 
+    demonized as they are now.
+
+[*] Further revisions to several sprites.
+
+[*] Renaming.
+
+    [*] Nation renamed Shambhala because it is by many accounts a more 
+        authentic pronunciation of the word, and for mythical and linguistic 
+        consistency. Shangri-La is a westernization by a British novelist, 
+        likely of Shambalha; Nounours had called it that in one spot in the 
+        mod, and now that I read more about Lha, it seems very likely that's 
+        not a false cognate. Shambalha would probably be the most technically 
+        correct spelling, but Shambhala (note the position of the 'h') is more 
+        accepted.
+
+    [*] Secondary name of mod "Hidden City of the Secret Masters" to 
+        "The Hidden City" because the original was getting truncated in the 
+        game UI.
+    
+    [*] Site "Hidden City of Shangri-La" -> "The Hidden City" for same reaosn.
+    
+    [*] Yeti -> Yeh-teh for linguistic consistency. In retrospect, with Dom4's
+        inclusion of Yetis, this name makes them easily-distinguishable.
+
+[*] Spells Changes: Put a lot of thought into trying to balance yeti-summoning 
+    spell. There are now two Yeh-teh summoning spells, one as the original and 
+    one for small-scale summoning. On the other hand, Feast of Cannibal Demons 
+    and Great Banquet of Cannibal Demons combined and made to summon both 
+    kinds of Srin Po.
+
+[*] New units: Mi Gö Guide (stealthy commander with 10 leadership) and Mi Dred 
+    Mtho Pa (Mi Dred hero).
+
+[*] New weapons and armor:
+
+    {*] Bone Necklace (replaces vanilla Skull Necklace on Bdud Warrior, which
+        was too protective).
+    [*] Cane Shield (for Bhödpa).
+    [*] Stones weapon for Srin Po to throw (slightly different than monkey 
+        peoples' Sticks and Stones in vanilla -- this is to reflect mytho-
+        history that the Srin were people in the area before the Bhödpa 
+        tribesmen came, and they used slings and catapults).
+    [*] Lamellar Armor and Mirror Lamellar Armor for elite Shambhalan troops,
+        to reflect the historically high-quality armor and the supposedly-
+        magically-protective "mirror armor" that Tibetan troops wore. (Some of 
+        the best armor in history; Korean lamellar is the superheavy stuff --
+        Tibetan lamellar was just really good because it was on par with heavy 
+        armor but less encumbering.  Look it up, it's pretty cool.)
+
+[*] Lha renamed -> Srungma Lha. (Lha is a very vague generic term for a whole 
+    hierarchy of supernatural beings inherited from the Bon religion.)
+
+[*] Yeh-tehs (yetis) now sacred.
+
+TO DO: Removed stealthiness from yeh-tehs for balance reasons, but lore says 
+they're really hidey. Perhaps find a way to balance it back in?  They're 
+really good as it is.
+
+
+Versions 1.53 - 2.05 (Jan. 28, 2011 - Feb. 16, 2011)
+----------------------------------------------------
+
+[*] Mod made compatible with CBM (Conceptual Balance Mod for Dom3).
+
+[*} Minor bugfixes (both older bugs and ones introduced in recent changes).
+
+[*] Further balancing and technical adjustments, with more attention on fine-
+    tuning national spells and summons.
+
+[*] Lha made significantly more powerful.
+
+[*] Continued textual and spritework overhaul. Bdud and Bdud Warrior sprites 
+    changed.
+
+
+Versions 1.3 - 1.52 (Mar. 2010 - May 12, 2010)
+----------------------------------------------
+
+[*] Fixed technical errors (case-mismatched sprite filename references, 
+    references to missing sprites or incorrect IDs, etc.).
+
+[*] Changed PD from Shangrilan soldiers and Citipati to Bhödpa spearmen, 
+    Bhödpa archers, Bhödpa yak riders, and basic Mi Gö.
+
+[*] Many balance and consistency adjustments to units (stats, gold costs, 
+    magic paths, etc.).
+
+[*] Edited and revised all descriptive and flavor text, trying to keep the 
+    spirit and information while paring down and cleaning up.
+
+[*] Fixed or revamped most sprites and flag, with particular attention to
+    maintaining the artistic vision of the originals.
+
+[*] Added Lama of the Frozen Heights pretender. Added riderless Yak for when 
+    Yak Riders are killed. Klu changed to be similar to Patalan Nagini instead 
+    of Nagaraja.
+
+[*] Created new mod banner (original was wrongly-sized and overpixelated) and 
+    Zepath's Streamers & Standards-style flag.
+
+[*] Created readme and other documentation.
+
+
+Versions before 1.3
+-----------------
+I found no prior change log, so the version history shown herein begins with 
+Pyg's and my revisions.

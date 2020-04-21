@@ -1,4 +1,4 @@
-#modname "Hellenika v2.13e"
+#modname "Hellenika v2.13f"
 #description "This mod pack by AetherNomad focuses on the Early Ages and the ancient mediterranean world; it includes the following:
 - 13 EA mod nations with enhanced mutual compatibility: Thalamanth v1.33, Triliax v1.27, Nephelococcygia v1.36, Isphenople v1.25, Arcadeia v1.24, Nabatem v1.26, Karanaac v1.29, Cyanautha v1.18, Zun v1.19, U v1.14, Bethel She'em v1.09 and, in Hellenika-specific versions, Knoss (by Zonk) and Makedon (by Mirokan);
 - 13 vanilla nations converted from MA or LA to EA with new lore and mechanics and sometimes new sprites as well: MA Asphodel, MA Caelum (Hararat), MA Bandar Log, MA Phlegra, MA Phaeacia, MA Ind, MA Na'Ba (Sa'Ba), LA Arcoscephale (Delphanes), LA C'tis (Aabydum), LA Ragha, LA Phlegra (Porphyrion), LA R'lyeh, LA Erytheia;
@@ -6,12 +6,12 @@
 - Pantheon Reborn v1.22, a general pretender balance mod that affects the vast majority of pretenders from the base game and most notably buffs Titans.
 Contact: aethernomad@gmail.com"
 #icon "./Hellenika/Hellenika_banner.tga"
-#version 2.13e
+#version 2.13f
 
 ----------------USED IDs
 --new weapon IDs -- 1100-1206
 --new armor IDs -- 797-803 880-888
---new monster IDs -- 4500-4530 4532-4900
+--new monster IDs -- 4500-4530 4532-4886 4888-4900 -- DON'T GO LOWER
 --new montags -- 4112-4143 4145-4162
 --new item IDs -- 770-800 858-870
 --new item restrictions -- 8055-8089
@@ -1650,7 +1650,7 @@ Contact: aethernomad@gmail.com"
 #copyspr 127
 #copystats 127 -- EA Blizzard Warrior
 #name "Blizzard Sentinel"
-#descr "Even more skilled then their relatives of Caelum, the Blizzard Sentinels of Hararat are sacred soldiers trained in the high temples of the realm. Elite archers of the Airya clan, they strike from the icy winds with arrows of ice. While the Immaculate Guards defend the sacred lands and temples of High Hararat, the Blizzard Sentinels bring winter and snow to the enemies of the faith. They use ice-tipped arrows enchanted with frost magic that can freeze their targets and are trained by Spire Horn Seraphs to master flight during storms and bad weather."
+#descr "Even more skilled than their relatives of Caelum, the Blizzard Sentinels of Hararat are sacred soldiers trained in the high temples of the realm. Elite archers of the Airya clan, they strike from the icy winds with arrows of ice. While the Immaculate Guards defend the sacred lands and temples of High Hararat, the Blizzard Sentinels bring winter and snow to the enemies of the faith. They use ice-tipped arrows enchanted with frost magic that can freeze their targets and are trained by Spire Horn Seraphs to master flight during storms and bad weather."
 #holy
 #gcost 20
 #ap 12
@@ -6761,6 +6761,12 @@ Contact: aethernomad@gmail.com"
 
 ------------- COMMANDERS
 
+#selectmonster 2397 -- Pearl King
+#gcost 485
+#custommagic 10496 100
+#magicskill 1 1
+#end
+
 #selectmonster 3290 -- Bishop Vicomte
 #name "Bishop Vicomte"
 #descr "Under each Viceroy Primate there is a number of governors who are also bishops. They perform most of the administrative duties of the government and are tasked with keeping the heathens and cannibals under control. The cannibals themselves don't have the discipline or training to command and lead men and would likely just plunder their own lands were they not reigned in by the Bishop Vicomtes of Ind. Any fortless province where Heathens are being mobilized will receive 15 percent increased tax income that month."
@@ -7953,6 +7959,11 @@ Shackled Smiths deeply differ from other Porphyrian Cyclopes in that they are of
 #selectmonster 3217 -- Phlegran Commander
 #name "Porphyrian Commander"
 #descr "The elites of the Porphyrian armies are the Cyclops Soldiers, but a large part of the armies are made up of human slave soldiers. A slave soldier that shows initiative, cruelty and loyalty can advance and gain a position as commander of the Porphyrian slave troops. These slave commanders are rarely allowed to leave their armies and few of them see the comfort of city life, despite their position in the slave hierarchy. Porphyrian commanders, like their troops, have abysmal morale and fight mainly to keep their privileged status."
+#end
+
+#selectmonster 3218 -- Phlegran Priest
+#name "Porphyrian Priest"
+#descr "The Priests of Porphyrion are caretakers and shepherds of the human population. While the Cyclope and Tyrant rulers of the kingdom have little use for the worship of gods, the humans pray for deliverance from the wrath of the Laestrygonians. Phlegran priests travel throughout the land to comfort the human population and give them hope that the Laestrygonians remain imprisoned in their mountain ranges."
 #end
 
 #selectmonster 3219 -- Phlegran Cataphract Commander
@@ -15084,6 +15095,42 @@ Although Tetragrammatons are completely immobile, cannot be teleported even with
 #name "Seraph"
 #descr "Seraphs, or Empyreans, are heavenly attendants of the Celestial Sphere and, along with Tetramorphs, the highest servants of the Ennearchy. They assist the emerging God as he chose to claim this world as his and proclaim His glory. They are surrounded by a divine splendor that must be shielded lest it strike the world with unbearable might. The Seraph has three pairs of wings. The first pair covers the face of the being, the second pair covers its naked feet and the third pair brings the angelic apparition into the air. Anyone striking the Seraph will in turn be struck by awe, fire and blindness. The Seraphim have vast magical and priestly powers. Although Bethel She'em can call more Seraphs to this world through the Sephira of Kingship, only the Heavenly Host and Wish rituals can bring above nine the number of Seraphs currently following the Litany of Cinders in the material realm, and performing the Sephira of Kingship while nine or more Seraphs are under Bethel She'em's control will instead summon a weaker angel: a Principality, a Virtue, an Authority, a Throne or a Domination."
 #userestricteditem 8084
+#end
+
+#newmonster
+#copystats 1368 -- Seraph
+#spr1 "Hellenika/Solari_1.tga"
+#spr2 "Hellenika/Solari_2.tga"
+#name "Solar"
+#descr "A Solar is a metaphysical being of incomprehensible might sent by the Sun itself to burn the land, dry the ocean and blind mortal minds with its triumphant light. Angels of fire, light and destruction, Solars appear as golden winged fireballs that radiate hallucinating heat and leave only ashes and wastes in their wake. Worshipped by the Garnet Amazons and especially the Disciples of the Sun as the lords of the sands, the guardian spirits of the lands of Zun and the bringers of the end for mortals, they are called Ruby Eyes of the Desert and idolized in their temples in the form of a ruby eye adorned with a thousand wings of gold. When sent by the God to shine over an enemy province, Solars behave as stealthy commanders that spread heat, dominion and insanity; but they are also extremely powerful mage-priests and incredibly dangerous opponents in battle. Should they be killed, they'd explode in a vast deflagration of light and fire."
+#hp 30
+#mr 20
+#size 4
+#voidsanity 20
+#mapmove 36
+#blind
+#eyes 0
+#spiritsight
+#heat 12
+#mindslime 15
+#stealthy
+#miscshape
+#nametype 139
+#decscale 2
+#spreaddom 1
+#uwdamage 100
+#insanify 100
+#invulnerable 25
+#clearmagic
+#magicskill 0 5
+#magicskill 8 5
+#clearweapons
+#weapon 229
+#weapon 229
+#weapon 229
+#shockres 0
+#fireres 25
+#deathfire 50
 #end
 
 #selectmonster 1368 -- Seraph
@@ -27568,42 +27615,6 @@ Although Tetragrammatons are completely immobile, cannot be teleported even with
 #twiceborn 4785
 #gcost 0
 #userestricteditem 8069
-#end
-
-#newmonster
-#copystats 1368 -- Seraph
-#spr1 "Hellenika/Solari_1.tga"
-#spr2 "Hellenika/Solari_2.tga"
-#name "Solar"
-#descr "A Solar is a metaphysical being of incomprehensible might sent by the Sun itself to burn the land, dry the ocean and blind mortal minds with its triumphant light. Angels of fire, light and destruction, Solars appear as golden winged fireballs that radiate hallucinating heat and leave only ashes and wastes in their wake. Worshipped by the Garnet Amazons and especially the Disciples of the Sun as the lords of the sands, the guardian spirits of the lands of Zun and the bringers of the end for mortals, they are called Ruby Eyes of the Desert and idolized in their temples in the form of a ruby eye adorned with a thousand wings of gold. When sent by the God to shine over an enemy province, Solars behave as stealthy commanders that spread heat, dominion and insanity; but they are also extremely powerful mage-priests and incredibly dangerous opponents in battle. Should they be killed, they'd explode in a vast deflagration of light and fire."
-#hp 30
-#mr 20
-#size 4
-#voidsanity 20
-#mapmove 36
-#blind
-#eyes 0
-#spiritsight
-#heat 12
-#mindslime 15
-#stealthy
-#miscshape
-#nametype 139
-#decscale 2
-#spreaddom 1
-#uwdamage 100
-#insanify 100
-#invulnerable 25
-#clearmagic
-#magicskill 0 5
-#magicskill 8 5
-#clearweapons
-#weapon 229
-#weapon 229
-#weapon 229
-#shockres 0
-#fireres 25
-#deathfire 50
 #end
 
 #newmonster
@@ -41683,10 +41694,12 @@ But now, having been awakened from his geological slumber by the conjugated powe
 #magicskill 4 6
 #magicboost 53 -8
 #magicboost 4 8
+#magicboost 8 8
 #spreaddom 4
 #raiseonkill 100
 #raiseshape "Cleansed Soul"
 #nowish
+#poorundeadleader
 #end
 
 #selectmonster 2052
@@ -41700,10 +41713,12 @@ But now, having been awakened from his geological slumber by the conjugated powe
 #magicskill 4 6
 #magicboost 53 -8
 #magicboost 4 8
+#magicboost 8 8
 #spreaddom 4
 #raiseonkill 100
 #raiseshape "Cleansed Soul"
 #nowish
+#poorundeadleader
 #end
 
 #selectmonster 4611 -- A4H4 spreaddom eyeloss awe 7
@@ -41721,10 +41736,12 @@ But now, having been awakened from his geological slumber by the conjugated powe
 #magicskill 4 6
 #magicboost 53 -8
 #magicboost 1 8
+#magicboost 8 8
 #spreaddom 4
 #raiseonkill 100
 #raiseshape "Cleansed Soul"
 #nowish
+#poorundeadleader
 #end
 
 #selectmonster 2053
@@ -41737,11 +41754,13 @@ But now, having been awakened from his geological slumber by the conjugated powe
 #magicskill 3 6
 #magicskill 4 6
 #magicboost 53 -8
-#magicboost 4 8
+#magicboost 1 8
+#magicboost 8 8
 #spreaddom 4
 #raiseonkill 100
 #raiseshape "Cleansed Soul"
 #nowish
+#poorundeadleader
 #end
 
 #selectmonster 4610 -- F4H4 spreaddom eyeloss awe 7
@@ -41759,10 +41778,12 @@ But now, having been awakened from his geological slumber by the conjugated powe
 #magicskill 4 6
 #magicboost 53 -8
 #magicboost 0 8
+#magicboost 8 8
 #spreaddom 4
 #raiseonkill 100
 #raiseshape "Cleansed Soul"
 #nowish
+#poorundeadleader
 #end
 
 #selectmonster 2054
@@ -41775,11 +41796,13 @@ But now, having been awakened from his geological slumber by the conjugated powe
 #magicskill 3 6
 #magicskill 4 6
 #magicboost 53 -8
-#magicboost 4 8
+#magicboost 0 8
+#magicboost 8 8
 #spreaddom 4
 #raiseonkill 100
 #raiseshape "Cleansed Soul"
 #nowish
+#poorundeadleader
 #end
 
 #selectmonster 4613 -- E4H4 spreaddom eyeloss awe 7
@@ -41797,10 +41820,12 @@ But now, having been awakened from his geological slumber by the conjugated powe
 #magicskill 4 6
 #magicboost 53 -8
 #magicboost 3 8
+#magicboost 8 8
 #spreaddom 4
 #raiseonkill 100
 #raiseshape "Cleansed Soul"
 #nowish
+#poorundeadleader
 #end
 
 #selectmonster 2055
@@ -41813,11 +41838,13 @@ But now, having been awakened from his geological slumber by the conjugated powe
 #magicskill 3 6
 #magicskill 4 6
 #magicboost 53 -8
-#magicboost 4 8
+#magicboost 3 8
+#magicboost 8 8
 #spreaddom 4
 #raiseonkill 100
 #raiseshape "Cleansed Soul"
 #nowish
+#poorundeadleader
 #end
 
 #newmonster
@@ -67392,7 +67419,7 @@ Now, only a few small pearls of fathomless darkness remain of their innumerable 
 #copyitem 354 -- Pocket Ship
 #spr "Hellenika/ExplorerVessel.tga"
 #name "Explorer's Vessel"
-#descr "An Explorer's Vessel is a small ship enchanted by Arcoscephalean magic to always come back to its true owner whenever he prays the Gods of wind and good fortune. Although it usually isn't large enough to transport more than a single person, it allows its owner to roam the seas with great speed and security. As such, is is generally used to bring important mages and leaders to faraway lands where more mundane sailors or Pocket Ship owners have already led armies for conquest. One of the most famous signatures of Arcoscephalean travelers and heroes, Explorer's Vessels give an eternal love of solitude and freedom to whoever uses them and thus prevents their owners from taking too many belongings with them in their journeys."
+#descr "An Explorer's Vessel is a small ship enchanted by Arcoscephalean magic to always come back to its true owner whenever he prays to the Gods of wind and good fortune. Although it usually isn't large enough to transport more than a single person, it allows its owner to roam the seas with great speed and security. As such, it is generally used to bring important mages and leaders to faraway lands where more mundane sailors or Pocket Ship owners have already led armies for conquest. One of the most famous signatures of Arcoscephalean travelers and heroes, Explorer's Vessels give an eternal love of solitude and freedom to whoever uses them and thus prevents their owners from taking too many belongings with them in their journeys."
 #command -120
 #cursed
 #restricted 5 -- Arcoscephale
@@ -99631,7 +99658,7 @@ With the garnet crystals that have been gathered in the desert, many slaves have
 #req_targowner 247
 #req_targgod 1
 #req_targmnr 1384 -- Solar Disc
-#msg "Free Cherub"
+#msg "A Cherub has materialized from the unutterable radiance of the God."
 #nation 247
 #com "Cherub"
 #end

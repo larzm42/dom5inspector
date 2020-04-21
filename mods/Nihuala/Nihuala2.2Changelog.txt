@@ -1,0 +1,144 @@
+------- CHANGE LOG -------
+--- Nihuala v2.2 Changes ---
+
+Notes:
+--- LA Nihuala ---
+- Skinwalker Stalkers (N1B1 Assassins) now cap-only for less cancerous Swarm assassination spam. They also lost one of their daggers, some Stealth, Magic Resistance and physical stats in human form so that they're slightly less reliable as melee assassins. Their cost was reduced to make up for this. They are still extremely effective assassins.
+- Skinwalker Shamans (E1N1B1H1 mages) given a primary ENB random from AENB random and made cheaper to make them more worth recruiting compared to Witches.
+- Skinwalker Ancients (cap-only E1N2B2H2 mages) gained Air 1 base to make them more competitive with Stalkers for cap recruits. In exchange their cost increased.
+- Skinwalkers and their Werecoyote forms now have more consistent Morale, Magic Resistance and Max Age.
+- Crow and Owl Witches (A1D1 / S1D1 mages) gained Forest Survival to match the rest of the nation.
+- Raiders (basic troops) with two axes renamed "Tomahawk Raider" so they don't get lumped together with other Raiders in battle reports.
+- Man Hunters (elite ranged troops) with crossbows made the same price as the poison bow version at 13g. Also reduced to 10HP to make them more on par with contemporary troops.
+- Mad Dogs (cap-only sacred skinshifters) cost increased, Morale and Magic Resistance lowered in exchange for Berserk 2 to aid their damage output and the nation's initial expansion. They're still tough to use and bless because of #undisciplined.
+
+--- Sprites ---
+- EA Elder Speakers have a new sprite to separate them visually from Spirit Speakers.
+- Fixed some lingering artifacts in the Coyote and Armadillo Warrior attack sprites.
+
+--- Spells ---
+- Flying Heads (Ench5 D2 Summon) now D2 by default with a 50% AN random (From D1 100% ADN). This makes them actually worth summoning considering they suck at research and gnaw on the locals.
+- Purification Lodge (ritual that spawns a temporary healing site) now requires a 5 gem instead of 10 gem initial investment. The overall effect is fairly weak so the cost has been changed to match.
+- Added #details to Master of Seasons, Purification Lodge, and Spider's Strands. Spider's Strands description was updated to match the new Wind Ride mechanics.
+
+--- Bugs ---
+- MA Nihuala War Chiefs now properly Size 3.
+
+Changelog:
+------ MA Nihuala ------
+- monster 6602 (War Chief): 
+--> CHANGE TO #size 3
+
+------ LA Nihuala ------ 
+- National Overview
+--> CHANGE TO #summary "Race: Humans, prefers Heat scale +1
+Military: Stealthy human infantry and light cavalry. Sacred werecoyote skinwalkers
+Magic: Air, Earth, Nature, Blood, some Death and Astral
+Priests: Average, can perform blood sacrifices" 
+--> REMOVE #addreccom "Skinwalker Stalker"
+
+- Magic Site "Lodge of the Skinwalkers": 
+--> ADD #homecom "Skinwalker Stalker" 
+
+- monster 6653 (Crow Witch): 
+--> ADD #forestsurvival
+
+- monster 6654 (Owl Witch): 
+--> ADD #forestsurvival
+
+- monster 6655 (Skinwalker Stalker): 
+--> CHANGE TO #gcost 10020
+--> CHANGE TO #hp 12
+--> CHANGE TO #mr 13
+--> CHANGE TO #str 11
+--> CHANGE TO #att 12
+--> CHANGE TO #def 11
+--> CHANGE TO #prec 10
+--> REMOVE #older -25 
+--> ADD #startage 35
+--> ADD #maxage 100
+--> CHANGE TO #stealthy 15
+--> CHANGE TO #patience 1
+--> REMOVE Ambidextrous 1
+--> REMOVE _ONE_ #weapon 126 -- Poison Dagger
+
+- monster 6656 (Werecoyote Stalker): 
+--> CHANGE TO #mor 14
+--> CHANGE TO #def 12
+--> REMOVE #older -25
+--> CHANGE TO #stealthy 15
+--> CHANGE TO #patience 1
+
+- monster 6657 (Skinwalker Shaman): 
+--> CHANGE TO #gcost 10007
+--> REMOVE #older -40 
+--> ADD #startage 45
+--> ADD #maxage 100
+--> CHANGE TO #custommagic 25600 100 -- ENB
+(Don't change the second #custommagic)
+
+- monster 6658 (Werecoyote Shaman): 
+--> CHANGE TO #mr 15
+--> CHANGE TO #mor 14
+--> REMOVE #older -40
+
+- monster 6659 (Skinwalker Ancient): 
+--> CHANGE TO #gcost 9980
+--> CHANGE TO #older 20
+--> ADD #magicskill 1 1 -- A
+
+- monster 6660 (Werecoyote Ancient): 
+--> CHANGE TO #mr 17
+--> CHANGE TO #mor 15
+--> REMOVE #older 20 and #maxage 100
+--> ADD #magicskill 1 1 -- A
+
+- monster 6667 (Raider [Axes]): 
+--> ADD #name "Tomahawk Raider" (after #copystats)
+
+- monster 6668 (Man Hunter [Crossbow]): 
+--> CHANGE TO #gcost 10013
+--> CHANGE TO #hp 10
+
+- monster 6669 (Man Hunter [Poison Bow]): 
+--> REMOVE #gcost 10013
+
+- monster "Mad Dog": 
+--> CHANGE TO #gcost 10024
+--> CHANGE TO #mr 11
+--> CHANGE TO #mor 12
+--> ADD #berserk 2
+
+- monster "Werecoyote" (Mad Dog secondshape): 
+--> CHANGE TO #mr 11
+--> CHANGE TO #mor 14
+--> ADD #berserk 2
+
+------ Summons ------
+- monster "Flying Head": 
+--> CHANGE TO #magicskill 5 2 -- D
+--> CHANGE TO #custommagic 8448 50 -- AN 
+--> CHANGE TO #descr "A Flying Head is a huge, disembodied head created by reviving the cranium of a murder victim or other body desiring vengeance against the living. It has long, tangled hair, the wings and talons of a bird, and is enlarged to enormous size. It can fly through the air, pursuing humans to chase and devour. Any province with a Flying Head will steadily lose population as the monster feeds upon the populace. The magic in the creation of a Flying Head gives them unholy resilience, as well as skill in death and sometimes air or nature magic. They have no patience for research, prefering to spend their time terrorizing their victims."
+
+------ Spells ------
+- spell "Flying Head": 
+--> CHANGE TO #descr "Creates a Flying Head mage commander. Flying Heads are the vengeful heads of murder victims, returned to life and enlarged to incredible size. Any province containing a Flying Head will slowly lose population as the monster devours the local populace. The magic used in their creation grants them some skill in death, and occasionally air or nature magic."
+
+- spell "Purification Lodge": 
+--> CHANGE TO #fatiguecost 500 -- 5 gems
+--> ADD #details "Creates a magic site that heals every unit in the province and decreases unrest by 10 each turn. While every unit has a chance to heal afflictions, removing afflictions is not always successful, and some afflictions are harder to remove than others."
+
+- spell "Master of Seasons": 
+--> ADD #details "Spawns 1d3 seasonal spirits at each friendly temple each turn. Spring Hawks in spring, Summer Lions in summer, Fall Bears in fall, and Winter Wolves in winter. Spirits arrive at the end of the previous turn."
+
+- spell "Spider's Strands":
+--> CHANGE TO #descr "The nature mage transmorgrifies a magic strand of spider's silk to enormous size and sends it through the skies to a distant province. Once there, the strand will stick to a commander and transport them to where the mage is located, like a spider sailing on the wind. This allows friendly commanders to be returned to safety and enemy commanders to be singled out for destruction. Large beings are difficult or impossible to lift and might fall to the ground somewhere along the way, possibly dying upon impact. Powerful Earth mages are likewise difficult to transport."
+--> ADD #details "Size 6 targets, Earth mages with skill 4 or more, and Ethereal beings are impossible to lift. Skilled Air mages will take less falling damage if the spell drops them on the way."
+
+------ Sprites ------
+- ArmadilloWarrior_2.tga
+- Coyote_2.tga
+- ElderSpeaker.tga
+- ElderSpeaker_2.tga
+- SkinwalkerStalker.tga
+- SkinwalkerStalker_2.tga

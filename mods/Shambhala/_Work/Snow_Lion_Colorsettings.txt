@@ -1,0 +1,9 @@
+Process in GIMP, going from original Great Lion sprite:
+
+(1) Brightness/Contrast 100/100.
+
+(2) Hue/Saturation/Lightness 0/-70/0
+
+(3) Select only the main and tail.
+
+(4) Colorize 190/40/-40.
