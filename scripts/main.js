@@ -75,8 +75,8 @@ DMI.initGrids = function() {
 				$(".grid-container").css({left:'350px'})
 				$("div.static-overlay-container").css({width:'350px'})
 			} else {
-				$(".grid-container").css({left:'333px'})
-				$("div.static-overlay-container").css({width:'333px'})
+				$(".grid-container").css({left:'343px'})
+				$("div.static-overlay-container").css({width:'343px'})
 			}
 
 			if (itemgrid) itemgrid.showIds(0);

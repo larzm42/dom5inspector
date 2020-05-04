@@ -1867,8 +1867,12 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	},
 	'minprison', 'minimum imprison', {'0': 'awake', '1': 'dormant', '2': 'imprisoned' },
 
-	'shrinkhp',		'shapechange below hp',
-	'growhp',		'shapechange above hp',
+	'shrinkhp',		'shapechange below hp', function(v,o){
+		return v + ' (' + Utils.unitRef(o.id+1) + ')';
+	},
+	'growhp',		'shapechange above hp', function(v,o){
+		return v + ' (' + Utils.unitRef(o.id-1) + ')';
+	},
 	'firstshape',	'natural shape',	function(v,o){	return chainedUnitRef(o, 'firstshape', []);	},
 	'secondshape',	'wounded shape',	function(v,o){	return chainedUnitRef(o, 'secondshape', []);	},
 	'shapechange',	'shape changer',	function(v,o){	return chainedUnitRef(o, 'shapechange', []);	},
