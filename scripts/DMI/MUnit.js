@@ -1847,7 +1847,8 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'explodeondeath',	'explode on death',
 	'transformation', 'transformation', {'-1': 'bad result', '0': 'disabled', '1': 'good result' },
 	'guardspiritbonus', 'guardian spirit',
-	'ironvul', 'iron vulnerabilty',
+	'ironvul', 'iron vulnerability',
+	'saltvul', 'salt vulnerability',
 	'startitem',	'starts with',	function(v,o){
 		return Utils.itemRef(v);
 	},
@@ -2039,7 +2040,6 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'startaffliction', 'start affliction',
 	'startheroab', 'start with heroic ability', Format.Percent,
 
-	
 //	'triplegod', 'triplegod',
 //	'triplegodmag', 'triplegodmag',
 //	'unify', 'unify',

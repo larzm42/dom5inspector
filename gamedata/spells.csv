@@ -57,6 +57,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 55	Grow Knight	-1	1	-1	0	-1	0	55	1	0	0	0	0	959	
 56	Grow Lich	-1	1	-1	0	-1	0	56	1	0	0	0	0	960	
 57	Scrying	-1	1	-1	0	-1	0	57	1	0	0	0	0	0	
+58	Summon Qarin	-1	1	-1	0	-1	0	58	1	0	0	0	0	3471	
 59	Grow Headless Hoburg	-1	1	-1	0	-1	0	59	1	0	0	0	0	1139	
 60	5 War Trolls	-1	1	-1	0	-1	0	60	5	0	0	0	61	1037	
 61	2 Troll Moose Knights	-1	1	-1	0	-1	0	61	2	0	0	0	0	1086	

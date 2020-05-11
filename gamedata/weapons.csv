@@ -747,7 +747,7 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 746	Scimitar	746	1	0	1	1	0	0	0	3	746	
 747	Golden Fist	747	0	0	-1	1	0	0	748	0	747	
 748	Petrify	748	0	0	0	1	0	0	0	0	748	
-749	Enchanted Scimitar	749	3	1	1	1	0	0	0	0	749	
+749	Enchanted Scimitar	749	3	1	1	1	0	0	0	8	749	
 750	Bronze Falchion	750	0	0	1	1	0	0	0	6	750	
 751	Bronze Sword	751	1	1	1	1	0	0	0	3	751	
 752	Frost Breath	752	0	0	0	1	0	0	0	0	752	
@@ -759,3 +759,4 @@ id	name	effect_record_id	att	def	len	nratt	ammo	secondaryeffect	secondaryeffecta
 758	Silver Horns	758	-1	-1	1	1	0	0	0	0	758	
 759	Crossbow	759	2	0	0	-2	12	0	0	3	759	
 760	Scourge of Power	760	2	0	1	2	0	0	0	2	760	
+761	Throw Salt	761	0	0	5	1	0	0	0	1	761	
