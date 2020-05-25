@@ -734,6 +734,7 @@ var flagorder = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'reqeyes', 'can only be used by a being with eyes',
 	'haste',	'haste',
 	'nodiscount',	'no forge discounts',
+	'swimming', 'swimming',
 	
 	'crown', 'crown',
 	'twistfate', 'twist fate',
