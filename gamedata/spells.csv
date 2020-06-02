@@ -1128,3 +1128,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 1170	Winter's Call	6	6	7	3	2	2	1170	1	0	0	86	0	844	
 1171	Summon Rimvaettir	0	5	2	2	-1	0	1171	1003	0	0	5	0	3420	
 1172	Summon Dwarf of the Four Directions	0	8	1	4	3	3	1172	1	0	0	62	0	-21	
+1173	Feast for Ghuls	6	4	7	1	-1	0	1173	505	0	0	21	0	3477	
+1174	Summon Ghulah	6	5	7	1	-1	0	1174	1	0	0	23	0	3481	
+1175	Summon Binn	0	6	2	1	1	1	1175	505	0	0	6	0	3476	
+1176	Summon Si'lat	0	6	1	2	-1	0	1176	1	0	0	21	0	3483	

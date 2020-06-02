@@ -3244,3 +3244,20 @@ id	name	rarity	description	requirements	effects	end
 3274	A hurricane has struck the lan	0	A hurricane has struck the land, devastating the countryside.	pop0ok 1|rare 10|0x7600 25|land 1	unrest 25|kill 3	
 3275	The dwarves holding up the sky	13	The dwarves holding up the sky are not doing their job properly. The sky has fallen, the entire world is covered in permanent darkness and violent storms are raging.	monster 3425|0x6100 3426|0x6100 3427|0x6100 3428	worlddarkness 1|0x9100 1	
 3276	A new era has begun. In the co	0	A new era has begun. In the coldest reaches of Jotunheim Thrymsheim, the ancient castle of Tjatse, has opened its gates and the descendants of the Niefel Giants have emerged to serve the last Niefel King. Meanwhile the most powerful of the Gygjas have withdrawn into the Iron Wood to serve the Great Hag. Gygjas of lesser power are emerging across the Jarldom and have established themselves as guides and advisors of the Jotun Jarls. [Thrymsheim]	fornation 61|site 0|capital 1|0x3900 1	newsite -1	
+3277	A new gold vein has been found	-1	A new gold vein has been found in a Gold Mine! [Hidden Gold Mine]	foundsite 1	gold 400	
+3278	A new vein has been found in a	-1	A new vein has been found in a Silver Mine! [Silver Mine]	foundsite 1	gold 250	
+3279	A new  and rich gold vein has 	-2	A new  and rich gold vein has been found in a Gold Mine! [Gold Mine]	foundsite 1|turn 5	gold 750	
+3280	A new  and rich vein has been 	-2	A new  and rich vein has been found in a Silver Mine! [Silver Mine]	foundsite 1	gold 400	
+3281	A new  and rich gold vein has 	-2	A new  and rich gold vein has been found in the Gold Mine! [Hidden Gold Mine]	foundsite 1|turn 5	gold 750	
+3282	There was a cave in at the iro	1	There was a cave in at the iron mine! [Iron Mine]	foundsite 1	gold -150|unrest 10	
+3283	There was a cave in at the sil	1	There was a cave in at the silver mine! [Silver Mine]	foundsite 1	gold -150|unrest 10	
+3284	There was a cave in at the gol	1	There was a cave in at the gold mine! [Gold Mine]	foundsite 1	gold -250|unrest 10	
+3285	There was a cave in at the hid	1	There was a cave in at the hidden gold mine! [Hidden Gold Mine]	foundsite 1	gold -250|unrest 10	
+3286	You have dug too deep! The iro	2	You have dug too deep! The iron mine has collapsed! [Iron Mine]	foundsite 1|prod 2	gold -150|unrest 10|0x7900 -1	
+3287	You have dug too deep! The sil	2	You have dug too deep! The silver mine has collapsed! [Silver Mine]	foundsite 1|prod 2	gold -150|unrest 10|0x7900 -1	
+3288	You have dug too deep! The gol	2	You have dug too deep! The gold mine has collapsed! [Gold Mine]	foundsite 1|prod 2	gold -250|unrest 10|0x7900 -1	
+3289	You have dug too deep! The hid	2	You have dug too deep! The hidden gold mine has collapsed! [Hidden Gold Mine]	foundsite 1|prod 2	gold -250|unrest 10|0x7900 -1	
+3290	You have dug too deep! Somethi	2	You have dug too deep! Something was released in the depths of the mine! [Iron Mine]	turn 10|foundsite 1|prod 2|magic 2	com 2523|3d6units 2525|com 2522|2d6units 2524	
+3291	You have dug too deep! Somethi	2	You have dug too deep! Something was released in depths of the mine! [Silver Mine]	turn 10|foundsite 1|prod 2|magic 2	com 2523|3d6units 2525|com 2522|2d6units 2524	
+3292	You have dug too deep! Somethi	2	You have dug too deep! Something was released in the depths of the mine! [Gold Mine]	turn 10|foundsite 1|prod 2|magic 2	com 2523|3d6units 2525|com 2522|2d6units 2524	
+3293	You have dug too deep! Somethi	2	You have dug too deep! Something was released in the depths of the mine! [Hidden Gold Mine]	turn 10|foundsite 1|prod 2|magic 2	com 2523|3d6units 2525|com 2522|2d6units 2524	

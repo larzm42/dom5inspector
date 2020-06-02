@@ -212,6 +212,10 @@ id	name	rarity	loc	level	path	F	A	W	E	S	D	N	B	gold	res	sup	unr	exp	lab	fort	scal
 211	The Vault of Incense and Marvels	5	0	0	Air									100																																																																																											9											
 212	Thrymsheim	5	0	2	Air			1																																			3400																														3399																																17											
 213	The Iron Wood	5	0	0	Nature					1	1	2																															3406	3421	3422																												3409	3414																															51											
+214	The Three Deserts	5	0	0	Fire	1	1				1										Heat																																																																																				2											
+215	Iram of a Thousand Pillars	5	0	0	Holy	1	1																																				3463	3477																													3468	3469																															68											
+216	Jannah	5	0	0	Nature							1									Growth																						3467																														3466																																50											
+217	City of Brass	5	0	0	Fire	1																																					3464																														3465	3472																															4											
 310	Tar Pits	0	219	1	Fire	1																																																																																																			5											
 311	Sun Ridge	0	223	1	Fire	2																																																																																																			3											
 312	Gold-Leafed Tree	1	223	2	Fire	2																																																																																																			10											
