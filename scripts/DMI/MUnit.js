@@ -25,6 +25,7 @@ MUnit.realmNames = {
 //determines unit type sort order (and identifies commanders)
 MUnit.unitSortableTypes = {
 	'cmdr (cap only)': 		'aaa.cmdr',
+	'cmdr (future cap only)': 		'aaab.cmdr',
 	'cmdr (cave)': 			'aab.cmdr',
 	'cmdr (coast)': 		'aac.cmdr',
 	'cmdr (foreign)': 		'aad.cmdr',
@@ -73,6 +74,7 @@ MUnit.unitSortableTypes = {
 	'Scout (Summon)': 		'aeb.cmdr-scout',
 
 	'unit (cap only)': 		'afa.unit',
+	'unit (future cap only)': 		'afab.unit',
 	'unit (foreign)': 		'afb.unit',
 	'unit': 				'afc.unit',
 	'Unit': 				'afd.unit',
@@ -2051,7 +2053,7 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	
 	'heathensummon', 'lord over heathens',
 
-	'captureslaves', 'capture slaves', Utils.unitRef,
+	'slaver', 'capture slaves', Utils.unitRef,
 	'deathwail', 'death wail',
 	'guardianspiritmodifier', 'guardian spirit',
 	'clockworklord', 'clockwork lord',

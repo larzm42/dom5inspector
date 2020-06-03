@@ -32,6 +32,8 @@ MNation.initNation = function(o) {
 	o.landcom = [];
 	o.capunits = [];
 	o.capcommanders = [];
+	o.futurecapunits = [];
+	o.futurecapcommanders = [];
 	o.pretenders = [];
 	o.commanders = [];
 	o.foreigncommanders = [];
@@ -41,6 +43,7 @@ MNation.initNation = function(o) {
 	o.uwunit = [];
 	o.uwcom = [];
 	o.sites = [];
+	o.futuresites = [];
 	o.spells = [];
 	o.homerealm = [];
 	o.addgod = [];
@@ -55,6 +58,7 @@ MNation.prepareData_PreMod = function() {
 		o.units = [];
 		o.foreignunits = [];
 		o.sites = [];
+		o.futuresites = [];
 		o.forestrec = [];
 		o.forestcom = [];
 		o.mountainrec = [];
@@ -233,6 +237,9 @@ MNation.prepareData_PostMod = function() {
 				if (attr.attribute == "52" || attr.attribute == "100") {
 					o.sites.push(parseInt(attr.raw_value));
 				}
+				if (attr.attribute == "631") {
+					o.futuresites.push(parseInt(attr.raw_value));
+				}
 				if (attr.attribute == "158" || attr.attribute == "159") {
 					var unit = modctx.unitlookup[attr.raw_value];
 					if (unit.landshape) {
@@ -318,7 +325,8 @@ MNation.prepareData_PostMod = function() {
 					o.heroes.push(parseInt(attr.raw_value));
 				}
 				if (attr.attribute == "145" ||
-					attr.attribute == "146") {
+					attr.attribute == "146" ||
+					attr.attribute == "149") {
 					o.multiheroes.push(parseInt(attr.raw_value));
 				}
 			}
@@ -438,6 +446,8 @@ MNation.prepareData_PostMod = function() {
 		//units from sites
  		o.capunits = [];
 		o.capcommanders = [];
+ 		o.futurecapunits = [];
+		o.futurecapcommanders = [];
 
 		var basekey = 'site';
 		var arr = o.sites;
@@ -456,6 +466,20 @@ MNation.prepareData_PostMod = function() {
 				gemkeys[k] += parseInt(s[k]);
 			}
 		}
+
+		var basekey = 'futuresite';
+		var arr = o.futuresites;
+		for (var i=0; i<arr.length; i++) {
+			if (!arr[i]) continue;
+			var s = modctx.sitelookup[arr[i]];
+			if (!s) {
+				console.log(basekey+' '+arr[i]+' not found (nation '+o.id+')');
+				continue;
+			}
+			o.futurecapunits = o.futurecapunits.concat(s.units, s.hmon, s.mon);
+			o.futurecapcommanders = o.futurecapcommanders.concat(s.commanders, s.hcom);
+		}
+		
 		//remove capunits duplicated in units (etc)
 		Utils.arrayDisect(o.capunits, o.units)
 		Utils.arrayDisect(o.capcommanders, o.commanders)
@@ -504,7 +528,9 @@ MNation.prepareData_PostMod = function() {
 			'unit (u-water)': o.uwunit,
 			'cmdr (u-water)': o.uwcom,
 			'unit (cap only)': o.capunits,
-			'cmdr (cap only)': o.capcommanders
+			'cmdr (cap only)': o.capcommanders,
+			'unit (future cap only)': o.futurecapunits,
+			'cmdr (future cap only)': o.futurecapcommanders
 		}
 		for (var basekey in iterations) {
 			var arr = iterations[basekey];

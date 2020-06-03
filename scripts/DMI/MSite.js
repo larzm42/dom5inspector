@@ -220,6 +220,15 @@ MSite.prepareData_PostMod = function() {
 		if (o.nations.length == 0) {
 			delete o.nations;
 		}
+		o.futurenations = [];
+		for (var nati=0, nat;  nat= modctx.nationdata[nati];  nati++) {
+			if (nat.futuresites.indexOf(o.id) != -1) {
+				o.futurenations.push(nat.id);
+			}
+		}
+		if (o.futurenations.length == 0) {
+			delete o.futurenations;
+		}
 		if (o.provdef.length == 0) {
 			delete o.provdef;
 		}
@@ -687,6 +696,9 @@ var displayorder = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'adventure', 'adventure', Format.Percent,
 	'domspread', 'spreads dominion',
 	'domconflict', 'dominion conflict bonus',
+	'scorch', 'scorching desert', function(v,o) {
+		return '(' + v + ' AN fire damage)';
+	},
 	'turmoil', 'dominion gets', function(v,o) {
 		if (v > 0) {
 			return 'Turmoil +' + v;
@@ -780,6 +792,7 @@ var displayorder = DMI.Utils.cutDisplayOrder(aliases, formats,
 		return list_units(v, o);
 	},
 	'nations', 'start site', list_nations,
+	'futurenations', 'future site', list_nations,
 	'events', 'triggered events', list_events,
 	'newsiteevents', 'new site events', list_events,
 	'other', 'other',
