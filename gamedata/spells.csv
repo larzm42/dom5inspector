@@ -1118,7 +1118,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 1160	Summon Ifrit	6	5	7	1	0	3	1160	1	0	0	58	0	3372	
 1161	Summon Shaytan	6	6	7	1	0	3	1161	1	0	0	73	0	3373	
 1162	Summon Marid	0	8	0	4	1	2	1162	1	0	0	66	0	3374	
-1163	Contact Marid	0	8	2	2	0	4	1163	1	0	0	60	0	3374	
+1163	Contact Marid	0	8	2	2	0	4	1163	1	0	0	60	0	3376	
 1164	Smokeless Flame	2	6	0	3	1	1	1164	1	1	30	0	0	1042	
 1165	Large Area Combustion	-1	1	-1	0	-1	0	1165	1	0	0	0	0	512	
 1166	Scorching Wind	2	4	1	2	0	1	1166	1	0	30	0	0	250	
