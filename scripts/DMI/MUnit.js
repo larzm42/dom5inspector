@@ -2046,7 +2046,7 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'vineshield', 'vine shield',
 	'alchemy', 'alchemy',
 	'woundfend', 'affliction resistance',
-	'makesarmylooksmallerorlarger', 'army size',
+	'falsearmy', 'army size',
 	'summon5',	'summon allies',	function(v,o){
 		return Utils.unitRef(v)+' x 5';
 	},
