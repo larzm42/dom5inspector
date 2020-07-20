@@ -104,7 +104,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 103	Area Cripple	-1	1	-1	0	-1	0	103	1	0	0	0	0	16777216	
 106	Record of Creation	-1	1	-1	0	-1	0	106	1	0	0	0	0	55	
 108	Battlefield Limp	-1	1	-1	0	-1	0	108	1	0	0	0	109	262144	
-109	Battlefield Cripple	-1	1	-1	0	-1	0	109	1	0	0	0	0	262144	
+109	Battlefield Cripple	-1	1	-1	0	-1	0	109	1	0	0	0	0	16777216	
 110	10 Great Olms	-1	1	-1	0	-1	0	110	10	0	0	0	0	2528	
 111	Summon Predatory Birds	-1	1	-1	0	-1	0	111	3	0	0	0	0	517	
 112	Burning	-1	1	-1	0	-1	0	112	1	0	0	0	0	512	
@@ -1082,7 +1082,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 1124	Chorus Master	5	1	6	1	-1	0	1124	1	0	20	0	0	536870912	
 1125	Chorus Slave	5	1	6	1	-1	0	1125	1	0	20	0	0	35433480192	
 1126	Sow Dragon Teeth	4	6	3	2	-1	0	1126	10	0	0	1	0	3119	
-1127	Gigantomachia	5	7	3	5	0	4	1127	1	0	0	60	0	107	
+1127	Gigantomachia	5	7	3	4	0	4	1127	1	0	0	60	0	107	
 1128	Bind Keres	0	6	5	2	-1	0	1128	3	0	0	12	0	3127	
 1129	Curse Tablet	0	3	5	1	-1	0	1129	1	0	0	3	0	2	
 1130	Seith Curse	5	5	5	1	4	1	1130	1	0	0	3	0	2	
@@ -1129,6 +1129,6 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 1171	Summon Rimvaettir	0	5	2	2	-1	0	1171	1003	0	0	5	0	3420	
 1172	Summon Dwarf of the Four Directions	0	8	1	4	3	3	1172	1	0	0	62	0	-21	
 1173	Feast for Ghuls	6	4	7	1	-1	0	1173	505	0	0	21	0	3477	
-1174	Summon Ghulah	6	5	7	1	-1	0	1174	1	0	0	23	0	3481	
+1174	Summon Ghulah	6	5	7	1	-1	0	1174	1	0	0	31	0	3481	
 1175	Summon Binn	0	6	2	1	1	1	1175	505	0	0	6	0	3476	
 1176	Summon Si'lat	0	6	1	2	-1	0	1176	1	0	0	21	0	3483	
