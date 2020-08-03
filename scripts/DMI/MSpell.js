@@ -770,6 +770,7 @@ var displayorder = Utils.cutDisplayOrder(aliases, formats,
 	'rng_bat',	'range', 		function(v,o){ return o.rngplus ? v+'+' : v; },
 	'provrange',	'range', 		function(v,o){ return o.provrange == 1 ? v+' province' : v+' provinces' },
 	'casttime', 'casting time', Format.Percent,
+	'ainocast', 'ai no cast',
 	'aoe_s',	'area of effect', 	MSpell.formatAoe,
 	'nreff', 	'number of effects',	function(v,o){ return o.effplus ? v+'+' : v; },
 	'precision',	'precision',
@@ -792,7 +793,7 @@ var ignorekeys = {
 	researchlevel:1,research:1,sortschool:1,
 
 	damagemon:1,
-	descr:1,
+	descr:1, details:1,
 	type:1,
 	mpath:1,
 	fatiguecost:1,gemcost:1,
@@ -864,8 +865,12 @@ MSpell.renderOverlay = function(o) {
 	uid = uid.replace('.','');
 	h+='		<div class="overlay-details pane-extension '+uid+'"></div>';
 
-	var url = descrpath + Utils.descrFilename('details'+o.name);
-	Utils.loadContent( url, 'div.'+uid );
+	if (o.details)
+		Utils.insertContent( '<p>'+o.details+'</p>', 'div.'+uid );
+	else {
+		var url = descrpath + Utils.descrFilename('details'+o.name);
+		Utils.loadContent( url, 'div.'+uid );
+	}
 
 	h+='	</div> ';
 	h+='</div> ';

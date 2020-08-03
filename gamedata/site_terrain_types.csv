@@ -10,3 +10,6 @@ bit_value	bit_name	test
 256	Deep sea
 512	Cave
 16384	Unique
+32768	Underwater Mountain
+65536	Underwater Forest
+131072	Underwater Coastal

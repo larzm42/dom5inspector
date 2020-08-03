@@ -1526,6 +1526,7 @@ var modctx = DMI.modctx = {
 			modctx.spelllookup[$.trim(a.s.toLowerCase())] = modctx.spell;
 		},
 		descr: _str,
+		details: _str,
 
 		clear: function(c,a,t){
 			var o = modctx.spell;
@@ -1613,6 +1614,8 @@ var modctx = DMI.modctx = {
 		walkable:		_num,
 		onlyatsite: 	_ref,
 		farsumcom:		_num,
+		casttime:		_num,
+		ainocast:		_num,
 
 		//fx
 		flightspr:	_ignore,
