@@ -361,6 +361,7 @@ nation_number	attribute	raw_value	end
 13	289	7	
 13	289	10	
 13	139	1667	
+13	271	25	
 13	347	1661	
 13	348	6	
 13	349	1698	
@@ -872,6 +873,7 @@ nation_number	attribute	raw_value	end
 26	207	1	
 26	310	1	
 26	139	1914	
+26	271	25	
 26	270	77	
 26	272	100	
 26	347	1130	
@@ -1427,6 +1429,7 @@ nation_number	attribute	raw_value	end
 40	269	1	
 40	288	100	
 40	52	182	
+40	271	25	
 40	139	2871	
 40	140	2878	
 40	141	2880	
@@ -1977,6 +1980,7 @@ nation_number	attribute	raw_value	end
 55	139	581	
 55	140	867	
 55	141	539	
+55	271	25	
 55	347	3006	
 55	348	6	
 55	349	119	
@@ -2619,6 +2623,7 @@ nation_number	attribute	raw_value	end
 69	354	15	
 69	353	17	
 69	139	3163	
+69	271	25	
 69	273	101	
 69	314	3121	
 69	314	2463	
@@ -3196,6 +3201,7 @@ nation_number	attribute	raw_value	end
 82	289	10	
 82	139	183	
 82	140	945	
+82	271	100	
 82	351	2	
 82	353	13	
 82	354	1	

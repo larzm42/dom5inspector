@@ -1850,6 +1850,7 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'guardspiritbonus', 'guardian spirit',
 	'ironvul', 'iron vulnerability',
 	'saltvul', 'salt vulnerability',
+	'landenc', 'land encumbrance',
 	'startitem',	'starts with',	function(v,o){
 		return Utils.itemRef(v);
 	},
