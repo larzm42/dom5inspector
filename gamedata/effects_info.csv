@@ -82,7 +82,7 @@ number	name	test
 104	Drain Life via Weapon (?) {Wpn: #dt_weapondrain}
 105	Disbelieve
 106	Damage Demon (?)
-107	Damage Demon {Wpn: #dt_demon}
+107	Damage (x2 vs Demon) {Wpn: #dt_demon}
 108	Planeshift Other
 109	Capped Damage {Wpn: #dt_cap}
 110	Dreams of R'lyeh
