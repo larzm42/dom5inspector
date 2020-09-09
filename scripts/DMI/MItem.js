@@ -535,7 +535,7 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 		return Utils.is(o.n_batstartsum) ?  Utils.unitRef(v)+' x '+o.n_batstartsum  :  Utils.unitRef(v);
 	},
 
-	'fireshield',	'fire shield',
+	'fireshield',	'fire shield', function(v){ return parseInt(v)+8; },
 	'banefireshield',	'banefire shield',
 	'autohealer',	'healer',
 	'autodishealer',	'disease healer',
