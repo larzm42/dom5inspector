@@ -2191,6 +2191,7 @@ var modderkeys = Utils.cutDisplayOrder(aliases, formats,
 [
 	'nametype',	'#nametype',
 	'montag',	'#montag',
+	'montagwheight', 'montagwheight'
 ]);
 var ignorekeys = {
 	modded:1,
