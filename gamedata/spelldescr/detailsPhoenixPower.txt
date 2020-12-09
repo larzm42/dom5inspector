@@ -1,1 +1,1 @@
-Grants Fire magic bonus +1 and Fire Resistance +15.
+Grants Fire magic bonus +1 and Fire Resistance +5.
