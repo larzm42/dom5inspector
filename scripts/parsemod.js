@@ -1352,6 +1352,7 @@ var modctx = DMI.modctx = {
 		shrinkhp:		_num,
 		reanimator:		_num,
 		montag:			_num,
+		montagweight:	_num,
 		inspirational:	_num,
 		beastmaster:	_num,
 		taskmaster:		_num,
@@ -1511,6 +1512,10 @@ var modctx = DMI.modctx = {
         spiritsight: _bool,
         humanoid: _bool,
         templetrainer: _num,
+        twiceborn: _num,
+        snow: _bool,
+        mountedhumanoid: _bool,
+        bringeroffortune: _num,
 	},
 
 	//spell selected
