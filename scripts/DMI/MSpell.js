@@ -357,6 +357,8 @@ MSpell.prepareData_PostMod = function() {
 					arr = MSpell.yazads;
 				} else if (uid == "-17") {
 					arr = MSpell.yatas;
+				} else if (uid == "-21") {
+					arr = MSpell.dwarfs;
 				} else if (o.id == "380") {
 					arr = MSpell.angelichost;
 				} else if (o.id == "1081") {

@@ -87,6 +87,8 @@ function show_summon(unit, count, pathlevel1, spellid) {
 			arr = MSpell.yazads;
 		} else if (unit == "-17") {
 			arr = MSpell.yatas;
+		} else if (unit == "-21") {
+			arr = MSpell.dwarfs;
 		} else if (unit == "543") {
 			arr = MSpell.angelichost;
 		} else if (unit == "303") {
@@ -159,6 +161,7 @@ function list_summons(spell, effect) {
 MSpell.tartarianGate = [771, 772, 773, 774, 775, 776, 777];
 MSpell.yazads = [2620, 2621, 2622, 2623, 2624, 2625];
 MSpell.yatas = [2632, 2633, 2634, 2636];
+MSpell.dwarfs = [3425, 3426, 3427, 3428];
 MSpell.unleashImprisonedOnes = [2498, 2499, 2500];
 MSpell.angelichost = [465, 543];
 MSpell.hordefromhell = [304, 303];
