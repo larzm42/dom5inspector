@@ -193,7 +193,7 @@ number	name	test
 723	Casting Time {Spl: #casttime}
 724	Extra effect in geo {Spl: #extraeffectgeo}
 725	Can't target same province more than once/turn {Spl: #uniquetarget}
-726	Percent damage applied to commanders
+726	Override percent of units affected in target province
 727	<Unknown Attribute>
 728	Adds AN lingering heat {Spl: #anlingeringheat}
 729	Dispelled if province changes owners {Spl: #friendlyench}
