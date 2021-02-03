@@ -8,7 +8,7 @@ bit_value	bit_name	test
 64	Trample (?, Dominions 3)
 128	Magic Power
 256	<Unknown>
-512	<Unknown>
+512	? Item NoFind
 1024	Pretender (?, Dominions 3)
 2048	Soul Vortex
 4096	Earth Power
@@ -31,7 +31,7 @@ bit_value	bit_name	test
 536870912	Manikin Regeneration
 1073741824	Dragon Mastery
 2147483648	<Unknown>
-4294967296	<Unknown>
+4294967296	Fool's Luck
 8589934592	<Unknown>
 17179869184	Stygian Skin (?)
 34359738368	<Unknown>
