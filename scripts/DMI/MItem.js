@@ -698,6 +698,7 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'voidret', 'void returning bonus', Format.Percent,
 	'chancetobecomewerewolf', 'chance to become werewolf', Format.Percent,
 	'farsail', 'sailing distance increase',
+	'stormimmune', 'storm immunity',
 	'lesserhorrorattackchance', 'chance to be attacked by lesser horrors', Format.Percent,
 	'eatforyouth', 'eat for youth', function(v,o){
 		return '-' + v +' years';

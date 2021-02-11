@@ -2073,6 +2073,12 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'mindcollar',	'suffers damage on rout',
 	'mountaincostrebate',	'cheaper in mountains',
 	'indepspells',	'research levels if independent'
+	'thronekill', 'destroys thrones', Format.Percent,
+	'farthronekill', 'destroys thrones through forts', Format.Percent,
+	'fortkill', 'destroys forts', Format.Percent,
+	'pathboostland', 'pathboost on land',
+	'pathboostuw', 'pathboost underwater',
+	'labpromotion',	'promotion requires lab'
 
 ]);
 var flagorder = Utils.cutDisplayOrder(aliases, formats,
@@ -2193,9 +2199,9 @@ var flagorder = Utils.cutDisplayOrder(aliases, formats,
 	'commaster', 'communion master',
 	'comslave', 'communion slave',
 	'unseen', 'unseen',
-	'labpromotion',	'promotion requires lab',
 	'indepstay',	'stops upon reaching throne',
-	'polymorphimmune',	'polymorph immunity'
+	'polymorphimmune',	'polymorph immunity',
+	'noarmormapmovepenalty', 'ignores-armor-mapmove-penalty'
 	]);
 var hiddenkeys = Utils.cutDisplayOrder(aliases, formats,
 [
