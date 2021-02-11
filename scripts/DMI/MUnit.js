@@ -2192,10 +2192,10 @@ var flagorder = Utils.cutDisplayOrder(aliases, formats,
 	'flieswhenblessed', 'flies when blessed',
 	'commaster', 'communion master',
 	'comslave', 'communion slave',
-	'unseen', 'unseen'
+	'unseen', 'unseen',
 	'labpromotion',	'promotion requires lab',
 	'indepstay',	'stops upon reaching throne',
-	'polymorphimmune',	'polymorph immunity',
+	'polymorphimmune',	'polymorph immunity'
 	]);
 var hiddenkeys = Utils.cutDisplayOrder(aliases, formats,
 [
