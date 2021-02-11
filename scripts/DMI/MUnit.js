@@ -2072,7 +2072,7 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'slaverbonus',	'slaver bonus',
 	'mindcollar',	'suffers damage on rout',
 	'mountaincostrebate',	'cheaper in mountains',
-	'indepspells',	'research levels if independent',
+	'indepspells',	'research levels if independent'
 
 ]);
 var flagorder = Utils.cutDisplayOrder(aliases, formats,
