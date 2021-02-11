@@ -2066,7 +2066,7 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	
 	'horrormark',	'horror mark melee attackers',
 	
-	'enchrebate50gold',	'50 gold cheaper when active', function(v) { return modctx.enchantments_lookup[v].name;}
+	'enchrebate50gold',	'50 gold cheaper when active', function(v) { return modctx.enchantments_lookup[v].name;},
 	'allret',	'all plane returning',
 	'percentpathreduction',	'percentage path reduction',	Format.Percent,
 	'slaverbonus',	'slaver bonus',
