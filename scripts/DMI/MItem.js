@@ -684,7 +684,7 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'minhandstoequip', 'minimum hands',
 	'deathgemonkill', 'death gem on kill',
 	'deathexplosion', 'explosion on death',
-	'chanceofattackbyknights', 'attack by knights',
+	'chanceofattackbyknights', 'attack by knights', Format.Percent,
 	'domspreader', 'dom spreader',
 	'monstermustbepresent', 'monster must be present', Utils.unitRef,
 	'banishkiller', 'banish killer', Utils.planesRef,
@@ -699,7 +699,7 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'chancetobecomewerewolf', 'chance to become werewolf', Format.Percent,
 	'farsail', 'sailing distance increase',
 	'stormimmune', 'storm immunity',
-	'lesserhorrorattackchance', 'chance to be attacked by lesser horrors', Format.Percent,
+	'lesserhorrorattackchance', 'attack by lesser horrors', Format.Percent,
 	'eatforyouth', 'eat for youth', function(v,o){
 		return '-' + v +' years';
 	}

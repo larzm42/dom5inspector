@@ -202,7 +202,7 @@ number	name	test
 732	Unit gets magic of target {Spl: #polygetmagic}
 733	Sets current province as home {Spl: #sethome}
 734	Curses random commander in caster's province
-735	AI will not cast this spell unless path level lower than this value {Spl: #aibadlvl}
+735	AI will not cast unless path level lower than {Spl: #aibadlvl}
 736	<Unknown Attribute>
 737	<Unknown Attribute>
 738	Only target friendly provinces {Spl: #onlyowndst}
