@@ -156,7 +156,7 @@ number	name	test
 404	Cannot be cast by mindless
 405	<Unknown Attribute>
 426	<Unknown Attribute>
-477	<Unknown Attribute>
+477	Increase province magic scale by 3
 482	Not Effected by Fire Bless
 495	<Unknown Attribute>
 557	Magic
@@ -179,14 +179,14 @@ number	name	test
 707	<Unknown Attribute>
 708	Hidden Enchantment {Spl: #hiddenench}
 709	<Unknown Attribute>
-710	<Unknown Attribute>
+710	Does not affect floating commanders
 711	Site Required
 713	Only cast at coast {Spl: #onlycoastsrc}
 715	<Unknown Attribute>
 716	Remote summon commander {Spl: #farsumcom}
-717	<Unknown Attribute>
-718	<Unknown Attribute>
-719	<Unknown Attribute>
+717	Record global enchantment cast location
+718	Requires specific unit ability to cast
+719	Specific unit ability prevents casting
 720	<Unknown Attribute>
 721	Sound file played on projectile impact
 722	God Path Restriction {Spl: #godpathspell}
@@ -201,12 +201,12 @@ number	name	test
 731	Can only be cast by {Spl: #onlymnr}
 732	Unit gets magic of target {Spl: #polygetmagic}
 733	Sets current province as home {Spl: #sethome}
-734	<Unknown Attribute>
-735	<Unknown Attribute>
+734	Curses random commander in caster's province
+735	AI will not cast unless path level lower than {Spl: #aibadlvl}
 736	<Unknown Attribute>
 737	<Unknown Attribute>
 738	Only target friendly provinces {Spl: #onlyowndst}
-739	<Unknown Attribute>
+739	Do not anticipate target's movement regardless of flysprite
 740	<Unknown Attribute>
 741	Requires sun presence
 742	AInocast
@@ -215,5 +215,5 @@ number	name	test
 745	<Unknown Attribute>
 746	Requires enchantment
 747	Cost is multiplied by size
-748	<Unknown Attribute>
+748	Percent to horror mark caster
 900	<Unknown Attribute>

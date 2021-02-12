@@ -1712,7 +1712,7 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'deathrec',	'death recruit',
 	'heatrec',	'heat recruit', function(v) { return String(v) + ' ';},
 	'coldrec',	'cold recruit', function(v) { return String(v) + ' ';},
-	'enchrebate50', '50% ench rebate', function(v) { return modctx.enchantments_lookup[v].name;},
+	'enchrebate50p', '50% ench rebate', function(v) { return modctx.enchantments_lookup[v].name;},
 
 	'cold',		'cold aura',
 	'heat',		'heat aura',
@@ -1748,7 +1748,7 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'event',	'causes events',	Format.Percent,
 	'reform',	'chance to reform when killed',	Format.Percent,
 
-	'reanimator',	'reanimator',
+	'reanimator',	'passive corpse reanimation',
 	'preanimator',	'priest reanimation',
 	'dreanimator',	'death reanimation',
 	'mummify',	'mummify', Utils.unitRef,
@@ -1774,7 +1774,7 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'berserk',	'berserker',		Format.SignedZero,
 	'invulnerable',	'invulnerability',
 	'damagerev',	'damage reversal', Format.SignedZero,
-	'inn',	'inate spellcaster',
+	'inn',	'innate spellcaster',
 	'bodyguard',	'bodyguard',
 	'pathboost',	'pathboost',
 	'firerange',	'fire ritual range',
@@ -1950,6 +1950,9 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'battlesum5',	'summons in battle',	function(v,o){
 		return Utils.unitRef(v)+' x 5/turn';
 	},
+	'batstartsum1d3',	'summons in battle',	function(v,o){
+		return Utils.unitRef(v)+' x 1d3';
+	},
 	'batstartsum1d6',	'summons in battle',	function(v,o){
 		return Utils.unitRef(v)+' x 1d6';
 	},
@@ -2044,7 +2047,7 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 
 	'poweroftheturningyear', 'power of the turning year',
 	'forgebonus', 'forge bonus', Format.Percent,
-	'indepmove', 'independant move',
+	'indepmove', 'independent move',
 	'vineshield', 'vine shield',
 	'alchemy', 'alchemy',
 	'woundfend', 'affliction resistance',
@@ -2062,7 +2065,38 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'curseluckshield', 'fateweaving',
 	'skirmisher', 'skirmisher',
 	'carcasscollector', 'carcass collector',
-	'graphicsize','graphic size alteration %',
+	'graphicsize','graphic size alteration', Format.Percent,
+	
+	'horrormark',	'horror mark melee attackers',
+	
+	'enchrebate50',	'50 gold cheaper when active', function(v) { return modctx.enchantments_lookup[v].name;},
+	'enchrebate10',	'10 gold cheaper when active', function(v) { return modctx.enchantments_lookup[v].name;},
+	'allret',	'all plane returning',
+	'percentpathreduction',	'percentage path reduction',	Format.Percent,
+	'slaverbonus',	'slaver bonus',
+	'mindcollar',	'suffers damage on rout',
+	'mountaincostrebate',	'cheaper in mountains',
+	'indepspells',	'research level if independent',
+	'thronekill', 'destroys thrones', Format.Percent,
+	'farthronekill', 'destroys thrones through forts', Format.Percent,
+	'fortkill', 'destroys forts', Format.Percent,
+	'pathboostland', 'pathboost on land',
+	'pathboostuw', 'pathboost underwater',
+	'labpromotion',	'promotion in lab', function(v,o){
+		return v + ' (' + Utils.unitRef(o.id+1) + ')';
+	},	
+	
+	'summon1',	'summons each turn',	function(v,o){
+		return Utils.unitRef(v)+' x 1';
+	},
+	'randomspell', 'casts spells at random', Format.Percent,
+	'deathpower', 'death power',
+	'insanify', 'insanify province',
+	'defector', 'chance to become independent', Format.Percent,
+	'horrordeserter', 'horror deserter', Format.Percent,
+	'poisonarmor',	'poison barbs',
+	'ethtrue',	'true ethereal', Format.Percent
+	
 
 ]);
 var flagorder = Utils.cutDisplayOrder(aliases, formats,
@@ -2091,7 +2125,6 @@ var flagorder = Utils.cutDisplayOrder(aliases, formats,
 	'magicbeing',	'magic being',
 	'inanimate',	'inanimate',
 	'ethereal',	'ethereal',
-	'ethtrue',	'true ethereal',
 	'illusion',	'glamour',
 	'flying',	'flying',
 	'teleport',	'teleporter',
@@ -2134,7 +2167,6 @@ var flagorder = Utils.cutDisplayOrder(aliases, formats,
 	'deathcurse',	'death curse',
 	'float',	'floating',
 	'hpoverflow',	'hp overflow',
-	'poisonarmor',	'poison armor',
 	'spreadchaos',	'spreads chaos',
 	'spreaddeath',	'spreads death',
 	'spreadorder',	'spreads order',
@@ -2153,7 +2185,6 @@ var flagorder = Utils.cutDisplayOrder(aliases, formats,
 	'female',	'female',
 	'stonebeing',	'stone being',
 
-	'barbs',	'poison barbs',
 	'petrify',	'petrifies attackers',
 	'entangle',	'entangles attackers',
 	'eyeloss',	Utils.afflictionRef('Eyeloss')+' on attackers',
@@ -2182,7 +2213,12 @@ var flagorder = Utils.cutDisplayOrder(aliases, formats,
 	'flieswhenblessed', 'flies when blessed',
 	'commaster', 'communion master',
 	'comslave', 'communion slave',
-	'unseen', 'unseen'
+	'unseen', 'unseen',
+	'indepstay',	'stops upon reaching throne',
+	'polymorphimmune',	'polymorph immunity',
+	'noarmormapmovepenalty', 'ignores-armor-mapmove-penalty',
+	'norange', 'does-not-stop-to-fire',
+	'nohof', 'no-hall-of-fame'
 	]);
 var hiddenkeys = Utils.cutDisplayOrder(aliases, formats,
 [
@@ -2241,13 +2277,10 @@ var ignorekeys = {
 	eracodes:1, nations:1, nation:1, nationname:1,
 	summonedby:1, createdby:1,
 
-	horrorsonly:1,
 	triplegod:1,
 	triplegodmag:1,
 	unify:1,
 	triple3mon:1,
-	fortkill:1,
-	thronekill:1,
 	researchwithoutmagic:1,
 	changetargetgenderforseductionandseductionimmune:1,
 	isashah:1,

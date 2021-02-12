@@ -805,6 +805,15 @@ var displayorder = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'rituallevelmodifier', 'ritual level modifier',
 	'callgodbonus', 'call god bonus',
 	'magicresistancebonus', 'magic resistance bonus',
+	
+	'evil', 'evil defenders',
+	'scryrange', 'scrying range',
+	'addtolimitedrecruitment', 'increase allowed limited recruitment units',
+	'ageratereduction', 'age rate reduction', Format.Percent,
+	'dragonlord', 'dragon lord',
+	'corpselord', 'corpse construct bonus',
+	'ivylord', 'vine creature bonus',
+	'maximizeorder', 'order set to maximum'
 
 ]);
 var flagorder = DMI.Utils.cutDisplayOrder(aliases, formats,
