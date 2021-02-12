@@ -1748,7 +1748,7 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'event',	'causes events',	Format.Percent,
 	'reform',	'chance to reform when killed',	Format.Percent,
 
-	'reanimator',	'reanimator',
+	'reanimator',	'passive corpse reanimation',
 	'preanimator',	'priest reanimation',
 	'dreanimator',	'death reanimation',
 	'mummify',	'mummify', Utils.unitRef,
@@ -2092,7 +2092,6 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'randomspell', 'casts spells at random', Format.Percent,
 	'deathpower', 'death power',
 	'insanify', 'insanify province',
-	'reanimator', 'passive corpse reanimation',
 	'defector', 'chance to become independent', Format.Percent,
 	'horrordeserter', 'horror deserter', Format.Percent
 	
