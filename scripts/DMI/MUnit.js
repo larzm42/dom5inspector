@@ -1712,7 +1712,7 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'deathrec',	'death recruit',
 	'heatrec',	'heat recruit', function(v) { return String(v) + ' ';},
 	'coldrec',	'cold recruit', function(v) { return String(v) + ' ';},
-	'enchrebate50', '50% ench rebate', function(v) { return modctx.enchantments_lookup[v].name;},
+	'enchrebate50p', '50% ench rebate', function(v) { return modctx.enchantments_lookup[v].name;},
 
 	'cold',		'cold aura',
 	'heat',		'heat aura',
@@ -1950,6 +1950,9 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'battlesum5',	'summons in battle',	function(v,o){
 		return Utils.unitRef(v)+' x 5/turn';
 	},
+	'batstartsum1d3',	'summons in battle',	function(v,o){
+		return Utils.unitRef(v)+' x 1d3';
+	},
 	'batstartsum1d6',	'summons in battle',	function(v,o){
 		return Utils.unitRef(v)+' x 1d6';
 	},
@@ -2062,11 +2065,12 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'curseluckshield', 'fateweaving',
 	'skirmisher', 'skirmisher',
 	'carcasscollector', 'carcass collector',
-	'graphicsize','graphic size alteration %',
+	'graphicsize','graphic size alteration', Format.Percent,
 	
 	'horrormark',	'horror mark melee attackers',
 	
-	'enchrebate50gold',	'50 gold cheaper when active', function(v) { return modctx.enchantments_lookup[v].name;},
+	'enchrebate50',	'50 gold cheaper when active', function(v) { return modctx.enchantments_lookup[v].name;},
+	'enchrebate10',	'10 gold cheaper when active', function(v) { return modctx.enchantments_lookup[v].name;},
 	'allret',	'all plane returning',
 	'percentpathreduction',	'percentage path reduction',	Format.Percent,
 	'slaverbonus',	'slaver bonus',
@@ -2078,7 +2082,21 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'fortkill', 'destroys forts', Format.Percent,
 	'pathboostland', 'pathboost on land',
 	'pathboostuw', 'pathboost underwater',
-	'labpromotion',	'promotion requires lab'
+	'labpromotion',	'promotion in lab', function(v,o){
+		return v + ' (' + Utils.unitRef(o.id+1) + ')';
+	},	
+	
+	'summon1',	'summons each turn',	function(v,o){
+		return Utils.unitRef(v)+' x 1';
+	},
+	'randomspell', 'casts spells at random', Format.Percent,
+	'deathpower', 'death power',
+	'deathrec', 'death recruitment',
+	'insanify', 'insanify province',
+	'reanimator', 'passive corpse reanimation',
+	'defector', 'chance to become independent', Format.Percent,
+	'horrordeserter', 'horror deserter', Format.Percent
+	
 
 ]);
 var flagorder = Utils.cutDisplayOrder(aliases, formats,
@@ -2201,7 +2219,9 @@ var flagorder = Utils.cutDisplayOrder(aliases, formats,
 	'unseen', 'unseen',
 	'indepstay',	'stops upon reaching throne',
 	'polymorphimmune',	'polymorph immunity',
-	'noarmormapmovepenalty', 'ignores-armor-mapmove-penalty'
+	'noarmormapmovepenalty', 'ignores-armor-mapmove-penalty',
+	'norange', 'does-not-stop-to-fire',
+	'nohof', 'no-hall-of-fame'
 	]);
 var hiddenkeys = Utils.cutDisplayOrder(aliases, formats,
 [
@@ -2260,7 +2280,6 @@ var ignorekeys = {
 	eracodes:1, nations:1, nation:1, nationname:1,
 	summonedby:1, createdby:1,
 
-	horrorsonly:1,
 	triplegod:1,
 	triplegodmag:1,
 	unify:1,
