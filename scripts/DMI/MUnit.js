@@ -2177,7 +2177,6 @@ var flagorder = Utils.cutDisplayOrder(aliases, formats,
 	'stonebeing',	'stone being',
 
 	'petrify',	'petrifies attackers',
-	'entangle',	'entangles attackers',
 	'eyeloss',	Utils.afflictionRef('Eyeloss')+' on attackers',
 
 	'inquisitor',		'inquisitor',
