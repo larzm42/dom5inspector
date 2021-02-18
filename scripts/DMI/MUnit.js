@@ -1774,7 +1774,7 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'berserk',	'berserker',		Format.SignedZero,
 	'invulnerable',	'invulnerability',
 	'damagerev',	'damage reversal', Format.SignedZero,
-	'bonusspells',	'innate spellcaster',
+	'inn',	'innate spellcaster',
 	'bodyguard',	'bodyguard',
 	'pathboost',	'pathboost',
 	'firerange',	'fire ritual range',
@@ -2095,9 +2095,6 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'wintersummon1d3', 'summons every winter',	function(v,o){
 		return Utils.unitRef(v) + ' x 1d3';
 	}
-	
-	
-
 ]);
 var flagorder = Utils.cutDisplayOrder(aliases, formats,
 [
