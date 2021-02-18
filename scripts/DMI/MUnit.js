@@ -2088,7 +2088,7 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'horrordeserter', 'horror deserter', Format.Percent,
 	'poisonarmor',	'poison barbs',
 	'ethtrue',	'true ethereal', Format.Percent,
-	'undying',	'undying', Format.Percent,
+	'undying',	'undying'
 	
 
 ]);
