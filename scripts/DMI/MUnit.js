@@ -2088,7 +2088,14 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'horrordeserter', 'horror deserter', Format.Percent,
 	'poisonarmor',	'poison barbs',
 	'ethtrue',	'true ethereal', Format.Percent,
-	'undying',	'undying'
+	'undying',	'undying',
+	'stygianguide',	'stygianguide', Format.Percent,
+	'moralebonus',	'moralebonus',
+	'uncurableaffliction',	'uncurableaffliction', {4096: 'Blind', 524288: 'Lost an eye', 262144:'Limp'},
+	'wintersummon1d3', 'summons every winter'	function(v,o){
+		return Utils.unitRef(v) + ' x 1d3';
+	}
+	
 	
 
 ]);
