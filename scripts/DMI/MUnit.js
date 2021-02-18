@@ -2092,7 +2092,7 @@ var displayorder_other = Utils.cutDisplayOrder(aliases, formats,
 	'stygianguide',	'stygianguide', Format.Percent,
 	'moralebonus',	'moralebonus',
 	'uncurableaffliction',	'uncurableaffliction', {4096: 'Blind', 524288: 'Lost an eye', 262144:'Limp'},
-	'wintersummon1d3', 'summons every winter'	function(v,o){
+	'wintersummon1d3', 'summons every winter',	function(v,o){
 		return Utils.unitRef(v) + ' x 1d3';
 	}
 	
@@ -2212,7 +2212,8 @@ var flagorder = Utils.cutDisplayOrder(aliases, formats,
 	'polyimmune',	'polymorph immunity',
 	'noarmormapmovepenalty', 'ignores-armor-mapmove-penalty',
 	'norange', 'does-not-stop-to-fire',
-	'nohof', 'no-hall-of-fame'
+	'nohof', 'no-hall-of-fame',
+	'autoblessed', 'autoblessed'
 	]);
 var hiddenkeys = Utils.cutDisplayOrder(aliases, formats,
 [
