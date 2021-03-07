@@ -178,7 +178,7 @@ record_id	effect_number	duration	ritual	object_type	raw_argument	modifiers_mask	
 177	2			Weapon	3	275012124800	0			0			
 178	2			Weapon	11	1099511627777	0			0			
 179	2			Weapon	13	1099511627777	0			0			
-180	2			Weapon	999	274886430850	45			0			
+180	2			Weapon	999	274886431106	45			0			
 181	2			Weapon	10	1099511627843	0			0			
 182	2			Weapon	-3	549892128769	0			0			
 183	2007			Weapon	5	8320	0			4			
@@ -192,7 +192,7 @@ record_id	effect_number	duration	ritual	object_type	raw_argument	modifiers_mask	
 191	2			Weapon	15	1099511627777	0			0			
 192	2			Weapon	15	576	0			1			
 193	2			Weapon	13	274877906947	0			0			
-194	2			Weapon	999	135296	0			0			
+194	2			Weapon	999	135552	0			0			
 195	2			Weapon	17	1099511627779	0			0			
 196	2			Weapon	10	4224	0			5			
 197	2			Weapon	10	13027643520	15			20			
@@ -268,7 +268,7 @@ record_id	effect_number	duration	ritual	object_type	raw_argument	modifiers_mask	
 267	2			Weapon	8	274947112963	0			0			
 268	2			Weapon	9	1099580833793	0			0			
 269	103			Weapon	0	35321811177601	0			1			
-270	103			Weapon	999	35321811177600	0			0			
+270	103			Weapon	999	35321811177856	0			0			
 271	103			Weapon	10	134217792	0			0			
 272	2			Weapon	20	1099511627904	0			0			
 273	2			Weapon	1	136314945	0			0			
@@ -399,7 +399,7 @@ record_id	effect_number	duration	ritual	object_type	raw_argument	modifiers_mask	
 398	2			Weapon	-10	275014221825	0			0			
 399	2			Weapon	2	1099647942657	0			0			
 400	2			Weapon	2	134217729	0			0			
-401	2			Weapon	999	131200	0			0			
+401	2			Weapon	999	131456	0			0			
 402	24			Weapon	6	549755813895	0			0			
 403	11			Weapon	128	142757888	25			0			
 404	2			Weapon	0	1099647942657	0			0			

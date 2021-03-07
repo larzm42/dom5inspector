@@ -920,7 +920,7 @@ record_id	effect_number	duration	ritual	object_type	raw_argument	modifiers_mask	
 918	81		1	Spell	15	8388608	0	0	0	0	0		
 919	1		1	Spell	189	0	0	0	0	0	0		
 920	1		0	Spell	-2	8388608	5	0	0	0	0		
-921	79		1	Spell	1	0	0	0	0	0	0		
+921	79		1	Spell	1	8388608	0	0	0	0	0		
 922	81		1	Spell	30	8388608	0	0	0	0	0		
 923	81		0	Spell	45	8388608	0	0	0	0	0		
 924	81		1	Spell	17	0	0	0	0	0	0		
@@ -1013,7 +1013,7 @@ record_id	effect_number	duration	ritual	object_type	raw_argument	modifiers_mask	
 1011	132		1	Spell	1	576460752840294400	0	0	0	0	0		
 1012	112		1	Spell	20	160	0	0	0	0	0		
 1013	11		0	Spell	17179869184	8540160	30	0	0	1	0		
-1014	2		0	Spell	999	8540288	100	0	0	0	0		
+1014	2		0	Spell	999	8540544	100	0	0	0	0		
 1015	21		1	Spell	473	8388608	0	0	0	0	0		
 1016	80		1	Spell	1	8388608	0	0	0	0	0		
 1017	2	3	0	Spell	6	4160	30	0	0	0	1		
