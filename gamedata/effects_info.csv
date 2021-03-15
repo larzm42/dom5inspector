@@ -1,13 +1,13 @@
 number	name	test
 0	Nothing
-1	Summon
+1	Summon Units
 2	Damage {Wpn: #dt_normal}
 3	Fatigue  {Wpn: #dt_stun}
 4	Cause Fear (Type I)
-7	Poison (Mortal) {Wpn: #dt_poison}
+7	Poison (HP damage) {Wpn: #dt_poison}
 8	Remove Fatigue (?)
 10	Bless/Buff (Type I)
-11	Special Attack
+11	Cause Affliction
 13	Heal
 15	Return Home
 16	Unknown
@@ -21,11 +21,11 @@ number	name	test
 25	Wish
 26	Ritual of Rebirth
 27	Magic Duel
-28	Control/Possess
+28	Enslave
 29	Charm
 30	Dispel
 31	Call Horror
-32	Damage (x2 vs Large Creatures) {Wpn: #dt_large}
+32	Damage (x3 vs Large Creatures) {Wpn: #dt_large}
 33	Damage (x2 vs Small Creatures) {Wpn: #dt_small}
 35	Cross Breeding
 37	Remote Summon (Permanent Units)
@@ -35,13 +35,15 @@ number	name	test
 41	Affect Half of Army in Province
 42	Affect Province with Anonymous Event
 43	Edge of Battlefield Summon
-44	Transformation (?)
+44	Transformation
 46	Poison (Stun)
 48	Remote Site Search
 49	Wind Ride
 50	Remote Summon - Assassination
+52	? Remote Assassination - Unknown Effects
 53	Vengeance of the Dead
 54	Polymorph
+56	Damage, Blind and Disease all except friendly sacreds (The Ark)
 57	Mind Hunt
 62	Manifestation
 63	Remote Fort Construction
@@ -50,10 +52,10 @@ number	name	test
 67	Weaken {Wpn: #dt_weakness}
 68	Summon Animals
 70	Crumble
-72	Life Overload Damage (?)
+72	Stream of Life
 73	Damage (x2 vs Magic Beings) {Wpn: #dt_magic}
-74	Unlife Damage (?) {Wpn: #dt_raise}
-75	Unknown
+74	Unlife Damage {Wpn: #dt_raise}
+75	? Unlife Damage (x2 vs Magic Beings)
 76	Tartarian Gate
 77	Astral Travel
 79	Faery Trod
@@ -66,7 +68,7 @@ number	name	test
 86	Remote Enchant Province - Single turn
 89	Ritual Summon Unique Commander
 90	Stygian Paths
-91	Affect Random Enemies in Province (?)
+91	Fires from Afar
 92	Imprint Souls
 93	Ritual Summon Unique Unit
 94	Beckoning
@@ -79,7 +81,7 @@ number	name	test
 101	Age Caster
 102	Horror Seed
 103	Drain Life {Wpn: #dt_drain}
-104	Drain Life via Weapon (?) {Wpn: #dt_weapondrain}
+104	Partial Life Drain {Wpn: #dt_weapondrain}
 105	Disbelieve
 106	Damage Demon (?)
 107	Damage (x2 vs Demon) {Wpn: #dt_demon}
@@ -91,30 +93,32 @@ number	name	test
 113	Astral Harpoon
 114	Awaken Treelord
 115	Acashic Record
-116	Swallow
+116	Swallow if Smaller
 117	Alchemize Gems
 118	Blood Feast
 119	Remote Summon Stealthy Commander
 120	Unleash Imprisoned Ones
-121	Grab and Swallow
-122	Unknown
-123	Unknown
+121	Swallow (Size 1 and 2 only)
+122	Swallow if Smaller, else Damage
+123	Damage Armor (can destroy magic items)
 125	Mind Vessel
 126	Call Horror
 127	Infernal Breeding
 128	Stun/Fascinate
-129	Unknown
+129	Interrupt Damage
 130	Polymorph Caster
-131	Cure Disease
-132	Pyre of Catharsis
+131	Cure Affliction on Others
+132	Cure Affliction on Self
 133	Time Stop
 134	Chaining Damage
 135	Raven Feast
-136	Unknown
+136	Remote Curse
 137	Summon if not dead
-138	Unknown
-140	Unknown
+138	Damage Armor (no effect on magic items)
+139 Capped Poison Damage
+140	? Enchant until Spring
 141	Call the Birds of Splendour
+142	Salt Damage
 500	Dehydrate
 501	Set Bonus Stat (2)
 502	Set Bonus Stat (3)
@@ -128,7 +132,7 @@ number	name	test
 511	Unknown
 514	Resist Poison
 524	Resist Poison
-599	Immunity against Element (?)
-600	Horror Mark (Type I)
-601	Horror Mark (Type II)
+599	Set Bonus Stat (100)
+600	Horror Mark (gain 1)
+601	Horror Mark (gain 2)
 609	Freeze Area

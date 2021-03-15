@@ -1,26 +1,26 @@
 bit_value	bit_name	test
-1	Averted Fate
-2	Invulnerability
-4	Hasted Action
+1	Twist Fate
+2	Invulnerability 25
+4	Swiftness
 8	Mossbody
-16	Radiant Fear +0 (?, Dominions 3)
-32	Water Shield
-64	Trample (?, Dominions 3)
+16	Radiant Fear +0
+32	+5 Defence if underwater
+64	Trample
 128	Magic Power
 256	<Unknown>
-512	? Item NoFind
-1024	Pretender (?, Dominions 3)
+512	Item Nofind
+1024	Pretender
 2048	Soul Vortex
 4096	Earth Power
 8192	Storm Power
-16384	Charged Body
+16384	Charged Body 20AN
 32768	Fire Shield
 65536	Mistform
 131072	Hell Power
 262144	Fire Power
 524288	Water Power
 1048576	Nature Power
-2097152	<Unknown>
+2097152	Charge bonus was used
 4194304	Twiceborn
 8388608	Returning
 16777216	Mirrored Image
@@ -28,19 +28,19 @@ bit_value	bit_name	test
 67108864	Inner Sun
 134217728	Phoenix Pyre
 268435456	Astral Shield
-536870912	Manikin Regeneration
+536870912	Regeneration 10%
 1073741824	Dragon Mastery
-2147483648	<Unknown>
+2147483648	Conservative gem usage enabled
 4294967296	Fool's Luck
-8589934592	<Unknown>
-17179869184	Stygian Skin (?)
+8589934592	Fool's Luck will block next attack
+17179869184	Invulnerability 15
 34359738368	<Unknown>
 68719476736	Reinvigoration
-137438953472	<Unknown>
-274877906944	<Unknown>
-549755813888	<Unknown>
-1099511627776	<Unknown>
-2199023255552	<Unknown>
+137438953472	Charge Body 10AN
+274877906944	Blood Surge
+549755813888	Awaken Tattoos
+1099511627776	Invulnerability 15 (wolves only)
+2199023255552	Rebirth enchantment
 4398046511104	<Unknown>
 8796093022208	<Unknown>
 17592186044416	<Unknown>
