@@ -31,9 +31,9 @@ bit_value	bit_name	test
 536870912	No effect on Lifeless {Wpn: #inanimateimmune}
 1073741824	Bloodletting (?) {Wpn: #bloodletting}
 2147483648	Damage Bonus on 1st Attack {Wpn: #charge}
-4294967296	Unknown Modifier {Wpn: #4294967296}
+4294967296	Beam/Breath {Wpn: #beam}
 8589934592	Used in melee too {#usedinmelee}
-17179869184	Unknown Modifier {Wpn: #17179869184}
+17179869184	Lingering {Wpn: #linger}
 34359738368	Unknown Modifier {Wpn: #heavyweapon}
 68719476736	Higher charge bonus cap {Wpn: #68719476736}
 137438953472	Cannot be used for repelling {Wpn: #norepel}
