@@ -7,7 +7,7 @@ bit_value	bit_name	test
 32	Heat/Fire {Wpn: #fire}
 64	Armor Piercing {Wpn: #armorpiercing}
 128	Armor Negating {Wpn: #armornegating}
-256	Unknown Modifier {Wpn: #256}
+256	Soul Slaying {Wpn: #256}
 512	Chill/Cold {Wpn: #cold}
 1024	Unknown Modifier {Wpn: #1024}
 2048	Shock {Wpn: #shock}
@@ -28,13 +28,13 @@ bit_value	bit_name	test
 67108864	Iron Attack {Wpn: #ironweapon}
 134217728	Intrinsic Weapon {Wpn: #bonus}
 268435456	No effect on Demons {Wpn: #demonimmune}
-536870912	No effect on Lifeless {Wpn: #inanimateimmune}
-1073741824	Bloodletting (?) {Wpn: #bloodletting}
+536870912	No effect on Inanimate {Wpn: #inanimateimmune}
+1073741824	Internally added to all spells {Wpn: #bloodletting}
 2147483648	Damage Bonus on 1st Attack {Wpn: #charge}
 4294967296	Beam/Breath {Wpn: #beam}
 8589934592	Used in melee too {#usedinmelee}
 17179869184	50% chance to be used in melee too {Wpn: #range050}
-34359738368	Unknown Modifier {Wpn: #heavyweapon}
+34359738368	Bypasses mirror image, internally added to spells with aoe 1+ {Wpn: #heavyweapon}
 68719476736	Higher charge bonus cap {Wpn: #68719476736}
 137438953472	Cannot be used for repelling {Wpn: #norepel}
 274877906944	Piercing Damage {Wpn: #pierce}
@@ -46,19 +46,19 @@ bit_value	bit_name	test
 17592186044416	Magic Resistance Hard to Negate {Wpn: #hardmrneg}
 35184372088832	Attacks cannot be repelled {Wpn: #unrepel}
 70368744177664	No Effect on Fliers/Floaters {Wpn: #flyingimmune}
-140737488355328	No Effect on Constructs {Wpn: #constructimmune}
+140737488355328	Does not affect user unless hitting x% of battlefield {Wpn: #140737488355328}
 281474976710656	Affects Animals Only {Wpn: #animalonly}
 562949953421312	More likely to hit head {#hithead}
-1125899906842624	Ritual of Five Gates {Wpn: #fivegates}
-2251799813685248	Unknown Modifier {Wpn: #2251799813685248}
+1125899906842624	? Ritual of Five Gates {Wpn: #fivegates}
+2251799813685248	? Add fire particles to weapon projectiles {Wpn: #2251799813685248}
 4503599627370496	Creatures with Void Sanity immune {Wpn: #voidsanityimmune}
 9007199254740992	Ranged Special Attack {Wpn: #rangespec}
-18014398509481984	Unknown Modifier {Wpn: #18014398509481984}
+18014398509481984	"True" Damage {Wpn: #18014398509481984}
 36028797018963968	Internal Damage {Wpn: #internal}
-72057594037927936	Unknown Modifier {Wpn: #72057594037927936}
-144115188075855872	Unknown Modifier {Wpn: #144115188075855872}
+72057594037927936	Magic Damage {Wpn: #dt_magic}
+144115188075855872	Projectiles fly along ground {Wpn: #144115188075855872}
 288230376151711744	Half Strength added {Wpn: #halfstradded}
 576460752303423488	Extra Effect {Wpn: #extraeffect}
 1152921504606846976	Extra Effect on Damage {Wpn: #extraeffectondmg}
 2305843009213693952	MR check Half Damage {Wpn: #mrcheckhalfdmg}
-4611686018427387904	Unknown Modifier {Wpn: #4611686018427387904}
+4611686018427387904	One Third Strength added {Wpn: #bowstr}
