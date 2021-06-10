@@ -7,7 +7,7 @@ bit_value	bit_name	test
 32	Heat/Fire {Wpn: #fire}
 64	Armor Piercing {Wpn: #armorpiercing}
 128	Armor Negating {Wpn: #armornegating}
-256	Soul Slaying {Wpn: #256}
+256	Soul Slaying {Wpn: #soulslaying}
 512	Chill/Cold {Wpn: #cold}
 1024	Unknown Modifier {Wpn: #1024}
 2048	Shock {Wpn: #shock}
