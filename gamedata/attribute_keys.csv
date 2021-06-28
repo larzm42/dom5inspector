@@ -154,7 +154,7 @@ number	name	test
 324	<Unknown Attribute>
 325	<Unknown Attribute>
 404	Cannot be cast by mindless
-405	<Unknown Attribute>
+405	Only affects creatures with astral magic
 426	<Unknown Attribute>
 477	Increase province magic scale by 3
 482	Not Effected by Fire Bless
@@ -166,7 +166,7 @@ number	name	test
 602	Restricted to Realm
 603	<Unknown Attribute>
 611	Weapon affected by penetration bonus
-617	<Unknown Attribute>
+617	Number of chain lightning bounces {Spl: #maxbounces}
 619	<Unknown Attribute>
 657	<Unknown Attribute>
 700	Map Range {Spl: #provrange}
@@ -182,12 +182,12 @@ number	name	test
 710	Does not affect floating commanders
 711	Site Required
 713	Only cast at coast {Spl: #onlycoastsrc}
-715	<Unknown Attribute>
+715	Caster must be flying
 716	Remote summon commander {Spl: #farsumcom}
 717	Record global enchantment cast location
 718	Requires specific unit ability to cast
 719	Specific unit ability prevents casting
-720	<Unknown Attribute>
+720	Projectile falls vertically
 721	Sound file played on projectile impact
 722	God Path Restriction {Spl: #godpathspell}
 723	Casting Time {Spl: #casttime}
@@ -203,8 +203,8 @@ number	name	test
 733	Sets current province as home {Spl: #sethome}
 734	Curses random commander in caster's province
 735	AI will not cast unless path level lower than {Spl: #aibadlvl}
-736	<Unknown Attribute>
-737	<Unknown Attribute>
+736	Cannot be cast on unit with effect
+737	Opens target prompt, can only target a unit of type
 738	Only target friendly provinces {Spl: #onlyowndst}
 739	Do not anticipate target's movement regardless of flysprite
 740	<Unknown Attribute>
@@ -212,7 +212,7 @@ number	name	test
 742	AInocast
 743	<Unknown Attribute>
 744	<Unknown Attribute>
-745	<Unknown Attribute>
+745	Casting AI will not cast against a very small number of enemies
 746	Requires enchantment
 747	Cost is multiplied by size
 748	Percent to horror mark caster
