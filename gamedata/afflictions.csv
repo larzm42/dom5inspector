@@ -9,8 +9,8 @@ bit_value	bit_name	test
 128	rage
 256	decay
 512	burn
-1024	destroyed armor
-2048	rusty armor
+1024	sleep
+2048	Unknown
 4096	blind
 8192	bleed
 16384	earth grip
@@ -41,7 +41,7 @@ bit_value	bit_name	test
 549755813888	tainted presence
 1099511627776	Unknown - 1 health loss per round with 20% per turn to end; undead take double and it never ends
 2199023255552	Rusted equipment
-4398046511104	Unknown (persists after battle)
+4398046511104	Damaged weapon
 8796093022208	Damaged armor
 17592186044416	Broken armor
 35184372088832	Damaged helmet

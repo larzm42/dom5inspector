@@ -212,7 +212,7 @@ number	name	test
 742	AInocast
 743	<Unknown Attribute>
 744	<Unknown Attribute>
-745	Casting AI will not cast against a very small number of enemies
+745	Will not be cast against small numbers of enemies
 746	Requires enchantment
 747	Cost is multiplied by size
 748	Percent to horror mark caster
