@@ -988,6 +988,13 @@ MSpell.bitfieldValues = function(bitfield, masks_dict) {
 
 function renderEffect(o, effects) {
 	var res = MSpell.effectlookup[effects.effect_number] || MSpell.effectlookup['unknown'];
+	if (effects.effect_number >= 500 && effects.effect_number <= 699)
+	{
+		if (modctx.unit_effects_lookup[effects.raw_argument])
+		{
+			res = modctx.unit_effects_lookup[effects.raw_argument]
+		}
+	}
 	//if its a function then run it
 	if (typeof(res) == 'function')	res = res(o, effects);
 	return '<tr><th width="10px">'+modctx.effects_info_lookup[effects.effect_number].name.replace(/{(.*?)}|(\(Type.*?\))|(\(\?\))/g, "").trim()+':</th><td>'+res+'</td></tr>'
