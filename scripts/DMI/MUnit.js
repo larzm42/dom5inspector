@@ -10,6 +10,7 @@ var modctx = DMI.modctx;
 var modconstants = DMI.modconstants;
 
 MUnit.realmNames = {
+		0:	'None',
 		1: 	'North',
 		2: 	'Celtic',
 		3: 	'Mediterranean',
