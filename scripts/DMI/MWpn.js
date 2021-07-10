@@ -49,6 +49,15 @@ MWpn.prepareData_PostMod = function() {
 				}
 			} else if (effects.effect_number == "108") {
 				o.dmg = modctx.other_planes_lookup[parseInt(effects.raw_argument)].name;
+			} else if (effects.effect_number >= 500 and effects.effect_number <= 699)
+				if (modctx.unit_effects_lookup[effects.raw_argument])
+				{
+					o.dmg = modctx.effects_info_lookup[effects.effect_number].name.replace(/{(.*?)}/g, "") + ": " + modctx.unit_effects_lookup[effects.raw_argument].name.replace(/{(.*?)}/g, "")
+				}
+				else
+				{
+					o.dmg = modctx.effects_info_lookup[effects.effect_number].name.replace(/{(.*?)}/g, "") + ": Unknown"
+				}
 			} else {
 				if (modctx.effects_info_lookup[effects.effect_number]) {
 					o.dmg = effects.raw_argument + " " + modctx.effects_info_lookup[effects.effect_number].name.replace(/{(.*?)}/g, "");
