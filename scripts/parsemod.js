@@ -1324,7 +1324,22 @@ var modctx = DMI.modctx = {
 		invulnerable:	_num,
 		randomspell:	_num,
 		reclimit:		_num,
-		homerealm: 		function(c,a,t){ modctx[t]['realms'].push(argref(a)); },
+		homerealm: 		function(c,a,t){
+			var o = modctx[t];
+			if (!Utils.is(o.realms)) {
+				o.realms = [];
+			}
+			if (argnum(a) == 0)
+			{
+				// 0 clears realms
+				o.realms = []
+			}
+			else
+			{
+				modctx[t]['realms'].push(argnum(a)); 	
+			}
+		},
+		
 		giftofwater:	_num,
 		indepmove:		_num,
 		patience:		_num,
