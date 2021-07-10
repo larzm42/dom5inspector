@@ -987,13 +987,6 @@ MSpell.bitfieldValues = function(bitfield, masks_dict) {
 }
 
 function renderEffect(o, effects) {
-	// It seems that modded spells (without a copyspell) do not get a raw_argument provided
-	// but they DO get damage defined, so copy it over if appropriate
-	// failure to do this resulted in edited damage values from copyspells still displaying the default spell value despite having been overridden
-	if (effects.raw_argument != effects.damage)
-	{
-		effects.raw_argument = effects.damage;
-	}
 	var res = MSpell.effectlookup[effects.effect_number] || MSpell.effectlookup['unknown'];
 	if (effects.effect_number >= 500 && effects.effect_number <= 699)
 	{
@@ -1082,31 +1075,9 @@ MSpell.getEffect = function(spell) {
 			effect.ritual = 0;
 		}
 	}
-	/*
-	 * Stun effects weren't showing up, so added the effect here.
-	 * Not sure if any more are missing or what the effect of just removing
-	 * this condition would be.
-	 */
-	if (effect.effect_number == "1" ||
-		effect.effect_number == "3" ||
-        effect.effect_number == "10" ||
-        effect.effect_number == "21" ||
-        effect.effect_number == "23" ||
-		effect.effect_number == "26" ||
-		effect.effect_number == "31" ||
-		effect.effect_number == "37" ||
-		effect.effect_number == "38" ||
-		effect.effect_number == "43" ||
-		effect.effect_number == "50" ||
-		effect.effect_number == "81" ||
-		effect.effect_number == "82" ||
-		effect.effect_number == "93" ||
-		effect.effect_number == "119") {
-		if (spell.damagemon) {
-			effect.raw_argument = spell.damagemon.toLowerCase();
-		} else if (spell.damage) {
-			effect.raw_argument = spell.damage;
-		}
+	effect.raw_argument = spell.damage;
+	if (spell.damagemon) {
+		effect.raw_argument = spell.damagemon.toLowerCase();
 	}
 
 	// Need to add new enchantments to the list
