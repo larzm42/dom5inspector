@@ -987,16 +987,19 @@ MSpell.bitfieldValues = function(bitfield, masks_dict) {
 }
 
 function renderEffect(o, effects) {
+	// It seems that modded spells (without a copyspell) do not get a raw_argument provided
+	// but they DO get damage defined, so copy it over if appropriate
+	// failure to do this resulted in edited damage values from copyspells still displaying the default spell value despite having been overridden
+	if (effects.raw_argument != effects.damage)
+	{
+		effects.raw_argument = effects.damage;
+	}
 	var res = MSpell.effectlookup[effects.effect_number] || MSpell.effectlookup['unknown'];
 	if (effects.effect_number >= 500 && effects.effect_number <= 699)
 	{
 		if (modctx.unit_effects_lookup[effects.raw_argument])
 		{
 			res = modctx.unit_effects_lookup[effects.raw_argument].name
-		}
-		else if (modctx.unit_effects_lookup[effects.damage])
-		{
-			res = modctx.unit_effects_lookup[effects.damage].name
 		}
 	}
 	//if its a function then run it
