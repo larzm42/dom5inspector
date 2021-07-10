@@ -257,7 +257,7 @@ MSpell.prepareData_PostMod = function() {
 		}
 		
 		// casting time
-		if (o.type != 'Ritual') {
+		if (o.type != 'Ritual' && !o.casttime) {
 			o.casttime = 100;
 			if (o.gemcost) {
 				if (parseInt(o.gemcost) == 1) {
