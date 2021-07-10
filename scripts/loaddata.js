@@ -412,6 +412,7 @@ function downloadData( g_data ) {
            'gamedata/effects_spells.csv'+versionCode,
            'gamedata/effect_modifier_bits.csv'+versionCode,
            'gamedata/effects_info.csv'+versionCode,
+           'gamedata/unit_effects.csv'+versionCode,
            'gamedata/attribute_keys.csv'+versionCode,
 //           'gamedata/attributes.csv'+versionCode,
            'gamedata/attributes_by_spell.csv'+versionCode,
