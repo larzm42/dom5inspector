@@ -1075,7 +1075,9 @@ MSpell.getEffect = function(spell) {
 			effect.ritual = 0;
 		}
 	}
-	effect.raw_argument = spell.damage;
+	if (spell.damage) {
+		effect.raw_argument = spell.damage;
+	}
 	if (spell.damagemon) {
 		effect.raw_argument = spell.damagemon.toLowerCase();
 	}
