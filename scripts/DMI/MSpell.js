@@ -992,7 +992,11 @@ function renderEffect(o, effects) {
 	{
 		if (modctx.unit_effects_lookup[effects.raw_argument])
 		{
-			res = modctx.unit_effects_lookup[effects.raw_argument]
+			res = modctx.unit_effects_lookup[effects.raw_argument].name
+		}
+		else if (modctx.unit_effects_lookup[effects.damage])
+		{
+			res = modctx.unit_effects_lookup[effects.damage].name
 		}
 	}
 	//if its a function then run it
