@@ -413,7 +413,9 @@ MWpn.bitfieldValues = function(bitfield, masks_dict, o) {
 			magic = false;
 		} else if (values[value].indexOf("Adds Strength of Wielder") != -1) {
 			nostr = false;
-		} else {
+		} else if (values[value].indexOf("Half Strength added") != -1) {
+			nostr = false;
+		}	else {
 			var flag = "none";
 			var flagIndex = values[value].indexOf("Wpn: #");
 			if (flagIndex != -1) {

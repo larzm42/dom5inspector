@@ -46,7 +46,7 @@ bit_value	bit_name	test
 17592186044416	Magic Resistance Hard to Negate {Wpn: #hardmrneg}
 35184372088832	Attacks cannot be repelled {Wpn: #unrepel}
 70368744177664	No Effect on Fliers/Floaters {Wpn: #flyingimmune}
-140737488355328	Does not affect user unless hitting x% of battlefield {Wpn: #140737488355328}
+140737488355328	Does not affect user unless hitting x% of battlefield {Wpn: #userimmune}
 281474976710656	Affects Animals Only {Wpn: #animalonly}
 562949953421312	More likely to hit head {#hithead}
 1125899906842624	? Ritual of Five Gates {Wpn: #fivegates}
@@ -57,7 +57,7 @@ bit_value	bit_name	test
 36028797018963968	Internal Damage {Wpn: #internal}
 72057594037927936	Magic Damage {Wpn: #dt_magic}
 144115188075855872	Projectiles fly along ground {Wpn: #144115188075855872}
-288230376151711744	Half Strength added {Wpn: #halfstradded}
+288230376151711744	Half Strength added {Wpn: #halfstr}
 576460752303423488	Extra Effect {Wpn: #extraeffect}
 1152921504606846976	Extra Effect on Damage {Wpn: #extraeffectondmg}
 2305843009213693952	MR check Half Damage {Wpn: #mrcheckhalfdmg}
