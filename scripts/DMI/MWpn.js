@@ -413,9 +413,7 @@ MWpn.bitfieldValues = function(bitfield, masks_dict, o) {
 			magic = false;
 		} else if (values[value].indexOf("Adds Strength of Wielder") != -1) {
 			nostr = false;
-		} else if (values[value].indexOf("Half Strength added") != -1) {
-			nostr = false;
-		}	else {
+		} else {
 			var flag = "none";
 			var flagIndex = values[value].indexOf("Wpn: #");
 			if (flagIndex != -1) {
@@ -431,8 +429,10 @@ MWpn.bitfieldValues = function(bitfield, masks_dict, o) {
 	if (nostr == true) {
 		if ((o.ammo && !o.aoe) || o.bowstr) {
 			newValues.push(["1/3 strength added to damage", "bowstr"]);
+		} else if (o.halfstr) {
+			newValues.push(["1/2 strength added to damage", "halfstr"]);
 		} else {
-			newValues.push(["Strength not added to damage", "nostr"]);
+		newValues.push(["Strength not added to damage", "nostr"]);
 		}
 	}
 	return newValues;
