@@ -427,12 +427,8 @@ MWpn.bitfieldValues = function(bitfield, masks_dict, o) {
 		newValues.push(["Magic weapon", "magic"]);
 	}
 	if (nostr == true) {
-		if ((o.ammo && !o.aoe) || o.bowstr) {
-			newValues.push(["1/3 strength added to damage", "bowstr"]);
-		} else if (o.halfstr) {
-			newValues.push(["1/2 strength added to damage", "halfstr"]);
-		} else {
-		newValues.push(["Strength not added to damage", "nostr"]);
+		if (!o.halfstr && !o.bowstr) {
+			newValues.push(["Strength not added to damage", "nostr"]);
 		}
 	}
 	return newValues;
