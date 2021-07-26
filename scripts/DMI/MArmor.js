@@ -15,7 +15,7 @@ var modconstants = DMI.modconstants;
 
 MArmor.initArmor = function(o) {
 	o.type = 5;
-	o.def = 10;
+	o.def = 0;
 	o.used_by = [];
 }
 
@@ -66,7 +66,15 @@ MArmor.prepareData_PostMod = function() {
 		}
 
 		if (o.prot) {
-			o.protbody = o.prot;
+			if (o.type == 4) {
+				o.protshield = o.prot;
+			} else if (o.type == 6) {
+				o.prothead = o.prot;
+			} else if (o.type == 8) {
+				o.general = o.prot;
+			} else {
+				o.protbody = o.prot;
+			}
 		}
 
 		if (o.general) {
