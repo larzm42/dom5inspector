@@ -175,7 +175,6 @@ var aliases = {};
 var formats = {};
 var displayorder = DMI.Utils.cutDisplayOrder(aliases, formats,
 [
-	'prot',		'basic protection',
 	'protbody',	'protection, body',
 	'prothead',	'protection, head',
 	'protshield',	'protection, shield',
