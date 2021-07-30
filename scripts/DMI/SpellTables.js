@@ -242,6 +242,7 @@ MSpell.effectlookup = {
 		},
 		13:	damage,
 		15:	'teleports to capital',
+		17: damage,
 		19:	'teleport',
 		20:	damage,
 		21:	function(spell, effect) {
@@ -258,12 +259,14 @@ MSpell.effectlookup = {
 			return show_summon(effect.raw_argument, spell.effects_count, spell.pathlevel1);
 		},
 		27:	'magic duel',
-		28:	'control',
-		29:	'take permanent control',
+		28:	'lose commander status',
+		29:	'retain commander status',
 		30:	damage,
 		31:	function(spell, effect) {
 			return show_summon(effect.raw_argument, spell.effects_count, spell.pathlevel1);
 		},
+		32:	damage,
+		33:	damage,
 		35:	function(spell, effect) {
 			return spellBonus(spell.effects_count, spell.pathlevel1);
 		},
@@ -307,7 +310,7 @@ MSpell.effectlookup = {
 					'invalid damage value': 		effect.raw_argument
 				};
 		},
-		49:	damage_untested,
+		49:	"Wind Ride",
 		50:	function(spell, effect) {
 			return show_summon(effect.raw_argument, spell.effects_count, spell.pathlevel1);
 		},
@@ -328,7 +331,7 @@ MSpell.effectlookup = {
 		72:	damage,
 		73:	damage,
 		74:	damage,
-		75:	damage_untested,
+		75:	damage,
 		76:	function (spell, effect) {
 			return list_summons(spell, effect);
 		},
@@ -375,7 +378,7 @@ MSpell.effectlookup = {
 		96:	damage,
 		97:	damage,
 		98:	damage_untested,
-		99:	'Petrify',
+		99:	damage,
 		100:	function (spell, effect) {
 			return list_summons(spell, effect);
 		},
@@ -408,21 +411,16 @@ MSpell.effectlookup = {
 		130:	function(spell, effect) {
 			return show_summon(effect.raw_argument);
 		},
+		134:	damage,
 		137:	function(spell, effect) {
 			return show_summon(effect.raw_argument, spell.effects_count, spell.pathlevel1);
 		},
+		138:	damage,
+		139:	damage,
 		141:	function(spell, effect) {
 			return show_summon(effect.raw_argument, 2, spell.pathlevel1);
 		},
-		500:	damage_untested,
-		504:	damage_untested,
-		509:	damage_untested,
-		514:	damage_untested,
-		524:	damage_untested,
-		599:	damage_untested,
-		600:	damage_untested,
-		601:	damage_untested,
-		609:	damage_untested
+		142:	damage,
 }
 
 

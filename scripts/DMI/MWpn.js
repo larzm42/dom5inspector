@@ -49,6 +49,15 @@ MWpn.prepareData_PostMod = function() {
 				}
 			} else if (effects.effect_number == "108") {
 				o.dmg = modctx.other_planes_lookup[parseInt(effects.raw_argument)].name;
+			} else if (parseInt(effects.effect_number) >= 500 && parseInt(effects.effect_number) <= 699) {
+				if (modctx.unit_effects_lookup[effects.raw_argument])
+				{
+					o.dmg = modctx.effects_info_lookup[effects.effect_number].name.replace(/{(.*?)}/g, "") + ": " + modctx.unit_effects_lookup[effects.raw_argument].name.replace(/{(.*?)}/g, "")
+				}
+				else
+				{
+					o.dmg = modctx.effects_info_lookup[effects.effect_number].name.replace(/{(.*?)}/g, "") + ": Unknown"
+				}
 			} else {
 				if (modctx.effects_info_lookup[effects.effect_number]) {
 					o.dmg = effects.raw_argument + " " + modctx.effects_info_lookup[effects.effect_number].name.replace(/{(.*?)}/g, "");
@@ -418,9 +427,7 @@ MWpn.bitfieldValues = function(bitfield, masks_dict, o) {
 		newValues.push(["Magic weapon", "magic"]);
 	}
 	if (nostr == true) {
-		if ((o.ammo && !o.aoe) || o.bowstr) {
-			newValues.push(["1/3 strength added to damage", "bowstr"]);
-		} else {
+		if (!o.halfstr && !o.bowstr) {
 			newValues.push(["Strength not added to damage", "nostr"]);
 		}
 	}

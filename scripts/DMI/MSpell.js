@@ -257,7 +257,7 @@ MSpell.prepareData_PostMod = function() {
 		}
 		
 		// casting time
-		if (o.type != 'Ritual') {
+		if (o.type != 'Ritual' && !o.casttime) {
 			o.casttime = 100;
 			if (o.gemcost) {
 				if (parseInt(o.gemcost) == 1) {
@@ -772,6 +772,7 @@ var displayorder = Utils.cutDisplayOrder(aliases, formats,
 	'rng_bat',	'range', 		function(v,o){ return o.rngplus ? v+'+' : v; },
 	'provrange',	'range', 		function(v,o){ return o.provrange == 1 ? v+' province' : v+' provinces' },
 	'casttime', 'casting time', Format.Percent,
+	'aispellmod', 'ai score modification', Format.Percent,
 	'ainocast', 'ai no cast',
 	'aoe_s',	'area of effect', 	MSpell.formatAoe,
 	'nreff', 	'number of effects',	function(v,o){ return o.effplus ? v+'+' : v; },
@@ -988,6 +989,13 @@ MSpell.bitfieldValues = function(bitfield, masks_dict) {
 
 function renderEffect(o, effects) {
 	var res = MSpell.effectlookup[effects.effect_number] || MSpell.effectlookup['unknown'];
+	if (effects.effect_number >= 500 && effects.effect_number <= 699)
+	{
+		if (modctx.unit_effects_lookup[effects.raw_argument])
+		{
+			res = modctx.unit_effects_lookup[effects.raw_argument].name
+		}
+	}
 	//if its a function then run it
 	if (typeof(res) == 'function')	res = res(o, effects);
 	return '<tr><th width="10px">'+modctx.effects_info_lookup[effects.effect_number].name.replace(/{(.*?)}|(\(Type.*?\))|(\(\?\))/g, "").trim()+':</th><td>'+res+'</td></tr>'
@@ -1068,31 +1076,11 @@ MSpell.getEffect = function(spell) {
 			effect.ritual = 0;
 		}
 	}
-	/*
-	 * Stun effects weren't showing up, so added the effect here.
-	 * Not sure if any more are missing or what the effect of just removing
-	 * this condition would be.
-	 */
-	if (effect.effect_number == "1" ||
-		effect.effect_number == "3" ||
-        effect.effect_number == "10" ||
-        effect.effect_number == "21" ||
-        effect.effect_number == "23" ||
-		effect.effect_number == "26" ||
-		effect.effect_number == "31" ||
-		effect.effect_number == "37" ||
-		effect.effect_number == "38" ||
-		effect.effect_number == "43" ||
-		effect.effect_number == "50" ||
-		effect.effect_number == "81" ||
-		effect.effect_number == "82" ||
-		effect.effect_number == "93" ||
-		effect.effect_number == "119") {
-		if (spell.damagemon) {
-			effect.raw_argument = spell.damagemon.toLowerCase();
-		} else if (spell.damage) {
-			effect.raw_argument = spell.damage;
-		}
+	if (spell.damage) {
+		effect.raw_argument = spell.damage;
+	}
+	if (spell.damagemon) {
+		effect.raw_argument = spell.damagemon.toLowerCase();
 	}
 
 	// Need to add new enchantments to the list

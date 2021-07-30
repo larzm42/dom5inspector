@@ -412,6 +412,7 @@ function downloadData( g_data ) {
            'gamedata/effects_spells.csv'+versionCode,
            'gamedata/effect_modifier_bits.csv'+versionCode,
            'gamedata/effects_info.csv'+versionCode,
+           'gamedata/unit_effects.csv'+versionCode,
            'gamedata/attribute_keys.csv'+versionCode,
 //           'gamedata/attributes.csv'+versionCode,
            'gamedata/attributes_by_spell.csv'+versionCode,
@@ -725,6 +726,11 @@ function parseData( g_data ) {
 			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/nametypes.csv'));
 			modctx.nametypedata = parseTextToTable(data);
 			modctx.nametypelookup = createLookup(modctx.nametypedata, 'id');
+			
+			var data = g_data.server_data['gamedata/unit_effects.csv'+versionCode];
+			if (!data) throw(DMI.Utils.error('ERROR LOADING: gamedata/unit_effects.csv'));
+			modctx.unit_effects = parseTextToTable(data);
+			modctx.unit_effects_lookup = createLookup(modctx.unit_effects, 'number');
 
 			//before applying mod (order is important!)
 			DMI.MWpn.prepareData_PreMod();
