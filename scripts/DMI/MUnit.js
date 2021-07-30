@@ -2210,7 +2210,8 @@ var flagorder = Utils.cutDisplayOrder(aliases, formats,
 	'noarmormapmovepenalty', 'ignores-armor-mapmove-penalty',
 	'norange', 'does-not-stop-to-fire',
 	'nohof', 'no-hall-of-fame',
-	'autoblessed', 'autoblessed'
+	'autoblessed', 'autoblessed',
+	'almostundead', 'part undead/demon'
 	]);
 var hiddenkeys = Utils.cutDisplayOrder(aliases, formats,
 [
