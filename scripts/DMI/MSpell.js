@@ -175,7 +175,7 @@ MSpell.prepareData_PostMod = function() {
 					o.aoe_s = parseInt(o.aoe_s) + (parseInt(o.pathlevel1) * parseInt(area_per_level));
 					// In the case of modded spells that #copyspell a x% battlefield spell, but then overwrite aoe_s...
 					// they should not retain the x% battlefield 
-					if ((o.aoe_s < 600 || o.aoe_s > 700) && o.area_battlefield_pct)
+					if ((o.aoe_s < 600 || o.aoe_s > 700) && o.area_battlefield_pct) {
 						delete o.area_battlefield_pct;
 					}
 					o.aoe_s = o.aoe_s + "+ [" + area_per_level + "/lvl]";
