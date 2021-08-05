@@ -1116,7 +1116,7 @@ MSpell.getEffect = function(spell) {
 		}
 		// In the case of modded spells that #copyspell a x% battlefield spell, but then overwrite aoe_s...
 		// they should not retain the x% battlefield 
-		if ((effect.aoe < 600 || effect.aoe > 700) && effect.area_battlefield_pct) {
+		if ((spell.aoe < 600 || spell.aoe > 700) && effect.area_battlefield_pct) {
 			delete effect.area_battlefield_pct;
 		}
 	}
