@@ -1114,6 +1114,11 @@ MSpell.getEffect = function(spell) {
 		if (parseInt(spell.aoe) > 999) {
 			effect.area_per_level = Math.round(parseInt(spell.aoe) / 1000);
 		}
+		// In the case of modded spells that #copyspell a x% battlefield spell, but then overwrite aoe_s...
+		// they should not retain the x% battlefield 
+		if ((spell.aoe < 600 || spell.aoe > 700) && effect.area_battlefield_pct) {
+			delete effect.area_battlefield_pct;
+		}
 	}
 
 	return effect;
