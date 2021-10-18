@@ -409,7 +409,7 @@ MWpn.bitfieldValues = function(bitfield, masks_dict, o) {
 	var newValues=[];
 	var values = bitfields.bitfieldValues(bitfield, masks_dict);
 	for (var value in values) {
-		if (values[value].indexOf("Hard to Hit Ethereal") != -1) {
+		if (values[value].indexOf("Nonmagical") != -1) {
 			magic = false;
 		} else if (values[value].indexOf("Adds Strength of Wielder") != -1) {
 			nostr = false;
