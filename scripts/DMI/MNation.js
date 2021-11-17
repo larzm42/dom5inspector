@@ -400,6 +400,7 @@ MNation.prepareData_PostMod = function() {
 							other.nationname = 'various ('+ncount+')';
 					}
 				}
+				if ( spell == spell.nextspell ) break; // avoid infinite loop
 			} while (spell = spell.nextspell);
 		}
 
