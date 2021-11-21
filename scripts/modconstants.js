@@ -58,7 +58,9 @@ DMI.propertyAliases =  {
 	nomind: 'mind',
 
 	//items
-	quick: 'quickness'
+	quick: 'quickness',
+	reanimh: 'reanimH',
+	reanimd: 'reanimD'
 }
 
 			
