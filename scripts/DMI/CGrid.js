@@ -188,7 +188,7 @@ DMI.CGrid = Utils.Class(function( domname, data, columns, options) {
 		//clear inputs and select default options
 		$panel.find(" input[type=text]").val('').saveState();
 		$panel.find(" textarea").val('').saveState();
-		$panel.find(" input[type=checkbox]:checked").prop("checked", false).saveState();
+		$panel.find(" input[type=checkbox]:checked:not(#loadEvents)").prop("checked", false).saveState();
 		$panel.find(" option.default").attr('selected', true).parent().saveState();
 		$(this).hide();
 
