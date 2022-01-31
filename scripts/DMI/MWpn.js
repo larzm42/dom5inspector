@@ -48,7 +48,11 @@ MWpn.prepareData_PostMod = function() {
 					}
 				}
 			} else if (effects.effect_number == "108") {
-				o.dmg = modctx.other_planes_lookup[parseInt(effects.raw_argument)].name;
+				if ( typeof modctx.other_planes_lookup[parseInt(effects.raw_argument)] !== 'undefined' ) {
+					o.dmg = modctx.other_planes_lookup[parseInt(effects.raw_argument)].name;
+				} else {
+					o.dmg = "Unknown plane " + effects.raw_argument;
+				}
 			} else if (parseInt(effects.effect_number) >= 500 && parseInt(effects.effect_number) <= 699) {
 				if (modctx.unit_effects_lookup[effects.raw_argument])
 				{
