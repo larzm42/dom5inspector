@@ -258,11 +258,36 @@ MUnit.prepareData_PostMod = function() {
 		if (!o.mapmove) {
 			o.mapmove = 14;
 		} else {
-			if (o.flying && parseInt(o.mapmove) < 10) {
-				o.mapmove = parseInt(o.mapmove)*6 + 10;
-			} else {
-				o.mapmove = parseInt(o.mapmove) + 2;
+			// mapmove formula extracted from 5.54 binary
+			var mm = parseInt(o.mapmove);
+			if ( mm < 100 ) {
+				if ( mm < 6 ) {
+					mm = mm * 6 + 2;
+					if ( o.flying ) {
+						mm += 6;
+					}
+					if ( o.slave ) {
+						mm -= 2;
+					}
+				}
+				if ( isCmdr(o) ) {
+					mm += 2;
+				}
+				if ( mm > 40 ) {
+					mm = Math.floor( (mm+2)/5 ) * 5;
+				}
 			}
+			if ( mm > 0 && mm < 100 ) {
+				// Not yet implemented: old age penalty, how to find which commanders are old?
+			}
+			if ( ! o.nomovepen ) {
+				// Not yet implemented: armour map move penalty
+			}
+			// Map move effects omitted due to not applicable in inspector:
+			//   - enlarged/shrunk effect
+			//   - limp/crippled commander
+			//   - items
+			o.mapmove = mm;
 		}
 
 		if (o.realms && o.realms.length == 0) {
