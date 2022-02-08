@@ -902,7 +902,8 @@ MUnit.prepareData_PostSiteData = function(o) {
 		if (!o.mapmove) {
 			o.mapmove = 14;
 		} else {
-			// mapmove formula extracted from 5.54 binary
+			// Map move formula extracted from 5.54 binary,
+			// see Loggy's notes: https://illwiki.com/dom5/user/loggy/misc
 			var mm = parseInt(o.mapmove);
 			if ( mm < 100 ) {
 				if ( mm < 6 ) {
@@ -925,12 +926,25 @@ MUnit.prepareData_PostSiteData = function(o) {
 				// Not yet implemented: old age penalty, how to find which commanders are old?
 			}
 			if ( ! o.nomovepen ) {
-				// Not yet implemented: armour map move penalty
-				var armour_penalty = 0;
+				var armor_penalty = 0;
 				for (var i=0, a; a= o.armor[i]; i++) {
-					//..
+					if (a.type != 'armor') {
+						continue;
+					}
+					if ( a.movepen && parseInt( a.movepen ) != -99 ) {
+						armor_penalty += parseInt( a.movepen );
+					} else {
+						var armor_enc = parseInt( a.enc );
+						if ( a.magic ) {
+							armor_enc--;
+						}
+						armor_penalty += Math.max( armor_enc * 2, 6 );
+					}
 				}
-				mm -= armour_penalty;
+				if ( o.enc == 0 ) {
+					armor_penalty = Math.floor( armor_penalty / 2 );
+				}
+				mm -= armor_penalty;
 			}
 			// Map move effects omitted due to not applicable in inspector:
 			//   - enlarged/shrunk effect
