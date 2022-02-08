@@ -255,40 +255,6 @@ MUnit.prepareData_PostMod = function() {
 		if (!o.ap) {
 			o.ap = 12;
 		}
-		if (!o.mapmove) {
-			o.mapmove = 14;
-		} else {
-			// mapmove formula extracted from 5.54 binary
-			var mm = parseInt(o.mapmove);
-			if ( mm < 100 ) {
-				if ( mm < 6 ) {
-					mm = mm * 6 + 2;
-					if ( o.flying ) {
-						mm += 6;
-					}
-					if ( o.slave ) {
-						mm -= 2;
-					}
-				}
-				if ( isCmdr(o) ) {
-					mm += 2;
-				}
-				if ( mm > 40 ) {
-					mm = Math.floor( (mm+2)/5 ) * 5;
-				}
-			}
-			if ( mm > 0 && mm < 100 ) {
-				// Not yet implemented: old age penalty, how to find which commanders are old?
-			}
-			if ( ! o.nomovepen ) {
-				// Not yet implemented: armour map move penalty
-			}
-			// Map move effects omitted due to not applicable in inspector:
-			//   - enlarged/shrunk effect
-			//   - limp/crippled commander
-			//   - items
-			o.mapmove = mm;
-		}
 
 		if (o.realms && o.realms.length == 0) {
 			delete o.realms;
@@ -931,6 +897,48 @@ MUnit.prepareData_PostSiteData = function(o) {
 			o.listed_mpath = '0'+o.mpath;
 		else o.listed_mpath = '';
 
+		// Map move
+		
+		if (!o.mapmove) {
+			o.mapmove = 14;
+		} else {
+			// mapmove formula extracted from 5.54 binary
+			var mm = parseInt(o.mapmove);
+			if ( mm < 100 ) {
+				if ( mm < 6 ) {
+					mm = mm * 6 + 2;
+					if ( o.flying ) {
+						mm += 6;
+					}
+					if ( o.slave ) {
+						mm -= 2;
+					}
+				}
+				if ( isCmdr(o) ) {
+					mm += 2;
+				}
+				if ( mm > 40 ) {
+					mm = Math.floor( (mm+2)/5 ) * 5;
+				}
+			}
+			if ( mm > 0 && mm < 100 ) {
+				// Not yet implemented: old age penalty, how to find which commanders are old?
+			}
+			if ( ! o.nomovepen ) {
+				// Not yet implemented: armour map move penalty
+				var armour_penalty = 0;
+				for (var i=0, a; a= o.armor[i]; i++) {
+					//..
+				}
+				mm -= armour_penalty;
+			}
+			// Map move effects omitted due to not applicable in inspector:
+			//   - enlarged/shrunk effect
+			//   - limp/crippled commander
+			//   - items
+			o.mapmove = mm;
+		}
+
 		o.unprep = true;
 	}
 }
@@ -1233,13 +1241,12 @@ MUnit.prepareForRender = function(o) {
 		var p_nat = parseInt(o.prot || '0');
 
 		var p_body = 0, p_head = 0, p_general = 0;
-		var def_armor = 0, enc_armor = 0, mm_armor = 0;
+		var def_armor = 0, enc_armor = 0;
 		var def_parry = 0;
 		var rcost_armor = 0;
 		for (var i=0, a; a= o.armor[i]; i++) {
 			enc_armor += parseInt(a.enc || '0');
 			def_armor += parseInt(a.def || '0');
-			mm_armor += parseInt(a.movepen || '0');
 
 			if (a.protbody)
 				p_body = parseInt(a.protbody);
@@ -1321,11 +1328,6 @@ MUnit.prepareForRender = function(o) {
 			}
 		}
 
-		if (mm_armor) {
-			// Map move effected by armor
-			bonus('armor', 'mapmove', -mm_armor);
-
-		}
 	}
 }
 
