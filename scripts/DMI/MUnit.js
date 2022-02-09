@@ -931,15 +931,7 @@ MUnit.prepareData_PostSiteData = function(o) {
 					if (a.type != 'armor') {
 						continue;
 					}
-					if ( a.movepen && parseInt( a.movepen ) != -99 ) {
-						armor_penalty += parseInt( a.movepen );
-					} else {
-						var armor_enc = parseInt( a.enc );
-						if ( a.magic ) {
-							armor_enc--;
-						}
-						armor_penalty += Math.max( armor_enc * 2, 6 );
-					}
+					armor_penalty += a.movepen; // movepen calculated from movepen attribute in MArmor.js
 				}
 				if ( o.enc == 0 ) {
 					armor_penalty = Math.floor( armor_penalty / 2 );
