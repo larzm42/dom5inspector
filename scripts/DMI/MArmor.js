@@ -28,17 +28,6 @@ MArmor.prepareData_PreMod = function() {
 MArmor.prepareData_PostMod = function() {
 	for (var oi=0, o; o= modctx.armordata[oi]; oi++) {
 
-		o.movepen = o.enc;
-		for (var oi3=0, attr; attr = modctx.attributes_by_armor[oi3];  oi3++) {
-			if (attr.armor_number == o.id) {
-				if (parseInt(attr.attribute) == 582) {
-					o.movepen = attr.raw_value;
-				}
-			}
-		}
-		if (o.type != 5) {
-			delete o.movepen;
-		}
 
 		o.id = parseInt(o.id);
 		o.name = o.name || '(undefined)';
@@ -101,6 +90,24 @@ MArmor.prepareData_PostMod = function() {
 					o.magic = 1;
 				}
 			}
+		}
+
+		// movement penalty
+		o.movepen = o.enc;
+		if ( o.magic ) {
+			o.movepen -= 1;
+		}
+		o.movepen = Math.min( o.movepen * 2, 6 );
+		for (var oi3=0, attr; attr = modctx.attributes_by_armor[oi3];  oi3++) {
+			if (attr.armor_number == o.id) {
+				if (parseInt(attr.attribute) == 582 && attr.raw_value != -99) {
+					// overwrite above if movepen attribute is set
+					o.movepen = attr.raw_value;
+				}
+			}
+		}
+		if (o.type != 'armor') {
+			delete o.movepen;
 		}
 	}
 }
