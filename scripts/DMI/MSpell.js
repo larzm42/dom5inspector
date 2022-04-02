@@ -560,7 +560,7 @@ MSpell.CGrid = DMI.Utils.Class( DMI.CGrid, function() {
 	//reads search boxes
 	this.getSearchArgs = function(domsel) {
 		var args = {properties: this.getPropertyMatchArgs(),
-			str: $(that.domselp+" input.search-box").val().toLowerCase(),
+			str: $(that.domselp+" input.search-box").val().toLowerCase().trim(),
 			nation: $(that.domselp+" select.nation").val(),
 
 			type: $(that.domselp+" select.type").val(),

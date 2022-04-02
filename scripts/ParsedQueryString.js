@@ -43,9 +43,10 @@ ParsedQueryString.prototype =
 				var name = this._decodeURL(pair[0]);
 				if (Boolean(pair[1]))
 				{
-					var value = this._decodeURL(pair[1]);
+					var value = this._decodeURL(pair[1]).trim();
+
 					if (Boolean(this._parameters[name]))
-						this._parameters[name].push(value);
+						this._parameters[name].push(value.trim());
 					else
 						this._parameters[name] = [value];
 				}

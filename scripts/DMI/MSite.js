@@ -428,7 +428,7 @@ MSite.CGrid = Utils.Class( DMI.CGrid, function() {
 	//reads search boxes
 	this.getSearchArgs = function() {
 		var args = {properties: this.getPropertyMatchArgs(),
-			str: $(that.domselp+" input.search-box").val().toLowerCase(),
+			str: $(that.domselp+" input.search-box").val().toLowerCase().trim(),
 			sitepath: $(that.domselp+" select.sitepath").val() ,
 			sitescale: $(that.domselp+" select.sitescale").val() ,
 			siteterrain: $(that.domselp+" select.siteterrain").val() ,
