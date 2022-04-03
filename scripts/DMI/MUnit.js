@@ -1400,7 +1400,7 @@ MUnit.CGrid = Utils.Class( DMI.CGrid, function() {
 	//reads search boxes
 	this.getSearchArgs = function(domsel) {
 		var args = {properties: this.getPropertyMatchArgs(),
-			str: $(that.domselp+" input.search-box").val().toLowerCase(),
+			str: $(that.domselp+" input.search-box").val().toLowerCase().trim(),
 			nation: $(that.domselp+" select.nation").val(),
 			types: Utils.splitToLookup( $(that.domselp+" select.typechar").val(), ','),
 			generic: $(that.domselp+" input.generic:checked").val(),

@@ -251,7 +251,7 @@ MItem.CGrid = Utils.Class( DMI.CGrid, function() {
 	//reads search boxes
 	this.getSearchArgs = function() {
 		var args = {properties: this.getPropertyMatchArgs(),
-			str: $(that.domselp+" input.search-box").val().toLowerCase(),
+			str: $(that.domselp+" input.search-box").val().toLowerCase().trim(),
 			type: Utils.splitToLookup( $(that.domselp+" select.type").val(), ','),
 			constlevel: parseInt( $(that.domselp+" select.constlevel").val() ),
 			inclusive: $(that.domselp+" input.inclusive-search:checked").val(),

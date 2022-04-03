@@ -138,7 +138,7 @@ MWpn.CGrid = Utils.Class( DMI.CGrid, function() {
 	//reads search boxes
 	this.getSearchArgs = function() {
 		var args = {properties: this.getPropertyMatchArgs(),
-			str: $(that.domselp+" input.search-box").val().toLowerCase(),
+			str: $(that.domselp+" input.search-box").val().toLowerCase().trim(),
 		};
 		args.properties = Utils.propertiesWithKeys(args.properties);
 
