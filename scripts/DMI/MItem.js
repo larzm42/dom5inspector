@@ -150,6 +150,11 @@ MItem.prepareData_PostMod = function() {
 				o.boosters += p;
 		}
 
+		// storm power grants storm-immune
+		if (o.stormpower && o.stormpower > 0) {
+			o.stormimmune = '1';
+		}
+
 		//lookup weapon
 		if (o.weapon) {
 			w = modctx.wpnlookup[o.weapon];
