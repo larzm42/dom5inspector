@@ -301,6 +301,11 @@ MUnit.prepareData_PostMod = function() {
 			delete o.horror;
 		}
 
+		// storm power grants storm-immune
+		if (o.stormpower && o.stormpower > 0) {
+			o.stormimmune = '1';
+		}
+
 		//searchable string
 		o.searchable = o.fullname.toLowerCase();
 
