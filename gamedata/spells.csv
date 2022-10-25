@@ -35,7 +35,7 @@ id	name	school	researchlevel	path1	pathlevel1	path2	pathlevel2	effect_record_id	
 33	Summon Jinn	-1	1	-1	0	-1	0	33	1	0	0	0	0	490	
 34	Ark	-1	1	-1	0	-1	0	34	1	0	0	0	0	58	
 35	Area Chest Wound	-1	1	-1	0	-1	0	35	1	0	0	0	0	8388608	
-36	10 Sea Trolls	-1	1	-1	0	-1	0	36	15	0	0	0	72	564	
+36	15 Sea Trolls	-1	1	-1	0	-1	0	36	15	0	0	0	72	564	
 37	15 Draconians	-1	1	-1	0	-1	0	37	15	0	0	0	0	593	
 38	Court of Sprites	-1	1	-1	0	-1	0	38	15	0	0	0	0	592	
 39	Heat Stun	-1	1	-1	0	-1	0	39	1	0	0	0	0	2010	
