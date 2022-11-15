@@ -1,7 +1,7 @@
-#modname "Dominions Enhanced 1.76"
+#modname "Dominions Enhanced 1.84"
 #description "Adds or revises many spells, sites, Pretenders, mercenaries, items and nations. Includes work by Red_Rob, Boing, Kate_Micucci, Amuys, Zonk, Nounours, Pyg, Llamabeast, Turin, Quantum_Mechani, Heartless, Sombre, Globu, Ohlmann, Sy and others."
 #icon "./DomEnhanced/Banner.tga"
-#version 1.76
+#version 1.84
 
 
 -- Weapons --
@@ -42,6 +42,10 @@
 #rcost 8
 #end
 
+#selectweapon 106 -- Sword of Swiftness
+#def 2
+#end
+
 #selectweapon 221 -- Fire
 #len 3
 #unrepel
@@ -49,6 +53,11 @@
 
 #selectweapon 238 -- Magic Staff
 #rcost 2
+#end
+
+#selectweapon 375 -- Dogs
+#damage 0
+#halfstr
 #end
 
 #selectweapon 613 -- Enchanted Bow
@@ -65,6 +74,51 @@
 
 #selectweapon 730 -- Banefire Strike
 #bonus
+#end
+
+#selectweapon 27 -- 2h Boulder
+#range -2
+#secondaryeffectalways 1755 -- Stone Impact
+#end
+
+#selectweapon 424 -- 1h Boulder
+#range -2
+#secondaryeffectalways 1754 -- Stone Shards
+#end
+
+#selectweapon 546 -- Pouch Boulder
+#range -2
+#secondaryeffectalways 1755 -- Stone Impact
+#end
+
+#selectweapon 141 -- Poison Spit
+#range050
+#end
+
+#selectweapon 167 -- Poison Sling
+#range 25
+#att -2
+#end
+
+#selectweapon 324 -- Poison Spit
+#range050
+#end
+
+#selectweapon 288 -- Obsidian Club Sword
+#att 1
+#end
+
+#selectweapon 315 -- Machaka Spear
+#att 0
+#end
+
+#selectweapon 749 -- Enchanted Scimitar
+#att 2
+#end
+
+#selectweapon 451 -- 1h Obsidian Club Sword
+#att 1
+#dmg 5
 #end
 
 #newweapon 1751
@@ -106,6 +160,22 @@
 #nratt 1
 #charge
 #secondaryeffect 52
+#end
+
+#newweapon 1754
+#name "Stone Shards"
+#dmg 4
+#halfstr
+#slash
+#end
+
+#newweapon 1755
+#name "Stone Impact"
+#aoe 1
+#dmg 4
+#nostr
+#blunt
+#secondaryeffectalways 699 -- Small Area Stun
 #end
 
 #newweapon 1766
@@ -363,6 +433,9 @@
 #copyweapon 85 -- Tentacle
 #name "Irukandji Tentacle"
 #dmg 0
+#norepel
+#unrepel
+#dt_cap
 #secondaryeffect 54 -- Paralyzing Poison
 #end
 
@@ -536,10 +609,10 @@
 
 #newweapon 903
 #name "Sharktooth Sword"
-#dmg 4
-#att 0
+#dmg 5
+#att 1
 #def 1
-#len 2
+#len 1
 #sound 8
 #rcost 2
 #slash
@@ -547,14 +620,16 @@
 
 #newweapon 904
 #name "Lua"
-#dmg 1
+#dmg 100
 #att 1
 #def 0
 #len 0
 #bonus
-#dt_stun
+#dt_realstun
+#nostr
+#sizeresist
+#inanimateimmune
 #sound 38
-#armorpiercing
 #rcost 0
 #melee50
 #end
@@ -565,7 +640,7 @@
 #att 1
 #def 1
 #len 1
-#rcost 2
+#rcost 4
 #sound 8
 #magic
 #slash
@@ -588,11 +663,11 @@
 
 #newweapon 907
 #name "Obsidian Sling"
-#dmg 12
+#dmg 10
 #rcost 3
 #att 1
 #range 20
-#nostr
+#bowstr
 #ammo 12
 #flyspr 111 1
 #sound 14
@@ -701,7 +776,6 @@
 #def 0
 #len 2
 #nratt 1
-#twohanded
 #sound 10
 #magic
 #secondaryeffect 222 -- Cold (12 NoStr AP cold dmg)
@@ -825,6 +899,12 @@
 #sound 8 -- sword
 #secondaryeffect 403 -- mesmerize
 #explspr 10219
+#end
+
+#newweapon 1120
+#copyweapon 58 -- Wail
+#sound 78 -- Lion Roar
+#name "Lion Roar"
 #end
 
 #newweapon 1250
@@ -1090,7 +1170,7 @@
 #end
 
 #newweapon 1511
-#name "Female Shishi Bite"
+#name "Sacred Fangs"
 #magic
 #dmg 2
 #def 0
@@ -1099,7 +1179,7 @@
 #end
 
 #newweapon 1512
-#name "Male Shishi Bite"
+#name "Magical Fangs"
 #magic
 #dmg 2
 #def 0
@@ -1620,6 +1700,7 @@
 #newweapon 1577
 #copyweapon 567 -- Drake Fire
 #name "Breath of Divine Fire"
+#ammo 8
 #range 8
 #end
 
@@ -1665,7 +1746,7 @@
 #name "Pythian Fire Pots"
 #range 35
 #ammo 10
-#dmg 12
+#dmg 20
 #nratt -2
 #secondaryeffectalways 1581
 #end
@@ -1718,19 +1799,12 @@
 #secondaryeffectalways 1588 -- Stun
 #end
 
-#newweapon 1590
-#copyweapon 401 -- Soul Death
-#name "Burn Soul"
-#dt_aff
-#dmg 1125899906842624 -- Soul Annihilation
-#secondaryeffectalways 684 -- Flames
-#end
-
 #newweapon 1591
 #copyweapon 76 -- Fire Blade
 #att 3
 #name "Mortal Blade"
-#secondaryeffect 1590 -- Remove Immortal
+#soulslaying
+#secondaryeffectalways 684 -- Flames
 #end
 
 #newweapon 1592
@@ -1756,8 +1830,7 @@
 #newweapon 1595
 #copyweapon 401 -- Soul Death
 #name "Remove Immortality"
-#dt_aff
-#dmg 1125899906842624 -- Soul Annihilation
+#soulslaying
 #end
 
 #newweapon 1596
@@ -2079,7 +2152,7 @@
 #dt_holy
 #bonus
 #demonundead
-#secondaryeffect 1590 -- Remove Immortal
+#secondaryeffect 1595 -- Remove Immortal
 #end
 
 --Weapon of Ravana, Lanka hero
@@ -2095,6 +2168,19 @@
 #magic
 #dt_magic
 #secondaryeffectalways 1698
+#end
+
+--Weapon of the Noble Giant, Vanarus hero
+#newweapon 1700
+#name "Cursed Blade"
+#dmg 6
+#att 2
+#def 2
+#len 3
+#armorpiercing
+#slash
+#magic
+#secondaryeffectalways 125 -- Leg Chop
 #end
 
 #newweapon 1702
@@ -2319,6 +2405,29 @@
 #secondaryeffectalways 71
 #end
 
+--Weapon of Aino, Vanarus Hero
+#newweapon 1722
+#name "Kantele"
+#dmg 1
+#att 0
+#def 0
+#len 1
+#blunt
+#magic
+#end
+
+#newweapon 1723
+#copyweapon 404 -- Beak
+#name "Golden Beak"
+#magic
+#end
+
+#newweapon 1724
+#copyweapon 20 -- Bite
+#name "Golden Fangs"
+#magic
+#end
+
 #newweapon 1839
 #copyweapon 709 -- Water Breath
 #name "Drake Holy Water"
@@ -2399,6 +2508,7 @@
 #name "Great Antlers"
 #dmg 0
 #slash
+#magic
 #len 1
 #end
 
@@ -2644,7 +2754,7 @@
 #len 1
 #end
 
-#newweapon 1120
+#newweapon 1883
 #name "Tjurunga" -- assigned to magic item
 #dmg 1
 #blunt
@@ -2657,6 +2767,14 @@
 #dt_magic
 #rcost 5
 #end
+
+#newweapon 1884
+#copyweapon 629 -- Myremcoleon sting
+#name "Sting" -- Large creature sting
+#dmg -5
+#secondaryeffect 50 -- weak poison
+#end
+
 
 
 
@@ -2674,6 +2792,24 @@
 #rcost 1
 #end
 
+#selectarmor 206 -- Obsidian Cuirass
+#rcost 16
+#end
+
+#selectarmor 100 -- Bronze Cuirass
+#rcost 12
+#end
+
+#selectarmor 105 -- Hide Shield
+#def 4
+#prot 12
+#end
+
+#selectarmor 112 -- Great Hide Shield
+#def 7
+#prot 12
+#end
+
 #newarmor 273
 #name "Magic Shield"
 #type 4
@@ -2681,7 +2817,7 @@
 #prot 16
 #enc 1
 #rcost 5
-#magic
+#magicarmor
 #end
 
 #newarmor 274
@@ -2945,6 +3081,13 @@
 #prot 15
 #def 5
 #enc 1
+#end
+
+#newarmor 681
+#copyarmor 196 -- Golden Scale
+#name "Starnake Scale"
+#rcost 18
+#enc 3
 #end
 
 #newarmor 690
@@ -3290,6 +3433,87 @@
 #weapon 166-- Golden Claw
 #end
 
+#newmonster 6578
+#name "Ghawwas"
+#spr1 "Domdaniel/Ghawwas.tga"
+#spr2 "Domdaniel/Ghawwas2.tga"
+#descr "The Ghawwas are malevolent Jinn of the deeps. Unlike most jinn they are not naturally invisible and appear to be a cross between a man and a great predatory fish. Although formed from smokeless flame like other Jinn the flame is toxic and the Ghawwas will pollute and boil any water source they inhabit. Most live in the depths of the ocean, but occasionally journey to the shore to wreak havoc on water supplies or to poison desert oases. They are revered by the Sahuagin and can be forced into service by mages of evil intent. When on the land their poisonous nature will be somewhat mitigated."
+#humanoid
+#gcost 0
+#hp 28
+#size 3
+#mr 15
+#mor 12
+#str 16
+#att 11
+#def 11
+#prec 11
+#prot 14
+#enc 3
+#ap 14
+#mapmove 30
+#okleader
+#okmagicleader
+#spiritsight
+#ethereal
+#ironvul 3
+#magicpower 1
+#fireres 15
+#poisonres 15
+#startage 300
+#maxage 500
+#magicskill 0 2
+#magicskill 2 2
+#weapon 248 -- Venomous Claw
+#weapon 248 -- Venomous Claw
+#weapon 495 -- Poisonous Bite
+#amphibian
+#magicbeing
+#uwheat 6
+#poisoncloud 6
+#landshape 6579
+#end
+
+#newmonster 6579 -- Landshape
+#name "Ghawwas"
+#spr1 "Domdaniel/Ghawwas.tga"
+#spr2 "Domdaniel/GhawwasLand2.tga"
+#descr "The Ghawwas are malevolent Jinn of the deeps. Unlike most jinn they are not naturally invisible and appear to be a cross between a man and a great predatory fish. Although formed from smokeless flame like other Jinn the flame is toxic and the Ghawwas will pollute and boil any water source they inhabit. Most live in the depths of the ocean, but occasionally journey to the shore to wreak havoc on water supplies or to poison desert oases. They are revered by the Sahuagin and can be forced into service by mages of evil intent. When on the land their poisonous nature will be somewhat mitigated."
+#humanoid
+#gcost 0
+#hp 28
+#size 3
+#mr 15
+#mor 12
+#str 16
+#att 11
+#def 11
+#prec 11
+#prot 14
+#enc 3
+#ap 12
+#mapmove 16
+#okleader
+#okmagicleader
+#spiritsight
+#ethereal
+#ironvul 3
+#magicpower 1
+#fireres 15
+#poisonres 15
+#startage 300
+#maxage 500
+#magicskill 0 2
+#magicskill 2 2
+#weapon 248 -- Venomous Claw
+#weapon 495 -- Poisonous Bite
+#amphibian
+#magicbeing
+#heat 3
+#poisonarmor 5
+#watershape 6578
+#end
+
 
 
 -- COMMANDERS ---
@@ -3553,7 +3777,7 @@
 #att 10
 #def 10
 #prec 10
-#enc 2
+#enc 0
 #ap 12
 #darkvision 100
 #holy
@@ -3588,6 +3812,10 @@
 #djinn -- bodytype for hit locations
 #mor 30
 #heal
+#heat 0
+#uwheat 6
+#fireshield 0
+#uwfireshield 12
 #diseaseres 100
 #expertmagicleader
 #goodleader
@@ -3600,47 +3828,47 @@
 #pathcost 60
 #end
 
-#newmonster 6571
-#name "Ghul Lich"
-#nametype 171
-#spr1 "Juhera/ghul_lich1.tga"
-#spr2 "Juhera/ghul_lich2.tga"
-#descr "A Ghul Lich is the dried husk of a Ghul Sorcerer adept in Death magic. Through dark rituals, the Ghul succeeded in mastering one of the Jinn's oldest and most urgent goals: to defeat death. By removing its viscera and hiding it outside its body, the Lich is virtually impossible to slay. Should the body be physically destroyed, a new one is formed from the dust of dead Ghuls. Being immortal, there is nothing left to acquire but godhood. The Ghul Lich is magically stronger than other Ghuls and its magically empowered body is very hard to destroy."
-#gcost 200
-#undead
-#immortal
-#pooramphibian
-#pierceres
-#inanimate
-#neednoteat
-#spiritsight
-#hp 35
-#magicskill 5 3
-#pathcost 30
-#startdom 2
-#fireres -10
-#coldres 15
-#poisonres 25
-#goodleader
-#heal
-#diseaseres 100
-#maxage 800
-#startage 300
-#prot 16
-#mr 18
-#mor 30
-#str 16
-#att 14
-#def 8
-#prec 12
-#enc 0
-#ap 12
-#mapmove 3
-#weapon "quarterstaff"
-#weapon "bite"
-#armor "crown"
-#armor "animal hides"
-#end
+-- #newmonster 6571
+-- #name "Ghul Lich"
+-- #nametype 171
+-- #spr1 "Juhera/ghul_lich1.tga"
+-- #spr2 "Juhera/ghul_lich2.tga"
+-- #descr "A Ghul Lich is the dried husk of a Ghul Sorcerer adept in Death magic. Through dark rituals, the Ghul succeeded in mastering one of the Jinn's oldest and most urgent goals: to defeat death. By removing its viscera and hiding it outside its body, the Lich is virtually impossible to slay. Should the body be physically destroyed, a new one is formed from the dust of dead Ghuls. Being immortal, there is nothing left to acquire but godhood. The Ghul Lich is magically stronger than other Ghuls and its magically empowered body is very hard to destroy."
+-- #gcost 180
+-- #undead
+-- #immortal
+-- #pooramphibian
+-- #pierceres
+-- #inanimate
+-- #neednoteat
+-- #spiritsight
+-- #hp 35
+-- #magicskill 5 3
+-- #pathcost 30
+-- #startdom 2
+-- #fireres -10
+-- #coldres 15
+-- #poisonres 25
+-- #goodleader
+-- #heal
+-- #diseaseres 100
+-- #maxage 800
+-- #startage 300
+-- #prot 16
+-- #mr 18
+-- #mor 30
+-- #str 16
+-- #att 14
+-- #def 8
+-- #prec 12
+-- #enc 0
+-- #ap 12
+-- #mapmove 3
+-- #weapon "quarterstaff"
+-- #weapon "bite"
+-- #armor "crown"
+-- #armor "animal hides"
+-- #end
 
 #newmonster 6572
 #name "Zatanai Master"
@@ -3681,6 +3909,7 @@
 #pathcost 10
 #startdom 1
 #montag 5196 -- Zatanai
+#twiceborn 6567 -- Spectral Zatani
 #end
 
 -- HEROES ----
@@ -3692,7 +3921,6 @@
 #spr2 "Domdaniel/Zatani2.tga"
 #descr "Zatani is the master of Dom-Dan'yel and was the first to discover its sunken halls. Here he holds court, ruling over his students the Zatanai. In the great hall lit with braziers that burn with sickly bane fire. It was he that constructed the Nine Gates and placed them at the entrance to the dripping caverns. Long ago he was but a simple sorcerers apprentice from Iram. His master owned twelve occult books of great power, and forbade his eager apprentice from reading their cursed contents. Zatani however hungered for power, and he slew his master and claimed the knowledge for himself. Upon reading the twelfth book his soul was forfeit to demonic masters, and he became their servant forevermore. He has visited the infernal realms many times and there signed his name in the Book of Blood. Now he has appeared before the Awakening God to pledge his service and aid in the domination of the surface realms."
 #fixedname "Zatani"
-#unique
 #gcost 0
 #hp 15
 #size 2
@@ -3728,6 +3956,7 @@
 #armor 158 -- Robes
 #armor 249 -- Cloth Headpiece
 #montag 5196 -- Zatanai
+#twiceborn 6567 -- Spectral Zatani
 #end
 
 #newmonster 6576
@@ -3736,7 +3965,6 @@
 #spr2 "Domdaniel/Maugraby2.tga"
 #descr "Maugraby is a Majus of great and terrible power. He has devoted himself entirely to the service of Zatani, and has risen to become one of the most powerful of the sorcerers of Dom-Dan'yel. Whilst in disguise as a simple beggar or traveling pedlar he offers magical remedies and elixirs for the rich and powerful, demanding an unspecified future price. His demands almost always ruin or humiliate those drawn into his debt. Through his schemes he has a ready supply of Kapikulu, the children of nobles he has snatched in return for some magical favour, and he is rarely without them. He is skilled in finding those of pure blood, and each month will ensorcell a few likely candidates. Maugraby mostly travels on an enchanted carpet he created that bears him across the skies."
 #fixedname "Maugraby"
-#unique
 #gcost 0
 #hp 13
 #size 2
@@ -3774,6 +4002,7 @@
 #weapon "quarterstaff"
 #armor 158 -- Robes
 #montag 5196 -- Zatanai
+#twiceborn 6567 -- Spectral Zatani
 #end
 
 #newmonster 6577
@@ -3782,7 +4011,6 @@
 #spr2 "Domdaniel/Abanazar2.tga"
 #descr "Abanazar is a sorcerer hailing from Dom-Dan'yel. Employing a young orphan to enter a dangerous cave and retrieve a magical lamp, he eventually managed to trick the boy out of his prize. Now he employs the Jinn of the lamp to live in luxury. The orphan still plots to snatch the lamp however and Abanazar lives in fear of losing his prize. Now he has turned to the worship of the Awakening God and presents himself at the sunken caverns."
 #fixedname "Abanazar"
-#unique
 #gcost 0
 #hp 12
 #size 2
@@ -3810,6 +4038,147 @@
 #armor 249 -- Cloth Headpiece
 #pooramphibian
 #end
+
+-- EMPTY WAR MACHINES ---
+
+#newmonster 8946
+#spr1 "./MagicEnhanced/EEFireCartEmpty.tga"
+#name "Cart of Fire Arrows"
+#descr "This cart is full of arrows and other ammunition for the army imbued with fire magic. Before each battle the soldiers will take flaming ammunition from the cart. Should the cart be damaged the cargo within may explode violently. If the handler is killed but the cart survives a new soldier will be appointed to guard the cart after the battle."
+#miscshape
+#gcost 0
+#size 6
+#hp 15
+#prot 13
+#mr 5
+#mor 50
+#str 5
+#att 5
+#def 0
+#prec 5
+#enc 0
+#mapmove 0
+#ap 2
+#weapon 0
+#deathfire 12
+#fireres -5
+#pierceres
+#noleader
+#immobile
+#blind
+#neednoteat
+#diseaseres 100
+#itemslots 1 -- no slots
+#maxage 500
+#startage 10
+#firstshape 5643-- Arrow Cart
+#cleanshape
+#end
+
+#newmonster 8947
+#spr1 "./MagicEnhanced/EEDivineDragonEmpty.tga"
+#name "Divine Fire-Dragon"
+#descr "The Divine Fire-Dragon is a weapon consisting of a long barrel shaped like a dragon's head with an open mouth. In combat it is packed with burning-powder that releases great clouds of flame and smoke when ignited. The powder will burn and set alight enemies in front of the weapon when it is released. The weapon is manned by an Imperial Footman trained in its use by the Alchemists. War machines are very unsuited to bodyguard duty. If the crewman is killed but the war machine survives a new crew will be appointed after the battle."
+#miscshape
+#gcost 0
+#size 4
+#hp 15
+#prot 13
+#mr 5
+#mor 50
+#str 5
+#att 5
+#def 0
+#prec 5
+#enc 0
+#mapmove 0
+#ap 2
+#weapon 0
+#deathfire 6
+#fireres -5
+#pierceres
+#noleader
+#immobile
+#blind
+#neednoteat
+#diseaseres 100
+#itemslots 1 -- no slots
+#maxage 500
+#startage 10
+#firstshape 5645-- Divine Fire-Dragon
+#cleanshape
+#end
+
+#newmonster 8948
+#name "Divine Rocket-Arrow Shield"
+#spr1 "./MagicEnhanced/EEFireLanceShieldEmpty.tga"
+#descr "This is a framework mounted with many rockets filled with burning-powder. In combat the rockets are lit to create a fearsome barrage that rains down upon the enemies of T'ien Ch'i. The rockets are of great help during sieges to weaken the enemy walls. The weapon is manned by an Imperial Footman trained in its use by the Alchemists. Should the contraption be damaged the rocket-arrows may explode violently. War machines are very unsuited to bodyguard duty. If the crewman is killed but the machine survives a new crew will be appointed after the battle."
+#miscshape
+#gcost 0
+#size 6
+#hp 25
+#prot 13
+#mr 5
+#mor 50
+#str 5
+#att 5
+#def 0
+#prec 5
+#enc 0
+#mapmove 0
+#ap 2
+#weapon 0
+#deathfire 12
+#fireres -5
+#pierceres
+#noleader
+#immobile
+#blind
+#neednoteat
+#diseaseres 100
+#itemslots 1 -- no slots
+#maxage 500
+#startage 10
+#firstshape 5646-- Rocket Arrow Shield
+#cleanshape
+#end
+
+#newmonster 8949
+#name "Pythian Fire Onager"
+#spr1 "./MagicEnhanced/EEFireCatapultEmpty.tga"
+#descr "This is an Onager of the type used to weaken castle walls prior to an assault, however it has been loaded with pots of Pythian Fire. Pythian Fire is a closely guarded secret of the empire and great care is taken never to reveal the formula to outsiders. The flaming substance will burst on impact and cover those nearby in the sticky burning oil. The Onager fires quite slowly as it must be drawn again for each shot taken. The war machine is partially dismantled for transport and is prepared prior to a battle. The weapon is crewed by a trained operator that will defend it if enemies attempt to destroy the contraption. War machines are very unsuited to bodyguard duty. If the crewman is killed but the machine is not destroyed a new crew will be appointed after the battle."
+#miscshape
+#gcost 0
+#size 5
+#hp 25
+#prot 13
+#mr 5
+#mor 50
+#str 5
+#att 5
+#def 0
+#prec 5
+#enc 0
+#mapmove 0
+#ap 2
+#weapon 0
+#deathfire 12
+#fireres -5
+#pierceres
+#noleader
+#immobile
+#blind
+#neednoteat
+#diseaseres 100
+#itemslots 1 -- no slots
+#maxage 500
+#startage 10
+#firstshape 5663 -- Onager
+#cleanshape
+#end
+
+
+
 
 --- DUMMY MONSTERS -----
 
@@ -3850,6 +4219,7 @@
 #spr2 "./MagicEnhanced/TCLD_GlaiveArm2.tga"
 #weapon 308 -- Glaive
 #armor 31 -- Rusty Scale
+#armor 118 -- Half Helmet
 #montag 1796 -- TC Longdead
 #end
 
@@ -3861,6 +4231,7 @@
 #spr2 "./MagicEnhanced/TCLD_SpearArm2.tga"
 #armor 170 -- Rotten Tower Shield
 #armor 31 -- Rusty Scale
+#armor 118 -- Half Helmet
 #montag 1796 -- TC Longdead
 #end
 
@@ -3871,6 +4242,7 @@
 #spr1 "./MagicEnhanced/TCLD_Spear.tga"
 #spr2 "./MagicEnhanced/TCLD_Spear2.tga"
 #armor 170 -- Rotten Tower Shield
+#armor 118 -- Half Helmet
 #montag 1796 -- TC Longdead
 #montagweight 2
 #end
@@ -4191,7 +4563,6 @@
 #nobadevents 50
 #stealthy 0
 #ambidextrous 2
-#randequip 1
 #magicbeing
 #weapon 157 -- Oath Rod
 #weapon 202 -- Magic Sword
@@ -4224,7 +4595,6 @@
 #magicbeing
 #raiseonkill 50
 #raiseshape 8978
-#randequip 1
 #weapon 1689 -- Heroes Blade
 #armor 38 -- Blacksteel Full Plate
 #armor 40 -- Blacksteel Helm
@@ -4285,7 +4655,6 @@
 #heal
 #female
 #neednoteat
-#randequip 1
 #itemslots 13446 -- No Feet
 #maxage 999
 #nobadevents 50
@@ -4314,7 +4683,6 @@
 #maxage 999
 #nobadevents 50
 #magicbeing
-#randequip 1
 #weapon 151 -- Wand
 #armor 212 -- Magic Crown
 #armor 161 -- Jeweled Breastplate
@@ -4577,7 +4945,6 @@
 #descr "Asdzáá Nádleehé is a spiritual embodiment of the cycle of seasons. She takes the form of a young woman in spring, and ages rapidly throughout the year until she is an old crone in winter. When the warmth of spring returns to the land, and the flowers are in full bloom, she too blossoms and resumes her youthful form. Asdzáá Nádleehé is revered and beloved among the tribes, who seek her blessing for important seasonal tasks and rituals. Her connection to the yearly cycle affords her considerable magical power, but only in the magic associated with the current season. Seasonal effects will be more pronounced in any province she dwells, and her prowess increases at the height of each season. With the coming of the New God, Asdzáá Nádleehé has pledged her blessings and her might to the nation of Nihuala."
 #spr1 "./Nihuala/ChangingWomanSpring.tga"
 #spr2 "./Nihuala/ChangingWomanSpring_2.tga"
-#unique
 #gcost 0
 #hp 12
 #size 2
@@ -4620,7 +4987,6 @@
 #descr "Asdzáá Nádleehé is a spiritual embodiment of the cycle of seasons. She takes the form of a young woman in spring, and ages rapidly throughout the year until she is an old crone in winter. When the warmth of spring returns to the land, and the flowers are in full bloom, she too blossoms and resumes her youthful form. Asdzáá Nádleehé is revered and beloved among the tribes, who seek her blessing for important seasonal tasks and rituals. Her connection to the yearly cycle affords her considerable magical power, but only in the magic associated with the current season. Seasonal effects will be more pronounced in any province she dwells, and her prowess increases at the height of each season. With the coming of the New God, Asdzáá Nádleehé has pledged her blessings and her might to the nation of Nihuala."
 #spr1 "./Nihuala/ChangingWomanSummer.tga"
 #spr2 "./Nihuala/ChangingWomanSummer_2.tga"
-#unique
 #gcost 0
 #hp 12
 #size 2
@@ -4662,7 +5028,6 @@
 #descr "Asdzáá Nádleehé is a spiritual embodiment of the cycle of seasons. She takes the form of a young woman in spring, and ages rapidly throughout the year until she is an old crone in winter. When the warmth of spring returns to the land, and the flowers are in full bloom, she too blossoms and resumes her youthful form. Asdzáá Nádleehé is revered and beloved among the tribes, who seek her blessing for important seasonal tasks and rituals. Her connection to the yearly cycle affords her considerable magical power, but only in the magic associated with the current season. Seasonal effects will be more pronounced in any province she dwells, and her prowess increases at the height of each season. With the coming of the New God, Asdzáá Nádleehé has pledged her blessings and her might to the nation of Nihuala."
 #spr1 "./Nihuala/ChangingWomanAutumn.tga"
 #spr2 "./Nihuala/ChangingWomanAutumn_2.tga"
-#unique
 #gcost 0
 #hp 12
 #size 2
@@ -4705,7 +5070,6 @@
 #descr "Asdzáá Nádleehé is a spiritual embodiment of the cycle of seasons. She takes the form of a young woman in spring, and ages rapidly throughout the year until she is an old crone in winter. When the warmth of spring returns to the land, and the flowers are in full bloom, she too blossoms and resumes her youthful form. Asdzáá Nádleehé is revered and beloved among the tribes, who seek her blessing for important seasonal tasks and rituals. Her connection to the yearly cycle affords her considerable magical power, but only in the magic associated with the current season. Seasonal effects will be more pronounced in any province she dwells, and her prowess increases at the height of each season. With the coming of the New God, Asdzáá Nádleehé has pledged her blessings and her might to the nation of Nihuala."
 #spr1 "./Nihuala/ChangingWomanWinter.tga"
 #spr2 "./Nihuala/ChangingWomanWinter_2.tga"
-#unique
 #gcost 0
 #hp 12
 #size 2
@@ -5215,7 +5579,6 @@
 #descr "To become a Chief in Nihuala, one must perform numerous acts of bravery. Touching an enemy warrior without being harmed in return, stealing an enemy tribe's horses, or being the first to land a blow in battle are all considered worthy of recognition. A warrior wishing to become Chief must count at least a dozen of these accomplishments. Alaxchíia Ahú has recorded over one hundred, a feat so astounding that he was unanimously elected Owner of the Lodges, or Chief of Chiefs, by his fellow tribesmen. Alaxchíia Ahú is not only an accomplished warrior, but also a skilled diplomat, mediator, and leader. Those seeking his counsel will find their struggles resolved in short order, and those under his command will be inspired to great deeds. Alaxchíia Ahú has dedicated his considerable skill to the New God, and fights to lead his people to salvation."
 #spr1 "./Nihuala/OwnerOfTheLodges.tga"
 #spr2 "./Nihuala/OwnerOfTheLodges_2.tga"
-#unique
 #gcost 0
 #hp 24
 #size 2
@@ -5909,7 +6272,6 @@
 #descr "Long ago, Miakoda was once a First Daughter, one of the descendants of the demigods First Man and First Woman. When Miakoda was young, she trained with her sisters in the art of spirit speaking, but Miakoda was different than her kin. Where they heard the call of earth and sky, she heard the voices of blood. Miakoda trained in secret to commune with these foul spirits, but she was discovered by her fellows and banished from the tribes for her crime. She wandered the wilderness for generations, her name whispered in the night as a warning to others who would tread her path. Now that the Skinwalkers rule Nihuala, she has returned to lead her people to salvation."
 #spr1 "./Nihuala/Miakoda.tga"
 #spr2 "./Nihuala/Miakoda_2.tga"
-#unique
 #gcost 0
 #hp 24
 #size 3
@@ -5946,7 +6308,6 @@
 #descr "Long ago, Miakoda was once a First Daughter, one of the descendants of the demigods First Man and First Woman. When Miakoda was young, she trained with her sisters in the art of spirit speaking, but Miakoda was different than her kin. Where they heard the call of earth and sky, she heard the voices of blood. Miakoda trained in secret to commune with these foul spirits, but she was discovered by her fellows and banished from the tribes for her crime. She wandered the wilderness for generations, her name whispered in the night as a warning to others who would tread her path. Now that the Skinwalkers rule Nihuala, she has returned to lead her people to salvation."
 #spr1 "./Nihuala/LargeWerecoyote.tga"
 #spr2 "./Nihuala/LargeWerecoyote_2.tga"
-#unique
 #gcost 0
 #hp 55
 #size 4
@@ -6498,7 +6859,7 @@
 #inspiringres 2
 #inspirational 4
 #poisonres 25
-#autodishealer 5
+#autohealer 5
 #forestsurvival
 #weapon 9 -- Dagger
 #weapon 262 -- Web Spit
@@ -6534,9 +6895,10 @@
 #inspirational 4
 #poisonres 25
 #eyes 8
+#unsurr 2
 #animal
 #forestsurvival
-#autodishealer 5
+#autohealer 5
 #weapon 261 -- Web
 #weapon 65 -- Venomous Fangs
 #weapon 262 -- Web Spit
@@ -6654,6 +7016,7 @@
 #maxage 2000
 #quadruped
 #batstartsum9d6 "Deer"
+#domsummon "Deer"
 #holy
 #animal
 #forestsurvival
@@ -6664,6 +7027,7 @@
 #beastmaster 3
 #twiceborn 5769 -- Wight Beast
 #weapon 634 -- Antlers
+#weapon 55 -- Hoof
 #end
 
 #newmonster 3678
@@ -6833,6 +7197,7 @@
 #quadruped
 #darkvision 100
 #demon
+#animal
 #holy
 #mountainsurvival
 #forestsurvival
@@ -6854,7 +7219,6 @@
 #rpcost 5
 #rcost -12
 #addupkeep -5
-#neednoteat
 #mapmove 0
 #ap 20
 #prec 10
@@ -7401,7 +7765,6 @@
 
 #newmonster 3622
 #copystats 2227 -- Goat
-#clearweapons
 #name "Barometz"
 #spr1 "./GoldenHorde/VegLamb.tga"
 #spr2 "./GoldenHorde/VegLamb2.tga"
@@ -7884,6 +8247,7 @@
 #rpcost 12
 #wolftattoo 2
 #weapon "Stone Spear"
+#weapon "Stone Dagger"
 #weapon "Javelin"
 #armor "Leather Cuirass"
 #maxage 60
@@ -8315,6 +8679,7 @@
 #ethereal
 #stealthy 30
 #assassin
+#spiritsight
 #patience 3
 #horrormark
 #holy
@@ -8338,7 +8703,6 @@
 #descr "Kupe Toitehuatahi is the legendary ancestor of the Maohi people, who brought them all to Alchera in a great canoe when disaster befell their homeland. The spirits Tanematahuta, Tawhirimatea, Tumatauenga, and Tangaroa feared their own destruction and begged shelter in his canoe, in exchange for which he learned mastery over the nature, sea, sky and man. After a long absence, he has returned lead his people to glory."
 #humanoid
 #gcost 0
-#unique
 #ap 14
 #mapmove 2
 #hp 60
@@ -8379,7 +8743,6 @@
 #descr "Maui's exploits are legendary.  Cast into the sea at birth, he was saved from drowning by the Taniwha and raised by Rangi, the spirit of the sky. The jawbone of his grandfather is his talisman, and his feats include catching a fish the size of an island and stealing fire from an angry spirit. A great hero, he is also a trickster and sometimes a glory hound. When quick wits and quick reflexes aren't enough he relies on his legendary luck, which seems to be contagious. This luck is inspiring to those around however it is unreliable and sometimes affects others, deserting Maui just when needed most."
 #humanoid
 #gcost 0
-#unique
 #ap 16
 #mapmove 14
 #hp 20
@@ -8418,7 +8781,6 @@
 #descr "Bluetongue Lizard is an old shaman skilled in the Dreaming arts and a master of fire summoning. He is capricious and enjoys tricking those he meets, such as pretending he is blind in order to get others to perform chores for him. Once his sons brought him a kangaroo they had slain to eat, however Bluetongue Lizard recognised it as a sacred and wise kangaroo that had taught him in the art of Dreaming. He was so incensed he conjured living flames to hunt them down wherever they went. In remorse for the slaying of his sons he has decided to offer his services to the Dreaming God."
 #humanoid
 #gcost 0
-#unique
 #ap 12
 #mapmove 14
 #hp 10
@@ -8682,7 +9044,7 @@
 #humanoid
 #size 2
 #hp 22
-#prot 20
+#prot 15
 #mr 16
 #mor 16
 #att 13
@@ -9190,7 +9552,6 @@ Andrea is the current head of the family and the most respected admiral in Vened
 #armor "Weightless Scale"
 #armor "Coral cap"
 #gcost 0
-#unique
 #end
 
 #newmonster 3827
@@ -9229,7 +9590,6 @@ Many years have passed since then and now Marco has returned to his homeland. Hi
 #weapon "Dagger"
 #armor "Robes"
 #poorleader
-#unique
 #end
 
 #newmonster 3828
@@ -9358,6 +9718,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #slashres
 #pierceres
 #pooramphibian
+#spiritsight
 #neednoteat
 #poisonres 25
 #coldres 15
@@ -9410,6 +9771,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #coldres 15
 #noleader
 #nomagicleader
+#spiritsight
 #darkpower -2
 #itemslots 12288 -- 2 misc
 #onebattlespell 189 -- Fanaticism
@@ -9650,7 +10012,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #spr1 "./Nahullo/NahSlave.tga"
 #spr2 "./Nahullo/NahSlave2.tga"
 #clearweapons
-#name "Enslaved tribesman"
+#name "Enslaved Tribesman"
 #nametype 266
 #descr "When the white giants arrived they quickly conquered and enslaved the surrounding tribes. Untrained slaves are now used in warfare to tire the enemy and waste their strength. Slaves are armed with spears, but are not given armor. They are untrained and likely to break if they face disciplined soldiers. A slave that survives several battles will eventually be given a shield and some basic training."
 #gcost 4
@@ -9893,13 +10255,14 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #mr 12
 #mor 12
 #enc 3
-#mapmove 18
+#mapmove 20
 #ap 14
 #minsizeleader 3
 #maxage 150
 #weapon 17 -- Axe
 #weapon 260 -- Throwing Axe
 #armor 12 -- Scale Mail Hauberk
+#armor 119 -- Reinforced leather cap
 #armor 2 -- Shield
 #end
 
@@ -9930,7 +10293,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #minsizeleader 3
 #maxage 150
 #weapon 17 -- Axe
-#armor 196 -- Golden Scale Mail
+#armor 681 -- Starnake Scale
 #armor 135 -- Bronze Cap
 #armor 2 -- Shield
 #end
@@ -9989,9 +10352,9 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #slave
 #holy
 #douse 1
-#incunrest 30
+#incunrest 2
 #magicskill 7 1
-#custommagic 13312 100 -- 100% E/D/N
+#custommagic 15488 100 -- 100% F/E/S/D/N
 #weapon 92 -- Fist
 #armor 158 -- Robes
 #end
@@ -9999,7 +10362,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #newmonster 3861
 #name "Ishtahullo"
 #nametype 266
-#descr "An Ishtahullo is a practioner of shamanic magic that consorts with spirits of all kinds. Shamans of the tribes of Nahullo are required to pledge their services to the giants. In return they are spared from the blood feasts and can practice their magic with relative impunity, for their masters care not for the lives of humans. Whilst still subservient to the giants they have greater autonomy than most and hold a privileged position in the heirarchy of Nahullo. Ishtahullo can summon the Shilombish, lost spirits of the slain, to serve their will."
+#descr "An Ishtahullo is a practioner of shamanic magic that consorts with spirits of all kinds. Shamans of the tribes of Nahullo are required to pledge their services to the giants. In return they are spared from the blood feasts and can practice their magic with relative impunity, for their masters care not for the lives of humans. Whilst still subservient to the giants they have greater autonomy than most and hold a privileged position in the heirarchy of Nahullo. Ishtahullo will animate a corpse each month to serve them and can summon the Shilombish, lost spirits of the slain, to serve their will."
 #spr1 "./Nahullo/NahulloShaman.tga"
 #spr2 "./Nahullo/NahulloShaman2.tga"
 #rcost 1
@@ -10017,6 +10380,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #mapmove 18
 #ap 12
 #poorleader
+#reanimator 1
 #makemonsters2 3865 -- Shilombish
 #batstartsum2 3865 -- Shilombish
 #magicskill 3 1
@@ -10046,7 +10410,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #mr 12
 #mor 14
 #enc 3
-#mapmove 18
+#mapmove 20
 #ap 14
 #slaver 3848 -- Slave
 #slaverbonus -2
@@ -10058,6 +10422,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #custommagic 16384 20 -- 20% blood
 #weapon 1 -- Spear
 #armor 12 -- Scale Mail Hauberk
+#armor 119 -- Reinforced leather cap
 #armor 2 -- Shield
 #end
 
@@ -10089,9 +10454,10 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #neednoteat
 #adeptsacr 2
 #maxage 150
-#magicskill 3 2
+#magicskill 3 1
 #magicskill 7 2
 #magicskill 8 3
+#custommagic 23680 100 -- 100% E/D/B/F/S
 #custommagic 23680 100 -- 100% E/D/B/F/S
 #custommagic 23680 10 -- 10% E/D/B/F/S
 #weapon 151 -- Magic Wand
@@ -10132,7 +10498,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #magicskill 3 1
 #magicskill 7 2
 #magicskill 8 2
-#custommagic 21504 10 -- 10% E/D/B
+#custommagic 21504 20 -- 20% E/D/B
 #weapon 520 -- Dawn Blade
 #armor 196 -- Golden Scale Mail
 #armor 135 -- Bronze Cap
@@ -10148,6 +10514,9 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Shilombish"
 #nametype 266
 #descr "In Nahullo the soul is composed of two parts - the Shilup, or inner soul, and the Shilombish or outer soul. When a person dies their Shilup proceeds to the afterlife, however their Shilombish remains until released by a shaman. Unscrupulous shamen can instead compel the Shilombish to serve them, and with the coming of the white giants there is no shortage of these lost souls. Their touch can paralyze living beings."
+#noleader
+#noundeadleader
+#itemslots 12288 -- 2 misc
 #end
 
 #newmonster 3866
@@ -10192,7 +10561,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #descr "Ishkitini are demon owls that inhabit the forests of Nahullo, where they prowl about at night killing men and animals. Their beak and claws are wickedly sharp and their screeching cries strike fear into the hearts of lone travellers. The owl is a sacred bird and Ishkitini are sacred to the people of Nahullo."
 #bird
 #hp 28
-#str 15
+#str 18
 #prec 10
 #ap 10
 #stealthy 0
@@ -10233,18 +10602,18 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #spr1 "./Nahullo/NalusaFalaya.tga"
 #spr2 "./Nahullo/NalusaFalaya2.tga"
 #nametype 140 -- Demon
-#descr "A Nalusa Falaya, Black One, is a shadow demon of Nahullo. They take the form of thin figures composed of shadow with long ears. Nalusa Falaya are experts at creeping about in the shadows and make excellent assassins."
+#descr "A Nalusa Falaya, Black One, is a shadow demon of Nahullo. They take the form of thin figures composed of shadow with long ears. Nalusa Falaya are experts at creeping about in the shadows. They are known to consort with dead things and can reanimate the bodies of the slain."
 #gcost 0
 #size 2
+#hp 14
 #mr 16
 #mor 30
 #ap 14
 #ethereal
-#assassin
-#patience 2
-#scalewalls
+#reanimpriest
 #magicskill 5 1
 #magicskill 7 1
+#magicskill 8 1
 #weapon 63 -- Life Drain
 #end
 
@@ -10637,13 +11006,14 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Kátsina Warrior"
 #descr "Kátsinam are beneficent spirit-beings who emerged from the underworld with the Chacoans. They allied with the more numerous tribes and now live amongst them as sacred warriors and priests. With their powerful ceremonies the Kátsinam bring rain for the crops and fertility to the land. Kátsina warriors bear enchanted weaponry and defend the land against attack by enemy tribes. As spirits of nature they are protected against mundane weapons and will cause nearby plants to ensnare attackers. All Kátsinam are sacred to the people of Chaco."
 #rpcost 39
-#gcost 90
+#gcost 75
 #str 17
 #weapon 889 -- Katsina War Spear
 #awe 0
 #invulnerable 10
 #holy
 #entangle
+#plant
 #okmagicleader
 #spiritsight
 #magicskill 6 1
@@ -10660,7 +11030,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Kátsina Archer"
 #descr "Kátsinam are beneficent spirit-beings who emerged from the underworld with the Chacoans. They allied with the more numerous tribes and now live amongst them as sacred warriors and priests. With their powerful ceremonies the Kátsinam bring rain for the crops and fertility to the land. Kátsina warriors bear enchanted weaponry and defend the land against attack by enemy tribes. As spirits of nature they are protected against mundane weapons and will cause nearby plants to ensnare attackers. All Kátsinam are sacred to the people of Chaco."
 #rpcost 39
-#gcost 100
+#gcost 75
 #str 17
 #prec 12
 #weapon 613 -- Enchanted Bow
@@ -10669,6 +11039,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #invulnerable 10
 #holy
 #entangle
+#plant
 #okmagicleader
 #spiritsight
 #magicskill 6 1
@@ -10841,7 +11212,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Povosqa"
 #descr "Povosqa are tribal shamen that commune with the spirits of the plants, the earth and the sky. Through the use of sacred medicine formed from highly magical plant extracts they receive visions that impart mystical knowledge. Often members of the tribe will turn to a Povosqa for aid and guidance when faced with ill health or ill fortune. Povosqa are sacred to the people of the mesa due to their connection to the land, however they are not priests and do not learn the sacred rituals. Through fasting and communing with the spirits they have become adept at surviving in harsh conditions."
 #rpcost 2
-#gcost 10010
+#gcost 150
 #att 10
 #def 10
 #mor 11
@@ -10851,6 +11222,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #spiritsight
 #researchbonus -3
 #magicskill 3 1
+#custommagic 9600 100 -- 100% FAEN
 #custommagic 9600 100 -- 100% FAEN
 #custommagic 9600 10 -- 10% FAEN
 #weapon 92 -- Fist
@@ -10867,8 +11239,8 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #spr2 "./Chaco/Mongkatsina2.tga"
 #name "Mongkátsina"
 #descr "Kátsinam are beneficent spirit-beings who emerged from the underworld with the Chacoans. They allied with the more numerous tribes and now live amongst them as sacred warriors and priests. With their powerful ceremonies the Kátsinam bring rain for the crops and fertility to the land. Kátsina warriors bear enchanted weaponry and defend the land against attack by enemy tribes. As spirits of nature they are protected against mundane weapons and will cause nearby plants to ensnare attackers. Mongkátsinam are chiefs and shamen amongst the Kátsinam and are strong in the magic of the earth and fertility. All Kátsinam are sacred to the people of the mesa."
-#rpcost 4
-#gcost 10090
+#rpcost 2
+#gcost 10075
 #str 17
 #mr 16
 #weapon 151 -- Wand
@@ -10877,10 +11249,12 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #ambidextrous 2
 #holy
 #entangle
+#plant
 #spiritsight
-#magicskill 6 2
+#magicskill 6 1
 #magicskill 3 1
 #magicskill 8 1
+#custommagic 9984 100 -- 100% AWEN
 #nametype 181 -- Katsina
 #end
 
@@ -11081,6 +11455,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #invulnerable 15
 #holy
 #entangle
+#plant
 #spiritsight
 #magicbeing
 #goodmagicleader
@@ -11217,7 +11592,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #spr1 "./Chaco/AntWarrior.tga"
 #spr2 "./Chaco/AntWarrior2.tga"
 #name "Ant Warrior"
-#descr "Before emerging from the underworld the Chacoans lived for a time with the Ant people under the earth. These are a hardy and industrious folk who shared with the Chacoans their food stores and dwellings. Ant warriors are sometimes called forth from the underworld and prove effective and organised warriors. They wield weapons and armor formed from discarded chitin, and their mandibles give a vicious bite. Ant people are magical beings and must be commanded by a mage."
+#descr "Before emerging from the underworld the Chacoans lived for a time with the Ant people under the earth. These are a hardy and industrious folk who shared with the Chacoans their food stores and dwellings. Ant warriors are sometimes called forth from the underworld and prove effective and organised warriors. Ant people wield weapons and armor formed from discarded chitin, and they have painful stingers that they are not afraid to use. Ant people are magical beings that communicate using a complicated system of scents and slight movements of their antennae."
 #naga
 #gcost 0
 #size 3
@@ -11226,7 +11601,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #mr 9
 #mor 13
 #att 12
-#str 14
+#str 17
 #prec 7
 #enc 2
 #darkvision 50
@@ -11234,7 +11609,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #wastesurvival
 #formationfighter 3
 #weapon 895 -- Chitin Longspear
-#weapon 20 -- Bite
+#weapon 1884 -- Sting
 #nametype 180 -- Chaco
 #end
 
@@ -11245,7 +11620,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #spr1 "./Chaco/AntWarriorB.tga"
 #spr2 "./Chaco/AntWarriorB2.tga"
 #name "Ant Warrior"
-#descr "Before emerging from the underworld the Chacoans lived for a time with the Ant people under the earth. These are a hardy and industrious folk who shared with the Chacoans their food stores and dwellings. Ant warriors are sometimes called forth from the underworld and prove effective and organised warriors. They wield weapons and armor formed from discarded chitin, and their mandibles give a vicious bite. Ant people are magical beings and must be commanded by a mage."
+#descr "Before emerging from the underworld the Chacoans lived for a time with the Ant people under the earth. These are a hardy and industrious folk who shared with the Chacoans their food stores and dwellings. Ant warriors are sometimes called forth from the underworld and prove effective and organised warriors. Ant people wield weapons and armor formed from discarded chitin, and they have painful stingers that they are not afraid to use. Ant people are magical beings that communicate using a complicated system of scents and slight movements of their antennae."
 #naga
 #gcost 0
 #size 3
@@ -11254,7 +11629,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #mr 9
 #mor 13
 #att 12
-#str 14
+#str 17
 #prec 7
 #enc 2
 #darkvision 50
@@ -11263,7 +11638,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #formationfighter 3
 #armor 2 -- Shield
 #weapon 896 -- Chitin Sword
-#weapon 20 -- Bite
+#weapon 1884 -- Sting
 #nametype 180 -- Chaco
 #end
 
@@ -11408,6 +11783,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #magicbeing
 #corpseeater 5
 #deadhp 1
+#stealthy 0
 #weapon 29 -- Claw
 #weapon 29 -- Claw
 #weapon 20 -- Bite
@@ -11437,9 +11813,11 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #spiritsight
 #invulnerable 10
 #holy
+#plant
 #entangle
 #magicbeing
 #magicskill 6 1
+#magicskill 3 1
 #nametype 181 -- Katsina
 #end
 
@@ -11599,8 +11977,8 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #enc 2
 #mapmove 32
 #ap 8
-#weapon 408 -- Beak
-#weapon 404 -- Talons
+#weapon 404 -- Beak
+#weapon 408 -- Talons
 #startage 1000
 #maxage 2000
 #woundfend 2
@@ -11634,6 +12012,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #ambidextrous 2
 #holy
 #entangle
+#plant
 #okmagicleader
 #spiritsight
 #magicskill 6 1
@@ -11657,11 +12036,13 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #invulnerable 10
 #ambidextrous 2
 #holy
+#plant
 #entangle
 #spiritsight
-#magicskill 6 2
+#magicskill 6 1
 #magicskill 3 1
 #magicskill 8 1
+#custommagic 9984 100 -- 100% AWEN
 #nametype 181 -- Katsina
 #end
 
@@ -11687,6 +12068,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #invulnerable 15
 #holy
 #entangle
+#plant
 #spiritsight
 #magicbeing
 #goodmagicleader
@@ -11708,7 +12090,6 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Skeleton Man"
 #fixedname "Masauwu"
 #descr "Masauwu, Skeleton Man, is the Kátsina of Death and the Keeper of Fire. He is also the Master of the Fourth World, and was there when the good people escaped the wickedness of the Third World for the promise of the Fourth. Masauwu wears a hideous mask, and beneath it some tales say there is a handsome, bejewelled man whilst others claim he is a bloody, fearsome creature. It was Masauwu who helped settle the Chaco in the Fourth World and gave them stewardship over the land. When they emerged from the Underworld Masauwu granted them four sacred tablets, however the last was missing a corner. This was granted to the White Brother who travelled East, and could be used to verify his identity should he return. Masauwu is strong in the magics of death, fire and the earth. All Kátsinam are sacred to the people of the mesa."
-#unique
 #gcost 0
 #size 5
 #hp 90
@@ -11726,6 +12107,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #pooramphibian
 #pierceres
 #undead
+#enc 0
 #invulnerable 20
 #holy
 #spiritsight
@@ -11759,6 +12141,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #ambidextrous 2
 #holy
 #entangle
+#plant
 #spiritsight
 #weapon 888 -- Katsina War Club
 #weapon 889 -- Katsina War Spear
@@ -11787,6 +12170,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #ambidextrous 2
 #holy
 #entangle
+#plant
 #spiritsight
 #weapon 613 -- Enchanted Bow
 #weapon 889 -- Katsina War Spear
@@ -12011,6 +12395,101 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #shapechange 3969
 #latehero 10
 #end
+
+
+#newmonster 4021
+#copystats 29 -- Light Infantry
+#clearweapons
+#cleararmor
+#spr1 "./Chaco/AntHero.tga"
+#spr2 "./Chaco/AntHero2.tga"
+#name "Adventurous Ant"
+#descr "Before emerging from the underworld the Chacoans lived for a time with the Ant people under the earth. These are a hardy and industrious folk who shared with the Chacoans their food stores and dwellings. Occasionally one of the Ant People that forged a particular bond with the Chacoan people during their stay will venture out of Sipapu to offer aid on the surface world. Ant people wield weapons and armor formed from discarded chitin, and they have painful stingers that they are not afraid to use. Ant people are magical beings that communicate using a complicated system of scents and slight movements of their antennae."
+#naga
+#gcost 0
+#size 3
+#hp 21
+#prot 14
+#mr 13
+#mor 16
+#att 13
+#str 18
+#prec 7
+#enc 1
+#flying
+#darkvision 50
+#magicbeing
+#wastesurvival
+#goodleader
+#goodmagicleader
+#inspirational 1
+#formationfighter 3
+#magicskill 3 2
+#magicskill 6 1
+#armor 2 -- Shield
+#weapon 896 -- Chitin Sword
+#weapon 1884 -- Sting
+#nametype 157 -- Xibalban
+#end
+
+#newmonster 4022
+#copystats 2225 -- Fire Ant
+#clearweapons
+#spr1 "./MagicEnhanced/EEAntQ.tga"
+#spr2 "./MagicEnhanced/EEAntQ2.tga"
+#name "Ant Queen"
+#descr "A huge and highly poisonous ant queen. Before emerging from the underworld the Chacoans lived for a time with the Ant people under the earth. These are a hardy and industrious folk who shared with the Chacoans their food stores and dwellings. Ant people wield weapons and armor formed from discarded chitin, and they have painful stingers that they are not afraid to use. These magical beings communicate using a complicated system of scents and slight movements of their antennae. The Queen is the center of the hive and births the many workers and soldiers that serve it."
+#quadruped
+#hp 65
+#size 5
+#prot 20
+#str 24
+#mor 20
+#mr 18
+#magicskill 3 3
+#magicskill 6 3
+#domsummon 3941 -- Ant Warriors
+#superiormagicleader
+#inspirational 1
+#darkvision 50
+#weapon 319 -- Bite
+#weapon 1884 -- Sting
+#nametype 157 -- Xibalban
+#end
+
+#newmonster 4023
+#copystats 29 -- Light Infantry
+#clearweapons
+#cleararmor
+#spr1 "./Chaco/AntHero.tga"
+#spr2 "./Chaco/AntHero2.tga"
+#name "Ant General"
+#descr "Before emerging from the underworld the Chacoans lived for a time with the Ant people under the earth. These are a hardy and industrious folk who shared with the Chacoans their food stores and dwellings. Occasionally one of the Ant People that forged a particular bond with the Chacoan people during their stay will venture out of Sipapu to offer aid on the surface world. Ant people wield weapons and armor formed from discarded chitin, and they have painful stingers that they are not afraid to use. Ant people are magical beings that communicate using a complicated system of scents and slight movements of their antennae."
+#naga
+#gcost 0
+#size 3
+#hp 21
+#prot 14
+#mr 13
+#mor 16
+#att 13
+#str 18
+#prec 7
+#enc 1
+#flying
+#darkvision 50
+#magicbeing
+#wastesurvival
+#goodleader
+#goodmagicleader
+#inspirational 1
+#formationfighter 3
+#armor 2 -- Shield
+#weapon 896 -- Chitin Sword
+#weapon 1884 -- Sting
+#nametype 157 -- Xibalban
+#end
+
 
 
 -- LATE AGE
@@ -12367,6 +12846,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #magicskill 6 1
 #weapon 92 -- Fist
 #masterrit 1
+#autohealer 1
 #nobadevents 25
 #mountainsurvival
 #wastesurvival
@@ -13382,7 +13862,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #rcost 1
 #nametype 182
 #itemslots 15494
-#weapon 92 -- Fist
+#weapon 7 -- Staff
 #armor "Leather hauberk"
 #startage 30
 #mountainsurvival
@@ -13781,8 +14261,8 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #snow
 #spreaddom 1
 #awe 1
-#magicskill 6 1 -- N1
-#magicskill 2 1 -- W1
+#magicskill 6 2 -- N2
+#magicskill 2 2 -- W2
 #magicskill 8 3 -- H2
 #inspirational 1
 #goodleader
@@ -13796,7 +14276,6 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #spr2 "./Shambhala/TertonKing2.tga"
 #descr "Nyatri Tsenpo is the first ruler of Bhöd and founded the Kingdom in ancient times. Legends tell how he descended from the sky on a cord and was recognised immediately as royalty by his webbed hands and eyelids that closed from under his eyes. As first of the Terton Kings he discovered many Terma and his wisdom is still followed today. At the end of his reign he did not die, but was carried up to the sky. Now he has returned to lead the Kingdom once more in service to the Awakening God. Nyatri Tsenpo is a master of magic and it is said that he cannot die, returning to the sky via his cord when mortally harmed."
 #fixedname "Nyatri Tsenpo"
-#unique
 #gcost 0
 #rcost 1
 #hp 18
@@ -15231,8 +15710,8 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #holy
 #snow
 #awe 1
-#magicskill 6 1 -- N1
-#magicskill 2 1 -- W1
+#magicskill 6 3 -- N3
+#magicskill 2 3 -- W3
 #inspirational 1
 #goodleader
 #end
@@ -15697,7 +16176,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Snow Lion"
 #spr1 "./Shambhala/Snow_Lion_1.tga"
 #spr2 "./Shambhala/Snow_Lion_2.tga"
-#descr "Snow Lions, or Gangs Senge, are magnificent and ferocious celestial creatures who look like white lions with turquoise manes. These fearsome beings are symbols of bravery in Shambhala, and their roar is so powerful that it is said to frighten dragons. The feet of Snow Lions never touch the ground, and they spend their existence leaping from mountain peak to mountain peak."
+#descr "Snow Lions, or Gangs Senge, are magnificent and ferocious celestial creatures who look like white lions with turquoise manes. These fearsome beings are symbols of bravery in Shambhala, and their roar is so powerful that it is said to kill dragons. The feet of Snow Lions never touch the ground, and they spend their existence leaping from mountain peak to mountain peak."
 #quadruped
 #ap 20
 #mapmove 3
@@ -15715,14 +16194,16 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #rcost 1
 #nametype 182
 #itemslots 12288
-#weapon 20 -- Bite
-#weapon 29 -- Claw
+#weapon 1120 -- Lion Roar
+#weapon 166 -- Golden Claw
+#standard 1
 #magicbeing
 #animal
 #spiritsight
 #darkvision 50
 #maxage 300
 #flying
+#float
 #neednoteat
 #mountainsurvival
 #snow
@@ -15734,7 +16215,8 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 
 -- Klu (Naga/Nagini), serpent shape
 #newmonster 4106
-#copystats 1322 -- Nagini
+#copystats 1330 -- Yakshini
+#clearweapons
 #name "Klu"
 #spr1 "./Shambhala/Klu_serpent_shape_1.tga"
 #spr2 "./Shambhala/Klu_serpent_shape_2.tga"
@@ -15764,14 +16246,15 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #prec 12
 #mr 16
 #mor 13
+#awe 0
 #gcost 0 -- autocalc 145
 #rcost 1
 --nametype 182 -- Better perhaps to leave this at the original Indian naming scheme, which occurs by default since we used copystats
 #itemslots 13446
---weapon 92 -- Fist (applied by default)
---weapon 30 -- Venomous Bite (applied by default)
---weapon 595 -- Hypnotize (applied by default)
---weapon 141 -- Poison Spit (applied by default)
+#weapon 92 -- Fist (applied by default)
+#weapon 30 -- Venomous Bite (applied by default)
+#weapon 595 -- Hypnotize (applied by default)
+#weapon 141 -- Poison Spit (applied by default)
 #clearmagic
 #magicskill 2 2 -- Water 2
 #magicskill 6 1 -- Nature 1
@@ -16068,8 +16551,8 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #spr1 "./Gondwana/ElkRider.tga"
 #spr2 "./Gondwana/ElkRider2.tga"
 #descr "The people of Gondwana do not use horses. Instead, giant beasts that roam the plains are tamed and taught to carry riders. The Razorhorns are larger than a horse and with wickedly sharp antlers. In battle they are hard to control and their size and temperament prevent them from fighting in close formations. If the rider is slain the beast will continue to gore and stamp enemies, however after the battle it will escape."
-#gcost 35
-#rpcost 36
+#gcost 25
+#rpcost 15
 #rcost 5
 #ressize 2
 #size 4
@@ -16708,7 +17191,9 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #mapmove 20
 #startage 20
 #maxage 40
-#magicskill 6 2
+#magicskill 6 1
+#custommagic 9216 100 -- 100% E/N
+#custommagic 9216 50 -- 50% E/N
 #weapon 29 -- Claw
 #weapon 29 -- Claw
 #weapon 1868 --Stomp
@@ -16716,6 +17201,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #berserk 2
 #holy
 #twiceborn 5769 -- Wight Beast
+#itemslots 12422 -- Head, 2 hands, 2 misc
 #end
 
 #newmonster 4186
@@ -16767,7 +17253,6 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Descendant of a Dead God"
 #descr "Orobiru is the last surviving Black Sorcerer of Machaka. Born in the God Mountain he carries the bloodline of a dead God and divine power runs through his veins. Long ago Irami zealots arrived at Machaka and heard the tales of God Mountain. They declared this blasphemous against their God and began a crusade of cleansing. Soon the ancient empire was no more, God Mountain was desecrated and the lightless chamber lit with the flames of the Imams. Orobiru escaped the destruction and with other refugees found his way to the hidden land of Gondwana. Here Orobiru has risen to a position of power through aiding the Obas with his considerable skills. Now he has pledged his service to a new God as he returns once more to the outside world. "
 #fixedname "Orobiru"
-#unique
 #humanoid
 #gcost 0
 #mr 17
@@ -16798,7 +17283,6 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Descendant of a Dead God"
 #descr "Orobiru is the last surviving Black Sorcerer of Machaka. Born in the God Mountain he carries the bloodline of a dead God and divine power runs through his veins. Long ago Irami zealots arrived at Machaka and heard the tales of God Mountain. They declared this blasphemous against their God and began a crusade of cleansing. Soon the ancient empire was no more, God Mountain was desecrated and the lightless chamber lit with the flames of the Imams. Orobiru escaped the destruction and with other refugees found his way to the hidden land of Gondwana. Here Orobiru has risen to a position of power through aiding the Obas with his considerable skills. Now he has pledged his service to a new God as he returns once more to the outside world."
 #fixedname "Orobiru"
-#unique
 #quadruped
 #gcost 0
 #transformation 0
@@ -16829,7 +17313,6 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Forgemaster"
 #descr "Ohen is a master artificer that is known for crafting the finest weapons and armor in Gondwana. After the destruction of Machaka by the Irami zealots Ohen and the other remaining inhabitants fled into the safety of the God Forest. After long months, during which many were lost to starvation, disease and the horrors that lurked in the deep forest, they finally found a place of sanctuary. A land of rolling plains and giant beasts hidden away from the world. Welcomed by the rulers of this new land for the skills and knowledge they brought they now call Gondwana their home. Amongst the secrets they carried was that of working iron plate, once used to clad the hoplites of Machaka. Now the Machakan refugees forge weapons and armor for the Obas to equip their armies. Ohen is reknowned as the finest of the metalworkers and his skills are highly sought after."
 #fixedname "Ohen"
-#unique
 #humanoid
 #gcost 0
 #mr 16
@@ -16857,7 +17340,6 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #spr2 "./Gondwana/QueenMother2.tga"
 #descr "Idia is a beloved and feared warrior queen known for her political counsel, skill in warfare and her shamanic powers. She was the mother to a powerful Oba and throughout his reign guided and advised him through many succesful military campaigns. Upon his death his two sons began to squabble and it seemed that endless civil war would tear the kingdom apart. Idia however raised an army in support of one of her grandsons and smashed the forces of his brother, ending the conflict and returning the land to peace. Now she has stirred once more to aid in the battle for Ascension."
 #fixedname "Idia"
-#unique
 #humanoid
 #gcost 0
 #size 2
@@ -17235,6 +17717,8 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #magicskill 5 2
 #magicskill 7 2
 #magicskill 8 2
+#custommagic 28672 100 -- 100% DNB
+#custommagic 28672 10 -- 10% DNB
 #weapon 92 -- Fist
 #end
 
@@ -17299,10 +17783,11 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Prince"
 #spr1 "./GreatArrada/Prince.tga"
 #spr2 "./GreatArrada/Prince2.tga"
-#descr "Palace officials are not chosen from male members of the royal family to avoid potential challenges to the kings authority. Brothers and sons of the King are often trained in military matters and sent to act as officers far away from the capital, where they are less likely to scheme and plot. Many become noted generals. When supported by experienced officers their battlefield prowess is considerable. Due to their position in the royal family they are considered sacred by the priesthood, however they are not trained in performing any rituals or ceremonies."
+#descr "Palace officials are not chosen from male members of the royal family to avoid potential challenges to the kings authority. Brothers and sons of the King are often trained in military matters and sent to act as officers far away from the capital, where they are less likely to scheme and plot. Many become noted generals. When supported by experienced officers their battlefield prowess is considerable. Due to their position in the royal family they are considered sacred by the priesthood, however they are not trained in performing any rituals or ceremonies. Princes can levy troops from the local populace as shield carriers for the army."
 #expertleader
 #mor 13
 #mr 11
+#makemonsters2 4202 -- Shield Carrier
 #weapon 92 -- Fist
 #holy
 #end
@@ -17314,7 +17799,8 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Princess"
 #spr1 "./GreatArrada/Princess.tga"
 #spr2 "./GreatArrada/Princess2.tga"
-#descr "Whilst male members of the royal family are not permitted to gain positions of power in the palace, this is not true for the wives and daughters of the king. The king grants them special powers to watch over his officials, each one assigned to keeping an eye on a minister to ensure they do not cheat him or threaten his power. Even the Migan and Mehu can be overruled in this way when necessary. These Princesses are taught the sacred ceremonies by the priesthood, and some become learned in Gbo rituals. Their royal status allows them to come and go as they please and they sometimes travel to foreign lands with secret instructions from the King himself."
+#descr "Whilst male members of the royal family are not permitted to gain positions of power in the palace, this is not true for the wives and daughters of the king. The king grants them special powers to watch over his officials, each one assigned to keeping an eye on a minister to ensure they do not cheat him or threaten his power. Even the Migan and Mehu can be overruled in this way when necessary. These Princesses are sacred member of the royal family, and some become learned in Gbo rituals. Their royal status allows them to come and go as they please and they sometimes travel to foreign lands with secret instructions from the King himself."
+#gcost 200
 #okleader
 #female
 #str 9
@@ -17325,7 +17811,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #spy
 #weapon 92 -- Fist
 #holy
-#magicskill 8 1
+-- #magicskill 8 1
 #custommagic 29952 100 -- 100% AEDNB
 #custommagic 29952 100 -- 100% AEDNB
 #custommagic 29952 100 -- 100% AEDNB
@@ -17383,6 +17869,8 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #descr "An ancestral warrior is the warrior spirit of a sacred ancestor given offerings to secure the well-being of its descendants. In times of need, ancestral warriors can be called upon to aid armies. This ancestor has been interrupted from their eternal slumber and brought back to fight the living. Ancestral warriors are ethereal beings whose weapons are not of this world and will not wound those strong of mind."
 #hp 12
 #mor 14
+#att 12
+#def 12
 #weapon 280 -- Spectral Spear
 #holy
 #montag 5187 -- Ancestral Spirit
@@ -17397,6 +17885,8 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #descr "An ancestral warrior is the warrior spirit of a sacred ancestor given offerings to secure the well-being of its descendants. In times of need, ancestral warriors can be called upon to aid armies. This ancestor has been interrupted from their eternal slumber and brought back to fight the living. Ancestral warriors are ethereal beings whose weapons are not of this world and will not wound those strong of mind."
 #hp 14
 #mor 15
+#att 12
+#def 12
 #weapon 281 -- Spectral Sword
 #holy
 #montag 5187 -- Ancestral Spirit
@@ -17434,6 +17924,8 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #hp 14
 #mor 15
 #fear 5
+#att 12
+#def 12
 #weapon 281 -- Spectral Sword
 #holy
 #montag 5187 -- Ancestral Spirit
@@ -17450,10 +17942,13 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #hp 16
 #mr 15
 #mor 17
-#att 12
-#def 12
+#att 13
+#def 13
 #fear 5
 #cold 3
+#stealthy 0
+#okleader
+#goodundeadleader
 #weapon 281 -- Spectral Sword
 #holy
 #end
@@ -17481,6 +17976,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #custommagic 29952 100 -- 100% AEDNB
 #custommagic 29952 100 -- 100% AEDNB
 #magicskill 8 2
+#stealthy 0
 #weapon 63 -- Life Drain
 #holy
 #female
@@ -17507,7 +18003,8 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #inspirational 2
 #expertundeadleader
 #magicskill 8 2
-#makemonsters2 -5187 -- Ancestral Spirits
+#stealthy 0
+#makemonsters4 -5187 -- Ancestral Spirits
 #weapon 63 -- Life Drain
 #holy
 #end
@@ -17534,6 +18031,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #magicskill 5 3
 #magicskill 7 3
 #magicskill 8 3
+#stealthy 0
 #makemonsters2 -5187 -- Ancestral Spirits
 #makemonsters1 4228 -- Ancestral Mino
 #weapon 63 -- Life Drain
@@ -17777,7 +18275,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Ali'i"
 #spr1 "./Sawaikii/alii1.tga"
 #spr2 "./Sawaikii/alii2.tga"
-#descr "The society of Sawaiiki is a strict heiarchy. The Ali'i are the warriors of Sawaiki and are on the top of society, being the ones that bring new wealth, lands, and glory to the islands. Due to this great responsbility, they are considered sacred."
+#descr "The society of Sawaiiki is a strict hierarchy. The Ali'i are the warriors of Sawaiiki and are on the top of society, being the ones that bring new wealth, lands, and glory to the islands. Due to this great responsibility, they are considered sacred. Traditional tattooing, Kakau, is performed by specially trained kahuna and most warriors are covered with intricate patterns. This serves them not only for ornamentation and distinction, but to guard their health and spiritual well-being. The process is guarded with great secrecy and all implements are destroyed after use, according to the dictates of kapu."
 #ap 14
 #mapmove 2
 #hp 13
@@ -17796,6 +18294,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #gcost 20
 #rcost 3
 #rpcost 24
+#snaketattoo 3
 #holy
 #ambidextrous 2
 #swimming
@@ -17810,7 +18309,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Ali'i Spearman"
 #spr1 "./Sawaikii/hoplite1.tga"
 #spr2 "./Sawaikii/hoplite2.tga"
-#descr "The Ali'i spearmen are the low ranking warriors of Sawaiki. Though they are not considered yet sacred due to lack of experience, they are the core of the armies of the Eternal Sea and keep their foes at a distance with their long spears and tight formations."
+#descr "The Ali'i spearmen are the low ranking warriors of Sawaiiki. Though they are not considered yet sacred due to lack of experience, they are the core of the armies of the Eternal Sea and keep their foes at a distance with their long spears and tight formations. Traditional tattooing, Kakau, is performed by specially trained kahuna and most warriors are covered with intricate patterns. This serves them not only for ornamentation and distinction, but to guard their health and spiritual well-being. The process is guarded with great secrecy and all implements are destroyed after use, according to the dictates of kapu."
 #ap 14
 #mapmove 2
 #hp 12
@@ -17818,7 +18317,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #size 2
 #str 11
 #enc 3
-#att 10
+#att 11
 #def 10
 #prec 10
 #mr 11
@@ -17829,6 +18328,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #nametype 127
 #gcost 14
 #rcost 4
+#snaketattoo 1
 #rpcost 14
 #swimming
 #weapon "Long Spear"
@@ -17841,7 +18341,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Child of Nanaue"
 #spr1 "./Sawaikii/nanaue1.tga"
 #spr2 "./Sawaikii/nanaue2.tga"
-#descr "The Children of Naunaue are the semi-human descendants of the King Shark. They are able to turn into great sharks when they enter water, and are elusive on land. They live away from the rest of society in a small village near Soul's Leap, the cliff from which the spirits of the honored dead enter the underworld. They are not considered sacred despite their warrior prowess due to the fact they are not wholly human and are ostrasized as monsters."
+#descr "The Children of Nanaue are the semi-human descendants of the King Shark. They are able to turn into great sharks when they enter water, and are elusive on land. They live away from the rest of society in a small village near Soul's Leap, the cliff from which the spirits of the honored dead enter the underworld. They are not considered sacred despite their warrior prowess due to the fact they are not wholly human and are ostracized as monsters."
 #ap 14
 #mapmove 2
 #hp 13
@@ -17849,8 +18349,8 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #size 2
 #str 12
 #enc 3
-#att 11
-#def 11
+#att 12
+#def 12
 #prec 10
 #mr 11
 #mor 12
@@ -17858,8 +18358,9 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #startage 22
 #nametype 127
 #animalawe 1
-#gcost 25
+#gcost 20
 #rpcost 25
+#snaketattoo 3
 #rcost 4
 #stealthy 0
 #watershape 4308
@@ -17867,13 +18368,14 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #armor "Crested Helmet"
 #armor "Sharkskin Armor"
 #pooramphibian
+#animal
 #end
 
 #newmonster 4305
 #name "Ali'i Slinger"
 #spr1 "./Sawaikii/slinger1.tga"
 #spr2 "./Sawaikii/slinger2.tga"
-#descr "The Ali'i slingers cast the first blow in a fight, showering their foes with sharpened stones made from volcanic rock. Their slingstones are blessed by the Priestesses of Ruin, and are able to harm ethereal beings."
+#descr "The Ali'i slingers cast the first blow in a fight, showering their foes with sharpened stones made from volcanic rock. Their slingstones are blessed by the Priestesses of Ruin, and are able to harm ethereal beings. Traditional tattooing, Kakau, is performed by specially trained kahuna and most warriors are covered with intricate patterns. This serves them not only for ornamentation and distinction, but to guard their health and spiritual well-being. The process is guarded with great secrecy and all implements are destroyed after use, according to the dictates of kapu."
 #ap 14
 #mapmove 2
 #hp 13
@@ -17892,6 +18394,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #gcost 20
 #rcost 5
 #rpcost 24
+#snaketattoo 3
 #holy
 #swimming
 #weapon "Obsidian Sling"
@@ -17903,7 +18406,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Koa Warrior"
 #spr1 "./Sawaikii/koa1.tga"
 #spr2 "./Sawaikii/koa2.tga"
-#descr "The Koa Warriors are the elite of Sawaiki. They train in the green cliffs at night, away from the prying eyes of the maka'aina. They are much larger and tougher than ordinary humans due to their closeness to the mana. They bring into battle swords fashioned from the wood of the sacred Koa and their prowess in the unarmed Lua art, meant to disable rather than kill."
+#descr "The Koa Warriors are the elite of Sawaiiki. They train in the green cliffs at night, away from the prying eyes of the maka'aina. They are much larger and tougher than ordinary humans due to their closeness to the mana. They bring into battle swords fashioned from the wood of the sacred Koa and their prowess in the unarmed Lua art, meant to disable rather than kill. Traditional tattooing, Kakau, is performed by specially trained kahuna and most warriors are covered with intricate patterns. This serves them not only for ornamentation and distinction, but to guard their health and spiritual well-being. The process is guarded with great secrecy and all implements are destroyed after use, according to the dictates of kapu."
 #ap 16
 #mapmove 2
 #hp 18
@@ -17924,7 +18427,10 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #rpcost 34
 #holy
 #swimming
+#stealthy 0
 #awe 1
+#snaketattoo 3
+#boartattoo 5
 #ambidextrous 2
 #darkvision 50
 #weapon "Koa Short Sword"
@@ -17936,7 +18442,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Ali'i Kaukau"
 #spr1 "./Sawaikii/kaukau1.tga"
 #spr2 "./Sawaikii/kaukau2.tga"
-#descr "The Ali'i Kaukau are the minor landless nobles of Sawaiki. Many of them have claims to property like the Nui, but do not have the wealth, influence, or mana to obtain it. Their heritage is still considered sacred though, and they can wield limited divine authority. "
+#descr "The Ali'i Kaukau are the minor landless nobles of Sawaiiki. Many of them have claims to property like the Nui, but do not have the wealth, influence, or mana to obtain it. Their heritage is still considered sacred though, and they can wield limited divine authority. "
 #ap 14
 #mapmove 2
 #hp 13
@@ -17957,6 +18463,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #swimming
 #gcost 10010
 #rcost 2
+#snaketattoo 3
 #holy
 #weapon "Sharktooth Sword"
 #armor "Leather Cuirass"
@@ -17974,7 +18481,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #ap 26
 #mapmove 3
 #hp 55
-#prot 4
+#prot 12
 #size 6
 #str 22
 #enc 0
@@ -17990,9 +18497,10 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #startage 22
 #nametype 127
 #landshape 4304
-#gcost 45
+#gcost 20
 #rcost 4
 #amphibian
+#snaketattoo 3
 #itemslots 12288 -- 2 misc
 #weapon 20 -- Bite
 #rpcost 30
@@ -18022,6 +18530,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #gcost 10010
 #rcost 4
 #magicskill 8 2
+#snaketattoo 3
 #holy
 #swimming
 #weapon "Sharktooth Spear"
@@ -18053,6 +18562,8 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #startage 22
 #nametype 127
 #expertleader
+#snaketattoo 3
+#boartattoo 5
 #gcost 250
 #rcost 5
 #magicskill 8 3
@@ -18072,31 +18583,36 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Iliahi Lord"
 #spr1 "./Sawaikii/lord1.tga"
 #spr2 "./Sawaikii/lord2.tga"
-#descr "The greatest of the Koa warriors are the Ilahi or Sandalwood lords. Trained by the spirits of the forests and the mountains, they are able to lead small war parties and go beneath the waves. The 'Ilahi Lords often lead the Children of Nanaue, as they see their service as a chance of proving their worthiness to the Ali'i."
+#descr "The greatest of the Koa warriors are the Iliahi or Sandalwood lords. Trained by the spirits of the forests and the mountains, they are able to lead small war parties and go beneath the waves. The Iliahi Lords often lead the Children of Nanaue, as they see their service as a chance of proving their worthiness to the Ali'i."
+#gcost 10025
+#rpcost 2
+#rcost 5
 #ap 17
 #mapmove 2
-#hp 17
-#prot 1
+#hp 25
+#prot 4
 #size 2
-#str 12
+#str 17
 #enc 2
 #att 14
-#def 11
+#def 13
 #prec 11
 #mr 14
-#mor 15
+#mor 16
 #maxage 70
 #startage 30
 #nametype 127
-#slowrec
-#gcost 210
-#rcost 5
 #magicskill 1 1
 #magicskill 2 1
+#magicskill 6 1
 #magicskill 8 1
 #holy
+#snaketattoo 3
+#boartattoo 8
 #stealthy 10
+#darkvision 50
 #sailing 999 3
+#poorundeadleader
 #awe 1
 #pooramphibian
 #ambidextrous 3
@@ -18105,7 +18621,6 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #armor "Leather Cuirass"
 #armor "Crested Helmet"
 #armor "Hide Shield"
-#rpcost 2
 #end
 
 #newmonster 4312
@@ -18183,6 +18698,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #size 2
 #nametype 127
 #poorleader
+#poorundeadleader
 #str 10
 #enc 2
 #att 9
@@ -18207,6 +18723,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #spr1 "./Sawaikii/fourpriest1.tga"
 #spr2 "./Sawaikii/fourpriest2.tga"
 #descr "All supernatural and mortal power flows from the Kapu, the spiritual laws that govern life in Sawaiiki. Whilst the True God is the focus of Kapu and above all others, the people of Sawaiiki also worship The Four: The Sky, The Deep, The White, and the Moon. The Sky is the great father, and the one who first breathed life into man. The Deep is the lord of darkness and magic, whispering secrets both wonderful and terrible. The White is the lord of abundance and agriculture, and keeps the peace. The Moon is the lord of war, and represents both the prosperity and horror that follows battles. The priests who follow them are trained to memorize special invocations to protect the warriors of Sawaiiki. However, their religious duties often prevent them researching effectively."
+#gcost 10010
 #ap 11
 #mapmove 2
 #researchbonus -3
@@ -18223,7 +18740,6 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #mor 11
 #maxage 70
 #startage 50
-#gcost 150
 #holy
 #swimming
 #poorleader
@@ -18240,9 +18756,9 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #spr1 "./Sawaikii/firepriest1.tga"
 #spr2 "./Sawaikii/firepriest2.tga"
 #descr "Compared to the hermetic and structured Order of the Four, the Sisterhood of Ruin prefer to channel their power into a more destructive capacity. They dwell in the untamed wilds so as to practice their arts without distraction or violation of the Kapu. Because of their unusual ways, the Priestesses of Ruin do not hold as much divine authority or respect compared to the Priests of the Four, but tend to have skills in lesser known magics. The realm of Ruin is primarily fire, but also encompasses the earth."
+#gcost 140
 #ap 13
 #mapmove 2
-#researchbonus -3
 #female
 #nametype 127
 #hp 11
@@ -18259,12 +18775,12 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #maxage 70
 #poorleader
 #startage 20
-#gcost 120
 #magicskill 3 1
 #magicskill 8 1
 #magicskill 0 1
-#custommagic 1152 50
+#custommagic 1152 100
 #weapon "Dagger"
+#poorundeadleader
 #rcost 1
 #rpcost 2
 #end
@@ -18298,6 +18814,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #spr1 "./Sawaikii/dorf1.tga"
 #spr2 "./Sawaikii/dorf2.tga"
 #descr "The Menehune were the ones who built the great shrines and waterways of the isles. Though most retreated to the high mountains and deep forest with the coming of men, this one has been coerced into serving the awakening god through bribes of food and wealth. They are productive creatures, and know what stones to carve and which wood to cut. Due to their great strength, they carry large boulders into battle along with their magic."
+#humanoid
 #ap 11
 #mapmove 2
 #hp 10
@@ -18331,12 +18848,13 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Mo'O"
 #spr1 "./Sawaikii/moo1.tga"
 #spr2 "./Sawaikii/moo2.tga"
-#descr "The Mo'o are great dragon-spirits of the mountain waters. They are strong both phsyically and magically, but are suceptible to the influences of Ruin."
+#descr "The Mo'o are great dragon-spirits of the mountain waters. They are strong both physically and magically, but are susceptible to the influences of Ruin. In battle they will manifest mana to aid in spellcasting."
+#humanoid
 #gcost 0
 #ap 11
 #mapmove 2
 #slowrec
-#hp 50
+#hp 65
 #prot 6
 #size 5
 #str 18
@@ -18345,18 +18863,23 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #amphibian
 #fireres -3
 #shockres -3
+#poisonres 5
 #att 14
 #def 13
 #prec 10
-#mr 12
-#mor 11
-#fixforgebonus 1
+#mr 15
+#mor 13
+#snaketattoo 3
+#fixforgebonus 2
 #maxage 1000
 #startage 300
 #forestsurvival
 #mountainsurvival
-#magicskill 6 3
+#tmpnaturegems 1
+#tmpwatergems 1
+#magicskill 6 2
 #magicskill 2 2
+#custommagic 8704 100 -- 100% W/N
 #weapon "Claw"
 #weapon "Bite"
 #rcost 1
@@ -18367,6 +18890,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #spr1 "./Sawaikii/moogreen1.tga"
 #spr2 "./Sawaikii/moogreen2.tga"
 #descr "The Mo'o are the great dragons of the mountain waters. They are strong both physically and magically, but are susceptible to the influences of Ruin. While most Mo'o tend to be aloof and sometimes cruel towards humans, this one has decided to descend from the mountains in search of adventure and to help the weak."
+#humanoid
 #gcost 0
 #ap 11
 #mapmove 2
@@ -18380,15 +18904,19 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #amphibian
 #fireres -3
 #shockres -3
+#poisonres 5
 #att 16
 #def 14
 #prec 10
-#mr 12
+#mr 16
 #mor 11
 #maxage 1000
 #startage 300
 #forestsurvival
 #mountainsurvival
+#snaketattoo 3
+#tmpnaturegems 1
+#tmpwatergems 1
 #magicskill 6 4
 #magicskill 2 2
 #weapon "Claw"
@@ -18396,7 +18924,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #weapon "Bite"
 #autohealer 3
 #autodishealer 1
-#fixforgebonus 1
+#fixforgebonus 2
 #female
 #stealthy 40
 #rcost 1
@@ -18408,6 +18936,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #spr1 "./Sawaikii/moohuman1.tga"
 #spr2 "./Sawaikii/moohuman2.tga"
 #descr "The Mo'o are the great dragons of the mountain waters. They are strong both physically and magically, but are susceptible to the influences of Ruin. While most Mo'o tend to be aloof and sometimes cruel towards humans, this one has decided to descend from the mountains in search of adventure and to help the weak."
+#humanoid
 #gcost 0
 #ap 13
 #mapmove 2
@@ -18422,15 +18951,20 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #att 9
 #def 9
 #prec 10
-#mr 13
+#mr 16
 #mor 11
 #holy
 #maxage 1000
 #startage 30
+#poisonres 5
 #magicskill 6 4
 #magicskill 2 2
+#tmpnaturegems 1
+#tmpwatergems 1
+#snaketattoo 3
 #autohealer 3
 #autodishealer 1
+#fixforgebonus 2
 #stealthy 40
 #female
 #seduce 11
@@ -18444,6 +18978,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #spr1 "./Sawaikii/lava1.tga"
 #spr2 "./Sawaikii/lava2.tga"
 #descr "The Spirit of Ruin had many mortal lovers. While most did not survive her torrid emotions, a few had a passion strong enough to outlive their bodies and became one with the land's mana. They arose as consorts of lava, mighty elementals of fire and earth."
+#humanoid
 #gcost 0
 #ap 10
 #mapmove 2
@@ -18458,7 +18993,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #mr 13
 #mor 16
 #heat 4
-#fireres 8
+#fireres 38
 #maxage 300
 #startage 150
 #nametype 127
@@ -18480,7 +19015,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #ap 14
 #mapmove 2
 #neednoteat
-#hp 8
+#hp 15
 #prot 0
 #size 2
 #str 12
@@ -18627,6 +19162,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #startage 5500
 #fixedname "Kanaloa"
 #rcost 3
+#snaketattoo 3
 #magicbeing
 #amphibian
 #landshape 4327
@@ -18685,6 +19221,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #magicboost 2 -2
 #magicboost 5 -1
 #itemslots 28672
+#snaketattoo 3
 #magicbeing
 #holy
 #amphibian
@@ -18730,6 +19267,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #magicskill 3 2
 #magicskill 4 2
 #magicskill 8 4
+#snaketattoo 3
 #holy
 #immortal
 #montag 5198 -- No Transformation spells
@@ -18834,12 +19372,16 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #rcost 3
 #demon
 #swimming
+#goodundeadleader
+#stealthy 0
+#chaospower 1
 #ambidextrous 2
 #armor "Crested Helmet"
 #weapon "Claws"
 #weapon "Lua"
 #douse 1
 #magicskill 7 1
+#custommagic 24576 100 -- 100% B/N
 #shapechange 4332
 #end
 
@@ -18861,19 +19403,23 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #def 12
 #prec 10
 #mr 13
-#mor 50
+#mor 16
 #maxage 200
 #startage 40
 #nametype 127
 #rcost 3
-#undead
+#stealthy 0
+#chaospower 1
+#demon
 #ethereal
 #swimming
+#goodundeadleader
 #itemslots 12288
 #ambidextrous 2
 #weapon "Bite"
 #douse 1
 #magicskill 7 1
+#custommagic 24576 100 -- 100% B/N
 #shapechange 4331
 #end
 
@@ -18899,14 +19445,17 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #berserk 3
 #startage 40
 #nametype 127
-#gcost 30
+#gcost 25
 #rcost 2
-#rpcost 35
+#rpcost 15
+#stealthy 0
 #demon
 #swimming
+#chaospower 1
 #chaosrec 5
 #pillagebonus 3
 #ambidextrous 2
+#okundeadleader
 #weapon "Claws"
 #weapon "Lua"
 #end
@@ -18929,7 +19478,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #def 10
 #prec 10
 #mr 19
-#mor 50
+#mor 30
 #maxage 800
 #startage 297
 #nametype 128
@@ -18938,6 +19487,10 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #undead
 #holy
 #itemslots 12288
+#custommagic 6400 100 -- 100% A/S/D
+#custommagic 6400 100 -- 100% A/S/D
+#custommagic 6400 100 -- 100% A/S/D
+#custommagic 6400 100 -- 100% A/S/D
 #amphibian
 #flying	
 #stormimmune
@@ -18955,7 +19508,6 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #gcost 0
 #ap 18
 #mapmove 2
-#unique
 #hp 25
 #prot 3
 #size 2
@@ -18970,6 +19522,8 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #startage 40
 #fixedname "Kamehameha"
 #superiorleader
+#snaketattoo 5
+#boartattoo 5
 #sailing 999 6
 #rcost 5
 #magicskill 8 4
@@ -18991,7 +19545,6 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #descr "The Isles of Man sent their own explorers to find new lands to conquer. This explorer has sailed the seas for many years before coming to Sawaiiki. The sails of his ship made the priests and kahunas mistake him for an envoy of the White and they advised the people not to attack. But seeing the natives below him, he fought with them before becoming captured himself. When challenged to a duel for honor, he easily defeated the Ali'i Aimoku, thinking that it would be the end for him regardless. However, both the Ali'i and Maka'aina praised him, for only by blood can mana be transferred. Now the Explorer has become deified as an aspect of the White, and leads the people of Sawaiiki onwards."
 #gcost 0
 #ap 18
-#unique
 #mapmove 2
 #hp 20
 #prot 3
@@ -19026,7 +19579,6 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #gcost 0
 #ap 18
 #mapmove 2
-#unique
 #hp 20
 #prot 3
 #size 2
@@ -19046,6 +19598,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #magicskill 2 4
 #magicskill 3 3
 #magicskill 6 2
+#snaketattoo 3
 #holy
 #swimming
 #sailing 999 3
@@ -19114,9 +19667,11 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #hp 22
 #darkvision 50
 #wolftattoo 1
+#boartattoo 3
 #pillagebonus 1
-#chaosrec 2
+#chaosrec 3
 #undisciplined
+#forestsurvival
 #weapon 643 -- Bronze Spear
 #armor 2 -- Shield
 #end
@@ -19135,10 +19690,12 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #hp 22
 #darkvision 50
 #horsetattoo 1
+#boartattoo 3
 #undisciplined
 #skirmisher 1
 #pillagebonus 1
-#chaosrec 2
+#chaosrec 3
+#forestsurvival
 #weapon 912 -- Bronze Javelins
 #weapon 674 -- Bronze Dagger
 #armor 2 -- Shield
@@ -19160,8 +19717,10 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #undisciplined
 #berserk 1
 #wolftattoo 1
+#boartattoo 3
 #pillagebonus 1
-#chaosrec 2
+#chaosrec 3
+#forestsurvival
 #weapon 1876 -- Sparth
 #end
 
@@ -19183,9 +19742,11 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #bodyguard 1
 #darkvision 50
 #berserk 2
-#wolftattoo 1
+#wolftattoo 2
+#boartattoo 3
 #pillagebonus 1
-#chaosrec 2
+#chaosrec 3
+#forestsurvival
 #weapon 645 -- Bronze Sword
 #armor 2 -- Shield
 #end
@@ -19198,7 +19759,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #spr2 "Albion/AlbGiantSmallNoble2.tga"
 #name "Clan Noble"
 #descr "The nobles of the clans of Albion are an elite warrior caste famed for their battle prowess. Nobles often instigate raids into nearby territory to claim cattle and slaves, and have honed their skills in many such conflicts. Golden torcs and bracelets are worn to display their wealth and station. Armed with the finest weapons and tattooed to record their great feats, they form an imposing presence on the battlefield. All giants of Albion disdain armor and trust in their God, and the power of their enchanted tattoos, to protect them in battle."
-#gcost 40
+#gcost 45
 #rpcost 21
 #nametype 137
 #hp 25
@@ -19210,8 +19771,10 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #str 16
 #ambidextrous 1
 #beartattoo 2
+#boartattoo 5
 #pillagebonus 2
-#chaosrec 2
+#chaosrec 5
+#forestsurvival
 #weapon 645 -- Bronze Sword
 #weapon 675 -- Bronze Axe
 #end
@@ -19241,7 +19804,9 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #chaosrec 5
 #demon
 #poorundeadleader
-#wolftattoo 1
+#forestsurvival
+#wolftattoo 3
+#boartattoo 5
 #pillagebonus 1
 #weapon 643 -- Bronze Spear
 #armor 2 -- Shield
@@ -19275,8 +19840,10 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #demon
 #yearturn 2
 #poorundeadleader
-#horsetattoo 2
-#wolftattoo 2
+#forestsurvival
+#boartattoo 8
+#wolftattoo 4
+#snaketattoo 3
 #holy
 #weapon 645 -- Bronze Sword
 #armor 2 -- Shield
@@ -19307,7 +19874,9 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #chaosrec 5
 #demon
 #poorundeadleader
-#beartattoo 1
+#forestsurvival
+#beartattoo 3
+#boartattoo 5
 #pillagebonus 1
 #weapon 424 -- Boulder
 #weapon 674 -- Bronze Dagger
@@ -19331,6 +19900,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #hp 22
 #darkvision 50
 #wolftattoo 1
+#boartattoo 3
 #stealthy 0
 #chaosrec 5
 #mountainsurvival
@@ -19357,8 +19927,10 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #str 16
 #command 20
 #beartattoo 2
+#boartattoo 5
 #pillagebonus 5
 #poorundeadleader
+#forestsurvival
 #undcommand 10
 #chaosrec 5
 #weapon 645 -- Bronze Sword
@@ -19390,7 +19962,9 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #demon
 #goodleader
 #okundeadleader
-#wolftattoo 2
+#forestsurvival
+#wolftattoo 4
+#boartattoo 8
 #chaosrec 10
 #weapon 645 -- Bronze Sword
 #armor 2 -- Shield
@@ -19421,6 +19995,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #nobadevents 15
 #poorleader
 #poorundeadleader
+#forestsurvival
 #weapon 57 -- Sickle
 #end
 
@@ -19449,6 +20024,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #holy
 #poorleader
 #poorundeadleader
+#forestsurvival
 #undcommand 10
 #magicskill 6 1
 #magicskill 7 1
@@ -19465,7 +20041,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #spr2 "Albion/AlbGiantCambion2.tga"
 #name "Thyrs Cambion"
 #descr "A Cambion is a giant born of the union between a Witch Queen and a demonic incubus. Infernal blood runs strong in their veins and their powers are greater than those of other Thyrsa of Albion. When they come of age they are brought to the Great Henge and taught by the druids and the Queens in the ways of magic and war. Elaborate artwork covers their bodies and before battle they are daubed in sacred Woad to protect them from harm. Their demonic heritage grants them great strength and the ability to change shape into bird or beast, however it also makes it possible for priests to banish them."
-#gcost 270
+#gcost 260
 #rpcost 2
 #nametype 137
 #hp 46
@@ -19482,11 +20058,12 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #holy
 #goodleader
 #goodundeadleader
-#chaosrec 15
-#wolftattoo 2
-#horsetattoo 2
+#forestsurvival
+#chaosrec 10
+#wolftattoo 3
+#horsetattoo 3
+#boartattoo 5
 #magicskill 2 1
-#magicskill 6 1
 #magicskill 7 1
 #magicskill 8 1
 #custommagic 26112 100 -- 100% WENB
@@ -19501,7 +20078,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #copyspr 1380 -- Great Hawk
 #name "Thyrs Cambion"
 #descr "A Cambion is a giant born of the union between a Witch Queen and a demonic incubus. Infernal blood runs strong in their veins and their powers are greater than those of other Thyrsa of Albion. When they come of age they are brought to the Great Henge and taught by the druids and the Queens in the ways of magic and war. Elaborate artwork covers their bodies and before battle they are daubed in sacred Woad to protect them from harm. Their demonic heritage grants them great strength and the ability to change shape into bird or beast, however it also makes it possible for priests to banish them."
-#gcost 270
+#gcost 260
 #mr 14
 #mor 15
 #hp 20
@@ -19511,7 +20088,6 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #wolftattoo 2
 #horsetattoo 2
 #magicskill 2 1
-#magicskill 6 1
 #magicskill 7 1
 #magicskill 8 1
 #coldres 5
@@ -19520,6 +20096,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #chaosrec 15
 #transformation 0
 #shapechange 4416
+#forestsurvival
 #end
 
 #newmonster 4416
@@ -19527,7 +20104,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #copyspr 1309 -- Jotun Wolf
 #name "Thyrs Cambion"
 #descr "A Cambion is a giant born of the union between a Witch Queen and a demonic incubus. Infernal blood runs strong in their veins and their powers are greater than those of other Thyrsa of Albion. When they come of age they are brought to the Great Henge and taught by the druids and the Queens in the ways of magic and war. Elaborate artwork covers their bodies and before battle they are daubed in sacred Woad to protect them from harm. Their demonic heritage grants them great strength and the ability to change shape into bird or beast, however it also makes it possible for priests to banish them."
-#gcost 270
+#gcost 260
 #mr 14
 #mor 15
 #okundeadleader
@@ -19537,7 +20114,6 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #wolftattoo 2
 #horsetattoo 2
 #magicskill 2 1
-#magicskill 6 1
 #magicskill 7 1
 #magicskill 8 1
 #coldres 5
@@ -19545,6 +20121,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #maxage 500
 #chaosrec 15
 #shapechange 4414
+#forestsurvival
 #end
 
 #newmonster 4417
@@ -19556,10 +20133,10 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Witch Queen"
 #descr "The Witch Queens of Albion are the daughters of the original refugees that found the isle and have proven themselves able rulers of the clans. Taught demonic magic by their mothers and strong in infernal blood, they are skilled in both warfare and sorcery. As direct descendants of the founders of Albion they are revered by the Thyrsa and lead religious ceremonies paying homage to the infernal powers. In battle they ride atop chariots to better survey the battlefield, and to quickly move where needed."
 #mountedhumanoid
-#gcost 10060
+#gcost 10040
 #rpcost 4
 #nametype 138
-#hp 28
+#hp 44
 #size 5
 #prot 5
 #mr 15
@@ -19572,16 +20149,19 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #expertleader
 #goodundeadleader
 #combatcaster
-#chaosrec 15
+#chaosrec 20
+#mapmove 22
 #magicskill 2 2
 #magicskill 7 2
 #magicskill 8 2
 #custommagic 26112 100 -- 100% WENB
 #custommagic 26112 100 -- 100% WENB
 #custommagic 26112 10 -- 10% WENB
-#horsetattoo 2
+#horsetattoo 4
+#boartattoo 5
 #startage 500
 #maxage 1000
+#forestsurvival
 #weapon 643 -- Bronze Spear
 #armor 158 -- Robes
 #armor 148 -- Crown
@@ -19606,11 +20186,15 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #mor 11
 #str 15
 #def 11
+#ap 22
+#mapmove 22
 #darkvision 50
 #horsetattoo 1
+#boartattoo 5
 #pillagebonus 5
 #secondshape 4419
-#chaosrec 5
+#chaosrec 10
+#forestsurvival
 #weapon 21 -- Javelins
 #weapon 643 -- Bronze Spear
 #end
@@ -19634,12 +20218,16 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #mor 11
 #str 15
 #def 10
+#ap 22
+#mapmove 22
 #darkvision 50
 #horsetattoo 1
+#boartattoo 5
 #pillagebonus 5
 #firstshape 4418
 #unsurr 0
-#chaosrec 5
+#chaosrec 10
+#forestsurvival
 #weapon 92 -- Fist
 #end
 
@@ -19652,7 +20240,6 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Strongest Giant"
 #descr "Cormoran is the largest and strongest giant in Albion. The son of a Cambion, he was never trained in the Great Henge however his demonic blood is strong and grants him power. Cormoran has risen to the position of chief of a minor tribe and commands respect amongst the giants. He dwells on an island near the coast of Albion that he built by throwing great blocks of stone into the ocean. Cormoran has a terrible temper and often raids nearby settlements, stealing cattle and sheep for his larder. He is not averse to eating humans or even the smaller giants if the mood takes him. Now he has emerged from his island to pledge his services to the awakening God."
 #fixedname "Cormoran"
-#unique
 #gcost 0
 #nametype 137
 #hp 70
@@ -19670,6 +20257,8 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #taskmaster 0
 #startage 250
 #maxage 1000
+#siegebonus 50
+#castledef 50
 #pillagebonus 10
 #demon
 #swimming
@@ -19677,6 +20266,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #goodundeadleader
 #berserk 3
 #horsetattoo 2
+#boartattoo 8
 #magicskill 3 1
 #magicskill 6 2
 #magicskill 7 1
@@ -19852,7 +20442,6 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #weapon 645 -- Bronze Sword
 #armor 136 -- Bronze Scale
 #armor 162 -- Crested Helm
-#armor 2 -- Shield
 #prophetshape 4463 -- Shophet
 #wastesurvival
 #end
@@ -19864,7 +20453,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #clearweapons
 #cleararmor
 #name "Temple Guard"
-#descr "The Temple Guard are warrior-priests chosen from the most devout Levites to guard the Great Temple in Zion. They operate in family groups, each guarding for a set period and assigned to protect specific gates of the temple. Although they guard the temple, even they are forbidden from entering the inner sanctum accessible only to the Kohen Gadol and the Prophet King. In times of need Temple Guard not assigned guard duty may be sent away from the Great Temple on missions of great importance. They are revered by the tribes of Zion and their presence will bolster the morale of other warriors."
+#descr "The Temple Guard are warrior-priests chosen from the most devout Levites to guard the Great Temple in Zion. They operate in family groups, each guarding for a set period and assigned to protect specific gates of the temple. Although they guard the temple, even they are forbidden from entering the inner sanctum accessible only to the Kohen Gadol and the Prophet King. In times of need Temple Guard not assigned guard duty may be sent away from the Great Temple on missions of great importance. They are revered by the tribes of Zion and their presence will bolster the morale of other warriors. When faced with heretics and heathens the force of their faith may cow the unbelievers."
 #gcost 20
 #rpcost 24
 #att 12
@@ -19874,6 +20463,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #standard 1
 #bodyguard 2
 #holy
+#haltheretic 3
 #weapon 645 -- Bronze Sword
 #armor 142 -- Bronze Scale Cuirass
 #armor 249 -- Cloth Headpiece
@@ -19921,9 +20511,12 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Shophet"
 #descr "The Shophet is the judge of Zion, meaning one that will pass judgment on the nations sins and deliver them from evil. They are chosen by the Awakening God as messenger of his will and have great religious authority. They gain mystical insight and are able to lead the tribes back to the true path when they have strayed. The Shophet is adept at rooting out heretics and the corruption of other faiths. He is an able commander and inspires great loyalty from all the tribes of Zion."
 #goodleader
+#okmagicleader
+#okundeadleader
 #inspirational 1
 #patrolbonus 10
 #inquisitor
+#haltheretic 3
 #armor 249 -- Cloth Headpiece
 #magicskill 8 3
 #str 10
@@ -19995,8 +20588,8 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #magicskill 8 3
 #mor 15
 #mr 15
-#poorundeadleader
-#poormagicleader
+#okundeadleader
+#okmagicleader
 #slowrec
 #weapon 92 -- Fist
 #armor 161 -- Jewelled Breastplate
@@ -20106,7 +20699,6 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Temple Architect"
 #descr "The Prophet King has opened up trade routes with many nearby empires, and great wealth has come into the land of Zion. From Berytos silks and scented oils are brought to adorn the wives of the Prophet King. Hiram is a mage-architect and artificer sent by the King of Berytos to aid in the construction of the Great Temple. Hiram is skilled in the working of gold, silver, bronze and iron. He can construct great edifices from stone and wood and can fashion fine adornments and even magical trinkets using less gems than usual. He drew up plans for the Temple and supervised the captive Jinn during the construction. Recently Hiram has become concerned that other craftsmen covet the masonic secrets he holds and fears for his life."
 #fixedname "Hiram"
-#unique
 #gcost 0
 #magicskill 0 1
 #magicskill 3 2
@@ -20126,7 +20718,6 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Bride of the King"
 #descr "The Prophet King has over seven hundred wives, many being princesses drawn from nearby minor kingdoms to secure their loyalty. Naamah hails from Berytos and is one of the Colossi, of the mighty royal line of Machaka. Her marriage to the King cemented a trade alliance with the Phoenix Empire that has brought great wealth to Zion. Upon her arrival a great palace was constructed for her. Along with his other wives she has convinced the King to allow her to worship foreign Gods, and even erect small temples within the Palace. Some in the priesthood fear that this will lead the Prophet King astray, however his wisdom is unquestioned and few dare to voice their concerns. Naamah is skilled in the magics of her bloodline, however she was not inducted into the blood cult and has no knowledge of their practices."
 #fixedname "Naamah"
-#unique
 #gcost 0
 #magicskill 0 2
 #magicskill 1 2
@@ -20144,7 +20735,6 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "High Priest"
 #descr "Zadok is foremost amongst the Kohen Gadol, and functions as the most senior Priest of the Great Temple. It was he that anointed the father of the Prophet King as King of the northern tribes and aided him in the war that unified the tribes of Zion. He also anointed the Prophet King upon his ascension to the throne and has remained favoured by him ever since. Zadok is now old, however he remains in control of his faculties and his word is law. He has the gift of prophecy and has foretold of a dark time when the Great Temple will fall and the people of Zion will live in slavery if the Prophet King strays from the true path. Zadok is skilled in bolstering the faith of the unsure. He has great power granted through his devotion to the Awakening God and has no need of the seals of the Prophet King."
 #fixedname "Zadok"
-#unique
 #gcost 0
 #magicskill 0 3
 #magicskill 1 1
@@ -20174,7 +20764,6 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #name "Queen of Saba"
 #descr "Makueda is the queen of Saba, a small kingdom dedicated to worship of the sun above all else. The Prophet King learned of the kingdom and sent for the Queen to convince her to abandon her false God. Upon her arrival a great palace was granted for her use and many gifts were given from the treasury of the Prophet King. However, the queen was not so easily swayed. She posed many questions to the King testing his wisdom and the power of the Awakening God. Answering her inquiries with great wisdom the Prophet King convinced her to abandon her faith. The Queen has retained a great knowledge of the magics of the sun and is now dedicated to the service of the Awakening God."
 #fixedname "Makueda"
-#unique
 #gcost 0
 #startage 35
 #magicskill 0 4
@@ -20575,6 +21164,7 @@ Leonardo is not a greedy man and cares little for material wealth, being only in
 #descr "The Qutrub are shapeshifting Jinn who undertake clandestine missions for the Marids of the Emerald Mountain. Their holy duty is to influence men to evil acts. Subtle and discreet, they whisper in the ears of the innocent, enticing them to sin, tempting them to envy and adultery and greed. They appear as jackal-headed spirit beings, or more often as wisps of flame, entering peoples' minds and making them turn on their neighbours. Their presence causes strife among the populace, who gradually become violent and rebellious. The Qutrub are elite zealots, devout and unshakeable of their faith in the Awakening God and sacred to the people of Juhera. Despite this they are often unwelcome in lands already conquered, for their duty extends to all men, even those who have sworn fealty to the armies of Juhera."
 #djinn -- bodytype for hit locations
 #gcost 80
+#reclimit 3
 #rpcost 42
 #rcost 8
 #mr 15
@@ -21198,6 +21788,8 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #weapon "short sword"
 #weapon "short sword"
 #armor "leather cuirass"
+#armor 249 -- Cloth Headpiece
+#cleanshape
 #end
 
 #newmonster 4607
@@ -21259,7 +21851,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #weapon 56 -- hoof
 #armor "shield"
 #armor "full leather armor"
-#armor "leather cap"
+#armor 249 -- Cloth Headpiece
 #secondtmpshape 4613
 #pillagebonus 1
 #end
@@ -21300,12 +21892,12 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #coldres 15
 #shockres 15
 #poisonres 25
-#awe 1
+#sunawe 1
 #pooramphibian
 #magicbeing
 #inanimate
 #neednoteat
-#mind
+#spiritsight
 #patrolbonus 4
 #castledef 2
 #weapon "long spear"
@@ -21341,7 +21933,6 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #undead
 #inanimate
 #neednoteat
-#mind
 #noheal
 #weapon "claw"
 #weapon "bite"
@@ -21387,7 +21978,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #clearweapons
 #weapon "flame scimitar"
 #weapon "flame scimitar"
-#cleanshape
+#deserter 100
 #end
 
 #newmonster 4615
@@ -21399,6 +21990,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #clearweapons
 #weapon "flame scimitar"
 #holy
+#monpresentrec 4660 -- Jinn Exile
 #end
 
 #newmonster 4616
@@ -21411,6 +22003,63 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #weapon "flame bow"
 #weapon "dagger"
 #holy
+#monpresentrec 4660 -- Jinn Exile
+#end
+
+#newmonster 5941
+#copystats 760 -- Siege Golem
+#clearweapons
+#spr1 "./Juhera/BrassGolem.tga"
+#spr2 "./Juhera/BrassGolem2.tga"
+#name "Brass Golem" 
+#descr "The Brass Golem is a marvel of engineering constructed by the artificers of Iram. Constructed of burnished brass it is a clockwork titan that towers above the battlefield. Polished to a mirror finish the gleaming figure will be almost impossible to look at when the sun strikes it. Furthermore, a complex system of mirrored plates allow the colossus to focus the rays of the sun into a burning ray that will incinerate enemies."
+#prot 22
+#hp 150
+#sunawe 3
+#mr 14
+#fireres 25
+#weapon 1855 -- Burning Ray
+#weapon 574 -- Shatterfist
+#weapon 574 -- Shatterfist
+#end
+
+#newmonster 5942
+#copystats 2586 -- Turan War Elephant
+#clearweapons
+#spr1 "./Juhera/ElephantClock.tga"
+#spr2 "./Juhera/ElephantClock2.tga"
+#name "Elephant Clock" 
+#descr "The Elephant Clock is a marvel of clockwork engineering constructed by the artificers of Iram. Carried on the back of a great elephant, the mechanism keeps perfect time. This enables armies on campaign to ensure that prayers are given at the correct times, and will greatly ease logistics of all kinds. The army will enter each battle already blessed by the power of the True God, and due to enhanced precision sieges will be conducted more effectively. The elephant is carefully chosen to have a placid temperament, however it will still trample anything that gets in the way."
+#gcost 0
+#mr 12
+#mor 12
+#siegebonus 50
+#castledef 50
+#onebattlespell 169 -- Divine Blessing
+#weapon 614 -- Tusk
+#noleader
+#nametype 172
+#end
+
+#newmonster 5943
+#copystats 1073 -- Daedalus
+#clearmagic
+#clearweapons
+#spr1 "./Juhera/AlJazari.tga"
+#spr2 "./Juhera/AlJazari2.tga"
+#name "Master Engineer" 
+#descr "Al-Jazari is a master engineer, artisan and musician skilled in the arcane art of mathematics. Chief engineer at the royal palace, he is mostly kept busy by the many requests and constructions specified by the Sultan and the Royal family. He is highly skilled in the precise work needed to construct the most complex clockwork and has made many marvels. He invented the clockwork system used by the Elephant Clock and it is his guidance that lead to the creation of the first Brass Guardians. Other clockwork creations include peacocks that dispense water for the Royal family when needed, and an ingenious clockwork band that play during special occasions. In a siege he will be invaluable and he is skilled in the creation of magical artifacts."
+#fixedname "Al-Jazari"
+#magicskill 0 2
+#magicskill 2 1
+#magicskill 3 3
+#siegebonus 25
+#castledef 25
+#batstartsum2 4611 -- Brass Guardians
+#fixforgebonus 2
+#mastersmith 1
+#userestricteditem 93
+#weapon 637 -- Tool
 #end
 
 
@@ -21470,6 +22119,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #wastesurvival
 #fixforgebonus 1
 #mastersmith 1
+#userestricteditem 93
 #weapon "maul"
 #armor "robes"
 #armor 249 -- Cloth Headpiece
@@ -21527,6 +22177,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #female
 #poorleader
 #holy
+#cleanshape
 #magicskill 0 1 -- f
 #magicskill 1 1 -- a
 #magicskill 8 1 -- h
@@ -21562,6 +22213,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #magicskill 1 3 -- a
 #magicskill 8 2 -- h
 #holy
+#cleanshape
 #custommagic 1408 100 -- FAE
 #custommagic 1408 10
 #flying
@@ -21811,13 +22463,16 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #end
 
 #newmonster 4705
+#copystats 3282 -- Soldier Priest
+#clearweapons
+#cleararmor
 #name "Dervish"
 #spr1 "Juhera/dervish1.tga"
 #spr2 "Juhera/dervish2.tga"
-#descr "Some faqirs seek to understand the mind of the Awakening God by imitating the Majnun of old. They take up short blades and join the armies of Iram on the front lines, hoping for divine revelation in the tranquility of combat. When blessed, these whirling dervishes dance and spin through enemy ranks in a meditative trance, heedless of anything but the heathens in front of them."
+#descr "Some faqirs seek to understand the mind of the Awakening God by imitating the Majnun of old. They take up short blades and join the armies of Iram on the front lines, hoping for divine revelation in the tranquility of combat. When blessed, these whirling dervishes dance and spin through enemy ranks in a meditative trance, heedless of anything but the heathens in front of them. When battle commences they will begin to spin and will feel the presence of the True God within them, becoming blessed."
 #nametype 172
 #holy
-#berserk 1
+#berserk 2
 #blessbers
 #gcost 10015
 #rpcost 10000
@@ -21825,16 +22480,19 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #mr 11
 #mor 12
 #str 10
-#att 10
-#def 10
+#att 12
+#def 12
 #prec 10
+#unsurr 1
+#formationfighter -2
 #enc 2
 #ap 12
 #ambidextrous 2
 #wastesurvival
 #weapon "short sword"
 #weapon "short sword"
-#armor "robes"
+#armor 183 -- Linen cuirass
+#armor 249 -- Cloth Headpiece
 #end
 
 #newmonster 4706
@@ -21903,7 +22561,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #descr "The women of Iram have a sacred duty as wives and mothers, and so are unwelcome in the military or the priesthood so long as they have children to rear. However, those who lose their husbands and sons to the field of battle are freed of their obligation, and many of them choose to battle the enemies of the Awakening God in place of those they have lost. These women take vows of silence and don funeral shrouds in mourning. Such is their sacrifice that they are considered sacred to the people of Iram."
 #nametype 173
 #holy
-#gcost 10012
+#gcost 10010
 #rpcost 10000
 #hp 11
 #size 2
@@ -22073,6 +22731,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #weapon "javelin"
 #armor "shield"
 #armor "scale mail hauberk"
+#armor 249 -- Cloth Headpiece
 #startage 30
 #end
 
@@ -22081,7 +22740,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #name "Hashashin"
 #descr "The order of the Hashashin is a secretive sect that arose in response to heathen invasion of the Irami lands. They defend the Caliphate against its enemies by systematically eliminating enemy commanders and seizing control of valuable provinces. The most skilled and devout of the Hashashin are trained in seclusion to reach the peak of their physical prowess. Once they prove their worth, they are dispatched to infiltrate enemy lands. There, they gather information and patiently observe their victims until it is time to strike. They do not fear death, following the will of the Awakening God without hesitation."
 #spr1 "Juhera/hashashin1.tga"
-#spr2 "Juhera/hashashin2.tga" 
+#spr2 "Juhera/hashashin2.tga"
 #att 14
 #def 14
 #str 12
@@ -22348,7 +23007,6 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #fixedname "Rasul ad-Din Sinan"
 #descr "Sinan is the Grandmaster of the Order of the Hashashin, a holy man and teacher who has himself eliminated many enemies of the Awakening God. Such is his skill and charisma that he can quickly train young Fida'yin in the ways of stealth and murder."
 #gcost 0
-#unique
 #hp 11
 #att 16
 #def 14
@@ -22381,7 +23039,6 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #spr2 "Juhera/hero_dahish2.tga"
 #descr "Dahish is a disgraced Jinn trapped in a column of black stone by the previous Pantokrator. He once led an army of the Jinn in rebellion against his rule, but now languishes at a crossroads in the desert, as a testament to all who would doubt the Pantokrator's resolve. He cannot escape his prison of stone, but it makes him difficult to kill, and he still retains some considerable magical power."
 #gcost 0
-#unique
 #itemslots 12422
 #hp 100
 #prot 20
@@ -22422,7 +23079,6 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #spr2 "Juhera/hero_joha2.tga"
 #descr "Juha is a mullah and alleged wise man who travels from village to village, imparting his knowledge to whoever will hear it. Some think his witticisms trite or foolish, while others see in them a deeper profundity. Occasionally his insights allow the people to avert some troublesome misfortune."
 #gcost 0
-#unique
 #mounted
 #ressize 2
 #size 3
@@ -22441,7 +23097,6 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #fixedname "Al-Masih ad-Dajjal"
 #descr "Al-Masih ad-Dajjal was the first of the Qutrub created by Iblis, and received a greater share of his power. He is revered by the Jinn of Juhera as an emissary of the True God. As the First Qutrub it is his holy duty to lead the worshippers of false faiths astray, and to this end he has many gifts to aid him in his task. He can cloak his appearance and can heal the sick and lame, to better pose as a false Prophet. Al-Masih ad-Dajjal is known outside Juhera as The Deceiver. Many leaders of other faiths warn their flocks of a charismatic stranger, blind in one eye, who appears performing miracles."
 #gcost 0
-#unique
 #djinn
 #itemslots 13446
 #prot 0
@@ -22488,7 +23143,6 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #descr "Al-Masih ad-Dajjal was the first of the Qutrub created by Iblis, and received a greater share of his power. He is revered by the Jinn of Juhera as an emissary of the True God. As the First Qutrub it is his holy duty to lead the worshippers of false faiths astray, and to this end he has many gifts to aid him in his task. He can cloak his appearance and can heal the sick and lame, to better pose as a false Prophet. Al-Masih ad-Dajjal is known outside Juhera as The Deceiver. Many leaders of other faiths warn their flocks of a charismatic stranger, blind in one eye, who appears performing miracles."
 #djinn -- bodytype for hit locations
 #gcost 0
-#unique
 #rcost 8
 #itemslots 12416
 #hp 20
@@ -22593,7 +23247,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #gcost 1000
 #shapechange 5100
 #okleader
-#maxage 1000
+#maxage 5000
 #mor 15
 #end
 
@@ -22720,8 +23374,8 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #descr "This idol has been bound with spirits of Darkness and Sorcery. These spirits are tied to the structure, however they may leave temporarily to carry out nearby tasks or protect against attack. The spirits in the idol are magically powerful and the structure is resistant to weapons, however it cannot move. Anyone who dares to strike at the idol will be cursed for the rest of their lives. The spirits demand sacrifices each month, which greatly upsets the populace."
 #miscshape
 #homerealm 0
-#magicskill 4 3
-#magicskill 5 2
+#magicskill 5 3
+#magicskill 4 2
 #magicskill 6 1
 #batstartsum1d6 566 -- Ghost
 #noleader
@@ -22842,6 +23496,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #magicbeing
 #berserk 5
 #hp 95
+#montag 5200
 #twiceborn 5769 -- Wight Beast
 #end
 
@@ -22860,6 +23515,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #montag 5154 
 #popkill 10
 #magicbeing
+#montag 5200
 #twiceborn 5769 -- Wight Beast
 #end
 
@@ -22893,6 +23549,8 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #montag 5154
 #magicbeing
 #hp 145
+#montag 5200
+#twiceborn 5770 -- Necrophidian
 #end
 
 #newmonster 5122
@@ -22910,6 +23568,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #montag 5154
 #magicbeing
 #hp 90
+#montag 5200
 #twiceborn 5769 -- Wight Beast
 #end
 
@@ -22944,6 +23603,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #okleader
 #montag 5154
 #magicbeing
+#montag 5200
 #twiceborn 5770 -- Necrophidian
 #hp 94
 #end
@@ -23928,14 +24588,17 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #spr1 "./MagicEnhanced/EERedDragon.tga"
 #spr2 "./MagicEnhanced/EERedDragon2.tga"
 #name "Transformed Dragon"
-#descr "This is a mage transformed into the form of a powerful Dragon by magic. The body of the Dragon will be strong and protected by iron hard scales, and the creature can breathe fire. Dragons have voracious appetites and will eat as much as twenty men. The Dragon will retain any magic skills learned before the transformation took place, and Fire magic will be easier whilst in Dragon form."
+#descr "This is a mage transformed into the form of a powerful Dragon by magic. The body of the Dragon will be strong and protected by iron hard scales, and the creature can breathe fire. Dragons have voracious appetites and will eat as much as twenty men. The Dragon will retain any magic skills learned before the transformation took place, and Fire magic will be easier whilst in Dragon form whilst that of other paths will be more difficult. Drakes and lesser draconic beings will be summoned in greater numbers when summoned by a mage in dragon form."
 #lizard
 #supplybonus -20
 #gcost 0
+#prot 20
 #noleader
 #mor 16
-#hp 88
-#magicboost 0 1
+#hp 125
+#dragonlord 2
+#magicboost 0 2
+#magicboost 53 -1
 #twiceborn 5771 -- Dracowight
 #end
 
@@ -24417,10 +25080,11 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #spr2 "./MagicEnhanced/EEDivine2.tga"
 #clearweapons
 #name "Divine General"
-#descr "The armies of Heaven are guided by Divine Generals, chosen from the best mortal generals and gifted with Divine bodies upon death. Wielding enchanted weapons, their true power is the confidence and training they instill in their troops."
+#descr "The armies of Heaven are guided by Divine Generals, chosen from the best mortal generals and gifted with Divine bodies upon death. Wielding enchanted weapons and divine authority, their true power is the confidence and training they instill in their troops."
 #weapon 75 -- Enchanted sword
 #expertleader
 #expertmagicleader
+#magicskill 8 2
 #end
 
 #newmonster 5137
@@ -24501,6 +25165,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #weapon 261 -- Web
 #weapon 262 -- Web Spit
 #eyes 8
+#unsurr 2
 #maxage 300
 #startage 130
 #invulnerable 15
@@ -24565,6 +25230,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #spr2 "./ExtraPretenders/GodSpider2.tga"
 #quadruped
 #okmagicleader
+#unsurr 2
 #batstartsum2d6 884 -- Great Spider
 #batstartsum3d6 782 -- Giant Spider
 #batstartsum4d6 2223 -- Great Spider
@@ -24893,6 +25559,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #descr "A huge wolf-man of tremendous strength and regenerative powers. The origin of the beast is unknown, but it is said that wicked Jotun sorcerers can change their shape into that of beasts through the use of magical wolfskins. The creature can summon the deadly Jotun Wolves of Garm by howling at the full moon."
 #firstshape 0
 #beastmaster 1
+#darkvision 50
 #makemonsters1 1309-- Jotun Wolf
 #gcost 0
 #end
@@ -25100,6 +25767,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #hp 22
 #prot 10
 #str 14
+#unsurr 2
 #weapon 261 -- Web
 #weapon 65 -- Venomous Fangs
 #end
@@ -25505,6 +26173,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #ap 10
 #weapon 649 -- Crab Claw
 #weapon 649 -- Crab Claw
+#montag 5172
 #end
 
 #newmonster 5201
@@ -25516,6 +26185,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #troglodyte
 #darkvision 0
 #itemslots 12288 -- 2 misc
+#montag 5172
 #end
 
 #newmonster 5202
@@ -25744,7 +26414,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #copystats 1076 -- Myrmidon Commander
 #copyspr 1175 -- Warrior Queen
 #name "Heroine"
-#descr "In Arcoscephale there are many Heroes who quest for fame and glory. Some are descendants of the Titans, others are marked by destiny for great things. They have travelled the world and many have trained under great teachers or suffered strange curses. Tales of their adventures are recounted and debated in the Akademia and throughout Arcoscephale. The great Pathos is the mightiest of all Heroes, however there are many that aspire to similar greatness."
+#descr "In Arcoscephale there are many Heroes who quest for fame and glory. Some are descendants of the Titans, others are marked by destiny for great things. They have traveled the world and many have trained under great teachers or suffered strange curses. Tales of their adventures are recounted and debated in the Akademia and throughout Arcoscephale. The great Pathos is the mightiest of all Heroes, however there are many that aspire to similar greatness."
 #clearweapons
 #cleararmor
 #hp 16
@@ -25753,11 +26423,14 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #att 12
 #def 14
 #mr 12
+#size 3
+#ressize 2
 #mounted
 #female
-#berserk 5
+#pillagebonus 20
 #fear 5
 #okundeadleader
+#holy
 #itemslots 13446 -- no Feet
 #montag 5160 -- Heroes
 #weapon 635 -- Magic Lance
@@ -26278,6 +26951,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #digest 2
 #nametype 144
 #twiceborn 5769 -- Wight Beast
+#montag 5196
 #end
 
 #newmonster 5238
@@ -27026,7 +27700,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #spr1 "./MagicEnhanced/EEMurd.tga"
 #spr2 "./MagicEnhanced/EEMurd2.tga"
 #name "Murduchann"
-#descr "A Murduchann is a type of Sea Nymph native to the waters around Fomoria.  They appear as a beautiful human woman from the waist up with a fish-like tail covered with green-tinted scales. Murduchanns have long green hair which they like to groom. They are strong in the magics of Water and Nature and sing haunting melodies that can charm those that come near their watery abode. Murduchann cannot leave the sea, however they can grant the ability to breathe water to a few airbreathers."
+#descr "A Murduchann is a type of Sea Nymph native to the waters around Fomoria.  They appear as a beautiful human woman from the waist up with a fish-like tail covered with green-tinted scales. Murduchanns have long green hair which they like to groom. They are strong in the magics of Water and Nature and can sing haunting melodies that can charm those that venture into their watery abode. Murduchann cannot leave the sea, however they can grant the ability to breathe water to a few airbreathers."
 #djinn
 #magicskill 2 3
 #magicskill 6 2
@@ -27034,9 +27708,10 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #mr 16
 #mor 12
 #str 10
-#beckon 10
+#seduce 10
 #gcost 0
 #poorleader
+#stealthy 0
 #ironvul 1
 #giftofwater 10
 #nametype 143 -- Tir Na Nog female
@@ -28179,7 +28854,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #female
 #ethereal
 #okmagicleader
-#awe 1
+#awe 3
 #bringeroffortune 1
 #spiritsight
 #neednoteat
@@ -29162,7 +29837,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #magicskill 2 1
 #magicskill 3 1
 #magicboost 53 1
-#magicboost 8 2
+#magicboost 8 1
 #nametype 133 -- Japanese Female
 #maxage 200
 #itemslots 64646 -- Normal + 4 misc
@@ -29364,7 +30039,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #spr1 "./MagicEnhanced/EEBRider.tga"
 #spr2 "./MagicEnhanced/EEBRider2.tga"
 #name "Black Rider"
-#descr "This is a Knight of Ulm that has succumbed to vampirism during the Malediction. It rides a ghoulish steed that has been fed with the blood of men. The Black Riders are feared throughout Ulm and beyond, their unholy lust for blood spoken of in hushed whispers. Like all vampires they are immortal unless their homeland is controlled by the enemy, however they cannot cross running water or enter the sea."
+#descr "This was once a warrior of Ulm that has succumbed to vampirism during the Malediction. It now rides a ghoulish steed that has been fed with the blood of men. The Black Riders are feared throughout Ulm and beyond, their unholy lust for blood spoken of in hushed whispers. Like all vampires they are immortal unless their homeland is controlled by the enemy, however they cannot cross running water or enter the sea."
 #gcost 0
 #mr 15
 #mor 15
@@ -29422,7 +30097,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #formationfighter 3
 #weapon 895 -- Chitin Longspear
 #weapon 20 -- Bite
-#weapon 355 -- Sting
+#weapon 1884 -- Sting
 #nametype 180 -- Chaco
 #end
 
@@ -29448,7 +30123,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #summon3 2225 -- Fire Ant
 #summon5 2224 -- Red Ant
 #weapon 319 -- Bite
-#weapon 355 -- Sting
+#weapon 1884 -- Sting
 #end
 
 #newmonster 5387
@@ -29459,11 +30134,12 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #spr1 "./MagicEnhanced/EEAsura.tga"
 #spr2 "./MagicEnhanced/EEAsura2.tga"
 #descr "Asuras are semi-divine beings that live on the lower slopes of Mount Khailasa. They are larger than a Bandar with four strong arms and a hardy constitution. The Asuras experience both pleasure and anger in stronger terms than mortal beings and are plagued by envy for the devas. Asuras rank above mortals on the celestial wheel but below most other divine beings. Due to their heightened emotions most are always looking for an excuse to get into a fight, angry with everyone and unable to maintain calm. To be reborn as an Asura is seen by the White Ones as one of the four unhappy births and is the fate of those that harm others through carelessness."
-#hp 28
+#hp 33
 #prot 11
 #size 4
 #mr 14
 #att 11
+#def 11
 #ambidextrous 8
 #berserk 3
 #incunrest 10
@@ -29475,10 +30151,9 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #magicbeing
 #forestsurvival
 #weapon 10 -- Falchion
-#weapon 10 -- Falchion 
-#weapon 10 -- Falchion
-#weapon 10 -- Falchion
-#armor 20 -- Iron Cap
+#weapon 1 -- Spear
+#weapon 17 -- Axe
+#weapon 679 -- Short Trident
 #nametype 129
 #poormagicleader
 #itemslots 7326 -- 4 Hands, 1 misc
@@ -29492,7 +30167,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #spr2 "./MagicEnhanced/EEAsurendra2.tga"
 #name "Asurendra"
 #descr "The leaders of the Asuras are called Asurendra or Asura Lords. Asuras are semi-divine beings that live on the lower slopes of Mount Khailasa. They are larger than a Bandar with four strong arms and a hardy constitution. The Asuras experience both pleasure and anger in stronger terms than mortal beings and are plagued by envy for the devas. They rank above mortals on the celestial wheel but below most other divine beings. Due to their heightened emotions most are always looking for an excuse to get into a fight, angry with everyone and unable to maintain calm. To be reborn as an Asura is seen by the White Ones as one of the four unhappy births and is the fate of those that harm others through carelessness."
-#hp 36
+#hp 44
 #att 13
 #def 12
 #str 20
@@ -29504,10 +30179,8 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #magicskill 6 2
 #custommagic 13440 100 -- 100% FEDN
 #forestsurvival
-#armor 214 -- Golden Armor
-#armor 148 -- Crown
-#weapon 675 -- Bronze Axe
-#weapon 641 -- Bronze Trident
+#weapon 17 -- Axe
+#weapon 679 -- Short Trident
 #weapon 391 -- Serpent
 #weapon 383 -- Throw Flames
 #end
@@ -29718,7 +30391,6 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #copystats 5387 -- Asura
 #spr1 "./MagicEnhanced/EEAsuraW.tga"
 #spr2 "./MagicEnhanced/EEAsuraW2.tga"
-#clearweapons
 #name "Kalakanjaka"
 #descr "Kalakanjakas are a type of Asura known as the 'terrible faced'. Asuras are semi-divine beings that live on the lower slopes of Mount Khailasa. They are larger than a Bandar with four strong arms and a hardy constitution. The Asuras experience both pleasure and anger in stronger terms than mortal beings and are plagued by envy for the devas. Asuras rank above mortals on the celestial wheel but below most other divine beings. Kalakanjakas are particularly ferocious and strike terror into the hearts of their enemies with their fearsome appearance. Their appetites exceed even that of other Asuras and they can barely be restrained in combat."
 #fear 5
@@ -29728,10 +30400,6 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #berserk 4
 #undisciplined
 #armor 100 -- Bronze Cuirass
-#weapon 10 -- Falchion
-#weapon 17 -- Axe
-#weapon 10 -- Falchion
-#weapon 1 -- Spear
 #supplybonus -5
 #end
 
@@ -30012,6 +30680,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #enc 0
 #coldres 15
 #poisonres 25
+#saltvul 1
 #amphibian
 #float
 #armor 156 -- Spectral Shield
@@ -30182,7 +30851,6 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #att 12
 #prec 6
 #noleader
-#noheal
 #ap 10
 #end
 
@@ -30284,6 +30952,7 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #spy
 #illusion
 #demon
+#stealthy 10
 #magicskill 5 2
 #magicskill 6 2
 #magicskill 7 1
@@ -30429,10 +31098,11 @@ The Pantokrator beheld this slight, and called Iblis sinner, and banished him to
 #spr1 "./MagicEnhanced/EEAcidBlob.tga"
 #spr2 "./MagicEnhanced/EEAcidBlob2.tga"
 #name "Living Acid"
-#descr "This is a large globule of acid controlled and animated by magic. It is surrounded by noxious fumes and will damage those that try to strike it. The acid is difficult to damage with mundane weapons and will corrode the armor and weapons of those it touches."
+#descr "This is a large globule of acidic matter controlled and animated by magic. It is surrounded by noxious fumes and will damage those that try to strike it. The acid is difficult to damage with mundane weapons and will corrode the armor and weapons of those it touches."
 #miscshape
 #mr 16
 #slimer 1
+#def 10
 #poisonres 15
 #fireres 15
 #acidshield 8
@@ -30918,6 +31588,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #maxage 5000
 #poisonres 15
 #eyes 8
+#unsurr 2
 #itemslots 12288
 #goodleader
 #beastmaster 2
@@ -31092,7 +31763,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #heat 1
 #fireshield 6
 #secondshape 0
-#fly
+#flying
 #weapon 1869 -- Scorching Wind
 #firstshape 5458 -- Seitaad
 #end
@@ -31243,17 +31914,34 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #newmonster 5466
-#copystats 639 -- Kraken king
-#copyspr 639 -- Kraken
-#name "Kraken Beast"
-#descr "A huge octopoid beast polymorphed from a master of Water magic. The Kraken Beast will die after the battle once the magic of the water gem consumed by the mage is expended."
-#naga
-#mr 16
-#regeneration 10
-#singlebattle
+#copystats 694 -- Great Bear
+#clearmagic
+#clearweapons
+#spr1 "./MagicEnhanced/EERuamokoBear.tga"
+#spr2 "./MagicEnhanced/EERuamokoBear2.tga"
+#name "Ursa Major"
+#descr "This mage has taken the form of a gigantic bear to destroy the enemies of the true God. The gigantic body is strong and healthy . The mage will retain any magic skills learned before the transformation took place."
+#quadruped
+#size 6
+#hp 100
+#str 25
+#prec 10
+#mr 18
+#prot 16
+#mor 14
+#att 13
+#heal
+#fear 5
+#coldres 5
 #transformation 0
-#twiceborn 1235 -- Leviathan
+#maxage 8000
+#weapon 20 -- Bite
+#weapon 29 -- Claw
+#weapon 29 -- Claw
+#montag 5200
+#twiceborn 5769 -- Wight Beast
 #end
+
 
 #newmonster 5467
 #copystats 1367 -- Angel of the Choir
@@ -31471,6 +32159,9 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #newmonster 5476
 #copystats 511 -- Winter Wolf
 #copyspr 511 -- Winter Wolf
+#clearweapons
+#weapon 752 -- Frost Breath
+#weapon 1512 -- Magical Fangs
 #descr "The Winter Wolf is one of the four seasonal spirits. This large, ethereal wolf is most powerful during winter and weakest during summer. It is a magical being and has some innate skill in Water magic."
 #quadruped
 #mor 15
@@ -31479,6 +32170,8 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #newmonster 5477
 #copystats 512 -- Fall Bear
 #copyspr 512 -- Fall Bear
+#clearweapons
+#weapon 166 -- Golden Claw
 #descr "The Fall Bear is one of the four seasonal spirits. This large, ethereal bear is most powerful during fall and weakest during spring. It is a magical being and has some innate skill in Earth magic."
 #quadruped
 #mor 15
@@ -31495,6 +32188,9 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #newmonster 5479
 #copystats 515 -- Summer Lion
 #copyspr 515 -- Summer Lion
+#clearweapons
+#weapon 1724 -- Golden Fangs
+#weapon 756 -- Burning Claw
 #descr "The Summer Lion is one of the four seasonal spirits. It is a large, ethereal lion that radiates heat like the summer sun. The Summer Lion is most powerful during summer and least powerful during the winter. It is a magical being and has some innate skill in Fire magic."
 #quadruped
 #mor 15
@@ -31535,6 +32231,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #spr2 "./MagicEnhanced/EELibertine2.tga"
 #name "Debauched Libertine"
 #descr "Idle hands do the devils work, and some turn to ever more extravangant pastimes to excite their jaded senses. These Debauched Libertines are inspired by infernal temptations to plumb the very depths of sensation. However, no pleasure or knowledge will sate them and they will be driven further and further into cruelty and madness to slake their passions. Usually only wealthy nobles have the leisure time to devote themselves fully to such activities, and some even turn to studying dark arts to further indulge their forbidden urges. An outward veneer of respectability allows such individuals to travel unnoticed in foreign lands, however a province containing a Debauched Libertine will experience increased unrest as rumours of their activities reach the common folk. They often employ miscreants to aid them in their unsavoury tasks."
+#gcost 250
 #rpcost 2
 #stealthy 0
 #incunrest 150
@@ -31542,6 +32239,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #makemonsters1 482 -- Villain
 #custommagic 22528 50 -- 50% SDB
 #custommagic 22528 25 -- 25% SDB
+#reqlab
 #end
 
 #newmonster 5485
@@ -32131,8 +32829,8 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #newmonster 5508
 #copystats 443 -- Star Child
 #copyspr 443 -- Star Child
-#name "Star Child"
-#descr "Star Children are part human and part Illithid, successfully cross-bred by the Starspawns of R'lyeh. These beings are smaller than Illithids, but share many of their traits. They have short tentacles where there should be a mouth and are able to blast the minds of lesser beings with their iron will. This Star Child has appeared due to the influence of K'lullu. Star Children are amphibious."
+#name "Child of K'lullu"
+#descr "Star Children are part human and part Illithid, successfully cross-bred by the Starspawns of R'lyeh. These beings are smaller than Illithids, but share many of their traits. They have short tentacles where there should be a mouth and are able to blast the minds of lesser beings with their iron will. Due to the influence of K'lullu Star Children are now appearing across the land, even to mothers who have had no contact with the alien Illithids."
 #humanoid
 #ownsmonrec 5224 -- Great Old One
 #maxage 200
@@ -32261,6 +32959,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #startage 250
 #maxage 450
 #poorleader
+#montag 5200
 #end
 
 #newmonster 5515
@@ -32536,12 +33235,11 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #spr2 "./MagicEnhanced/EEBlackZwei2.tga"
 #name "Blacksteel Zweihander"
 #descr "The Blacksteel Zweihander is a warrior clad in full plate armor made from Blacksteel and armed with an incredibly sharp Great Sword. Forged from Blacksteel, their weapons can cut through the sharpest armor and these Zweihanders are feared by even the great cold giants of the North. The swords are each made by a Master Craftsmen of Ulm and only a few can be created each month. The inhabitants of Ulm are large and can endure much physical punishment before collapsing. They are trained to move and fight in heavy armor without tiring."
-#gcost 20
+#gcost 18
 #mor 13
 #weapon 108 -- Greatsword of Sharpness
 #armor 215 -- Full Plate
 #armor 218 -- Full Helmet
-#reclimit 3
 #end
 
 #newmonster 5526
@@ -32675,7 +33373,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #gemprod 5 1
 #assassin
 #patience 2
-#popkill 5
+#popkill 2
 #incunrest 50
 #unique
 #female
@@ -33069,7 +33767,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #spr2 "./MagicEnhanced/EEIceGolem2.tga"
 #clearweapons
 #name "Ice Golem"
-#descr "An Ice Golem is a magically animated statue constructed from solid ice. It is almost invulnerable in cold climates, however in warm lands it will soften and become easier to damage. It radiates cold and strikes with bladed fists of ice. The Ice Golem is a magical construct and will fall apart if left on the battlefield without magical leadership."
+#descr "An Ice Golem is a magically animated statue constructed from solid ice. It is almost invulnerable in cold climates, however in warm lands it will soften and become easier to damage. It radiates cold and strikes with bladed fists of magical ice. The Ice Golem is a magical construct and will fall apart if left on the battlefield without magical leadership."
 #prot 18
 #hp 88
 #str 23
@@ -33080,8 +33778,8 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #cold 8
 #coldres 25
 #magicskill 2 1
-#weapon 343 -- Blade Hand
-#weapon 343 -- Blade Hand
+#weapon 69 -- Icicle Fist
+#weapon 69 -- Icicle Fist
 #end
 
 #newmonster 5553
@@ -33138,7 +33836,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #str 13
 #def 10
 #mapmove 12
-#reinvigoration -8
+#reinvigoration -5
 #weapon 8 -- Broad Sword
 #armor 2 -- Shield
 #end
@@ -33666,6 +34364,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #magicskill 3 3
 #homerealm 0
 #twiceborn 5771 -- Dracowight
+#itemslots 274560 -- Crown & 2 misc
 #weapon 533 -- Dragon Fire
 #weapon 1571 -- Torrent of Rocks
 #weapon 20 -- Bite
@@ -33695,11 +34394,18 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #newmonster 5578
-#copystats 2190 -- Draugr
+#copystats 533 -- Wight
 #copyspr 2190 -- Draugr
+#clearweapons
+#cleararmor
 #name "Varangian Draugr"
 #descr "The Varangian Guard were a force of elite Vanir warriors that were employed by the Emperor of Pythium in ages past. Now the Vanir have all passed, however many remain entombed in the Imperial City. So strong were the oaths of loyalty they swore that they transcend even death. Through dark magic they can be called back to the world of the living as draugr, corporeal undead vanir. They are incredibly strong and are surrounded by ice cold winds."
-#shrinkhp 0
+#hp 25
+#str 14
+#fear 5
+#weapon 8 -- Broad Sword
+#armor 118 -- Chain Mail
+#armor 2 -- Shield
 #end
 
 #newmonster 5580
@@ -34106,7 +34812,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #armor "Clipeus"
 #armor 18 --full chain
 #gcost 10018
-#mapmove 2
+#mapmove 18
 #fireres 10
 #holy
 #ownsmonrec 5602 -- Heliopater
@@ -34239,28 +34945,30 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #copystats 761 -- Serpent Priest
 #copyspr 761 -- Serpent Priest
 #name "Serpent Aspirant"
-#descr "Serpent Priests are the leaders of the Pythian Serpent Cult. The Serpent Cult is one of the many mystery cults that spread to Pythium during the collapse of Ermor. Sauromancers from C'tis were invited by the Emperor and his Theurgs to battle the growing threat and with them came the Serpent Cult. The Serpent Cult was heralded as the answer to the Ermorian threat and quickly received Imperial acceptance. Soon it replaced the Order of the Theurgs as the state cult and grew in influence and power. In the years that have passed since the lizards left Pythium, the Cult has changed. Serpents are venerated and the priests of the Cult wear serpent masks and carry serpent staffs as signs of their office. This Serpent Priest aspires to become the Serpent Bishop and cement the Serpent Cult as the official state church."
+#descr "Serpent Priests are the leaders of the Pythian Serpent Cult. The Serpent Cult is one of the many mystery cults that spread to Pythium during the collapse of Ermor. Sauromancers from C'tis were invited by the Emperor and his Theurgs to battle the growing threat and with them came the Serpent Cult. The Serpent Cult was heralded as the answer to the Ermorian threat and quickly received Imperial acceptance. Soon it replaced the Order of the Theurgs as the state cult and grew in influence and power. In the years that have passed since the lizards left Pythium, the Cult has changed. Serpents are venerated and the priests of the Cult wear serpent masks and carry serpent staffs as signs of their office. This Serpent Priest aspires to become the Serpent Bishop and cement the Serpent Cult as the official state church, and must remain in the capital if he wishes to succeed."
 #end
 
 #newmonster 5616
 #copystats 1875 -- Epoptes
 #copyspr 1875 -- Epoptes
 #name "Epoptes Aspirant"
-#descr "Throughout the Empire, mystery cults have spread and flourished with the influx of foreign culture. One of these, the Serpent Cult, has replaced the official state cult of the Theurgs, but many others ply their trade in secret. The Cult of the Great Mother is very popular among women and most of the members in its higher ranks are female. The Epoptes is a high ranking member of the Cult of the Great Mother. The liturgy of the mystery cult is heavily influenced by the Arcoscephalean priestesses and their skill in healing. Like all mystics of the Empire, the Epoptes leads worshippers astray and lowers the Dominion in which she resides. She wears a garland and a green dress and carries an urn and a twig as signs of her office. The urn is enchanted and is always full of grain. This Epoptes aspires to become the Archigalluus and establish the Fertility cult as the official state church."
+#descr "Throughout the Empire, mystery cults have spread and flourished with the influx of foreign culture. One of these, the Serpent Cult, has replaced the official state cult of the Theurgs, but many others ply their trade in secret. The Cult of the Great Mother is very popular among women and most of the members in its higher ranks are female. The Epoptes is a high ranking member of the Cult of the Great Mother. The liturgy of the mystery cult is heavily influenced by the Arcoscephalean priestesses and their skill in healing. She wears a garland and a green dress and carries an urn and a twig as signs of her office. The urn is enchanted and is always full of grain. This Epoptes aspires to become the Archigalluus and establish the Fertility cult as the official state church, and must remain in the capital if she wishes to succeed."
+#heretic -1
 #end
 
 #newmonster 5617
 #copystats 1873 -- Heliodromus
 #copyspr 1873 -- Heliodromus
 #name "Heliodromus Aspirant"
-#descr "Throughout the Empire, mystery cults have spread and flourished with the influx of foreign culture. One of these, the Serpent Cult, has replaced the official state cult of the Theurgs, but many others ply their trade in secret. The Cult of the Solar Bull is very popular among the soldiers of the Limes and most of its higher members are former soldiers or Centurions. The Heliodromus, Sun-Courier, is the highest ranking member of the Cult of the Solar Bull. He, for it is only males that are allowed in the Cult, performs the Taurobolium, ritual sacrifice of a bull. The Heliodromus carries a golden sacrificial knife. Like all mystics of the Empire, the Heliodromus leads worshippers astray and lowers the Dominion in which he resides. He wears an exotic hat, reputedly similar to those of the foreign founders of the Cult. The Heliodromus forswears his former life upon initiation and does not lead armies. This Heliodromus aspires to become the Heliopater and establish the Cult of the Solar Bull as the official state church."
+#descr "Throughout the Empire, mystery cults have spread and flourished with the influx of foreign culture. One of these, the Serpent Cult, has replaced the official state cult of the Theurgs, but many others ply their trade in secret. The Cult of the Solar Bull is very popular among the soldiers of the Limes and most of its higher members are former soldiers or Centurions. The Heliodromus, Sun-Courier, is the highest ranking member of the Cult of the Solar Bull. He, for it is only males that are allowed in the Cult, performs the Taurobolium, ritual sacrifice of a bull. The Heliodromus carries a golden sacrificial knife. He wears an exotic hat, reputedly similar to those of the foreign founders of the Cult. The Heliodromus forswears his former life upon initiation and does not lead armies. This Heliodromus aspires to become the Heliopater and establish the Cult of the Solar Bull as the official state church, and must remain in the capital if he wishes to succeed."
+#heretic -1
 #end
 
 #newmonster 5618
 #copystats 1874 -- Theurg
 #copyspr 1874 -- Theurg
 #name "Theurg Aspirant"
-#descr "Since the spread of the mystery cults and the acceptance of the Serpent Cult, the Theurgs have lost most of their former influence. Once spokesmen of the Faith and magicians of the Spheres, Theurgs are now but another cult of the Emerald Empire. The great Cathedral of the Spheres is now little more than a temple and school for arcane mystics. Out of respect for tradition, the Theurgs are still allowed some religious influence. This Theurg aspires to become the Patriarch and reestablish the hegemony of the Theurgs as the official state church."
+#descr "Since the spread of the mystery cults and the acceptance of the Serpent Cult, the Theurgs have lost most of their former influence. Once spokesmen of the Faith and magicians of the Spheres, Theurgs are now but another cult of the Emerald Empire. The great Cathedral of the Spheres is now little more than a temple and school for arcane mystics. Out of respect for tradition, the Theurgs are still allowed some religious influence. This Theurg aspires to become the Patriarch and reestablish the hegemony of the Theurgs as the official state church, and must remain in the capital if he wishes to succeed."
 #end
 
 #newmonster 5620
@@ -34770,15 +35478,15 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #spr1 "./MagicEnhanced/EEFireCart.tga"
 #spr2 "./MagicEnhanced/EEFireCart.tga"
 #name "Cart of Fire Arrows"
-#descr "This cart is full of arrows and other ammunition for the army imbued with fire magic. Before each battle the soldiers will take flaming ammunition from the cart. Should the cart be damaged the cargo within may explode violently."
+#descr "This cart is full of arrows and other ammunition for the army imbued with fire magic. Before each battle the soldiers will take flaming ammunition from the cart. Should the cart be damaged the cargo within may explode violently. If the handler is killed but the cart survives a new soldier will be appointed to guard the cart after the battle."
 #miscshape
 #onebattlespell 897 -- Flaming Arrows
-#deathfire 12
 #patrolbonus 0
 #size 6
 #ap 4
 #noleader
 #weapon 92 -- Fist
+#secondshape 8946 -- Empty Cart
 #end
 
 #newmonster 5644
@@ -34801,14 +35509,15 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #spr1 "./MagicEnhanced/EEDivineDragon.tga"
 #spr2 "./MagicEnhanced/EEDivineDragon2.tga"
 #name "Divine Fire-Dragon"
-#descr "The Divine Fire-Dragon is a weapon consisting of a long barrel shaped like a dragon's head with an open mouth. In combat it is packed with burning-powder that releases great clouds of flame and smoke when ignited. The powder will burn and set alight enemies in front of the weapon when it is released. The weapon is manned by an Imperial Footman trained in its use by the Alchemists. War machines are very unsuited to bodyguard duty."
-#deathfire 6
+#descr "The Divine Fire-Dragon is a weapon consisting of a long barrel shaped like a dragon's head with an open mouth. In combat it is packed with burning-powder that releases great clouds of flame and smoke when ignited. The powder will burn and set alight enemies in front of the weapon when it is released. The weapon is manned by an Imperial Footman trained in its use by the Alchemists. War machines are very unsuited to bodyguard duty. If the crewman is killed but the war machine survives a new crew will be appointed after the battle."
 #fireres 15
 #patrolbonus 0
 #weapon 1577 -- Divine Fire Breath
 #weapon 1 -- Spear
 #size 4
 #bodyguard -5
+#secondshape 8947 -- Empty Fire Dragon
+#cleanshape
 #end
 
 #newmonster 5646
@@ -34817,15 +35526,16 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #spr1 "./MagicEnhanced/EEFireLanceShield.tga"
 #spr2 "./MagicEnhanced/EEFireLanceShield2.tga"
 #name "Divine Rocket-Arrow Shield"
-#descr "This is a framework mounted with many rockets filled with burning-powder. In combat the rockets are lit to create a fearsome barrage that rains down upon the enemies of T'ien Ch'i. The rockets are of great help during sieges to weaken the enemy walls. The weapon is manned by an Imperial Footman trained in its use by the Alchemists. Should the contraption be damaged the rocket-arrows may explode violently. War machines are very unsuited to bodyguard duty."
+#descr "This is a framework mounted with many rockets filled with burning-powder. In combat the rockets are lit to create a fearsome barrage that rains down upon the enemies of T'ien Ch'i. The rockets are of great help during sieges to weaken the enemy walls. The weapon is manned by an Imperial Footman trained in its use by the Alchemists. Should the contraption be damaged the rocket-arrows may explode violently. War machines are very unsuited to bodyguard duty. If the crewman is killed but the machine survives a new crew will be appointed after the battle."
 #siegebonus 10
-#deathfire 12
 #patrolbonus 0
 #bodyguard -5
 #weapon 1578 -- Divine Rocket-Arrows
 #weapon 1 -- Spear
 #armor 2 -- Shield
 #size 6
+#secondshape 8948 -- Empty Rocket-Arrow Shield
+#cleanshape
 #end
 
 #newmonster 5647
@@ -34844,6 +35554,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #expertleader
 #expertmagicleader
 #makemonsters2 -5192 -- Terracotta Warriors
+#summon2 -5192 -- Terracotta Warriors
 #weapon 4 -- Lance
 #weapon 10 -- Falchion
 #weapon 56 -- Hoof
@@ -35038,7 +35749,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #spr2 "./MagicEnhanced/EEYsSwan2.tga"
 #descr "Now returned to the lands above the waves the Morgen have taken to riding gigantic Fey swans summoned from the Land of the Ever Young. These noble steeds will fight on if their rider is killed before returning to the Land of the Ever Young after the battle. They can fly incredible distances and can even cross the oceans to carry the Morgen to other lands. Morgen are descendants of the Tuatha and can use glamour to confuse enemies. The Swan Knights are revered and sacred to the people of Ys."
 #bird
-#str 15
+#str 16
 #prot 6
 #size 5
 #hp 35
@@ -35062,7 +35773,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #flying
 #holy
 #weapon "Wing Buff"
-#weapon "Beak"
+#weapon 404 -- Beak
 #end
 
 #newmonster 5659
@@ -35080,6 +35791,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #prot 4
 #att 10
 #ap 14
+#mor 11
 #mapmove 12
 #weapon 6 -- Short Sword
 #armor 136 -- Bronze Scale Hauberk
@@ -35101,7 +35813,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #att 11
 #def 14
 #ap 14
-#mor 10
+#mor 13
 #mapmove 12
 #weapon 13 -- Hammer
 #armor 101 -- Bronze Hauberk
@@ -35118,7 +35830,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #descr "Kobolds are small humanoid creatures that dwell underground. They are weak but tricky and are adept at remaining unseen by larger folk. They often appear in mines that have broken through to a natural cave network, attracted by the sounds of the miners. Kobolds are adept at metalwork and often wear bronze armor forged deep under the earth. Elite Kobolds wear heavy armor and carry bronze hammers, however longer weapons would be a hindrance in the cramped tunnels they inhabit. Some Kobolds have trained giant cave spiders and ride them into battle as steeds."
 #gcost 0
 #darkvision 100
-#size 2
+#size 3
 #hp 9
 #str 8
 #prot 4
@@ -35154,6 +35866,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #ap 14
 #mor 12
 #mr 16
+#command 20
 #mapmove 12
 #magicskill 3 2
 #weapon 7 -- Staff
@@ -35167,7 +35880,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #spr1 "./MagicEnhanced/EEFireCatapult.tga"
 #spr2 "./MagicEnhanced/EEFireCatapult2.tga"
 #name "Pythian Fire Onager"
-#descr "This is an Onager of the type used to weaken castle walls prior to an assault, however it has been loaded with pots of Pythian Fire. Pythian Fire is a closely guarded secret of the empire and great care is taken never to reveal the formula to outsiders. The flaming substance will burst on impact and cover those nearby in the sticky burning oil. The Onager fires quite slowly as it must be drawn again for each shot taken. The war machine is partially dismantled for transport and is prepared prior to a battle. The weapon is crewed by a trained operator that will defend it if enemies attempt to destroy the contraption. War machines are very unsuited to bodyguard duty."
+#descr "This is an Onager of the type used to weaken castle walls prior to an assault, however it has been loaded with pots of Pythian Fire. Pythian Fire is a closely guarded secret of the empire and great care is taken never to reveal the formula to outsiders. The flaming substance will burst on impact and cover those nearby in the sticky burning oil. The Onager fires quite slowly as it must be drawn again for each shot taken. The war machine is partially dismantled for transport and is prepared prior to a battle. The weapon is crewed by a trained operator that will defend it if enemies attempt to destroy the contraption. War machines are very unsuited to bodyguard duty. If the crewman is killed but the machine is not destroyed a new crew will be appointed after the battle."
 #size 5
 #ap 4
 #bodyguard -5
@@ -35175,6 +35888,8 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #weapon 92 -- Fist
 #armor 7 -- Scale Cuirass
 #armor 123 -- Hoplite Helm
+#secondshape 8949 -- Empty Onager
+#cleanshape
 #end
 
 #newmonster 5664
@@ -35308,7 +36023,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 
 #newmonster 5672
 #copystats 3139 -- Phlegran Tyrant
-#clearmagic
 #spr1 "./MagicEnhanced/EETyrantA.tga"
 #spr2 "./MagicEnhanced/EETyrantA2.tga"
 #name "Cursed Tyrant"
@@ -35322,7 +36036,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 
 #newmonster 5673
 #copystats 3139 -- Phlegran Tyrant
-#clearmagic
 #spr1 "./MagicEnhanced/EETyrantB.tga"
 #spr2 "./MagicEnhanced/EETyrantB2.tga"
 #name "Cursed Tyrant"
@@ -35340,7 +36053,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 
 #newmonster 5674
 #copystats 3139 -- Phlegran Tyrant
-#clearmagic
 #spr1 "./MagicEnhanced/EETyrantC.tga"
 #spr2 "./MagicEnhanced/EETyrantC2.tga"
 #name "Cursed Tyrant"
@@ -35361,7 +36073,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 
 #newmonster 5675
 #copystats 3139 -- Phlegran Tyrant
-#clearmagic
 #clearweapons
 #spr1 "./MagicEnhanced/EETyrantD.tga"
 #spr2 "./MagicEnhanced/EETyrantD2.tga"
@@ -35386,7 +36097,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 
 #newmonster 5676
 #copystats 3139 -- Phlegran Tyrant
-#clearmagic
 #spr1 "./MagicEnhanced/EETyrantA.tga"
 #spr2 "./MagicEnhanced/EETyrantA2.tga"
 #name "Cursed Tyrant"
@@ -35538,6 +36248,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #mapmove 18
 #def 8
 #heal
+#unsurr 2
 #sleepaura 8
 #transformation 0
 #darkvision 100
@@ -35677,6 +36388,8 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #float
 #noleader
 #nomagicleader
+#inanimate
+#itemslots 1 -- No slots
 #weapon 311 -- Mind Blast
 #weapon 85 -- Tentacle
 #weapon 85 -- Tentacle
@@ -35704,6 +36417,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 
 #newmonster 5691
 #copystats 561 -- Earth Gnome
+#clearweapons
 #spr1 "./MagicEnhanced/EEStoneGuard.tga"
 #spr2 "./MagicEnhanced/EEStoneGuard2.tga"
 #djinn
@@ -35713,9 +36427,14 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #hp 45
 #prot 16
 #str 20
-#ap 8
+#ap 12
 #heal
-#magicskill 3 1
+#slashres
+#pierceres
+#weapon 562 -- Stone Fist
+#weapon 562 -- Stone Fist
+#armor 148 -- Crown
+#magicskill 3 2
 #bodyguard 3
 #trample
 #inanimate
@@ -35773,9 +36492,10 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #spiritsight
 #illusion
 #blink
+#magicbeing
 #mountainsurvival
 #stealthy 25
-#weapon 322 -- Bite
+#weapon 1512 -- Magical Fangs
 #weapon 29 -- Claw
 #weapon 550 -- Weakness Tentacle
 #end
@@ -36532,7 +37252,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #spr1 "./ExtraPretenders/WhiteEle.tga"
 #spr2 "./ExtraPretenders/WhiteEle2.tga"
 #descr "White elephants are rare elephants with pale skin said to have been touched by the Gods. They are sacred and can never be ridden or made to work as beasts of burden. They are sometimes used in battle, where it is said they are calmer and braver than other elephants."
-#morale 11
+#mor 11
 #mr 10
 #holy
 #end
@@ -36542,7 +37262,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #name "Gelatinous Cube"
 #spr1 "./MagicEnhanced/EECube75.tga"
 #spr2 "./MagicEnhanced/EECube75b.tga"
-#descr "The Gelatinous Cube is a strange entity created from water and vitriol. The vitriolic water is given form and purpose through powerful alchemical rituals. The entity slowly slides forward and swallows anything it passes over. Swallowed beings quickly dissolve in the vitriol, unless the cube is destroyed and its magic unraveled. Multiple Gelatinous Cubes can slowly combine into ever larger masses of vitriol, until they are able to engulf all but the largest creatures."
+#descr "The Gelatinous Cube is a strange entity created from water and vitriol. The vitriolic water is given form and purpose through powerful alchemical rituals. The entity slowly slides forward and swallows anything it passes over. Swallowed beings quickly dissolve in the vitriol, unless the cube is destroyed and its magic unraveled."
 #size 3
 #hp 35
 #acidshield 10
@@ -36552,7 +37272,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #newmonster 5726
 #copystats 2159 -- Gelatinous Cube
 #copyspr 2159 -- Gelatinous Cube
-#descr "The Gelatinous Cube is a strange entity created from water and vitriol. The vitriolic water is given form and purpose through powerful alchemical rituals. The entity slowly slides forward and swallows anything it passes over. Swallowed beings quickly dissolve in the vitriol, unless the cube is destroyed and its magic unraveled. Multiple Gelatinous Cubes can slowly combine into ever larger masses of vitriol, until they are able to engulf all but the largest creatures."
+#descr "The Gelatinous Cube is a strange entity created from water and vitriol. The vitriolic water is given form and purpose through powerful alchemical rituals. The entity slowly slides forward and swallows anything it passes over. Swallowed beings quickly dissolve in the vitriol, unless the cube is destroyed and its magic unraveled."
 #end
 
 #newmonster 5727
@@ -36561,8 +37281,9 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #name "Gelatinous Cube"
 #spr1 "./MagicEnhanced/EECube125.tga"
 #spr2 "./MagicEnhanced/EECube125b.tga"
-#descr "The Gelatinous Cube is a strange entity created from water and vitriol. The vitriolic water is given form and purpose through powerful alchemical rituals. The entity slowly slides forward and swallows anything it passes over. Swallowed beings quickly dissolve in the vitriol, unless the cube is destroyed and its magic unraveled. Multiple Gelatinous Cubes can slowly combine into ever larger masses of vitriol, until they are able to engulf all but the largest creatures."
+#descr "The Gelatinous Cube is a strange entity created from water and vitriol. The vitriolic water is given form and purpose through powerful alchemical rituals. The entity slowly slides forward and swallows anything it passes over. Swallowed beings quickly dissolve in the vitriol, unless the cube is destroyed and its magic unraveled. Multiple Gelatinous Cubes can be slowly combined into ever larger masses of vitriol, until they are able to engulf all but the largest creatures."
 #size 4
+#mr 16
 #hp 80
 #acidshield 14
 #poisoncloud 4
@@ -36576,10 +37297,12 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #name "Gelatinous Cube"
 #spr1 "./MagicEnhanced/EECube150.tga"
 #spr2 "./MagicEnhanced/EECube150b.tga"
-#descr "The Gelatinous Cube is a strange entity created from water and vitriol. The vitriolic water is given form and purpose through powerful alchemical rituals. The entity slowly slides forward and swallows anything it passes over. Swallowed beings quickly dissolve in the vitriol, unless the cube is destroyed and its magic unraveled. Multiple Gelatinous Cubes can slowly combine into ever larger masses of vitriol, until they are able to engulf all but the largest creatures."
+#descr "The Gelatinous Cube is a strange entity created from water and vitriol. The vitriolic water is given form and purpose through powerful alchemical rituals. The entity slowly slides forward and swallows anything it passes over. Swallowed beings quickly dissolve in the vitriol, unless the cube is destroyed and its magic unraveled. Multiple Gelatinous Cubes can be slowly combined into ever larger masses of vitriol, until they are able to engulf all but the largest creatures."
 #size 5
 #hp 120
 #ap 4
+#mr 18
+#slimer 1
 #hpoverslow 50
 #incorporate 1
 #acidshield 16
@@ -36595,14 +37318,20 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #name "Gelatinous Cube"
 #spr1 "./MagicEnhanced/EECube175.tga"
 #spr2 "./MagicEnhanced/EECube175b.tga"
-#descr "The Gelatinous Cube is a strange entity created from water and vitriol. The vitriolic water is given form and purpose through powerful alchemical rituals. The entity slowly slides forward and swallows anything it passes over. Swallowed beings quickly dissolve in the vitriol, unless the cube is destroyed and its magic unraveled. Multiple Gelatinous Cubes can slowly combine into ever larger masses of vitriol, until they are able to engulf all but the largest creatures."
+#descr "The Gelatinous Cube is a strange entity created from water and vitriol. The vitriolic water is given form and purpose through powerful alchemical rituals. The entity slowly slides forward and swallows anything it passes over. Swallowed beings quickly dissolve in the vitriol, unless the cube is destroyed and its magic unraveled. Multiple Gelatinous Cubes can be slowly combined into ever larger masses of vitriol, until they are able to engulf all but the largest creatures. The largest cubes will become self-generating, shedding smaller cubes each month."
 #size 6
 #hp 150
 #ap 6
+#mr 20
+#slimer 1
 #hpoverslow 50
 #incorporate 2
 #acidshield 18
 #poisoncloud 8
+#magicskill 2 1
+#magicskill 6 1
+#custommagic 8704 100
+#summon1 5725 -- Size 3 Cube
 #weapon 542 -- Acid
 #weapon 542 -- Acid
 #weapon 542 -- Acid
@@ -36614,10 +37343,12 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #name "Gelatinous Cube"
 #spr1 "./MagicEnhanced/EECube75.tga"
 #spr2 "./MagicEnhanced/EECube75b.tga"
-#descr "The Gelatinous Cube is a strange entity created from water and vitriol. The vitriolic water is given form and purpose through powerful alchemical rituals. The entity slowly slides forward and swallows anything it passes over. Swallowed beings quickly dissolve in the vitriol, unless the cube is destroyed and its magic unraveled. Multiple Gelatinous Cubes can slowly combine into ever larger masses of vitriol, until they are able to engulf all but the largest creatures."
+#descr "The Gelatinous Cube is a strange entity created from water and vitriol. The vitriolic water is given form and purpose through powerful alchemical rituals. The entity slowly slides forward and swallows anything it passes over. Swallowed beings quickly dissolve in the vitriol, unless the cube is destroyed and its magic unraveled. Multiple Gelatinous Cubes can be slowly combined into ever larger masses of vitriol, until they are able to engulf all but the largest creatures."
 #size 3
 #hp 35
 #acidshield 10
+#noleader
+#nomagicleader
 #end
 
 #newmonster 5731
@@ -37541,6 +38272,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #cleararmor
 #name "Lobster Hybrid"
 #descr "The Lobster hybrid is a larger, more ferocious version of a Crab Hybrid created from from captured sea trolls rather than Atlantians. Lobster hybrids are semi-intelligent and used in battle as heavy shock troops. Their thick armor plates and large pincers mixed with the Sea Trolls natural strength and regenerative ability make them highly effective warriors. Lobster hybrids are amphibious and can leave the sea."
+#gcost 0
 #hp 42
 #prot 16
 #startage 5
@@ -37658,9 +38390,9 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #flying
 #okleader
 #shapechange 0
-#weapon 20 -- Bite
-#weapon 29 -- Claw
 #weapon 254 -- Plague Breath
+#weapon 20 -- bite
+#weapon 166 -- Golden Claw
 #weapon 532 -- Tail Sweep
 #end
 
@@ -37835,29 +38567,26 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #newmonster 5779
-#copystats 3195 -- Atlantian Wight Mage
-#spr1 "./MagicEnhanced/Wightboleth.tga"
-#spr2 "./MagicEnhanced/Wightboleth2.tga"
+#copystats 2234 -- Irminsul
+#copyspr 754 -- Greater Otherness
+#clearmagic
 #clearweapons
-#cleararmor
-#name "Wight Slaver"
-#descr "A Wight Slaver is the corpse of an aboleth strong enough to avoid death itself. The dried and leathery body of the creature is stronger than it was in life. The Wight Slaver is constantly surrounded by an icy wind. In death it has gained the ability to leave the ocean and exist in the world above the waves."
-#miscshape
-#hp 65
-#str 14
-#att 10
-#def 10
-#ap 6
-#mr 18
-#taskmaster 2
-#eyes 4
-#voidsanity 5
-#mapmove 12
-#montag 5190 -- Aboleth
-#userestricteditem 99 -- Aboleth
-#goodmagicleader
-#weapon 86 -- Mind Blast
+#name "Necrotic Mass"
+#descr "This is the reanimated remains of some gigantic shapeless creature. The decomposition process has lead to the loss of any identifiable features, however the mass has now been returned to a semblance of life. It cannot move but can drain the life of the living should any approach it. The dried and leathery mass is stronger than it was in life and is constantly surrounded by an icy wind. Unsavoury remnants occasionally ooze from the mass and few would willingly approach it."
+#hp 220
+#prot 16
+#ivylord 0
 #weapon 63 -- Life Drain
+#batstartsum3 0 -- Remove Bears
+#coldres 25
+#poisonres 25
+#diseasecloud 12
+#cold 12
+#undead
+#amphibian
+#neednoteat
+#homerealm 0
+#expertundeadleader
 #end
 
 #newmonster 5780
@@ -37893,7 +38622,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #batstartsum4d6 0
 #mounted
 #magicskill 1 3
-#magicskill 4 3
+#magicskill 2 3
 #magicskill 5 5
 #makemonsters3 533 -- Wights
 #weapon 110 -- Wraith Sword
@@ -37953,7 +38682,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #name "Spider King"
 #spr1 "./MagicEnhanced/EESpiderKing.tga"
 #spr2 "./MagicEnhanced/EESpiderKing2.tga"
-#descr "Arach the Spider King is an ancient being with Dominion over all eight-legged things. Once the High Priest of an ancient Spider Goddess, Arach beseeched his Mistress for the power to control her spawn. His wish was granted, however in return he became a monstrous thing shunned and feared by all. Each month spiders of all breeds will flock from the shadows to serve Arach, and in battle he will be joined by a host of scuttling horrors."
+#descr "Arach the Spider King is an ancient being with Dominion over all eight-legged things. Once the High Priest of an ancient Spider Goddess, Arach beseeched his Mistress for the power to control her spawn. His wish was granted, however in return he became a monstrous thing shunned and feared by all. Each month spiders will flock from the shadows to serve the bearer of his amulet, and in battle he will be joined by a host of scuttling horrors."
 #fixedname "Arach"
 #gcost 0
 #djinn
@@ -37970,11 +38699,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #weapon 65 -- Venomous Fangs
 #weapon 261 -- Web
 #batstartsum3d6 5784 -- Wolf Spider
-#summon1 5784 -- Wolf Spider
-#summon2 5179 -- Lesser Hunter
-#domsummon 5784 -- Wolf Spider
-#domsummon2 884 -- Great Spider
-#domsummon20 5685 -- Leng Spider
 #fireres 0
 #startage 1000
 #maxage 2000
@@ -37999,6 +38723,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #darkvision 100
 #mapmove 18
 #eyes 8
+#unsurr 2
 #forestsurvival
 #weapon 251 -- Paralyzing Poison
 #weapon 261 -- Web
@@ -38123,6 +38848,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #name "Slime from the Void"
 #descr "The Slime From The Void is an otherworldly being summoned from the Void by the Starspawns of R'lyeh."
 #montag 5194
+#firstshape 753 -- Thing from the Void 
 #end
 
 #newmonster 5791
@@ -38131,8 +38857,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #name "Strange Otherness"
 #descr "The Otherness is an otherworldly being summoned from the Void by the Starspawns of R'lyeh. It appears as a slowly swirling mass of dark goo. Some of these beings have grown to enormous proportions with passing aeons, but most are no larger than a human."
 #montag 5194
-#hp 20
-#str 13
+#firstshape 756 -- Lesser Otherness
 #end
 
 #newmonster 5792
@@ -38141,6 +38866,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #name "Vile Spawn"
 #descr "The Vile Spawn is an otherworldly being summoned from the Void by the Starspawns of R'lyeh"
 #montag 5194
+#firstshape 757 -- Vile Thing
 #end
 
 #newmonster 5793
@@ -38152,7 +38878,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #name "Fossilized Colossi"
 #descr "This is the fossilized remains of an ancient King or Queen of the Colossi, awakened once more by the Sorcerers of Machaka. It is bedecked with finery and has ancient knowledge of the magics of death and the earth. The Fossilized Colossi is as hard as stone, but somewhat brittle."
 #hp 24
-#morale 30
+#mor 30
 #magicskill 0 1
 #magicskill 3 2
 #magicskill 5 2
@@ -38385,7 +39111,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #magicskill 3 2
 #magicskill 8 2
 #latehero 10
-#unique
 #end
 
 #newmonster 5805
@@ -38400,7 +39125,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #fixedname "Oleg"
 #mountedhumanoid
 #mounted
-#unique
 #hp 22
 #mor 16
 #gcost 0
@@ -38682,7 +39406,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #latehero 10
 #userestricteditem 93
 #twiceborn 5767 -- Wight Giant
-#itemslots 13318 -- No head slot
+#itemslots 15366 -- No head slot
 #end
 
 #newmonster 5817
@@ -38740,7 +39464,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #spr1 "./Worthy_Heroes/YsAhessa.tga"
 #spr2 "./Worthy_Heroes/YsAhessa2.tga"
 #descr "Ahessa is royal, the blood of the Morgen queens running in her veins and magic dancing upon her fingertips. But when the call of the Awakening god went out she fled the Hidden city, unable to stand the thought of war for any cause. After experiencing the world in all its horror and beauty she decided to put aside her feelings and rejoin her sisters to fight for the city of Ys. Befriending an ancient spirit taking the form of a gigantic swan, she finally found the courage to return. Even as her former sisters spat upon her cowardice, Ahessa swore to prove herself anew. Astride her swan steed she can fly incredible distances and can even cross the oceans. Inspired by her example some Morgen have begun to seek out Fey Swans of their own to become Swan Knights in her image."
-#unique
 #mountedhumanoid
 #str 14
 #prot 0
@@ -38795,7 +39518,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #descr "Ahessa is royal, the blood of the Morgen queens running in her veins and magic dancing upon her fingertips. But when the call of the Awakening god went out she fled the Hidden city, unable to stand the thought of war for any cause. After experiencing the world in all its horror and beauty she decided to put aside her feelings and rejoin her sisters to fight for the city of Ys. Befriending an ancient spirit taking the form of a gigantic swan, she finally found the courage to return. Even as her former sisters spat upon her cowardice, Ahessa swore to prove herself anew. Astride her swan steed she can fly incredible distances and can even cross the oceans. Inspired by her example some Morgen have begun to seek out Fey Swans of their own to become Swan Knights in her image."
 #gcost 0
 #rpcost 0
-#unique
 #str 14
 #prot 0
 #weapon 473 -- Golden Spear
@@ -38852,16 +39574,16 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #copyspr 760 -- Siege Golem
 #clearweapons
 #name "Siege Golem"
-#descr "A siege golem is a metal giant with fists enchanted to shatter steel and stone. It is tremendously strong and can crush stone walls to powder. The main purpose of the siege golem is to besiege castles and it is rather poor at melee combat, although it is very durable and will not easily be destroyed. The siege golem is instilled with instructions from its creator and can act independently, although it has no mind. A single siege golem counts as one hundred normal soldiers when besieging a castle, and if given a full month can deploy pulverising shockwaves that will utterly destroy any fort in the province."
+#descr "A siege golem is a metal giant with fists enchanted to shatter steel and stone. It is tremendously strong and can crush stone walls to powder. The main purpose of the siege golem is to besiege castles and it is rather poor at melee combat, although it is very durable and will not easily be destroyed. The siege golem is instilled with instructions from its creator and can act independently, although it has no mind. A single siege golem counts as one hundred normal soldiers when besieging a castle, and if given a full month can deploy pulverising shockwaves that will utterly destroy any fort in the province. The Siege Golem is a huge construction and cannot be teleported via magic."
 #fortkill 100
 #str 40
 #noleader
 #nomagicleader
 #immobile
+#unteleportable
 #mapmove 0
 #weapon 714 -- Tremor
 #ap 2
-#firstshape 760
 #itemslots 1 -- No slots
 #end
 
@@ -38887,6 +39609,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #ap 4
 #mapmove 6
 #itemslots 12288
+#montag 5172 -- Sea Beast
 #end
 
 
@@ -39418,7 +40141,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #watershape 5833
 #weapon 7
 #armor 158
-#unique
 #amphibian
 #gcost 0
 #mor 13
@@ -39438,7 +40160,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #landshape 5832
 #weapon 7
 #armor 158
-#unique
 #amphibian
 #gcost 0
 #mor 13
@@ -39477,7 +40198,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #spr1 "./Rotterland/RWilliam.tga"
 #spr2 "./Rotterland/RWilliam2.tga"
 #descr "William is the Stadtholder of Rotterland. After Marignon's tercios conquered Rotterland he rose to power as a loyal servant of the Marignon Court. However, as Marignon's administrators bungled the levee and reclamation projects he was forced to watch as his people sickened and starved. Meanwhile, the Blood Court and the Inquisition were a fork and knife that carved Rotterland to the bone. Finally William could stand it no more. United under his charismatic rulership and a new faith, Rotterland's heart bloomed with revolt. As an able tactician and politician William became a figurehead of the struggle against Marignon and was instrumental in their defeat. He is irrationally paranoid of assassination attempts and wishes to be kept guarded at all times."
-#unique
 #mounted
 #onebattlespell 604
 #expertleader
@@ -39535,7 +40255,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #ambidextrous 4
 #holy
 #magicskill 8 2
-#unique
 #armor 9
 #weapon 75
 #weapon 99
@@ -39550,6 +40269,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #name "Queen Mosquito"
 #descr "The Mosquito Queen is gigantic mosquito. She constantly surrounded by a swarm of her children. Anyone she comes near is likely to be bitten and infected with a deadly disease. The Mosquito Queen draws strength from the blood her brood drains."
 #copyspr 591
+#quadruped
 #onebattlespell 676 -- Soul Vortex
 #hp 1
 #prot 0
@@ -39569,6 +40289,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #undisciplined
 #neednoteat
 #okleader
+#stealthy 0
 #startage 3
 #maxage 7
 #diseasecloud 6
@@ -40176,7 +40897,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #spr2 "./MagicEnhanced/EEBlackIron2.tga"
 #name "Blacksteel Swordsman"
 #descr "The Blacksteel Swordsmen of Ulm are warriors clad in full plate armor and bearing incredibly sharp swords made from the Blacksteel of Ulm. They are trained to move and fight in heavy armor without tiring. The Blacksteel armor of Ulm is made by the master smiths and their superior craftsmanship is obvious to anyone wearing an Ulmish armor. Both stronger and lighter than ordinary plate armor, they make the soldiers of Ulm superior to any other human infantry. The inhabitants of Ulm are large and can endure much physical punishment before collapsing."
-#gcost 18
+#gcost 15
 #weapon 74 -- Sword of Sharpness
 #end
 
@@ -40742,6 +41463,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #darkvision 100
 #darkpower 1
 #iceprot 1
+#incunrest 5
 #ironvul 1
 #okmagicleader
 #weapon 36 -- Ice Lance
@@ -40765,7 +41487,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #att 13
 #def 13
 #prec 13
-#decunrest 10
+#incunrest -10
 #darkvision 50
 #summerpower 25
 #fireres 10
@@ -40797,12 +41519,13 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #size 4
 #hp 20
 #def 13
-#morale 12
+#mor 12
 #winterpower 25
 #coldres 15
 #darkvision 100
 #darkpower 1
 #ironvul 1
+#incunrest 15
 #magicbeing
 #forestsurvival
 #spiritsight
@@ -40829,11 +41552,12 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #makemonsters3 0
 #size 4
 #hp 20
-#morale 12
+#mor 12
 #def 13
 #summerpower 25
 #fireres 10
 #magicpower 1
+#incunrest -15
 #ironvul 1
 #magicbeing
 #forestsurvival
@@ -40847,6 +41571,52 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #nametype 143
 #goodmagicleader
 #makemonsters1 5937 -- Seelie
+#end
+
+#newmonster 5940
+#spr1 "./MagicEnhanced/Ostrich.tga"
+#spr2 "./MagicEnhanced/Ostrich2.tga"
+#name "Ostrich" 
+#descr "An Ostrich is a large flightless bird that can give a powerful kick with taloned feet."
+#miscshape
+#rcost 0
+#gcost 0
+#rpcost 0
+#hp 16
+#str 15
+#att 10
+#def 10
+#prec 5
+#prot 6
+#size 3
+#mr 5
+#mor 13
+#enc 3
+#mapmove 24
+#ap 28
+#weapon 583 -- Taloned kick
+#animal
+#undisciplined
+#startage 5
+#maxage 20
+#end
+
+#newmonster 5944
+#copystats 2226 -- Mantis
+#clearmagic
+#clearweapons
+#spr1 "./MagicEnhanced/HorrorMantis.tga"
+#spr2 "./MagicEnhanced/HorrorMantis2.tga"
+#name "Horrorbound Mantis"
+#descr "This is a gigantic mantis that has been exposed to a horror from outside time and space. Whilst possessed it will strike with magical claws, and any that attack it may be touched by the Horror within. Upon death the body of the mantis will explode in a blast of astral energies as the horror inside returns to the astral realm."
+#mr 12
+#insane 10
+#tainted 10
+#horrormark
+#cleanshape
+#weapon 549 -- Magic mantis claw
+#weapon 549 -- Magic mantis claw
+#deathparalyze 10
 #end
 
 
@@ -41278,7 +42048,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #def 10
 #prec 12
 #ap 12
-#mapmove 34
+#mapmove 32
 #enc 2
 #startage 600
 #maxage 1000
@@ -41338,7 +42108,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #def 10
 #prec 12
 #ap 12
-#mapmove 34
+#mapmove 32
 #enc 2
 #startage 600
 #maxage 1000
@@ -41398,7 +42168,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #def 10
 #prec 12
 #ap 12
-#mapmove 34
+#mapmove 32
 #enc 2
 #startage 600
 #maxage 1000
@@ -41465,7 +42235,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #def 10
 #prec 12
 #ap 12
-#mapmove 34
+#mapmove 32
 #enc 2
 #startage 600
 #maxage 1000
@@ -41945,7 +42715,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #name "Prince of the Eastern Sea"
 #fixedname "Ao Ping"
 #descr "Ao Ping is the eldest son of Ao Guang, Dragon King of the Eastern Sea. Ao Guang is foremost amongst the Dragon Kings and his descendants are accorded great respect. As the heir to the Eastern Sea Ao Ping is worshipped as a living deity. This worship has gone to the head of the young Dragon and he has become quite arrogant. Once hailed as a benevolent bringer of rain, he is now feared for causing storms and droughts if not sufficiently appeased. Ao Ping is a master of water magic and has some skill in air and natre magic. As the essence of spring he is somewhat stronger in the spring and weaker in the autumn months."
-#unique
 #gcost 0
 #hp 45
 #mor 16
@@ -41983,7 +42752,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #name "Prince of the Eastern Sea"
 #fixedname "Ao Ping"
 #descr "Ao Ping is the eldest son of Ao Guang, Dragon King of the Eastern Sea. Ao Guang is foremost amongst the Dragon Kings and his descendants are accorded great respect. As the heir to the Eastern Sea Ao Ping is worshipped as a living deity. This worship has gone to the head of the young Dragon and he has become quite arrogant. Once hailed as a benevolent bringer of rain, he is now feared for causing storms and droughts if not sufficiently appeased. Ao Ping is a master of water magic and has some skill in air and natre magic. As the essence of spring he is somewhat stronger in the spring and weaker in the autumn months."
-#unique
 #gcost 0
 #hp 70
 #mor 16
@@ -42047,7 +42815,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #airshield 80
 #goodleader
 #amphibian
-#luck
+#onebattlespell 604 -- Luck
 #ambidextrous 6
 #weapon 891 -- Metal Tetsubo
 #weapon 890 -- Metal Katana
@@ -42560,6 +43328,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #def 12
 #coldres 5
 #inspirational 1
+#stealthy 0
 #forestsurvival
 #mountainsurvival
 #weapon 8 -- Broad Sword
@@ -42587,6 +43356,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #inspirational 1
 #sailing 2 2
 #pillagebonus 5
+#stealthy 0
 #forestsurvival
 #weapon 6 -- Short Sword
 #armor 15 -- Full Leather Armor
@@ -42894,7 +43664,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #spr2 "./Fennoscandia/FSReindeerWife2.tga"
 #descr "The Reindeer Wife is an ancient witch who gained spiritual knowledge enabling her to take the form of a reindeer. Long ago she became pregnant whilst in reindeer form and bore a child who she named Meandash. This child had the soul of a man but the form of a beast and so was a part of both worlds. As he grew he came to question his place in the world and left his mother to explore the worlds of men and of spirits. Left alone, the Reindeer Wife returned to the wilderness from whence she occasionally appears to aid tribes that have fallen on hard times. As the sacred mother of Meandash she is revered by the Sami tribes. She is a powerful shaman learned in many forms of magic, and she can take the form of a reindeer at will. She wears an enchanted cloak that keeps her from harm."
 #fixedname "Gunnild"
-#unique
 #gcost 0
 #mr 18
 #mor 18
@@ -42916,7 +43685,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #name "Reindeer Wife"
 #descr "The Reindeer Wife is an ancient witch who gained spiritual knowledge enabling her to take the form of a reindeer. Long ago she became pregnant whilst in reindeer form and bore a child who she named Meandash. This child had the soul of a man but the form of a beast and so was a part of both worlds. As he grew he came to question his place in the world and left his mother to explore the worlds of men and of spirits. Left alone, the Reindeer Wife returned to the wilderness from whence she occasionally appears to aid tribes that have fallen on hard times. As the sacred mother of Meandash she is revered by the Sami tribes. She is a powerful shaman learned in many forms of magic, and she can take the form of a reindeer at will."
 #fixedname "Gunnild"
-#unique
 #mr 18
 #mor 18
 #spiritsight
@@ -42936,7 +43704,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #spr2 "./Fennoscandia/FSLouhi2.tga"
 #descr "Louhi is a powerful and evil witch queen that rules over a far northern realm. She is a powerful enchantress with a foul temper and the ability to weave terrible curses. She has several daughters of great beauty, and is known to set their suitors difficult and dangerous tasks. In ages past Väinämöinen and others attempted to gain the hand of her favourite daughter in marriage, however the wiles of Louhi lead instead to wars between the kingdoms of Fennoscandia. Now she has heard tales of the Awakening God and has come to serve in return for wealth and power. Louhi is a powerful mage of air and death and has even dabbled in foul Blood magic. She wears an enchanted cloak that keeps her from harm and can even walk on the clouds."
 #fixedname "Louhi"
-#unique
 #gcost 0
 #mr 18
 #mor 18
@@ -43187,7 +43954,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #descr "Naayéé Neizghání is one of the twin sons of Changing Woman. At a young age, he and his brother told their mother that they wanted to visit their father, whom they had never met. Changing Woman tried to discourage them, telling them how dangerous this trip would be, how many guardians there were at his house, how he was without mercy. Nevertheless, they set out on a long and arduous journey to the East Mountain. When the boys arrived, they found that their father was none other than Sun God himself. Sun God subjected the two young men to many deadly trials to determine whether they were truly his sons, but they passed each one. Accepting him as his children, he offered them jewels, livestock, game, plants, and beautiful flowers, but each time they refused. Instead they asked for weapons and armor to defeat the rampaging monsters that were terrorizing the First People. Sun God agreed and placed agate within them, making them immune to injury, and gave them weapons and armor forged from divine jet. Naayéé Neizghání was given black jet axes and arrows, granting him the blessing of lightning. A storm rages whenever Naayéé Neizghání is driven to anger, and zigzag lightning strikes wherever he lands his blows. With the coming of the New God, Naayéé Neizghání has returned to once again take up the title of Monster Slayer."
 #spr1 "./Nihuala/MonsterSlayer.tga"
 #spr2 "./Nihuala/MonsterSlayer_2.tga"
-#unique
 #gcost 0
 #hp 28
 #str 17
@@ -43225,7 +43991,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #descr "Tóbájíshchíní is one of the twin sons of Changing Woman. At a young age, he and his brother told their mother that they wanted to visit their father, whom they had never met. Changing Woman tried to discourage them, telling them how dangerous this trip would be, how many guardians there were at his house, how he was without mercy. Nevertheless, they set out on a long and arduous journey to the East Mountain. When the boys arrived, theyfound that their father was none other than Sun God himself. Sun God subjected the two young men to many deadly trials to determine whether they were truly his sons, but they passed each one. Accepting him as his children, he offered them jewels, livestock, game, plants, and beautiful flowers, but each time they refused. Instead they asked for weapons and armor to defeat the rampaging monsters that were terrorizing the First People. Sun God agreed and placed agate within them, making them immune to injury, and gave them weapons and armor forged from divine jet. Tóbájíshchíní was given a blue jet club and armor, granting him the blessing of water. Whenever Tóbájíshchíní is in danger, a heavy rain will fall and the water will rise up to defend him. With the coming of the New God, Tóbájíshchíní has returned to once again take up the title of Child of Water."
 #spr1 "./Nihuala/ChildOfWater.tga"
 #spr2 "./Nihuala/ChildOfWater_2.tga"
-#unique
 #gcost 0
 #hp 28
 #str 16
@@ -43509,6 +44274,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #magicskill 8 2
 #custommagic 13440 100
 #custommagic 1920 100
+#userestricteditem 93 -- Smiths
 #mr 16
 #gcost 1
 #inspirational 1
@@ -43654,7 +44420,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #str 12
 #att 13
 #def 13
-#unique
 #goodleader
 #immortal
 #startage 250
@@ -43683,7 +44448,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #att 13
 #def 13
 #prec 13
-#unique
 #goodleader
 #immortal
 #startage 250
@@ -43711,7 +44475,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #att 13
 #def 13
 #prec 13
-#unique
 #goodleader
 #female
 #stealthy 0
@@ -43743,7 +44506,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #att 13
 #def 13
 #prec 13
-#unique
 #goodleader
 #female
 #stealthy 0
@@ -43771,7 +44533,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #att 12
 #def 14
 #prec 15
-#unique
 #goodleader
 #female
 #awe 1
@@ -44022,6 +44783,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #assassin
 #patience 5
 #fear 5
+#unsurr 2
 #poorleader
 #twiceborn 5769 -- Wight Beast
 #clearmagic
@@ -44547,7 +45309,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #descr "Silenus is the oldest, wisest and most drunken of the satyrs. Whilst most halfmen lead lives of revelry and wild abandon Silenus is of a more thoughtful disposition. Reknowned for his wisdom he holds the power of prophecy and has flashes of insight when not in a month-long drunken stupor. His pronouncements are often fatalistic, holding that life is an empty distraction and death a welcome end. His studies in the nature of life and its ending have given him great insights in the magic of life, nature, death and decay."
 #fixedname "Silenus"
 #gcost 0
-#unique
 #att 9
 #def 9
 #mr 16
@@ -45846,6 +46607,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #descr "Recently deceased bodies unnaturally animated into a state of false life, the soulless are often dressed in the clothes they died in. Soulless do not have any vital organs, but their bodies are in a state of decomposition, so they are easier to destroy than a wight or a lich. These soulless carry deadly diseases that cause the body to fester and swell. They do not rout unless their master is killed. The soulless are mindless and will quickly dissolve if left without leadership on the battlefield."
 #clearweapons
 #weapon 286
+#startaff 1
 #deathdisease 3
 #end
 
@@ -46144,8 +46906,8 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #magicskill 1 2
 #magicskill 2 2
 #magicskill 4 4
-#userestricteditem 99
-#montag 5190
+#montag 5190 -- Aboleth
+#userestricteditem 99 -- Aboleth
 #twiceborn 3452 -- Aboleth Wight
 #mapmove 2
 #enc 3
@@ -47550,7 +48312,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #str 11
 #att 13
 #def 13
-#unique
 #superiorleader
 #startage 61
 #maxage 60
@@ -47582,7 +48343,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #fixedname "Li Er"
 #gcost 0
 #mr 11
-#unique
 #poorleader
 #startage 61
 #maxage 60
@@ -47959,7 +48719,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #name "Satyr Mandragora"
 #descr "Ampelos was once an unusually thoughtful satyr that studied the stars. Eventually he had learned so much that he began to boast he knew more about the heavens than the moon herself. Unfortunately for Ampelos the Goddess of the Moon heard his boasts and looked down upon him with a jealous eye. One day she sent a gadfly to sting a great bull grazing nearby. The creature trampled poor Ampelos and he was gored to death for his hubris. Over time vines grew around and through his bones until he was granted new life by the awakening of the True God. Ampelos has great knowledge of the magic of the stars, however he has learned not to boast of such things and is reluctant to share his knowledge."
 #fixedname "Ampelos"
-#unique
 #mor 16
 #mr 16
 #magicskill 2 1
@@ -48166,30 +48925,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 
 #selectmonster 3257 -- Last Perkunu
 #gcost 0
-#end
-
---Weapon of the Noble Giant, Vanarus hero
-#newweapon 1700
-#name "Cursed Blade"
-#dmg 6
-#att 2
-#def 2
-#len 3
-#armorpiercing
-#slash
-#magic
-#secondaryeffectalways 125 -- Leg Chop
-#end
-
---Weapon of Aino, Vanarus Hero
-#newweapon 1722
-#name "Kantele"
-#dmg 1
-#att 0
-#def 0
-#len 1
-#blunt
-#magic
 #end
 
 -- 
@@ -48759,19 +49494,22 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 
 --The Chilan Balam
 #newmonster 6158
+#copystats 2678 -- Chilan
 #name "Chilan Balam"
 #fixedname "Tizimin"
 #spr1 "./Worthy_Heroes/ChilamBalam.tga"
 #spr2 "./Worthy_Heroes/ChilamBalam_attacking.tga"
 #gcost 0
 #descr "Tizimin is a Chilan who specializes in prophecies. When the flood came, the water stopped at the entrance of his house, and he welcomed the new rulers of Xibalba. He is well known for his magnum opus, the Chilan Balam. It is a collection of Xibalban histories, prophecies and the mystical knowledge of a lifetime, which he lends to those in need. He is very difficult for most of his peers to understand and has a hard time contributing to research without his book. The sacred rituals and arcane revelations in his book grant him an enhanced religious authority."
-
 #clearspec -- Give him the abilities of an Onaqui, if not the size or appaerance
 #neednoteat
 #holy
 #forestsurvival
 #flying
 #blind
+#coldblood
+#stealthy 0
+#douse 1
 #startitem 825
 
 #weapon 9
@@ -48862,13 +49600,13 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #name "Cynocephalian Saint"
 #fixedname "St. Christopher"
 #descr "St. Christopher was once a feared Cynocephalian warrior of Gog, the flesh-eating tribe of Ind. He vowed to serve only the greatest Dog-Father, and set off to the chieftain who was reputed to be the strongest. One day he saw the chieftain bow to a visiting Viceroy of Ind. He soon departed to look for this King whom even the Dog-Fathers feared. However, on his journey he heard of one even greater than the Prester King himself. He met a hermit who spoke of the Awakening God, and was instructed in this new faith. Christopher began using his great size and strength to assist people in crossing a dangerous river, where they were perishing in the attempt. Soon word spread of this strangely devout warrior and people flocked to hear him speak. St. Christophers devotion is such that he will spread the Dominion of the Awakening God, and his kind acts will quell unrest in the province."
-#unique
 #gcost 0
 #hp 30
 #att 13
 #def 13
 #mor 16
 #str 15
+#size 3
 #swimming
 #incunrest -100
 #stealthy 0
@@ -48916,6 +49654,10 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #magicskill 8 2
 #weapon "Sword of Iblis"
 #itemslots 15488 -- No Hand Slots
+#end
+
+#selectmonster 3385
+#montag 5193 -- True Jinn
 #end
 
 #selectnation 72 -- MA Na'Ba
@@ -49650,7 +50392,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #descr "Kubadei is the current Khagan, the Khan of Khans, and is the Grandson of the original Barbarian King that lead the campaign that conquered T'ien Ch'i. He is the ruler of T'ien Ch'i and the surrounding lands and commands the armies of the empire. Kubadei is a cunning tactician and has masterminded many successful campaigns. He employs siege engineers to build war machines that can devastate any defence. He is currently planning a great invasion of the lands of Jomon and has had his shipwrights constructing a great fleet in preparation. Kubadei is always protected by an honour guard of Kheshig warriors. He is a devout follower of the Awakening God and leads ceremonies in the capital."
 #fixedname "Kubadei"
 #gcost 0
-#unique
 #superiorleader
 #inspirational 1
 #siegebonus 50
@@ -49671,7 +50412,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #descr "Phagpa was a monk in the hidden city of Shambhala before the Barbarian hordes conquered the land. However, the Barbarian Kings were remarkably tolerant of the monks and allowed them to continue their religious practices. Phagpa saw that this arrangement was preferable to destruction by the unruly warriors and began to work closely with the invaders. Soon he ingratiated himself with a young noble named Kubadei, and when this noble ascended the throne of T'ien Ch'i Phagpa was rewarded with the title of Imperial Preceptor of the land of Shambhala. Phagpa is the highest ranking monk in the empire and acts as liaison between the Barbarians and the people. He has so far managed to keep the culture and practices of his homeland relatively unchanged. With the awakening of a new God he works to syncretise the beliefs of the two peoples and ensure harmony between the disparate elements of the empire he calls home."
 #fixedname "Phagpa"
 #gcost 0
-#unique
 #goodleader
 #startage 40
 #maxage 60
@@ -50005,7 +50745,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #name "Lizard Hero" 
 #copyspr 380
 #gcost 0
-#unique
 #size 2
 #coldblood
 #poisonres 5
@@ -50635,7 +51374,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #att 7
 #def 9
 #hp 11
-#weapon 13 -- Hammer
+#weapon 648 -- Enchanted Hammer
 #mapmove 3
 #enc 4
 #prec 12
@@ -50747,6 +51486,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 
 #selectmonster 830 -- Serpent Acolyte
 #ownsmonrec 5598 -- Serpent Bishop
+#custommagic 512 50 -- +50% W
 #end
 
 #selectmonster 1879 -- Serpent Assassin
@@ -51263,6 +52003,162 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 
 -- OTHERS
 
+#selectspell 1024 -- Melancholia
+#hiddenench 1
+#end
+
+#selectspell 1078 -- Rain of Toads
+#hiddenench 1
+#end
+
+#selectmonster 527 -- Will o Wisp
+#fireres 70
+#end
+
+#selectmonster 3232 -- Iron Fly
+#quadruped
+#end
+
+#selectmonster 3065 -- Marble Lion
+#quadruped
+#end
+
+#selectmonster 1200 -- Unfrozen
+#mountainsurvival
+#end
+
+#selectmonster 1201 -- Unfrozen
+#mountainsurvival
+#end
+
+#selectmonster 1202 -- Unfrozen
+#mountainsurvival
+#end
+
+#selectmonster 1203 -- Unfrozen
+#mountainsurvival
+#end
+
+#selectmonster 493 -- Earth Elemental Size 6
+#clearweapons
+#prot 12
+#slashres
+#pierceres
+#weapon 562 -- Stone Fist
+#weapon 562 -- Stone Fist
+#end
+
+#selectmonster 494 -- Earth Elemental Size 5
+#clearweapons
+#prot 11
+#slashres
+#pierceres
+#weapon 562 -- Stone Fist
+#end
+
+#selectmonster 495 -- Earth Elemental Size 4
+#clearweapons
+#prot 10
+#slashres
+#pierceres
+#weapon 562 -- Stone Fist
+#end
+
+#selectmonster 496 -- Earth Elemental Size 3
+#clearweapons
+#prot 9
+#slashres
+#pierceres
+#weapon 562 -- Stone Fist
+#end
+
+#selectmonster 497 -- Earth Elemental Size 2
+#clearweapons
+#prot 8
+#slashres
+#pierceres
+#weapon 562 -- Stone Fist
+#end
+
+#selectmonster 498 -- Earth Elemental Size 1
+#clearweapons
+#prot 7
+#slashres
+#pierceres
+#weapon 562 -- Stone Fist
+#end
+
+#selectmonster 2280 -- IllEarth Elemental Size 6
+#clearweapons
+#slashres
+#pierceres
+#fear 5
+#weapon 63 -- Life Drain
+#weapon 63 -- Life Drain
+#end
+
+#selectmonster 2281 -- IllEarth Elemental Size 5
+#clearweapons
+#slashres
+#pierceres
+#fear 5
+#weapon 63 -- Life Drain
+#end
+
+#selectmonster 2282 -- IllEarth Elemental Size 4
+#clearweapons
+#slashres
+#pierceres
+#fear 5
+#weapon 63 -- Life Drain
+#end
+
+#selectmonster 2283 -- IllEarth Elemental Size 3
+#clearweapons
+#slashres
+#pierceres
+#fear 5
+#weapon 63 -- Life Drain
+#end
+
+#selectmonster 2284 -- IllEarth Elemental Size 2
+#clearweapons
+#slashres
+#pierceres
+#weapon 63 -- Life Drain
+#end
+
+#selectmonster 2285 -- IllEarth Elemental Size 1
+#clearweapons
+#slashres
+#pierceres
+#weapon 63 -- Life Drain
+#end
+
+#selectmonster 831 -- Ice Elemental Size 6
+#coldpower 1
+#end
+
+#selectmonster 832 -- Ice Elemental Size 5
+#coldpower 1
+#end
+
+#selectmonster 833 -- Ice Elemental Size 4
+#coldpower 1
+#end
+
+#selectmonster 834 -- Ice Elemental Size 3
+#coldpower 1
+#end
+
+#selectmonster 835 -- Ice Elemental Size 2
+#coldpower 1
+#end
+
+#selectmonster 836 -- Ice Elemental Size 1
+#coldpower 1
+#end
+
 #selectmonster 1180 -- Sauro Spirit Guide
 #clearweapons
 #weapon 761 -- Throw Salt
@@ -51361,6 +52257,10 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #homecom 89 -- Warlock
 #end
 
+#selectmonster 633 -- Werewolf
+#maxage 999
+#end
+
 #selectmonster 91
 #copystats 1337 -- Siddha
 #copyspr 1337 -- Siddha
@@ -51424,10 +52324,14 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #twiceborn 5779
 #end
 
+#selectmonster 2886 -- Grandmother
+#userestricteditem 99
+#montag 5190
+#end
+
 #selectmonster 1402 -- Polypal Queen
 #userestricteditem 99
 #montag 5190
-#twiceborn 5779
 #end
 
 #selectmonster 1403 -- Gibboleth
@@ -51450,6 +52354,14 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #montag 5190
 #end
 
+#selectmonster 2884 -- Androdai
+#montag 5190
+#end
+
+#selectmonster 2885 -- Androdai
+#montag 5190
+#end
+
 #selectmonster 1521 -- Mindlord
 #userestricteditem 99
 #montag 5190
@@ -51461,6 +52373,16 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #selectmonster 3098 -- First Spawn
+#userestricteditem 99
+#montag 5190
+#end
+
+#selectmonster 3451 -- necrodai
+#userestricteditem 99
+#montag 5190
+#end
+
+#selectmonster 3452 -- necrodai
 #userestricteditem 99
 #montag 5190
 #end
@@ -51586,10 +52508,14 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 
 #selectmonster 734 -- Moon Priest
 #enchrebate50 448 -- Lunar Potency
+#darkpower 2
+#darkvision 100
 #end
 
 #selectmonster 1192 -- Moon Priest 
 #enchrebate50 448 -- Lunar Potency
+#darkpower 2
+#darkvision 100
 #end
 
 #selectmonster 999 -- Wizard of the Crescent Moon
@@ -51602,10 +52528,14 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 
 #selectmonster 1882 -- Moon Warrior
 #enchrebate50p 448 -- Lunar Potency
+#darkpower 2
+#darkvision 100
 #end
 
 #selectmonster 1883 -- Moon Warrior
 #enchrebate50p 448 -- Lunar Potency
+#darkpower 2
+#darkvision 100
 #end
 
 #selectmonster 725 -- Sun Warrior
@@ -51698,18 +52628,26 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #selectmonster 515 -- Summer Lion
+#clearweapons
+#weapon 1724 -- Golden Fangs
+#weapon 756 -- Burning Claw
 #magicskill 0 1 -- 1F
 #custommagic 128 50 -- 50% F
 #montag 5185 
 #end
 
 #selectmonster 512 -- Fall Bear
+#clearweapons
+#weapon 166 -- Golden Claw
 #magicskill 3 1 -- 1E
 #custommagic 1024 50 -- 50% E
 #montag 5185 
 #end
 
 #selectmonster 511 -- Winter Wolf
+#clearweapons
+#weapon 752 -- Frost Breath
+#weapon 1512 -- Magical Fangs
 #magicskill 2 1 -- 1W
 #custommagic 512 50 -- 50% W
 #montag 5185 
@@ -51727,6 +52665,12 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #selectmonster 360 -- Undine
 #magicskill 2 1 -- 1W
 #custommagic 512 50 -- 50% W
+#end
+
+#selectmonster 514 -- Kithaironic Lion
+#clearweapons
+#weapon 1724 -- Golden Fangs
+#weapon 166 -- Golden Claw
 #end
 
 #selectmonster 562 -- Sylph
@@ -51792,6 +52736,8 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #selectmonster 1227 -- Kydnides
+#clearweapons
+#weapon 474 -- Golden Sword
 #magicskill 2 1 -- 1W
 #custommagic 8704 100 -- 100%WN
 #end
@@ -51856,14 +52802,24 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 
 #selectmonster 1335 -- Gandharva
 #clearmagic
-#magicskill 4 1 -- 1S
+#magicskill 8 1 -- H1
+#magicskill 4 1 -- S1
+#custommagic 9472 100 -- 100AEN
 #custommagic 9472 100 -- 100AEN
 #end
 
 #selectmonster 1332 -- Apsara
 #clearmagic
-#magicskill 4 1 -- 1S
+#magicskill 8 1 -- H1
+#magicskill 4 1 -- S1
 #custommagic 8960 100 -- 100AWN
+#custommagic 8960 100 -- 100AWN
+#end
+
+#selectmonster 903 -- Celestial Servant
+#magicskill 4 1 -- 1S
+#custommagic 1024 50 -- 50E
+#magicskill 8 1
 #end
 
 #selectmonster 1338 -- Celestial Hound
@@ -51886,11 +52842,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #custommagic 512 50 -- 50%W
 #end
 
-#selectmonster 1356 -- Ozelotl
-#magicskill 7 1 -- 1B
-#custommagic 128 50 -- 50%F
-#end
-
 #selectmonster 1478 -- Karasu Tengu
 #magicskill 1 1 -- 1A
 #custommagic 8192 50 -- 50%N
@@ -51902,14 +52853,16 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #selectmonster 1483 -- Tzitzimitl
-#magicskill 4 1 -- 1S
-#custommagic 16384 50 -- 50%S
+#magicskill 4 1 -- S1
+#magicskill 8 1 -- H1
+#custommagic 16384 50 -- 50%SB
 #end
 
 #selectmonster 543 -- Angel of the Host
 #spr1 "./MagicEnhanced/AngelSword.tga"
 #spr2 "./MagicEnhanced/AngelSword2.tga"
 #magicskill 4 1 -- 1S
+#magicskill 8 1 -- H1
 #custommagic 128 50 -- 50%F
 #end
 
@@ -51940,9 +52893,10 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 
 #selectmonster 760 -- Siege Golem
 #name "Siege Golem"
-#descr "A siege golem is a metal giant with fists enchanted to shatter steel and stone. It is tremendously strong and can crush stone walls to powder. The main purpose of the siege golem is to besiege castles and it is rather poor at melee combat, although it is very durable and will not easily be destroyed. The siege golem is instilled with instructions from its creator and can act independently, although it has no mind. A single siege golem counts as one hundred normal soldiers when besieging a castle, and if given a full month can deploy pulverising shockwaves that will utterly destroy any fort in the province."
+#descr "A siege golem is a metal giant with fists enchanted to shatter steel and stone. It is tremendously strong and can crush stone walls to powder. The main purpose of the siege golem is to besiege castles and it is rather poor at melee combat, although it is very durable and will not easily be destroyed. The siege golem is instilled with instructions from its creator and can act independently, although it has no mind. A single siege golem counts as one hundred normal soldiers when besieging a castle, and if given a full month can deploy pulverising shockwaves that will utterly destroy any fort in the province. The Siege Golem is a huge construction and cannot be teleported via magic."
 #noleader
 #nomagicleader
+#unteleportable
 #shapechange 5822 -- Fortkill mode
 #itemslots 1 -- No slots
 #end
@@ -52161,7 +53115,10 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #selectmonster 1702 -- Basalt King
+#clearweapons
 #twiceborn 5767 -- Wight Giant
+#weapon 7 -- Quarterstaff
+#weapon 20 -- Bite
 #end
 
 #selectmonster 1987 -- Kohen Gadol
@@ -52501,6 +53458,16 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #twiceborn 5770 -- Necrophidian
 #end
 
+#selectmonster 4
+#prot 8
+#armor 172 -- Mail Barding
+#end
+
+#selectmonster 764
+#prot 8
+#armor 172 -- Mail Barding
+#end
+
 #selectmonster 1835 -- Hydra last shape
 #twiceborn 5770 -- Necrophidian
 #end
@@ -52542,22 +53509,8 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #selectmonster 3064 -- Anzu
+#holy
 #twiceborn 1388 -- Ziz
-#end
-
-#selectmonster 216 -- Red Dragon
-#twiceborn 5771 -- Dracowight
-#prot 20
-#end
-
-#selectmonster 265 -- Blue Dragon
-#twiceborn 5771 -- Dracowight
-#prot 20
-#end
-
-#selectmonster 266 -- Green Dragon
-#twiceborn 5771 -- Dracowight
-#prot 20
 #end
 
 #selectmonster 2316 -- Dragon King
@@ -52584,6 +53537,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #selectmonster 2099 -- Tatsu
+#holy
 #twiceborn 5771 -- Dracowight
 #end
 
@@ -52688,10 +53642,14 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #selectmonster 694 -- Great Bear
+#clearweapons
+#weapon 29 -- Claw
+#weapon 20 -- Bite
 #twiceborn 5772 -- Size 4 Wight Beast
 #end
 
 #selectmonster 782 -- Giant Spider
+#unsurr 2
 #twiceborn 5773 -- Size 2 Wight Beast
 #end
 
@@ -52704,10 +53662,16 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #selectmonster 3003 -- Great Bear
+#clearweapons
+#weapon 29 -- Claw
+#weapon 20 -- Bite
 #twiceborn 5772 -- Size 4 Wight Beast
 #end
 
 #selectmonster 3258 -- Great Bear
+#clearweapons
+#weapon 29 -- Claw
+#weapon 20 -- Bite
 #twiceborn 5772 -- Size 4 Wight Beast
 #end
 
@@ -52720,6 +53684,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #selectmonster 884 -- Great Spider
+#unsurr 2
 #twiceborn 5772 -- Size 4 Wight Beast
 #end
 
@@ -52890,6 +53855,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 
 #selectmonster 2617 -- Daeva
 #montag 5198 -- No Transformation spells
+#magicskill 1 1
 #end
 
 #selectmonster 3425 -- Dwarf
@@ -53203,30 +54169,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #montag 5161
 #end
 
--- Gaia's Vengeance Montag list
-
-#selectmonster 717 -- Carrion Beast (Medium)
-#montag 5163
-#end
-
-#selectmonster 718 -- Carrion Beast (large)
-#montag 5163
-#montagweight 2
-#end
-
-#selectmonster 714 -- Carrion Centaur
-#montag 5163
-#montagweight 2
-#end
-
-#selectmonster  711 -- Carrion Lady
-#montag 5163
-#end
-
-#selectmonster 330 -- Dark Vines
-#montag 5163
-#end
-
  -- Abysian Crossbreds
  
 #selectmonster 87 -- Demonbred
@@ -53397,7 +54339,27 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #darkvision 50
 #end
 
+#selectmonster 1651 -- Jotun WereWolf
+#darkvision 50
+#end
+
+#selectmonster 1652 -- Jotun WereWolf
+#darkvision 50
+#end
+
 #selectmonster 1653 -- Jotun Wolf
+#darkvision 50
+#end
+
+#selectmonster 3430 -- Jotun WereWolf
+#darkvision 50
+#end
+
+#selectmonster 3433 -- Jotun WereWolf
+#darkvision 50
+#end
+
+#selectmonster 3443 -- Jotun WereWolf
 #darkvision 50
 #end
 
@@ -53432,6 +54394,13 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #selectmonster 2537 -- Monk
 #gcost 20
 #end
+
+#selectmonster 2513 -- Cave Spider
+#unsurr 2
+#size 3
+#end
+
+
 
 -- names --
 
@@ -54274,8 +55243,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #addname "Tsolmon"
 #addname "Ked-Buqa"
 #addname "Khulan"
-#addname "Eguden"
-#addname "Agujam"
 #addname "Khongkhai"
 #addname "Yalavech"
 #addname "Asha Gambu"
@@ -54321,6 +55288,63 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #addname "Taimoorkhan"
 #addname "Temuj"
 #addname "Timur"
+#addname "Arsakom"
+#addname "Atheas"
+#addname "Idanthyrs"
+#addname "Gnur"
+#addname "Palac"
+#addname "Partatua"
+#addname "Nezak Tarkan"
+#addname "Mehama"
+#addname "Kirada"
+#addname "Kidara"
+#addname "Grumbates"
+#addname "Varhran"
+#addname "Tobazini"
+#addname "Salanavira"
+#addname "Yukuk Shad"
+#addname "Amrak"
+#addname "Shibi Khan"
+#addname "Ilteber shad"
+#addname "Illig"
+#addname "Arsa"
+#addname "Aryamgula"
+#addname "Asi"
+#addname "Baga"
+#addname "Bahudhiva"
+#addname "Bamdaka"
+#addname "Buriberdi"
+#addname "Burikhan"
+#addname "Candak"
+#addname "Chelakhsartag"
+#addname "Djadaron"
+#addname "Durgulel"
+#addname "Hasqar"
+#addname "Karadach"
+#addname "Ziebel"
+#addname "Savkudz"
+#addname "Soslan"
+#addname "Suarn"
+#addname "Syrdon"
+#addname "Tarkhun"
+#addname "Divashtich"
+#addname "Yodkhsetak"
+#addname "Kang"
+#addname "Ang"
+#addname "Tughril"
+#addname "Böri Shad"
+#addname "Irbis"
+#addname "Khalga"
+#addname "Kaban"
+#addname "Sili"
+#addname "Tishrat"
+#addname "Chunakk"
+#addname "Namdar"
+#addname "Xutawch"
+#addname "Ertugrul"
+#addname "Gunduz"
+#addname "Kurboga"
+#addname "Kaikaus"
 #end
 
 #selectnametype 180 -- Chaco
@@ -55374,6 +56398,10 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 
 -- sites --
 
+#selectsite 481 -- Merman Village
+#com 1051 -- Merman Scout
+#end
+
 #selectsite 576 -- Abyss
 #summonlvl2 2514 -- Cave Crab
 #end
@@ -55680,7 +56708,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #selectsite 949 -- Dark Waters
-#summonlvl4 5435 -- Child of Tiamat
+#summonlvl3 5435 -- Child of Tiamat
 #end
 
 #selectsite 1041 -- Date Oasis
@@ -56995,6 +58023,8 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #gems 0 1
 #gems 1 2
 #homecom "Kodia"
+#homemon 4615 -- Mubarak Swordsman
+#homemon 4616 -- Mubarak Archer
 #end
 
 #newsite 1553
@@ -57026,7 +58056,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #path 8
 #level 2
 #homemon "Dervish"
-#homemon "Silent Widow"
 #end
 
 
@@ -57039,7 +58068,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #level 0
 #rarity 5
 #gems 1 2	
-#gems 6 1	
+#gems 6 2	
 #homecom 4310
 #homecom 4311
 #homemon 4306
@@ -57051,7 +58080,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #path 5
 #level 0
 #rarity 5
-#gems 5 1		
+#gems 2 1		
 #homemon 4304
 #end
 
@@ -57146,7 +58175,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #gems 6 1
 #gems 7 2
 #homemon 4406 -- Woad Giant
-#homecom 4414 -- Cambion
 #end
 
 #newsite 1656
@@ -57156,7 +58184,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #rarity 5
 #gems 2 2
 #gems 6 1
-#heal 5
+#heal 25
 #end
 
 #newsite 1657
@@ -57284,6 +58312,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #path 0
 #level 0
 #rarity 5
+#res 50
 #nat 52 -- MA TC
 #natmon 5644 -- Lance Trooper 
 #end
@@ -57378,10 +58407,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #path 1
 #level 0
 #rarity 5
-#summonlvl2 1481 -- Tengu Warrior
-#summonlvl2 1481 -- Tengu Warrior
-#summonlvl2 1479 -- Konoha Tengu
-#summonlvl2 1479 -- Konoha Tengu
 #end
 
 #newsite 1765
@@ -57389,8 +58414,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #path 6
 #level 0
 #rarity 5
-#summon 1478 -- Karasu Tengu
-#summon 1478 -- Karasu Tengu
 #end
 
 #newsite 1766
@@ -58010,7 +59033,10 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #rarity 5
 #gems 1 1
 #gems 3 1
+#homecom 6220
+#homecom 6222
 #homecom 6224
+#homecom 6226
 #end
 
 #newsite 1882
@@ -58024,45 +59050,13 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #homemon 5500 -- Gandharva
 #end
 
-#newsite 1883
-#name "Tengu  Clanhold" -- two spaces
-#path 1
-#level 0
-#rarity 5
-#summonlvl2 1481 -- Tengu Warrior
-#summonlvl2 1481 -- Tengu Warrior
-#summonlvl2 1479 -- Konoha Tengu
-#summonlvl2 1479 -- Konoha Tengu
-#end
+-- #newsite 1883
 
-#newsite 1884
-#name "Tengu   Clanhold" -- three spaces
-#path 1
-#level 0
-#rarity 5
-#summonlvl2 1481 -- Tengu Warrior
-#summonlvl2 1481 -- Tengu Warrior
-#summonlvl2 1479 -- Konoha Tengu
-#summonlvl2 1479 -- Konoha Tengu
-#end
+-- #newsite 1884
 
-#newsite 1885
-#name "Tengu  Village" -- two spaces
-#path 6
-#level 0
-#rarity 5
-#summon 1478 -- Karasu Tengu
-#summon 1478 -- Karasu Tengu
-#end
+-- #newsite 1885
 
-#newsite 1886
-#name "Tengu   Village" -- three spaces
-#path 6
-#level 0
-#rarity 5
-#summon 1478 -- Karasu Tengu
-#summon 1478 -- Karasu Tengu
-#end
+-- #newsite 1886
 
 #newsite 1887
 #name "Druid Circle"
@@ -58130,21 +59124,21 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #com 5910 -- Shrimp Nanwu
 #end
 
-#newsite 1894
-#name "Sahuagin Village"
-#path 2
-#loc 32 -- Sea
-#level 0
-#rarity 0
-#mon 5913 -- Sahuagin Hunter
-#end
+-- #newsite 1894
+-- #name "Sahuagin Village"
+-- #path 2
+-- #loc 32 -- Sea
+-- #level 0
+-- #rarity 0
+-- #mon 5913 -- Sahuagin Hunter
+-- #end
 
 #newsite 1895
 #name "Sahuagin Settlement"
 #path 2
-#loc 32 -- Sea
-#level 1
-#rarity 2
+#loc 96 -- Sea or Coast
+#level 0
+#rarity 1
 #mon 5911 -- Sahuagin
 #mon 5913 -- Sahuagin Hunter
 #com 5915 -- Sahuagin Baron
@@ -58154,8 +59148,8 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #name "Eagle Tribe Settlement"
 #path 1
 #loc 159 -- Any Land except caves
-#level 1
-#rarity 0
+#level 0
+#rarity 1
 #mon 5900 -- Warrior
 #mon 5901 -- Tomahawk Warrior
 #com 5902 -- Chieftain
@@ -58226,11 +59220,9 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #selectnation 6 -- EA Ermor
-#addgod 5028 -- Divine Emperor
 #addgod 4952 -- Icon
 #addgod 5054 -- Angelic Lord
 #addgod 5067 -- Peacock Angel
-#addgod 4953 -- Golden Lion
 #addgod 5012 -- Reliquary
 #cheapgod20 4982 -- Titan of the Sun
 #cheapgod20 5012 -- Reliquary
@@ -58281,12 +59273,22 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #selectnation 11 -- EA Machaka
-#cheapgod20 4953 -- Golden Lion
 #cheapgod20 4993 -- Divine Egg
+#delgod 251 -- Great Sage
+#delgod 249 -- Crone
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 485 -- Great Enchantress
 #addgod 5062 -- Divine Anvil
 #end
 
 #selectnation 12 -- EA Mictlan
+#delgod 4989 -- Idol of the Sun
+#delgod 5006 -- Idol of the Harvest
+#delgod 251 -- Great Sage
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 485 -- Great Enchantress
 #cheapgod20 4988 -- Statue of the Sun & Rain
 #end
 
@@ -58301,6 +59303,11 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #delgod 5029 -- Sacred Grove
 #delgod 4987 -- Idol of Watery Wisdom
 #delgod 4994 -- Spirit of the Well
+#delgod 4882 -- Great Sage
+#delgod 4881 -- Crone
+#delgod 4880 -- Master Enchanter
+#delgod 4879 -- Arch Mage
+#delgod 4878 -- Great Enchantress
 #addgod 4894 -- Burning Bush
 #cheapgod20 4986 -- Pillar of Flame
 #cheapgod20 4979 -- Firstborn of Rhuax
@@ -58314,6 +59321,12 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 
 #selectnation 15 -- EA Ctis
 #cheapgod20 4981 -- Neter of the River
+#delgod 251 -- Great Sage
+#delgod 249 -- Crone
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 485 -- Great Enchantress
+#delgod 4895 -- Lord of Carrion Dead
 #addgod 5064 -- Great Toad
 #end
 
@@ -58369,7 +59382,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #selectnation 24 -- EA Rus
-#addgod 4891 -- Zmey Gorynch
+#addgod 4891 -- Zmey Gorynych
 #addgod 779 -- Rams Head Serpent
 #cheapgod20 5079 -- Sun Father
 #cheapgod20 5088 -- Triglav
@@ -58388,6 +59401,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #addgod 4901 -- Markata Master
 #addgod 4978 -- Danavaraja
 #addgod 4990 -- Emissary of Antrax
+#addgod 4996 -- Bloodstained Edifice
 #cheapgod20 4978 -- Danavaraja
 #cheapgod20 4901 -- Markata Master
 #end
@@ -58431,11 +59445,23 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #addgod 4963 -- Sea Nymph
 #delgod 4995 -- Sacred Grove
 #addgod 4905 -- Great Gull
+#addgod 4884 -- Great Navigator
+#delgod 4882 -- Great Sage
+#delgod 4881 -- Crone
+#delgod 4880 -- Master Enchanter
+#delgod 4879 -- Arch Mage
+#delgod 4878 -- Great Enchantress
 #cheapgod20 4905 -- Great Gull
 #cheapgod20 5050 -- Brazen Bull
 #end
 
 #selectnation 31 -- EA Xib
+#delgod 4989 -- Idol of the Sun
+#delgod 5006 -- Idol of the Harvest
+#delgod 251 -- Great Sage
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 485 -- Great Enchantress
 #cheapgod20 4937 -- Night Hunter
 #cheapgod20 4906 -- Monstrous Dog
 #cheapgod20 4902 -- Skull Idol
@@ -58452,12 +59478,21 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #addgod 4998 -- Statue of the Silent God
 #end
 
+#selectnation 33 -- Ubar
+#delgod 251 -- Great Sage
+#delgod 249 -- Crone
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 485 -- Great Enchantress
+#end
+
 #selectnation 36 -- EA Atlantis
 #addgod 4925 -- Basalt Architect
 #addgod 5011 -- Dark Crystal
 #addgod 4994 -- Spirit of the Well
 #addgod 4987 -- Idol of Watery Wisdom
 #delgod 2791 -- Earth Serpent
+#addgod 4993 -- Divine Egg
 #cheapgod20 4925 -- Basalt Architect
 #cheapgod20 4976 -- Terror of the Deep
 #cheapgod20 5011 -- Dark Crystal
@@ -58480,6 +59515,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #addgod 4987 -- Idol of Watery Wisdom
 #addgod 5015 -- Statue of Wisdom
 #delgod 2791 -- Earth Serpent
+#addgod 4993 -- Divine Egg
 #cheapgod20 248 -- Aquatic Archmage
 #cheapgod20 4909 -- Lord of Pearls
 #cheapgod20 4917 -- Triton Queen
@@ -58491,6 +59527,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #addgod 4987 -- Idol of Watery Wisdom
 #addgod 5015 -- Statue of Wisdom
 #delgod 2791 -- Earth Serpent
+#addgod 4993 -- Divine Egg
 #cheapgod20 4913 -- Master of the Deeps
 #cheapgod20 4914 -- Master of the Deeps
 #cheapgod20 4918 -- Siren Queen
@@ -58573,15 +59610,24 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #addgod 4952 -- Icon
 #addgod 5054 -- Angelic Lord
 #addgod 5067 -- Peacock Angel
+#cheapgod20 4952 -- Icon
 #cheapgod20 5054 -- Angelic Lord
 #end
 
 #selectnation 51 -- MA Mictlan
+#delgod 4989 -- Idol of the Sun
+#delgod 5006 -- Idol of the Harvest
+#delgod 251 -- Great Sage
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 485 -- Great Enchantress
+#cheapgod20 4886 -- Idol of Sustenance
 #cheapgod20 4988 -- Statue of Sun & Rain
 #cheapgod20 4907 -- Feathered Serpent
 #end
 
 #selectnation 52 -- MA TC
+#addgod 550 -- Master Alchemist
 #addgod 4924 -- Divine Sage Empress
 #addgod 4975 -- Lord of Knowledge
 #addgod 4956 -- Tathagata 
@@ -58602,6 +59648,11 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 
 #selectnation 53 -- MA Machaka
 #cheapgod20 4955 -- God Spider
+#delgod 251 -- Great Sage
+#delgod 249 -- Crone
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 485 -- Great Enchantress
 #addgod 5062 -- Divine Anvil
 #end
 
@@ -58628,6 +59679,11 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #delgod 5029 -- Sacred Grove
 #delgod 4987 -- Idol of Watery Wisdom
 #delgod 4994 -- Spirit of the Well
+#delgod 4882 -- Great Sage
+#delgod 4881 -- Crone
+#delgod 4880 -- Master Enchanter
+#delgod 4879 -- Arch Mage
+#delgod 4878 -- Great Enchantress
 #addgod 4894 -- Burning Bush
 #cheapgod20 4986 -- Pillar of Flame
 #cheapgod20 4979 -- Firstborn of Rhuax
@@ -58641,6 +59697,11 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 
 #selectnation 57 -- MA Ctis
 #addgod 5064 -- Great Toad
+#delgod 251 -- Great Sage
+#delgod 249 -- Crone
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 485 -- Great Enchantress
 #cheapgod20 5064 -- Great Toad
 #cheapgod40 4981 -- Neter of the River
 #end
@@ -58673,7 +59734,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #selectnation 62 -- Vanarus
-#addgod 4891 -- Zmey Gorynch
+#addgod 4891 -- Zmey Gorynych
 #addgod 779 -- Rams Head Serpent
 #addgod 4904 -- First Valkyrie
 #cheapgod20 5079 -- Sun Father
@@ -58683,6 +59744,8 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #selectnation 63 -- MA Bandar
 #delgod 246 -- Freak Lord
 #addgod 4901 -- Markata Master
+#addgod 4996 -- Blood Soaked Edifice
+#addgod 4978 -- Danavaraja
 #cheapgod20 4975 -- Lord of Knowledge
 #end
 
@@ -58718,10 +59781,26 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #selectnation 67 -- Nazca
+#delgod 251 -- Great Sage
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 485 -- Great Enchantress
+#delgod 250 -- Frost Father
+#addgod 4876 -- Frost Father
+#addgod 4877 -- Great Sage
+#addgod 4875 -- Master Enchanter 
+#addgod 4874 -- Arch Mage 
+#addgod 4873 -- Great Enchantress 
 #cheapgod20 4989 -- Statue of the Sun
 #end
 
 #selectnation 68 -- MA Xib
+#delgod 4989 -- Idol of the Sun
+#delgod 5006 -- Idol of the Harvest
+#delgod 251 -- Great Sage
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 485 -- Great Enchantress
 #cheapgod20 5064 -- Great Toad
 #cheapgod20 4937 -- Night Hunter
 #cheapgod20 4902 -- Skull Idol
@@ -58743,27 +59822,42 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #selectnation 70 -- Phaeacia
 #delgod 5029 -- Sacred Grove
 #addgod 4905 -- Great Gull
+#addgod 4884 -- Great Navigator
 #cheapgod20 4905 -- Great Gull
 #end
 
 #selectnation 71 -- Ind
 #delgod 4903 -- Drake Breeder
 #delgod 4910 -- Stone Magus
+#delgod 4882 -- Great Sage
+#delgod 4881 -- Crone
+#delgod 4880 -- Master Enchanter
+#delgod 4879 -- Arch Mage
+#delgod 4878 -- Great Enchantress
 #addgod 4952 -- Icon
 #addgod 4898 -- Elohim
 #addgod 4894 -- Burning Bush
+#addgod 5060 -- Grigori
+#end
+
+#selectnation 72 -- Na'ba
+#delgod 251 -- Great Sage
+#delgod 249 -- Crone
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 485 -- Great Enchantress
 #end
 
 #selectnation 73 -- MA Atlantis
 #addgod 5015 -- Statue of Wisdom
 #addgod 4987 -- Idol of Watery Wisdom
 #delgod 2791 -- Earth Serpent
+#addgod 4993 -- Divine Egg
 #end
 
 #selectnation 74 -- MA Rlyeh
 #addgod 4947 -- Void Larva
 #addgod 4948 -- Formless One
-#addgod 4951 -- Key and the Gate
 #addgod 4965 -- Void Essence
 #addgod 5005 -- Protean Abomination
 #addgod 5008 -- Statue of the Outer Gods
@@ -58785,6 +59879,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #addgod 4987 -- Idol of Watery Wisdom
 #addgod 5015 -- Statue of Wisdom
 #delgod 2791 -- Earth Serpent
+#addgod 4993 -- Divine Egg
 #cheapgod20 4909 -- Lord of Pearls
 #cheapgod20 4917 -- Triton Queen
 #cheapgod20 4962 -- Sea Nymph
@@ -58796,6 +59891,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #addgod 4987 -- Idol of Watery Wisdom
 #addgod 5015 -- Statue of Wisdom
 #delgod 2791 -- Earth Serpent
+#addgod 4993 -- Divine Egg
 #cheapgod20 4913 -- Master of the Deeps
 #cheapgod20 4914 -- Master of the Deeps
 #cheapgod20 4918 -- Siren Queen
@@ -58812,12 +59908,11 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #selectnation 80 -- LA Arco
-#cheapgod20 4984 -- Mistres of the Hunt
 #cheapgod20 5015 -- Statue of Wisdom
 #end
 
 #selectnation 81 -- LA Pythium
-#delgod 874 -- Divine Emperor
+#delgod 4895 -- Lord of Carrion Dead
 #addgod 5052 -- Deified Emperor
 #addgod 4952 -- Icon
 #addgod 5054 -- Angelic Lord
@@ -58852,10 +59947,24 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #addgod 5067 -- Peacock Angel
 #addgod 4991 -- Infernal Spirit
 #addgod 4905 -- Great Gull
+#addgod 4884 -- Great Navigator
+#delgod 4877 -- Great Sage
+#delgod 4875 -- Master Enchanter 
+#delgod 4874 -- Arch Mage 
+#delgod 4873 -- Great Enchantress 
+#cheapgod20 4952 -- Icon
+#cheapgod40 4884 -- Great Navigator
 #cheapgod20 4991 -- Infernal Spirit
 #end
 
 #selectnation 86 -- LA Mictlan
+#delgod 4989 -- Idol of the Sun
+#delgod 5006 -- Idol of the Harvest
+#delgod 251 -- Great Sage
+#delgod 249 -- Crone
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 485 -- Great Enchantress
 #cheapgod20 5064 -- Great Toad
 #cheapgod20 4988 -- Statue of Sun & Rain
 #end
@@ -58910,6 +60019,11 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #delgod 5029 -- Sacred Grove
 #delgod 4987 -- Idol of Watery Wisdom
 #delgod 4994 -- Spirit of the Well
+#delgod 4882 -- Great Sage
+#delgod 4881 -- Crone
+#delgod 4880 -- Master Enchanter
+#delgod 4879 -- Arch Mage
+#delgod 4878 -- Great Enchantress
 #addgod 4894 -- Burning Bush
 #cheapgod20 4990 -- Emissary of Antrax
 #cheapgod20 5000 -- Foul Statue
@@ -58920,6 +60034,11 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #selectnation 93 -- LA Ctis
+#delgod 251 -- Great Sage
+#delgod 249 -- Crone
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 485 -- Great Enchantress
 #addgod 4990 -- Emissary of Antrax
 #end
 
@@ -58933,6 +60052,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #selectnation 95 -- LA Midgard
 #addgod 4904 -- First Valkyrie
 #addgod 4905 -- Great Gull
+#addgod 4884 -- Great Navigator
 #end
 
 #selectnation 96 -- Utgard
@@ -58940,8 +60060,8 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #selectnation 97 -- Bogarus
-#addgod 4891 -- Zmey Gorynch
-#cheapgod20 4891 -- Zmey Gorynch
+#addgod 4891 -- Zmey Gorynych
+#cheapgod20 4891 -- Zmey Gorynych
 #addgod 4952 -- Icon
 #addgod 5054 -- Angelic Lord
 #addgod 5067 -- Peacock Angel
@@ -58953,6 +60073,14 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #selectnation 98 -- LA Patala
 #delgod 246 -- Freak Lord
 #addgod 4901 -- Markata Master
+#addgod 4996 -- Blood Soaked Edifice
+#addgod 2792 -- Solar Serpent
+#addgod 2793 -- Serpent of Chaos
+#addgod 2799 -- Wadjet
+#cheapgod20 2791 -- Earth Serpent
+#cheapgod20 2792 -- Solar Serpent
+#cheapgod20 2793 -- Serpent of Chaos
+#cheapgod20 2799 -- Wadjet
 #cheapgod20 4987 -- Statue of Watery Wisdom
 #end
 
@@ -58973,6 +60101,13 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #end
 
 #selectnation 101 -- LA Xib
+#delgod 4989 -- Idol of the Sun
+#delgod 5006 -- Idol of the Harvest
+#delgod 251 -- Great Sage
+#delgod 249 -- Crone
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 485 -- Great Enchantress
 #cheapgod20 4937 -- Night Hunter
 #cheapgod20 5064 -- Great Toad
 #cheapgod20 4902 -- Skull Idol
@@ -58997,6 +60132,24 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #addgod 4943 -- Water Lizard
 #addgod 4999 -- Idol of Winter
 #addgod 5061  -- Spirit Bear
+#delgod 251 -- Great Sage
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 250 -- Frost Father
+#delgod 485 -- Great Enchantress
+#addgod 4877 -- Great Sage
+#addgod 4876 -- Frost Father
+#addgod 4875 -- Master Enchanter 
+#addgod 4874 -- Arch Mage 
+#addgod 4873 -- Great Enchantress
+#addgod 3899 -- Totem
+#addgod 4012 -- "Diyin Dine'é of the Earth"
+#addgod 4011 -- "Diyin Dine'é of Dawn"
+#addgod 4872 -- Storm Raven
+#addgod 4871 -- Copper Maker
+#addgod 4870 -- Lord of the Undersea
+#cheapgod20 4870 -- Lord of the Undersea
+#addgod 4869 -- Lord of Violent Death
 #cheapgod20 5061 -- Spirit Bear
 #addgod 4905 -- Great Gull
 #end
@@ -59004,7 +60157,6 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #selectnation 107 -- LA Rlyeh
 #addgod 4947 -- Void Larva
 #addgod 4948 -- Formless One
-#addgod 4951 -- Key and the Gate
 #addgod 4965 -- Void Essence
 #addgod 5005 -- Protean Abomination
 #addgod 5008 -- Statue of the Outer Gods
@@ -59023,6 +60175,11 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #delgod 4995 -- Sacred Grove
 #delgod 4962 -- Sea Nymph Watershape
 #addgod 4963 -- Sea Nymph Landshape
+#delgod 4882 -- Great Sage
+#delgod 4881 -- Crone
+#delgod 4880 -- Master Enchanter
+#delgod 4879 -- Arch Mage
+#delgod 4878 -- Great Enchantress
 #delgod 4945 -- Divine Turtle
 #delgod 4922 -- Lacedon Mage
 #delgod 4920 -- Mermaid Watershape
@@ -59030,6 +60187,7 @@ Eventually Tiamat was cut asunder and her children scattered to the four corners
 #cheapgod20 4920 -- Mermaid Enchantress
 #cheapgod20 4982 -- Titan of the Sun
 #addgod 4905 -- Great Gull
+#addgod 4884 -- Great Navigator
 #end
 
 #selectnation 44 -- MA Ermor
@@ -59542,8 +60700,8 @@ Priests: Average, temples more expensive."
 ------ BUILDINGS
 #fortera 2 -- Standard Era 2 forts
 #fortcost 0 -- all forts normal cost
-#labcost 600
-#templecost 600
+#labcost 500
+#templecost 400
 #merccost 0
 
 #uwnation
@@ -59563,8 +60721,6 @@ Priests: Average, temples more expensive."
 #addreccom 6214 -- Otohime
 #addreccom 6216 -- Nu Kua Priest
 #addreccom 6218 -- Nu Kua
-#addreccom 6220 -- Northern Ryujin
-#addreccom 6222 -- Southern Ryujin
 
 #coastunit1 6207 -- Pirate with Falchion
 -- #coastunit2 6208 -- Pirate with crossbow
@@ -59680,7 +60836,7 @@ Priests: Strong"
 #hero1 3961 -- Warrior Twin
 #hero2 3962 -- Warrior Twin
 #hero3 3963 -- Masawau Priest
-#multihero1 3969 -- Coyote Shaman
+#multihero1 4021 -- Ant Hero
 #multihero2 3946 -- Serpent Elder
 
 -- Commanders
@@ -59735,8 +60891,13 @@ Priests: Strong"
 
 #addgod 653 -- Serpent King
 #addgod 401 -- Bitch Queen
-#addgod 249 -- Crone
-#addgod 245 -- Master Enchanter
+#addgod 4877 -- Great Sage
+#addgod 4875 -- Master Enchanter 
+#addgod 4874 -- Arch Mage 
+#addgod 4873 -- Great Enchantress
+
+#addgod 4872 -- Storm Raven
+#addgod 4871 -- Copper Maker
 
 #addgod 3991 -- Great Bear
 #addgod 3992 -- Thunder Eagle
@@ -59893,8 +61054,12 @@ Priests: Strong"
 
 #addgod 653 -- Serpent King
 #addgod 401 -- Bitch Queen
-#addgod 249 -- Crone
-#addgod 245 -- Master Enchanter
+#addgod 4877 -- Great Sage
+#addgod 4875 -- Master Enchanter 
+#addgod 4874 -- Arch Mage 
+#addgod 4873 -- Great Enchantress
+
+#addgod 4872 -- Storm Raven
 
 #addgod 3992 -- Thunder Eagle
 #addgod 3993 -- Mountain Lion
@@ -60049,8 +61214,13 @@ Priests: Strong"
 
 #addgod 653 -- Serpent King
 #addgod 401 -- Bitch Queen
-#addgod 249 -- Crone
-#addgod 245 -- Master Enchanter
+#addgod 4877 -- Great Sage
+#addgod 4875 -- Master Enchanter 
+#addgod 4874 -- Arch Mage 
+#addgod 4873 -- Great Enchantress
+
+#addgod 4872 -- Storm Raven
+#addgod 4871 -- Copper Maker
 
 #addgod 3992 -- Thunder Eagle
 #addgod 3993 -- Mountain Lion
@@ -60180,14 +61350,18 @@ Priests: Strong, can Blood Sacrifice"
 #addgod 4989 -- Idol of the Sun
 #addgod 4992 -- Plague Idol
 #addgod 4993 -- Divine Egg
+#addgod 4996 -- Blood Soaked Edifice
 #addgod 4998 -- Statue of the Silent God
 #addgod 5000 -- Foul Statue
 #addgod 5014 -- Ancestral Barrow
 #addgod 4997 -- Spirit of Bones
+#addgod 3899 -- Totem
 
 #addgod 606 -- Great Mother
 #addgod 180 -- Demilich
 #addgod 5053 -- Green Man
+
+#addgod 2462 -- Golden Idol
 
 #addgod 2791 -- Earth Serpent
 #addgod 2785 -- Solar Eagle
@@ -60203,8 +61377,15 @@ Priests: Strong, can Blood Sacrifice"
 
 #addgod 653 -- Serpent King
 #addgod 401 -- Bitch Queen
-#addgod 249 -- Crone
-#addgod 245 -- Master Enchanter
+#addgod 4877 -- Great Sage
+#addgod 4875 -- Master Enchanter 
+#addgod 4874 -- Arch Mage 
+#addgod 4873 -- Great Enchantress
+
+#addgod 4872 -- Storm Raven
+#addgod 4871 -- Copper Maker
+#addgod 4870 -- Lord of the Undersea
+#addgod 4869 -- Lord of Violent Death
 
 #addgod 3991 -- Great Bear
 #addgod 3992 -- Thunder Eagle
@@ -60218,18 +61399,26 @@ Priests: Strong, can Blood Sacrifice"
 #addgod 4011 -- Titan of the Dawn
 #addgod 4012 -- Changing Woman
 #addgod 4013 -- Solar Bison
+#addgod 4014 -- Titan of War
+#cheapgod20 120 -- Moloch
+#cheapgod20 2788 -- Man Eater
+#cheapgod20 4014 -- Titan of War
+#cheapgod20 4991 -- Infernal Spirit
+
+#delgod 1097 -- Lord of the Summer Plague
+#delgod 957 -- Lord of the Desert Sun
 
 
 
 -- Starting Units
 #fortera 1
 
-#startcom 3859 -- Enslaved Leader
+#startcom 3862 -- Sitecah Chief
 #startunittype1 3856 -- Enslaved Warrior
 #startunitnbrs1  15
 #startunittype2 3850 -- Enslaved Archer
 #startunitnbrs2  15
-#startscout 426 -- Scout
+#startscout 3860 -- Blood Cult Initiate
 
 -- PD
 
@@ -60303,6 +61492,9 @@ Priests: Average, can Blood Sacrifice"
 #addreccom 4411 -- High Chieftain
 #addreccom 4412 -- Dryw
 #addreccom 4413 -- Druid
+#addreccom 4414 -- Cambion
+#addforeigncom 4409 -- Clan Scout
+#addforeigncom 4410 -- Clan Chieftain
 
 -- Troops 
 
@@ -60314,6 +61506,8 @@ Priests: Average, can Blood Sacrifice"
 #addrecunit 4405 -- Giant Warrior
 #addrecunit 4418 -- Chariot
 #addrecunit 4407 -- Stone Hurler
+#addforeignunit 4400 -- Spearman
+#addforeignunit 4401 -- Skirmisher
 
 -- Available Gods 
 
@@ -60329,6 +61523,7 @@ Priests: Average, can Blood Sacrifice"
 #cheapgod20 4996 -- Blood Soaked Edifice
 #cheapgod20 5007 -- Spirit of the Henge
 #cheapgod20 3081 -- Duiu of War
+#cheapgod20 249 -- Crone
 
 #bloodblessbonus 1
 
@@ -60682,7 +61877,6 @@ Priests: Moderately strong; most priests are also mages."
 
 
 
-#addgod 3754 -- Mother of Rivers
 
 
 
@@ -60926,7 +62120,6 @@ Priests: Moderately strong; all priests are also mages."
 
 
 
-#addgod 3754 -- Mother of Rivers
 
 #addgod 4109 -- Ascended Master
 #addgod 4110 -- Bodhisattva
@@ -61087,7 +62280,12 @@ Priests: Average, Spirit animals may appear to defend them in battles"
 #addgod 6305
 #addgod 6306
 #addgod 4905 -- Great Gull
-
+#cheapgod20 6306 -- Stag
+#cheapgod20 6305 -- Idol of Thunder
+#cheapgod20 6304 -- Pillar
+#cheapgod20 657 -- monolith
+#cheapgod20 5014 -- Ancestral Barrow
+#cheapgod20 4995 -- Sacred Grove
 
 -- Starting Units
 
@@ -61153,6 +62351,7 @@ Priests: Stealthy"
 #addgod 5054 -- Angelic Lord
 #addgod 5067 -- Peacock Angel
 #addgod 4905 -- Great Gull
+#addgod 4884 -- Great Navigator
 
 #startsite "Ancient Windmill"
 #startsite "Ostlem Dike"
@@ -61283,6 +62482,8 @@ Priests: Average"
 #addgod 4969 -- Kami of Fertility
 #addgod 4111 -- Mother of Mountains
 #delgod 4910 -- Stone Magus
+#addgod 5079 -- Sun Father
+#addgod 5088 -- Triglav
 #cheapgod20 5042 -- Idol of Thunder
 
 #startsite "Burkhan Khaldun"
@@ -61373,7 +62574,7 @@ The religion of Great Arrada teaches reverence for ancestors, with royal ancesto
 #summary "Race: Human
 Military: Well equipped and motivated warriors, archers and stealthy sacred warriors. Sacred ancestor spirits can be summoned.
 Magic: Death, Blood, Air, Nature, Earth, some Fire.
-Priests: Average, cannot preach however can perform blood sacrifice"
+Priests: Average, cannot preach however can perform blood sacrifice. Blood sacrifice draws sacred vultures."
 #brief "Great Arrada is a nation of well equipped and motivated warriors. Sacred ancestor spirits and royal ancestors can be summoned to bolster the army."
 
 #homerealm 7 -- Africa
@@ -61390,6 +62591,11 @@ Priests: Average, cannot preach however can perform blood sacrifice"
 #addgod 5025 -- Worm Lord
 #addgod 246 -- Freak Lord
 #addgod 862 -- Vampire Queen
+#delgod 251 -- Great Sage
+#delgod 249 -- Crone
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 485 -- Great Enchantress
 #cheapgod20 4895 -- Lord of the Carrion Dead
 #cheapgod40 872 -- Ghost King
 #cheapgod20 5000 -- Foul Statue
@@ -61412,17 +62618,17 @@ Priests: Average, cannot preach however can perform blood sacrifice"
 #cavenation 0
 
 #addreccom 4211
-#addreccom 4212
+#addforeigncom 4212
 #addreccom 4213
 #addreccom 4214
-#addreccom 4215
+#addforeigncom 4215
 #addreccom 4216
 #addreccom 4217
 
 
-#addrecunit 4200
-#addrecunit 4201
-#addrecunit 4202
+#addforeignunit 4200
+#addforeignunit 4201
+#addforeignunit 4202
 #addrecunit 4203
 #addrecunit 4204
 #addrecunit 4205
@@ -61477,6 +62683,19 @@ Priests: Average, cannot preach however can perform blood sacrifice"
 #msg "A group of vultures have appeared to feast on the corpses present in the province."
 #2d6units 4223
 #inccorpses -10
+#end
+
+#newevent
+#rarity 5
+#req_fornation 135 -- Great Arrada
+#req_land 1
+#req_temple 1
+#nation -2
+#req_targorder 33 -- Blood sac
+#msg "Vultures appear"
+#notext
+#nolog
+#1d3units 4223 -- Vulture
 #end
 
 
@@ -61679,6 +62898,9 @@ Priests: Powerful, easily recruitable, can perform blood sacrifices. Priests of 
 #airblessbonus 1
 #natureblessbonus 1
 
+#color 0.6 0 0
+#secondarycolor 10 0.7 0.2
+
 #likespop 94 -- Lavaborn
 #fortera 1
 #templepic 10
@@ -61749,6 +62971,11 @@ Priests: Average"
 #addgod "divine glyph"
 #addgod "ghul lich"
 #addgod "marid sultan"
+#delgod 251 -- Great Sage
+#delgod 249 -- Crone
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 485 -- Great Enchantress
 #cheapgod20 "ghul lich"
 #cheapgod20 "marid sultan"
 
@@ -61787,7 +63014,7 @@ Priests: Average"
 #epithet "City of Pillars"
 #descr "When the Emerald Mountain was destroyed and the jinn all but wiped out the people of the Juherani desert were finally freed of their oppression. For many years they wandered the sands as nomadic tribes, warring against one another and growing to worship the few jinn who yet survive in exile. Now a mighty leader has emerged among the desert folk, unifying them toward a single end. They built a grand city gleaming with brass pillars and crystal gardens dedicated to the glory of a new Awakening God. They have named it Iram after the old city of the Jinn, where magic and artifice flourish together under the rule of the divine Sultanate. The tribes march to war under one banner, proclaiming the sovereignty of their God over all others."
 #summary "Race: Tough desert humans, adept at waste survival. Prefers Heat scale +2
-Military: Mamluk slave infantry, cavalry and archers. Mounted nomadic tribes. Berserk sacreds.
+Military: Mamluk slave infantry, cavalry and archers. Mounted nomadic tribes. Berserk sacreds. Sacred warriors with Jinn-forged weaponry available if a Jinn is present in the capital.
 Magic: Air, Fire, Earth, Water, some Death and Nature.
 Priests: Average"
 
@@ -61834,6 +63061,11 @@ Priests: Average"
 #addgod "ghul lich"
 #addgod "marid sultan"
 #addgod "grand artificer"
+#delgod 251 -- Great Sage
+#delgod 249 -- Crone
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 485 -- Great Enchantress
 #cheapgod20 "ghul lich"
 #cheapgod20 "marid sultan"
 #cheapgod20 "divine glyph"
@@ -61862,6 +63094,7 @@ Priests: Average"
 #multihero1 4659 -- Jann Magician
 #hero1 4813 -- Philosopher
 #hero2 4812 -- Prisoner
+#hero3 5943 -- Al-Jazari
 
 #wallcom 4651 -- Mamluk Commander
 
@@ -61906,6 +63139,7 @@ Priests: Average"
 #addrecunit 4703 -- Mujahid
 #addrecunit 4704 -- Irami Horseman
 #addrecunit 4709 -- Fida'yin
+#addrecunit 4708 -- Silent Widow
 
 #addreccom 4751 -- Irami Commander
 #addreccom 4752 -- Hashashin
@@ -61921,6 +63155,11 @@ Priests: Average"
 
 #addgod "divine glyph"
 #addgod 4803 -- master alchemist
+#delgod 251 -- Great Sage
+#delgod 249 -- Crone
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 485 -- Great Enchantress
 #cheapgod20 "divine glyph"
 #cheapgod20 "grand artificer"
 #cheapgod20 "phoenix"
@@ -62062,6 +63301,16 @@ Priests: Average"
 #delgod 265 -- Blue Dragon
 #delgod 266 -- Green Dragon
 #delgod 269 -- Wyrm
+#delgod 251 -- Great Sage
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 485 -- Great Enchantress
+#addgod 4877 -- Great Sage
+#addgod 4875 -- Master Enchanter 
+#addgod 4874 -- Arch Mage 
+#addgod 4873 -- Great Enchantress 
+#addgod 4872 -- Storm Raven
+#addgod 4869 -- Lord of Violent Death
 #noundeadgods
 #cheapgod40 2930 -- Hooded Spirit
 #cheapgod20 4010 -- "Diyin Dine'é of the Sun" 
@@ -62193,6 +63442,16 @@ Priests: Average, can cure disease"
 #delgod 265 -- Blue Dragon
 #delgod 266 -- Green Dragon
 #delgod 269 -- Wyrm
+#delgod 251 -- Great Sage
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 485 -- Great Enchantress
+#addgod 4877 -- Great Sage
+#addgod 4875 -- Master Enchanter 
+#addgod 4874 -- Arch Mage 
+#addgod 4873 -- Great Enchantress 
+#addgod 4872 -- Storm Raven
+#addgod 4869 -- Lord of Violent Death
 #noundeadgods
 #cheapgod40 4012 -- "Solar Bison"
 #cheapgod20 2785 -- Solar Eagle
@@ -62322,6 +63581,16 @@ Priests: Average, can perform blood sacrifices"
 #delgod 265 -- Blue Dragon
 #delgod 266 -- Green Dragon
 #delgod 269 -- Wyrm
+#delgod 251 -- Great Sage
+#delgod 245 -- Master Enchanter
+#delgod 244 -- Arch Mage
+#delgod 485 -- Great Enchantress
+#addgod 4877 -- Great Sage
+#addgod 4875 -- Master Enchanter 
+#addgod 4874 -- Arch Mage 
+#addgod 4873 -- Great Enchantress 
+#addgod 4872 -- Storm Raven
+#addgod 4869 -- Lord of Violent Death
 #cheapgod40 812 -- Lord of the Wild
 #cheapgod40 4006 -- "Great Horned Serpent"
 #cheapgod20 401 -- Bitch Queen
@@ -62415,6 +63684,8 @@ Priests: Average"
 #addgod 5054 -- Angelic Lord
 #addgod 5067 -- Peacock Angel
 #addgod 4905 -- Great Gull
+#addgod 4884 -- Great Navigator
+#cheapgod20 4884 -- Great Navigator
 #cheapgod20 "Celestial Lion"
 #templepic 9
 #addgod 3831 -- lighthouse
@@ -62575,11 +63846,11 @@ Priests: Average"
 #name "Dom-Dan'yel"
 #epithet "Hidden Chambers"
 #era 3
-#descr "Deep below the ocean waves, hidden from prying eyes, lie the dripping caverns of Dom-Dan'yel. Here gathers a cabal of magicians and sorcerers, communing with dark spirits as they plot the downfall of the surface lands. Through a network of spies both living and unseen they oversee their empire. Dom-Dan'yel rules through fear, its armies composed of cowed slave soldiers aided by the Jinnun and spirits from the Underworld. Mercenaries and bandits are often employed by the Majus in their schemes. Shades, the spirits of the dead, can be summoned through the Nine Gates in the deepest caverns.
+#descr "Deep below the ocean waves, hidden from prying eyes, lie the dripping caverns of Dom-Dan'yel. Here gathers a cabal of magicians and sorcerers, communing with dark spirits as they plot the downfall of the surface lands. Through a network of spies both living and unseen they oversee their empire. Dom-Dan'yel rules through fear, its armies composed of cowed slave soldiers aided by the Jinnun and spirits from the Underworld. Mercenaries and bandits are often employed by the Majus in their schemes. Shades, the spirits of the dead, can be summoned through the Nine Gates in the deepest caverns, whilst Sahuagin Sea-Devils are employed to serve below the waves.
 For centuries the Zatanai and their servants the Majus have gathered and watched in secret. Now, with the awakening of a new God, the time has come to spread their tendrils out into the world once more."
 #brief "Dom-Dan'yel is an empire of dark magicians ruling over its subjugated people from their hidden caverns under the sea. Slave soldiers are lead by cruel taskmasters whilst Sorcerers skulk in the darkness."
-#summary "Race: Humans
-Military: Medium infantry, summoned spirits and jinn. Mercenaries are 10% cheaper.
+#summary "Race: Humans, Sahuagin, Shades
+Military: Medium infantry, summoned spirits and jinn. Sahuagin are employed below the waves. Mercenaries are 10% cheaper.
 Magic: Fire, Blood, Death, some Air and Water
 Priests: Weak"
 #color 0.5 0.4 0.5
@@ -62590,6 +63861,7 @@ Priests: Weak"
 #startsite "Dripping Cavern"
 #uwnation
 #uwbuild 1
+#idealcold -1
 #cavenation 1
 #startcom 6565
 #startscout 843 -- Shade Lord
@@ -62610,6 +63882,8 @@ Priests: Weak"
 #landrec 6554
 #landrec 6557
 #landrec 6558
+#addrecunit 5911
+#addrecunit 5913
 
 #merccost -10
 
@@ -62657,10 +63931,10 @@ Priests: Weak"
 #addgod 973 -- Kraken
 #addgod 4890 -- Sea Star
 #addgod 1232 -- Old Man of the Sea
-#addgod 3055 -- Hyrdomancer
+#addgod 3055 -- Hydromancer
 #addgod 248 -- Archmage
 #addgod 6570
-#addgod 6571
+#addgod 4801
 #addgod 6572
 #delgod 4989 -- Sun Idol
 #cheapgod20 6570
@@ -62806,6 +64080,12 @@ Priests: Average"
 #addgod 246 -- Freak Lord
 #addgod 4194 -- Queen Mother
 #addgod 4199 -- Eldest Babalawo
+
+#addgod 4882 -- Great Sage
+#addgod 4881 -- Crone
+#addgod 4880 -- Master Enchanter
+#addgod 4879 -- Arch Mage
+#addgod 4878 -- Great Enchantress
 
 #delgod 384
 #delgod 385
@@ -62975,9 +64255,9 @@ Priests: Average"
 #mapmove 3
 #ap 14
 #magicskill 3 2
-#weapon 20 -- Bite
-#weapon 29 -- Claw
-#weapon 29 -- Claw
+#weapon 1512 -- Magical Fangs
+#weapon 166 -- Golden Claw
+#weapon 166 -- Golden Claw
 #startage 1000
 #maxage 2000
 #fear 5
@@ -63007,6 +64287,7 @@ Priests: Average"
 #hp 250
 #prot 25
 #stormimmune
+#heal
 #airrange 1
 #waterrange 1
 #astralrange 1
@@ -63015,6 +64296,51 @@ Priests: Average"
 #end
 
 -- Chaco Gods
+
+#newmonster 3899
+#clear
+#clearmagic
+#name "Totem"
+#spr1 "./Chaco/Totem.tga"
+#spr2 "./Chaco/Totem.tga"
+#descr "The Totem is a spirit inhabiting a carved pole decorated with many historical and mythological figures. Throughout history the pole has been carved to commemorate great events and the spirit within has grown strong. Now it commands power over the air, the earth and death itself to better serve those that offer it worship. The spirit cannot leave the Totem, but it can possess willing targets in order to make its will heard and to perform tasks such as forging items for enchantment. The spirit is tremendously strong in its Dominion and it is also magically powerful. In a physical battle, the Totem would be difficult to destroy, even though it cannot strike back."
+#miscshape
+#gcost 150
+#ap 0
+#mapmove 0
+#hp 120
+#size 6
+#str 20
+#prot 20
+#enc 0
+#att 5
+#def 0
+#prec 10
+#mr 18
+#mor 30
+#rcost 1
+#weapon 0
+#startage 1000
+#maxage 2000
+#magicskill 1 1
+#magicskill 3 1
+#magicskill 5 1
+#immobile
+#bluntres
+#pierceres
+#inanimate
+#amphibian
+#neednoteat
+#plant
+#spiritsight
+#goodleader
+#goodmagicleader
+#curseluckshield 1
+#heal
+#diseaseres 100
+#pathcost 40
+#startdom 4
+#end
 
 #newmonster 3991
 #spr1 "./Chaco/BrownBear.tga"
@@ -63036,8 +64362,9 @@ Priests: Average"
 #mapmove 3
 #ap 14
 #magicskill 6 2
-#weapon 20 -- Bite
-#weapon 29 -- Claw
+#weapon 1512 -- Magical Fangs
+#weapon 166 -- Golden Claw
+#weapon 166 -- Golden Claw
 #startage 1000
 #maxage 2000
 #fear 5
@@ -63082,8 +64409,8 @@ Priests: Average"
 #magicskill 1 2
 #awe 0
 #fireres 0
-#weapon 408 -- Beak
-#weapon 404 -- Talons
+#weapon 1723 -- Golden Beak
+#weapon 408 -- Talons
 #weapon 185 -- Lightning Swarm
 #startage 1000
 #maxage 2000
@@ -63121,8 +64448,9 @@ Priests: Average"
 #mapmove 24
 #ap 18
 #magicskill 3 2
-#weapon 20 -- Bite
-#weapon 29 -- Claw
+#weapon 1512 -- Magical Fangs
+#weapon 166 -- Golden Claw
+#weapon 166 -- Golden Claw
 #startage 1000
 #maxage 2000
 #fear 5
@@ -63194,7 +64522,7 @@ Priests: Average"
 #descr "The Wuya are magically powerful spirit beings and are the leaders of the Kátsinam. The Wuya of the Winter was given power over the coming of winter by a previous Pantokrator. In fear mankind turned away from the Pantokrator and gave the Wuya their prayers instead. Furiously he imprisoned the Wuya for eternity. But now, with the Pantokrator gone, the prison is crumbling and the Wuya can return to lead his people. As spirits of nature the Kátsinam are protected against mundane weapons and will cause nearby plants to ensnare attackers. The Wuya emits the freezing cold of midwinter, and can call Kátsina Warriors to serve him. In combat he will manifest gems of Water, Death and Nature magic to aid in spellcasting."
 #fixedname "Soyal"
 #humanoid
-#gcost 230
+#gcost 240
 #size 4
 #hp 65
 #str 23
@@ -63241,7 +64569,7 @@ Priests: Average"
 #descr "The Wuya are magically powerful spirit beings and are the leaders of the Kátsinam. The Wuya of the Sun was given power over the warmth and power of the sun by a previous Pantokrator. The Wuya was generous with his gifts and eventually mankind turned away from the Pantokrator and gave the Wuya their prayers instead. Furiously he imprisoned the Wuya for eternity. But now, with the Pantokrator gone, the prison is crumbling and the Wuya can return to lead his people. As spirits of nature the Kátsinam are protected against mundane weapons and will cause nearby plants to ensnare attackers. The Wuya is surrounded by the aura of the sun, and can call Kátsina Warriors to serve him. In combat he will manifest gems of Fire, Astral and Nature magic to aid in spellcasting."
 #fixedname "Tawa"
 #humanoid
-#gcost 230
+#gcost 240
 #size 4
 #hp 65
 #str 23
@@ -63286,7 +64614,7 @@ Priests: Average"
 #descr "The Wuya are magically powerful spirit beings and are the leaders of the Kátsinam. The Wuya of Nature was given power over all growing things by a previous Pantokrator. The Wuya was generous with his gifts and eventually mankind turned away from the Pantokrator and gave the Wuya their prayers instead. Furiously he imprisoned the Wuya for eternity. But now, with the Pantokrator gone, the prison is crumbling and the Wuya can return to lead his people.  As spirits of nature the Kátsinam are protected against mundane weapons and will cause nearby plants to ensnare attackers. The Wuya will ensure a good harvest in the province, and can call Kátsina Warriors to serve him. In combat he will manifest gems of Water, Earth and Nature magic to aid in spellcasting."
 #fixedname "Eototo"
 #humanoid
-#gcost 220
+#gcost 240
 #size 4
 #hp 65
 #str 23
@@ -63332,7 +64660,7 @@ Priests: Average"
 #descr "The Kátsin-mana are magically powerful spirit beings and are the counterparts of the Wuya. The Kátsin-mana of Rain was given power over the rainfall by a previous Pantokrator. Eventually mankind turned away from the Pantokrator and gave the Kátsin-mana their prayers to ensure the coming of the life-giving rain. Furiously he imprisoned the Kátsin-mana for eternity. But now, with the Pantokrator gone, the prison is crumbling and the Kátsin-mana can return to lead her people. As spirits of nature the Kátsinam are protected against mundane weapons and will cause nearby plants to ensnare attackers. The Kátsin-mana will cause a healing rain to fall in the province curing the ills of her followers, and she can call Kátsina Warriors to serve her. In combat she will manifest gems of Air, Water and Nature magic to aid in spellcasting."
 #fixedname "Shalako-mana"
 #humanoid
-#gcost 210
+#gcost 220
 #size 3
 #hp 45
 #str 21
@@ -63378,7 +64706,7 @@ Priests: Average"
 #descr "The Kátsin-mana are magically powerful spirit beings and are the counterparts of the Wuya. The Kátsin-mana of Spring was known as the Butterfly Maiden and was given the responsbility of heralding the coming of spring by a previous Pantokrator. Eventually mankind turned away from the Pantokrator and gave the Kátsin-mana their prayers to ensure the coming of the spring. Furiously he imprisoned the Kátsin-mana for eternity. But now, with the Pantokrator gone, the prison is crumbling and the Kátsin-mana can return to lead her people. As spirits of nature the Kátsinam are protected against mundane weapons and will cause nearby plants to ensnare attackers. The Kátsin-mana can fly to enable her to pollenate the flowers and plants of the mesa, and she can call Kátsina Warriors to serve her. In combat she will manifest gems of Fire, Air and Nature magic to aid in spellcasting."
 #fixedname "Pollik-mana"
 #humanoid
-#gcost 200
+#gcost 220
 #size 3
 #hp 45
 #str 21
@@ -63712,7 +65040,7 @@ Priests: Average"
 #newmonster 4009
 #spr1 "./Chaco/GodTitanD.tga"
 #spr2 "./Chaco/GodTitanD.tga"
-#name "Diyin Dine'é of Twilight "
+#name "Diyin Dine'é of Twilight"
 #descr "The Diyin Dine'é are giants of divine heritage born in the First World. The Diyin Dine'é of Twilight has power over the stars and death. His axe can release blasts of lightning to smite his enemies. The Diyin Dine'é is a great warrior and has slain many foes. Eventually the Pantokrator grew fearful of his power and imprisoned him for eternity. Now the bonds binding the Diyin Dine'é are weakening and he can once more return to claim this world as his. The Diyin Dine'é can summon the spirits of warriors long dead from the nether realms to serve him. In combat he will manifest magical astral pearls and a death gem to aid in spellcasting"
 #humanoid
 #gcost 200
@@ -63809,6 +65137,7 @@ Priests: Average"
 #magicskill 6 1
 #tmpnaturegems 1
 #weapon 92 -- Fist
+#armor 192 -- Magic Furs
 #startage 1000
 #maxage 2000
 #diseaseres 100
@@ -63852,6 +65181,7 @@ Priests: Average"
 #incunrest -50
 #supplybonus 50
 #weapon 92 -- Fist
+#armor 192 -- Magic Furs
 #female
 #startage 1000
 #maxage 2000
@@ -63874,7 +65204,7 @@ Priests: Average"
 #fixedname "Tatanka"
 #quadruped
 #gcost 150
-#hp 190
+#hp 210
 #size 6
 #prot 16
 #mr 18
@@ -63888,7 +65218,7 @@ Priests: Average"
 #ap 16
 #magicskill 0 2
 #weapon 55 -- Hoof
-#weapon 331 -- Gore
+#weapon 522 -- Golden Horns
 #startage 1000
 #maxage 2000
 #diseaseres 100
@@ -63934,6 +65264,7 @@ Priests: Average"
 #forestsurvival
 #mountainsurvival
 #superiorleader
+#heal
 #domsummon 6615 -- Tomahawk Warrior
 #fireres 10
 #shockres 10
@@ -64024,7 +65355,7 @@ Priests: Average"
 #spr1 "./Shambhala/Ascended_Master_1.tga"
 #spr2 "./Shambhala/Ascended_Master_2.tga"
 
-#descr "After studying for centuries, the Ascended Master has not only mastered his own mortality, but has achieved such an enlightened state that he has almost reached divinity. With the Pantokrator has gone, nothing will stop the Ascended Master on his road to true spiritual ascension. Though he is not as physically powerful as many other pretenders, and is less magically-skilled than archmages and other magicians, he is essentially a spiritual being, near-immortal within his Dominion and difficult to destroy. He has mastered the powers of spirit and mind, and wields the Dörje, a small, sacred mace used to smite the sinful and the ignorant with the thunderbolt of enlightenment."
+#descr "After studying for centuries, the Ascended Master has not only mastered his own mortality, but has achieved such an enlightened state that he has almost reached divinity. With the Pantokrator gone, nothing will stop the Ascended Master on his road to true spiritual ascension. Though he is not as physically powerful as many other pretenders, and is less magically-skilled than archmages and other magicians, he is essentially a spiritual being, near-immortal within his Dominion and difficult to destroy. He has mastered the powers of spirit and mind, and wields the Dörje, a small, sacred mace used to smite the sinful and the ignorant with the thunderbolt of enlightenment."
 #diseaseres 100
 #heal
 #ap 12
@@ -64387,6 +65718,8 @@ Priests: Average"
 #spellsinger
 #goodleader
 #female
+#heal
+#diseaseres 100
 #weapon 9 -- Dagger
 #magicskill 1 1
 #startdom 1
@@ -64419,6 +65752,8 @@ Priests: Average"
 #researchbonus 10
 #spellsinger
 #goodleader
+#heal
+#diseaseres 100
 #weapon 9 -- Dagger
 #magicskill 5 1
 #startdom 1
@@ -64435,7 +65770,7 @@ Priests: Average"
 #spr1 "./Sawaikii/pele1.tga"
 #spr2 "./Sawaikii/pele2.tga"
 #name "Spirit of Ruin"
-#descr "The Spirit of Ruin is a mighty being born from the fiery depths when the isles of Sawaiiki were created. She has great skills in the paths of earth and fire."
+#descr "The Spirit of Ruin is a mighty being born from the fiery depths when the isles of Sawaiiki were created. She has great skills in the paths of earth and fire. Wild and untamed, she has taken many lovers and slain many that displeased her. Her priestesses dwell in the untamed wilds so as to practice their arts without distraction or violation of the Kapu. In battle she will manifest gems of earth and fire from the land to aid in spellcasting."
 #size 6
 #hp 105
 #prot 6
@@ -64599,8 +65934,11 @@ Priests: Average"
 #weapon "maul"
 #armor "robes"
 #wastesurvival
+#heal
+#diseaseres 100
 #fixforgebonus 2
 #mastersmith 1
+#userestricteditem 93
 #end
 
 #newmonster 4803
@@ -64616,6 +65954,8 @@ Priests: Average"
 #weapon "acid"
 #armor "robes"
 #wastesurvival
+#heal
+#diseaseres 100
 #gold 30
 #userestricteditem 88 -- Alchemist
 #end
@@ -64705,7 +66045,7 @@ Priests: Average"
 #awe 1
 #magicskill 3 1
 #magicskill 6 1
-#weapon 634 -- Antlers
+#weapon 1266 -- Golden Antlers
 #weapon 55 -- Hoof
 #batstartsum1d6 2228 -- Deer
 #itemslots 12288 -- 2 misc
@@ -65301,7 +66641,7 @@ Priests: Average"
 #name "Norn"
 #descr "The Norns are three mysterious beings in the form of robed women that have existing since the dawn of time. They are weavers of fate and guide the lives of men and Gods through their actions and prophesies. The Norns have frail bodies but great magical power that they use to guide the fate of the world. Over time they have been given offerings and worship to try to influence their actions and to bring good luck, however their motives remain inscrutable. With the Pantokrator gone the Norns have now determined that they will take his place to more directly guide the world. All three are skilled in many paths of magic, however one weaves the patterns of the Air, one the strands of the Astral plane and the last knows of the Death of all things."
 #humanoid
-#gcost 150
+#gcost 130
 #mr 18
 #mor 30
 #goodleader
@@ -65388,7 +66728,6 @@ Priests: Average"
 #nobadevents 0
 #triplegodmag 2
 #startdom 1
-#pathcost 10
 #end
 
 #newmonster 5075
@@ -65426,7 +66765,6 @@ Priests: Average"
 #researchbonus -5
 #triplegodmag 2
 #startdom 1
-#pathcost 10
 #end
 
 #newmonster 5076
@@ -65439,7 +66777,7 @@ Priests: Average"
 #descr "The Pure Ones are a pure manifestation of the Way and according to the Celestial Masters are the origin of all sentient beings. They appear as three elderly deities robed in the three basic colours from which all colours originated. The first Pure One embodies the ideals of the Way and is skilled in the path of Water, for the characteristics of Water, softness, flexibility and life-giving, are considered high ideals in the lore of the Way. The second Pure One embodies all the power of the Earthly plane and is skilled in the magic of Earth. The third Pure One embodies the power inherent in living creatures and is skilled in all other paths of magic. Each of them holds a divine object representing their power and authority. One holds the Pearl of Creation, one the Ruyi of Power and one the Fan of Knowledge. Since the disappearance of the Pantokrator the Pure Ones have taken on the mantle of Pretender Gods, to lead their followers to the Throne of Heaven and to reclaim what was once theirs."
 #humanoid
 #fixedname "Daode Tianzun"
-#gcost 150
+#gcost 130
 #mr 18
 #mor 30
 #magicskill 2 1
@@ -65481,7 +66819,6 @@ Priests: Average"
 #unify
 #weapon 92 -- Fist
 #startdom 1
-#pathcost 20
 #end
 
 #newmonster 5078
@@ -65507,7 +66844,6 @@ Priests: Average"
 #unify
 #weapon 92 -- Fist
 #startdom 1
-#pathcost 20
 #end
 
 
@@ -65570,6 +66906,7 @@ Priests: Average"
 #mapmove 0
 #triplegod 5
 #triplegodmag 2
+#researchbonus -10
 #startage 1000
 #maxage 3000
 #masterrit 1
@@ -65593,7 +66930,7 @@ Priests: Average"
 #heal
 #diseaseres 100
 #startdom 4
-#pathcost 40
+#pathcost 60
 #homerealm 2 -- Celtic
 #end
 
@@ -65603,9 +66940,9 @@ Priests: Average"
 #spr1 "./ExtraPretenders/TerraPrince.tga"
 #spr2 "./ExtraPretenders/TerraPrince2.tga"
 #name "Terracotta Emperor"
-#descr "The Terracotta Emperor is an ancient terracotta statue that has come to life and begun to speak and move of its own volition. The statue is inhabited by a spirit believed to be that of a great Emperor and is worshiped by its subjects. The spirit can awaken further terracotta warriors to serve it and is amassing an army to sweep across the land. With the disappearance of the Pantokrator the Terracotta Emperor has seen a great opportunity, and has now assumed the mantle of a Pretender God."
+#descr "The Terracotta Emperor is an ancient terracotta statue that has come to life and begun to speak and move of its own volition. The statue is inhabited by a spirit believed to be that of a great Emperor and is worshiped by its subjects. If taken awake he will mass a force of terracotta soldiers to aid the army, and the spirit can awaken further terracotta warriors to serve it. With the disappearance of the Pantokrator the Terracotta Emperor has seen a great opportunity, and has now assumed the mantle of a Pretender God."
 #mountedhumanoid
-#gcost 120
+#gcost 130
 #mounted
 #size 3
 #hp 21
@@ -65629,6 +66966,23 @@ Priests: Average"
 #startdom 2
 #pathcost 20
 #homerealm 0
+#end
+
+#newevent
+#rarity 5
+#req_godismnr 4889 -- Terracotta General
+#req_mnr 4889 -- Terracotta General
+#req_pregame
+#req_owncapital 1
+#nation -2
+#msg "Terracotta Army"
+#notext
+#nolog
+#1unit 5596 -- Chariot
+#1d3units 5596 -- Chariot
+#1d6units 5595 -- Horsemen
+#2d3units 5594 -- Footmen
+#2d6units 5593 -- Footmen
 #end
 
 #newmonster 4890
@@ -65677,8 +67031,8 @@ Priests: Average"
 #newmonster 4891
 #spr1 "./ExtraPretenders/Gorynch.tga"
 #spr2 "./ExtraPretenders/Gorynch2.tga"
-#name "Zmey Gorynch"
-#descr "The Zmey Gorynch is an ancient weather spirit of great power. Born as a simple snake, the creature began to grow and by 100 years of age was as large as a man. It then underwent a marvelous change, sprouting wings and gaining a roar like thunder. Over the years many would-be heroes have come to slay the beast, however it has bested them all. Now it has set its sights on the Throne of Heaven and has assumed the mantle of a Pretender God."
+#name "Zmey Gorynych"
+#descr "The Zmey Gorynych is an ancient weather spirit of great power. Born as a simple snake, the creature began to grow and by 100 years of age was as large as a man. It then underwent a marvelous change, sprouting wings and gaining a roar like thunder. Over the years many would-be heroes have come to slay the beast, however it has bested them all. Now it has set its sights on the Throne of Heaven and has assumed the mantle of a Pretender God."
 #lizard
 #gcost 240
 #size 6
@@ -65705,10 +67059,10 @@ Priests: Average"
 #coldres 5
 #shockres 15
 #magicskill 1 2
-#weapon 20 -- Bite
-#weapon 20 -- Bite
-#weapon 20 -- Bite
-#weapon 29 -- Claw
+#weapon 1512 -- Magical Fangs
+#weapon 1512 -- Magical Fangs
+#weapon 1512 -- Magical Fangs
+#weapon 166 -- Golden Claw
 #weapon 532 -- Tail Sweep
 #heal
 #itemslots 275328 -- 3 crown, 2 misc
@@ -65725,8 +67079,8 @@ Priests: Average"
 #copyspr 1917 -- Knyaz
 #clearweapons
 #clearmagic
-#name "Zmey Gorynch"
-#descr "The Zmey Gorynch is an ancient weather spirit of great power. Born as a simple snake, the creature began to grow and by 100 years of age was as large as a man. It then underwent a marvelous change, sprouting wings and gaining a roar like thunder. It can take the form of a handsome young man astride a magnificent white horse which it uses to seduce and beguile the weak willed. Over the years many would-be heroes have come to slay the beast, however it has bested them all. The physical body of the creature is not well suited for spell casting and its skills will be reduced when casting spells from paths other than Air. Therefore, the Zmey will tend to adopt human form for spellcasting, but when wounded will revert to its true form."
+#name "Zmey Gorynych"
+#descr "The Zmey Gorynych is an ancient weather spirit of great power. Born as a simple snake, the creature began to grow and by 100 years of age was as large as a man. It then underwent a marvelous change, sprouting wings and gaining a roar like thunder. It can take the form of a handsome young man astride a magnificent white horse which it uses to seduce and beguile the weak willed. Over the years many would-be heroes have come to slay the beast, however it has bested them all. The physical body of the creature is not well suited for spell casting and its skills will be reduced when casting spells from paths other than Air. Therefore, the Zmey will tend to adopt human form for spellcasting, but when wounded will revert to its true form."
 #mountedhumanoid
 #gcost 220
 #ap 24
@@ -65770,6 +67124,7 @@ Priests: Average"
 #batstartsum5d6 -9 -- Bugs
 #undead
 #inanimate
+#pooramphibian
 #homerealm 0
 #expertundeadleader
 #end
@@ -65808,7 +67163,7 @@ Priests: Average"
 #spr1 "./ExtraPretenders/VultureGod.tga"
 #spr2 "./ExtraPretenders/VultureGod2.tga"
 #descr "The Lord of the Carrion Dead is a vulture-headed Titan who claims dominion over the corpses of all dead things. Death is his domain and bleached bones and rotten meat are his food and drink. He is accompanied by sacred vultures in battle and will manifest magical gems of air and death to ease spellcasting. Each month his followers will present a slave of pure blood to their vulture-headed Lord."
-#gcost 200
+#gcost 230
 #heal
 #mr 20
 #corpseeater 5
@@ -65923,7 +67278,7 @@ Priests: Average"
 #descr "The Elohim is a divine spirit of Judgment that has existed since ancient times. It claims dominion over the Earth, the Skies and the Heavens and passes judgment on all the creatures of the world. When the Pantokrator arose it abandoned the world, however now it has returned to lead the faithful on the path of righteousness and salvation. The Elohim is surrounded by a powerful Aura of Splendor, and it has a terrible fury that strikes fear into the hearts of men. In combat it will manifest magical gems of earth, air and astral magic for use in spellcasting."
 #fixedname "El"
 #humanoid
-#gcost 260
+#gcost 280
 #hp 75
 #size 5
 #str 18
@@ -65950,7 +67305,7 @@ Priests: Average"
 #name "Traveler"
 #spr1 "./ExtraPretenders/Hermes.tga"
 #spr2 "./ExtraPretenders/Hermes2.tga"
-#descr "The Traveler is a giant of divine heritage that once served the Pantokrator as a divine messenger. His winged sandals and helmet allowed him to stride through the air with incredible speed carrying messages and warnings from his master. With the Pantokrator gone he has decided to ascend the Throne of Heaven and become the true God. The Traveler is tireless and has supernatural perceptive abilities. He is surrounded by an aura of splendour gifted to him by his former master and can fly through even the fiercest storms. He bears a Caduceus that will rob the will of those it strikes. In combat he moves with unearthly speed."
+#descr "The Traveler is a giant of divine heritage that once served the Pantokrator as a divine messenger. His winged sandals and helmet allowed him to stride through the air with incredible speed carrying messages and warnings from his master. With the Pantokrator gone he has decided to ascend the Throne of Heaven and become the true God. The Traveler is tireless and has supernatural perceptive abilities. He is surrounded by an aura of splendour gifted to him by his former master and can fly through even the fiercest storms. He bears a Caduceus that can rob the will of those it strikes. In combat he moves with unearthly speed."
 #fixedname "Hermes"
 #humanoid
 #gcost 200
@@ -66000,6 +67355,7 @@ Priests: Average"
 #descr "This is a horribly deformed markata of immense size created by vile magic. The Markata Freak is stupid and will lumber uncontrollably across the battlefield, its hoots and hollers striking fear into the enemy."
 #magicboost 53 -10
 #undisciplined
+#prot 8
 #transformation 0
 #end
 
@@ -66184,7 +67540,8 @@ Priests: Average"
 #enc 1
 #mapmove 22
 #ap 8
-#magicskill 2 2
+#magicskill 1 1
+#magicskill 2 1
 #goodleader
 #flying
 #heal
@@ -66194,7 +67551,7 @@ Priests: Average"
 #diseaseres 100
 #sailing 6 6
 #weapon 408 -- Talons
-#weapon 404 -- Beak
+#weapon 1723 -- Golden Beak
 #weapon 677 -- Wing buff
 #itemslots 12288 -- 2 misc
 #maxage 5000
@@ -66208,16 +67565,19 @@ Priests: Average"
 #newmonster 4906
 #copystats 2795 -- Dog of the Underworld
 #clearmagic
+#clearweapons
 #spr1 "./ExtraPretenders/Xolotl.tga"
 #spr2 "./ExtraPretenders/Xolotl2.tga"
 #name "Divine Monstrous Dog"
 #descr "The Divine Monstrous Dog was born to the Teteo Inan in ancient times. It is a creature of death and was tasked with guarding the sun during its journey through the underworld each night. When the Pantokrator cut off the head of the Goddess all her children were imprisoned and the task of guarding the sun was passed to the Zotz. Following the imprisonment of the Monstrous Dog and his twin brother, the Feathered Serpent, twins came to be seen as an abomination and and even now in Mictlan one is slain soon after birth to dwell with the Dog in the underworld. Now the baying of the Monstrous Dog is heard once more in the realm of the living. The Monstrous Dog feeds on the dead and gains hit points if enough corpses are present"
 #fixedname "Xolotl"
-#gcost 150
-#prot 20
-#magicskill 5 2
+#gcost 170
+#prot 16
+#magicskill 3 1
+#magicskill 5 1
 #homerealm 6 -- MesoAmerica
 #twiceborn 5769 -- Wight Beast
+#weapon 586 -- Reanimating Bite
 #batstartsum1d6 3083 -- Sacred Hound
 #heal
 #end
@@ -66230,14 +67590,15 @@ Priests: Average"
 #spr2 "./ExtraPretenders/Quetzal2.tga"
 #name "Divine Feathered Serpent"
 #descr "The first Feathered Serpent was born to the Teteo Inan in ancient times. It was a creature of the air and brought hurricanes and devastation to the lands of men. From its divine essence were created the Couatl, mythical serpent creatures that inhabit swamps and jungles. When the Pantokrator cut off the head of the Goddess he imprisoned her children for eternity, however now the Feathered Serpent has returned to claim the world. It can fly on the winds and is served by the Centzonmimixcoa, the Cloud Serpents."
-#gcost 170
+#gcost 180
 #snake
 #weapon 462 -- Deadly Poison Bite
 #weapon 532 -- Tail Sweep
 #weapon 677 -- Wing Buff
 #prot 20
 #stormimmune
-#magicskill 1 2
+#magicskill 1 1
+#magicskill 6 1
 #batstartsum1d6 5677 -- Centonmixzoa
 #homerealm 6 -- MesoAmerica
 #diseaseres 100
@@ -66267,7 +67628,7 @@ Priests: Average"
 #mapmove 2
 #ap 8
 #magicskill 3 2
-#weapon 29 -- Claw
+#weapon 166 -- Golden Claw
 #itemslots 12288 -- 2 misc
 #trample
 #amphibian
@@ -66302,7 +67663,8 @@ Priests: Average"
 #enc 2
 #mapmove 22
 #ap 8
-#magicskill 7 2
+#magicskill 5 1
+#magicskill 7 1
 #fear 5
 #flying
 #spiritsight
@@ -66329,7 +67691,7 @@ Priests: Average"
 #name "Great White Stag"
 #spr1 "./ExtraPretenders/WhiteStag.tga"
 #spr2 "./ExtraPretenders/WhiteStag2.tga"
-#descr "The Great White Stag is a legendary stag that has existed in the deepest forests since the dawn of time. It is a symbol of the thrill of the hunt and the joy of discovery. It was worshiped by the first men of the forest as a god of the wild and of the hunt. When the previous Pantokrator rose to power he imprisoned and banished all that threatened his power and the Great White Stag was forever imprisoned. Now, with the Pantokrator gone, the Great White Stag has returned once more to claim dominance over the world. The Stag is a majestic creature and many enemies will hesitate to strike it in battle."
+#descr "The Great White Stag is a legendary stag that has existed in the deepest forests since the dawn of time. It is a fey creature and a symbol of the thrill of the hunt and the joy of discovery. It was worshiped by the first men of the forest as a god of the wild and of the hunt and occasionally an Aos Si will appear to serve it. When the previous Pantokrator rose to power he imprisoned and banished all that threatened his power and the Great White Stag was forever imprisoned. Now, with the Pantokrator gone, the Great White Stag has returned once more to claim dominance over the world. The Stag is a majestic creature and many enemies will hesitate to strike it in battle."
 #quadruped
 #gcost 150
 #size 5
@@ -66344,11 +67706,13 @@ Priests: Average"
 #enc 2
 #mapmove 3
 #ap 20
-#magicskill 1 2
+#magicskill 1 1
+#magicskill 6 1
 #awe 1
 #weapon 1849 -- Great Antlers
 #weapon 55 -- Hoof
 #batstartsum1d6 2228 -- Deer
+#domsummon20 5319 -- Aos Si Rider
 #itemslots 12288 -- 2 misc
 #heal
 #diseaseres 100
@@ -66391,7 +67755,7 @@ Priests: Average"
 #coldres 15
 #winterpower 25
 #magicskill 3 2
-#weapon 20 -- Bite
+#weapon 603 -- Corrosive Bite
 #maxage 1000
 #startage 500
 #itemslots 12416 -- Head, 2 misc
@@ -66428,8 +67792,8 @@ Priests: Average"
 #magicskill 6 2
 #batstartsum1d6 1140 -- Tiger
 #weapon 630 -- Ghost Rending Bite
-#weapon 29 -- Claw
-#weapon 29 -- Claw
+#weapon 166 -- Golden Claw
+#weapon 166 -- Golden Claw
 #itemslots 12288 -- 2 misc
 #twiceborn 5769 -- Wight Beast
 #startdom 2
@@ -66467,7 +67831,7 @@ Priests: Average"
 #maxage 1000
 #startage 500
 #awe 1
-#weapon 404 -- Beak
+#weapon 755 -- Burning Beak
 #weapon 61 -- Fire Breath
 #weapon 229 -- Flame Strike
 #itemslots 12288 -- 2 misc
@@ -66484,7 +67848,7 @@ Priests: Average"
 #descr "The Saltwater Serpent is a monstrous female sea serpent born in the great dark waters at the dawn of time. As she roared and smote in the chaos of original creation the Serpent gave birth to a multitude of monsters through the mixing of salt and fresh water. Soon the Pantokrator discovered a plot by the serpent to use her offspring in a war against him and he punished her with eternal imprisonment. Now with the Pantokrator gone, the Primordial Serpent has returned to creation to fill it with her monstrous children. Whilst she is beneath the waves monstrous creatures will occasionally be born to the serpent as her Dominion grows strong."
 #fixedname "Tiamat"
 #snake
-#gcost 160
+#gcost 170
 #size 6
 #hp 150
 #prot 20
@@ -66497,7 +67861,8 @@ Priests: Average"
 #enc 2
 #mapmove 2
 #ap 10
-#magicskill 2 2
+#magicskill 2 1
+#magicskill 6 1
 #weapon 65 -- Venomous Fangs
 #fear 5
 #regeneration 10
@@ -66541,7 +67906,7 @@ Priests: Average"
 #ap 20
 #magicskill 6 2
 #weapon 461 -- Swallow
-#weapon 29 -- Claw
+#weapon 529 -- Ghost Rending Claw
 #weapon 532 -- Tail Sweep
 #itemslots 12288 -- 2 misc
 #fear 5
@@ -66564,7 +67929,7 @@ Priests: Average"
 #name "Piscean"
 #spr1 "./ExtraPretenders/Barracuda.tga"
 #spr2 "./ExtraPretenders/Barracuda2.tga"
-#descr "The Piscean is a monstrous fish born at the dawn of time, when monsters and giants roamed the world. It has terrorised coastal civilizations and preyed upon the undersea kingdoms of the first Tritons. When the previous Pantokrator rose to power he imprisoned and banished all that threatened his creation and the Piscean was imprisoned for eternity. Now with the Pantokrator gone, the shackles are weakening and the great fish begins to stir once more. The Piscean is a monstrous creature that will strike terror in those who oppose it and is surrounded by shoals of lesser fish that feed upon the morsels it leaves."
+#descr "The Piscean is a monstrous fish born at the dawn of time, when monsters and giants roamed the world. It has terrorised coastal civilizations and preyed upon the undersea kingdoms of the first Tritons. When the previous Pantokrator rose to power he imprisoned and banished all that threatened his creation and the Piscean was imprisoned for eternity. Now with the Pantokrator gone, the shackles are weakening and the great fish begins to stir once more. The Piscean is a monstrous creature that will strike terror in those who oppose it and is surrounded by shoals of lesser fish that feed upon the morsels it leaves. These fish bring a great bounty and any province inhabited by the Piscean will generate thirty percent additional tax revenue."
 #snake
 #gcost 130
 #size 6
@@ -66580,7 +67945,7 @@ Priests: Average"
 #mapmove 2
 #ap 22
 #magicskill 2 2
-#weapon 20 -- Bite
+#weapon 603 -- Corrosive Bite
 #weapon 589 -- Tail Slap
 #batstartsum4d6 2858 -- Large Fish
 #goodleader
@@ -66597,6 +67962,16 @@ Priests: Average"
 #startdom 2
 #pathcost 80
 #homerealm 9 -- Deeps
+#end
+
+#newevent
+#rarity 5
+#req_monster 4944
+#req_land 0
+#msg "Piscean Taxboost"
+#notext
+#nolog
+#taxboost 30
 #end
 
 #newmonster 4945
@@ -66618,8 +67993,9 @@ Priests: Average"
 #enc 2
 #mapmove 2
 #ap 16
-#magicskill 1 2
-#weapon 404 -- Beak
+#magicskill 1 1
+#magicskill 2 1
+#weapon 1723 -- Golden Beak
 #goodleader
 #trample
 #amphibian
@@ -66656,8 +68032,9 @@ Priests: Average"
 #enc 2
 #mapmove 8
 #ap 4
-#magicskill 1 2
-#weapon 404 -- Beak
+#magicskill 1 1
+#magicskill 2 1
+#weapon 1723 -- Golden Beak
 #goodleader
 #trample
 #amphibian
@@ -66897,8 +68274,8 @@ Priests: Average"
 #enc 2
 #mapmove 3
 #ap 16
-#weapon 399 -- Gore
-#weapon 29 -- Claw
+#weapon 522 -- Golden Horns
+#weapon 166 -- Golden Claw
 #weapon 398 -- Venomous fangs
 #itemslots 12416
 #poisonres 15
@@ -66940,6 +68317,7 @@ Priests: Average"
 #maxage 5000
 #poisonres 15
 #eyes 8
+#unsurr 2
 #forestsurvival
 #heal
 #domsummon2 5784 -- Wolf Spiders
@@ -66949,7 +68327,8 @@ Priests: Average"
 #weapon 261 -- web
 #weapon 262 -- web spit
 #pathcost 80
-#magicskill 5 2
+#magicskill 5 1
+#magicskill 6 1
 #startdom 2
 #homerealm 7
 #twiceborn 5769 -- Wight Beast
@@ -66997,7 +68376,7 @@ Priests: Average"
 #poisonres 25
 #fireres 15
 #popkill 5
-#weapon 55 -- Hoof
+#weapon 725 -- Brass Hoof
 #weapon 48 -- Fire Flare
 #itemslots 12288
 #pathcost 80
@@ -67025,7 +68404,7 @@ Priests: Average"
 #mapmove 2
 #ap 22
 #magicskill 7 2
-#weapon 20 -- Bite
+#weapon 630 -- Ghost Rending Bite
 #weapon 589 -- Tail Slap
 #batstartsum1d6 816 -- Shark
 #goodleader
@@ -67073,7 +68452,7 @@ Priests: Average"
 #diseaseres 100
 #mountainsurvival
 #weapon 408 -- Talons
-#weapon 404 -- Beak
+#weapon 1723 -- Golden Beak
 #itemslots 12288 -- 2 misc
 #siegebonus 50
 #maxage 500
@@ -67105,8 +68484,9 @@ Priests: Average"
 #mapmove 3
 #ap 14
 #magicskill 4 2
-#weapon 20 -- Bite
-#weapon 29 -- Claw
+#weapon 1512 -- Magical Fangs
+#weapon 166 -- Golden Claw
+#weapon 166 -- Golden Claw
 #startage 1000
 #maxage 2000
 #fear 5
@@ -67130,10 +68510,10 @@ Priests: Average"
 #spr1 "./ExtraPretenders/Froggod.tga"
 #spr2 "./ExtraPretenders/Froggod2.tga"
 #name "Great Toad"
-#descr "The Great Toad is a gigantic monstrous Toad that has existed since the dawn of time, when monsters and giants roamed the world. The physical bulk of the Toad is awesome and its appetite is unending. In ages past it devoured beasts and men until the Pantokrator imprisoned it to prevent it from consuming the whole world. Now, with the Pantokrator gone, the shackles of the eternal prison are weakening and the Great Toad is preparing to return once more. The toad has thick leathery skin and its huge form renders most weapons ineffectual."
+#descr "The Great Toad is a gigantic monstrous Toad that has existed since the dawn of time, when monsters and giants roamed the world. The physical bulk of the Toad is awesome and its appetite is unending. In ages past it devoured beasts and men until the Pantokrator imprisoned it to prevent it from consuming the whole world. Now, with the Pantokrator gone, the shackles of the eternal prison are weakening and the Great Toad is preparing to return once more. The toad has thick leathery skin and its huge form renders weapons unable to pierce it mostly ineffectual."
 #fixedname "Tsathoggua"
 #quadruped
-#gcost 170
+#gcost 190
 #hp 190
 #size 6
 #prot 16
@@ -67148,7 +68528,7 @@ Priests: Average"
 #ap 14
 #magicskill 6 2
 #weapon 461 -- Swallow
-#weapon 29 -- Claw
+#weapon 529 -- Ghost Rending Claw
 #startage 1000
 #maxage 2000
 #fear 5
@@ -67160,7 +68540,6 @@ Priests: Average"
 #popkill 10
 #swampsurvival
 #bluntres
-#pierceres
 #slashres
 #coldblood
 #amphibian
@@ -67641,7 +69020,7 @@ The blood of the Tuathas runs strong in his veins granting him innate magical po
 #neednoteat
 #spiritsight
 #heal
-#onebattlespell 604 -- Personal Luck
+#onebattlespell 168 -- Holy Avenger
 #diseaseres 100
 #magicskill 1 1
 #magicskill 5 1
@@ -67891,7 +69270,7 @@ The blood of the Tuathas runs strong in his veins granting him innate magical po
 #descr "The Kami is a giant of divine heritage. The previous Pantokrator created her to spread fertility across the world, however When he saw how she was worshipped he imprisoned her below the earth. With the Pantokrator gone, the prison is weakening and the Kami can return once more to the world she loves. Plants will bloom in her presence and the harvest will be bountiful in a province where she dwells, generating thirty percent additional tax for the treasury. In combat attackers will be ensnared in vines before they are able to harm her, and the Kami will manifest Earth and Nature gems to aid in spellcasting."
 #fixedname "Inari"
 #humanoid
-#gcost 220
+#gcost 240
 #size 6
 #hp 92
 #prot 3
@@ -67939,7 +69318,7 @@ The blood of the Tuathas runs strong in his veins granting him innate magical po
 #descr "The Kami is a giant of divine heritage. The previous Pantokrator created him as a great warrior to defend the lands of the east. When the Pantokrator saw how he was revered by warriors and generals he flew into a rage and imprisoned him for eternity. With the Pantokrator gone, he can return to the world to lead his followers in battle against those that would deny the true God. Armed and armoured for battle, he is the patron of fighters and those that act with honour. The Kami wields a demon-slaying spear and a pagoda of light that will intimidate the weak-willed. In battle he will manifest Fire, Earth and Nature gems to aid in spellcasting."
 #fixedname "Bishamon"
 #humanoid
-#gcost 200
+#gcost 230
 #size 6
 #hp 98
 #prot 5
@@ -68145,11 +69524,16 @@ The blood of the Tuathas runs strong in his veins granting him innate magical po
 #tmpwatergems 2
 #end
 
+#selectmonster 1767 -- Danava
+#spr1 "./ExtraPretenders/Danava.tga"
+#spr2 "./ExtraPretenders/Danava2.tga"
+#end
+
 #newmonster 4978
 #name "Danavaraja"
 #descr "The Danavaraja is the lord of the Danavas, demon titans of ancient times who after the great wars with the Devatas of Kailasa were banished to the Nether Realms. Now free from his prison he wishes to claim this world as his and become a demon-god. The Danavaraja is surrounded by a blasphemous aura which is anathema to divine beings. He is terrifying to behold and can call forth Rakshasa Warriors to serve him. In combat the creature will manifest a magical Fire gem to aid in spellcasting, and each month it will select from amongst its followers those of pure blood to serve as Blood Slaves."
 #spr1 "./ExtraPretenders/Danavaraja.tga"
-#spr2 "./ExtraPretenders/Danavaraja.tga"
+#spr2 "./ExtraPretenders/Danavaraja2.tga"
 #humanoid
 #gcost 250
 #hp 100
@@ -68175,16 +69559,16 @@ The blood of the Tuathas runs strong in his veins granting him innate magical po
 #heal
 #spiritsight
 #diseaseres 100
-#itemslots 7326
+#unsurr 2
+#itemslots 8094 -- 3 heads, 4 arms
 #weapon "Unholy sword"
 #weapon "Unholy spear"
-#weapon "Unholy axe"
+#weapon "Plague Bow"
 #armor 50 -- Weightless Scale
-#armor "Shield"
 #haltheretic 9
 #superiorleader
 #expertundeadleader
-#makemonsters1 1737 -- Rakshasa Warrior
+#makemonsters2 1737 -- Rakshasa Warrior
 #nametype 129
 #startdom 3
 #pathcost 60
@@ -68265,6 +69649,7 @@ He shares much of his father's power and appearance, manifesting as a being of m
 #neednoteat
 #spiritsight
 #inanimate
+#heal
 #mr 20
 #mor 50
 #maxage 5000
@@ -68716,7 +70101,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #spr1 "./ExtraPretenders/AngelLord.tga"
 #spr2 "./ExtraPretenders/AngelLord2.tga"
 #name "Angelic Lord"
-#descr "The Angelic Lord is a powerful being from the Celestial Sphere and was the first of the Heavenly Host. Once in the service of the Pantokrator, he was imprisoned after his master became fearful of his power and divine presence. Now the shackles are weakening, and he has chosen to claim this world as his and have heavenly hosts proclaim his glory. The Angelic Lord is surrounded by a divine splendor that must be shielded lest it strike the world with unbearable might. Anyone striking Him will in turn be struck by awe and heavenly fire. In combat he can manifest gems of Fire, Air and Astral magic to aid in spellcasting."
+#descr "The Angelic Lord is a powerful being from the Celestial Sphere and was the first of the Heavenly Host. Once in the service of the Pantokrator, he was imprisoned after his master became fearful of his power and divine presence. Now the shackles are weakening, and he has chosen to claim this world as his and have heavenly hosts proclaim his glory. The Angelic Lord is surrounded by a divine splendor that must be shielded lest it strike the world with unbearable might. Anyone striking Him will in turn be struck by awe and heavenly fire. He bears a great flaming blade with which he has banished many demons and he will not part with it. In combat he can manifest gems of Fire, Air and Astral magic to aid in spellcasting."
 #fixedname "Metatron"
 #humanoid
 #gcost 260
@@ -68754,6 +70139,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #startage 1000
 #maxage 2000
 #fireshield 8
+#itemslots 15488 -- No hand slots
 #flying
 #neednoteat
 #spiritsight
@@ -68905,10 +70291,10 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #spr1 "./ExtraPretenders/PeacockAngel.tga"
 #spr2 "./ExtraPretenders/PeacockAngel2.tga"
 #name "Peacock Angel"
-#descr "At the beginning of time the Pantokrator created seven angelic beings from his own illumination. Foremost was the Peacock Angel, a being of light itself. Upon creating the first man from the dust of the earth the Pantokrator decreed all the angels must bow before it, however the Peacock Angel refused. He reasoned a being of light should not bow before a creature of the dust. At this the other angels cried out and called him a Devil and a Heretic. The Pantokrator however praised him for seeing the truth and bade him sit at the side of the Throne of Heaven. Now, with the Pantokrator gone the Peacock Angel will take his place and bestow blessings and misfortune as he sees fit. Anyone striking at his glory will in turn be struck by awe and blindness. In combat he can manifest gems of Water, Air and Nature magic to aid in spellcasting."
+#descr "At the beginning of time the Pantokrator created seven angelic beings from his own illumination. Foremost was the Peacock Angel, a being of light itself. Upon creating the first man from the dust of the earth the Pantokrator decreed all the angels must bow before it, however the Peacock Angel refused. He reasoned a being of light should not bow before a creature of the dust. At this the other angels cried out and called him a Devil and a Heretic. The Pantokrator however praised him for seeing the truth and bade him sit at the side of the Throne of Heaven. Now, with the Pantokrator gone the Peacock Angel will take his place and bestow blessings and misfortune as he sees fit. Anyone striking at his glory will in turn be struck by awe and blindness, however the Peacock Angel refuses to cover his splendor. In combat he can manifest gems of Water, Air and Nature magic to aid in spellcasting."
 #fixedname "Melek Taus"
 #humanoid
-#gcost 230
+#gcost 240
 #hp 67
 #size 6
 #prot 0
@@ -68930,14 +70316,15 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #magicskill 1 1
 #magicskill 6 1
 #startage 1000
-#poisonres 5
-#shockres 5
+#poisonres 0
+#shockres 0
 #fireres 0
 #fireshield 0
 #maxage 3000
 #pathcost 80
 #startdom 3
 #unsurr 5
+#itemslots 14470 -- No body slot
 #tmpairgems 1
 #tmpwatergems 1
 #tmpnaturegems 1
@@ -68972,6 +70359,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #ap 18
 #awe 1
 #heal
+#researchbonus -10
 #diseaseres 100
 #weapon 172 -- Magic Sceptre
 #weapon 383 -- Throw Flames
@@ -68990,7 +70378,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #triplegod 1
 #triple3mon
 #unify
-#pathcost 60
+#pathcost 80
 #startdom 3
 #homerealm 1
 #end
@@ -69018,6 +70406,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #awe 5
 #invulnerable 15
 #heal
+#researchbonus -10
 #diseaseres 100
 #weapon 275 -- Sun Sword
 #magicskill 0 1
@@ -69044,7 +70433,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #female
 #triplegod 1
 #triplegodmag 1
-#pathcost 60
+#pathcost 80
 #startdom 3
 #homerealm 0
 #end
@@ -69072,6 +70461,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #awe 5
 #invulnerable 15
 #heal
+#researchbonus -10
 #diseaseres 100
 #weapon 170 -- Sword of Justice
 #magicskill 0 1
@@ -69098,7 +70488,6 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #female
 #triplegod 1
 #triplegodmag 1
-#pathcost 60
 #startdom 3
 #homerealm 0
 #end
@@ -69140,6 +70529,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #expertleader
 #goodmagicleader
 #female
+#researchbonus -10
 #triplegod 2
 #triple3mon
 #triplegodmag 0
@@ -69185,13 +70575,13 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #triplegodmag 0
 #startage 1000
 #maxage 3000
+#researchbonus -10
 #tmpearthgems 1
 #spiritsight
 #superiorleader
 #goodmagicleader
 #female
 #triplegod 2
-#pathcost 60
 #startdom 3
 #end
 
@@ -69219,6 +70609,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #pooramphibian
 #researchbonus 10
 #heal
+#researchbonus -10
 #ambidextrous 2
 #itemslots 7326 -- 4 Hands, 1 misc
 #diseaseres 100
@@ -69236,7 +70627,6 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #goodmagicleader
 #female
 #triplegod 2
-#pathcost 60
 #startdom 3
 #end
 
@@ -69261,17 +70651,15 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #mapmove 18
 #ap 18
 #heal
-#fear 5
 #berserk 5
 #ambidextrous 6
 #itemslots 7326 -- 4 Hands, 1 misc
 #diseaseres 100
 #weapon 383 -- Throw Flames
 #weapon 1840 -- Perfect Fist
-#weapon 1840 -- Perfect Fist
+#weapon 467 -- Apotropaic Trident
 #weapon 391 -- Serpent
 #weapon 175 -- Chi Kick
-#armor 148 -- Crown
 #armor 192 -- Magic Furs
 #magicskill 4 1
 #magicskill 5 1
@@ -69283,9 +70671,10 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #spiritsight
 #superiorleader
 #goodmagicleader
+#researchbonus -10
 #triplegod 5
 #triple3mon
-#pathcost 40
+#pathcost 80
 #startdom 3
 #homerealm 8
 #end
@@ -69328,7 +70717,6 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #superiorleader
 #goodmagicleader
 #triplegod 5
-#pathcost 40
 #startdom 3
 #end
 
@@ -69359,6 +70747,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #ambidextrous 2
 #itemslots 7326 -- 4 Hands, 1 misc
 #diseaseres 100
+#researchbonus -10
 #weapon 92 -- Fist
 #weapon 92 -- Fist
 #armor 148 -- Crown
@@ -69372,7 +70761,6 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #goodmagicleader
 #triplegod 5
 #triplegodmag 0
-#pathcost 40
 #startdom 3
 #end
 
@@ -69449,6 +70837,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #mapmove 22
 #ap 12
 #heal
+#researchbonus -10
 #diseaseres 100
 #weapon 238 -- Magic Staff
 #magicskill 4 1
@@ -69466,7 +70855,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #triplegod 5
 #triplegodmag 0
 #triple3mon
-#pathcost 60
+#pathcost 80
 #startdom 3
 #homerealm 7
 #end
@@ -69505,9 +70894,10 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #tmpnaturegems 1
 #spiritsight
 #expertleader
+#researchbonus -10
 #triplegod 5
 #triplegodmag 0
-#pathcost 60
+#pathcost 80
 #startdom 3
 #end
 
@@ -69532,6 +70922,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #mapmove 22
 #ap 16
 #heal
+#researchbonus -10
 #diseaseres 100
 #weapon 92 -- Fist
 #armor 148 -- Crown
@@ -69548,7 +70939,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #superiorleader
 #triplegod 5
 #triplegodmag 0
-#pathcost 60
+#pathcost 80
 #startdom 3
 #end
 
@@ -69876,6 +71267,169 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #startdom 3
 #end
 
+#newmonster 4872
+#spr1 "./ExtraPretenders/Hilina.tga"
+#spr2 "./ExtraPretenders/Hilina2.tga"
+#name "Storm Raven"
+#descr "The Storm Raven is a divine being that takes the form of a great thunderbird cloaked in storms. When he flaps his wings thunder rolls across the land and when he opens his eyes comes the lightning. He is cloaked in mist and in battles will be almost impossible to harm except by magic. He can manifest 3 air gems to aid in spellcasting."
+#fixedname "Hi'lina"
+#humanoid
+#gcost 220
+#hp 95
+#size 6
+#prot 5
+#mr 20
+#mor 30
+#str 22
+#att 13
+#def 13
+#prec 14
+#enc 2
+#mapmove 22
+#ap 16
+#magicskill 1 3
+#tmpairgems 3
+#weapon 404 -- Beak
+#weapon 231 -- Thunder Fist
+#weapon 1846 -- Thunder Bolt
+#onebattlespell 622 -- Mistform
+#stormimmune
+#flying
+#shockres 15
+#startage 1000
+#maxage 2000
+#diseaseres 100
+#heal
+#spiritsight
+#expertleader
+#pathcost 60
+#startdom 3
+#homerealm 0
+#end
+
+#newmonster 4871
+#spr1 "./ExtraPretenders/Kumugwe.tga"
+#spr2 "./ExtraPretenders/Kumugwe2.tga"
+#name "Copper Maker"
+#descr "The Copper Maker is a divine being that takes the form of a great octopoid being with tentacles in place of legs. He mostly lives under the sea in a great cavern full of riches but ventures onto land to visit his subjects and share his gifts. He can take armies below the waves and is a master of magical forging. Heroes occasionally journey to his undersea realm and those that manage the difficult task are rewarded with jewelery and magical creations he has forged. In battle he can manifest magical water and earth gems to aid in spellcasting."
+#fixedname "Kumugwe"
+#mountedhumanoid
+#gcost 200
+#hp 95
+#size 6
+#prot 5
+#mr 20
+#mor 30
+#str 25
+#att 14
+#def 12
+#prec 12
+#enc 2
+#mapmove 22
+#ap 16
+#magicskill 2 1
+#magicskill 3 2
+#tmpwatergems 1
+#tmpearthgems 2
+#weapon 13 -- Hammer
+#weapon 85 -- Tentacle
+#weapon 85 -- Tentacle
+#amphibian
+#giftofwater 250
+#fixforgebonus 2
+#startage 1000
+#maxage 2000
+#diseaseres 100
+#heal
+#expertleader
+#pathcost 60
+#startdom 3
+#homerealm 0
+#end
+
+#newmonster 4870
+#spr1 "./ExtraPretenders/Sgana.tga"
+#spr2 "./ExtraPretenders/Sgana.tga"
+#name "Lord of the Undersea"
+#descr "The Lord of the Undersea is a divine being that takes the form of a great humanoid orca that swims in the deep sea and hunts the largest whales. He can take armies below the waves and is a master of the beasts of the ocean. Whilst below the waves an Orca will appear to serve him each month. In battle he can manifest magical water gems to aid in spellcasting."
+#fixedname "Sgana"
+#humanoid
+#gcost 200
+#hp 95
+#size 6
+#prot 5
+#mr 20
+#mor 30
+#str 24
+#att 13
+#def 13
+#prec 11
+#enc 2
+#mapmove 22
+#ap 16
+#magicskill 2 3
+#tmpwatergems 3
+#weapon 20 -- Bite
+#weapon 201 -- Magic Spear
+#armor 155 -- Golden Shield
+#amphibian
+#summon1 5291 -- Orca
+#giftofwater 250
+#startage 1000
+#maxage 2000
+#diseaseres 100
+#darkvision 50
+#heal
+#goodleader
+#beastmaster 2
+#pathcost 60
+#startdom 3
+#homerealm 0
+#end
+
+#newmonster 4869
+#spr1 "./ExtraPretenders/Taxet.tga"
+#spr2 "./ExtraPretenders/Taxet.tga"
+#name "Lord of Violent Death"
+#descr "The Lord of Violent Death is a wrathful divine being that takes the form of a winged humanoid salmon that lives on the moon. It is said that at the dawn of time the ancestor of ravens placed the moon in the sky to nourish humanity and ever since the Lord of Violent Death has made it his home. His counterpart, the Lady of Peaceful Death, lives with him on the moon and together they determine the fate of all living beings. The wrath of the Lord is legendary and he will often enter a berserk rage when frustrated or harmed. In battle he is attended by the spirits of those that died violently and he can manifest magical death gems to aid in spellcasting."
+#fixedname "Ta'xet"
+#humanoid
+#gcost 200
+#hp 105
+#size 6
+#prot 5
+#mr 20
+#mor 30
+#str 24
+#att 13
+#def 13
+#prec 11
+#enc 2
+#mapmove 22
+#ap 16
+#magicskill 5 3
+#tmpdeathgems 3
+#weapon 20 -- Bite
+#weapon 92 -- Fist
+#batstartsum3d6 674 -- Dispossessed spirits
+#berserk 4
+#nobadevents 50
+#darkvision 50
+#amphibian
+#flying
+#startage 1000
+#maxage 2000
+#diseaseres 100
+#heal
+#goodleader
+#beastmaster 2
+#pathcost 60
+#startdom 3
+#homerealm 0
+#end
+
+
+
 -- #newmonster 
 -- #name ""
 -- #spr1 "./ExtraPretenders/.tga"
@@ -69904,6 +71458,102 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 -- #end
 
 ---------  IMMOBILES  ------------------------------
+
+#newmonster 4885
+#name "Statue of the Sun"
+#spr1 "./ExtraPretenders/StatueSun.tga"
+#spr2 "./ExtraPretenders/StatueSun.tga"
+#descr "The Statue of the Sun is a stone chiseled into shape of a figure that brings the sun each morning. In order to ensure the rising of the sun, bringing warmth and fertility to the people, it has a need for sacrificial blood. The spirit cannot leave the statue, but it can possess willing targets in order to make its will heard and to perform tasks such as forging items for enchantment. The spirit is tremendously strong in its Dominion. In a physical battle, the statue would be difficult to destroy, even though it cannot strike back."
+#miscshape
+#fixedname "Tonatiuh"
+#gcost 150
+#size 6
+#hp 190
+#prot 24
+#mr 18
+#mor 30
+#str 15
+#att 5
+#def 0
+#prec 10
+#enc 0
+#mapmove 0
+#ap 2
+#magicskill 0 1
+#magicskill 7 2
+#weapon 0
+#expertleader
+#immobile
+#spiritsight
+#douse 2
+#heal
+#diseaseres 100
+#amphibian
+#slashres
+#pierceres
+#blind
+#spiritsight
+#neednoteat
+#inanimate
+#stonebeing
+#firerange 2
+#bonusspells 1
+#itemslots 4096 -- 1 misc
+#poisonres 25
+#maxage 5000
+#startage 1000
+#startdom 4
+#pathcost 40
+#homerealm 6 -- Middle America
+#end
+
+#newmonster 4886
+#name "Idol of Sustenance"
+#spr1 "./ExtraPretenders/IdolSustenance.tga"
+#spr2 "./ExtraPretenders/IdolSustenance.tga"
+#descr "The Idol of Sustenance is a spirit of agriculture and corn bound in a huge stone statue by a previous Pantokrator. With the Pantokrator gone, its will and a need to feed the people has reawakened the spirit. The spirit cannot leave the statue, but it can possess willing targets in order to make its will heard and to perform tasks such as forging items for enchantment. The spirit is tremendously strong in its Dominion. In a physical battle, the statue would be difficult to destroy, even though it cannot strike back."
+#miscshape
+#fixedname "Chicomecoatl"
+#gcost 150
+#size 6
+#hp 160
+#prot 22
+#mr 18
+#mor 30
+#str 15
+#att 5
+#def 0
+#prec 10
+#enc 0
+#mapmove 0
+#ap 2
+#magicskill 1 1
+#magicskill 2 1
+#magicskill 6 1
+#weapon 0
+#supplybonus 100
+#expertleader
+#immobile
+#spiritsight
+#heal
+#diseaseres 100
+#amphibian
+#slashres
+#pierceres
+#blind
+#spiritsight
+#neednoteat
+#inanimate
+#stonebeing
+#bonusspells 1
+#itemslots 12288 -- 2 misc
+#poisonres 25
+#maxage 5000
+#startage 1000
+#startdom 4
+#pathcost 40
+#homerealm 6 -- Middle America
+#end
 
 #newmonster 4986
 #name "Pillar of Eternal Flame"
@@ -70002,7 +71652,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #spr2 "./ExtraPretenders/SunAndRain.tga"
 #descr "The Statue of the Sun and Rain is a primordial spirit that once served a previous Pantokrator and brought gifts of sunshine and rainfall to the world. Once the cycle of the seasons had been set its services were no longer needed and the spirit was bound in a huge stone statue for eternity. With the Pantokrator gone, its powers have begun to manifest themselves and it is now worshipped as a reawakening god. The spirit cannot leave the statue, but it can possess willing targets in order to make its will heard and to perform tasks such as forging items for enchantment. Around the statue the sun will shine and the rain will fall with increased vigour, bringing life and growth to the surrounding province. The spirit is tremendously strong in its dominion. In a physical battle, the statue would be difficult to destroy, even though it cannot strike back."
 #miscshape
-#gcost 160
+#gcost 180
 #size 6
 #hp 150
 #prot 24
@@ -70018,6 +71668,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #magicskill 0 1
 #magicskill 2 2
 #decscale 3 -- +Growth
+#onebattlespell 79 -- Natural Rain
 #weapon 0
 #expertleader
 #immobile
@@ -70037,7 +71688,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #maxage 5000
 #startage 1000
 #startdom 4
-#pathcost 40
+#pathcost 60
 #homerealm 6 -- MesoAmerica
 #end
 
@@ -70060,7 +71711,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #enc 0
 #mapmove 0
 #ap 2
-#awe 3
+#sunawe 3
 #eyeloss
 #magicskill 0 1
 #magicskill 4 2
@@ -70342,6 +71993,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #bonusspells 1
 #unteleportable
 #itemslots 12288 -- 2 misc
+#twiceborn 4995
 #maxage 5000
 #startage 1000
 #startdom 4
@@ -70418,11 +72070,13 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #magicskill 5 2
 #magicskill 6 1
 #weapon 0
+#domsummon2 313 -- Manikins
 #domsummon20 314 -- Mandragora
 #reanimator 10
 #batstartsum1 861 -- Ettin Mandragora
 #okleader
 #okundeadleader
+#goodmagicleader
 #immobile
 #blind
 #heal
@@ -71006,6 +72660,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #aquatic
 #bonusspells 1
 #itemslots 12288 -- 2 misc
+#twiceborn 5779 -- Necrotic Mass
 #maxage 5000
 #startage 1000
 #startdom 4
@@ -71049,6 +72704,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #aquatic
 #bonusspells 1
 #itemslots 12288 -- 2 misc
+#twiceborn 5779 -- Necrotic Mass
 #maxage 5000
 #startage 1000
 #startdom 4
@@ -71079,6 +72735,7 @@ She is the mother of the Tuatha De Danann who once ruled the lands of Man. She i
 #inanimate
 #blind
 #spiritsight
+#heal
 #poisonres 25
 #fireres 5
 #coldres 5
@@ -71382,6 +73039,7 @@ The Unholy Reliquary is surrounded by a terrifying life-draining aura and becaus
 #maxage 5000
 #slashres
 #pierceres
+#heal
 #goodleader
 #okmagicleader
 #digest 2
@@ -71391,6 +73049,7 @@ The Unholy Reliquary is surrounded by a terrifying life-draining aura and becaus
 #startdom 4
 #female
 #weapon "Grab and Swallow"
+#twiceborn 5779 -- Necrotic Mass
 #homerealm 9 -- Deeps
 #end
 
@@ -71430,6 +73089,7 @@ The Unholy Reliquary is surrounded by a terrifying life-draining aura and becaus
 #voidsanity 20
 #bonusspells 1
 #itemslots 12288 -- 2 misc
+#twiceborn 5779 -- Necrotic Mass
 #maxage 5000
 #startage 1000
 #startdom 4
@@ -71473,6 +73133,7 @@ The Unholy Reliquary is surrounded by a terrifying life-draining aura and becaus
 #voidsanity 20
 #bonusspells 1
 #itemslots 12288 -- 2 misc
+#twiceborn 5779 -- Necrotic Mass
 #maxage 5000
 #startage 1000
 #startdom 4
@@ -71516,6 +73177,7 @@ The Unholy Reliquary is surrounded by a terrifying life-draining aura and becaus
 #diseaseres 100
 #voidsanity 20
 #itemslots 12288 -- 2 misc
+#twiceborn 5779 -- Necrotic Mass
 #maxage 5000
 #startage 1000
 #startdom 4
@@ -71558,6 +73220,7 @@ The Unholy Reliquary is surrounded by a terrifying life-draining aura and becaus
 #diseaseres 100
 #voidsanity 20
 #itemslots 12288 -- 2 misc
+#twiceborn 5779 -- Necrotic Mass
 #maxage 5000
 #startage 1000
 #startdom 4
@@ -71603,6 +73266,7 @@ The Unholy Reliquary is surrounded by a terrifying life-draining aura and becaus
 #fear 5
 #insane 5
 #itemslots 12288 -- 2 misc
+#twiceborn 5779 -- Necrotic Mass
 #maxage 5000
 #startage 1000
 #startdom 4
@@ -71648,6 +73312,7 @@ The Unholy Reliquary is surrounded by a terrifying life-draining aura and becaus
 #fear 5
 #insane 15
 #itemslots 12288 -- 2 misc
+#twiceborn 5779 -- Necrotic Mass
 #maxage 5000
 #startage 1000
 #startdom 4
@@ -71695,6 +73360,7 @@ The Unholy Reliquary is surrounded by a terrifying life-draining aura and becaus
 #defector 5
 #deserter 5
 #itemslots 12288 -- 2 misc
+#twiceborn 5779 -- Necrotic Mass
 #maxage 5000
 #startage 1000
 #startdom 4
@@ -71741,6 +73407,7 @@ The Unholy Reliquary is surrounded by a terrifying life-draining aura and becaus
 #bonusspells 1
 #unteleportable
 #itemslots 12288 -- 2 misc
+#twiceborn 5029
 #maxage 5000
 #startage 1000
 #startdom 4
@@ -71777,7 +73444,7 @@ The Unholy Reliquary is surrounded by a terrifying life-draining aura and becaus
 #name "Smiling Head"
 #spr1 "./ExtraPretenders/SmilingHead.tga"
 #spr2 "./ExtraPretenders/SmilingHead.tga"
-#descr "The Smiling Head is a powerful spirit that inhabits a massive stone that has been chiseled into the shape of a head. The spirit cannot leave the Head, but it can possess willing targets in order to make its will heard and to perform tasks such as forging items for enchantment. The presence of the spirit will bring magic and joy to the world. The spirit is tremendously strong in its Dominion and it is also magically powerful. In a physical battle, the head would be difficult to destroy, even though it cannot strike back."
+#descr "The Smiling Head is a powerful spirit that inhabits a massive stone that has been chiseled into the shape of a head. Its smile is beatific and inspires wonder in all that view the edifice. The spirit cannot leave the Head, but it can possess willing targets in order to make its will heard and to perform tasks such as forging items for enchantment. The presence of the spirit will bring magic and joy to the world. The spirit is tremendously strong in its Dominion and it is also magically powerful. In a physical battle, the head would be difficult to destroy, even though it cannot strike back."
 #gcost 180
 #miscshape
 #magicskill 3 2
@@ -71793,6 +73460,7 @@ The Unholy Reliquary is surrounded by a terrifying life-draining aura and becaus
 #spr1 "./ExtraPretenders/HinduStatueOrder.tga"
 #spr2 "./ExtraPretenders/HinduStatueOrder.tga"
 #descr "The Statue of Creation is a primordial spirit of creation that once served a previous Pantokrator to aid in the creation of the world. When the final piece was in place, its services were no longer needed and the spirit was bound in a huge statue for eternity. With the Pantokrator gone, its powers have begun to manifest themselves and it is now worshipped as a reawakening god. The spirit cannot leave the statue, but it can possess willing targets in order to make its will heard and to perform tasks such as forging items for enchantment. The spirit is tremendously strong in its Dominion. In a physical battle, the statue would be difficult to destroy, even though it cannot strike back."
+#heal
 #homerealm 8 -- India
 #end
 
@@ -71805,6 +73473,7 @@ The Unholy Reliquary is surrounded by a terrifying life-draining aura and becaus
 #homerealm 8 -- India
 #eyes 2
 #miscshape
+#heal
 #end
 
 #newmonster 5036
@@ -71849,6 +73518,7 @@ The Unholy Reliquary is surrounded by a terrifying life-draining aura and becaus
 #batstartsum3 2190 -- Draugr
 #domsummon20 2190 -- Draugr
 #itemslots 61440 -- 4 misc
+#twiceborn 5036
 #startdom 4
 #pathcost 40
 #homerealm 1 -- North
@@ -71955,6 +73625,7 @@ The Unholy Reliquary is surrounded by a terrifying life-draining aura and becaus
 #descr "The Icon of Fertility is a primordial spirit of fertility that once served a previous Pantokrator and brought life to the world. When the creation was full of life, its services were no longer needed and the spirit was bound in a huge statue for eternity. With the Pantokrator gone, its powers have begun to manifest themselves and it is now worshipped as a reawakening god. The spirit cannot leave the statue, but it can possess willing targets in order to make its will heard and to perform tasks such as forging items for enchantment. The spirit is tremendously strong in its Dominion. In a physical battle, the statue would be difficult to destroy, even though it cannot strike back."
 #miscshape
 #size 6
+#heal
 #homerealm 1 -- North
 #end
 
@@ -72021,6 +73692,7 @@ The Unholy Reliquary is surrounded by a terrifying life-draining aura and becaus
 #spr2 "./ExtraPretenders/ShintoGate.tga"
 #descr "The Spirit Gate has been the site of many strange occurences over the years and Sorcerers always make a sacrifice at the gate each full moon. During this time the gate is attuned to the underworld and glimpses of the spirit realm can be seen through it. Through the ages the Spirit Gate has accumulated a huge amount of offerings and it has grown in power so it can rival the mightiest of arch mages. Now with the Pantokrator gone, the Gate has the chance to put the world under its strong dominion and become the True God. Spirits will flock through the gate as its dominion grows stronger, and anyone who dares to strike at it in combat will be permanently cursed."
 #miscshape
+#heal
 #gcost 190
 #magicskill 5 3
 #magicskill 4 1
@@ -72066,6 +73738,7 @@ The Unholy Reliquary is surrounded by a terrifying life-draining aura and becaus
 #aquatic
 #bonusspells 1
 #itemslots 12288 -- 2 misc
+#twiceborn 5779 -- Necrotic Mass
 #maxage 5000
 #startage 1000
 #startdom 4
@@ -72148,6 +73821,7 @@ The Unholy Reliquary is surrounded by a terrifying life-draining aura and becaus
 #amphibian
 #pierceres
 #slashres
+#heal
 #fear 5
 #diseaseres 100
 #stonebeing
@@ -72259,7 +73933,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #spr2 "./ExtraPretenders/Heavensage2.tga"
 #descr "The Heavenly Sage is a legendary Master of the Way, hailed as the greatest sage in the earthly realm. He achieved immortality and ascended to Heaven, but returned to the material world to take the role of a Pretender God and lead his people to enlightenment. If his physical body is destroyed he will reappear in the Celestial realm and descend to the capital once more."
 #humanoid
-#gcost 180
+#gcost 170
 #maxage 1000
 #size 2
 #ap 12
@@ -72319,6 +73993,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #selectmonster 158 -- Oracle
 #gcost 170
 #heal
+#nobadevents 75
 #diseaseres 100
 #end
 
@@ -72329,15 +74004,156 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #end
 
 #selectmonster 472 -- Statue of Order
-#gcost 170
+#gcost 190
+#descr "The Statue of Order is a primordial spirit of order that once served a previous Pantokrator to bring civilization and order to the world. When the final decree was set, its services were no longer needed and the spirit was bound in a huge stone statue for eternity. With the Pantokrator gone, its powers have begun to manifest themselves and it is now worshiped as a reawakening god. The spirit cannot leave the statue, but it can possess willing targets in order to make its will heard and to perform tasks such as forging items for enchantment. The spirit is tremendously strong in its Dominion, and law and order will be reinforced wherever it is worshiped. Whilst Order scales are present Unrest will be reduced by the number of Dominion candles each month and income will be increased (1% per 2 candles). In a physical battle, the statue would be difficult to destroy, even though it cannot strike back."
 #heal
 #diseaseres 100
+#end
+
+#newevent
+#rarity 5
+#req_dominion 1
+#req_maxdominion 1
+#req_order 1
+#req_godismnr 472 -- Statue of Order
+#nation -2
+#msg "Order unrest decrease"
+#notext
+#nolog
+#unrest -1
+#end
+
+#newevent
+#rarity 5
+#req_dominion 2
+#req_maxdominion 2
+#req_order 1
+#req_godismnr 472 -- Statue of Order
+#nation -2
+#msg "Order unrest decrease"
+#notext
+#nolog
+#unrest -2
+#taxboost 1
+#end
+
+#newevent
+#rarity 5
+#req_dominion 3
+#req_maxdominion 3
+#req_order 1
+#req_godismnr 472 -- Statue of Order
+#nation -2
+#msg "Order unrest decrease"
+#notext
+#nolog
+#unrest -3
+#taxboost 1
+#end
+
+#newevent
+#rarity 5
+#req_dominion 4
+#req_maxdominion 4
+#req_order 1
+#req_godismnr 472 -- Statue of Order
+#nation -2
+#msg "Order unrest decrease"
+#notext
+#nolog
+#unrest -4
+#taxboost 2
+#end
+
+#newevent
+#rarity 5
+#req_dominion 5
+#req_maxdominion 5
+#req_order 1
+#req_godismnr 472 -- Statue of Order
+#nation -2
+#msg "Order unrest decrease"
+#notext
+#nolog
+#unrest -5
+#taxboost 2
+#end
+
+#newevent
+#rarity 5
+#req_dominion 6
+#req_maxdominion 6
+#req_order 1
+#req_godismnr 472 -- Statue of Order
+#nation -2
+#msg "Order unrest decrease"
+#notext
+#nolog
+#unrest -6
+#taxboost 3
+#end
+
+#newevent
+#rarity 5
+#req_dominion 7
+#req_maxdominion 7
+#req_order 1
+#req_godismnr 472 -- Statue of Order
+#nation -2
+#msg "Order unrest decrease"
+#notext
+#nolog
+#unrest -7
+#taxboost 3
+#end
+
+#newevent
+#rarity 5
+#req_dominion 8
+#req_maxdominion 8
+#req_order 1
+#req_godismnr 472 -- Statue of Order
+#nation -2
+#msg "Order unrest decrease"
+#notext
+#nolog
+#unrest -8
+#taxboost 4
+#end
+
+#newevent
+#rarity 5
+#req_dominion 9
+#req_maxdominion 9
+#req_order 1
+#req_godismnr 472 -- Statue of Order
+#nation -2
+#msg "Order unrest decrease"
+#notext
+#nolog
+#unrest -9
+#taxboost 4
+#end
+
+#newevent
+#rarity 5
+#req_dominion 10
+#req_maxdominion 10
+#req_order 1
+#req_godismnr 472 -- Statue of Order
+#nation -2
+#msg "Order unrest decrease"
+#notext
+#nolog
+#unrest -10
+#taxboost 5
 #end
 
 #selectmonster 546 -- Void Lurker
 #gcost 150
 #heal
 #diseaseres 100
+#twiceborn 5779
 #end
 
 #selectmonster 607 -- Baphomet
@@ -72347,9 +74163,20 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #end
 
 #selectmonster 656 -- Fountain of Blood
-#gcost 140
+#gcost 150
+#descr "The Fountain of Blood is a horrible spirit that inhabits an unholy fountain that spews forth blood instead of water. The spirit possesses a girl to serve as its instrument. The chosen child is blinded and rendered unable to do anything but speak the will of the spirit. At the age of thirteen, she is sacrificed and replaced with a new girl, born the day the previous girl was made the voice of the spirit. The unholy spirit is immobile and cannot leave the fountain it inhabits. It can possess willing targets to perform tasks such as forging items for enchantment. The Fountain of Blood is tremendously strong in its Dominion and magically powerful. Its eerie wails attract weak souls each month including those of pure blood, and the unholy spirit is most efficient in finding virgins for sacrifice. Anyone wishing to harm the fountain will flee in panic once the eerie wailing pierces his soul. The fountain can be destroyed, but not easily."
 #heal
 #diseaseres 100
+#end
+
+#newevent
+#rarity 5
+#req_godismnr 656 -- Fountain of Blood
+#req_monster 656 -- Fountain of Blood
+#nation -2
+#msg "The wailing of the Fountain has attracted the weak willed, several of whom were imprisoned in the dungeons."
+#nolog
+#1d6vis 7 -- +d6 Blood Slaves
 #end
 
 #selectmonster 657 -- Monolith
@@ -72365,8 +74192,11 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #end
 
 #selectmonster 1025 -- Divine Glyph
-#gcost 160
+#gcost 180
+#descr "The Divine Glyph is a divine spirit that manifests itself as a burning glyph. The sacred word is unutterable and unbearable to behold. Its very essence is beyond comprehension. At times, the spirit inspires a devout human to forge items and artifacts. It has a very powerful Dominion and whilst it is present in the world it will spread Dominion very strongly. Anyone trying to strike the blazing glyph will be punished with blindness."
 #heal
+#startdom 5
+#spreaddom 5
 #diseaseres 100
 #end
 
@@ -72374,7 +74204,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #descr "The Colossal Fetish is a statue that has come to life from being worshipped for many hundreds of years. It is mindless and mostly does what its worshippers believe it would do. It punishes harshly and rewards sparingly. The Colossal Fetish is made of wood and would be difficult to destroy in combat. In combat the statue will manifest gems of Earth and Nature magic to aid in spellcasting."
 #gcost 260
 #mr 20
-#pooramphibian
+#swimming
 #heal
 #diseaseres 100
 #tmpearthgems 2
@@ -72382,9 +74212,50 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #end
 
 #selectmonster 1402 -- Polypal Queen
-#gcost 150
+#gcost 170
+#descr "The Polypal Queen is the first Polypal Mother from which the whole race of the Aboleths has sprung. She has grown for ages in size and power and she has spawned all Aboleth Mind Lords known to live. She is the Aboleth race, its reason and its fate. The Queen is immobile and does not communicate in any comprehensible way, but a constant mental wail surrounds her. Whilst the Polypal Queen is in the world this wail will cause Polypal spawn to gather in friendly provinces touched by her Dominion. The Queen herself will produce some enlarged spawn that will let out a psychic wail upon death."
 #heal
 #diseaseres 100
+#domsummon 6730
+#end
+
+#newmonster 6730
+#copystats 1404 -- Polypal Spawn
+#copyspr 1404 -- Polypal Spawn
+#drawsize 50
+#name "Enlarged Spawn"
+#descr "Aboleths are ancient beings sprung from the depths of the ocean. They resemble huge, mud-crawling fish with tentacles and large, dark eyes covering their foreheads. The polypal spawn is the youngest form of an Aboleth. Polypal spawn grow in great numbers from their Polypal Mothers and live a parasitic life for several years. Eventually the spawn are strong and independent enough to live in symbiosis with the Mother and gather food for her. Spawn have very thick, scaly hides and are quite difficult to squash. These spawn have grown large in response to the wailing of the Polypal Queen. If slain they will let out a psychic wail  that may stun nearby enemies."
+#hp 7
+#deathparalyze 2
+#end
+
+#newevent
+#rarity 5
+#req_godismnr 1402 -- Polypal Queen
+#req_mnr 1402 -- Polypal Queen
+#nation -2
+#req_dominion 1
+#req_domchance 10
+#req_land 0
+#msg "Spawn creation"
+#notext
+#nolog
+#1d6units 1404 -- Polypal Spawn
+#end
+
+#newevent
+#rarity 5
+#req_godismnr 1402 -- Polypal Queen
+#req_mnr 1402 -- Polypal Queen
+#nation -2
+#req_temple 1
+#req_dominion 1
+#req_domchance 5
+#req_land 0
+#msg "Spawn creation"
+#notext
+#nolog
+#1d6units 1404 -- Polypal Spawn
 #end
 
 #selectmonster 2234 -- Irminsul
@@ -72407,8 +74278,14 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #end
 
 #selectmonster 2449 -- Idol of Sorcery
-#gcost 170
+#clearmagic
+#magicskill 4 1
+#magicskill 5 1
+#magicskill 6 1
+#magicskill 7 1
+#gcost 200
 #heal
+#pathcost 80
 #diseaseres 100
 #end
 
@@ -72419,7 +74296,12 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #end
 
 #selectmonster 2461 -- Statue of the Bloody Mother
-#gcost 150
+#clearmagic
+#descr "The Statue of the Bloody Mother is the spirit of a goddess of birth and blood once slain and bound in a huge stone statue by a previous Pantokrator. With the Pantokrator gone, its will and its thirst for blood are reawakened. The spirit cannot leave the statue, but it can possess willing targets in order to make its will heard and to perform tasks such as forging items for enchantment. The spirit is tremendously strong in its Dominion and it can grant great blessings of nature to its followers. In a physical battle, the statue would be difficult to destroy, even though it cannot strike back."
+#magicskill 6 2
+#magicskill 7 2
+#magicboost 6 -1
+#gcost 170
 #heal
 #diseaseres 100
 #end
@@ -72466,8 +74348,11 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #diseaseres 100
 #end
 
-#selectmonster 2850 -- STatue of the Underworld
-#gcost 150
+#selectmonster 2850 -- Statue of the Underworld
+#gcost 180
+#descr "The Statue of the Underworld is a primordial spirit of the underworld that was brought to this world by a previous Pantokrator to watch over the final phase of the cycle of life and death. When the cycle was set, its services were no longer needed and the spirit was bound in a huge stone statue for eternity. With the Pantokrator gone, its powers have begun to manifest themselves and it is now worshiped as a reawakening god. Fossilized warriors buried deep in the earth are now beginning to stir and will emerge to serve the statue as its Dominion grows strong. The spirit cannot leave the statue, but it can possess willing targets in order to make its will heard and to perform tasks such as forging items for enchantment. The spirit is tremendously strong in its Dominion. In a physical battle, the statue would be difficult to destroy, even though it cannot strike back."0
+#domsummon2 2525 -- Released One
+#domsummon20 2524 -- Released Warrior
 #heal
 #diseaseres 100
 #end
@@ -72617,7 +74502,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #selectmonster 499 -- Nataraja
 #clearweapons
 #descr "When the Devatas and Yakshas of Kailasa were forced to leave the world, their Lord was trapped. Now the Nataraja is free once again to dance the eternal Dance of Death and Birth. The Nataraja is armed with four weapons and has the martial prowess to wield them simultaneously. The Nataraja is surrounded by an aura of celestial fire. In combat he will manifest gems of Fire, Earth and Astral magic to aid in spellcasting. Each month the Nataraja can call forth sacred dancers and musicians from the Celestial realm to serve him."
-#gcost 210
+#gcost 240
 #mr 20
 #prot 5
 #awe 3
@@ -72708,7 +74593,6 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #descr "The Son of Niefel is a frost giant descended from the old Rimtursar. The giant is sprung from the glaciers of Niefelheim, the Land of Eternal Frost. His beard is made of icicles and his shield and sword are forged from the purest ice. The Son of Niefel is constantly surrounded by an icy wind and Winter Wolves will come to his aid whenever he is in a cold province. He can call sacred Jotun wolves from the deep forest to serve him each month. In combat he will manifest gems of Water and Death magic to aid in spellcasting."
 #gcost 210
 #mr 20
-#prot 5
 #armor 176 -- Dire Wolf Pelt
 #armor 29 -- Ice Cap
 #armor 28 -- Ice Aegis
@@ -72813,7 +74697,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #selectmonster 1096 -- Destroyer of Worlds
 #clearweapons
 #descr "When the Devatas and Yakshas of Kailasa were forced to leave the world, their Lord was trapped by the Pantokrator. The Destroyer of Worlds is a huge four-armed divinity reawakened to destroy the world that wronged him in ages past. The Destroyer is armed with weapons of iron and lightning. Death and disease are his to give and bestow. He will manifest gems of Air and Death magic in battle to aid in spellcasting."
-#gcost 220
+#gcost 240
 #mr 20
 #awe 3
 #att 14
@@ -72866,6 +74750,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #pathcost 40
 #tmpfiregems 1
 #tmpearthgems 2
+#userestricteditem 93 -- Smiths
 #end
 
 #selectmonster 1231 -- Drakaina
@@ -72918,7 +74803,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #selectspell 140
 #copyspell 195 -- Twist Fate
-#name "Nyorai Protection"
+#name "Protection of Fate"
 #school -1
 #aoe 666
 #spec 12599296 -- Ignore shields, friendlies only, use UW
@@ -73013,7 +74898,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #selectmonster 1345 -- Celestial General
 #clearweapons
 #descr "This wise man was once the General of the East in the old Pantokrator's armies. After the General of the West was almost slain, the Pantokrator became worried. As a precaution, he granted his general a divine body so that he would not easily be slain. As General of the Celestial Armies he is served by Celestial Soldiers and he can call upon others from the celestial realm. Now that the Pantokrator has fallen, the general who calls himself the Celestial General is out to become the new God. In combat he will manifest gems of Air, Earth and Astral magic to aid in spellcasting."
-#gcost 200
+#gcost 220
 #mr 20
 #prot 5
 #hp 120
@@ -73118,7 +75003,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #cleararmor
 #clearweapons
 #descr "Usually the Lord of the Forest would be satisfied with the yearly sacrifice of some moose and in return, he would keep the forest safe for the hunters, but with the disappearance of the Pantokrator, the Lord of the Forest has returned to claim godhood. Any that strike at him will be attacked by the forest itself which will ensnare and entangle attackers. In combat he will manifest gems of Earth and Nature magic to aid in spellcasting."
-#gcost 220
+#gcost 240
 #hp 95
 #mr 20
 #prot 5
@@ -73146,7 +75031,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #selectmonster 1379 -- Keeper on the Bridge
 #clearweapons
 #descr "The old Pantokrator was a careful God and he had a single bridge to his citadel of power. This bridge was guarded by the Keeper. The Keeper never sleeps and he sees everything, even in the middle of the night. The Keeper of the Bridge also has skill in Air and Earth magic to complement his already formidable fighting skills. Now that the Pantokrator is gone, the Keeper has seen his chance to become the new God. When defending a castle he counts as 100 normal soldiers. When battle commences he will blow his Gjallarhorn that can be heard in all worlds, drawing warriors to his aid that will arrive as the battle rages. The horn can also stun enemies when blown with great fervour. The Keeper can manifest temporary gems of Air, Earth and Nature magic to aid in spellcasting."
-#gcost 200
+#gcost 220
 #mr 20
 #prot 5
 #castledef 100
@@ -73198,7 +75083,6 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #descr "The Fomorian God King is an ancient demigod and servant of the previous Pantokrator who tasked him to rule the Land of the Watery Dead. When his Fomorian kin ravaged the world, the God King was banished from his dark kingdom and punished for his sins, marked with skin as black as the night. Now, with the Pantokrator gone, the God King is awakening to recreate the kingdom once denied him. The God King has great power over the dead and the sea. In combat he will manifest gems of Water and Death magic to aid in spellcasting."
 #gcost 220
 #mr 20
-#prot 5
 #weapon 201 -- Magic Spear
 #weapon 123 -- Javelin of Flight
 #heal
@@ -73464,7 +75348,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #giftofwater 500
 #diseaseres 100
 #tmpwatergems 2
-#tmpairgems 1
+#tmpastralgems 1
 #end
 
 #selectmonster 2610 -- Angra Mainyu
@@ -73572,7 +75456,6 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #descr "The Son of the Sea is an ancient demigod sprung from the Sea. Once the servant of the previous Pantokrator he became the psychopomp of the watery dead. He would take the newly dead on his boat 'Wave Sweeper' to the Land of the Watery Dead, where they would live on in the gloomy halls underneath the stormy seas. When the Fomorians rebelled against the Pantokrator and ravaged the world, the Son of the Sea was punished for having given them the means to escape their prison land. The Son of the Sea was imprisoned for millennia, but with the Pantokrator gone, his shackles are weakening and he is ready to enter the world of the living as God and ruler of all. The Son of the Sea is strongly attuned to the sea and the storms, but his task of guiding the souls of the dead has given him great powers over the dead. He is a master of trickery and illusions and can hide his true appearance. With his ship, 'Wave Sweeper', he can bring his followers across the sea, or he can bless them with water-breathing. He will also manifest magical water, air and death gems to aid in spellcasting,"
 #gcost 220
 #mr 20
-#prot 5
 #raiseonkill 50
 #armor 50 -- Weightless Scale
 #armor 92 -- Enchanted Shield
@@ -73634,8 +75517,10 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #triplegodmag 0
 #magicboost 1 1
 #heal
+#researchbonus -10
 #prot 5
 #mr 20
+#pathcost 80
 #diseaseres 100
 #end
 
@@ -73644,6 +75529,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #gcost 300
 #triplegodmag 0
 #magicboost 5 1
+#researchbonus -10
 #heal
 #prot 5
 #mr 20
@@ -73655,6 +75541,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #gcost 300
 #triplegodmag 0
 #magicboost 4 1
+#researchbonus -10
 #heal
 #prot 5
 #mr 20
@@ -73770,6 +75657,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #diseaseres 100
 #triplegodmag 0
 #magicboost 5 1
+#pathcost 80
 #end
 
 #selectmonster 3206 -- Titan of Crossroads
@@ -73821,6 +75709,33 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #taxboost 30
 #end
 
+
+#newmonster 4883
+#copystats 2444 -- Teotl of the Underworld
+#clearmagic
+#clearweapons
+#spr1 "./MagicEnhanced/EEItzpapalotl.tga"
+#spr2 "./MagicEnhanced/EEItzpapalotl2.tga"
+#name "Obsidian Butterfly"
+#descr "The Obsidian Butterfly is a giant of divine heritage. In ages past she lived amongst the stars as Queen of the Tzitzimitl. She appears as a terrifying skeletal warrior with great black butterfly wings. These wings are tipped with obsidian as sharp as a knife blade. The Butterfly can call Tzitzimitl to her aid each month. When the Star Demons were cast down into the Terrestrial sphere she also fell and was imprisoned below the earth. Now, with the Pantokrator gone, she has emerged to seize this world for her children. Each month she can call one of her star-children to this realm, and several will accompany her at all times. She is wise in the way of the stars and can predict future events."
+#fixedname "Itzpapalotl"
+#batstartsum5d6 0
+#gcost 220
+#female
+#flying
+#weapon 1567 -- Obsidian Wing
+#weapon 29 -- Claw
+#makemonsters1 1483 -- Ttzitzimitl
+#batstartsum1d6 1483 -- Ttzitzimitl
+#magicskill 0 1
+#magicskill 4 1
+#magicskill 7 1
+#homerealm 6
+#startdom 3
+#pathcost 40
+#end
+
+
 --- DOM 2 ---
 
 #selectmonster 120 -- Moloch
@@ -73847,10 +75762,13 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #selectmonster 179 -- Master Lich
 #clearmagic
-#gcost 180
+#gcost 160
 #magicskill 5 2
+#raiseonkill 50
+#reanimator 10
 #heal
 #diseaseres 100
+#pathcost 20
 #end
 
 #selectmonster 215 -- Virtue
@@ -73866,6 +75784,13 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #selectmonster 216 -- Dragon
 #gcost 220
+#clearweapons
+#prot 20
+#twiceborn 5771 -- Dracowight
+#weapon 533 -- Dragon Fire
+#weapon 20 -- bite
+#weapon 166 -- Golden Claw
+#weapon 532 -- Tail Sweep
 #heal
 #diseaseres 100
 #pathcost 40
@@ -73880,6 +75805,13 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #selectmonster 265 -- Dragon
 #gcost 220
+#clearweapons
+#prot 20
+#twiceborn 5771 -- Dracowight
+#weapon 534 -- Dragon Frost
+#weapon 20 -- bite
+#weapon 166 -- Golden Claw
+#weapon 532 -- Tail Sweep
 #heal
 #diseaseres 100
 #pathcost 40
@@ -73887,6 +75819,13 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #selectmonster 266 -- Dragon
 #gcost 220
+#clearweapons
+#prot 20
+#twiceborn 5771 -- Dracowight
+#weapon 535 -- Dragon Gas
+#weapon 20 -- bite
+#weapon 166 -- Golden Claw
+#weapon 532 -- Tail Sweep
 #heal
 #diseaseres 100
 #pathcost 40
@@ -73908,15 +75847,15 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #selectmonster 269 -- Wyrm
 #clearmagic
-#gcost 170
-#prot 20
+#gcost 80
+#woundfend 5
 #heal
+#prot 20
 #diseaseres 100
-#magicskill 2 2
 #end
 
 #selectmonster 320 -- Saurolich
-#gcost 200
+#gcost 180
 #heal
 #diseaseres 100
 #end
@@ -73935,14 +75874,30 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #end
 
 #selectmonster 395 -- Lich Queen
-#descr "A Lich Queen is the dried husk of an ancient queen adept in Death magic. Through dark rituals, she succeeded in mastering one of mankind's oldest and most urgent goals, to defeat death. By removing her viscera and hiding it outside her body, she is virtually impossible to slay. Should the body be physically destroyed, a new one is formed from the dust of dead humans. Being immortal, there is nothing left to acquire but godhood. As her Dominion grows strong followers will arise from their ancient resting places to serve her. The Lich Queen lacks the Arch Mage's broad base of magical knowledge, but her reanimated body is more durable than a living body since it is leathery and dry and lacks all organs of importance."
+#descr "A Lich Queen is the dried husk of an ancient queen adept in Death magic. Through dark rituals, she succeeded in mastering one of mankind's oldest and most urgent goals, to defeat death. By removing her viscera and hiding it outside her body, she is virtually impossible to slay. Should the body be physically destroyed, a new one is formed from the dust of dead humans. Being immortal, there is nothing left to acquire but godhood. If awake she will have gathered a force of Dust Walkers to serve her which will join the army. The Lich Queen lacks the Arch Mage's broad base of magical knowledge, but her reanimated body is more durable than a living body since it is leathery and dry and lacks all organs of importance."
 #clearmagic
-#gcost 180
+#gcost 170
 #heal
 #diseaseres 100
 #magicskill 0 1
 #magicskill 5 1
 #domsummon20 1980 -- Dust Warrior
+#end
+
+#newevent
+#rarity 5
+#req_godismnr 395 -- Lich Queen
+#req_pregame
+#req_owncapital 1
+#req_land 1
+#nation -2
+#msg "Cap Army appears"
+#notext
+#nolog
+#1unit 1980 -- Dust Warrior
+#1d3units 1980 -- Dust Warrior
+#2d3units 1981 -- Dust Walker
+#1d6units 1981 -- Dust Walker
 #end
 
 #selectspell 142
@@ -73998,7 +75953,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #end
 
 #selectmonster 643 -- Bog Mummy
-#gcost 180
+#gcost 160
 #heal
 #diseaseres 100
 #end
@@ -74029,9 +75984,11 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #selectmonster 661 -- Shedu
 #clearmagic
+#clearweapons
 #gcost 170
 #prot 20
 #heal
+#weapon 725 -- Brass Hoof
 #diseaseres 100
 #magicskill 4 2
 #end
@@ -74039,12 +75996,13 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #selectmonster 779 -- Rams Head Serpent
 #clearmagic
 #clearweapons
-#gcost 150
-#weapon 300 -- Headbutt
+#gcost 160
+#weapon 522 -- Golden Horns
 #weapon 90 -- Crush
 #weapon 203 -- Barbed Tail
-#magicskill 6 2
-#prot 18
+#magicskill 3 1
+#magicskill 6 1
+#prot 16
 #heal
 #diseaseres 100
 #woundfend 2
@@ -74052,12 +76010,29 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #selectmonster 872 -- Ghost King
 #clearmagic
-#gcost 150
+#gcost 160
+#descr "The Ghost King is the soul of an ancient mage king that has returned from the Underworld to claim the world of the living. Ghosts will come to his aid when his Dominion is strong, and if awake will muster a host of spirits to aid the army in the capital."
 #invulnerable 10
 #magicskill 5 2
 #heal
 #spreaddom 2
 #diseaseres 100
+#end
+
+#newevent
+#rarity 5
+#req_godismnr 872 -- Ghost King
+#req_monster 872 -- Ghost King
+#req_owncapital 1
+#req_pregame
+#nation -2
+#msg "Ghost Army appears"
+#notext
+#nolog
+#1unit 566 -- Ghost
+#1d3units 566 -- Ghost
+#2d3units 566 -- Ghost
+#2d6units 675 -- Shadow Soldier
 #end
 
 #selectmonster 874 -- Divine Emperor
@@ -74071,11 +76046,12 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #selectmonster 973 -- Ancient Kraken
 #clearmagic
 #gcost 150
-#prot 18
+#prot 15
 #heal
 #diseaseres 100
 #woundfend 2
-#magicskill 4 2
+#magicskill 4 1
+#magicskill 6 1
 #twiceborn 1235 -- Leviathan
 #end
 
@@ -74089,19 +76065,25 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #selectmonster 978 -- Great Black Bull
 #clearmagic
+#clearweapons
 #gcost 150
 #prot 14
 #diseaseres 100
 #woundfend 2
+#weapon 55 -- Hoof
+#weapon 522 -- Golden Horns
 #magicskill 6 2
 #end
 
 #selectmonster 979 -- Great White Bull
 #clearmagic
+#clearweapons
 #gcost 170
 #diseaseres 100
 #woundfend 2
 #prot 14
+#weapon 55 -- Hoof
+#weapon 522 -- Golden Horns
 #magicskill 3 2
 #end
 
@@ -74180,7 +76162,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #prot 15
 #heal
 #weapon 20 -- Bite
-#weapon 29 -- Claw
+#weapon 166 -- Golden Claw
 #diseaseres 100
 #magicskill 2 2
 #end
@@ -74195,14 +76177,15 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #end
 
 #selectmonster 1428 -- Bakemono Kunshu
-#gcost 180
+#gcost 170
 #heal
 #diseaseres 100
 #end
 
 #selectmonster 1581 -- Risen Oracle
-#gcost 180
+#gcost 170
 #heal
+#makemonsters1 1501 -- Cavern Wights
 #diseaseres 100
 #end
 
@@ -74221,11 +76204,15 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #selectmonster 2137 -- Urmahlullu
 #clearmagic
+#clearweapons
 #gcost 160
 #ethereal
 #heal
+#weapon 166 -- Golden Claw
+#weapon 166 -- Golden Claw
 #prot 16
-#magicskill 4 2
+#magicskill 1 1
+#magicskill 4 1
 #diseaseres 100
 #end
 
@@ -74236,9 +76223,10 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #gcost 160
 #invulnerable 20
 #weapon 197 -- Gaze of Death
-#weapon 29 -- Claw
-#weapon 29 -- Claw
-#magicskill 5 2
+#weapon 166 -- Golden Claw
+#weapon 166 -- Golden Claw
+#magicskill 4 1
+#magicskill 5 1
 #heal
 #diseaseres 100
 #end
@@ -74276,6 +76264,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #end
 
 #selectmonster 2316 -- Dragon King
+#clearweapons
 #spr1 "./ExtraPretenders/DragonKing.tga"
 #spr2 "./ExtraPretenders/DragonKing2.tga"
 #descr "The Dragon King is a primordial dragon put in charge of the Eastern Sea by the previous Pantokrator. For millennia he ruled the ocean and brought storms and tidal waves to the coasts of men. When he allowed the Pillar of the East to be stolen by an annoying little monkey, he was punished by eternal imprisonment. Now with the Pantokrator gone, his prison is crumbling, and the world will once more bow before the Dragon King of the East. In true shape the Dragon King is a magnificent serpentine monster with tigers claws and shimmering scales of a carp. It is able to run in the air and swim in the water. It is a master of water magic, but have difficulties mastering other forms of magic. It can take the shape of a dragon headed celestial dignitary more suited for spellcasting. It loses some of its powers in dragon shape. Dragons are resilient to injury and will suffer permanent injuries less often than most creatures."
@@ -74285,6 +76274,10 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #prot 20
 #woundfend 2
 #heal
+#weapon 535 -- Dragon Gas
+#weapon 20 -- bite
+#weapon 166 -- Golden Claw
+#weapon 532 -- Tail Sweep
 #diseaseres 100
 #end
 
@@ -74295,6 +76288,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #end
 
 #selectmonster 2318 -- Celestial Dragon
+#clearweapons
 #descr "The Celestial Dragon is a primordial dragon put in charge of the heavens by the previous Pantokrator. For millennia he delivered celestial decrees and brought order and celestial punishment to mankind. Now, with the Pantokrator gone, he is free to rule the world in its entirety. In true shape the Dragon King is a serpentine monster with tigers claws and shimmering scales of a carp. It is able to run in the air and swim in the water. It is a master of air and astral magic, but have difficulties mastering other forms of magic. It can take the shape of a celestial dignitary more suited for spellcasting. It loses some of its powers in dragon shape. Dragons are resilient to injury and will suffer permanent injuries less often than most creatures."
 #gcost 200
 #awe 1
@@ -74304,6 +76298,10 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #startdom 3
 #pathcost 40
 #heal
+#weapon 535 -- Dragon Gas
+#weapon 20 -- bite
+#weapon 166 -- Golden Claw
+#weapon 532 -- Tail Sweep
 #diseaseres 100
 #end
 
@@ -74313,8 +76311,11 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #end
 
 #selectmonster 2440 -- Sea Dragon
+#clearweapons
 #gcost 150
 #heal
+#weapon 1724 -- Golden Fangs
+#weapon 532 -- Tail Sweep
 #diseaseres 100
 #twiceborn 1235 -- Leviathan
 #end
@@ -74335,10 +76336,13 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #selectmonster 2466 -- Kamadhenu
 #clearmagic
-#gcost 160
+#clearweapons
+#gcost 170
 #invulnerable 20
 #heal
-#magicskill 4 2
+#weapon 725 -- Brass hoof
+#magicskill 4 1
+#magicskill 6 1
 #diseaseres 100
 #end
 
@@ -74397,12 +76401,19 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #selectmonster 2608 -- Azi 
 #clearmagic
+#clearweapons
 #gcost 240
 #magicskill 5 2
 #magicboost 0 0
 #magicboost 5 2
 #magicboost 53 -2
 #heal
+#weapon 533 -- Dragon Fire
+#weapon 1512 -- Magical Fangs
+#weapon 1512 -- Magical Fangs
+#weapon 1512 -- Magical Fangs
+#weapon 166 -- Golden Claw
+#weapon 532 -- Tail Sweep
 #prot 20
 #diseaseres 100
 #end
@@ -74449,7 +76460,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #fear 5
 #weapon 408 -- Talons
 #weapon 677 -- Wing Buff
-#weapon 404 -- Beak
+#weapon 1723 -- Golden Beak
 #magicskill 1 2 
 #heal
 #diseaseres 100
@@ -74457,6 +76468,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #selectmonster 2695 -- Sapa Inca
 #gcost 180
+#descr "The Sapa Inca, The Only Inca, is the last surviving Eagle King and co-founder of the Nazcan kingdom. In order to practice higher magic he withdrew from Nazcan society and abandoned temporal power to his Inca sons. Now he has mastered his own mortality and has emerged from sequestration to claim the world for the kingdom he created. He is accompanied by a bodyguard of Sun Guard chosen from the most prestigious families that trace their origins back to the Old Kingdom."
 #clearmagic
 #hp 27
 #invulnerable 15
@@ -74466,6 +76478,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #magicskill 0 1
 #magicskill 1 1
 #heal
+#batstartsum4 2653 -- Sun Guard
 #onebattlespell 604 -- Personal Luck
 #diseaseres 100
 #end
@@ -74486,7 +76499,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #end
 
 #selectmonster 2737 -- Immortal Coya
-#gcost 200
+#gcost 180
 #heal
 #diseaseres 100
 #end
@@ -74508,11 +76521,16 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #selectmonster 2764 -- Hun Balam
 #clearmagic
-#gcost 150
+#clearweapons
+#gcost 160
 #heal
+#weapon 1724 -- Golden Fangs
+#weapon 166 -- Golden Claw
+#weapon 166 -- Golden Claw
 #prot 20
 #diseaseres 100
-#magicskill 7 2
+#magicskill 0 1
+#magicskill 7 1
 #end
 
 #selectmonster 2777 -- Demon Macaw
@@ -74523,7 +76541,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #prot 18
 #hp 88
 #weapon 408 -- talons
-#weapon 404 -- beak
+#weapon 1723 -- Golden Beak
 #weapon 196 -- Killing light
 #magicskill 4 2
 #heal
@@ -74532,9 +76550,16 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #selectmonster 2783 -- Drakon
 #clearmagic
+#clearweapons
 #gcost 220
 #prot 20
 #heal
+#weapon 535 -- Dragon Gas
+#weapon 1512 -- Magical Fangs
+#weapon 1512 -- Magical Fangs
+#weapon 1512 -- Magical Fangs
+#weapon 166 -- Golden Claw
+#weapon 532 -- Tail Sweep
 #def 12
 #magicskill 6 2
 #diseaseres 100
@@ -74542,9 +76567,12 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #selectmonster 2784 -- Thrice Horned Boar
 #clearmagic
+#clearweapons
 #gcost 150
 #prot 18
 #hp 132
+#weapon 55 -- Hoof
+#weapon 522 -- Golden Horns
 #magicskill 6 2
 #diseaseres 100
 #woundfend 2
@@ -74558,39 +76586,55 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #heat 8
 #weapon 408 -- Talons
 #weapon 350 -- Fire Flare
-#weapon 404 -- Beak
-#magicskill 0 2
+#weapon 755 -- Burning Beak
+#magicskill 0 1
+#magicskill 1 1
 #diseaseres 100
 #woundfend 2
 #end
 
 #selectmonster 2786 -- Celestial Gryphon
 #clearmagic
+#clearweapons
 #gcost 160
 #prot 20
 #stormimmune
 #batstartsum1d6 368 -- Sacred Gryphon
+#makemonsters2 368 -- Sacred Gryphon
 #magicskill 1 2
 #heal
+#weapon 1723 -- Golden Beak
+#weapon 166 -- Golden Claw
+#weapon 166 -- Golden Claw
 #diseaseres 100
 #end
 
 #selectmonster 2787 -- Celestial Lion
 #clearmagic
+#clearweapons
 #gcost 160
 #prot 18
 #awe 2
-#magicskill 0 2
+#magicskill 0 1
+#magicskill 4 1
 #heal
+#weapon 1724 -- Golden Fangs
+#weapon 166 -- Golden Claw
+#weapon 166 -- Golden Claw
 #diseaseres 100
 #end
 
 #selectmonster 2788 -- Man Eater
 #clearmagic
-#gcost 160
+#clearweapons
+#gcost 150
 #prot 20
 #magicskill 7 2
 #heal
+#weapon 144 -- Stinger
+#weapon 166 -- Golden Claw
+#weapon 166 -- Golden Claw
+#weapon 537 -- Flick Barbs
 #diseaseres 100
 #end
 
@@ -74602,8 +76646,8 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #hp 88
 #prot 18
 #raiseonkill 50
-#weapon 408 -- talons
-#weapon 404 -- beak
+#weapon 408 -- Talons
+#weapon 1723 -- Golden Beak
 #weapon 677 -- Wing buff
 #magicskill 5 2
 #heal
@@ -74612,10 +76656,15 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #selectmonster 2790 -- Myrmecoleon
 #clearmagic
+#clearweapons
 #gcost 160
 #hp 130
 #magicskill 3 2
 #heal
+#weapon 1512 -- Magical Fangs
+#weapon 166 -- Golden Claw
+#weapon 166 -- Golden Claw
+#weapon 629 -- Stinger
 #diseaseres 100
 #end
 
@@ -74652,11 +76701,13 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #selectmonster 2795 -- Dog of the Underworld 
 #clearmagic
+#clearweapons
 #gcost 150
 #prot 18
 #magicskill 5 2
 #batstartsum2 566 -- Ghost
 #heal
+#weapon 586 -- Reanimating bite
 #end
 
 #selectmonster 2796 -- Hound of Hades
@@ -74669,7 +76720,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #diseaseres 100
 #end
 
-#selectmonster 2797 -- Heiracosphinx
+#selectmonster 2797 -- Hieracosphinx
 #clearmagic
 #clearweapons
 #descr "Born at the dawn of time the Hieracosphinx represents an earlier era, when monsters and giants roamed the world. It has the body of a lion with the head and wings of a great falcon. It was given divine might and authority by a previous Pantokrator and served as a guardian spirit of the realms and kingdoms under the sun. Now with the Pantokrator gone it has realized the aspirations of the other Pretenders and will protect its subjects by donning the mantle of God itself. The Hieracosphinx is attuned to the powers of the sky and the sun. It is protected from harm by a Divine aura that turns away mortal weapons."
@@ -74678,22 +76729,28 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #fireshield 8
 #heal
 #stormimmune
-#weapon 404 -- Beak
+#weapon 1723 -- Golden Beak
 #weapon 243 -- Lightning
-#weapon 29 -- Claw
-#weapon 29 -- Claw
+#weapon 166 -- Golden Claw
+#weapon 166 -- Golden Claw
 #diseaseres 100
-#magicskill 1 2
+#magicskill 0 1
+#magicskill 1 1
 #end
 
 #selectmonster 2798 -- Criosphinx
 #clearmagic
-#descr "Born at the dawn of time the Criosphinx represents an earlier era, when monsters and giants roamed the world. It has the body of a winged lion with the head of a ram. It was given divine might and authority by a previous Pantokrator and served as a guardian spirit which brought prosperity and fertility to the realms and kingdoms of man. Now with the Pantokrator gone it has realized the aspirations of the other Pretenders and will protect its subjects by donning the mantle of God itself. The Criosphinx is attuned to the powers of the land. It is surrounded by a Divine aura that protects if from harm by mundane weapons."
+#clearweapons
+#descr "Born at the dawn of time the Criosphinx represents an earlier era, when monsters and giants roamed the world. It has the body of a winged lion with the head of a ram. It was given divine might and authority by a previous Pantokrator and served as a guardian spirit which brought prosperity and fertility to the realms and kingdoms of man. Now with the Pantokrator gone it has realized the aspirations of the other Pretenders and will protect its subjects by donning the mantle of God itself. The Criosphinx is attuned to the powers of the land and sky. It is surrounded by a Divine aura that protects if from harm by mundane weapons."
 #gcost 160
 #invulnerable 20
 #heal
 #trample
-#magicskill 6 2
+#weapon 522 -- Golden Horns
+#weapon 166 -- Golden Claw
+#weapon 166 -- Golden Claw
+#magicskill 1 1
+#magicskill 6 1
 #diseaseres 100
 #end
 
@@ -74718,7 +76775,8 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #prot 20
 #weapon 65 -- Venomous Fangs
 #weapon 90 -- Crush
-#magicskill 2 2
+#magicskill 1 1
+#magicskill 2 1
 #heal
 #diseaseres 100
 #end
@@ -74741,10 +76799,12 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #selectmonster 2853 -- Ghost King
 #clearmagic
-#gcost 160
+#gcost 170
+#descr "The Ghost King is the soul of an ancient Basalt King that has returned from the Underworld to claim the world of the living. He is accompanied by the souls of his subjects that have followed him into the world of the living."
 #invulnerable 10
 #spreaddom 2
 #magicskill 5 2
+#batstartsum5d6 2340 -- Atlantian Shadow Soldier
 #heal
 #diseaseres 100
 #end
@@ -74789,11 +76849,16 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #selectmonster 2958 -- Golden Lion
 #clearmagic
-#gcost 150
+#clearweapons
+#gcost 160
 #heal
+#weapon 1724 -- Golden Fangs
+#weapon 166 -- Golden Claw
+#weapon 166 -- Golden Claw
 #prot 20
 #diseaseres 100
-#magicskill 0 2
+#magicskill 0 1
+#magicskill 6 1
 #end
 
 #selectmonster 2959 -- Chiranjivi
@@ -74818,13 +76883,14 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #selectmonster 3396 -- King in Yellow
 #gcost 200
 #awe 1
-#ethereal
 #poisonres 15
 #teleport
 #heal
-#stealthy 0
-#spreaddom 2
+#clearmagic
+#magicskill 4 1
+#magicskill 5 1
 #diseaseres 100
+#spreaddom 2
 #insanify 20
 #mapmove 102
 #armor 231 -- Magic Robes
@@ -74843,12 +76909,15 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #selectmonster 3394 -- Serpent of the Underworld
 #clearmagic
+#clearweapons
 #gcost 150
 #magicskill 5 2
 #prot 20
 #woundfend 2
 #gold 20
 #diseaseres 100
+#weapon 1266 -- Golden Antlers
+#weapon 532 -- Tail Sweep
 #end
 
 #selectmonster 3395 -- Demiurge
@@ -74876,16 +76945,22 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 --- DOM 1 ---
 
 #selectmonster 244 -- Arch Mage
-#gcost 120
-#masterrit 1
+#clearmagic
+#gcost 160
+#magicskill 0 1
+#magicskill 1 1
+#magicskill 2 1
+#magicskill 3 1
 #heal
 #diseaseres 100
+#pathcost 80
 #end
 
 #selectmonster 245 -- Master Enchanter
 #descr "The Master Enchanter is a mage of such great power that he has mastered his own mortality. Donning a godly mantle, he has taken the role of a Pretender God. He is a master of magic and can be adept in several of the magic paths. The Master Enchanter is a master of magic rituals and he can project his Sorcerous magic one province farther than normally possible. Each month whilst at an Arcane Laboratory he will enchant 1D3 Nature gems for use in ritual magic."
-#gcost 120
+#gcost 130
 #heal
+#masterrit 1
 #diseaseres 100
 #end
 
@@ -74941,8 +77016,10 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #end
 
 #selectmonster 485 -- Great Enchantress
-#gcost 120
+#descr "The Great Enchantress is an enchantress of such great power that she has taken the role of a Pretender God. She is a master of magic and can be adept in several of the magic paths, however her skill in path of Sorcery magic she knows will be increased by one. The Great Enchantress knows how to refine light from stellar bodies into one magic pearl each turn."
+#gcost 140
 #heal
+#magicboost 52 1 -- Sorcery Pathboost +1
 #gemprod 4 2
 #diseaseres 100
 #end
@@ -74951,6 +77028,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #gcost 100
 #heal
 #diseaseres 100
+#neednoteat
 #end
 
 #selectmonster 500 -- Skratti
@@ -75066,6 +77144,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #end
 
 #selectmonster 2208 -- Hunter Spider
+#unsurr 2
 #gcost 120
 #domsummon 884 -- Great Spider
 #heal
@@ -75275,8 +77354,10 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #end
 
 #selectmonster 3328 -- God Block
-#gcost 140
+#gcost 170
+#descr "The God Block is a huge carved stone block inhabited since time immemorial by a spirit of vast powers. Once worshiped as a God by the Hinn in ancient times, the spirit attracted the attention of a previous Pantokrator and was bound to the stone block and bereft of powers. With the Pantokrator gone, its powers have begun to manifest themselves and it is now worshiped as a reawakening god, ready to claim the earth. Hinn will emerge from the desert to serve the God Block as its Dominion grows strong."
 #heal
+#domsummon2 3367
 #diseaseres 100
 #end
 
@@ -75308,6 +77389,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #gcost 230
 #heal
 #mr 20
+#swimming
 #diseaseres 100
 #end
 
@@ -75391,6 +77473,109 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #domsummon20 4511 -- Dust Scorpion
 #end
 
+#newmonster 4884
+#copyspr 1032 -- Royal Navigator
+#copystats 1032 -- Royal Navigator
+#name "Great Navigator"
+#clearmagic
+#descr "The Great Navigator is an explorer that has crossed the known world. He has traversed the seas and visited far off lands to learn ancient secrets of immortality. Donning a godly mantle, he has taken the role of a Pretender God. The Navigator is master of the waves and the stars and is often adept in several of the magic paths. He can sail with an army across the seas of the world and can cross any number of sea provinces."
+#gcost 130
+#mr 18
+#mor 30
+#magicskill 2 1
+#magicskill 4 1
+#goodleader
+#heal
+#farsail 9
+#diseaseres 100
+#maxage 1000
+#startage 500
+#startdom 1
+#pathcost 20
+#end
+
+#newmonster 4882
+#copystats 251 -- Great Sage
+#spr1 "./ExtraPretenders/AFGreatSage1.tga"
+#spr2 "./ExtraPretenders/AFGreatSage2.tga"
+#homerealm 7 -- Africa
+#nametype 126
+#end
+
+#newmonster 4881
+#copystats 249 -- Crone
+#name "Elder"
+#spr1 "./ExtraPretenders/AFFrostFather1.tga"
+#spr2 "./ExtraPretenders/AFFrostFather2.tga"
+#descr "The Elder is an old mage of such great power that he has taken the role of a Pretender God. The Elder is a master of magic and can be adept in several of the magic paths."
+#homerealm 7 -- Africa
+#nametype 126
+#end
+
+#newmonster 4880
+#copystats 245 -- Master Enchanter
+#spr1 "./ExtraPretenders/AFMasterEnchanter1.tga"
+#spr2 "./ExtraPretenders/AFMasterEnchanter2.tga"
+#homerealm 7 -- Africa
+#nametype 126
+#end
+
+#newmonster 4879
+#copystats 244 -- Arch Mage
+#spr1 "./ExtraPretenders/AFArchMage1.tga"
+#spr2 "./ExtraPretenders/AFArchMage2.tga"
+#homerealm 7 -- Africa
+#nametype 126
+#end
+
+#newmonster 4878
+#copystats 485 -- Great Enchantress
+#spr1 "./ExtraPretenders/AFGreatEnchantress1.tga"
+#spr2 "./ExtraPretenders/AFGreatEnchantress2.tga"
+#homerealm 7 -- Africa
+#nametype 125
+#end
+
+#newmonster 4877
+#copystats 251 -- Great Sage
+#spr1 "./ExtraPretenders/AMGreatSage1.tga"
+#spr2 "./ExtraPretenders/AMGreatSage2.tga"
+#homerealm 6 -- Middle America
+#nametype 123
+#end
+
+#newmonster 4876
+#copystats 250 -- Frost Father
+#spr1 "./ExtraPretenders/AMFrostFather1.tga"
+#spr2 "./ExtraPretenders/AMFrostFather2.tga"
+#homerealm 0 -- None
+#nametype 123
+#end
+
+#newmonster 4875
+#copystats 245 -- Master Enchanter
+#spr1 "./ExtraPretenders/AMMasterEnchanter1.tga"
+#spr2 "./ExtraPretenders/AMMasterEnchanter2.tga"
+#homerealm 6 -- Middle America
+#nametype 123
+#end
+
+#newmonster 4874
+#copystats 244 -- Arch Mage
+#spr1 "./ExtraPretenders/AMArchMage1.tga"
+#spr2 "./ExtraPretenders/AMArchMage2.tga"
+#homerealm 6 -- Middle America
+#nametype 123
+#end
+
+#newmonster 4873
+#copystats 485 -- Great Enchantress
+#spr1 "./ExtraPretenders/AMGreatEnchantress1.tga"
+#spr2 "./ExtraPretenders/AMGreatEnchantress2.tga"
+#homerealm 6 -- Middle America
+#nametype 124
+#end
+
 
 -- GENERIC SPELLS
 
@@ -75405,7 +77590,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #range 0
 #fatiguecost 0
 #explspr 0
-#flyspr 0
+#flightspr 0
 #effect 10
 #nreff 1
 #aoe 666
@@ -75627,7 +77812,6 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #school -1
 #researchlevel 0
 #aoe 25
-#explspr -1
 #range 0
 #end
 
@@ -75696,7 +77880,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #newspell
 #name "Forging of Flesh"
 #descr "The allies of the caster will become highly resistant to physical damage and fire."
-#details "Grants Slash, Blunt and Pierce resistance, and Fire resistance +15"
+#details "Grants Slash, Blunt and Pierce resistance, and Fire resistance +5"
 #school -1
 #researchlevel 0
 #effect 10
@@ -76283,7 +78467,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #school 1
 #researchlevel 5
 #path 0 0
-#pathlevel 0 2
+#pathlevel 0 3
 #effect 17
 #damage 1
 #fatiguecost 20
@@ -76499,7 +78683,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #path 0 0
 #pathlevel 0 5
 #effect 10021
-#fatiguecost 4500
+#fatiguecost 3500
 #damage 5100
 #onlygeosrc 4198416
 #nreff 1
@@ -76514,8 +78698,9 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #newspell
 #name "Become Dragon"
 #descr "The caster attempts to permanently transform themselves into the form of a great Red Dragon. If successful the new body will be healthy and will retain the mind of the mage. The Dragon will retain any magic skills learned before the transformation took place, and Fire magic will be easier whilst in Dragon form. Inanimate beings cannot change their form in this manner, and some especially powerful unique beings will resist attempts to change their form and cannot be affected."
+#details "Afflictions are not healed, Dragon gains +1F boost but -1 to non F paths."
 #school 1
-#researchlevel 7
+#researchlevel 6
 #path 0 0
 #pathlevel 0 4
 #effect 10130
@@ -76542,7 +78727,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #pathlevel 0 4
 #pathlevel 1 3
 #effect 10050
-#damage -5168
+#damage 1297 -- Erinya
 #nreff 1
 #provrange 4
 #nogeodst 4
@@ -76552,13 +78737,13 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #newspell
 #copyspell 728 -- Bind Scorpion Beast
 #name "Horde of Scorpions"
-#descr "The caster enters a deep cavern and summons a horde of great scorpions to the surface world. More powerful casters can summon more scorpion beasts with each casting."
-#researchlevel 8
+#descr "The caster summons a horde of great scorpions to the surface world. More powerful casters can summon more scorpion beasts with each casting. This spell can only be cast in a cave or a waste province."
+#researchlevel 7
 #pathlevel 0 4
-#pathlevel 1 2
+#pathlevel 1 1
 #fatiguecost 2500
 #nreff 4008
-#onlygeosrc 4096 -- Cave
+#onlygeosrc 4160 -- Cave or Waste
 #end
 
 #newspell
@@ -76608,6 +78793,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #end
 
 #newspell
+#copyspell 904 -- Twiceborn (for cost multiplied by size)
 #name "Bonfire of the Phoenix"
 #descr "The caster lights a large bonfire in the province and enchants it with the power of the Phoenix. Should the caster be slain whilst the bonfire burns their body will explode in a shower of light and they will be reborn from the pyre. The bonfire will be extinguished if the province is captured by the enemy, or if the caster is reborn in this way. The bonfire will have no effect if cast by an undead, demonic or lifeless being."
 #researchlevel 6
@@ -76618,7 +78804,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #damage 2199023255552 -- Selfborn
 #nreff 1
 #sethome 1
-#fatiguecost 1500
+#fatiguecost 500
 #spec 805830656 -- No effect on Lifeless/Undead/Inanimate
 #nextspell "Inner Sun"
 #end
@@ -76773,7 +78959,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #descr "The caster summons a few Hellhounds from a fiery pit. These elemental creatures are often assigned to guard important individuals and are fiercely loyal to their masters."
 #researchlevel 3
 #path 0 0
-#pathlevel 0 3
+#pathlevel 0 2
 #damage 5690 -- Hellhound
 #nreff 3
 #fatiguecost 200
@@ -76997,9 +79183,9 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #descr "The caster summons a small elemental being to serve as a spy in enemy lands. The being will relay all it perceives to the casting mage using whispers on the wind. The Zephyr is very hard to detect due to its airy nature."
 #researchlevel 3
 #path 0 1
-#pathlevel 0 3
+#pathlevel 0 2
 #damage 5712 -- Zephyr
-#fatiguecost 400
+#fatiguecost 300
 #end
 
 #newspell
@@ -77034,20 +79220,19 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #newspell
 #name "Send Moirai"
-#descr "The caster bargains with the fates to send a Moirai to a distant province. There it will find an enemy commander and attempt to sever his thread of life. Moirai are the daughters of Nyx and are white robed incarnations of destiny. Amongst their many tasks is ensuring that mortals do not outlive their alloted lifespan. They appear as beautiful yet terrible maidens bearing swords of fire that can sear the soul. Any creature struck by such a weapon will be tied to its life thread, which will affect those claiming immortality and prevent them from returning if slain."
+#descr "The caster bargains with the fates to send a Moirai to a distant province. There it will search for a suitable commander and attempt to sever his thread of life.  If no suitable commander is found, the Moirai will return to the mage and kill him instead. A commander who is horror marked runs a greater risk of being chosen by the Moirai. Moirai are the daughters of Nyx and are white robed incarnations of destiny. Amongst their many tasks is ensuring that mortals do not outlive their alloted lifespan. They appear as beautiful yet terrible maidens bearing swords of fire that can sear the soul. Any creature struck by such a weapon will be tied to its life thread, which will affect those claiming immortality and prevent them from returning if slain."
 #school 0 
 #researchlevel 6
 #path 0 1
 #pathlevel 0 3
 #path 1 3
 #pathlevel 1 3
-#effect 10050 -- Farsummon Assassination
+#effect 10062 -- Farsummon Manifestation Assassination 
 #nreff 1
 #fatiguecost 1000
 #damage 5747 -- Moirai
 #provrange 3
 #end
-
 
 #newspell
 #name "Windwalkers Fly"
@@ -77139,7 +79324,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #notmnr 6233 -- Dragon King
 #notmnr 6236 -- Dragon King
 #notmnr 6237 -- Dragon King
-#notmnr 6322 -- Uriel
+#notmnr 5322 -- Uriel
 #notmnr 5234 -- Gabriel
 #notmnr 5350 -- Apkallu
 #notmnr 5352 -- Apkallu
@@ -77757,6 +79942,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #effect 23
 #damage 524288
 #fatiguecost 200
+#nogeosrc 4096 -- Not castable in caves.
 #spec 16512 -- AN, Ignores shields, Friendlies only, No effect on undead or lifeless
 #nextspell 79 -- Natural Rain
 #end
@@ -78127,8 +80313,8 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 
 #newspell
 #name "Weapons of Ice and Flame"
-#descr "The caster covers the weapons of the army with ice honed to a razor edge. The ice burns with blue flame that cuts through armor with ease. In rare cases the ice burns so intensely it will completely ignore the enemies armor and even defeat magical defenses such as Mistform or Ethereality."
-#details "Melee attacks deal AP damage, 5% of targets gain AN and Magic weapons instead"
+#descr "The caster covers the weapons of the army with ice honed to a razor edge. The ice burns with blue flame that cuts through armor with ease. In rare cases the ice burns so intensely it will completely ignore the enemies armor, but not magical defenses such as Mistform or Ethereality."
+#details "Melee attacks deal AP damage, 5% of targets gain AN weapons instead"
 #school 3
 #researchlevel 9
 #path 0 2
@@ -78168,6 +80354,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #effect 10082
 #nreff 1
 #damage 528
+#nogeosrc 4096 -- Not castable in caves.
 #fatiguecost 100
 #end
 
@@ -78510,6 +80697,7 @@ The Worm Lord has learnt all of magic that it can and now there is nothing left 
 #researchlevel 7
 #path 0 2
 #fatiguecost 4000
+#nogeodst 2052 -- Sea or Deep Sea
 #damage 21
 #spec 0
 #end
@@ -78737,7 +80925,7 @@ Dominion gain free Fortress or Bramble Fort (50% chance)."
 #fatiguecost 2800
 #effect 10001
 #damage 5659 -- Kobold
-#nreff 1020
+#nreff 3017
 #nextspell "10 Elite Kobolds"
 #onlygeosrc 4096 -- Cave
 #end
@@ -79368,12 +81556,12 @@ temple are destroyed. A Huge Crater site will also be created."
 #descr "The mage first fashions a large wooden idol and carves into it a twisted, leering visage. A great ritual is then performed which snares dark spirits of Sorcery and binds them to the structure in service to its creator. The idol is magically powerful and resistant to weapons. It cannot move, however the spirits can manifest for short periods to perform tasks or to defend against attack. The spirits will demand sacrifices from the local populace each month, and unrest will greatly increase in the province."
 #school 3
 #researchlevel 5
-#path 0 4
-#path 1 5
+#path 0 5
+#path 1 4
 #pathlevel 0 3
-#pathlevel 1 1
+#pathlevel 1 2
 #effect 10021
-#fatiguecost 2500
+#fatiguecost 3500
 #damage 5110
 #spec 8388608 -- Castable Underwater
 #nreff 1
@@ -79398,8 +81586,7 @@ temple are destroyed. A Huge Crater site will also be created."
 #newspell
 #name "Lunar Potency"
 #descr "The caster causes the moon to replace the sun in the sky. One month after the spell is cast a great Solar Eclipse will take place, however the sun will remain hidden behind the moon and only moonlight will light the world. The moon shines full and those that draw power from it will be cheaper to recruit. The enemies of the faith will see in the sky a baleful orb that brings a plague of werewolves and lunacy. The effects of this spell will be reduced if a second sun is in the sky. This enchantment lasts until someone dispels it or the caster dies."
-#details "Darkness as per Solar Eclipse occurs worldwide. Werewolves attack all enemy provinces (more likely in Forest provinces). Moon related units gain a gold rebate. Moon Mages will appear in friendly provinces. Friendly humanoid commanders may transform into a werewolf.
-Pretenders related to the Moon may generate Astral gems and gold each month. If cast by Uruk they gain 1 pearl/month and their bless gains Darkvision 50%"
+#details "Darkness as per Solar Eclipse occurs worldwide. Werewolves attack all enemy provinces (more likely in Forest provinces). Units that worship the moon may gain a gold rebate. Moon Mages will appear in friendly provinces. Friendly humanoid commanders may transform into a werewolf. Pretenders related to the Moon may generate Astral gems and gold each month. If cast by Uruk they gain 1 pearl/month and their bless gains Darkvision 50%"
 #school 4
 #researchlevel 7
 #path 0 4
@@ -79426,8 +81613,8 @@ Pretenders related to the Moon may generate Astral gems and gold each month. If 
 
 #newspell
 #name "Thief of Fortune"
-#descr "The caster twists the Strands of Fate to attract all good luck and fortune to themselves, leaving only misfortune and disaster for others. The Dominion of the True God will bring good fortune and joy to all, however lands owned by the false Pretenders will suffer misfortune. This enchantment lasts until someone dispels it or the caster dies."
-#details "Friendly Provinces with positive Dominion gain Luck scales each month. Enemy provinces gain Misfortune scales each month"
+#descr "The caster twists the Strands of Fate to attract all good luck and fortune to themselves, leaving only misfortune and disaster for others. The Dominion of the True God will bring good fortune and prosperity to all, however lands owned by the false Pretenders will suffer misfortune and calamity. This enchantment lasts until someone dispels it or the caster dies."
+#details "Friendly provinces under your Dominion gain Luck scales each month. Enemy provinces gain Misfortune scales each month. Each province generates 10% more tax per luck scale, and 10% less tax per misfortune scale whislt the enchantment is active."
 #school 1
 #researchlevel 7
 #path 0 4
@@ -79530,7 +81717,7 @@ Pretenders related to the Moon may generate Astral gems and gold each month. If 
 #newspell 
 #name "Astral Barrier"
 #descr "The caster creates a magical barrier weakening the local connection between the mortal sphere and the lower realms. Demonic creatures will begin to weaken and may become unconscious unless they can pierce the barrier and draw strength from the infernal planes once more. The duration of the weakening depends on the magic resistance of the targets."
-#details "Demons & some undead gain 2d8 fatigue each turn. MR +DRN vs 22 ends the effect."
+#details "Demons gain 2d8 fatigue each turn. MR +DRN vs 22 ends the effect."
 #school 5
 #researchlevel 7
 #path 0 4
@@ -79538,7 +81725,7 @@ Pretenders related to the Moon may generate Astral gems and gold each month. If 
 #effect 500
 #damage 250
 #aoe 666
-#spec 8405128 -- Undead & demons only, ignores shields and armor, May use UW
+#spec 8929416 -- Undead & demons only, Undead immune, ignores shields and armor, May use UW
 #nreff 1
 #fatiguecost 200
 #explspr 10250
@@ -79753,11 +81940,11 @@ Pretenders related to the Moon may generate Astral gems and gold each month. If 
 #path 0 4
 #pathlevel 0 4
 #path 1 0
-#pathlevel 1 3
+#pathlevel 1 1
 #nreff 1
 #effect 10083
 #damage -1
-#fatiguecost 3500
+#fatiguecost 2500
 #nextspell "Gateway to the Astral"
 #end
 
@@ -79875,15 +82062,15 @@ Pretenders related to the Moon may generate Astral gems and gold each month. If 
 #newspell
 #copyspell 590 -- Strands of Arcane Power
 #name "Music of the Spheres"
-#descr "This ritual allows an innately magical being to attune themselves to the movement of the Celestial spheres. This will bring them into harmony with the planes of magic, allowing them to cast magical spells with only a thought. The caster will become an Innate Caster, able to cast all spells in a single round. This spell can only be cast by creatures with a mind, and if the caster is not a magical being they will gain no benefit from the spell. The music of the spheres may have strange effects on those able to perceive it."
-#details "Grants Innate Caster 1."
+#descr "This ritual allows an innately magical being to attune themselves to the movement of the Celestial spheres. This will bring them into harmony with the planes of magic, allowing them to cast magical spells more easily and more quickly in combat. This spell can only be cast by creatures with a mind, and if the caster is not a magical being they will gain no benefit from the spell. The music of the spheres may have strange effects on those able to perceive it."
+#details "Grants Faster Spellcasting 25%."
 #school 5
 #researchlevel 8
 #path 0 4
 #pathlevel 0 4
-#effect 10500 -- +1
+#effect 10549 -- +50
 #nreff 1
-#damage 334 -- Innate Caster 1
+#damage 613 -- Fast Caster 50
 #fatiguecost 2500
 #spec 8388624 -- UWOK, Magic Beings only
 #nextspell "Void-Touched Insanity"
@@ -79932,6 +82119,8 @@ Pretenders related to the Moon may generate Astral gems and gold each month. If 
 #damage 121 -- Researchbonus
 #fatiguecost 1000
 #spec 8388608 --UW OK
+#restricted 74 -- R'lyeh
+#restricted 107 -- R'lyeh
 #nextspell "Void-Touched Insanity"
 #end
 
@@ -80268,18 +82457,36 @@ Pretenders related to the Moon may generate Astral gems and gold each month. If 
 #nextspell "Grey Host"
 #end
 
+-- #newspell
+-- #copyspell 1005 -- Terror
+-- #name "Visions of Horror"
+-- #descr "The caster releases a great quantity of death magic and grants every creature on the battlefield a vision of their own demise. This will affect all friends and enemies including the caster themselves, however mindless or undead creatures have no fear of death and will be unaffected. The targets are overwhelmed by fear and despair."
+-- #school 5
+-- #researchlevel 9
+-- #path 0 5
+-- #pathlevel 0 7
+-- #nreff 1
+-- #aoe 666
+-- #fatiguecost 200
+-- #spec 8913024 -- AN, Use UW, no effect on Undead
+-- #end
+
 #newspell
-#copyspell 1005 -- Terror
-#name "Visions of Horror"
-#descr "The caster releases a great quantity of death magic and grants every creature on the battlefield a vision of their own demise. This will affect all friends and enemies including the caster themselves, however mindless or undead creatures have no fear of death and will be unaffected. The targets are overwhelmed by fear and despair."
-#school 5
-#researchlevel 9
+#name "Vision of Horror"
+#descr "The caster calls spirits from the nether realm to visit the enemy with a vision of their own demise. This will affect a few enemy units at random, however mindless or undead creatures have no fear of death and will be unaffected. The targets may be overwhelmed by fear and despair."
+#details "Around 25% of enemy units suffer a Fear 1 attack (may cause morale checks). Cannot be cast again by anyone for a short while after casting. Does not stack with Wailing Winds."
+#researchlevel 5
+#school 4
 #path 0 5
-#pathlevel 0 7
+#pathlevel 0 4
+#path 1 1
+#pathlevel 1 1
+#effect 133
+#damage 12 -- Wailing Winds
+#fatiguecost 100
 #nreff 1
-#aoe 666
-#fatiguecost 200
-#spec 8913024 -- AN, Use UW, no effect on Undead
+#range 0
+#spec 0
 #end
 
 #newspell
@@ -80402,8 +82609,7 @@ Pretenders related to the Moon may generate Astral gems and gold each month. If 
 #copyspell 106 -- Record of Creation
 #name "Vessel of Misery"
 #descr "The caster performs a great ritual drawing malign energies from across the world and into a specially enchanted vessel. Out of the vessel will come foul beings of disease and misery to serve the caster. The spell will last until the turning of the year, however if the caster dies or the province falls to the enemy it will immediately be dispelled. Diseases, suffering and pains of all kinds are drained of some of their essence for as long as the enchantment remains, and each month permanent injuries will be healed across the world."
-#details "Each month summons 2D6 Diseased Soulless, 1D6 Apparitions, 1D3 Disease Demons and 1 Divine Mummy. 20% chance of Harvester
-of Sorrows commander. Each month also heals 5% of permanent injuries worldwide."
+#details "Each month summons 2D6 Diseased Soulless, 1D6 Apparitions, 1D3 Disease Demons and 1 Divine Mummy. 20% chance of Harvester of Sorrows commander. Each month also heals 5% of permanent injuries worldwide."
 #school 4
 #researchlevel 7
 #path 0 5
@@ -80412,7 +82618,7 @@ of Sorrows commander. Each month also heals 5% of permanent injuries worldwide."
 #pathlevel 1 2
 #effect 10140
 #damage 530
-#fatiguecost 4000
+#fatiguecost 5000
 #nreff 1
 #friendlyench 1
 #hiddenench 1
@@ -80462,7 +82668,7 @@ of Sorrows commander. Each month also heals 5% of permanent injuries worldwide."
 #newspell
 #name "Nature Power"
 #descr "With this spell a plant being draws power from the living plants and soil around them. This enables the mage to cast more powerful Nature magic spells. This spell cannot be cast in a wasteland."
-#details "Grants Nature Magic: +1"
+#details "Plant beings only, Grants Nature Magic: +1"
 #school 0
 #researchlevel 3
 #path 0 6
@@ -80480,7 +82686,7 @@ of Sorrows commander. Each month also heals 5% of permanent injuries worldwide."
 #newspell
 #name "Mantle of Ivy"
 #descr "The caster assumes a mantle of enchanted Ivy which grants him the aura of an ancient Ivy King. The forests and the Vine Men who live there perceive the wearer as an ancient Vine Lord and will gladly assist him. This is of great help when awakening vine creatures and will increase the effect of the Awaken Vine Men and Awaken Vine Ogre spells."
-#details "Grants Ivy Lord: +2"
+#details "Plant beings only, Grants Ivy Lord: +2"
 #school 0
 #researchlevel 5
 #path 0 6
@@ -80497,7 +82703,7 @@ of Sorrows commander. Each month also heals 5% of permanent injuries worldwide."
 #copyspell 1079 -- Blood Fecundity
 #name "Blessing of Gaia"
 #descr "A Plant being can call on the power of Gaia to infuse the province with life until the changing of the seasons. Plants and animals will grow at a greater rate and the soil will be ever fruitful. This ritual will increase the Growth scales in the province until the turning of the year, however it cannot be cast in a wasteland."
-#details "Growth +2. Duration: Until end of this year."
+#details "Plant beings only, Growth +2. Duration: Until end of this year."
 #school 4
 #researchlevel 5
 #effect 10140
@@ -80541,7 +82747,7 @@ of Sorrows commander. Each month also heals 5% of permanent injuries worldwide."
 #fatiguecost 40
 #casttime 50
 #reqspellsinger
-#spec 545919104 -- AN, MR Neg, No effect on Mindless/Undead/Lifeless, UW OK
+#spec 546181248 -- AN, MR Neg, No effect on friendlies or Mindless/Undead/Lifeless, UW OK
 #end
 
 #newspell
@@ -80757,16 +82963,45 @@ of Sorrows commander. Each month also heals 5% of permanent injuries worldwide."
 #notmnr 5354 -- Apkallu
 #end
 
+#selectmonster 487 -- Chimera
+#montag 5200
+#end
+
+
 #newspell
-#name "Become Giant"
-#descr "The caster permanently transforms themselves into the form of a Giant. The new body will be healthy and will retain the mind of the mage, along with any magical skills. Inanimate beings cannot change their form in this manner, and some especially powerful unique beings will resist attempts to change their form and cannot be affected."
+#name "Become Great Beast"
+#descr "The caster permanently transforms themselves into the form of a gigantic and powerful beast, however the exact form varies and may differ from mage to mage. The new body will be healthy and will retain the mind of the mage, along with any magical skills. Inanimate beings cannot change their form in this manner, and some especially powerful unique beings will resist attempts to change their form and cannot be affected."
 #details "Lost limbs are still lost after the transformation."
 #school 1
 #researchlevel 6
 #path 0 6
 #pathlevel 0 4
 #effect 10130
-#fatiguecost 2000
+#fatiguecost 1800
+#damage -5200
+#nreff 1
+#nextspell "Renewal"
+#spec 536870912 -- No effect on Lifeless
+#notmnr -5198
+#notmnr 6236 -- Dragon King
+#notmnr 6237 -- Dragon King
+#notmnr 5325 -- Raphael
+#notmnr 5351 -- Apkallu
+#notmnr 5354 -- Apkallu
+#end
+
+#newspell
+#name "Become Giant"
+#descr "The caster permanently transforms themselves into the form of a Giant. The new body will be healthy and will retain the mind of the mage, along with any magical skills. Inanimate beings cannot change their form in this manner, and some especially powerful unique beings will resist attempts to change their form and cannot be affected."
+#details "Lost limbs are still lost after the transformation."
+#school 1
+#researchlevel 7
+#path 0 6
+#pathlevel 0 4
+#path 1 4
+#pathlevel 1 1
+#effect 10130
+#fatiguecost 2500
 #damage 5551 -- Transformed Giant
 #nreff 1
 #nextspell "Renewal"
@@ -80831,14 +83066,26 @@ of Sorrows commander. Each month also heals 5% of permanent injuries worldwide."
 #newspell
 #copyspell 727 -- Summon Lesser Fire Elemental
 #name "Carnivorous Plants"
-#descr "The caster grows a few plants to the size of a man and imbues them with the ability to move in a limited fashion. The plants created are covered in poisonous spines and can spit poison. They will remain rooted to the ground however they will attack any living creature that comes near. Although they respond to movement they are totally mindless and will wither away at the end of the battle. This spell can only be cast in a forested province."
+#descr "The caster grows a few plants to the size of a man and imbues them with the ability to move in a limited fashion. The plants created are covered in poisonous spines and can spit poison. They will remain rooted to the ground however they will attack any living creature that comes near. Although they respond to movement they are totally mindless and will wither away at the end of the battle. If cast in a forested province the plants will be stronger and able to spit their poison further."
 #school 1
 #researchlevel 4
 #path 0 6
-#pathlevel 0 3
-#nreff 2004
+#pathlevel 0 2
+#nreff 1003
 #damage 5365
-#onlygeosrc 128 -- Forest
+#nextingeo 128 -- Forest
+#range 5
+#sound 44
+#end
+
+#newspell
+#name "Forest Plants"
+#school -1
+#researchlevel 0
+#nreff 5
+#effect 1
+#damage 5365
+#fatiguecost 0
 #range 5
 #sound 44
 #end
@@ -81074,6 +83321,17 @@ of Sorrows commander. Each month also heals 5% of permanent injuries worldwide."
 #end
 
 #newspell
+#copyspell 744 -- Pack of Lions
+#name "Flock of Ostriches"
+#descr "The caster summons a flock of Ostriches and binds them to his service."
+#researchlevel 2
+#pathlevel 0 1
+#fatiguecost 500
+#damage 5940 -- Ostriches
+#nreff 1006
+#end
+
+#newspell
 #name "Lifeforce Infusion"
 #descr "Stream of Life 10 percent chance kill"
 #school -1
@@ -81252,11 +83510,11 @@ of Sorrows commander. Each month also heals 5% of permanent injuries worldwide."
 #path 0 6
 #path 1 0
 #pathlevel 0 5
-#pathlevel 1 2
+#pathlevel 1 3
 #effect 10081
 #damage 489
 #nreff 1
-#fatiguecost 6500
+#fatiguecost 7500
 #spec 8388608 -- UWOK
 #end
 
@@ -81510,7 +83768,7 @@ of Sorrows commander. Each month also heals 5% of permanent injuries worldwide."
 #newspell
 #name "End the Deep Slumber"
 #descr "The Ivy Kings lived long before the coming of man, but fell into a deep slumber ages ago. The vine men followed their Kings to sleep and were all but forgotten. However, a plant being powerful enough could take on the mantle of the ancient kings, end the slumber and reawaken these ancient creatures to fight once more. Upon casting this enchantment the ancient vine kingdoms will begin  to reemerge from their forests once more. This enchantment lasts until someone dispels it or the caster dies."
-#details "Friendly forest provinces with no death scales may produce vine creatures each month. Higher growth scales increase the chance and quantity of creatures. Up to 1 Ivy King may join in a Growth 3 forest."
+#details "Plant beings only, Friendly forest provinces with no death scales may produce vine creatures each month. Higher growth scales increase the chance and quantity of creatures. Up to 1 Ivy King may join in a Growth 3 forest."
 #school 0
 #researchlevel 7
 #path 0 6
@@ -81580,34 +83838,35 @@ of Sorrows commander. Each month also heals 5% of permanent injuries worldwide."
 #end
 
 #newspell
-#name "Starve Army"
+#name "Starvation Pangs"
 #nreff 1
 #effect 11
 #damage 4 -- Starvation
-#aoe 666
+#aoe 1
 #spec 546066560 -- AN, UWOK, MR Negates, ignores shields, Enemies only, No effect on lifeless or undead
 #end
 
 #newspell
+#copyspell 982 -- Fascination
 #name "Curse of Limos"
-#descr "The caster calls to Limos, Queen of Hunger in her gloomy home in the underworld. Her stale breath washes over the enemy army and they are afflicted with a crippling hunger. The hunger pangs will sap the strength and morale of the enemy soldiers, however those with a strong will can resist the effects."
+#descr "The caster calls to Limos, Queen of Hunger in her gloomy home in the underworld. Her stale breath washes over a group of enemy soldiers and they are afflicted with a crippling hunger. The hunger pangs will sap the strength and morale of the enemy soldiers, however those with a strong will can resist the effects."
 #details "Inflicts 3 Strength damage and Starvation causing -4 morale"
 #school 1
-#researchlevel 7
+#researchlevel 6
 #path 0 6
-#pathlevel 0 4
+#pathlevel 0 2
 #path 1 5
 #pathlevel 1 2
 #nreff 1
 #effect 67
 #damage 3
-#range 0
-#aoe 666
+#range 30
+#aoe 15
 #explspr 10059
 #sound 23 -- Doom
-#fatiguecost 200
+#fatiguecost 40
 #spec 546066560 -- AN, UWOK, MR Negates, ignores shields, Enemies only, No effect on lifeless or undead
-#nextspell "Starve Army"
+#nextspell "Starvation Pangs"
 #end
 
 #newspell
@@ -81734,20 +83993,20 @@ of Sorrows commander. Each month also heals 5% of permanent injuries worldwide."
 
 #newspell
 #name "Cleasing Ritual"
-#descr "The priest performs the ultimate sacrifice and gives their life to heal a place of great darkness. This spell removes a Well of Pestilence located in the province, returning the land to a natural order. At the culmination of the ritual the caster will pour their holy essence into the well to close it forever, however the Priest will be killed as a result. The well will give up a hoard of death gems upon closing. This spell can only be cast at a Well of Pestilence."
+#descr "The priest performs the ultimate sacrifice and gives their life to heal a place of great darkness. This spell removes a Well of Pestilence located in the province, returning the land to a natural order. At the culmination of the ritual the caster will pour their holy essence into the well to close it forever, however the foulness of the place may overwhelm the Priest performing the ritual. The well will give up a hoard of death gems upon closing. This spell can only be cast at a Well of Pestilence."
 #school -1
 #researchlevel 0
 #effect 10042
 #damage 262
 #fatiguecost 0
 #nreff 1
-#nextspell "Kill Caster"
+#nextspell "Kill Caster MR Negates"
 #end
 
 #newspell
 #copyspell 106 -- Record of Creation
 #name "Cleanse Well of Pestilence"
-#descr "The priest performs the ultimate sacrifice and gives their life to heal a place of great darkness. This spell removes a Well of Pestilence located in the province, returning the land to a natural order. At the culmination of the ritual the caster will pour their holy essence into the well to close it forever, however the Priest will be killed as a result. The well will give up a hoard of death gems upon closing. This spell can only be cast at a Well of Pestilence."
+#descr "The priest performs the ultimate sacrifice and gives their life to heal a place of great darkness. This spell removes a Well of Pestilence located in the province, returning the land to a natural order. At the culmination of the ritual the caster will pour their holy essence into the well to close it forever, however the foulness of the place may overwhelm the Priest performing the ritual. The well will give up a hoard of death gems upon closing. This spell can only be cast at a Well of Pestilence."
 #details "Creates 2D6 death gems."
 #school 4
 #researchlevel 5
@@ -82005,14 +84264,28 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #fatiguecost 8800
 #end
 
+
+#newspell
+#copyspell 1062 -- Spine Devil
+#name "Bind Mantis Horrors"
+#descr "Horrors are astral beings that feed on the emotions of suffering, lamentation and fear. They cannot exist in this world for long except where strong magic is present. Through certain nameless rituals it is possible to draw a horror to possess a living host, enabling it to remain for longer periods. With this rital the caster first ensnares several gigantic mantis, then summons and binds Horrors to possess the unfortunate creatures. The process will create an unholy melding of mortal and horror, the creature's spirit subsumed by the being inhabiting it. Whilst possessed it will strike with magical claws, and any that attack it may be touched by the Horror within. Upon death the body of the mantis will explode in a blast of astral energies as the horror inside returns to the astral realm."
+#researchlevel 4
+#pathlevel 0 2
+#path 1 6
+#pathlevel 1 1
+#nreff 1003
+#damage 5944 -- Horrorbound Mantis
+#fatiguecost 1800
+#end
+
 #newspell
 #copyspell 1071 -- Cross Breeding
 #name "Advanced Cross Breeding"
 #descr "Hundreds of different creatures from mice to humans are magically cross-bred and grown in an effort to produce a powerful monster. Most offspring die early, but some survive and are bound to serve their creator. Luck is required to breed the more powerful creatures."
 #researchlevel 5
 #pathlevel 0 2
-#pathlevel 1 2
-#nreff 2021
+#pathlevel 1 1
+#nreff 3034
 #fatiguecost 1500
 #end
 
@@ -82025,8 +84298,8 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #path 0 7
 #path 1 6
 #pathlevel 0 3
-#pathlevel 1 3
-#fatiguecost 4500
+#pathlevel 1 1
+#fatiguecost 3500
 #damage -10 -- Good Crossbreed
 #end
 
@@ -82229,7 +84502,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #precision 5
 #casttime 100
 #fatiguecost 25
-#spec 17592732143744 -- AN, Ignore shields, Enemy Sacreds only, UWOK, MR Negates, Undead and lifeless immune, MR-Hard Neg
+#spec 17592732139648 -- AN, Ignore shields, Enemy Sacreds only, UWOK, Undead and lifeless immune, MR-Hard Neg
 #godpathspell 7
 #end
 
@@ -82432,11 +84705,12 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #pathlevel 0 1
 #path 1 4
 #pathlevel 1 1
-#nreff 3
+#nreff 2
 #damage 8
 #fatiguecost 10
 #casttime 100
 #godpathspell 4
+#nogeosrc 4096 -- Cave
 #end
 
 #newspell
@@ -82544,10 +84818,6 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #selectspell 166 -- Smite Demon
 #godpathspell -1 -- Only use when no paths over 4
 #spec 17592194973832 -- Demons Only, AN, MR-Hard Neg, Ignores Shields, UWOK
-#end
-
-#selectspell 167 -- Holy Word
-#godpathspell -1 -- Only use when no paths over 4
 #end
 
 #newspell
@@ -82817,8 +85087,10 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #researchlevel 7
 #aoe 1
 #fatiguecost 40
-#spec 10506368 -- MR negates, ignores armor & shields, Use UW, hard to hit Ethereal
+#spec 10506624 -- MR negates, Slays Soul, ignores armor & shields, Use UW, hard to hit Ethereal
 #restricted 5 -- EA Arco
+#restricted 43 -- MA Arco
+#restricted 80 -- LA Arco
 #end
 
 #newspell
@@ -82838,6 +85110,8 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #sound 23 -- Doom
 #spec 25444480 -- MR Negates easily, ignores armour & shields, Use UW, Enemies Only
 #restricted 5 -- EA Arco
+#restricted 43 -- MA Arco
+#restricted 80 -- LA Arco
 #end
 
 #newspell
@@ -83217,7 +85491,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #copyspell 606 -- Resist Cold
 #name "Cursed Luck"
 #descr "With this spell an enemy army will be permanently afflicted with bad luck. Any magical luck affecting the enemy army will be dispelled, and for the next 5 turns they will be more likely to be hit and to suffer high damage in combat. They will also be cursed for the rest of their natural lives and will be more likely to suffer permanent injuries."
-#researchlevel 6
+#researchlevel 7
 #path 0 4
 #pathlevel 0 5
 #damage 255
@@ -83743,23 +86017,23 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #restricted 6 -- EA Ermor
 #end
 
-#newspell
-#name "Wails of the Damned"
-#descr "This spell returns the spirits of those that have died in the Ascension wars to this world. Wherever a battle occurs wailing spectres will gather and frighten the participants. All those hearing the wailing will feel their spirits sink and have their hearts gripped with fear. The spell affects all troops wherever a battle occurs in the world. Within friendly Dominion Wailing Ladies will manifest to lament the destruction of the old empire and the coming of the hungry God. This enchantment lasts until someone dispels it or the caster dies."
-#details "Wailing Winds triggers in every battle worldwide, 20% chance a Wailing Lady appears in each friendly province each month"
-#school 2
-#researchlevel 9
-#path 0 5
-#path 1 1
-#pathlevel 0 5
-#pathlevel 1 3
-#effect 10081
-#damage 12 -- Wailing Winds
-#nreff 1
-#fatiguecost 15000
-#restricted 44 -- MA Ermor
-#restricted 82 -- LA Lemuria
-#end
+-- #newspell
+-- #name "Wails of the Damned"
+-- #descr "This spell returns the spirits of those that have died in the Ascension wars to this world. Wherever a battle occurs wailing spectres will gather and frighten the participants. All those hearing the wailing will feel their spirits sink and have their hearts gripped with fear. The spell affects all troops wherever a battle occurs in the world. Within friendly Dominion Wailing Ladies will manifest to lament the destruction of the old empire and the coming of the hungry God. This enchantment lasts until someone dispels it or the caster dies."
+-- #details "Wailing Winds triggers in every battle worldwide, 20% chance a Wailing Lady appears in each friendly province each month"
+-- #school 2
+-- #researchlevel 9
+-- #path 0 5
+-- #path 1 1
+-- #pathlevel 0 5
+-- #pathlevel 1 3
+-- #effect 10081
+-- #damage 12 -- Wailing Winds
+-- #nreff 1
+-- #fatiguecost 15000
+-- #restricted 44 -- MA Ermor
+-- #restricted 82 -- LA Lemuria
+-- #end
 
 #selectspell 992
 #notfornation 6 -- EA Ermor
@@ -83892,6 +86166,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #restricted 7 -- EA Ulm
 #restricted 49 -- MA Ulm
 #restricted 84 -- LA Ulm
+#spec 12599296 -- UWOK, friendlies only, ignores shields
 #end
 
 #newspell
@@ -84292,6 +86567,15 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 
 -- MARVERNI
 
+#selectnation 8 -- Marverni
+#startcom 1215 -- Marverni Chieftain
+#startunittype1 1214 -- Marverni Noble
+#startunitnbrs1 10
+#startunittype2 1212 -- Marverni Javelineer
+#startunitnbrs2 15
+#startscout 426 -- Scout
+#end
+
 #newspell 
 #copyspell 617 -- Cheat Fate
 #name "Fate of the Druids"
@@ -84343,6 +86627,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #spec 12599296 -- Ignore shields, friendlies only, use UW
 #fatiguecost 200
 #restricted 8 -- Marverni
+#restricted 128 -- Albion
 #restricted 58 -- MA Pangaea
 #end
 
@@ -84367,7 +86652,6 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #pathlevel 0 2
 #aoe 15
 #fatiguecost 40
-#restricted 128 -- Albion
 #end
 
 #newspell
@@ -84390,7 +86674,6 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #spec 12599296 -- Ignore shields, Friendly only, UWOK
 #restricted 8
 #restricted 9
-#restricted 128 -- Albion
 #end
 
 #newspell
@@ -84443,6 +86726,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #copyspell 724 -- Pack of Wolves
 #name "Summon Picts"
 #descr "The caster enters a deep forest and calls a group of Picts to emerge and serve the Awakening God. The Picts are an isolated tribe that lives in the frigid corner of an ancient island. Long ago they retreated to their isle and became creatures of myth and legend. The Picts adorn themselves with tattoos daubed in blue woad, a special paint made from sacred herbs that grow only on their island, and which they believe will grant them fortune in battle. Pictish warriors are revered for the sacred Woad they wear."
+#researchlevel 3
 #path 1 8
 #pathlevel 1 1
 #nreff 508
@@ -84489,13 +86773,14 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 
 #newspell
 #name "Read the Stars"
-#descr "To the druids of Marverni the movement of the sun and the stars reveals the shape of things to come. Great rituals are planned around the changing of the seasons and the stars are used to predict the future. This enchantment allows the druids to increase the chance of good events within friendly Dominion. In addition the Druids will be able to erect Standing Stones that can channel magical energy. This enchantment lasts until someone dispels it or the caster dies."
+#descr "To the druids the movement of the sun and the stars reveals the shape of things to come. Great rituals are planned around the changing of the seasons and the stars are used to predict the future. This enchantment allows the druids to increase the chance of good events within friendly Dominion. In addition druids will be able to erect Standing Stones that can channel magical energy. This enchantment lasts until someone dispels it or the caster dies."
 #details "Luck scales increase in friendly Dominion. Provinces containing an Elder Druid or Druid have a 5-10% chance to gain a Druid Circle or Standing Stones site each month."
 #school 4
 #researchlevel 6
 #path 0 4
 #pathlevel 0 5
 #restricted 8 -- Marverni
+#restricted 128 -- Albion
 #effect 10081
 #damage 459 -- Read the Stars
 #nreff 1
@@ -84807,6 +87092,26 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #addforeignunit 5542 -- Kheshig
 #end
 
+#selectitem 618
+#copyitem 266 -- Rabbit Foot Charm
+#spr "./MagicEnhanced/EEITCCharm.tga"
+#name "Auspicious Charm"
+#descr "This powerful charm in the form of a coin will bring good luck, long life and good results in the imperial examination system to the bearer. Should ill fortune occur it will be magically deflected and the wearer will be unharmed, but only once in a short period. In addition they will receive a servant from the Celestial realm to attend to their earthly needs. The servant will be large and eager to serve, but not very bright and may eat the bearer out of house and home."
+#constlevel 2
+#secondarypath 3
+#secondarylevel 1
+#itemcost1 -60
+#itemcost2 -80
+#supplybonus -3
+#batstartsum1 903 -- Celestial Servant
+#restricted 52
+#end
+
+#selectmonster 793 -- Prince General
+#gcost 230
+#magicskill 8 1
+#end
+
 #newspell
 #copyspell 877 -- Reanimation
 #name "Reanimation"
@@ -84847,6 +87152,30 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #damage -1796 -- TC National Longdead
 #end
 
+#selectspell 877 -- Reanimation
+#notfornation 10 -- EA Tien Chi
+#notfornation 52 -- MA Tien Chi
+#notfornation 87 -- LA Tien Chi
+#end
+
+#selectspell 875 -- Animate Skeleton
+#notfornation 10 -- EA Tien Chi
+#notfornation 52 -- MA Tien Chi
+#notfornation 87 -- LA Tien Chi
+#end
+
+#selectspell 893 -- Raise Skeletons
+#notfornation 10 -- EA Tien Chi
+#notfornation 52 -- MA Tien Chi
+#notfornation 87 -- LA Tien Chi
+#end
+
+#selectspell 920 -- Horde of Skeletons
+#notfornation 10 -- EA Tien Chi
+#notfornation 52 -- MA Tien Chi
+#notfornation 87 -- LA Tien Chi
+#end
+
 #newspell
 #copyspell 907 -- Poison Ward
 #name "Alchemical Preparation"
@@ -84869,7 +87198,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #pathlevel 1 -1
 #fatiguecost 500
 #damage -5192 -- Terracotta Warriors
-#nreff 1004
+#nreff 2004
 #restricted 10 -- EA Tien Chi
 #restricted 52 -- MA Tien Chi
 #restricted 87 -- LA Tien Chi
@@ -85111,6 +87440,21 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 
 #newspell
 #copyspell 898 -- Terracotta Army
+#name "Lesser Mercury"
+#descr "Independent of each other the Oracles of the deeper earth and the alchemists of T'ien Ch'i have discovered the means to distill and animate the liquid silver of the deeps. Mercury is an inherently magical substance associated with change, fluidity and perfection. The liquid metal can be enchanted however only in small quantities without the proper rituals. The Living Mercury shrinks when damaged. It is surrounded by fumes detrimental to living beings."
+#researchlevel 3
+#path 0 2
+#pathlevel 0 1
+#path 1 3
+#pathlevel 1 1
+#fatiguecost 300
+#nreff 1
+#damage 2517 -- Living Mercury Size 3
+#restricted 52 -- MA TC
+#end
+
+#newspell
+#copyspell 898 -- Terracotta Army
 #name "Terracotta Legion"
 #descr "The caster opens the Tomb of the First Emperor in the capital city. Within are ranks of terracotta warriors, horsemen and even chariots that the caster will animate to serve in the battle for Ascension."
 #researchlevel 5
@@ -85246,7 +87590,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #newspell
 #name "The Four Holy Beasts"
 #descr "The Four Holy Beasts are legendary Guardian animals that appear in times of great peril to defend the land. They consist of the White Tiger of the West, the Azure Dragon of the East, the Vermillion Bird of the South and the Black Tortoise of the North. All of the Legendary animals are revered by the populace and soldiers fighting alongside them will be filled with pride. The blessing of the Beasts will manifest in the capital and strengthen the nation against aggressors."
-#details "Blessing of the Holy Beasts grants +5 Fire, Shock, Cold and Poison resist to bless, Conjuration bonus 20% and +2 Ritual range in capital."
+#details "Blessing of the Holy Beasts grants +5 Fire, Shock, Cold and Poison resist to bless, Conjuration bonus 20% and +2 Elemental Ritual range in capital."
 #school 0
 #researchlevel 9
 #path 0 6
@@ -85263,7 +87607,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #newspell
 #name "The Four Holy Beasts"
 #descr "The Four Holy Beasts are legendary Guardian animals that appear in times of great peril to defend the land. They consist of the White Tiger of the West, the Azure Dragon of the East, the Vermillion Bird of the South and the Black Tortoise of the North. All of the Legendary animals are revered by the populace and soldiers fighting alongside them will be filled with pride. The blessing of the Beasts will manifest in the capital and strengthen the nation against aggressors."
-#details "Blessing of the Holy Beasts grants +5 Fire, Shock, Cold and Poison resist to bless, Conjuration bonus 20% and +2 Ritual range in capital."
+#details "Blessing of the Holy Beasts grants +5 Fire, Shock, Cold and Poison resist to bless, Conjuration bonus 20% and +2 Elemental Ritual range in capital."
 #school 0
 #researchlevel 9
 #path 0 6
@@ -85280,7 +87624,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #newspell
 #name "The Four Holy Beasts"
 #descr "The Four Holy Beasts are legendary Guardian animals that appear in times of great peril to defend the land. They consist of the White Tiger of the West, the Azure Dragon of the East, the Vermillion Bird of the South and the Black Tortoise of the North. All of the Legendary animals are revered by the populace and soldiers fighting alongside them will be filled with pride. The blessing of the Beasts will manifest in the capital and strengthen the nation against aggressors."
-#details "Blessing of the Holy Beasts grants +5 Fire, Shock, Cold and Poison resist to bless, Conjuration bonus 20% and +2 Ritual range in capital."
+#details "Blessing of the Holy Beasts grants +5 Fire, Shock, Cold and Poison resist to bless, Conjuration bonus 20% and +2 Elemental Ritual range in capital."
 #school 0
 #researchlevel 9
 #path 0 6
@@ -85297,7 +87641,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #newspell
 #name "The Four Holy Beasts"
 #descr "The Four Holy Beasts are legendary Guardian animals that appear in times of great peril to defend the land. They consist of the White Tiger of the West, the Azure Dragon of the East, the Vermillion Bird of the South and the Black Tortoise of the North. All of the Legendary animals are revered by the populace and soldiers fighting alongside them will be filled with pride. The blessing of the Beasts will manifest in the capital and strengthen the nation against aggressors."
-#details "Blessing of the Holy Beasts grants +5 Fire, Shock, Cold and Poison resist to bless, Conjuration bonus 20% and +2 Ritual range in capital."
+#details "Blessing of the Holy Beasts grants +5 Fire, Shock, Cold and Poison resist to bless, Conjuration bonus 20% and +2 Elemental Ritual range in capital."
 #school 0
 #researchlevel 9
 #path 0 6
@@ -85314,7 +87658,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #newspell
 #name "The Four Holy Beasts"
 #descr "The Four Holy Beasts are legendary Guardian animals that appear in times of great peril to defend the land. They consist of the White Tiger of the West, the Azure Dragon of the East, the Vermillion Bird of the South and the Black Tortoise of the North. All of the Legendary animals are revered by the populace and soldiers fighting alongside them will be filled with pride. The blessing of the Beasts will manifest in the capital and strengthen the nation against aggressors."
-#details "Blessing of the Holy Beasts grants +5 Fire, Shock, Cold and Poison resist to bless, Conjuration bonus 20% and +2 Ritual range in capital."
+#details "Blessing of the Holy Beasts grants +5 Fire, Shock, Cold and Poison resist to bless, Conjuration bonus 20% and +2 Elemental Ritual range in capital."
 #school 0
 #researchlevel 9
 #path 0 6
@@ -85331,7 +87675,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #newspell
 #name "The Four Holy Beasts"
 #descr "The Four Holy Beasts are legendary Guardian animals that appear in times of great peril to defend the land. They consist of the White Tiger of the West, the Azure Dragon of the East, the Vermillion Bird of the South and the Black Tortoise of the North. All of the Legendary animals are revered by the populace and soldiers fighting alongside them will be filled with pride. The blessing of the Beasts will manifest in the capital and strengthen the nation against aggressors."
-#details "Blessing of the Holy Beasts grants +5 Fire, Shock, Cold and Poison resist to bless, Conjuration bonus 20% and +2 Ritual range in capital."
+#details "Blessing of the Holy Beasts grants +5 Fire, Shock, Cold and Poison resist to bless, Conjuration bonus 20% and +2 Elemental Ritual range in capital."
 #school 0
 #researchlevel 9
 #path 0 6
@@ -85458,7 +87802,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #end
 
 #newspell
-#copyspell 938 -- Dome of Arcane Warding
+#copyspell 946 -- Lion Sentinels
 #name "Create Fire Lances"
 #descr "The sages of T'ien Ch'i know the secret to creating a burning powder that can be used in war. Over centuries the Alchemists have refined the formula and learnt to enhance it with fire magic to create a powerful destructive force. The caster creates an alchemical preparation area for Fire Lances and training grounds are prepared in the province for their use. These weapons can then be used by specially trained soldiers of the Imperial army. Once the spell is cast the effect will remain until the caster dies or the province falls to enemy hands."
 #school 3
@@ -85466,7 +87810,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #path 0 0
 #path 1 3
 #effect 10084
-#pathlevel 0 2
+#pathlevel 0 1
 #pathlevel 1 1
 #fatiguecost 2000
 #damage 521 -- Create Fire Lances
@@ -85477,11 +87821,11 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 
 #newspell
 #name "Divine-Fire-Dragons"
-#descr "The sages of T'ien Ch'i know the secret to creating a burning powder that can be used in war. Over centuries the Alchemists have refined the formula and learnt to enhance it with fire magic to create a powerful destructive force. The caster creates several tubes with ornate dragon-heads and packs them with the enhanced burning-powder. These contraptions are carried to war by specially trained imperial soldiers. When the powder is ignited a great blast of flames will erupt from the weapon, burning anything in front of them. Only the Celestial City has the resources required in the manufacture of the Divine-Fire-Dragons."
+#descr "The sages of T'ien Ch'i know the secret to creating a burning powder that can be used in war. Over centuries the Alchemists have refined the formula and learnt to enhance it with fire magic to create a powerful destructive force. The caster creates several tubes with ornate dragon-heads and packs them with the enhanced burning-powder. These contraptions are carried to war by specially trained imperial soldiers. When the powder is ignited a great blast of flames will erupt from the weapon, burning anything in front of them."
 #school 3
 #researchlevel 5
 #path 0 0
-#pathlevel 0 2
+#pathlevel 0 1
 #path 1 3
 #pathlevel 1 1
 #effect 10001
@@ -85489,7 +87833,6 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #damage 5645 -- Divine Fire Dragons
 #fatiguecost 1000
 #restricted 52 -- MA Tien Chi
-#onlyatsite 51 -- Celestial City
 #end
 
 #newspell
@@ -85498,7 +87841,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #school 3
 #researchlevel 7
 #path 0 0
-#pathlevel 0 3
+#pathlevel 0 2
 #path 1 3
 #pathlevel 1 2
 #effect 10001
@@ -85511,10 +87854,123 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 
 --  MACHAKA
 
+#selectnation 11 -- EA Machaka
+#startcom 2289 -- Rhino Clan Commander
+#startunittype1 2305 -- Lion Clan Warriors
+#startunitnbrs1 15
+#startunittype2 2299 -- Bird Clan Archer
+#startunitnbrs2 15
+#startscout 2288 -- Machaka Scout
+#end
+
+#selectnation 53 -- MA Machaka
+#startcom 883 -- Machaka Commander
+#startunittype1 882 -- Machaka Hoplite
+#startunitnbrs1 10
+#startunittype2 879 -- Machaka Archer
+#startunitnbrs2 15
+#startscout 2288 -- Machaka Scout
+#end
+
+#selectmonster 891 -- Sorceress
+#clearmagic
+#magicskill 0 1
+#magicskill 3 1
+#magicskill 5 1
+#custommagic 13440 100 -- 100%FEDN
+#custommagic 13440 10 -- 10%FEDN
+#end
+
 #selectspell 254 -- Herd of Elephants
 #fatiguecost 1800
 #restricted 168 -- Gondwana
 #restricted 135 -- Arrada
+#end
+
+#selectmonster 885 -- Spider Rider
+#unsurr 2
+#end
+
+#selectmonster 886 -- Spider Knight
+#unsurr 2
+#end
+
+#selectmonster 887 -- Spider Lord
+#unsurr 2
+#end
+
+#selectmonster 898 -- Spider Form
+#unsurr 2
+#end
+
+#selectmonster 947 -- Spider Form
+#unsurr 2
+#end
+
+#selectmonster 2308-- Spider Rider
+#unsurr 2
+#end
+
+#selectmonster 889 -- Black Hunter
+#cleararmor
+#clearweapons
+#spr1 "./MagicEnhanced/EE_BHunter.tga"
+#spr2 "./MagicEnhanced/EE_BHunter2.tga"
+#descr "In the God Forest, monstrous spiders are caught and trained by Machakan sorcerers. These huge beasts carry the Black Hunters, sacred warriors in full plate armor. From atop their gigantic steeds they survey the battlefield. The hunter spider can entangle nearby enemies in webs."
+#lizard
+#unsurr 2
+#hp 55
+#prot 16
+#str 18
+#def 10
+#mr 9
+#rcost 25
+#poisonres 15
+#animal
+#secondshape 0
+#xploss 0
+#eyes 8
+#weapon 148 -- Spider Claw
+#weapon 65 -- Venomous Fangs
+#weapon 261 -- Web
+#weapon 437 -- Long Spear
+#end
+
+#selectmonster 890 -- Hunter Lord
+#cleararmor
+#clearweapons
+#spr1 "./MagicEnhanced/EE_BHunter.tga"
+#spr2 "./MagicEnhanced/EE_BHunter2.tga"
+#descr "In the God Forest, monstrous spiders are caught and trained by Machakan sorcerers. These huge beasts carry the Black Hunters, sacred warriors in full plate armor. From atop their gigantic steeds they survey the battlefield. The hunter spider can entangle nearby enemies in webs."
+#lizard
+#unsurr 2
+#hp 55
+#prot 16
+#str 18
+#def 10
+#mr 10
+#rcost 25
+#poisonres 15
+#animal
+#secondshape 0
+#secondtmpshape 0
+#xploss 0
+#eyes 8
+#itemslots 12288 -- 2 misc
+#weapon 148 -- Spider Claw
+#weapon 65 -- Venomous Fangs
+#weapon 261 -- Web
+#weapon 437 -- Long Spear
+#end
+
+#selectmonster 899 -- Hunter Spider
+#unsurr 2
+#str 18
+#end
+
+#selectmonster 2208 -- Hunter Spider
+#unsurr 2
+#str 18
 #end
 
 #newspell
@@ -85563,7 +88019,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #path 1 8
 #pathlevel 1 1
 #range 0
-#aoe 5005
+#aoe 25
 #damage 256
 #fatiguecost 50
 #sound 78 -- Lion
@@ -86216,14 +88672,15 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #newspell
 #copyspell 619 -- Enlarge
 #name "Imbue with N'um"
-#descr "The caster performs a ritual to imbue an animal with N'um, sacred energy. The creature will increase in size as it is infused with energy and will manifest the blessing of the Lord, even if not sacred. This spell only works on animals."
+#descr "The caster performs a ritual to imbue an animal with N'um, sacred energy. The creature will increase in size as it is infused with energy and will manifest the blessing of the Lord, even if not sacred. This spell will only affect animals."
 #details "Target is blessed, gains Size +1, HP +30%, Str +3, Def -1, Map move +2."
-#researchlevel 3
+#researchlevel 0
+#school 7
 #pathlevel 0 3
 #path 1 8
 #pathlevel 1 1
 #fatiguecost 30
-#aoe 0
+#aoe 1000
 #range 5
 #damage 2147483649 -- Enlarge & Bless
 #precision 100
@@ -86256,6 +88713,14 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 
 -- MICTLAN
 
+#selectmonster 725 -- Sun warrior (EA & MA Mictlan)
+#sunawe 1
+#end
+
+#selectmonster 735 -- Sun High Priest
+#sunawe 1
+#end
+
 #selectspell 391 -- Summon Jaguars
 #nreff 517
 #end
@@ -86273,6 +88738,10 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 
 #selectsite 103 -- High Temple of Rain
 #homemon 5731 -- Monster Toad
+#end
+
+#selectnation 86 -- LA Mictlan
+#coastunit1 1423 -- Rain Warrior
 #end
 
 #selectmonster 1420
@@ -86508,6 +88977,165 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 
 
 --  ABYSIA
+
+
+#selectmonster 81 -- Aby Infantry
+#neednoteat
+#end
+
+#selectmonster 82 -- Aby Infantry
+#neednoteat
+#end
+
+#selectmonster 83 -- Aby Infantry
+#neednoteat
+#end
+
+#selectmonster 84 -- Aby Infantry
+#neednoteat
+#end
+
+#selectmonster 85 -- A Salamander
+#neednoteat
+#end
+
+#selectmonster 86 -- A Dragon
+#neednoteat
+#end
+
+#selectmonster 87 -- Demonbred
+#neednoteat
+#end
+
+#selectmonster 89 -- Warlock
+#neednoteat
+#end
+
+#selectmonster 90 -- Lava Warrior
+#neednoteat
+#end
+
+#selectmonster 119 -- Warlord
+#neednoteat
+#end
+
+#selectmonster 214 -- Beast Trainer
+#neednoteat
+#end
+
+#selectmonster 327 -- Anathemant
+#neednoteat
+#end
+
+#selectmonster 429 -- Slayer
+#neednoteat
+#end
+
+#selectmonster 923 -- W Apprentice
+#neednoteat
+#end
+
+#selectmonster 990 -- GofPyre
+#neednoteat
+#end
+
+#selectmonster 1092 -- Sang Anathemant
+#neednoteat
+#end
+
+#selectmonster 1536 -- Anointed
+#neednoteat
+#end
+
+#selectmonster 1537 -- Demonbred
+#neednoteat
+#end
+
+#selectmonster 1538 -- Warlock
+#neednoteat
+#end
+
+#selectmonster 1542 -- W Apprentice
+#neednoteat
+#end
+
+#selectmonster 1543 -- Burning One
+#neednoteat
+#end
+
+#selectmonster 1661 -- Misbred
+#neednoteat
+#end
+
+#selectmonster 1698 -- A Salamander
+#neednoteat
+#end
+
+#selectmonster 1699 -- A Dragon
+#neednoteat
+#end
+
+#selectmonster 1965 -- Slayer Worm
+#neednoteat
+#end
+
+#selectmonster 1966 -- Slayer Anathemant
+#neednoteat
+#end
+
+#selectmonster 1967 -- S Sanguine
+#neednoteat
+#end
+
+#selectmonster 1969 -- A Salamander
+#neednoteat
+#end
+
+#selectmonster 1970 -- A Dragon
+#neednoteat
+#end
+
+#selectmonster 2510 -- Lavaborn
+#neednoteat
+#end
+
+#selectmonster 2511 -- Lavaborn Comm
+#magicskill 0 1
+#custommagic 1024 20 -- 20% E
+#neednoteat
+#end
+
+#selectmonster 2601 -- Turan Sorcerer
+#neednoteat
+#end
+
+#selectmonster 2609 -- Great Warlock
+#neednoteat
+#end
+
+#selectmonster 6174 -- Sang Heiro
+#neednoteat
+#end
+
+#selectmonster 539 -- Rage Lord
+#neednoteat
+#end
+
+#selectmonster 581 -- Anath Warlock
+#neednoteat
+#end
+
+#selectmonster 867 -- Slayer
+#neednoteat
+#end
+
+#selectmonster 1968 -- Slayer Dragon
+#neednoteat
+#end
+
+#selectmonster 6180 -- Rostam
+#neednoteat
+#end
 
 #selectmonster 1649 -- Scorpion Man
 #itemslots 13446 -- 2 hands, head, body, 2 misc
@@ -87141,6 +89769,10 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 
 -- CAELUM
 
+#selectmonster 414 -- Wingless
+#iceprot 1
+#end
+
 #selectspell 368 -- Yazatas
 #nreff 506
 #fatiguecost 1200
@@ -87148,6 +89780,14 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 
 #selectspell 369 -- Daevas
 #nreff 506
+#end
+
+#selectspell 367 -- Summon Amesha Spenta
+#fatiguecost 5000
+#end
+
+#selectspell 373 -- Summon Greater Daeva
+#fatiguecost 5000
 #end
 
 #newspell
@@ -87267,7 +89907,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #school -1
 #effect 10082
 #nreff 1
-#fatiguecost 700
+#fatiguecost 800
 #damage 1 -- Storm
 #end
 
@@ -87299,7 +89939,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #researchlevel 0
 #range 5015
 #fatiguecost 50
-#prec 5
+#precision 5
 #restricted 56 -- MA Caelum
 #end
 
@@ -87392,13 +90032,40 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 
 -- C'TIS
 
+#selectsite 63 -- City of Tombs
+#homemon 1094 -- Desert Ranger
+#end
+
+#selectnation 57 -- MA Ctis
+#startcom 163 -- Commander of C'tis
+#startscout 502 -- Empoisoner
+#startunittype1 166 -- 10 City Guard
+#startunitnbrs1 10
+#startunittype2 165 -- Heavy Infantry
+#startunitnbrs2 10
+#end
+
+#selectnation 93 -- LA Ctis
+#startcom 163 -- Commander of C'tis
+#startscout 502 -- Empoisoner
+#startunittype1 166 -- 10 City Guard
+#startunitnbrs1 10
+#startunittype2 165 -- Heavy Infantry
+#startunitnbrs2 10
+#end
+
+#selectmonster 783 -- Serpent Dancer
+#formationfighter -2
+#unsurr 1
+#mor 14
+#berserk 2
+#blessbers
+#end
+
 #selectmonster 2186 -- Sacred Crocodile
 #clearweapons
 #weapon 20 -- Bite
 #weapon 609 -- Grab and Swallow
-#end
-
-#selectspell 253 -- Sacred Crocodile
 #end
 
 #selectmonster 1095 -- Keeper of the Tombs
@@ -88071,7 +90738,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #pathlevel 0 1
 #pathlevel 1 1
 #damage 17592186044544 -- Enrage & destroy armor
-#spec 545411072 -- MR Negates, Ignore Shields, No Effect on Mindless or Lifeless, UWOK
+#spec 1152921505152258048 -- MR Negates, Ignore Shields, No Effect on Mindless or Lifeless, UWOK
 #restricted 16 -- EA Pangaea
 #restricted 58 -- MA Pangaea
 #restricted 94 -- LA Pangaea
@@ -88083,7 +90750,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #researchlevel 0
 #effect 123
 #fatiguecost 0
-#aoe 1
+#aoe 0
 #damage 100
 #nreff 1
 #spec 16512
@@ -88101,24 +90768,35 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #aoe 1001
 #damage 17592186044544 -- Enrage & destroy armor
 #fatiguecost 30
-#spec 545411072 -- MR Negates, Ignore Shields, No Effect on Mindless or Lifeless, UWOK
+#spec 1152921505152258048 -- MR Negates, Ignore Shields, No Effect on Mindless or Lifeless, UWOK
 #restricted 16 -- EA Pangaea
 #restricted 58 -- MA Pangaea
 #restricted 94 -- LA Pangaea
-#nextspell "Discard Armor"
 #end
 
 #newspell
-#name "Battlefield Discard Armor"
+#name "Discard Armor"
 #school -1
 #researchlevel 0
 #effect 123
 #fatiguecost 0
-#aoe 666
+#aoe 0
 #damage 100
 #nreff 1
 #spec 16512
 #end
+
+-- #newspell
+-- #name "Battlefield Discard Armor"
+-- #school -1
+-- #researchlevel 0
+-- #effect 123
+-- #fatiguecost 0
+-- #aoe 666
+-- #damage 100
+-- #nreff 1
+-- #spec 16512
+-- #end
 
 #newspell
 #name "Bacchanalia"
@@ -88127,7 +90805,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #researchlevel 7
 #path 0 6
 #path 1 7
-#pathlevel 0 5
+#pathlevel 0 3
 #pathlevel 1 2
 #effect 11
 #damage 17592186044544 -- Enrage & destroy armor
@@ -88137,10 +90815,21 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #explspr 10003
 #sound 32 -- Blood spell
 #fatiguecost 300
-#spec 545411072 -- MR Negates, Ignore Shields, No Effect on Mindless or Lifeless, UWOK
+#spec 1152921505152258048 -- MR Negates, Ignore Shields, No Effect on Mindless or Lifeless, UWOK
 #restricted 16 -- EA Pangaea
 #restricted 58 -- MA Pangaea
-#nextspell "Battlefield Discard Armor"
+#end
+
+#newspell
+#name "Discard Armor"
+#school -1
+#researchlevel 0
+#effect 123
+#fatiguecost 0
+#aoe 0
+#damage 100
+#nreff 1
+#spec 16512
 #end
 
 #newspell
@@ -88282,6 +90971,15 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #end
 
 -- AGARTHA
+
+#selectnation 17 -- EA Agartha
+#startcom 1463 -- Pale One Commander
+#startunittype1 1462 -- Cavern Guard
+#startunitnbrs1 10
+#startunittype2 1453 -- Pale One Warrior
+#startunitnbrs2 12
+#startscout 1466 -- Pale one scout
+#end
 
 #newspell
 #copyspell 736 -- Summon Earthpower
@@ -88603,7 +91301,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #end
 
 #selectspell 349 -- Contact Cu Sidhe
-#nreff 1008
+#nreff 508
 #end
 
 #newspell 
@@ -88660,8 +91358,9 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 
 #newspell
 #copyspell 724 -- Pack of Wolves
-#name "Summon Picts"
+#name "Summon Highlanders"
 #descr "The caster travels to a deserted highland and calls a group of Picts to emerge and serve the Awakening God. The Picts are an isolated tribe that lives in the frigid heights. Long ago they retreated to the glens and lochs of their home and became creatures of myth and legend. The Picts adorn themselves with tattoos daubed in blue woad, a special paint made from sacred herbs that grow only on their island, and which they believe will grant them fortune in battle. Pictish warriors are revered for the sacred Woad they wear."
+#researchlevel 3
 #path 1 8
 #pathlevel 1 1
 #nreff 508
@@ -88669,7 +91368,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #fatiguecost 800
 #onlygeosrc 4194320 -- Mountain
 #restricted 128 -- Albion
-#restricted 48 -- Eriu
+#restricted 47 -- MA Man
 #end
 
 #newspell 
@@ -88819,8 +91518,8 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #pathlevel 0 2
 #path 1 2
 #pathlevel 1 1
-#fatiguecost 1500
-#nreff 510
+#fatiguecost 800
+#nreff 505
 #damage 5799 -- Longdead Nemedian
 #onlycoastsrc 1
 #restricted 48 -- Eriu
@@ -88942,15 +91641,15 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #newspell
 #copyspell 982 -- Fascination
 #name "Fey Fascination"
-#descr "The caster causes enemy troops to see and hear for a moment strange sights and faint melodies. These may temporarily distract them from the battle at hand. This will affect all enemies on the battlefield for a short period, but those with a strong will can ignore the phantasms."
+#descr "The caster causes a squad of enemy troops to see and hear for a moment strange sights and faint melodies. These may temporarily distract them from the battle at hand, however those with a strong will can ignore the phantasms."
 #researchlevel 6
 #school 4
-#pathlevel 0 4
+#pathlevel 0 2
 #path 1 1
 #pathlevel 1 2
-#aoe 666
-#range 0
-#fatiguecost 100
+#aoe 15
+#range 30
+#fatiguecost 40
 #spec 17592194842752 -- Enemies only, MR Negates Hard, Mindless immune
 #restricted 18 -- Tir na Nog
 #restricted 47 -- MA Man
@@ -89011,82 +91710,6 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 -- #onlyatsite 135 -- Mound of Ancient Kings
 -- #restricted 48 -- Eriu
 -- #end
-
-#newspell
-#copyspell 752 -- Summon Fire Drake
-#name "Host of the Unseelie"
-#descr "In the lands of the Fair Ones dwell two courts, the Seelie and Unseelie. In the dark of winter the Unseelie prey on the common folk. During the winter months it is possible to enter gates located at Dolmens in the deepest forests to bargain for their service. Unseelie appear as fey knights astride dark mounts, cloaked in glamour. They are cruel and capricious, often appearing at night to travellers and spiriting them away. Whilst in fey lands time will pass strangely and the caster will be oddly aged upon their return."
-#details "Caster ages 10 years"
-#path 0 2
-#path 1 1
-#pathlevel 0 3
-#pathlevel 1 1
-#researchlevel 5
-#fatiguecost 3000
-#effect 10001
-#nreff 1007
-#damage 5936
-#nextspell "Age Caster" -- Age 10 Years
-#onlyatsite 1823 -- UnSeelie Door
-#restricted 48 -- Eriu
-#end
-
-#newspell
-#copyspell 752 -- Summon Fire Drake
-#name "Host of the Seelie"
-#descr "In the lands of the Fair Ones dwell two courts, the Seelie and Unseelie. In summer the Seelie reign and bring light and kindness. During the summer months it is possible to enter gates located at Dolmens in the deepest forests to bargain for their service. Seelie appear as winged fey creatures, cloaked in glamour. They are kind and forgiving, often helping lost children and leaving food for wayward travellers. Whilst in fey lands time will pass strangely and the caster will be oddly aged upon their return."
-#details "Caster ages 10 years"
-#path 0 1
-#path 1 6
-#pathlevel 0 3
-#pathlevel 1 1
-#researchlevel 5
-#fatiguecost 3000
-#effect 10001
-#nreff 1012
-#damage 5937
-#nextspell "Age Caster" -- Age 10 Years
-#onlyatsite 1824 -- Seelie Door
-#restricted 48 -- Eriu
-#end
-
-#newspell
-#name "Queen of the Unseelie"
-#descr "The caster enters an Unseelie Door to gain the services of a Queen of the Winter Court. The Unseelie Court of Fey are associated with winter and are considered the more wicked of the two courts, raiding villages and bringing general misfortune to mortals in their path. The Queens of the Winter Court are skilled in the magical arts of trickery, winter and death. She will appear surrounded by her servants and can summon more to the mortal realm each month. Whilst in fey lands time will pass strangely and the caster will be oddly aged upon their return."
-#details "Caster ages 10 years"
-#school 0
-#researchlevel 8
-#path 0 2
-#path 1 1
-#pathlevel 0 5
-#pathlevel 1 1
-#effect 10089
-#damage 5938
-#nreff 1
-#fatiguecost 6500
-#nextspell "Host of the Unseelie" -- Age 10 Years
-#onlyatsite 1823 -- UnSeelie Door
-#restricted 48 -- Eriu
-#end
-
-#newspell
-#name "Queen of the Seelie"
-#descr "The caster enters a Seelie Door to gain the services of a Queen of the Summer Court. The Seelie Court of Fey are associated with sumer and are considered the more kindly of the two courts, rewarding kindness and occasionally helping an errant human. The Queens of the Summer Court are skilled in the magical arts of the air, light, warmth and growth. She will appear surrounded by her servants and can summon more to the mortal realm each month. Whilst in fey lands time will pass strangely and the caster will be oddly aged upon their return."
-#details "Caster ages 10 years"
-#school 0
-#researchlevel 8
-#path 0 1
-#path 1 6
-#pathlevel 0 5
-#pathlevel 1 1
-#effect 10089
-#damage 5939
-#nreff 1
-#fatiguecost 6500
-#nextspell "Host of the Seelie" -- Age 10 Years
-#onlyatsite 1824 -- Seelie Door
-#restricted 48 -- Eriu
-#end
 
 #newspell
 #copyspell 1013 -- Confusion
@@ -89187,7 +91810,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #name "Call the Fianna"
 #descr "It was long since that the last Fomorian left the land of Eriu, but their legacy still remains. Every now and then a baby is born with Fomorian blood in his veins. They are destined to become heroes and are trained to become great warrior poets. They join the band of the Fianna and are respected throughout Eriu. The caster calls to the Fianna and they will appear in a friendly province of the casters choosing. The Fianna are sacred."
 #school 4
-#researchlevel 4
+#researchlevel 5
 #path 0 1
 #pathlevel 0 3
 #path 1 6
@@ -89219,7 +91842,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 
 #newspell
 #name "Contact Pooka"
-#descr "The caster summons a Pooka, an evil spirit of the Unseelie Court which can take the form of a black horse, goat or rabbit. It is stealthy and will cause various negative effects in the province in which it resides."
+#descr "The caster summons a Pooka, an evil spirit which can take the form of a black horse, goat or rabbit. It is stealthy and will cause various negative effects in the province in which it resides."
 #school 0 5
 #path 0 5
 #pathlevel 0 3
@@ -89292,10 +91915,10 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #end
 
 #selectspell 350 -- Barghests
-#nreff 2006
+#nreff 510
 #end
 
-#newspell 
+#newspell
 #copyspell 740 -- Dark Knowledge
 #name "Hidden Knowledge"
 #descr "The Fomorians have kept many secrets from their time as Lords of the Drowned Dead. One of these is the summoning of spirits of the Underworld to reveal knowledge of sites of Death in a distant province. The spell can not be used to find magic in enemy provinces."
@@ -89313,10 +91936,10 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #name "Fomorian Plague"
 #descr "When threatened by invasion the Death mages of Fomoria can conjure foul plagues to slay their enemies. Any province struck by the Fomorian plague will see thousands dead, and many military units in the province will be afflicted with a wasting disease. It is said that the use of this spell has drawn the ire of the Gods in times past, however with the Pantokrator gone the Fomorians can again unleash this deadly plague upon their foes."
 #details "Population -50%, Unrest +10, 50% of the units in the targeted province must make a MR check or get diseased."
-#researchlevel 8
+#researchlevel 9
 #path 1 1
 #pathlevel 1 2
-#fatiguecost 2000
+#fatiguecost 2500
 #restricted 19 -- EA Fomoria
 #nextspell 1044 -- Black Death
 #end
@@ -89337,6 +91960,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #fatiguecost 2000
 #onlycoastsrc 1
 #restricted 19 -- EA Fomoria
+#restricted 47 -- MA Man
 #end
 
 #newspell
@@ -89553,6 +92177,11 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 
 -- VANHEIM
 
+#selectmonster 463 -- Fay Boar
+#gcost 60
+#addupkeep -30
+#end
+
 #selectspell 386 -- Summon Draugar
 #fatiguecost 1000
 #end
@@ -89643,20 +92272,31 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #end
 
 #newspell
+#name "Gain Berserk"
+#school -1
+#researchlevel 0
+#effect 10504 -- +5
+#nreff 1
+#damage 190 -- Berserk
+#spec 536870912 -- No effect on Lifeless
+#end
+
+#newspell
 #name "Gift of Battle Fury"
-#descr "The caster gains the ability to enter a state of sacred battle-fury. Whilst in this state their combat skills will increase and they will be harder to injure, however they will tire more quickly. This effect is permanent, however lifeless beings will gain no benefit from the spell."
-#details "Grants Berserk +5"
+#descr "The caster grants to one target the ability to enter a state of sacred battle-fury. Whilst in this state their combat skills will increase and they will be harder to injure, however they will tire more quickly. This effect is permanent, however lifeless beings will gain no benefit from the spell and those with mounts will find their steed less than willing to fight until the end."
+#details "Grants Berserk +5 to one commander, mounted or lifeless beings will gain no benefit."
 #school 6
 #researchlevel 3
 #path 0 7
 #pathlevel 0 1
-#effect 10504 -- +5
+#effect 10131
 #nreff 1
-#damage 190 -- Berserk
+#damage 0
 #fatiguecost 800
 #restricted 20 -- EA Vanheim
 #restricted 60 -- MA Vanheim
 #spec 536870912 -- No effect on Lifeless
+#nextspell "Gain Berserk"
 #end
 
 #newspell
@@ -90129,6 +92769,34 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #mountainsurvival
 #end
 
+#selectmonster 3406 -- Rimvaetti
+#mountainsurvival
+#end
+
+#selectmonster 3420 -- Rimvaetti summon
+#mountainsurvival
+#end
+
+#selectspell 1130 -- Seith Curse
+#researchlevel 2
+#end
+
+#newspell 
+#copyspell 652 -- Lightning Resistance
+#name "Jotun Prayer"
+#descr "The Gode prays to the Jotun fathers of old to protect his kin from the predations of the Thunder God. This spell will offer some protection from lightning to the faithful."
+#researchlevel 0
+#school 7 -- Divine
+#path 0 8
+#pathlevel 0 2
+#aoe 5
+#fatiguecost 0
+#nreff 1
+#restricted 22 -- Niefelheim
+#restricted 61 -- Jotunheim
+#restricted 96 -- Utgard
+#end
+
 #newspell 
 #copyspell 388 -- Brood of Garm
 #name "Call Jotun Wolf"
@@ -90138,7 +92806,6 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #damage 1309
 #fatiguecost 200
 #nreff 1
-#notfornation 21 -- Helheim
 #end
 
 #newspell
@@ -90800,7 +93467,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #researchlevel 6
 #path 0 6
 #pathlevel 0 3
-#fatiguecost 4800
+#fatiguecost 4200
 #nreff 1009
 #damage 5387 -- Asura
 #nextspell "Bind Asurendra"
@@ -91609,8 +94276,8 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #newspell
 #copyspell 106 -- Record of Creation
 #name "Locate Tengu Village"
-#descr "The caster travels to a windy mountaintop to locate a village of tengu. Once the village has been located a Nature mage can enter it to convince tengu to aid them each month. This spell can only be cast in a mountain province. Only one tengu village can be located in each province and further castings of the spell will fail."
-#details "Nature mage may enter village to summon 2 Karasa Tengu per month."
+#descr "The caster travels to a windy mountaintop to locate a village of tengu. Once the village has been located a Nature mage can attempt to convince tengu to serve the awakening God each month. The chance the tengu will agree depends on the strength of the local Dominion. This spell can only be cast in a mountain province. Only one tengu village can be located in each province and further castings of the spell will fail."
+#details "Whilst a Nature mage present at village has 10% x candles chance to summon 1D6 Karasa Tengu each month."
 #school 0
 #researchlevel 3
 #path 0 6
@@ -91638,29 +94305,11 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #fatiguecost 500
 #end
 
--- #newspell
--- #copyspell 106 -- Record of Creation
--- #name "Tengu Clanhold"
--- #descr "Once a tengu village has been located in a province it is likely a clanhold is nearby. The caster divines the location of the clanhold through whispers on the mountain wind. Once the clanhold has been located a powerful Air mage can enter it to convince the Dai tengu to provide them with tengu warriors each month. This spell can only be cast in a mountain province where a tengu village has already been located. Once a clanhold has been located the Dai Tengu will forbid mages from entering his villages."
--- #school 0
--- #researchlevel 4
--- #path 0 1
--- #pathlevel 0 2
--- #damage -1
--- #effect 10083
--- #fatiguecost 500
--- #nreff 1
--- #onlygeosrc 4194320 -- Mountain or Border Mountain
--- #onlyatsite 1765 -- Tengu Village
--- #restricted 27 -- Yomi
--- #nextspell "Clanhold Appears"
--- #end
-
 #newspell
 #copyspell 106 -- Record of Creation
 #name "Tengu Clanhold"
 #descr "Once a tengu village has been located in a province it is likely a clanhold is nearby. The caster divines the location of the clanhold through whispers on the mountain wind. Once the clanhold has been located a powerful Air mage can enter it to convince the Dai tengu to provide them with tengu warriors each month. This spell can only be cast in a mountain province where a tengu village has already been located. Once a clanhold has been located the Dai Tengu will forbid mages from entering his villages."
-#details "Lvl 2 Air mage may enter clanhold to summon 2 Tengu Warriors and 2 Konoha Tengu per month."
+#details "Whilst a Lvl 2 Air mage present at clanhold has 10% x candles chance to summon 1d6 Konoha Tengu and 1d3 Tengu Warriors per month."
 #school 0
 #researchlevel 4
 #path 0 1
@@ -91670,26 +94319,8 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #fatiguecost 500
 #nreff 1
 #onlygeosrc 4194320 -- Mountain or Border Mountain
-#onlyatsite 1885 -- Tengu  Village
+#onlyatsite 1765 -- Tengu Village
 #restricted 64 -- Shinuyama
-#nextspell "Clanhold Appears"
-#end
-
-#newspell
-#copyspell 106 -- Record of Creation
-#name "Tengu Clanhold"
-#descr "Once a tengu village has been located in a province it is likely a clanhold is nearby. The caster divines the location of the clanhold through whispers on the mountain wind. Once the clanhold has been located a powerful Air mage can enter it to convince the Dai tengu to provide them with tengu warriors each month. This spell can only be cast in a mountain province where a tengu village has already been located. Once a clanhold has been located the Dai Tengu will forbid mages from entering his villages."
-#details "Lvl 2 Air mage may enter clanhold to summon 2 Tengu Warriors and 2 Konoha Tengu per month."
-#school 0
-#researchlevel 4
-#path 0 1
-#pathlevel 0 2
-#damage -1
-#effect 10083
-#fatiguecost 500
-#nreff 1
-#onlygeosrc 4194320 -- Mountain or Border Mountain
-#onlyatsite 1886 -- Tengu   Village
 #restricted 89 -- Jomon
 #nextspell "Clanhold Appears"
 #end
@@ -92173,6 +94804,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #pathlevel 0 2
 #aoe 1000
 #restricted 28 -- Hinnom
+#restricted 127 -- Nahullo
 #end
 
 #newspell
@@ -92186,6 +94818,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #aoe 1
 #precision 3
 #restricted 28 -- Hinnom
+#restricted 127 -- Nahullo
 #end
 
 #newspell
@@ -92203,6 +94836,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #damage 17408 -- Heat Aura and Fireres
 #spec 4210688 -- Ignore shields, friendlies only
 #restricted 28 -- Hinnom
+#restricted 127 -- Nahullo
 #end
 
 #newspell
@@ -92230,12 +94864,14 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #damage -1
 #restricted 28 -- Hinnom
 #restricted 71 -- Ind
+#restricted 127 -- Nahullo
 #nextspell "Kokabel's blessing"
 #end
 
 #newspell
 #name "Teachings of Arakiel"
 #descr "The caster uses the teachings of Arakiel, master of the earth, to draw strength from the ground. All friendly units in contact with the earth will feel refreshed and reinvigorated."
+#details "-15 Fatigue"
 #researchlevel 3
 #school 0
 #path 0 3
@@ -92250,6 +94886,7 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #fatiguecost 100
 #spec 70368748388480 -- AN, ignore shields, friendlies only, No effect on flyers
 #restricted 28 -- Hinnom
+#restricted 127 -- Nahullo
 #end
 
 #newspell
@@ -92322,6 +94959,21 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #end
 
 -- UR
+
+#selectnation 29 -- Ur
+#startcom 2177 -- Enkidu Commander
+#startscout 2161 -- Enkidu Scout
+#startunittype1 2172 -- Enkidu Soldier
+#startunitnbrs1 15
+#startunittype2 2163 -- Enkidu Archer
+#startunitnbrs2 5
+#end
+
+#selectsite 151 -- The Swamps of Ur
+#homemon 2183 -- Reaver
+#homecom 2170 -- Head Hunter
+#homecom 2171 -- Bone Reader
+#end
 
 #selectspell 232 -- Contact Scorpion Man
 #restricted 29 -- Ur
@@ -92770,6 +95422,17 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 
 -- XIBALBA
 
+
+#selectnation 68 -- MA Xibalba
+#startcom 2715 -- Muuch Ajaw
+#startscout 2717 -- Ah Ha
+#startunittype1 2725 -- Muuch Warrior
+#startunitnbrs1 15
+#startunittype2 2722 -- Muuch Dart Thrower
+#startunitnbrs2 15
+#end
+
+
 #newspell
 #copyspell 607 -- Phantasmal Warrior
 #name "Create Mud Man"
@@ -92950,9 +95613,9 @@ events – higher in Autumn. Foul Spawn appear in provinces with Growth scales u
 #end
 
 #selectspell 1127 -- Gigantomachia
-#descr "The war upon gods is declared. Trembling and cowing in fear false gods sense the rattling of spears forged for the armies of the God-slayer. The will of false pretenders withdraw from the might of Mekone and the Gigantes gather in ever greater numbers.
-The dominion of Mekone gains +2 dominion conflict bonus and recruitment limit in the God-slayer's dominion is increased by +1.
-The Helotes will be cowed and unrest will be reduced whilst the Gigantomachia is active."
+#descr "The war upon the gods is declared. Trembling and cowing in fear false gods sense the rattling of spears forged for the armies the giants. The will of false pretenders withdraw from the might of the giants who gather in ever greater numbers. The populace will be cowed and unrest will be reduced whilst the Gigantomachia is active"
+#details "Recruitment limit in friendly dominion +1, dominion gains a +3 conflict bonus, Mekone and Phlegran giants recruitment cost -10.
+Unrest in forts reduced by 7/month whilst the Gigantomachia is active."
 #end
 
 #newspell
@@ -93265,9 +95928,42 @@ The Helotes will be cowed and unrest will be reduced whilst the Gigantomachia is
 
 -- ATLANTIS
 
+#selectnation 73 -- MA Atlantis
+#startcom 207 -- Shambler Chief
+#startscout 432 -- Scout
+#startunittype1 107 -- Atlantian Light Infantry
+#startunitnbrs1 10
+#startunittype2 1621 -- Atlantian Infantry
+#startunitnbrs2 10
+#end
+
+#selectmonster 209 -- Mother Guard
+#rpcost 32
+#end
+
 #selectspell 280
 #fatiguecost 600
 #end
+
+#selectitem 317 -- Crystal Coin
+#nationrebate 36 -- EA Atlantis
+#end 
+
+#selectitem 346 -- Crystal Heart
+#nationrebate 36 -- EA Atlantis
+#end 
+
+#selectitem 311 -- Crystal Matrix
+#nationrebate 36 -- EA Atlantis
+#end 
+
+#selectitem 312 -- Slave Matrix
+#nationrebate 36 -- EA Atlantis
+#end 
+
+#selectitem 153 -- Crystal Shield
+#nationrebate 36 -- EA Atlantis
+#end 
 
 #newspell
 #copyspell 882
@@ -93682,8 +96378,40 @@ The Helotes will be cowed and unrest will be reduced whilst the Gigantomachia is
 #holy
 #end
 
+#selectnation 37 -- EA Rlyeh
+#startcom 1523 -- Slave Prince
+#startscout 432 -- Scout
+#startunittype1 336 -- Slave Guardian
+#startunitnbrs1 10
+#startunittype2 1524 -- Slave Guardian
+#startunitnbrs2 10
+#end
+
+#selectnation 74 -- MA Rlyeh
+#startcom 445 -- Illithid Lord
+#startscout 432 -- Scout
+#startunittype1 336 -- Slave Guardian
+#startunitnbrs1 10
+#startunittype2 1524 -- Slave Guardian
+#startunitnbrs2 10
+#end
+
+#selectnation 107 -- LA Rlyeh
+#startcom 445 -- Illithid Lord
+#startscout 432 -- Scout
+#startunittype1 336 -- Slave Guardian
+#startunitnbrs1 10
+#startunittype2 1524 -- Slave Guardian
+#startunitnbrs2 10
+#end
+
+
 #selectspell 490 -- Enslave Sea Troll
 #nreff 1002
+#end
+
+#selectspell 489 -- Mind Vessel
+#fatiguecost 500
 #end
 
 #selectmonster 1563 -- Void Cultist
@@ -93863,6 +96591,7 @@ The Helotes will be cowed and unrest will be reduced whilst the Gigantomachia is
 #fatiguecost 300
 #damage 5192 -- Enslaved Spy
 #onlymnr 1521 -- Mind Lord
+#onlymnr 6346 -- He who Breathes
 #onlymnr 1691 -- Auluudh
 #onlymnr 3098 -- First Spawn
 #restricted 37
@@ -94148,7 +96877,6 @@ The Helotes will be cowed and unrest will be reduced whilst the Gigantomachia is
 #fatiguecost 100
 #nocastmindless 1
 #ainocast 1
-#nextspell 892 -- Astral Shield
 #spec 8404992 -- Ignores shields, UW OK
 #restricted 74 -- MA R'lyeh
 #restricted 107 -- LA R'lyeh
@@ -94173,7 +96901,7 @@ The Helotes will be cowed and unrest will be reduced whilst the Gigantomachia is
 #name "Dimensional Shambler"
 #descr "The caster calls on a Dimensional Shambler, creatures from the Void with the ability to travel between planes, to take a targeted enemy. The Shambler will grasp the target in its claws and attempt to take them to the Void. Nimble targets may be able to escape from the clawed beast."
 #school 5
-#researchlevel 6
+#researchlevel 8
 #path 0 4
 #path 1 5
 #pathlevel 0 3
@@ -94606,25 +97334,25 @@ The Helotes will be cowed and unrest will be reduced whilst the Gigantomachia is
 #newspell
 #copyspell 642 -- Body Ethereal
 #name "Enter the Void"
-#descr "All friendly units on the battlefield are drawn partially out of this reality and become hazy and transparent. Those affected can pass through obstacles and non-magical weapons usually just pass through them without causing harm."
-#researchlevel 8
-#pathlevel 0 6
-#aoe 666
-#fatiguecost 300
+#descr "A group of friendly units are drawn partially out of this reality and become hazy and transparent. Those affected can pass through obstacles and non-magical weapons usually just pass through them without causing harm."
+#researchlevel 6
+#pathlevel 0 3
+#range 15
+#aoe 15
+#fatiguecost 100
 #spec 12599296 -- Use UW, Ignore Shields, Friendly units only
 #restricted 107 -- LA R'lyeh
-#sample "./MagicEnhanced/YogSothoth.sw"
 #end
 
 #newspell
 #copyspell 938 -- Dome of Arcane Warding
 #name "One with the Void"
-#descr "The Dreamers of R'lyeh are drawn to the Void by the strange visions they experience through their dreams. With this spell the caster opens the Void Rift further to allow Dreamers to enter the Void. When enough Dreamers enter astral energies will be produced which can be harvested by the Illithids and their servants. The Void Rift will remain open, however if the province is lost or the mage dies, the gate closes instantly."
-#details "Pearl generation is random however produces roughly one pearl per two Dreamers entering. Maximum of 3D6 Pearls generated per month if fifteen or more Dreamers present."
+#descr "The Dreamers of R'lyeh are drawn to the Void by the strange visions they experience through their dreams. With this spell the caster opens the Void Rift further to allow Dreamers to enter the Void. When enough Dreamers enter they will attract beings from the void which will emerge to serve the Illithids, and occasionally astral energies can be captured as dreamers enter the gate. The Void Rift will remain open, however if the province is lost or the mage dies, the gate closes instantly."
+#details "Void being summoning is random however summons roughly one being per two Dreamers entering. Maximum of 3D3 void beings summoned per month if fifteen or more Dreamers present. May also generate 1-3 astral pearls."
 #researchlevel 5
 #school 5
 #path 1 8
-#pathlevel 0 3
+#pathlevel 0 4
 #pathlevel 1 2
 #fatiguecost 3500
 #effect 10084 -- Permanent Enchantment
@@ -94656,8 +97384,8 @@ The Helotes will be cowed and unrest will be reduced whilst the Gigantomachia is
 #newspell
 #copyspell 938 -- Dome of Arcane Warding
 #name "Prepare Gate to the Beyond"
-#descr "The Dreamers of R'lyeh are drawn to the Void by the strange visions they experience through their dreams. With this spell the caster prepares a Gate to the Beyond that has been created through Open Gate to the Beyond to allow Dreamers to enter the Void. When enough Dreamers enter astral energies will be produced which can be harvested by the Illithids and their servants. The Void Gate will remain open, however if the province is lost or the mage dies, the gate closes instantly."
-#details "Pearl generation is random however produces roughly one pearl per two Dreamers entering. Maximum of 3D6 Pearls generated per month if fifteen or more Dreamers present."
+#descr "The Dreamers of R'lyeh are drawn to the Void by the strange visions they experience through their dreams. With this spell the caster prepares a Gate to the Beyond that has been created through Open Gate to the Beyond to allow Dreamers to enter the Void. When enough Dreamers enter they will attract beings from the void which will emerge to serve the Illithids, and occasionally astral energies can be captured as dreamers enter the gate. The Void Rift will remain open, however if the province is lost or the mage dies, the gate closes instantly."
+#details "Void being summoning is random however summons roughly one being per two Dreamers entering. Maximum of 3D3 void beings summoned per month if fifteen or more Dreamers present. May also generate 1-3 astral pearls."
 #researchlevel 7
 #school 5
 #path 1 8
@@ -94742,7 +97470,7 @@ The Helotes will be cowed and unrest will be reduced whilst the Gigantomachia is
 #researchlevel 8
 #path 0 4
 #pathlevel 0 6
-#fatiguecost 5000
+#fatiguecost 6000
 #nreff 1
 #effect 10083
 #damage -1
@@ -94768,10 +97496,6 @@ The Helotes will be cowed and unrest will be reduced whilst the Gigantomachia is
 #landcom 5307 -- Enslaved Mage
 #end
 
-#selectnation 74 -- MA Rlyeh
-#landcom 5508 -- Star Child
-#end
-
 #selectsite 164
 #homecom 5789 -- Starspawn
 #end
@@ -94789,7 +97513,7 @@ The Helotes will be cowed and unrest will be reduced whilst the Gigantomachia is
 But now a God is awakening, and it is a God Dreaming of the Void. Mind-defying Dreams of the Sleeping God are plaguing the inhabitants of coastal and underwater cities and with the Dreams come the horrors. Strange, cannibalistic cults worshipping the Void call them from Beyond and no longer is the Void Gate required to bridge between worlds. The Dreamlands of R'lyeh threaten to destroy the world.
 All coastal forts of R'lyeh have a special well where women can submerge themselves in the hope of being impregnated by a Great One. However, most will be taken by Deep Ones instead and the women's offspring will be strange, fishlike humanoids instead of the noble Starchildren they wanted. These half-human hybrids are usually devoted to the cause of putting mankind below the sea and often join the army of R'lyeh free of charge."
 #summary "Race: Illithids, Underwater slave races, Void Beings
-Military: Atlantian and Oceanian Slaves, hybrids, Illithids
+Military: Atlantian and Oceanian Slaves, hybrids, Illithids, Star Children at Coastal forts.
 Magic: Astral, Water, some Earth, Death and Nature
 Priests: Average, can summon Void Beings, might get additional insane prophets
 Dominion: Increases unrest, spreads turmoil, creates Dreamers, Madmen and Void Beings. Magic & Turmoil scales, Temples and higher Dominion increase chance of better summons. Makes all non void beings insane."
@@ -94827,7 +97551,7 @@ Dominion: Increases unrest, spreads turmoil, creates Dreamers, Madmen and Void B
 #req_magic 1
 #req_chaos 1
 #req_dominion 2
-#req_rare 50
+#req_rare 25
 #nation -2
 #msg "Dominion Void summons."
 #notext
@@ -94840,7 +97564,7 @@ Dominion: Increases unrest, spreads turmoil, creates Dreamers, Madmen and Void B
 #req_fornation 107 -- Rlyeh
 #req_owncapital 1
 #req_dominion 3
-#req_rare 50
+#req_rare 25
 #nation -2
 #msg "Dominion Void summons."
 #notext
@@ -94855,7 +97579,7 @@ Dominion: Increases unrest, spreads turmoil, creates Dreamers, Madmen and Void B
 #req_magic 1
 #req_chaos 1
 #req_dominion 4
-#req_rare 50
+#req_rare 25
 #nation -2
 #msg "Dominion Void summons."
 #notext
@@ -94898,7 +97622,7 @@ Dominion: Increases unrest, spreads turmoil, creates Dreamers, Madmen and Void B
 #req_magic 2
 #req_chaos 2
 #req_dominion 7
-#req_rare 25
+#req_rare 40
 #nation -2
 #msg "Dominion Void summons."
 #notext
@@ -94913,7 +97637,7 @@ Dominion: Increases unrest, spreads turmoil, creates Dreamers, Madmen and Void B
 #req_magic 2
 #req_chaos 2
 #req_dominion 8
-#req_rare 25
+#req_rare 40
 #nation -2
 #msg "Dominion Void summons."
 #notext
@@ -94928,7 +97652,7 @@ Dominion: Increases unrest, spreads turmoil, creates Dreamers, Madmen and Void B
 #req_dominion 9
 #req_magic 3
 #req_chaos 3
-#req_rare 20
+#req_rare 50
 #nation -2
 #msg "Dominion Void summons."
 #notext
@@ -94943,7 +97667,7 @@ Dominion: Increases unrest, spreads turmoil, creates Dreamers, Madmen and Void B
 #req_dominion 10
 #req_magic 3
 #req_chaos 3
-#req_rare 20
+#req_rare 50
 #nation -2
 #msg "Dominion Void summons."
 #notext
@@ -95013,6 +97737,17 @@ Dominion: Increases unrest, spreads turmoil, creates Dreamers, Madmen and Void B
 #end
 
 -- PELAGIA
+
+
+#selectnation 38 -- EA Pelagia
+#startcom 2390 -- Pelagian Captain
+#startscout 1050 -- Merman Scout
+#startunittype1 2383 -- Turtle Tribe Triton
+#startunitnbrs1 10
+#startunittype2 2386 -- Coral Clan Soldier
+#startunitnbrs2 10
+#end
+
 
 #selectspell 278 -- Hekateride
 #fatiguecost 2000
@@ -95395,6 +98130,35 @@ Dominion: Increases unrest, spreads turmoil, creates Dreamers, Madmen and Void B
 
 -- OCEANIA
 
+
+#selectnation 39 -- EA Oceania
+#startcom 2372 -- Ichtysatyr Commander
+#startscout 2370 -- Ichtysatyr Scout
+#startunittype1 2378 -- Ichtysatyr Warrior
+#startunitnbrs1 10
+#startunittype2 2376 -- Ichtysatyr Shield
+#startunitnbrs2 15
+#end
+
+#selectnation 76 -- MA Oceania
+#startcom 2372 -- Ichtysatyr Commander
+#startscout 2370 -- Ichtysatyr Scout
+#startunittype1 2378 -- Ichtysatyr Warrior
+#startunitnbrs1 10
+#startunittype2 2376 -- Ichtysatyr Shield
+#startunitnbrs2 15
+#end
+
+#selectmonster 1054 -- Siren
+#spellsinger
+#custommagic 8960 100 -- 100% AWN
+#end
+
+#selectmonster 1055 -- Siren
+#spellsinger
+#custommagic 8960 100 -- 100% AWN
+#end
+
 #newspell
 #copyspell 833 -- Guardians of the Deep
 #name "Beasts of the Deep"
@@ -95412,10 +98176,10 @@ Dominion: Increases unrest, spreads turmoil, creates Dreamers, Madmen and Void B
 #copyspell 750 -- Summon Sea Lions
 #name "Call Leokampoi"
 #descr "Leokampoi are common in the waters around Oceania and they are easily summoned and controlled by the Capricorns and their servants. These Sea Lions are great aquatic lions with a fish tail instead of hind quarters. They are ferocious predators."
-#researchlevel 2
+#researchlevel 1
 #pathlevel 0 1
-#fatiguecost 700
-#nreff 2003
+#fatiguecost 200
+#nreff 1004
 #damage 1063 -- Leocampus
 #restricted 39 -- EA Oceania
 #restricted 76 -- MA Oceania
@@ -95830,7 +98594,7 @@ Dominion: Summons spectral troops in forts - more in Death scales. Dominion kill
 #copyspell 610 -- Quicken Self
 #name "Warriors Dance"
 #descr "The most powerful war-dancers of Therodos can call on Divine power to perform amazing feats of acrobatic skill in combat. The dancer will feel the blessing of the Lord and the whirling dance will allow them to evade enemy blows and perform regular combat actions twice every turn."
-#details "Caster is blessed, gains +3 Att, +3 Def and Combat speed is doubled"
+#details "Caster is blessed, gains +2 Att, +2 Def and Combat speed is doubled"
 #researchlevel 0
 #school 7
 #path 0 8
@@ -95986,11 +98750,38 @@ Dominion: Summons spectral troops in forts - more in Death scales. Dominion kill
 
 -- SCELERIA
 
+#selectmonster 809 -- Shadow Vestal
+#clearweapons
+#cleararmor
+#coldres 10
+#mor 15
+#okundeadleader
+#magicskill 8 1
+#weapon 120 -- Enchanted Spear
+#armor 230 -- Magic Robes
+#armor 92 -- Enchanted Shield
+#end
+
+#newmonster 8945
+#copystats 809 -- Shadow Vestal
+#copyspr 809 -- Shadow Vestal
+#name "Vestalium Maxima"
+#descr "Shadow Vestals are the result of a dark rite known as Shadow Merging. Young girls are trained in the Temple of the Dead to prepare them for the merging. After many years as a Shadow Vestal some progress to train other Vestals at the temple in Sceleria. These Vestalium Maxima are priestesses of the dead and are revered throughout Sceleria."
+#mr 16
+#mor 16
+#older 10
+#reanimpriest
+#end
+
+#selectsite 148 -- Campus Sceleria
+#homecom 8945 -- Vestalium Maxima
+#end
+
 #newspell
 #copyspell 696 -- Quickening
 #name "Danse Macabre"
 #descr "The Ermorian priest causes his undead subjects to dance and jerk across the battlefield with unnatural quickness. A nearby group of undead beings will be able to perform two combat actions each turn and can more easily evade enemy blows."
-#details "Grants +3 Att, +3 Def and Combat speed is doubled"
+#details "Grants +2 Att, +2 Def and Combat speed is doubled"
 #researchlevel 0
 #school 7
 #path 0 8
@@ -96213,12 +99004,12 @@ Dominion: Summons spectral troops in forts - more in Death scales. Dominion kill
 #school -1
 #researchlevel 0
 #aoe 666
-#spec 17592194842752 -- Enemies only, AN, Ignore shields, UW OK, Mindless immune, MR Negates Hard
+#spec 17592194580608 -- AN, Ignore shields, UW OK, Mindless immune, MR Negates Hard
 #end
 
 #newspell
 #name "Beatific Vision"
-#descr "A heavenly vision of the Celestial realms appears to all those in the battle. Friendly troops are bolstered by the sight, whilst enemies will stand dumbstruck. The vision will only last a moment before it fades into a memory."
+#descr "A heavenly vision of the Celestial realms appears to all those in the battle. Friendly troops and enemies alike will stand dumbstruck, however those loyal to the True God will find their resolve strengthened. The vision will only last a moment before it fades into a memory."
 #school 2
 #researchlevel 6
 #path 0 4
@@ -96232,6 +99023,7 @@ Dominion: Summons spectral troops in forts - more in Death scales. Dominion kill
 #explspr 10250
 #sound 47 -- Chorus
 #fatiguecost 100
+#ainocast 1
 #spec 12582912 -- Friendlies only, UW OK
 #restricted 46 -- MA Pythium 
 #nextspell "Fascinating vision"
@@ -96335,16 +99127,34 @@ Dominion: Summons spectral troops in forts - more in Death scales. Dominion kill
 #restricted 81 -- LA Pythium
 #end
 
+#selectspell 200 -- Orgy
+#descr "The reveler organizes a wild orgy in the woods with the sacrifice of a virgin as the climactic finale. The orgy will attract a satyr intent on uninhibited fornication. During the orgy several blood slaves and other women will be struck by the madness of the wild, shedding all clothes and civilized manners and turning to the wild as raging maenads. The satyr will remain after the orgy to lure more women into the wild."
+#fatiguecost 500
+#end
 
 
 -- LA PYTHIUM CULTS
 
 -- SERPENT CULT
 
+#newsite 1548
+#name "Cultic Temple Phase 1"
+#path 8
+#level 5
+#rarity 5
+#end
+
+#newsite 1549
+#name "Cultic Temple Phase 2"
+#path 8
+#level 5
+#rarity 5
+#end
+
 #newspell
 #name "Establish Serpent Cult"
-#descr "A Serpent Acolyte located in the capital can attempt to establish the Serpent Cult as the official church of the Empire. This will only be successful if there is currently no living Cult leader to oppose them. By performing this ritual they will declare their aspirations to convert the church to the Serpent Cult. Each month the Aspirant remains in the capital they will have a chance to convert the populace and assume the position of Serpent Bishop. This spell can only be cast by a Serpent Acolyte in the Imperial Capital."
-#details "Conversion to a cult is instant in first game year, after this there is a 25% chance of success each month the aspiring Cult leader remains in the capital. Cult benefits remain until Cult Leader dies or changes form. Changing the national Cult may change recruitable commanders, sacred and fort recruits, plus certain spells are only castable by Cult mages"
+#descr "A Serpent Acolyte located in the capital can attempt to establish the Serpent Cult as the official church of the Empire. This will only be successful if there is currently no living Cult leader to oppose them and no other Aspirants in the capital. By performing this ritual they will declare their aspirations to convert the church to the Serpent Cult and assume the position of Serpent Bishop. This spell can only be cast by a Serpent Acolyte in the Imperial Capital."
+#details "Conversion to a cult is instant in first game year, after this it will take 3 months during which the aspiring Cult leader must remain in the capital. Cult benefits remain until Cult Leader dies or changes form. Changing the national Cult may change recruitable commanders, sacred and fort recruits, plus certain spells are only castable by Cult mages"
 #researchlevel 0
 #school 5
 #path 0 6
@@ -96521,8 +99331,8 @@ Dominion: Summons spectral troops in forts - more in Death scales. Dominion kill
 
 #newspell
 #name "Establish Cult of Fertility"
-#descr "An Epoptes located in the capital can attempt to establish the Fertility Cult as the official church of the Empire. This will only be successful if there is currently no living Cult leader to oppose them. By performing this ritual they will declare their aspirations to convert the church to the Fertility Cult. Each month the Aspirant remains in the capital they will have a chance to convert the populace and assume the position of Archigallus. This spell can only be cast by an Epoptes in the Imperial Capital."
-#details "Conversion to a cult is instant in first game year, after this there is a 25% chance of success each month the aspiring Cult leader remains in the capital. Cult benefits remain until Cult Leader dies or changes form. Changing the national Cult may change recruitable commanders, sacred and fort recruits, plus certain spells are only castable by Cult mages"
+#descr "An Epoptes located in the capital can attempt to establish the Fertility Cult as the official church of the Empire. This will only be successful if there is currently no living Cult leader to oppose them and no other Aspirants in the capital. By performing this ritual they will declare their aspirations to convert the church to the Fertility Cult and assume the position of Archigallus. This spell can only be cast by an Epoptes in the Imperial Capital."
+#details "Conversion to a cult is instant in first game year, after this it will take 3 months during which the aspiring Cult leader must remain in the capital. Cult benefits remain until Cult Leader dies or changes form. Changing the national Cult may change recruitable commanders, sacred and fort recruits, plus certain spells are only castable by Cult mages"
 #researchlevel 0
 #school 5
 #path 0 6
@@ -96542,7 +99352,7 @@ Dominion: Summons spectral troops in forts - more in Death scales. Dominion kill
 #effect 10050
 #school 0
 #researchlevel 6
-#damage -5179 -- Sacred Beasts & Maenads
+#damage 5635 -- Sacred Tiger
 #path 0 6
 #path 1 8
 #pathlevel 0 2
@@ -96651,8 +99461,8 @@ Dominion: Summons spectral troops in forts - more in Death scales. Dominion kill
 
 #newspell
 #name "Establish Cult of the Solar Bull"
-#descr "A Heliodromus located in the capital can attempt to establish the Cult of the Solar Bull as the official church of the Empire. This will only be successful if there is currently no living Cult leader to oppose them. By performing this ritual they will declare their intentions to convert the church to the Cult of the Solar Bull. Each month the Aspirant remains in the capital they will have a chance to convert the populace and assume the position of Heliopater. This spell can only be cast by a Heliodromus in the Imperial Capital."
-#details "Conversion to a cult is instant in first game year, after this there is a 25% chance of success each month the aspiring Cult leader remains in the capital. Cult benefits remain until Cult Leader dies or changes form. Changing the national Cult may change recruitable commanders, sacred and fort recruits, plus certain spells are only castable by Cult mages"
+#descr "A Heliodromus located in the capital can attempt to establish the Cult of the Solar Bull as the official church of the Empire. This will only be successful if there is currently no living Cult leader to oppose them and no other Aspirants in the capital. By performing this ritual they will declare their intentions to convert the church to the Cult of the Solar Bull and assume the position of Heliopater. This spell can only be cast by a Heliodromus in the Imperial Capital."
+#details "Conversion to a cult is instant in first game year, after this it will take 3 months during which the aspiring Cult leader must remain in the capital. Cult benefits remain until Cult Leader dies or changes form. Changing the national Cult may change recruitable commanders, sacred and fort recruits, plus certain spells are only castable by Cult mages"
 #researchlevel 0
 #school 5
 #path 0 0
@@ -96807,8 +99617,8 @@ Dominion: Summons spectral troops in forts - more in Death scales. Dominion kill
 
 #newspell
 #name "Renew the Theurgy"
-#descr "A Theurg located in the capital can attempt to re-establish the Theurgy as the official church of the Empire. This will only be successful if there is currently no living Cult leader to oppose them. By performing this ritual they will declare their intentions to convert the church to the Theurgy. Each month the Aspirant remains in the capital they will have a chance to convert the populace and assume the position of Patriarch. This spell can only be cast by a Theurg in the Imperial Capital."
-#details "Conversion to a cult is instant in first game year, after this there is a 25% chance of success each month the aspiring Cult leader remains in the capital. Cult benefits remain until Cult Leader dies or changes form. Changing the national Cult may change recruitable commanders, sacred and fort recruits, plus certain spells are only castable by Cult mages"
+#descr "A Theurg located in the capital can attempt to re-establish the Theurgy as the official church of the Empire. This will only be successful if there is currently no living Cult leader to oppose them and no other Aspirants in the capital. By performing this ritual they will declare their intentions to convert the church to the Theurgy and assume the position of Patriarch. This spell can only be cast by a Theurg in the Imperial Capital."
+#details "Conversion to a cult is instant in first game year, after this it will take 3 months during which the aspiring Cult leader must remain in the capital. Cult benefits remain until Cult Leader dies or changes form. Changing the national Cult may change recruitable commanders, sacred and fort recruits, plus certain spells are only castable by Cult mages"
 #researchlevel 0
 #school 5
 #path 0 4
@@ -97025,13 +99835,33 @@ Dominion: Summons spectral troops in forts - more in Death scales. Dominion kill
 
 -- MAN
 
+
+#selectnation 47 -- MA Man
+#startcom 54 -- Castellan
+#startscout 56 -- Royal Forester
+#startunittype1 62 -- Longspear
+#startunitnbrs1 10
+#startunittype2 59 -- Longbowman
+#startunitnbrs2 15
+#end
+
+#selectnation 83 -- LA Man
+#startcom 54 -- Castellan
+#startscout 56 -- Royal Forester
+#startunittype1 62 -- Longspear
+#startunitnbrs1 15
+#startunittype2 59 -- Longbowman
+#startunitnbrs2 15
+#end
+
+
 #selectmonster 60 -- Monk
 #gcost 40
 #end
 
 #selectspell 348 -- Summon Cu Sidhe
-#nreff 505
-#fatiguecost 500
+#nreff 508
+#fatiguecost 600
 #end
 
 #selectspell 351 -- Bean Sidhe
@@ -97139,6 +99969,82 @@ Dominion: Summons spectral troops in forts - more in Death scales. Dominion kill
 #onlymnr 2439 -- Logrian Wise Man
 #restricted 47 -- MA Man
 #nextspell "Become Heretic"
+#end
+
+#newspell
+#copyspell 752 -- Summon Fire Drake
+#name "Host of the Unseelie"
+#descr "In the lands of the Fair Ones dwell two courts, the Seelie and Unseelie. In the dark of winter the Unseelie prey on the common folk. Faery gates located in the deepest forests lead to their realm where the brave can bargain for their service. Unseelie appear as fey knights astride dark mounts, cloaked in glamour. They are cruel and capricious, often appearing at night to travellers and spiriting them away. Whilst in fey lands time will pass strangely and the caster will be oddly aged upon their return."
+#details "Caster ages 10 years"
+#path 0 2
+#path 1 1
+#pathlevel 0 3
+#pathlevel 1 1
+#researchlevel 5
+#fatiguecost 3000
+#effect 10001
+#nreff 1007
+#damage 5936
+#nextspell "Age Caster" -- Age 10 Years
+#onlygeosrc 128 -- Forest
+#restricted 47 -- MA Man
+#end
+
+#newspell
+#copyspell 752 -- Summon Fire Drake
+#name "Host of the Seelie"
+#descr "In the lands of the Fair Ones dwell two courts, the Seelie and Unseelie. In summer the Seelie reign and bring light and kindness. Faery gates located in the deepest forests lead to their realm where the brave can bargain for their service. Seelie appear as winged fey creatures, cloaked in glamour. They are kind and forgiving, often helping lost children and leaving food for wayward travellers. Whilst in fey lands time will pass strangely and the caster will be oddly aged upon their return."
+#details "Caster ages 10 years"
+#path 0 1
+#path 1 6
+#pathlevel 0 3
+#pathlevel 1 1
+#researchlevel 5
+#fatiguecost 3000
+#effect 10001
+#nreff 1012
+#damage 5937
+#nextspell "Age Caster" -- Age 10 Years
+#onlygeosrc 128 -- Forest
+#restricted 47 -- MA Man
+#end
+
+#newspell
+#name "Queen of the Unseelie"
+#descr "The caster enters an Unseelie Door to gain the services of a Queen of the Winter Court. The Unseelie Court of Fey are associated with winter and are considered the more wicked of the two courts, raiding villages and bringing general misfortune to mortals in their path. The Queens of the Winter Court are skilled in the magical arts of trickery, winter and death. She will appear surrounded by her servants and can summon more to the mortal realm each month. Whilst in fey lands time will pass strangely and the caster will be oddly aged upon their return."
+#details "Caster ages 10 years"
+#school 0
+#researchlevel 8
+#path 0 2
+#path 1 1
+#pathlevel 0 5
+#pathlevel 1 1
+#effect 10021
+#damage 5938
+#nreff 1
+#fatiguecost 6500
+#nextspell "Host of the Unseelie" -- Age 10 Years
+#onlygeosrc 128 -- Forest
+#restricted 47 -- MA Man
+#end
+
+#newspell
+#name "Queen of the Seelie"
+#descr "The caster enters a Seelie Door to gain the services of a Queen of the Summer Court. The Seelie Court of Fey are associated with sumer and are considered the more kindly of the two courts, rewarding kindness and occasionally helping an errant human. The Queens of the Summer Court are skilled in the magical arts of the air, light, warmth and growth. She will appear surrounded by her servants and can summon more to the mortal realm each month. Whilst in fey lands time will pass strangely and the caster will be oddly aged upon their return."
+#details "Caster ages 10 years"
+#school 0
+#researchlevel 8
+#path 0 1
+#path 1 6
+#pathlevel 0 5
+#pathlevel 1 1
+#effect 10021
+#damage 5939
+#nreff 1
+#fatiguecost 6500
+#nextspell "Host of the Seelie" -- Age 10 Years
+#onlygeosrc 128 -- Forest
+#restricted 47 -- MA Man
 #end
 
 #newspell
@@ -97327,7 +100233,7 @@ Dominion: Summons spectral troops in forts - more in Death scales. Dominion kill
 #effect 10083
 #damage -1
 #nreff 1
-#fatiguecost 10000
+#fatiguecost 8000
 #nextspell "Bring the Curse"
 #onlyatsite 6 -- Tower of Avalon
 #restricted 47 -- MA Man
@@ -97535,6 +100441,17 @@ Dominion: Summons spectral troops in forts - more in Death scales. Dominion kill
 #end
 
 -- MARIGNON
+
+
+#selectnation 85 -- LA Marignon
+#startcom 1029 -- Captain
+#startscout 2107 -- Troubadour
+#startunittype1 2111 -- Halberdiers
+#startunitnbrs1 15
+#startunittype2 2108 -- Crossbowmen
+#startunitnbrs2 10
+#end
+
 
 #selectspell 382 -- Heavenly Choir
 #pathlevel 0 5
@@ -97937,6 +100854,18 @@ Dominion: Summons spectral troops in forts - more in Death scales. Dominion kill
 
 -- ASPHODEL
 
+#selectitem 159 -- Vine Shield
+#nationrebate 59 -- Asphodel
+#end
+
+#selectitem 85 -- Vine Bow
+#nationrebate 59 -- Asphodel
+#end
+
+#selectitem 48 -- Vine Whip
+#nationrebate 59 -- Asphodel
+#end
+
 #selectspell 341 -- Quick Roots
 #spec 549470352 -- AN, Ignores Shields, Affects Friendly non-lifeless Magic Beings Only, UWOK
 #end
@@ -97981,7 +100910,6 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newevent
 #rarity 5
 #req_domowner 59 -- Aspho
-#req_owncapital 0
 #req_dominion 1
 #req_maxdominion 1
 #msg "Dominion taxloss."
@@ -97993,7 +100921,6 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newevent
 #rarity 5
 #req_domowner 59 -- Aspho
-#req_owncapital 0
 #req_dominion 2
 #req_maxdominion 2
 #msg "Dominion taxloss."
@@ -98005,7 +100932,6 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newevent
 #rarity 5
 #req_domowner 59 -- Aspho
-#req_owncapital 0
 #req_dominion 3
 #req_maxdominion 3
 #msg "Dominion taxloss."
@@ -98017,7 +100943,6 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newevent
 #rarity 5
 #req_domowner 59 -- Aspho
-#req_owncapital 0
 #req_dominion 4
 #req_maxdominion 4
 #msg "Dominion taxloss."
@@ -98029,7 +100954,6 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newevent
 #rarity 5
 #req_domowner 59 -- Aspho
-#req_owncapital 0
 #req_dominion 5
 #req_maxdominion 5
 #msg "Dominion taxloss."
@@ -98041,7 +100965,6 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newevent
 #rarity 5
 #req_domowner 59 -- Aspho
-#req_owncapital 0
 #req_dominion 6
 #req_maxdominion 6
 #msg "Dominion taxloss."
@@ -98053,7 +100976,6 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newevent
 #rarity 5
 #req_domowner 59 -- Aspho
-#req_owncapital 0
 #req_dominion 7
 #req_maxdominion 7
 #msg "Dominion taxloss."
@@ -98065,7 +100987,6 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newevent
 #rarity 5
 #req_domowner 59 -- Aspho
-#req_owncapital 0
 #req_dominion 8
 #req_maxdominion 8
 #msg "Dominion taxloss."
@@ -98077,7 +100998,6 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newevent
 #rarity 5
 #req_domowner 59 -- Aspho
-#req_owncapital 0
 #req_dominion 9
 #req_maxdominion 9
 #msg "Dominion taxloss."
@@ -98089,7 +101009,6 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newevent
 #rarity 5
 #req_domowner 59 -- Aspho
-#req_owncapital 0
 #req_dominion 10
 #req_maxdominion 10
 #msg "Dominion taxloss."
@@ -98201,7 +101120,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #selectspell 340 -- Carrion Lord
-#fatiguecost 2500
+#fatiguecost 3500
 #end
 
 #selectspell 338 -- Carrion Centaur
@@ -98381,6 +101300,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #plant
 #holy
 #heal
+#female
 #stealthy 0
 #reanimpriest
 #researchbonus -4
@@ -98585,6 +101505,30 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #descr "The awakening of the Vengeful Woods has altered the very essence of Asphodel's inhabitants. No longer are white calves born in the Sacred Groves. Instead, black centaurs are born, mirroring the dark mood of the forests. These black calves are trained as sacred warriors and emissaries of the wild. The presence of a Black Centaur will spread the sleeping sickness of Asphodel, and nearby enemies may fall into a dreamless slumber. In lands free of civilization they will grow stronger, but they will weaken where men toil."
 #end
 
+-- Gaia's Vengeance Montag list
+
+#selectmonster 717 -- Carrion Beast (Medium)
+#montag 5163
+#end
+
+#selectmonster 718 -- Carrion Beast (large)
+#montag 5163
+#montagweight 2
+#end
+
+#selectmonster 714 -- Carrion Centaur
+#montag 5163
+#montagweight 2
+#end
+
+#selectmonster  711 -- Carrion Lady
+#montag 5163
+#end
+
+#selectmonster 330 -- Dark Vines
+#montag 5163
+#end
+
 #newspell
 #name "Dark Revival"
 #descr "Through an Unholy rite the caster causes vines and roots to reanimate the bones of dead Hierophants. Unholy power has granted the sagittarian carcasses magical weapons made of wood and vines, and these creations are holy to the followers of the Vengeful God."
@@ -98611,7 +101555,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #path 1 5
 #pathlevel 1 1
 #range 30
-#prec 3
+#precision 3
 #restricted 59 -- MA Asphodel
 #spec 1152921505152647168 -- Ignore Shields, UW OK, Undead & Lifeless immune, Secondaryeffect
 #end
@@ -98639,7 +101583,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #pathlevel 1 1
 #range 30
 #aoe 1003
-#prec 3
+#precision 3
 #fatiguecost 30
 #restricted 59 -- MA Asphodel
 #spec 1152921505152647168 -- Ignore Shields, UW OK, Undead & Lifeless immune, Secondaryeffect
@@ -98798,6 +101742,20 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 -- RUS
+
+
+#selectnation 62 -- Vanarus
+#startcom 2354 -- Vanarusian Herse
+#startscout 2353 -- vanarus Scout
+#startunittype1 2344 -- Huskarl
+#startunitnbrs1 15
+#startunittype2 2343 -- Vanarusian Archer
+#startunitnbrs2 15
+#end
+
+#selectspell 246 -- Contact Gamayun
+#fatiguecost 2000
+#end
 
 #newspell 
 #copyspell 795 -- Awaken Sleeper
@@ -99013,7 +101971,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #pathlevel 0 2
 #path 1 5
 #pathlevel 1 2
-#nreff 503
+#nreff 504
 #fatiguecost 1500
 #damage 5710 -- Chort
 #restricted 97 -- Bogarus
@@ -99287,6 +102245,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #restricted 67 -- Nazca
 #onlymnr 2664 -- Paqo of the Mountains
 #onlygeosrc 4194320 -- Mountain/Border only
+#onlygeodst 4194320 -- Mountain/Border only
 #end
 
 #newspell
@@ -99395,6 +102354,17 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 
 -- PHAEACIA
 
+
+#selectnation 70 -- Phaeacia
+#startcom 3154 -- Phaeacian Captain
+#startscout 3153 -- Phaeacian Scout
+#startunittype1 3145 -- Phaeacian Light Infantry
+#startunitnbrs1 15
+#startunittype2 3144 -- Phaeacian Archer
+#startunitnbrs2 15
+#end
+
+
 #newspell
 #copyspell 617 -- Cheat Fate
 #name "Weave Fate"
@@ -99439,6 +102409,13 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 -- YS
+
+#selectnation 77 -- Ys
+#startcom 2913 -- Ysian Commander
+#startscout 2912 -- Ysian Scout
+#startunittype1 2923 -- Ysian Infantry
+#startunitnbrs1 15
+#end
 
 #newspell
 #copyspell 630 -- Liquid Body
@@ -99739,6 +102716,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #aoe 666
 #range 0
 #restricted 82 -- LA Lemuria
+#restricted 135 -- Great Arrada
 #end
 
 -- #newspell
@@ -99939,10 +102917,6 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 
 -- ALBION
 
-#selectspell 205 -- Awaken Tattoos
-#restricted 128 -- Albion
-#end
-
 #newspell
 #name "Daub with Woad"
 #descr "The caster daubs their tattoos with sacred woad, activating their dormant powers."
@@ -99957,6 +102931,71 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #damage 549755813888 -- Awaken Tattoos
 #fatiguecost 0
 #spec 12599296 -- Ignores Shields, Affects Friendlies Only, UWOK
+#restricted 128 -- Albion
+#end
+
+#newspell
+#name "Awaken Woad"
+#descr "The caster activates the dormant powers of enchanted tattoos amongst a small group of warriors. The unit gains limited invulnerability and increased stats depending on tattoo type. Horse tattoos grant increased defence skill and speed, bear tattoos grant increased strength, boar tattoos grant increased invulnerability, wolf tattoos grant increased attack skill and snake tattoos grant magic resistance."
+#school 7 -- Divine
+#researchlevel 0
+#path 0 8
+#pathlevel 0 1
+#path 1 6
+#pathlevel 1 1
+#effect 23
+#damage 549755813888 -- Awaken Tattoos
+#aoe 5
+#nreff 1
+#range 10
+#fatiguecost 20
+#explspr 10013
+#flightspr -1
+#sound 31
+#spec 12599296 -- Ignore shields, Friendly only, UWOK
+#restricted 128 -- Albion
+#end
+
+#newspell
+#name "Awaken Woad Warriors"
+#descr "The caster activates the dormant powers of enchanted tattoos amongst a large group of warriors. The unit gains limited invulnerability and increased stats depending on tattoo type. Horse tattoos grant increased defence skill and speed, bear tattoos grant increased strength, boar tattoos grant increased invulnerability, wolf tattoos grant increased attack skill and snake tattoos grant magic resistance."
+#school 7 -- Divine
+#researchlevel 0
+#path 0 8
+#pathlevel 0 2
+#path 1 6
+#pathlevel 1 1
+#effect 23
+#damage 549755813888 -- Awaken Tattoos
+#aoe 15
+#nreff 1
+#range 10
+#fatiguecost 40
+#explspr 10013
+#flightspr -1
+#sound 31
+#spec 12599296 -- Ignore shields, Friendly only, UWOK
+#restricted 128 -- Albion
+#end
+
+#newspell
+#name "Awaken Woad Army"
+#descr "The caster activates the dormant powers of enchanted tattoos amongst the entire army. The unit gains limited invulnerability and increased stats depending on tattoo type. Horse tattoos grant increased defence skill and speed, bear tattoos grant increased strength, boar tattoos grant increased invulnerability, wolf tattoos grant increased attack skill and snake tattoos grant magic resistance."
+#school 7 -- Divine
+#researchlevel 0
+#path 0 8
+#pathlevel 0 3
+#path 1 6
+#pathlevel 1 1
+#effect 23
+#damage 549755813888 -- Awaken Tattoos
+#casttime 200
+#aoe 666
+#nreff 1
+#fatiguecost 80
+#explspr 10013
+#sound 31
+#spec 12599296 -- Ignore shields, Friendly only, UWOK
 #restricted 128 -- Albion
 #end
 
@@ -100100,9 +103139,22 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #pathlevel 0 1
 #path 1 8
 #pathlevel 1 1
-#fatiguecost 200
+#fatiguecost 100
 #damage 303 -- Imps
 #nreff 3
+#restricted 129 -- Zion
+#end
+
+#newspell
+#copyspell 730 -- Call of the Winds
+#name "Send Host of Birds"
+#descr "The Prophet King has gained the ability to speak to animals and birds through his studies and can pass this on to his priests. With this spell the caster entreats a flock of birds to serve the King. A flock of Great Hawks will descend upon a province far away."
+#researchlevel 4
+#path 1 8
+#pathlevel 1 1
+#fatiguecost 1000
+#nreff 21
+#damage 1380
 #restricted 129 -- Zion
 #end
 
@@ -100142,7 +103194,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #copyspell 724 -- Pack of Wolves
 #name "Bind Infernal Viper of the Abyss"
 #descr "Through the seals of the Prophet King the demons of the abyss can be bound to service. A Serpent-fiend, a foul demonic being of the abyss, will appear when the spell is cast and is bound by a seal of the Prophet King. A demon so bound will be forced to obey the caster, and will be unable to escape its bondage unless banished or the seal is destroyed."
-#researchlevel 3
+#researchlevel 2
 #path 0 4
 #pathlevel 0 2
 #path 1 8
@@ -100158,12 +103210,12 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #name "Bind Devil of the Fiery Inferno"
 #descr "Through the seals of the Prophet King the demons of the inferno can be bound to service. A devil, a foul demonic being of the inferno, will appear when the spell is cast and is bound by a seal of the Prophet King. A demon so bound will be forced to obey the caster, and will be unable to escape its bondage unless banished or the seal is destroyed."
 #school 0
-#researchlevel 4
+#researchlevel 3
 #path 0 0
 #pathlevel 0 2
 #path 1 8
 #pathlevel 1 1
-#fatiguecost 300
+#fatiguecost 200
 #damage 304 -- Devil
 #nreff 1
 #restricted 129 -- Zion
@@ -100199,6 +103251,67 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #newspell
+#copyspell 1061 -- Banish Demon
+#name "Bind Demonic Being"
+#descr "Through the seals of the Prophet King demons can be bound to service. A demonic creature will be bound to obey the caster, and will be unable to escape their bondage unless banished or the seal is destroyed."
+#school 5
+#researchlevel 3
+#path 0 4
+#pathlevel 0 2
+#path 1 8
+#pathlevel 1 1
+#effect 28
+#damage 999
+#fatiguecost 20
+#restricted 129 -- Zion
+#end
+
+#newspell
+#name "Demon Fatigue"
+#school -1
+#researchlevel 0
+#nreff 1
+#effect 11
+#damage 32 -- Rapid Fatigue
+#aoe 1
+#spec 13107208 -- Friendly Demons Only, ignores shields
+#end
+
+#newspell
+#copyspell 660 -- Wooden Warriors
+#name "Exhort Demonic Beings"
+#descr "Through the seals of the Prophet King the caster forces a group of demons to exert themselves to the fullest in service to the King. The demons affected will move and attack with great speed, but the extertion will quickly tire them out."
+#details "Demons affected gain Quickness, +2 att, +2 def, berserk rage, +3 enc and gain D4 fatigue per square moved."
+#school 5
+#researchlevel 5
+#path 0 0
+#pathlevel 0 3
+#path 1 8
+#pathlevel 1 1
+#damage 262400 -- Quicken & Rage
+#fatiguecost 60
+#ainocast 1
+#explspr 10003
+#nextspell "Demon Fatigue"
+#spec 13107208 -- Friendly Demons Only, ignores shields, Extra effect
+#restricted 129 -- Zion
+#end
+
+#newspell
+#copyspell 1092 -- Ritual of five gates
+#name "Bind Infernal Host"
+#descr "Through the seals of the Prophet King the caster forces a great Prince of Demons to provide servants from each of the Infernal realms. Five demonic beings will be extorted and forced to serve the caster."
+#school 0
+#researchlevel 5
+#path 0 4
+#pathlevel 0 4
+#path 1 8
+#pathlevel 1 1
+#fatiguecost 1200
+#restricted 129 -- Zion
+#end
+
+#newspell
 #copyspell 1109 -- Three Red Seconds
 #name "Wondrous Fortress Construction"
 #descr "Through the seals of the Prophet King the spirits of the air can be bound to service. A host of invisible spirit beings are bound by a seal of the Prophet King and compelled to create a wondrous structure in a single night. They will create a mighty jeweled fortress in a province of the casters choosing before being released from their bondage."
@@ -100211,6 +103324,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #fatiguecost 2000
 #damage 2
 #onlyowndst 1
+#nogeodst 2052 -- Sea or Deep Sea
 #restricted 129 -- Zion
 #end
 
@@ -100325,7 +103439,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #pathlevel 1 1 -- Level 1
 #effect 10001 -- Summon units
 #nreff 1
-#fatiguecost 500 -- 5 water gems per Yeh-teh
+#fatiguecost 300 -- 3 water gems per Yeh-teh
 #damage 4096 -- Yeh-Teh
 #restricted 130
 #onlyatsite 1812 -- Lost City of the Ancients
@@ -100343,7 +103457,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #pathlevel 1 1 -- Level 1
 #effect 10001 -- Summon units
 #nreff 505 -- 5+1/2
-#fatiguecost 2500 -- 25 water gems
+#fatiguecost 1500 -- 15 water gems
 #damage 4096
 #restricted 130
 #onlyatsite 1812 -- Ruins of the Ancients
@@ -100445,7 +103559,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #pathlevel 1 1 -- Level 1
 #effect 10001 -- Summon units
 #nreff 1
-#fatiguecost 500 -- 5 water gems per Yeh-teh
+#fatiguecost 300 -- 3 water gems per Yeh-teh
 #damage 4096 -- Yeh-Teh
 #restricted 131
 #onlyatsite 1804 -- Hidden City
@@ -100464,7 +103578,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #pathlevel 1 1 -- Level 1
 #effect 10001 -- Summon units
 #nreff 505 -- 5+1/2
-#fatiguecost 2500 -- 30 water gems
+#fatiguecost 1500 -- 15 water gems
 #damage 4096
 #restricted 131
 #onlyatsite 1804 -- Hidden City
@@ -100701,12 +103815,12 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 
 
 #newspell
-#name "Retinue of Dra Lha"	
-#descr "This is the nextspell for Propitiate Srungma Lha. It summons 6 Dra Lha to go along with the Sungma Lha. You should not see this description in-game."
+#name "Retinue of 10 Dra Lha"	
+#descr "This is the nextspell for Propitiate Srungma Lha. It summons 10 Dra Lha to go along with the Sungma Lha. You should not see this description in-game."
 #school -1 -- none
 #researchlevel 0
 #effect 10001 -- summon units
-#nreff 6
+#nreff 10
 #damage 4104 -- Dgra Lha
 #end
 
@@ -100725,7 +103839,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #damage 4103 -- Srungma Lha
 #restricted 131
 #onlygeosrc 4194320 -- only castable in mountain and border mountain provinces
-#nextspell "Retinue of Dra Lha"
+#nextspell "Retinue of 10 Dra Lha"
 #end
 
 #newspell
@@ -100739,7 +103853,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #pathlevel 1 3
 #effect 10001 -- summon units
 #nreff 2
-#fatiguecost 1000
+#fatiguecost 800
 #damage 4105 -- Snow Lion
 #restricted 131
 #onlygeosrc 4194320 -- only castable in mountain and border mountain provinces
@@ -100774,7 +103888,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #name "Restore the Dharma"
 #descr "According to Shambhalan religion, the Dharma is the teachings of the enlightened ones, passed on by spiritual masters. It expresses what must be done to free one's soul from the cycle of reincarnations and attain total spiritual ascension. The Dharma must be experienced directly, not only preached. Through this spell, a Shambhalan priest is able to share his own experience of enlightenment with some persons. Those who do not resist this spiritual experience often leave their former lives to follow the priest and serve in the Shambhalan forces."
 #school 5 -- Thaumaturgy
-#researchlevel 3
+#researchlevel 5
 #path 0 4 -- Astral 3
 #pathlevel 0 3
 #path 1 8 -- Holy 2
@@ -100789,7 +103903,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #flightspr 141 8
 #explspr 10001
 #sound 47
-#spec 8540288 -- AN, MR Neg, Ignores Shields, No Effect on Mindless, uwok
+#spec 25313408 -- AN, MR Easy Neg, Ignores Shields, No Effect on Mindless, uwok
 #restricted 131 -- Shambhala
 #end
 
@@ -100828,6 +103942,54 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 -------- NA'BA
+
+#selectsite 211 -- Vault of incense & Marvels
+#gold 50
+#end
+
+#selectmonster 3333
+#clearspec
+#gcost 22
+#rpcost 24
+#mapmove 20
+#mounted
+#wastesurvival
+#pillagebonus 1
+#skirmisher 1
+#batstartsum1 3371 -- Falcon
+#end
+
+#selectmonster 3454
+#clearspec
+#gcost 22
+#rpcost 24
+#mapmove 20
+#mounted
+#wastesurvival
+#pillagebonus 1
+#skirmisher 1
+#batstartsum1 3371 -- Falcon
+#end
+
+#selectmonster 3339 -- Hermit Sahir
+#clearmagic
+#magicskill 0 1
+#magicskill 1 1
+#magicskill 3 1
+#custommagic 3456 50 -- 50% FAES
+#end
+
+#selectmonster 3463 -- Jinn Warrior
+#reclimit 3
+#end
+
+#selectmonster 3467 -- Guardian of the Forbidden Chamber
+#reclimit 3
+#end
+
+#selectmonster 3466 -- Houri
+#rpcost 2
+#end
 
 #selectmonster 3341 -- Malikah
 #montag 5193 -- True Jinn
@@ -100886,6 +104048,8 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #fatiguecost 4200
 #restricted 72 -- Na'Ba
 #restricted 155 -- Juhera
+#restricted 156 -- Iram
+#restricted 157 -- Iram
 #restricted 167 -- Dom-Dan'yel
 #end
 
@@ -100937,6 +104101,8 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 
 #selectspell 1159 -- Summon Hinn
 #restricted 155 -- Juhera
+#restricted 156 -- Iram
+#restricted 157 -- Iram
 #end
 
 #newspell
@@ -100952,9 +104118,17 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #restricted 155 -- Juhera
 #end
 
+#selectspell 1164 -- Scorching Wind
+#restricted 155 -- Juhera
+#restricted 156 -- Iram
+#restricted 157 -- Iram
+#end
+
 #selectspell 1166 -- Scorching Wind
 #descr "The Scorching Wind is the primordial wind from which the Hinn and the Binn were spawned. It is unbearably dry and hot and will dehydrate living beings within minutes. The spell has no effect on living beings resistant to heat or with wasteland survival abilities."
 #restricted 155 -- Juhera
+#restricted 156 -- Iram
+#restricted 157 -- Iram
 #end
 
 #newspell
@@ -101019,17 +104193,19 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newspell
 #copyspell "Air Shield"
 #name "Bend Winds"
-#descr "With this spell the jinn command the air itself to deflect missiles away from their allies."
+#descr "Using jinn magic the caster commands the air itself to deflect missiles away from their allies."
 #details "Air Shield: 80"
 #school 4
 #researchlevel 2
 #path 0 1
-#pathlevel 0 2
-#aoe 1000
+#pathlevel 0 1
+#aoe 2000
 #range 10
 #fatiguecost 20
 #precision 100
 #restricted 155
+#restricted 156
+#restricted 157
 #end
 
 #newspell
@@ -101049,6 +104225,22 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #newspell
+#name "Elephant Clock"
+#descr "The caster constructs an intricate clock that is then mounted on the back of a great elephant. This enables armies on campaign to ensure that prayers are given at the correct times, and will greatly ease logistics of all kinds. The army will enter each battle already blessed by the power of the True God, and due to enhanced precision sieges will be conducted more effectively."
+#researchlevel 3
+#school 3
+#path 0 3 -- Earth
+#path 1 0 -- Fire
+#pathlevel 0 3 -- e3
+#pathlevel 1 1 -- f1
+#restricted 156
+#effect 10021
+#nreff 1
+#damage 5942
+#fatiguecost 1200
+#end
+
+#newspell
 #name "Enliven Guardians"
 #descr "The ingenuity of the Irami artificers is legendary. With cunning application of clockwork mechanisms and elemental magic, they are able to imbue statues of brass with life, such that they may guard the walls of the Brass City from heathen intruders."
 #researchlevel 3
@@ -101062,6 +104254,54 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #nreff 2
 #damage 4611
 #fatiguecost 300
+#end
+
+#newspell
+#name "Host of Guardians"
+#descr "The ingenuity of the Irami artificers is legendary. With cunning application of clockwork mechanisms and elemental magic, they are able to imbue statues of brass with life, such that they may guard the walls of the Brass City from heathen intruders. The most wealthy members of the royal family will often commission several artificers to construct such guardians to protect their palaces."
+#researchlevel 5
+#school 4
+#path 0 3 -- earth
+#path 1 0 -- fire
+#pathlevel 0 3 -- e3
+#pathlevel 1 1 -- f1
+#restricted 156
+#effect 10001
+#nreff 2004
+#damage 4611
+#fatiguecost 1500
+#end
+
+#newspell
+#name "Construct Brass Golem"
+#descr "The caster constructs a clockwork titan of burnished brass. Polished to a mirror finish the gleaming figure will be almost impossible to look at when the sun strikes it. Furthermore, a complex system of mirrored plates allow the colossus to focus the rays of the sun into a burning ray that will incinerate enemies."
+#researchlevel 7
+#school 3
+#path 0 0 -- Fire
+#path 1 3 -- Earth
+#pathlevel 0 2 -- F3
+#pathlevel 1 1 -- E1
+#restricted 156
+#effect 10001
+#nreff 1
+#damage 5941
+#fatiguecost 1200
+#end
+
+#newspell
+#name "Legion of Guardians"
+#descr "The ingenuity of the Irami artificers is legendary. With cunning application of clockwork mechanisms and elemental magic, they are able to imbue statues of brass with life, such that they may guard the walls of the Brass City from heathen intruders. The greatest artificers can construct great numbers of these servants to swell the armies of Iram."
+#researchlevel 7
+#school 4
+#path 0 3 -- earth
+#path 1 0 -- fire
+#pathlevel 0 4 -- e4
+#pathlevel 1 2 -- f1
+#restricted 156
+#effect 10001
+#nreff 3023
+#damage 4611
+#fatiguecost 3000
 #end
 
 #newspell
@@ -101100,7 +104340,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 
 #newspell
 #name "Summon Jinn Exile"
-#descr "The destruction of the Emerald Mountain has scattered the survivors of Juhera to the corners of the earth. With this spell, the caster may call out to an exiled Jinn, one of the old Emirs of Juhera, and entreat them to lead the armies of the Awakening God."
+#descr "The destruction of the Emerald Mountain has scattered the survivors of Juhera to the corners of the earth. With this spell, the caster may call out to an exiled Jinn, one of the old Emirs of Juhera, and entreat them to lead the armies of the Awakening God. Whilst in the capital the Jinn will forge magical weapons of flame for the most faithful warriors of Iram."
 #school 0
 #researchlevel 4
 #path 0 0
@@ -101154,6 +104394,25 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 
 #newspell
 #copyspell 773 -- summon air elemental
+#name "Pari Mastery"
+#descr "With mystic seals of binding, the magician finds and enslaves several Pari to do their bidding. The Pari are set upon the enemy and forced to fight until either side is defeated."
+#restricted 157
+#path 0 0 -- f
+#path 1 1 -- a
+#pathlevel 0 2
+#pathlevel 1 1
+#school 5 
+#researchlevel 4
+#fatiguecost 100
+#effect 1
+#damage 4710
+#nreff 1003
+#sound 16
+#range 0
+#end
+
+#newspell
+#copyspell 773 -- summon air elemental
 #name "Enslave Jinn"
 #descr "With mystic seals of binding, the magician finds and enslaves one of the proud Jinn to do his bidding. The Jinn is set upon the enemy and forced to fight until either side is defeated."
 #restricted 157
@@ -101164,10 +104423,29 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #pathlevel 1 2
 #school 5 
 #researchlevel 5
-#fatiguecost 200
+#fatiguecost 80
 #effect 1
 #damage 4711
 #nreff 1
+#sound 16
+#range 0
+#end
+
+#newspell
+#copyspell 773 -- summon air elemental
+#name "Jinn Mastery"
+#descr "With mystic seals of binding, the magician finds and enslaves several Jinn to do his bidding. The Jinn are set upon the enemy and forced to fight until either side is defeated."
+#restricted 157
+#path 0 0 -- f
+#path 1 1 -- a
+#pathlevel 0 3
+#pathlevel 1 2
+#school 5 
+#researchlevel 6
+#fatiguecost 100
+#effect 1
+#damage 4711
+#nreff 1000
 #sound 16
 #range 0
 #end
@@ -101196,7 +104474,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #damage 4712
 #nreff 1
 #sound 16
-#range 0
+#range 5
 #nextspell "Djinn Madness"
 #end
 
@@ -101326,7 +104604,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #pathlevel 0 3
 #fatiguecost 0
 #aoe 10
-#spec 79708160 -- Friendly undead only, use UW, ignore shields
+#spec 281034760 -- Friendly undead only, use UW, ignore shields
 #restricted 167 -- Dom-Dan'yel
 #end
 
@@ -101344,7 +104622,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 
 #newspell
 #copyspell 787 -- Spirit Mastery
-#name "Summon Shades"
+#name "Shade Summoning"
 #descr "The caster summons several shades from the Underworld through the Nine Gates in Dom-Dan'yel. The spirits are ethereal and can drain the strength of the living."
 #researchlevel 1
 #nreff 5
@@ -101398,7 +104676,41 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #damage 6569 -- Shiqq
 #fatiguecost 700
 #onlygeosrc 64
-#restricted 167
+#restricted 155 -- Juhera
+#restricted 156 -- Iram
+#restricted 157 -- Iram
+#restricted 167 -- Dom Dan'yel
+#end
+
+#newspell
+#copyspell 759 -- Summon Sea Serpent
+#name "Summon Ghawwas"
+#descr "The caster summmons a Ghawwas, a malevolent Jinn of the deep ocean. Unlike most jinn they take physical form and appear to be a cross between a man and a great predatory fish. Although formed from smokeless flame like other Jinn the flame is toxic and the Ghawwas will pollute and boil any water source they inhabit. Most live in the depths of the ocean, but occasionally journey to the shore to wreak havoc on water supplies or to poison desert oases."
+#school 0
+#researchlevel 3
+#path 0 2
+#path 1 0
+#pathlevel 0 1
+#pathlevel 1 1
+#damage 6578 -- Ghawwas
+#fatiguecost 500
+#restricted 167 -- Dom Dan'yel
+#end
+
+#newspell
+#copyspell 759 -- Summon Sea Serpent
+#name "Contact Ghawwas Sultan"
+#descr "The caster calls a sultan of the Ghawwas, a malevolent Jinn of the deep ocean, and binds it to service. Unlike most jinn they take physical form and appear to be a cross between a man and a great predatory fish. Although formed from smokeless flame like other Jinn the flame is toxic and the Ghawwas will pollute and boil any water source they inhabit. Most live in the depths of the ocean, but occasionally journey to the shore to wreak havoc on water supplies or to poison desert oases."
+#school 0
+#researchlevel 4
+#path 0 2
+#path 1 0
+#pathlevel 0 2
+#pathlevel 1 2
+#effect 10021
+#damage 6578 -- Ghawwas
+#fatiguecost 2200
+#restricted 167 -- Dom Dan'yel
 #end
 
 #newspell
@@ -101409,13 +104721,29 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #researchlevel 4
 #path 0 2
 #pathlevel 0 3
-#fatiguecost 200
+#fatiguecost 100
 #effect 43  -- Single border summoning
 #damage 6568 -- Dandan
 #nreff 1
 #explspr -1
 #spec 41943040 -- UW Only
 #restricted 167 -- Domdaniel
+#end
+
+#newspell
+#copyspell 759 -- Summon Sea Serpent
+#name "Summon Host of Ghawwas"
+#descr "The caster summmons several Ghawwas, malevolent Jinn of the deep ocean. Unlike most jinn they take physical form and appear to be a cross between a man and a great predatory fish. Although formed from smokeless flame like other Jinn the flame is toxic and the Ghawwas will pollute and boil any water source they inhabit. Most live in the depths of the ocean, but occasionally journey to the shore to wreak havoc on water supplies or to poison desert oases."
+#school 0
+#researchlevel 6
+#path 0 2
+#path 1 0
+#pathlevel 0 3
+#pathlevel 1 1
+#damage 6578 -- Ghawwas
+#nreff 5
+#fatiguecost 2000
+#restricted 167 -- Dom Dan'yel
 #end
 
 #newspell
@@ -101429,6 +104757,9 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #fatiguecost 30
 #range 5010
 #spec 41943040 -- UW Only
+#restricted 155 -- Juhera
+#restricted 156 -- Iram
+#restricted 157 -- Iram
 #restricted 167 -- Domdaniel
 #end
 
@@ -101519,11 +104850,12 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #path 1 1
 #pathlevel 0 2
 #pathlevel 1 1
-#restricted 167
 #effect 10001
 #nreff 1
 #damage 4471
 #fatiguecost 500
+#restricted 157 -- Iram
+#restricted 167
 #end
 
 #newspell
@@ -101539,6 +104871,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #nreff 1
 #damage 4470
 #fatiguecost 1800
+#restricted 157 -- Iram
 #restricted 167
 #end
 
@@ -101564,7 +104897,12 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #selectspell 904 -- Twiceborn
-#notmnr -5196
+#notmnr -5198 -- Most Uniques
+#notmnr 5927 -- Ashaggoth
+#notmnr 6566 -- Zatanai
+#notmnr 6572 -- Zatanai Master
+#notmnr 6575 -- Infernal Sorcerer
+#notmnr 6576 -- Cruel Magician
 #end 
 
 #newspell
@@ -101588,34 +104926,6 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #newspell
-#name "Ceremony of Apotheosis"
-#descr "This spell allows a Pretender to imbue a portion of their Divine power into a trusted servant, making them a DemiGod to sit at the feet of the True God. Through arcane rituals and experimental theology a ceremonial item is imbued with symbolic power. The tenets of the faith are altered to include worship of the new DemiGod and the prayers of the faithful provide the catalyst for the Apotheosis. This spell should only be cast at the Capital city with the Pretender present for the ceremony or else it will fail and the gems will be wasted. A ceremonial garland will be created which should be given to the chosen recipient. Only one DemiGod can be created to serve each Pretender, so only the most powerful and trusted servant will be considered. The ritual requires long and careful preparations and will not be successful if cast whilst the province is under siege."
-#school -1
-#researchlevel 0
-#effect 10082
-#damage 505
-#fatiguecost 2500
-#nreff 1
-#end
-
-#newspell
-#name "Apotheosis"
-#descr "This spell allows a Pretender to imbue a portion of their Divine power into a trusted servant, making them a DemiGod to sit at the feet of the True God. Through arcane rituals and experimental theology a ceremonial item is imbued with symbolic power. The tenets of the faith are altered to include worship of the new DemiGod and the prayers of the faithful provide the catalyst for the Apotheosis. This spell should only be cast at the Capital city with the Pretender present for the ceremony or else it will fail and the gems will be wasted. A ceremonial garland will be created which should be given to the chosen recipient. Only one DemiGod can be created to serve each Pretender, so only the most powerful and trusted servant will be considered. The ritual requires long and careful preparations and will not be successful if cast whilst the province is under siege."
-#details "Creates Divine Garland item allowing bearer to become a Demigod through casting the item spell. This permanently grants Pretender powers (Provides Incarnate Bless whilst alive, Dominion bonuses/penalties, autoblessed in Dominion, Bless sacreds in battle, Immune to Charm, Can be called back from death by priests)."
-#researchlevel 7
-#school 5
-#path 0 0 
-#pathlevel 0 1
-#path 1 8
-#pathlevel 1 3
-#effect 10083
-#nreff 1
-#damage -1 
-#fatiguecost 2500
-#nextspell "Ceremony of Apotheosis"
-#end
-
-#newspell
 #name "Bind Unseen Host"
 #descr "The caster summons and binds several Jinnun warriors to their will. More powerful casters will be able to bind more of the elusive beings with each casting. Jinn are naturally invisible and ethereal, but can take physical form when they interact with men. They are proud and wily creatures and will attempt to make mischief for their masters whilst bound."
 #school 0
@@ -101628,6 +104938,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #nreff 1001
 #damage 4471
 #fatiguecost 2000
+#restricted 157 -- Iram
 #restricted 167
 #end
 
@@ -101675,6 +104986,8 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #path 1 1
 #pathlevel 0 6
 #pathlevel 1 4
+#restricted 156 -- Iram
+#restricted 157 -- Iram
 #restricted 167 -- Dom-Dan'yel
 #end
 
@@ -101732,7 +105045,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #researchlevel 7
 #restricted 140
 #path 0 5
-#pathlevel 0 4
+#pathlevel 0 3
 #fatiguecost 2000
 #end
 
@@ -101840,6 +105153,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #pathlevel 0 2
 #pathlevel 1 3
 #fatiguecost 3000
+#onlygeosrc 4194320 -- Mountains
 #end
 
 #newspell
@@ -101888,7 +105202,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #researchlevel 2
 #restricted 140
 #path 0 7
-#pathlevel 0 3
+#pathlevel 0 1
 #fatiguecost 3600
 #end
 
@@ -101907,7 +105221,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #researchlevel 8
 #path 0 1
 #pathlevel 0 7
-#fatiguecost 12000
+#fatiguecost 10000
 #spec 0
 #nextspell "White and Sky"
 #end
@@ -101928,7 +105242,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #researchlevel 8
 #path 0 2
 #pathlevel 0 7
-#fatiguecost 12000
+#fatiguecost 10000
 #nextspell "Moon and Deep"
 #end
 
@@ -101965,8 +105279,8 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newspell
 #copyspell "Sermon of Courage"
 #name "Gifts of the Sky"
-#descr "The Sky grants his protection upon the warriors of Sawaiiki, shielding them from harm. Blades turn and arrows break off the skin of the warriors while the Sky's blessing is active. While this invocation is powerful, it also provokes the ire of Ruin, making the warriors more susceptible to fire. Channeling the power of the Four is taxing for mortals."
-#details "Grants natural protection 10, or +1 if already 10 or higher. Also incurs susceptibility to Fire 5."
+#descr "The Sky grants his protection upon the warriors of Sawaiiki, shielding them from harm. Blades turn and arrows break off the skin of the warriors while the Sky's blessing is active and the magic of ritual tattoos will be awakened. While this invocation is powerful, it also provokes the ire of Ruin, making the warriors more susceptible to fire. Channeling the power of the Four is taxing for mortals."
+#details "Grants natural protection 10, or +1 if already 10 or higher. Also incurs susceptibility to Fire 5 and activates magic tattoos"
 #aoe 5
 #effect 10
 #damage 16
@@ -101980,13 +105294,14 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #pathlevel 1 1
 #fatiguecost 50
 #range 10
+#nextspell "Tattoos Activate"
 #end
 
 #newspell
 #copyspell "Sermon of Courage"
 #name "Gifts of the White"
-#descr "The White grants his power of healing and growth upon the warriors of Sawaiiki. Horrific wounds close in an instant, and permanent injuries are far less likely while the White's blessing is active. Channeling the power of the Four is taxing for mortals."
-#details "Grants Regeneration 10"
+#descr "The White grants his power of healing and growth upon the warriors of Sawaiiki. Horrific wounds close in an instant, and permanent injuries are far less likely while the White's blessing is active whilst the magic of ritual tattoos will be awakened. Channeling the power of the Four is taxing for mortals."
+#details "Grants Regeneration 10, activates magic tattoos"
 #aoe 5
 #effect 10
 #damage 32
@@ -102000,12 +105315,14 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #pathlevel 1 1
 #fatiguecost 50
 #range 10
+#nextspell "Tattoos Activate"
 #end
 
 #newspell
 #copyspell "Sermon of Courage"
 #name "Gifts of the Moon"
-#descr "The Moon elevates the bloodlust of the warriors of Sawaiiki. While the warriors affected will fight without care for their safety, the Moon's blessing is very tiring and can be fatal if invoked at the wrong moment. Channeling the power of the Four is taxing for mortals."
+#descr "The Moon elevates the bloodlust of the warriors of Sawaiiki. While the warriors affected will fight without care for their safety, the Moon's blessing is very tiring and can be fatal if invoked at the wrong moment. The magic of ritual tattoos will be awakened whilst the blessing is active. Channeling the power of the Four is taxing for mortals."
+#details "Sends targets Berserk, activates magic tattoos"
 #aoe 5
 #effect 10
 #damage 256
@@ -102020,13 +105337,14 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #fatiguecost 50
 #range 10
 #ainocast 1
+#nextspell "Tattoos Activate"
 #end
 
 #newspell
 #copyspell "Sermon of Courage"
 #name "Gifts of the Deep"
-#descr "The Deep teaches the secrets of resisting magic to the warriors of Sawaiiki. The minds of the soldiers become as inscrutable and impenetrable as the Deep's realm while this blessing is active. Channeling the power of the Four is taxing for mortals."
-#details "Grants MR +4"
+#descr "The Deep teaches the secrets of resisting magic to the warriors of Sawaiiki. The minds of the soldiers become as inscrutable and impenetrable as the Deep's realm while this blessing is active and the magic of ritual tattoos will be awakened. Channeling the power of the Four is taxing for mortals."
+#details "Grants MR +4, activates magic tattoos"
 #aoe 5
 #effect 10
 #damage 67108864
@@ -102040,6 +105358,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #pathlevel 1 1
 #fatiguecost 50
 #range 10
+#nextspell "Tattoos Activate"
 #end
 
 
@@ -102494,7 +105813,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 
 #newspell
 #name "Activate Tattoos"
-#descr "The caster performs a sacred dance to activate the dormant powers of enchanted tattoos. The unit gains limited invulnerability and increased stats depending on tattoo type. Maohi tattoos grant increased attack skill and limited invulnerability."
+#descr "The caster performs a sacred dance to activate the dormant powers of enchanted tattoos. The unit gains limited invulnerability and increased stats depending on tattoo type. Tattoos can grant increased attack skill, magic resistance and provide some limited invulnerability."
 #school 4
 #researchlevel 3
 #path 0 2
@@ -102509,7 +105828,8 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #damage 549755813888 -- Awaken Tattoos
 #fatiguecost 20
 #spec 12599296 -- Ignores Shields, Affects Friendlies Only, UWOK
-#restricted 136
+#restricted 136 -- Alchera
+#restricted 140 -- Sawaiiki
 #end
 
 -- DRAGON KINGS --
@@ -102626,7 +105946,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #details "Grants Dragon Mastery +2."
 #researchlevel 6
 #path 0 2
-#fatiguecost 1600
+#fatiguecost 1000
 #restricted 114
 #end
 
@@ -102878,7 +106198,6 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #effect 10021
 #fatiguecost 2500
 #nreff 1
-#masterrit 1
 #restricted 166 -- Venedia
 #onlyatsite 1620 -- Floating City
 #end
@@ -102928,7 +106247,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #effect 10001
 #nreff 5
 #damage 3942 -- Serpent Warrior
-#fatiguecost 1000
+#fatiguecost 800
 #restricted 124 -- EA Chaco
 #nextspell "5 Serpent Archers"
 #onlyatsite 1773 -- Sipapu
@@ -103071,6 +106390,54 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #newspell
+#name "Ant Queen"
+#school -1
+#researchlevel 0
+#effect 10021
+#nreff 1
+#damage 4022
+#nextspell "15 Ant Warriors"
+#end
+
+#newspell
+#name "Ant General 2"
+#school -1
+#researchlevel 0
+#effect 10021
+#nreff 1
+#damage 4023
+#nextspell "Ant Queen"
+#end
+
+#newspell
+#name "Ant General"
+#school -1
+#researchlevel 0
+#effect 10021
+#nreff 1
+#damage 4023
+#nextspell "Ant General 2"
+#end
+
+#newspell
+#name "Army of Ants"
+#descr "The caster enters Sipapu, the hole leading to the underworld, in order to meet with the Ant people. There they will bargain earth gems with one of the Queens of the Ant people to convince her to enter the surface world. She will be attended by a great swarm of hardy ant warriors and several of their generals. These creatures are larger than a man, wield weapons and armor formed from discarded chitin, and their mandibles give a vicious bite. Each month more ant people will join as the hive grows through the efforts of the Queen."
+#school 0
+#researchlevel 8
+#path 0 3
+#path 1 6
+#pathlevel 0 5
+#pathlevel 1 1
+#effect 10001
+#nreff 6006
+#damage 3940
+#fatiguecost 4800
+#restricted 124 -- EA Chaco
+#nextspell "Ant General"
+#onlyatsite 1773 -- Sipapu
+#end
+
+#newspell
 #name "Summon Atahsaia"
 #descr "The caster summons and binds one of the Atahsaia, giant cannibalistic spirit creatures several times larger than a human. They prey upon lone travellers and sometimes threaten isolated villages whose warriors are absent. Atahsaia have long wild grey hair, muscular arms and sharp tusks."
 #school 0
@@ -103090,7 +106457,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #name "Ogre Dance"
 #descr "The caster performs a sacred dance to summon a Kátsina Ogre from its abode. Kátsina Ogres are wild spirit beings that punish those that transgress against the sacred rites. They appear as monstrous hulking creatures with long snouts and sharp teeth and claws. As spirits of nature they are protected against mundane weapons and will cause nearby plants to ensnare attackers. All Kátsinam are sacred to the people of the mesa."
 #school 0
-#researchlevel 5
+#researchlevel 3
 #path 0 6
 #path 1 3
 #pathlevel 0 1
@@ -103098,7 +106465,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #effect 10001
 #nreff 1
 #damage 3949
-#fatiguecost 500
+#fatiguecost 400
 #restricted 124 -- EA Chaco
 #restricted 125 -- MA Ongtupqa
 #restricted 126 -- LA Ongtupqa
@@ -103111,7 +106478,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #researchlevel 6
 #path 0 0
 #path 1 1
-#pathlevel 0 3
+#pathlevel 0 2
 #pathlevel 1 2
 #effect 10021
 #nreff 1
@@ -103126,13 +106493,13 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #name "Summon Corn Maiden"
 #descr "The caster summons a Corn Maiden to the province. A Corn Maiden is a spirit of nature in the form of a green skinned maiden wearing robes with the appearance of corn husk. Wherever they go the land will be lush and fruitful and the harvest will be bountiful. Corn is a sacred plant and the Corn Maidens are revered as bringers of life and fertility."
 #school 0
-#researchlevel 6
+#researchlevel 3
 #path 0 6
 #pathlevel 0 3
 #effect 10021
 #nreff 1
 #damage 3989
-#fatiguecost 1800
+#fatiguecost 1500
 #restricted 124 -- EA Chaco
 #restricted 125 -- MA Ongtu2pqa
 #restricted 126 -- LA Ongtupqa
@@ -103254,7 +106621,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #path 0 3
 #pathlevel 0 1
 #effect 10130
-#fatiguecost 800
+#fatiguecost 500
 #damage 3934 -- Povosqua
 #nreff 1
 #nextspell "Spirit Test"
@@ -103268,13 +106635,13 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newspell
 #name "Vision Trance"
 #descr "A Povosqa that has completed a Vision Quest can undergo further ritual fasting in a ritually purified location. There they will enter a trance state as their mind communes with powerful sacred spirits. If successful they will be accepted by the spirits and gain great knowledge of the land and the elements. If the ritual fails however the caster will not survive the ordeal. This spell can only be cast by a Povosqa that has completed a Vision Quest. Magic resistance can help to protect the Povosqa and many adorn themselves with protective charms and amulets before undergoing a Vision Trance."
-#details "Casters magic paths are increased to F1, A1, E2, N1 if lower, however must resist with MR or die."
+#details "Casters magic paths are increased to F1, A1, E2, N1 if lower & gains Healer 1, however must resist with MR or die."
 #school 1
 #researchlevel 6
 #path 0 3
 #pathlevel 0 2
 #effect 10130
-#fatiguecost 1200
+#fatiguecost 500
 #damage 3986 -- Povosqa Elder
 #nreff 1
 #polygetmagic 1
@@ -103436,7 +106803,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #restricted 125 -- MA Ongtupqa
 #restricted 126 -- LA Ongtupqa
 #name "Contact Spider Grandmother"
-#descr "Summons Spider Grandmother, a wise and ancient spider spirit. Spider Grandmother is a powerful mage of nature and potent priest, and will inspire those around her in research and in battle."
+#descr "Summons Spider Grandmother, a wise and ancient spider spirit. Spider Grandmother is a powerful healer, a mage of nature and potent priest, and will inspire those around her in research and in battle."
 #school 0 -- Conjuration
 #researchlevel 8
 #path 0 6 -------\ Nature 5
@@ -103507,7 +106874,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #name "Summon Primordial Deer"
 #descr "Summons an ancient deer spirit. Primordial Deer are massive, glorious creatures that attract scores of their kin to their side. Primordial Deer can command large numbers of troops and are constantly accompanied by dozens of deer, which provide ample supplies to anyone in the same province. They can trample lesser beings with their massive hooves. Primordial Deer are sacred."
 #school 0 -- Conjuration
-#researchlevel 6
+#researchlevel 5
 #path 0 6 -------\ Nature 4
 #pathlevel 0 4 --/
 #effect 10021
@@ -103619,10 +106986,24 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 
 -- NAHULLO
 
+#selectspell 268 -- Release Lord of Civilization
+#restricted 127 -- Nahullo
+#end
+
+#newspell
+#copyspell 717 -- Black Servant
+#name "Summon Shilombish"
+#descr "The caster summons a Shilombish to act as a servant or spy. In Nahullo the soul is composed of two parts - the Shilup, or inner soul, and the Shilombish or outer soul. When a person dies their Shilup proceeds to the afterlife, however their Shilombish remains until released by a shaman. Unscrupulous shamen can instead compel the Shilombish to serve them, and with the coming of the white giants there is no shortage of these lost souls. Their touch can paralyze living beings."
+#researchlevel 0
+#pathlevel 0 1
+#damage 3865
+#fatiguecost 100
+#restricted 127 -- Nahullo
+#end
 
 #newspell
 #copyspell 787 -- Spirit Mastery
-#name "Summon Shilombish"
+#name "Summon Host of Shilombish"
 #descr "The caster summons a host of Shilombish. In Nahullo the soul is composed of two parts - the Shilup, or inner soul, and the Shilombish or outer soul. When a person dies their Shilup proceeds to the afterlife, however their Shilombish remains until released by a shaman. Unscrupulous shamen can instead compel the Shilombish to serve them, and with the coming of the white giants there is no shortage of these lost souls. Their touch can paralyze living beings."
 #researchlevel 4
 #damage 3865
@@ -103736,15 +107117,15 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newspell
 #copyspell 724 -- Pack of Wolves
 #name "Bind Black One"
-#descr "The caster performs a blood sacrifice to summon one of the Nalusa Falaya, the Black Ones. These shadow demons take the form of thin figures composed of shadow with long ears. Nalusa Falaya are experts at creeping about in the shadows and make excellent assassins."
+#descr "The caster performs a blood sacrifice to summon one of the Nalusa Falaya, the Black Ones. These shadow demons take the form of thin figures composed of shadow with long ears.  Nalusa Falaya are experts at creeping about in the shadows. They know many rites of blood and death and are accorded priestly status in the blood cult. Known to consort with dead things, they can reanimate the bodies of the slain."
 #school 6 -- Blood
-#researchlevel 6
+#researchlevel 4
 #path 0 7
 #pathlevel 0 3
 #path 1 5
 #pathlevel 1 1
 #effect 10021
-#fatiguecost 3800
+#fatiguecost 2400
 #damage 3870
 #nreff 1
 #restricted 127 -- Nahullo
@@ -103765,6 +107146,22 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #nreff 1
 #restricted 127 -- Nahullo
 #onlygeosrc 32 -- Swamp
+#end
+
+#newspell
+#copyspell 724 -- Pack of Wolves
+#name "Host of Soul Eaters"
+#descr "The caster performs a great blood sacrifice to summon a host of the Nalusa Chito, the Soul Eaters. Nalusa Chito are shadow demons that appear as hulking black demonic creatures with gaping mouths and yellow claws. The bite of a Soul Eater can tear the soul away from its victim and slay them forever."
+#school 6 -- Blood
+#researchlevel 6
+#path 0 7
+#pathlevel 0 5
+#path 1 5
+#pathlevel 1 1
+#fatiguecost 4500
+#damage 3869
+#nreff 1005
+#restricted 127 -- Nahullo
 #end
 
 #selectspell 787 -- Spirit Master
@@ -103846,7 +107243,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #researchlevel 3
 #path 0 6
 #pathlevel 0 2
-#fatiguecost 400
+#fatiguecost 200
 #effect 10037
 #damage 3622 -- Vegetable Lambs
 #nreff 2000
@@ -104029,6 +107426,18 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 -------- GREAT ARRADA
+
+#selectspell 316 -- Unholy Power
+#restricted 135 -- Great Arrada
+#end
+
+#selectspell 321 -- Unholy Power
+#restricted 135 -- Great Arrada
+#end
+
+#selectspell 324 -- Power of the Shadelands
+#restricted 135 -- Great Arrada
+#end
 
 #newevent
 #rarity 5
@@ -104213,7 +107622,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #pathlevel 1 1
 #effect 10001
 #damage -5187 -- Ancestor Spirit
-#nreff 1009
+#nreff 2018
 #fatiguecost 3000
 #onlyatsite 1818 -- Celebration Ground
 #restricted 135 -- Great Arrada
@@ -104259,7 +107668,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #pathlevel 1 2
 #effect 10001
 #damage -5187 -- Ancestor Spirit
-#nreff 1008
+#nreff 2018
 #fatiguecost 5000
 #onlyatsite 1818 -- Celebration Ground
 #restricted 135 -- Great Arrada
@@ -104271,7 +107680,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #school -1
 #researchlevel 0
 #effect 10001
-#nreff 10
+#nreff 20
 #damage 4227 -- Spirit Guard
 #nextspell "Vulture Summoning"
 #end
@@ -104335,7 +107744,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #school -1
 #researchlevel 0
 #effect 10001
-#nreff 10
+#nreff 15
 #damage 4228 -- Mino Spirit
 #nextspell "Vulture Summoning"
 #end
@@ -104386,15 +107795,15 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #selectspell 610 -- Quicken Self
-#details "Grants +3 Att, +3 Def and Combat speed is doubled"
+#details "Grants +2 Att, +2 Def and Combat speed is doubled"
 #end
 
 #selectspell 631 -- Quickness
-#details "Grants +3 Att, +3 Def and Combat speed is doubled"
+#details "Grants +2 Att, +2 Def and Combat speed is doubled"
 #end
 
 #selectspell 696 -- Quickening
-#details "Grants +3 Att, +3 Def and Combat speed is doubled"
+#details "Grants +2 Att, +2 Def and Combat speed is doubled"
 #end
 
 #selectspell 168 -- Holy Avenger
@@ -104403,6 +107812,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 
 #selectspell 691 -- Transformation
 #descr "The caster is transformed into a random monster or animal. Some monsters, such as fire drakes, are closely attuned to an element or other magical path. If the caster successfully transforms into such a being he might gain magic power. Also the casters new body is young and healthy. The transformation is not without risk, however, as the caster's mind and body may be damaged in the process. Sometimes a failed transformation can result in the form of a mindless being and usually mind and magic abilities are lost as a result. But sometimes a being with powerful magic can retain his magic ability as the magic is too strong to let the absence of a mind stop it. Inanimate beings cannot change their form in this manner, and some especially powerful unique beings will resist attempts to change their form and cannot be affected."
+#fatiguecost 600
 #notmnr -5198
 #notmnr 6236 -- Dragon King
 #notmnr 6237 -- Dragon King
@@ -104412,6 +107822,11 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 -- Spell tweaks --
+
+#selectspell 565 -- Wailing Winds
+#researchlevel 7
+#fatiguecost 400
+#end
 
 #selectspell 494 -- Burning Hands
 #researchlevel 0
@@ -104462,6 +107877,10 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #nreff 2006
 #end
 
+#selectspell 793 -- Spirits of the Wood
+#fatiguecost 500
+#end
+
 #selectspell 799 -- Summon Fire Snakes
 #nreff 1003
 #end
@@ -104475,6 +107894,15 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 
 #selectspell 915 -- Enliven Gargoyles
 #nreff 1002
+#end
+
+#selectspell 999 -- Prison of Fire
+#aoe 1002
+#precision 5
+#end
+
+#selectspell 1007 -- Rage of the Cornered Rat
+#ainocast 1
 #end
 
 #selectspell 1057 -- Bind Fiery Imps
@@ -104693,6 +108121,11 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #aoe 2000
 #end
 
+#selectspell 783 -- Naiad Warriors
+#descr "The caster summons fifteen Kydnides, warrior Naiads willing to leave their native river to wreak vengeance upon those who harm the rivers of the world. Kydnides manifest themselves as incredibly beautiful women dressed in gleaming bronze armor and bearing enchanted golden swords. Unlike other Naiads, Kydnides do not die if they leave their home."
+#details "Summons 15 Kydnides with magical weapons."
+#end
+
 #selectspell 844 -- Celestial Rainbow
 #pathlevel 0 5
 #researchlevel 8
@@ -104705,9 +108138,10 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #selectspell 900 -- Vile Water
+#descr "The alchemist creates a bath of water and vitriol. The vitriolic water is given form and purpose through powerful alchemical rituals. The alchemical entities are known as Gelatinous Cubes and two will be created before the mixture is exhausted. They slowly slide forward and swallows anything they pass over. Swallowed beings quickly dissolve in the vitriol, unless the cube is destroyed and its magic unraveled."
 #researchlevel 3
-#fatiguecost 100
-#nreff 1
+#fatiguecost 200
+#nreff 2
 #damage 5725 -- Size 3 Cube
 #end
 
@@ -104953,7 +108387,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #selectspell 725 -- Horned Serpents
-#nreff 2004
+#nreff 2002
 #end
 
 #selectspell 750 -- Sea Lions
@@ -104971,6 +108405,8 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #selectspell 768 -- Kithaironic Lion
+#descr "The caster summons a Kithaironic Lion and binds it to his service. The Lion is large and has an exceptionally thick hide along with magical golden fangs and claws."
+#details "Summons 1 Kithaironic Lion with magical attacks."
 #fatiguecost 300
 #end
 
@@ -105048,17 +108484,18 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #newspell
-#name "4 Good Crossbreeds"
+#name "10 Good Crossbreeds"
 #school -1
 #researchlevel 0
 #effect 10001
 #damage -10 -- Good Crossbreeds
-#nreff 4
+#nreff 10
 #end
 
 #selectspell 1111 -- Improved Cross Breeding
 #descr "Hundreds of different creatures from mice to humans are magically cross-bred and grown in an effort to produce a powerful monster. Most offspring die early, but some survive and are bound to serve their creator. With this improved technique the caster is guaranteed to breed some powerful creatures."
-#nextspell "4 Good Crossbreeds"
+#fatiguecost 2500
+#nextspell "10 Good Crossbreeds"
 #end
 
 #selectspell 1071 -- Cross breeding
@@ -105077,10 +108514,6 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #researchlevel 6
 #fatiguecost 2200
 #nreff 2
-#end
-
-#selectspell 1091 -- Infernal Disease
-#nogeodst 4 -- Sea
 #end
 
 #selectspell 1102 -- Astral Corruption
@@ -105267,13 +108700,6 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newitem
 #copyitem 394
 #copyspr 394
-#constlevel 12
-#champprize
-#end
-
-#newitem
-#copyitem 393
-#copyspr 393
 #constlevel 12
 #champprize
 #end
@@ -105915,7 +109341,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #constlevel 12
 #end
 
-#newitemc
+#newitem
 #copyitem 111
 #copyspr 111
 #constlevel 12
@@ -105967,6 +109393,38 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #fatiguecost 0
 #end
 
+#selectitem 616
+#copyitem 264 -- Ring of Frost
+#copyspr 393 -- Protection of Geryone
+#name "Chort Contract"
+#descr "The Blood mage sacrifices a great many slaves to get the attention of Old Bies, Demon Tzar of the Abyss. When contact is made, Bies offers a contract, to be signed in blood. Whoever signs the contract promises his soul, to be collected at the time of his death, to the Infernal Lord. In exchange for this fair and valuable consideration, the signatory will, for as long as he lives, receive one bound Chort each month from the Abyss."
+#constlevel 2
+#mainpath 7
+#mainlevel 3
+#secondarypath 5
+#secondarylevel 1
+#summon1 5710 -- Chort
+#tainted 10
+#undcommand 10
+#itemcost1 233
+#noinanim
+#nodemon
+#noundead
+#cursed
+#nofind
+#coldres 0
+#restricted 97 -- Bogarus
+#end
+
+#selectitem 617
+#copyitem 264 -- Ring of Frost
+#spr "./MagicEnhanced/EEIVitVial.tga"
+#name "Vile Vial"
+#descr "This vial of alchemical vitriol has been carefully brewed for a single purpose. When held in a fort containing at least two gelatinous cubes, the formula will cause them to merge to create a single larger cube. Occasionally when two large cubes are amalgamated a smaller cube will be created during the mixing process. Larger cubes will be harder to destroy, more resistant to magic and their acidic vapours will be stronger and more potent."
+#constlevel 2
+#coldres 0
+#end
+
 #selectitem 619
 #copyitem 279 -- Ring of Water Breathing
 #copyspr 365 -- Lamp
@@ -105979,7 +109437,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #cursed
 #gold 100
 #magiccommand 10
-#spell "Summon Warrior of the Jinn"
+#spell "Bind Warrior of the Jinn"
 #autospell "Jinn of the Lamp"
 #end
 
@@ -106114,15 +109572,31 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #name "Serpent Skin Tjurunga"
 #descr "The Tjurunga is a magical implement that helps navigate the Dreamtime. They consist of pieces of shed snake skin collected by dreamers during walkabouts. These are glued with the blood of the Karadji around the bark of a scarred tree resembling the shape of the Great Serpent to create the Tjurunga. It is said they contain the spiritual essence of the tribe and it is a great privilege to hold such an item. This however comes with a great responsibility, for such an item is sacred and its owner will guard it most viciously, even at the cost of their life. Only a living creature can use the power of the Tjurunga."
 #type 1 -- one-handed weapon
-#weapon 1120 -- Tjurunga
+#weapon 1883 -- Tjurunga
 #noinanim
 #noundead
 #pen 2
 #mr 2
 #cursed
+#nofind
 #restricted 136 -- Alchera
 #itemcost1 -20
 #itemcost2 -33
+#end
+
+#selectitem 741
+#copyitem 313 -- Amulet of Antimagic
+#spr "./MagicEnhanced/EEIMagicEye.tga"
+#constlevel 6
+#mainpath 2 -- Water
+#mainlevel 4
+#secondarypath 6 -- Nature
+#secondarylevel 1
+#name "Apotropaic Eye"
+#descr "The eye has long been seen as a protective symbol against evil magics. Some mages reasoned that the larger the eye the greater the protection, and so the largest eyes taken from the huge creatures that live in the deepest oceans are most highly prized. This eye was taken from a great Kraken and has had many protective enchantments laid upon it. The power of the the eye will ensure the entire army is protected from evil enchantments and sorcery of all kinds."
+#type 1 -- one-handed weapon
+#mr 2
+#autospell "Antimagic"
 #end
 
 #selectitem 742
@@ -106177,6 +109651,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #incscale 2 -- +Cold
 #cursed
 #tainted 10
+#itemcost1 50
 #weapon 238 -- Magic Staff
 #type 2 -- 2 handed weapon
 #spell "Murdering Winter"
@@ -106202,13 +109677,14 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #descr "This staff has an ancient, powerful fire being trapped in its rubies. Anyone picking up the staff will soon become influenced by the fire being and claim the staff as his forever. Furthermore, they will claim the surrounding province as their kingdom and upon leaving it will slowly sicken and die. However, the power of the staff is great. It will protect the bearer from heat and the rubies can be used to power fire spells in battle. It can even project a great quantity of flames a huge distance to attack an enemy army."
 #constlevel 8
 #mainpath 0
-#mainlevel 5
+#mainlevel 6
 #homesick 25
 #fireres 15
 #coldres -10
 #tmpfiregems 2
 #cursed
 #tainted 10
+#itemcost1 50
 #decscale 2 -- +Heat
 #weapon 238 -- Magic Staff
 #type 2 -- 2 handed weapon
@@ -106218,7 +109694,8 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newevent
 #rarity 5
 #req_rare 5
-#req_targowner 747 -- Amulet
+#req_targitem 747 -- Amulet
+#req_land 1
 #msg "Suddenly an enormous spider shimmered into existence and attacked ##targname##"
 #assassin 5685 -- Leng Spider
 #end
@@ -106226,7 +109703,8 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newevent
 #rarity 5
 #req_rare 5
-#req_targowner 747 -- Amulet
+#req_targitem 747 -- Amulet
+#req_land 1
 #msg "Suddenly a great spider emerged from the shadows to attack ##targname##"
 #assassin 884 -- Great Spider
 #end
@@ -106234,7 +109712,8 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newevent
 #rarity 5
 #req_rare 5
-#req_targowner 747 -- Amulet
+#req_targitem 747 -- Amulet
+#req_land 1
 #msg "Suddenly a great spider leapt from the shadows to attack ##targname##"
 #assassin 5784 -- Wolf Spider
 #end
@@ -106251,7 +109730,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #selectitem 747
 #spr "./MagicEnhanced/EEIArachAmulet.tga"
 #name "Arach Amulet"
-#descr "This amulet allows the summoning of Arach the Spider King, an ancient being with Dominion over all eight-legged things. Each month spiders of all breeds will flock from the shadows to serve Arach, and in battle he will be joined by a host of scuttling horrors. The amulet will provide some of the powers of a spider, including excellent vision and protection from poisons. Eight legged creatures may attempt to protect their master and steal back the amulet."
+#descr "This amulet allows the summoning of Arach the Spider King, an ancient being with Dominion over all eight-legged things. Each month spiders of all breeds will flock from the shadows to serve the bearer of this amulet, and in battle he will be joined by a host of scuttling horrors. The amulet will provide some of the powers of a spider, including excellent vision and protection from poisons. Eight legged creatures may attempt to protect their master and steal back the amulet."
 #constlevel 8
 #mainpath 6
 #mainlevel 4
@@ -106261,6 +109740,11 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #darkvision 100
 #scalewalls
 #unsurr 3
+#summon1 5784 -- Wolf Spider
+#summon2 5179 -- Lesser Hunter
+#domsummon 5784 -- Wolf Spider
+#domsummon2 884 -- Great Spider
+#domsummon20 5685 -- Leng Spider
 #cursed
 #type 8 -- Misc
 #spell "Summon Arach"
@@ -106269,7 +109753,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newevent
 #rarity 5
 #req_rare 5
-#req_targowner 748 -- Shard
+#req_targitem 748 -- Shard
 #msg "Suddenly the Shard of Solomoriah seemed to shift and ##targname## found themselves in a strange realm!"
 #banished -11 -- The Void
 #end
@@ -106424,7 +109908,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #copyitem 18 -- Blacksteel Sword
 #spr "./MagicEnhanced/EEIStarStaff.tga"
 #name "Rod of Falling Stars"
-#descr "This powerful artifact was fashioned by a powerful archmage and enchanted to draw stars from the heavens onto the heads of enemies of the bearer. Unfortunately the stars are not too accurate and when the rod was first used one landed right on the mage, squashing them flat. Since then the Rod has had several owners, however as often as not they have perished beneath one of the very stars they called from the skies."
+#descr "This powerful artifact was fashioned by a great Sorceress and enchanted to draw stars from the heavens onto the heads of her enemies. Unfortunately the stars are not too accurate and when the rod was first used one landed right on the mage, squashing her flat. Since then the Rod has had several owners, however as often as not they have perished beneath one of the very stars they called from the skies."
 #mainpath 4
 #secondarypath 3
 #mainlevel 3
@@ -106446,7 +109930,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #constlevel 8
 #fireres 0
 #sneakunit 0
-#stealthboost -100
+#stealthboost -200
 #undcommand 100
 #batstartsum5 1541 -- Ghost Champion
 #batstartsum1d6 442 -- Shade Beast
@@ -106505,13 +109989,13 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #newspell
-#copyspell 251 -- Grow Fortress
+#copyspell 106 -- Record of Creation
 #name "Stone Construction"
 #school -1
 #researchlevel 0
 #path 0 3
+#effect 10063 -- Create Fortress
 #damage 2 -- Fortress
-#fatiguecost 0
 #end
 
 #selectitem 759
@@ -106553,6 +110037,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #constlevel 4
 #batstartsum2 474 -- Living Statue
 #makemonsters1 3065 -- Marble Lion
+#magiccommand 2
 #unique
 #end
 
@@ -106846,7 +110331,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #selectitem 779
 #spr "./MagicEnhanced/EEIVitriolFlask.tga"
 #name "Flask of Vitriol"
-#descr "This specially prepared flask holds the essential elements for creating Vile Water. By pouring some of the flask into a bath of prepared water and performing complex Alchemical rituals a Gelatinous Cube can be created each month. Multiple Gelatinous Cubes can slowly combine into ever larger masses of vitriol, until they are able to engulf all but the largest creatures. This item can only be used by a trained Alchemist."
+#descr "This specially prepared flask holds the essential elements for creating Vile Water. By pouring some of the flask into a bath of prepared water and performing complex Alchemical rituals a Gelatinous Cube can be created each month. This item can only be used by a trained Alchemist."
 #constlevel 4
 #mainpath 2
 #mainlevel 1
@@ -106958,6 +110443,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #noinanim
 #noundead
 #cursed
+#nofind
 #type 8 -- misc
 #end
 
@@ -106981,14 +110467,15 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #selectitem 787
 #spr "./MagicEnhanced/EEIVoidCrown.tga"
 #name "Diadem of the Void"
-#descr "This crown made of a strange black metal seems to contain cosmic vistas and images of distant stars and causes the wearer to dream strange otherworldy dreams. It is attuned to the void and will protect the wearer from its influence, aswell as some hostile magic, but will occasionally influence the wearer in strange ways. Once a wearer dons the crown they will refuse to remove it."
-#constlevel 4
+#descr "This crown made of a strange black metal seems to contain cosmic vistas and images of distant stars and causes the wearer to dream strange otherworldy dreams. It is attuned to the void and will protect the wearer from its influence, aswell as some hostile magic, but will occasionally influence the wearer in strange ways. As a side effect the bearer will be unable to move via teleportation, including using a Gateway or Astral Travel."
+#constlevel 2
 #mainpath 4
 #mainlevel 2
 #voidsanity 5
 #shatteredsoul 5
+#unteleportable
 #mr 2
-#cursed
+#nofind
 #armor 212 -- magic crown
 #type 9 -- Crown
 #end
@@ -107481,14 +110968,14 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #selectitem 849
 #name "Necklace from Beyond"
 #spr "./MagicEnhanced/EEINecklace.tga"
-#descr "The insane Cultists that worship the Dreaming God wear strange jewelery whilst performing their nameless rites. When worn this strangely hued necklace will incite the wearer to perform rituals contacting beings from the void. The larger the group of cultist present in the province with the bearer for the ritual the more successful it is likely to be. Many cultists will be killed during the revelry. This item can only be used by the Cultists of R'lyeh, and only one necklace can be in use in each province."
+#descr "The insane Cultists that worship the Dreaming God wear strange jewelery whilst performing their nameless rites. When worn this strangely hued necklace will incite the wearer to perform rituals contacting beings from the void. Magic scales are required for the summoning. High Dominion of the Dreaming God along with a large groups cultist makes the ritual more likely to be successful. Many cultists will be killed during the revelry. This item can only be used by the Cultists of R'lyeh, and only one necklace can be in use in each province."
 #constlevel 4
 #type 8
 #mainpath 4
 #mainlevel 1
 #secondarypath 2
 #secondarylevel 1
-#tainted 10
+#tainted 25
 #restricted 107 -- LA Rlyeh
 #restricteditem 90
 #end
@@ -107510,13 +110997,13 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #name "Clockwork Tool"
 #spr "./MagicEnhanced/EEISpanner.tga"
 #descr "This tool enables the bearer to create magical clockwork beings that will spring to life once the key is turned. Each month the bearer can make two of the beings that will animate to serve them."
-#constlevel 4
+#constlevel 2
 #type 1 -- 1 weapon
 #mainpath 3
 #mainlevel 3
 #itemcost1 -33
 #weapon 637 -- Tool
-#makemonsters2 2321 -- Clockwork Soldiers
+#makemonsters2 -5199 -- Clockwork Creatures
 #end
 
 #selectitem 852
@@ -107579,7 +111066,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #secondarylevel 1
 #magicboost 0 1
 #magicboost 3 1
-#insane 10
+#shatteredsoul 10
 #restricteditem 88
 #restricted 52 -- MA Tien Chi
 #end
@@ -107780,7 +111267,6 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #secondarypath 0
 #secondarylevel 1
 #fireshield 12
-#speciallook 3
 #heat 8
 #fireres 15
 #onlydemon
@@ -107869,16 +111355,17 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #selectitem 886
+#copyitem 312 -- Slave Matrix
 #spr "./MagicEnhanced/EEIFlowerCharm.tga"
 #name "Flower Charm"
-#descr "This enchanted flower charm contains many seeds. By scattering a few prior to a battle they can summon a pair of Nymphs to share the burden of casting spells. These nymphs will act as if they had cast the Communion Slave spell and will return to Gaia at the end of the battle."
+#descr "This enchanted flower charm has a hypnotic scent and contains many seeds. By inhaling the scent and scattering a few seeds prior to a battle the bearer opens their mind to Gaia so that their power can be used by another mage. The seeds will sprout a Nymph that will also share the burden of casting spells. The effect is similar to that of the Communion Slave spell and the nymph will return to Gaia at the end of the battle. Only mages will be able to open their minds in this way."
 #constlevel 6
 #type 8
 #mainpath 6
 #mainlevel 2
 #secondarypath 4
 #secondarylevel 1
-#batstartsum2 5442 -- Nymph of Gaia
+#batstartsum1 5442 -- Nymph of Gaia
 #end
 
 #selectitem 887
@@ -108021,7 +111508,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #name "Water Bubble"
 #spr "./MagicEnhanced/EEIBubble.tga"
 #descr "Aboleth Mind Lords have uncovered the secret to sustaining a permanent bubble of Elemental Water using their mental powers. This watery cocoon will allow the normally amphibious Aboleths to venture above the waves when required. The Elemental water used will also boost the wearers skills in water magic. Once the bubble has been keyed to an individual Aboleths mind it cannot be removed."
-#constlevel 2
+#constlevel 4
 #mainpath 2
 #mainlevel 1
 #secondarypath -1
@@ -108084,7 +111571,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #copyitem 30 -- Dwarven Hammer
 #name "Hammer of the Master Smith"
 #spr "./MagicEnhanced/EEIMSmith.tga"
-#descr "This hammer has been used by many master smiths over the years and has absorbed some of their skill in craftsmanship. When used in the forge it will allow the smith to create magical wonders. The great skill the hammer imparts is more suited to creating great works than mere trinkets. These hammers can only be used by the most skilled smiths of Ulm."
+#descr "This hammer has been used by many master smiths over the years and has absorbed some of their skill in craftsmanship. When used in the forge it will allow the smith to create magical wonders. The great skill the hammer imparts is more suited to creating great works than mere trinkets. These hammers can only be used by the most skilled smiths."
 #constlevel 4
 #mainpath 3
 #mainlevel 3
@@ -108092,6 +111579,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #secondarylevel 1
 #restricted 7 -- EA Ulm
 #restricted 49 -- MA Ulm
+#restricted 156 -- MA Iram
 #fixforgebonus 0
 #forgebonus 25
 #restricteditem 93
@@ -108205,6 +111693,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #secondarypath 1
 #mainlevel 3
 #secondarylevel 1
+#itemcost1 -66
 #restricted 10 -- EA Tien Chi
 #restricted 52 -- MA Tien Chi
 #restricted 87 -- LA Tien Chi
@@ -108263,9 +111752,12 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #constlevel 4
 #mainpath 6
 #mainlevel 1
+#itemcost1 -20
 #secondarypath 5
 #secondarylevel 1
+#itemcost2 -20
 #type 8
+#magiccommand 1 
 #battlesum1 2223 -- Large Spider
 #restricted 53 -- MA Machaka
 #end
@@ -108310,11 +111802,13 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #selectitem 915
 #copyspr 45 -- Thorn Spear
 #name "Wand of Insects"
-#descr "This thorn covered wand has the power to summon insects in combat and enlarge them using nature magic."
+#descr "This thorn covered wand has the power to summon insects in combat and enlarge them using nature magic. The buzzing cloud that surrounds the bearer will make it impossible for them to remain unseen in enemy lands."
 #constlevel 4
 #mainpath 6
 #mainlevel 3
 #itemcost1 -20
+#sneakunit 0
+#stealthboost -200
 #type 1
 #weapon 172 -- Magic Sceptre
 #spell "Five Insects"
@@ -108730,7 +112224,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #mainlevel 2
 #type 4
 #armor "Amber Shield"
-#slimer 2
+#slimer 1
 #end
 
 #selectitem 943
@@ -108929,10 +112423,10 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #selectitem 956
 #spr "./MagicEnhanced/EEIAcidHelm.tga"
 #name "Helm of Acid Breath"
-#descr "This helmet allows the wearer to breathe blasts of acid at nearby foes. The acid sprays over quite a large area and the wearer might also be hit if he is not careful."
+#descr "This helmet allows the wearer to breathe torrents of acid at nearby foes. The acid sprays over quite a large area and the wearer might also be hit if he is not careful."
 #constlevel 4
 #mainpath 2
-#mainlevel 1
+#mainlevel 2
 #secondarypath 0
 #secondarylevel 1
 #type 6
@@ -109022,7 +112516,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #secondarypath 4
 #type 2
 #sneakunit 0
-#stealthboost -100
+#stealthboost -200
 #weapon 100 -- Standard
 #autospell "Phantasmal Army"
 #end
@@ -109235,6 +112729,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #type 6
 #armor "Jade Mask"
 #autospell "Power of the Spheres"
+#nationrebate 36 -- EA Atlantis
 #end
 
 #selectitem 977
@@ -109436,6 +112931,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #secondarylevel 1
 #restricted 37 -- EA Rlyeh
 #restricteditem 99 -- Aboleths
+#nofind
 #end
 
 #selectitem 993
@@ -109444,9 +112940,9 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #descr "This shield forms a cloak of Astral energies around the bearer. Anyone trying to strike through the shield will have their mind blasted unconscious by the force of the shield. Magic resistance may negate the effect of the shield and allow enemies to strike the mage. The astral energies will also enable the bearer to resist hostile magic more easily."
 #constlevel 2
 #mainpath 4
-#mainlevel 1
+#mainlevel 3
 #type 4
-#itemcost1 100
+#itemcost1 -33
 #armor "Pearl Shield"
 #autospell "Astral Shield"
 #mr 2
@@ -109573,6 +113069,8 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #secondarypath 4 -- astral 1
 #secondarylevel 1
 #type 8 -- misc item
+#itemcost1 -40
+#itemcost2 -40
 #restricted 131
 #def 2
 #mr 1
@@ -109592,6 +113090,8 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #secondarypath 4 -- astral 2
 #secondarylevel 2
 #type 8 -- misc item
+#itemcost1 -50
+#itemcost2 -50
 #restricted 131
 #def 3
 #mr 2
@@ -109652,6 +113152,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #descr "This diamond-encrusted, sacred ritual mace is infused with the power of many astral pearls and anointed with a tear of the awakening god, such that it grants its bearer a particularly sacred status. It gives great magical benefits to its bearer, not least of which is an aspect of holiness that can make the unsteady hesitate to attack, and which even strike unbelievers with thunderbolts of enlightenment. Every month it generates an astral pearl good for immediate use, but not stable enough to keep longer."
 #type 1 -- one-handed weapon
 #weapon "Dörje"
+#itemcost1 -40
 #restricted 131
 #darkvision 100
 #pen 1
@@ -109761,27 +113262,31 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #selectitem 37 -- Enchanted Spear
-#itemcost1 -60
+#itemcost1 -40
 #end
 
 #selectitem 38 -- Enchanted Pike
-#itemcost1 -40
+#itemcost1 -20
 #end
 
 #selectitem 43 -- Hardwood Club
 #itemcost1 -80
 #end
 
+#selectitem 1299 -- Sword of Aurgelmer
+#nationrebate 22 -- EA Jotun
+#nationrebate 61 -- MA Jotun
+#nationrebate 96 -- LA Jotun
+#end
+
 #selectitem 145 -- Blacksteel Tower Shield
-#itemcost1 -40
 #end
 
 #selectitem 146 -- Blacksteel Kite Shield
-#itemcost1 -40
 #end
 
 #selectitem 147 -- Enchanted Shield
-#itemcost1 -60
+#itemcost1 -20
 #end
 
 #selectitem 148 -- Raw Hide Shield
@@ -109797,7 +113302,6 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #selectitem 199 -- Blacksteel Plate
-#itemcost1 -20
 #end
 
 #selectitem 200 -- Blacksteel Full Plate
@@ -109806,11 +113310,11 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #selectitem 201 -- Berserker Pelt
+#berserk 2
 #itemcost1 -40
 #end
 
 #selectitem 209 -- Enchanted Ring Mail
-#itemcost1 -40
 #end
 
 #selectitem 265 -- Bear Claw Talisman
@@ -109957,6 +113461,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #selectitem 50 -- Knife of the Damned
 #itemcost1 -60
 #itemcost2 -60
+#nofind
 #end
 
 #selectitem 52 -- Anemone Mace
@@ -110011,6 +113516,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #selectitem 172 -- Crown of Lead
+#constlevel 0
 #itemcost1 -40
 #end
 
@@ -110019,7 +113525,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #selectitem 204 -- Lightweight Scale Mail
-#itemcost1 -40
+#itemcost1 -20
 #constlevel 0
 #end
 
@@ -110135,7 +113641,22 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 
 #selectitem 297 -- Soul Contract
 #itemcost1 300
+#noinanim
+#nodemon
+#noundead
 #nationrebate 91 -- LA Abysia
+#end
+
+#selectitem 334 -- Lifelong Protection
+#noinanim
+#nodemon
+#noundead
+#end
+
+#selectitem 393 -- Protection of Geryon
+#noinanim
+#nodemon
+#noundead
 #end
 
 #selectitem 304 -- Flying Carpet
@@ -110160,7 +113681,8 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #selectitem 15 -- Sword of Swiftness
-#mainlevel 1
+#mainlevel 2
+#itemcost1 -50
 #constlevel 2
 #end
 
@@ -110401,7 +113923,9 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #selectitem 228 -- Marble Armor
-#constlevel 4
+#stonebeing
+#slashres
+#pierceres
 #end
 
 #selectitem 229 -- Stymphalian Wings
@@ -110440,6 +113964,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 
 #selectitem 345 -- Copper Arm
 #itemcost1 -33
+#nofind
 #end
 
 #selectitem 346 -- Crystal Heart
@@ -110549,6 +114074,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #selectitem 141 -- Harvest Blade
 #constlevel 4
 #unique
+#nofind
 #itemcost1 -66
 #end
 
@@ -110598,6 +114124,11 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 
 #selectitem 237 -- Aseftiks Armor
 #itemcost1 -40
+#nofind
+#end
+
+#selectitem 443 -- Companion Bracelet
+#nofind
 #end
 
 #selectitem 238 -- Monolith Armor
@@ -110614,6 +114145,9 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #selectitem 241 -- Fenris Pelt
+#nationrebate 22 -- EA Jotun
+#nationrebate 61 -- MA Jotun
+#nationrebate 96 -- LA Jotun
 #itemcost1 -40
 #end
 
@@ -110667,13 +114201,20 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #end
 
 #selectitem 375 -- Orb of Atlantis
-#itemcost1 -60
+#itemcost1 -50
+#nationrebate 36 -- EA Atlantis
+#nationrebate 73 -- MA Atlantis
+#nationrebate 106 -- LA Atlantis
 #giftofwater 999
 #end
 
 #selectitem 376 -- Astral Harpoon
 #itemcost1 -80
 #end
+
+-- #selectspell 94 -- Astral Harpoon
+-- #spec 8388608 -- UW OK, no MR check
+-- #end
 
 #selectitem 377 -- Forbidden Light
 #itemcost1 -25
@@ -110728,10 +114269,12 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 
 #selectitem 426 -- Crown of the Fire King
 #itemcost1 -40
+#nofind
 #end
 
 #selectitem 427 -- Crown of the Frost King
 #itemcost1 -40
+#nofind
 #end
 
 #selectitem 428 -- First Crown
@@ -111341,6 +114884,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #minmen 0
 #minpay 250
 #xp 30
+#randequip 1
 #recrate 100
 #eramask 7
 #end
@@ -111355,6 +114899,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #minmen 0
 #minpay 250
 #xp 30
+#randequip 1
 #recrate 100
 #eramask 7
 #end
@@ -111369,6 +114914,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #minmen 0
 #minpay 250
 #xp 30
+#randequip 1
 #recrate 100
 #eramask 7
 #end
@@ -111383,6 +114929,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #minmen 0
 #minpay 250
 #xp 30
+#randequip 1
 #recrate 100
 #eramask 7
 #end
@@ -111556,12 +115103,20 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #descr "Scouts are trained to pass unseen through enemy territory. Their reports on enemy army movements and the resources in enemy lands are invaluable to the prudent warlord. Merrow scouts are a bit uncomfortable on dry land and are not very skilled at wilderness survival."
 #end
 
-#selectpoptype 97 -- Merrow
-#addreccom 2912 -- Merrow Scout
-#end
-
 #selectpoptype 57 -- Atlanteans
 #addreccom 432 -- Atlantean Scout
+#end
+
+#selectpoptype 84 -- Cavemen
+#defmult1 5
+#end
+
+#selectpoptype 94 -- Lavaborn
+#defmult1 5
+#end
+
+#selectpoptype 97 -- Merrow
+#addreccom 2912 -- Merrow Scout
 #end
 
 -- events -- 
@@ -111664,6 +115219,16 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 
 #newevent
 #rarity 5
+#req_targforeignok
+#req_targorder 2 -- Sneaking
+#req_targmnr 5484 -- Debauched Libertine
+#req_rare 50
+#msg "Tales of debauchery and unnatural goings on are spreading amongst the common folk. Soldiers should be sent to hunt down those responsible."
+#nolog
+#end
+
+#newevent
+#rarity 5
 #nation -2
 #req_targmnr 5425 -- Jotun Crab
 #req_fort 0
@@ -111720,7 +115285,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newevent
 #rarity 5
 #req_targitem 892 -- Shining Trapezohedron
-#req_rare 5
+#req_rare 10
 #req_pop0ok
 #msg "Your commander peered into the Shining Trapezohedron and was drawn into the void!"
 #nolog
@@ -112071,7 +115636,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #req_nomonster 5446 -- Substitute King
 #msg "The Substitute King is no longer on the Throne and ill fortune has returned to the Kingdom. [Blessing of Fortune]"
 #nolog
-#removesite 1773 -- Blessing of Fortune
+#removesite 1772 -- Blessing of Fortune
 #incscale2 4 -- +2 misfortune
 #end
 
@@ -112092,6 +115657,25 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #req_owncapital 1
 #req_freesites 1
 #req_nositenbr 1771 -- Blessing of Holy Beasts
+#req_fornation 10 -- EA TC
+#req_fornation 52 -- MA TC
+#req_fornation 87 -- LA TC
+#req_pop0ok
+#req_monster 5454 -- White Tiger of the West
+#msg "Blessing of the Beasts appears."
+#notext
+#nolog
+#addsite 1771 -- Blessing of Holy Beasts
+#end
+
+#newevent
+#rarity 5
+#req_owncapital 1
+#req_freesites 1
+#req_nositenbr 1771 -- Blessing of Holy Beasts
+#req_fornation 27 -- EA Yomi
+#req_fornation 64 -- MA Shinu
+#req_fornation 89 -- LA Jomon
 #req_pop0ok
 #req_monster 5454 -- White Tiger of the West
 #msg "Blessing of the Beasts appears."
@@ -112755,19 +116339,23 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 
 #newevent
 #rarity 5
+#req_targitem 617
+#req_fort 1
 #req_mindef 1 -- Not under siege
 #nation -2
 #req_2monsters 5728 -- Size 5 Cubes
 #msg "Make Cube"
 #notext
 #nolog
-#com 5730 -- Dummy Cube
 #1unit 5729 -- Size 6 Cube
+#1d3units 5725 -- Size 3 cubes
+#com 5730 -- Dummy Cube
 #killmon 5728
 #end
 
 #newevent
 #rarity 5
+#req_fort 1
 #req_mindef 1 -- Not under siege
 #nation -2
 #req_targmnr 5730 -- Dummy Cube
@@ -112781,19 +116369,22 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 
 #newevent
 #rarity 5
+#req_targitem 617
+#req_fort 1
 #req_mindef 1 -- Not under siege
 #nation -2
 #req_2monsters 5727 -- Size 4+ Cubes
 #msg "Make Cube"
 #notext
 #nolog
-#com 5730 -- Dummy Cube
 #1unit 5728 -- Size 5 Cube
+#com 5730 -- Dummy Cube
 #killmon 5727
 #end
 
 #newevent
 #rarity 5
+#req_fort 1
 #req_mindef 1 -- Not under siege
 #nation -2
 #req_targmnr 5730 -- Dummy Cube
@@ -112801,25 +116392,29 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #msg "Kill Second Cube"
 #notext
 #nolog
+#1unit 5725 -- Size 3 cube
 #killcom 5730 -- Dummy
 #killmon 5727 -- Size 4 Cube
 #end
 
 #newevent
 #rarity 5
+#req_targitem 617
+#req_fort 1
 #req_mindef 1 -- Not under siege
 #nation -2
 #req_2monsters 5726 -- Size 4 Cubes
 #msg "Make Cube"
 #notext
 #nolog
-#com 5730 -- Dummy Cube
 #1unit 5727 -- Size 4+ Cube
+#com 5730 -- Dummy Cube
 #killmon 5726
 #end
 
 #newevent
 #rarity 5
+#req_fort 1
 #req_mindef 1 -- Not under siege
 #nation -2
 #req_targmnr 5730 -- Dummy Cube
@@ -112833,19 +116428,22 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 
 #newevent
 #rarity 5
+#req_targitem 617
+#req_fort 1
 #req_mindef 1 -- Not under siege
 #nation -2
 #req_2monsters 5725 -- Size 3 Cubes
 #msg "Make Cube"
 #notext
 #nolog
-#com 5730 -- Dummy Cube
 #1unit 5726 -- Size 4 Cube
+#com 5730 -- Dummy Cube
 #killmon 5725
 #end
 
 #newevent
 #rarity 5
+#req_fort 1
 #req_mindef 1 -- Not under siege
 #nation -2
 #req_targmnr 5730 -- Dummy Cube
@@ -112860,6 +116458,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newevent
 #rarity 13 -- Global
 #req_ench 529 -- Suppress Dissent
+#req_permonth 1
 #msg "The people of the world seem unusually docile and tolerant of their rulers. Dissent is lessened and people do not protest injustices with their usual fervour."
 #nolog
 #req_pop0ok
@@ -112877,6 +116476,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newevent
 #rarity 13 -- Global
 #req_ench 530 -- Vessel of Misery
+#req_permonth 1
 #msg "Disease, pain and ills of all kinds are mysteriously being healed across the world. Sages mutter that this is the work of sorcery."
 #nolog
 #req_pop0ok
@@ -112892,22 +116492,21 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #msg "Create Summons."
 #1unit 778 -- Divine Mummy
 #1d3units 1662 -- Disease Demons
-#1d6units 677 -- Apparitions
+#2d3units 677 -- Apparitions
 #2d6units 6159 -- Diseased Soulless
-#com 1662 -- Disease Demon
 #notext
 #nolog
 #end
 
 #newevent
 #rarity 5
-#req_rare 20
+#req_rare 25
 #req_myench 530
 #req_land 1
 #nation -2
 #req_pop0ok
-#msg "Create Harvester."
-#com 491 -- Harvester
+#msg "Create Assassin."
+#com 1662 -- Disease Demon
 #notext
 #nolog
 #end
@@ -112947,6 +116546,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #req_owncapital 1
 #req_code 0
 #msg "Set Code - Code empty."
+#nation -2
 #nolog
 #notext
 #code -445
@@ -112961,46 +116561,96 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #req_nomnr 5600 -- Archigallus
 #req_nomnr 5602 -- Heliopater
 #req_nomnr 5605 -- Patriarch
+#req_nomonster 5616 -- Epoptes Aspirant
+#req_nomonster 5618 -- Theurg Aspirant
+#req_nomonster 5617 -- Heliodromus Aspirant
 #req_owncapital 1
 #req_maxturn 12
-#msg "The Serpent Aspirant has successfully converted the populace of the Imperial Capital to the worship of the Serpent Cult! It has now become the official state church. Temples of the Serpent Priests are given preeminence in the cities of the Empire."
-#transform 5598 -- Serpent Bishop
-#pathboost 2
-#nolog
-#code -446 -- Serpent Cult
-#end
-
-#newevent
-#rarity 5
-#req_fornation 81 -- LA Pythium
-#req_targmnr 5615 -- Serpent Aspirant
-#req_pop0ok
-#req_nomnr 5598 -- Serpent Bishop
-#req_nomnr 5600 -- Archigallus
-#req_nomnr 5602 -- Heliopater
-#req_nomnr 5605 -- Patriarch
-#req_owncapital 1
-#req_rare 25
-#msg "The Serpent Aspirant has successfully converted the populace of the Imperial Capital to the worship of the Serpent Cult! It has now become the official state church. Temples of the Serpent Priests are given preeminence in the cities of the Empire."
-#transform 5598 -- Serpent Bishop
-#pathboost 2
-#nolog
-#code -446 -- Serpent Cult
-#end
-
-#newevent
-#rarity 5
-#req_fornation 81 -- LA Pythium
-#req_targmnr 5615 -- Serpent Aspirant
-#req_pop0ok
-#req_nomnr 5598 -- Serpent Bishop
-#req_nomnr 5600 -- Archigallus
-#req_nomnr 5602 -- Heliopater
-#req_nomnr 5605 -- Patriarch
-#req_owncapital 1
-#msg "The Serpent Aspirant continues to attempt to convert the populace of the Imperial Capital to the worship of the Serpent Cult."
+#msg "##targname## the Serpent Aspirant has successfully converted the populace of the Imperial Capital to the worship of the Serpent Cult! A great ceremony was held for his coronation and he has now taken the role of Serpent Bishop. It has now become the official state church and temples of the Serpent Priests are given preeminence in the cities of the Empire."
 #nation -2
+#transform 5598 -- Serpent Bishop
+#pathboost 2
 #nolog
+#code -446 -- Serpent Cult
+#end
+
+#newevent
+#rarity 5
+#req_fornation 81 -- LA Pythium
+#req_targmnr 5615 -- Serpent Aspirant
+#req_pop0ok
+#req_nomnr 5598 -- Serpent Bishop
+#req_nomnr 5600 -- Archigallus
+#req_nomnr 5602 -- Heliopater
+#req_nomnr 5605 -- Patriarch
+#req_nomonster 5616 -- Epoptes Aspirant
+#req_nomonster 5618 -- Theurg Aspirant
+#req_nomonster 5617 -- Heliodromus Aspirant
+#req_owncapital 1
+#req_turn 13
+#req_nositenbr 1548
+#delay 1
+#msg "##targname## the Serpent Aspirant has begun to convert the populace of the Imperial Capital to the worship of the Serpent Cult. The process will take 2 more months to complete."
+#nation -2
+#hiddensite 1548
+#nolog
+#end
+
+#newevent
+#rarity 5
+#req_fornation 81 -- LA Pythium
+#req_targmnr 5615 -- Serpent Aspirant
+#req_pop0ok
+#req_nomnr 5598 -- Serpent Bishop
+#req_nomnr 5600 -- Archigallus
+#req_nomnr 5602 -- Heliopater
+#req_nomnr 5605 -- Patriarch
+#req_nomonster 5616 -- Epoptes Aspirant
+#req_nomonster 5618 -- Theurg Aspirant
+#req_nomonster 5617 -- Heliodromus Aspirant
+#req_owncapital 1
+#req_turn 13
+#req_nositenbr 1549
+#delay 1
+#msg "##targname## the Serpent Aspirant continues to convert the populace of the Imperial Capital to the worship of the Serpent Cult. The process will take 1 more month to complete."
+#nation -2
+#hiddensite 1549
+#nolog
+#end
+
+#newevent
+#rarity 5
+#req_fornation 81 -- LA Pythium
+#req_targmnr 5615 -- Serpent Aspirant
+#req_pop0ok
+#req_nomnr 5598 -- Serpent Bishop
+#req_nomnr 5600 -- Archigallus
+#req_nomnr 5602 -- Heliopater
+#req_nomnr 5605 -- Patriarch
+#req_nomonster 5616 -- Epoptes Aspirant
+#req_nomonster 5618 -- Theurg Aspirant
+#req_nomonster 5617 -- Heliodromus Aspirant
+#req_owncapital 1
+#msg "##targname## the Serpent Aspirant has successfully converted the populace of the Imperial Capital to the worship of the Serpent Cult! A great ceremony was held for his coronation and he has now taken the role of Serpent Bishop. It has now become the official state church. Temples of the Serpent Priests are given preeminence in the cities of the Empire."
+#nation -2
+#transform 5598 -- Serpent Bishop
+#pathboost 2
+#nolog
+#code -446 -- Serpent Cult
+#removesite 1548
+#delay 0
+#end
+
+#newevent
+#rarity 5
+#req_fornation 81 -- LA Pythium
+#req_pop0ok
+#req_owncapital 1
+#msg "Remove cult temple 2."
+#nation -2
+#notext
+#nolog
+#removesite 1549
 #end
 
 #newevent
@@ -113012,9 +116662,13 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #req_nomnr 5600 -- Archigallus
 #req_nomnr 5602 -- Heliopater
 #req_nomnr 5605 -- Patriarch
+#req_nomonster 5615 -- Serpent Aspirant
+#req_nomonster 5618 -- Theurg Aspirant
+#req_nomonster 5617 -- Heliodromus Aspirant
 #req_owncapital 1
 #req_maxturn 12
-#msg "The Epoptes Aspirant has successfully converted the populace of the Imperial Capital to the worship of the Fertility Cult! It has now become the official state church. Temples of the Great Mother are given preeminence in the cities of the Empire."
+#msg "##targname## the Epoptes Aspirant has successfully converted the populace of the Imperial Capital to the worship of the Fertility Cult! A great ceremony was held for his coronation and he has now taken the role of Archigallus. It has now become the official state church and temples of the Great Mother are given preeminence in the cities of the Empire."
+#nation -2
 #transform 5600 -- Archigallus
 #pathboost 3
 #pathboost 8
@@ -113031,14 +116685,16 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #req_nomnr 5600 -- Archigallus
 #req_nomnr 5602 -- Heliopater
 #req_nomnr 5605 -- Patriarch
+#req_nomonster 5615 -- Serpent Aspirant
+#req_nomonster 5618 -- Theurg Aspirant
+#req_nomonster 5617 -- Heliodromus Aspirant
 #req_owncapital 1
-#req_rare 25
-#msg "The Epoptes Aspirant has successfully converted the populace of the Imperial Capital to the worship of the Fertility Cult! It has now become the official state church. Temples of the Great Mother are given preeminence in the cities of the Empire."
-#transform 5600 -- Archigallus
-#pathboost 3
-#pathboost 8
+#req_nositenbr 1548
+#delay 1
+#msg "##targname## the Epoptes Aspirant has begun to convert the populace of the Imperial Capital to the worship of the Fertility Cult. The process will take 2 more months."
+#nation -2
+#hiddensite 1548
 #nolog
-#code -447 -- Fertility Cult
 #end
 
 #newevent
@@ -113050,10 +116706,52 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #req_nomnr 5600 -- Archigallus
 #req_nomnr 5602 -- Heliopater
 #req_nomnr 5605 -- Patriarch
+#req_nomonster 5615 -- Serpent Aspirant
+#req_nomonster 5618 -- Theurg Aspirant
+#req_nomonster 5617 -- Heliodromus Aspirant
 #req_owncapital 1
-#msg "The Epoptes Aspirant continues to attempt to convert the populace of the Imperial Capital to the worship of the Fertility Cult."
+#req_nositenbr 1549
+#delay 1
+#msg "##targname## the Epoptes Aspirant continues to convert the populace of the Imperial Capital to the worship of the Fertility Cult. The process will take 1 more month."
 #nation -2
+#hiddensite 1549
 #nolog
+#end
+
+#newevent
+#rarity 5
+#req_fornation 81 -- LA Pythium
+#req_targmnr 5616 -- Epoptes Aspirant
+#req_pop0ok
+#req_nomnr 5598 -- Serpent Bishop
+#req_nomnr 5600 -- Archigallus
+#req_nomnr 5602 -- Heliopater
+#req_nomnr 5605 -- Patriarch
+#req_nomonster 5615 -- Serpent Aspirant
+#req_nomonster 5618 -- Theurg Aspirant
+#req_nomonster 5617 -- Heliodromus Aspirant
+#req_owncapital 1
+#msg "##targname## the Epoptes Aspirant has successfully converted the populace of the Imperial Capital to the worship of the Fertility Cult! A great ceremony was held for his coronation and he has now taken the role of Archigallus. It has now become the official state church and temples of the Great Mother are given preeminence in the cities of the Empire."
+#nation -2
+#transform 5600 -- Archigallus
+#pathboost 3
+#pathboost 8
+#nolog
+#removesite 1548
+#code -447 -- Fertility Cult
+#delay 0
+#end
+
+#newevent
+#rarity 5
+#req_fornation 81 -- LA Pythium
+#req_pop0ok
+#req_owncapital 1
+#msg "Remove cult temple 2."
+#nation -2
+#notext
+#nolog
+#removesite 1549
 #end
 
 #newevent
@@ -113065,9 +116763,13 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #req_nomnr 5600 -- Archigallus
 #req_nomnr 5602 -- Heliopater
 #req_nomnr 5605 -- Patriarch
+#req_nomonster 5616 -- Epoptes Aspirant
+#req_nomonster 5615 -- Serpent Aspirant
+#req_nomonster 5618 -- Theurg Aspirant
 #req_owncapital 1
 #req_maxturn 12
-#msg "The Heliodromus Aspirant has successfully converted the populace of the Imperial Capital to the worship of the Cult of the Solar Bull! It has now become the official state church. Temples of the Solar Bull are given preeminence in the cities of the Empire."
+#msg "##targname## the Heliodromus Aspirant has successfully converted the populace of the Imperial Capital to the worship of the Cult of the Solar Bull! A great ceremony was held for his coronation and he has now taken the role of Heliopater. It has now become the official state church and temples of the Solar Bull are given preeminence in the cities of the Empire."
+#nation -2
 #transform 5602 -- Heliopater
 #pathboost 8
 #nolog
@@ -113083,13 +116785,16 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #req_nomnr 5600 -- Archigallus
 #req_nomnr 5602 -- Heliopater
 #req_nomnr 5605 -- Patriarch
+#req_nomonster 5616 -- Epoptes Aspirant
+#req_nomonster 5615 -- Serpent Aspirant
+#req_nomonster 5618 -- Theurg Aspirant
 #req_owncapital 1
-#req_rare 25
-#msg "The Heliodromus Aspirant has successfully converted the populace of the Imperial Capital to the worship of the Cult of the Solar Bull! It has now become the official state church. Temples of the Solar Bull are given preeminence in the cities of the Empire."
-#transform 5602 -- Heliopater
-#pathboost 8
+#req_nositenbr 1548
+#delay 1
+#msg "##targname## the Heliodromus Aspirant has begun to convert the populace of the Imperial Capital to the worship of the Cult of the Solar Bull. The process will take 2 more months."
+#nation -2
+#hiddensite 1548
 #nolog
-#code -448 -- Solar Bull Cult
 #end
 
 #newevent
@@ -113101,10 +116806,51 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #req_nomnr 5600 -- Archigallus
 #req_nomnr 5602 -- Heliopater
 #req_nomnr 5605 -- Patriarch
+#req_nomonster 5616 -- Epoptes Aspirant
+#req_nomonster 5615 -- Serpent Aspirant
+#req_nomonster 5618 -- Theurg Aspirant
 #req_owncapital 1
-#msg "The Heliodromus Aspirant continues to attempt to convert the populace of the Imperial Capital to the worship of the Cult of the Solar Bull."
+#req_nositenbr 1549
+#delay 1
+#msg "##targname## the Heliodromus Aspirant continues to attempt to convert the populace of the Imperial Capital to the worship of the Cult of the Solar Bull. The process will take 1 more month."
 #nation -2
+#hiddensite 1549
 #nolog
+#end
+
+#newevent
+#rarity 5
+#req_fornation 81 -- LA Pythium
+#req_targmnr 5617 -- Heliodromus Aspirant
+#req_pop0ok
+#req_nomnr 5598 -- Serpent Bishop
+#req_nomnr 5600 -- Archigallus
+#req_nomnr 5602 -- Heliopater
+#req_nomnr 5605 -- Patriarch
+#req_nomonster 5616 -- Epoptes Aspirant
+#req_nomonster 5615 -- Serpent Aspirant
+#req_nomonster 5618 -- Theurg Aspirant
+#req_owncapital 1
+#msg "##targname## the Heliodromus Aspirant has successfully converted the populace of the Imperial Capital to the worship of the Cult of the Solar Bull! A great ceremony was held for his coronation and he has now taken the role of Heliopater. It has now become the official state church and temples of the Solar Bull are given preeminence in the cities of the Empire."
+#nation -2
+#transform 5602 -- Heliopater
+#pathboost 8
+#nolog
+#code -448 -- Solar Bull Cult
+#removesite 1548
+#delay 0
+#end
+
+#newevent
+#rarity 5
+#req_fornation 81 -- LA Pythium
+#req_pop0ok
+#req_owncapital 1
+#msg "Remove cult temple 2."
+#nation -2
+#notext
+#nolog
+#removesite 1549
 #end
 
 #newevent
@@ -113116,48 +116862,148 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #req_nomnr 5600 -- Archigallus
 #req_nomnr 5602 -- Heliopater
 #req_nomnr 5605 -- Patriarch
+#req_nomonster 5616 -- Epoptes Aspirant
+#req_nomonster 5615 -- Serpent Aspirant
+#req_nomonster 5617 -- Heliodromus Aspirant
 #req_owncapital 1
 #req_maxturn 12
-#msg "The Theurg Aspirant has successfully converted the populace of the Imperial Capital to the Church of the Theurgy! It has now become the official state church. Temples of the Spheres are given preeminence in the cities of the Empire."
-#transform 5605 -- Patriarch
-#pathboost 1
-#nolog
-#code -449 -- Theurgy
-#end
-
-#newevent
-#rarity 5
-#req_fornation 81 -- LA Pythium
-#req_targmnr 5618 -- Theurg Aspirant
-#req_pop0ok
-#req_nomnr 5598 -- Serpent Bishop
-#req_nomnr 5600 -- Archigallus
-#req_nomnr 5602 -- Heliopater
-#req_nomnr 5605 -- Patriarch
-#req_owncapital 1
-#req_rare 25
-#msg "The Theurg Aspirant has successfully converted the populace of the Imperial Capital to the Church of the Theurgy! It has now become the official state church. Temples of the Spheres are given preeminence in the cities of the Empire."
-#transform 5605 -- Patriarch
-#pathboost 1
-#nolog
-#code -449 -- Theurgy
-#end
-
-#newevent
-#rarity 5
-#req_fornation 81 -- LA Pythium
-#req_targmnr 5618 -- Theurg Aspirant
-#req_pop0ok
-#req_nomnr 5598 -- Serpent Bishop
-#req_nomnr 5600 -- Archigallus
-#req_nomnr 5602 -- Heliopater
-#req_nomnr 5605 -- Patriarch
-#req_owncapital 1
-#msg "The Theurg Aspirant continues to attempt to convert the populace of the Imperial Capital to the worship of the Spheres."
+#msg "##targname## the Theurg Aspirant has successfully converted the populace of the Imperial Capital to the Church of the Theurgy! A great ceremony was held for his coronation and he has now taken the role of Patriarch. It has now become the official state church. Temples of the Spheres are given preeminence in the cities of the Empire."
 #nation -2
+#transform 5605 -- Patriarch
+#pathboost 1
+#nolog
+#code -449 -- Theurgy
+#end
+
+#newevent
+#rarity 5
+#req_fornation 81 -- LA Pythium
+#req_targmnr 5618 -- Theurg Aspirant
+#req_pop0ok
+#req_nomnr 5598 -- Serpent Bishop
+#req_nomnr 5600 -- Archigallus
+#req_nomnr 5602 -- Heliopater
+#req_nomnr 5605 -- Patriarch
+#req_nomonster 5616 -- Epoptes Aspirant
+#req_nomonster 5615 -- Serpent Aspirant
+#req_nomonster 5617 -- Heliodromus Aspirant
+#req_owncapital 1
+#req_nositenbr 1548
+#delay 1
+#msg "##targname## the Theurg Aspirant has begun to convert the populace of the Imperial Capital to the Church of the Theurgy. The process will take 2 more months."
+#nation -2
+#hiddensite 1548
 #nolog
 #end
 
+#newevent
+#rarity 5
+#req_fornation 81 -- LA Pythium
+#req_targmnr 5618 -- Theurg Aspirant
+#req_pop0ok
+#req_nomnr 5598 -- Serpent Bishop
+#req_nomnr 5600 -- Archigallus
+#req_nomnr 5602 -- Heliopater
+#req_nomnr 5605 -- Patriarch
+#req_nomonster 5616 -- Epoptes Aspirant
+#req_nomonster 5615 -- Serpent Aspirant
+#req_nomonster 5617 -- Heliodromus Aspirant
+#req_owncapital 1
+#delay 1
+#req_nositenbr 1549
+#nation -2
+#msg "##targname## the Theurg Aspirant continues to attempt to convert the populace of the Imperial Capital to the worship of the Spheres. The process will take 1 more month."
+#nation -2
+#hiddensite 1549
+#nolog
+#end
+
+#newevent
+#rarity 5
+#req_fornation 81 -- LA Pythium
+#req_targmnr 5618 -- Theurg Aspirant
+#req_pop0ok
+#req_nomnr 5598 -- Serpent Bishop
+#req_nomnr 5600 -- Archigallus
+#req_nomnr 5602 -- Heliopater
+#req_nomnr 5605 -- Patriarch
+#req_nomonster 5616 -- Epoptes Aspirant
+#req_nomonster 5615 -- Serpent Aspirant
+#req_nomonster 5617 -- Heliodromus Aspirant
+#req_owncapital 1
+#msg "##targname## the Theurg Aspirant has successfully converted the populace of the Imperial Capital to the Church of the Theurgy! A great ceremony was held for his coronation and he has now taken the role of Patriarch. It has now become the official state church. Temples of the Spheres are given preeminence in the cities of the Empire."
+#nation -2
+#transform 5605 -- Patriarch
+#pathboost 1
+#nolog
+#code -449 -- Theurgy
+#removesite 1548
+#delay 0
+#end
+
+#newevent
+#rarity 5
+#req_fornation 81 -- LA Pythium
+#req_pop0ok
+#req_owncapital 1
+#msg "Remove cult temple."
+#nation -2
+#notext
+#nolog
+#removesite 1549
+#end
+
+#newevent
+#rarity 5
+#req_fornation 81 -- LA Pythium
+#req_owncapital 1
+#req_pop0ok
+#req_site 1
+#nation -2
+#msg "Clear temples. [Cultic Temple Phase 1]"
+#delay 3
+#notext
+#nolog
+#end
+
+#newevent
+#rarity 5
+#req_fornation 81 -- LA Pythium
+#req_owncapital 1
+#req_pop0ok
+#req_site 1
+#nation -2
+#msg "Clear temples. [Cultic Temple Phase 1]"
+#removesite 1548
+#notext
+#nolog
+#end
+
+#newevent
+#rarity 5
+#req_fornation 81 -- LA Pythium
+#req_owncapital 1
+#req_pop0ok
+#req_site 1
+#nation -2
+#msg "Clear temples. [Cultic Temple Phase 2]"
+#delay 3
+#notext
+#nolog
+#end
+
+#newevent
+#rarity 5
+#req_fornation 81 -- LA Pythium
+#req_owncapital 1
+#req_pop0ok
+#req_site 1
+#nation -2
+#msg "Clear temples. [Cultic Temple Phase 2]"
+#removesite 1549
+#notext
+#nolog
+#end
 
 #newevent
 #rarity 5
@@ -113200,7 +117046,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #req_anycode -447
 #msg "A Mystes has been anointed at the temple."
 #nation -2
-#transform 5610 -- Mystes Priest
+#transform 5611 -- Mystes Priest
 #exactgold -15
 #nolog
 #end
@@ -113208,7 +117054,7 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #newevent
 #rarity 5
 #req_fornation 81 -- LA Pythium
-#req_targmnr 5610 -- Mystes Priest
+#req_targmnr 5611 -- Mystes Priest
 #req_pop0ok
 #req_anycode -445
 #req_anycode -446
@@ -113231,14 +117077,14 @@ Dominion: Causes dreamless slumber, greatly reducing tax income. Vines reanimate
 #msg "An Epoptes has been anointed at the temple."
 #exactgold -15
 #nation -2
-#transform 5611 -- Epoptes monpresentrec
+#transform 5610 -- Epoptes monpresentrec
 #nolog
 #end
 
 #newevent
 #rarity 5
 #req_fornation 81 -- LA Pythium
-#req_targmnr 5611 -- Epoptes monpresentrec
+#req_targmnr 5610 -- Epoptes monpresentrec
 #req_pop0ok
 #req_anycode -445
 #req_anycode -446
@@ -113476,7 +117322,7 @@ Cold winds blow across the land of ##landname## and the spirits of the dead rise
 #req_unique 1
 #req_pop0ok
 #msg "A dire portent.
-The Druids of Marverni have decreed that the very heavens support the cause of ##godname## and are aligning to bring them good fortune! Worshippers of other Pretender Gods wonder in fear why the Heavens are aligned against them. Unless action is taken against the arrogant Druids their claims may prove true, to the detriment of all other nations!"
+The Druids of ##landname## have decreed that the very heavens support the cause of ##godname## and are aligning to bring them good fortune! Worshippers of other Pretender Gods wonder in fear why the Heavens are aligned against them. Unless action is taken against the arrogant Druids their claims may prove true, to the detriment of all other nations!"
 #nation 0
 #end
 
@@ -113719,7 +117565,7 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #req_rare 0
 #req_indepok 1
 #req_pop0ok
-#msg "A comet can be seen clearly in the sky, heading straight or Earth. Panic is spreading worldwide."
+#msg "A comet can be seen clearly in the sky, heading straight for Earth. Panic is spreading worldwide."
 #id 220
 #worldunrest 15
 #delay 1
@@ -116108,8 +119954,9 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #req_hostileench 448 -- Lunar Potency
 #req_noench 41 -- Second Sun
 #rarity 5
+#nationench 448 -- Lunar Potency
 #req_land 1
-#req_rare 15
+#req_rare 5
 #req_forest 1
 #req_pop0ok
 #msg "A pack of Werewolves emerged from the forest and attacked our province!"
@@ -116122,9 +119969,10 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #newevent
 #req_hostileench 448 -- Lunar Potency
 #req_noench 41 -- Second Sun
+#nationench 448 -- Lunar Potency
 #rarity 5
 #req_land 1
-#req_rare 10
+#req_rare 5
 #req_forest 0
 #req_pop0ok
 #msg "A pack of Werewolves lead by a foul sorcerer attacked our province!"
@@ -116135,7 +119983,7 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #end
 
 #newevent
-#req_friendlyench 448 -- Lunar Potency
+#req_ench 448 -- Lunar Potency
 #req_enchdom 448 -- Lunar Potency
 #req_noench 41 -- Second Sun
 #rarity 5
@@ -116149,9 +119997,33 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #req_targmagicbeing 0
 #req_targgod 0
 #req_targhumanoid 1
+#req_targmaxsize 3
 #req_pop0ok
 #msg "During the unnaturally full moon your commander was struck with a strange sensation! They have become a werewolf and are now ruled by the moon itself."
-#transform 633
+#transform 633 -- Werewolf
+#nolog
+#end
+
+#newevent
+#req_ench 448 -- Lunar Potency
+#req_enchdom 448 -- Lunar Potency
+#req_noench 41 -- Second Sun
+#rarity 5
+#nation -2
+#req_domchance 1
+#req_land 1
+#req_targmaxmorale 14
+#req_targundead 0
+#req_targdemon 0
+#req_targinanimate 0
+#req_targmagicbeing 0
+#req_targgod 0
+#req_targhumanoid 1
+#req_targminsize 4
+#req_targmaxsize 5
+#req_pop0ok
+#msg "During the unnaturally full moon your commander was struck with a strange sensation! They have become a werewolf and are now ruled by the moon itself."
+#transform 5168 -- Jotun Werewolf
 #nolog
 #end
 
@@ -116968,6 +120840,72 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #notext
 #nolog
 #incscale 4 -- +1 Misfortune
+#end
+
+#newevent
+#rarity 5
+#req_ench 520 -- Thief of Fortune
+#req_unluck 1
+#req_pop0ok
+#msg "Income decrease in misf 1+"
+#notext
+#nolog
+#taxboost -10
+#end
+
+#newevent
+#rarity 5
+#req_ench 520 -- Thief of Fortune
+#req_unluck 2
+#req_pop0ok
+#msg "Income decrease in misf 1+"
+#notext
+#nolog
+#taxboost -10
+#end
+
+#newevent
+#rarity 5
+#req_ench 520 -- Thief of Fortune
+#req_unluck 3
+#req_pop0ok
+#msg "Income decrease in misf 1+"
+#notext
+#nolog
+#taxboost -10
+#end
+
+#newevent
+#rarity 5
+#req_ench 520 -- Thief of Fortune
+#req_luck 1
+#req_pop0ok
+#msg "Income decrease in misf 1+"
+#notext
+#nolog
+#taxboost 10
+#end
+
+#newevent
+#rarity 5
+#req_ench 520 -- Thief of Fortune
+#req_luck 2
+#req_pop0ok
+#msg "Income decrease in misf 1+"
+#notext
+#nolog
+#taxboost 10
+#end
+
+#newevent
+#rarity 5
+#req_ench 520 -- Thief of Fortune
+#req_luck 3
+#req_pop0ok
+#msg "Income decrease in misf 1+"
+#notext
+#nolog
+#taxboost 10
 #end
 
 
@@ -118340,7 +122278,9 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #req_rare 5
 #req_permonth 1
 #req_pop0ok
-#req_monster 2468 -- Druid
+#req_targmnr 2468 -- Druid
+#req_targmnr 4412 -- Drw
+#req_targmnr 4413 -- Thyrs Druid
 #req_freesites 1
 #req_nositenbr 1887
 #msg "Your Druid has overseen the erection of a stone circle that channels Astral power!"
@@ -118354,7 +122294,8 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #req_rare 5
 #req_permonth 1
 #req_pop0ok
-#req_monster 1204 -- Elder Druid
+#req_targmnr 1204 -- Elder Druid
+#req_targmnr 4413 -- Thyrs Druid
 #req_freesites 1
 #req_nositenbr 545
 #msg "Your druid has overseen the erection of powerful Standing Stones to track the movement of the stars! Great rituals can be performed here."
@@ -118391,7 +122332,7 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #1d3units 5183 -- Aos Si Hornblower
 #2d6units 5319 -- Aos Si Rider
 #3d6units 5320 -- Aos Si
-#incunrest 10
+#unrest 10
 #nolog
 #end
 
@@ -118408,7 +122349,7 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #msg "The season of Samhain is allowing magical creatures to more easily enter this world! The Samhain gate has opened in the capital and fey spirits have emerged."
 #addsite 1769 -- Samhain Gate
 #2com 5521
-#incunrest 10
+#unrest 10
 #nolog
 #end
 
@@ -118436,56 +122377,6 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #end
 
 #newevent
-#req_season 3 -- Winter
-#rarity 5
-#req_monster 5523 -- Dolmen
-#req_land 1
-#nation -2
-#req_pop0ok
-#req_nositenbr 1823 -- Unseelie Door
-#msg "With the coming of winter the Unseelie Door has opened at the site of a Dolmen and dark hosts roam the province!"
-#addsite 1823 -- Unseelie Door
-#nolog
-#end
-
-#newevent
-#req_noseason 3 -- Winter
-#rarity 5
-#req_land 1
-#nation -2
-#req_pop0ok
-#req_site 1 
-#msg "With the coming of spring the Unseelie Door has closed once more. [Unseelie Door]"
-#removesite 1823 -- Unseelie Door
-#nolog
-#end
-
-#newevent
-#req_season 1 -- Summer
-#rarity 5
-#req_monster 5523 -- Dolmen
-#req_land 1
-#nation -2
-#req_pop0ok
-#req_nositenbr 1824 -- Seelie Door
-#msg "With the coming of summer the Seelie Door has opened at the site of a Dolmen and the common folk are blessed with the presence of the Fey!"
-#addsite 1824 -- Seelie Door
-#nolog
-#end
-
-#newevent
-#req_noseason 1 -- Summer
-#rarity 5
-#req_land 1
-#nation -2
-#req_pop0ok
-#req_site 1 
-#msg "With the coming of spring the Unseelie Door has closed once more. [Seelie Door]"
-#removesite 1824 -- Seelie Door
-#nolog
-#end
-
-#newevent
 #req_myench 460 -- Samhain
 #rarity 5
 #req_domchance 5
@@ -118497,7 +122388,7 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #msg "The season of Samhain is allowing magical creatures to more easily enter this world!"
 #1d6units 5320 -- Aos Si
 #1d3units 5320 -- Aos Si
-#incunrest 10
+#unrest 10
 #notext
 #nolog
 #end
@@ -118514,7 +122405,7 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #msg "The season of Samhain is allowing magical creatures to more easily enter this world!"
 #1unit 5183 -- Aos Si Hornblower
 #1d6units 5319 -- Aos Si Rider
-#incunrest 10
+#unrest 10
 #notext
 #nolog
 #end
@@ -118532,7 +122423,7 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #1unit 5183 -- Aos Si Hornblower
 #1d3units 5319 -- Aos Si Rider
 #1d6units 5320 -- Aos Si
-#incunrest 10
+#unrest 10
 #notext
 #nolog
 #end
@@ -119183,7 +123074,7 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #req_targinanimate 0
 #req_targimmobile 0
 #req_land 1
-#req_targaff 2 -- Curse
+#req_targaff 8589934592 -- Flesh Eater
 #req_targmaxsize 2
 #msg "##targname## now suffers the curse of vampirism!"
 #transform 5702 -- Vampire Countess
@@ -119204,7 +123095,7 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #req_targmagicbeing 0
 #req_targinanimate 0
 #req_targimmobile 0
-#req_targaff 2 -- Curse
+#req_targaff 8589934592 -- Flesh Eater
 #req_targmaxsize 2
 #req_land 1
 #msg "##targname## now suffers the curse of vampirism!"
@@ -119737,7 +123628,7 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #nolog
 #notext
 #nation -2
-#1d6vis 4
+#1d3units -5194 -- Lesser Void Summon
 #kill2d6mon 1570 -- Human Dreamer
 #inccorpses -10
 #delay 0
@@ -119748,7 +123639,7 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #req_ench 518 -- Enter the Void
 #req_fornation 107 -- LA Rlyeh
 #req_nomonster 8951
-#msg "Dreamers have entered the Void Gate, and astral pearls were harvested from the energies produced."
+#msg "Dreamers have entered the Void Gate, and beings from the void have emerged to serve the True God."
 #nolog
 #nation -2
 #1unit 8951 -- Dummy Dreamer
@@ -119763,7 +123654,7 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #nolog
 #notext
 #nation -2
-#1d6vis 4
+#1d3units -5194 -- Lesser Void Summon
 #kill2d6mon 1571 -- Deep One Dreamer
 #inccorpses -10
 #delay 0
@@ -119774,7 +123665,7 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #req_ench 518 -- Enter the Void
 #req_fornation 107 -- LA Rlyeh
 #req_nomonster 8951
-#msg "Dreamers have entered the Void Gate, and astral pearls were harvested from the energies produced."
+#msg "Dreamers have entered the Void Gate, and beings from the void have emerged to serve the True God."
 #nolog
 #nation -2
 #1unit 8951 -- Dummy Dreamer
@@ -119789,7 +123680,7 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #nolog
 #notext
 #nation -2
-#1d6vis 4
+#1d3units -5194 -- Lesser Void Summon
 #kill2d6mon 1572 -- Merman Dreamer
 #inccorpses -10
 #delay 0
@@ -119800,7 +123691,7 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #req_ench 518 -- Enter the Void
 #req_fornation 107 -- LA Rlyeh
 #req_nomonster 8951
-#msg "Dreamers have entered the Void Gate, and astral pearls were harvested from the energies produced."
+#msg "Dreamers have entered the Void Gate, and beings from the void have emerged to serve the True God."
 #nolog
 #nation -2
 #1unit 8951 -- Dummy Dreamer
@@ -119815,7 +123706,7 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #nolog
 #notext
 #nation -2
-#1d6vis 4
+#1d3units -5194 -- Lesser Void Summon
 #kill2d6mon 1574 -- Triton Dreamer
 #inccorpses -10
 #delay 0
@@ -119826,7 +123717,7 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #req_ench 518 -- Enter the Void
 #req_fornation 107 -- LA Rlyeh
 #req_nomonster 8951
-#msg "Dreamers have entered the Void Gate, and astral pearls were harvested from the energies produced."
+#msg "Dreamers have entered the Void Gate, and beings from the void have emerged to serve the True God."
 #nolog
 #nation -2
 #1unit 8951 -- Dummy Dreamer
@@ -119836,10 +123727,32 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #rarity 5
 #req_ench 518 -- Enter the Void
 #req_fornation 107 -- LA Rlyeh
-#msg "Dreamers have entered the Void Gate, and astral pearls were harvested from the energies produced."
+#msg "Dreamers have entered the Void Gate, and beings from the void have emerged to serve the True God."
 #nolog
 #notext
 #delay 0
+#end
+
+#newevent
+#rarity 5
+#req_monster 8951
+#req_rare 50
+#msg "Spawn pearls."
+#nolog
+#notext
+#1d3vis 4
+#nation -2
+#end
+
+#newevent
+#rarity 5
+#req_monster 8951
+#req_rare 50
+#msg "Spawn pearls."
+#nolog
+#notext
+#1unit -5161 -- Void Being
+#nation -2
 #end
 
 #newevent
@@ -119859,24 +123772,17 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #req_targitem 849 -- Necklace from Beyond
 #req_fornation 107 -- LA Rlyeh
 #req_5monsters 962 -- Madman
+#req_dominion 1
+#req_domchance 10
+#req_magic 1
 #msg "The ritual has succeeded in summoning something from the void! Several worshipers were slain in the revelry."
 #nolog
 #notext
 #nation -2
 #1unit -5161
 #kill2d6mon 962 -- Madman
+#com 8950 -- Mad Dummy
 #delay 0
-#end
-
-#newevent
-#rarity 5
-#req_targitem 849 -- Necklace from Beyond
-#req_fornation 107 -- LA Rlyeh
-#req_nomonster 8950
-#msg "The ritual has succeeded in summoning something from the void! Several worshipers were slain in the revelry."
-#nolog
-#nation -2
-#1unit 8950 -- Mad Dummy
 #end
 
 #newevent
@@ -119884,24 +123790,17 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #req_targitem 849 -- Necklace from Beyond
 #req_fornation 107 -- LA Rlyeh
 #req_5monsters 962 -- Madman
+#req_dominion 1
+#req_domchance 10
+#req_magic 1
 #msg "The ritual has succeeded in summoning something from the void! Several worshipers were slain in the revelry."
 #nolog
 #notext
 #nation -2
 #1unit -5161
 #kill2d6mon 962 -- Madman
+#com 8950 -- Mad Dummy
 #delay 0
-#end
-
-#newevent
-#rarity 5
-#req_targitem 849 -- Necklace from Beyond
-#req_fornation 107 -- LA Rlyeh
-#req_nomonster 8950
-#msg "The ritual has succeeded in summoning something from the void! Several worshipers were slain in the revelry."
-#nolog
-#nation -2
-#1unit 8950 -- Mad Dummy
 #end
 
 #newevent
@@ -119909,24 +123808,17 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #req_targitem 849 -- Necklace from Beyond
 #req_fornation 107 -- LA Rlyeh
 #req_5monsters 1566 -- Mad One
+#req_dominion 1
+#req_domchance 10
+#req_magic 1
 #msg "The ritual has succeeded in summoning something from the void! Several worshipers were slain in the revelry."
 #nolog
 #notext
 #nation -2
 #1unit -5161
 #kill2d6mon 1566 -- Mad One
+#com 8950 -- Mad Dummy
 #delay 0
-#end
-
-#newevent
-#rarity 5
-#req_targitem 849 -- Necklace from Beyond
-#req_fornation 107 -- LA Rlyeh
-#req_nomonster 8950
-#msg "The ritual has succeeded in summoning something from the void! Several worshipers were slain in the revelry."
-#nolog
-#nation -2
-#1unit 8950 -- Mad Dummy
 #end
 
 #newevent
@@ -119934,24 +123826,17 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #req_targitem 849 -- Necklace from Beyond
 #req_fornation 107 -- LA Rlyeh
 #req_5monsters 1567 -- Mad Merman
+#req_dominion 1
+#req_domchance 10
+#req_magic 1
 #msg "The ritual has succeeded in summoning something from the void! Several worshipers were slain in the revelry."
 #nolog
 #notext
 #nation -2
 #1unit -5161
 #kill2d6mon 1567 -- Mad Merman
+#com 8950 -- Mad Dummy
 #delay 0
-#end
-
-#newevent
-#rarity 5
-#req_targitem 849 -- Necklace from Beyond
-#req_fornation 107 -- LA Rlyeh
-#req_nomonster 8950
-#msg "The ritual has succeeded in summoning something from the void! Several worshipers were slain in the revelry."
-#nolog
-#nation -2
-#1unit 8950 -- Mad Dummy
 #end
 
 #newevent
@@ -119959,24 +123844,17 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #req_targitem 849 -- Necklace from Beyond
 #req_fornation 107 -- LA Rlyeh
 #req_5monsters 1568 -- Mad Merman
+#req_dominion 1
+#req_domchance 10
+#req_magic 1
 #msg "The ritual has succeeded in summoning something from the void! Several worshipers were slain in the revelry."
 #nolog
 #notext
 #nation -2
 #1unit -5161
 #kill2d6mon 1568 -- Mad Merman
+#com 8950 -- Mad Dummy
 #delay 0
-#end
-
-#newevent
-#rarity 5
-#req_targitem 849 -- Necklace from Beyond
-#req_fornation 107 -- LA Rlyeh
-#req_nomonster 8950
-#msg "The ritual has succeeded in summoning something from the void! Several worshipers were slain in the revelry."
-#nolog
-#nation -2
-#1unit 8950 -- Mad Dummy
 #end
 
 #newevent
@@ -119984,24 +123862,17 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #req_targitem 849 -- Necklace from Beyond
 #req_fornation 107 -- LA Rlyeh
 #req_5monsters 1576 -- Mad Hybrid
+#req_dominion 1
+#req_domchance 10
+#req_magic 1
 #msg "The ritual has succeeded in summoning something from the void! Several worshipers were slain in the revelry."
 #nolog
 #notext
 #nation -2
 #1unit -5161
 #kill2d6mon 1576 -- Mad Hybrid
+#com 8950 -- Mad Dummy
 #delay 0
-#end
-
-#newevent
-#rarity 5
-#req_targitem 849 -- Necklace from Beyond
-#req_fornation 107 -- LA Rlyeh
-#req_nomonster 8950
-#msg "The ritual has succeeded in summoning something from the void! Several worshipers were slain in the revelry."
-#nolog
-#nation -2
-#1unit 8950 -- Mad Dummy
 #end
 
 #newevent
@@ -120021,7 +123892,7 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #nolog
 #notext
 #nation -2
-#killmon 8950 -- Mad Dummy
+#killcom 8950 -- Mad Dummy
 #end
 
 
@@ -121405,6 +125276,8 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #newevent
 #rarity 5
 #req_fornation 27 -- Yomi
+#req_fornation 64 -- Shinu
+#req_fornation 89 -- Jomon
 #req_ench 497
 #req_nositenbr 1765
 #req_freesites 1
@@ -121418,6 +125291,8 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #newevent
 #rarity 5
 #req_fornation 27 -- Yomi
+#req_fornation 64 -- Shinu
+#req_fornation 89 -- Jomon
 #req_ench 497
 #req_nositenbr 1765
 #req_pop0ok
@@ -121427,81 +125302,18 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 
 #newevent
 #rarity 5
+#req_fornation 27 -- Yomi
 #req_fornation 64 -- Shinu
-#req_ench 497
-#req_nositenbr 1885
-#req_freesites 1
-#req_pop0ok
-#msg "Tengu Village appears"
-#notext
-#nolog
-#addsite 1885
-#end
-
-#newevent
-#rarity 5
-#req_fornation 64 -- Shinu
-#req_ench 497
-#req_nositenbr 1885
-#req_pop0ok
-#msg "No tengu village was located in the province."
-#nolog
-#end
-
-#newevent
-#rarity 5
 #req_fornation 89 -- Jomon
-#req_ench 497
-#req_nositenbr 1886
-#req_freesites 1
-#req_pop0ok
-#msg "Tengu Village appears"
-#notext
-#nolog
-#addsite 1886
-#end
-
-#newevent
-#rarity 5
-#req_fornation 89 -- Jomon
-#req_ench 497
-#req_nositenbr 1886
-#req_pop0ok
-#msg "No tengu village was located in the province."
-#nolog
-#end
-
-#newevent
-#rarity 5
-#req_notnation 27 -- Yomi
 #req_site 1
-#req_pop0ok
-#msg "Remove Tengu Village [Tengu Village]" -- one space
+#nation -2
+#req_targpath1 6 -- N1 mage
+#req_dominion 1
+#req_domchance 10
+#msg "Tengu Village summons. [Tengu Village]"
 #notext
 #nolog
-#removesite 1765
-#end
-
-#newevent
-#rarity 5
-#req_notnation 64 -- Shinu
-#req_site 1
-#req_pop0ok
-#msg "Remove Tengu Village [Tengu  Village]" -- two space
-#notext
-#nolog
-#removesite 1885
-#end
-
-#newevent
-#rarity 5
-#req_notnation 89 -- Jomon
-#req_site 1
-#req_pop0ok
-#msg "Remove Tengu Village [Tengu   Village]" -- three space
-#notext
-#nolog
-#removesite 1886
+#1d6units 1478 -- Karasu Tengu
 #end
 
 -- LOCATE TENGU CLANHOLD
@@ -121509,6 +125321,8 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 #newevent
 #rarity 5
 #req_fornation 27 -- Yomi
+#req_fornation 64 -- Shinu
+#req_fornation 89 -- Jomon
 #req_ench 498
 #req_site 1
 #req_nositenbr 1764
@@ -121522,62 +125336,19 @@ The Dreamtime has been brought to the world, and magic infuses the land. The fol
 
 #newevent
 #rarity 5
+#req_fornation 27 -- Yomi
 #req_fornation 64 -- Shinu
-#req_ench 498
+#req_fornation 89 -- Jomon
 #req_site 1
-#req_nositenbr 1883
-#req_pop0ok
-#msg "Tengu Clanhold appears [Tengu  Village]" -- two space
+#nation -2
+#req_targpath2 1 -- A2 mage
+#req_dominion 1
+#req_domchance 10
+#msg "Tengu Village summons. [Tengu Clanhold]"
 #notext
 #nolog
-#addsite 1883
-#removesite 1885 -- Tengu Village
-#end
-
-#newevent
-#rarity 5
-#req_ench 498
-#req_site 1
-#req_nositenbr 1884
-#req_pop0ok
-#msg "Tengu Clanhold appears [Tengu   Village]" -- three space
-#notext
-#nolog
-#addsite 1884
-#removesite 1886 -- Tengu Village
-#end
-
-#newevent
-#rarity 5
-#req_notnation 27 -- Yomi
-#req_site 1
-#req_pop0ok
-#msg "Remove Tengu Village [Tengu Clanhold]"
-#notext
-#nolog
-#removesite 1764
-#end
-
-#newevent
-#rarity 5
-#req_notnation 64 -- Shinu
-#req_site 1
-#req_pop0ok
-#msg "Remove Tengu Village [Tengu  Clanhold]" -- two spaces
-#notext
-#nolog
-#removesite 1883
-#end
-
-#newevent
-#rarity 5
-#req_notnation 89 -- Jomon
-#req_site 1
-#req_pop0ok
-#msg "Remove Tengu Village [Tengu Clanhold]" -- three spaces
-#notext
-#nolog
-#removesite 1884
+#1d6units 1479 -- Konoha Tengu
+#1d3units 1481 -- Tengu Warrior
 #end
 
 -- LIGHTNING STORM
