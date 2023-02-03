@@ -1,1 +1,1 @@
-Generates 20 Air gems each month. Generates Hurricane events.
+Generates 20 Air gems each month.
