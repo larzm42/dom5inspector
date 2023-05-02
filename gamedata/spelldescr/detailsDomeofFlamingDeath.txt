@@ -1,1 +1,1 @@
-Dome Trap: 2d20 AP fire dmg. The luck scale of the receiving province reduces the chance of having the laboratory burnt down.
+Dome Trap: 2d20 AP fire dmg. Luck scale reduces the chance of laboratory burning down. Friendly casters will also be affected.
