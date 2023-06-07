@@ -509,12 +509,14 @@ var displayorder2 = DMI.Utils.cutDisplayOrder(aliases, formats,
 	'protf',	'protective force',
 	'poisonres',	'resist poison',	Format.Signed,
 
-	'barkskin',	'barkskin',		{1: '10 protection (+1 if already over 10)'},
+	'barkskin',	'barkskin',		{1: '10 protection (+1 if already 10 or higher)'},
 	'fireres',	'resist fire', 		Format.Signed,
 
-	'stoneskin',	'stoneskin',		{1: '15 protection (+2 if already over 15)'},
+	'stoneskin',	'stoneskin',		{1: '15 protection (+2 if already 14 or higher)'},
 	'coldres',	'resist cold', 		Format.Signed,
 	'iceprot',	'ice protection',
+
+	'ironskin',	'ironskin',		{1: '20 protection (+3 if already 18 or higher)'},
 
 	'shockres',	'resist shock',		Format.Signed,
 	'woundfend',	'affliction resistence',
