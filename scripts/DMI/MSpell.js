@@ -925,6 +925,12 @@ MSpell.renderSpellTable = function(o, original_effect) {
 						val = Utils.siteRef(attr.raw_value);
 					} else if (attr.attribute == '716') {
 						val = Utils.unitRef(attr.raw_value);
+					} else if (attr.attribute == '719') {
+						if (modctx.unit_effects_lookup[attr.raw_value]) {
+							val = modctx.unit_effects_lookup[attr.raw_value].name
+						} else {
+							val = attr.raw_value;
+						}
 					} else if (attr.attribute == '722') {
 						var special = {'-1': 'Non-specialized', 0: 'Fire', 1: 'Air', 2:'Water', 3:'Earth', 4:'Astral', 5:'Death', 6:'Nature', 7:'Blood'};
 						val = special[attr.raw_value];				
