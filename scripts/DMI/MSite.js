@@ -130,7 +130,7 @@ MSite.prepareData_PostMod = function() {
 		}
 
 		//searchable string
-		o.searchable = o.name.toLowerCase();
+		o.searchable = o.name.toString().toLowerCase();
 
 		if (o.scale1) {
 			o.scales.push(o.scale1);
